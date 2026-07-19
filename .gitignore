@@ -1,0 +1,6 @@
+# Maintainer-facing meta-files (not part of the published repository)
+/AGENT.md
+/CLAUDE.md
+
+# Claude Code session data
+.claude/
