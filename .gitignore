@@ -4,3 +4,6 @@
 
 # Claude Code session data
 .claude/
+
+# tmp
+/tmp
