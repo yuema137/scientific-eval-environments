@@ -15,6 +15,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **端到端研究生命周期。** [AIRS-Bench](../works/airs-bench.md) 提供 20 个 frontier 研究科学任务，不提供 baseline 代码，要求 agent 在语言建模、数学、生物信息学、时间序列预测中从零构造工作流。
 - **Cost-aware 科学仿真。** [SimulCost](../works/simulcost.md) 把 cost-aware 评估扩展到覆盖 13 个仿真器的物理仿真参数调优，显式建模仿真时间与实验资源成本。
 - **医生共同验证的医疗评估。** [MedHELM](../works/medhelm.md) 把 Stanford CRFM 的 HELM 扩展到医疗任务：121 任务、由医生共同验证的分类体系；跨 35 benchmark 聚合；LLM-jury 方法与医生一致性（ICC = 0.47）被显式测量。
+- **工程任务上的迭代式优化。** [Frontier-Eng](../works/frontier-eng.md) 把工程 agent 评估构造为工业级仿真器反馈下的 propose-execute-evaluate 循环，使用连续奖励而非二值 pass/fail，共 47 任务、5 个工程类别。
 
 ## Comparison
 
@@ -25,6 +26,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | AIRS-Bench | 2026 | Frontier 研究科学任务 | LM / 数学 / 生物信息学 / 时间序列 | 端到端研究生命周期评分 | [→](../works/airs-bench.md) |
 | SimulCost | 2026 | 覆盖 13 个仿真器的参数调优 | 物理仿真 | 预算下成功率；与传统方法对比 | [→](../works/simulcost.md) |
 | MedHELM | 2025 | 医生共同设计的分类（29 位医生） | 医疗 / 临床 | LLM-jury（与医生 ICC = 0.47）；跨 35 benchmark 聚合 | [→](../works/medhelm.md) |
+| Frontier-Eng | 2026 | 47 任务、5 个工程类别 | 真实工程 | 迭代式 propose-execute-evaluate 循环；工业级仿真器 + 连续奖励 + 硬性可行性；固定交互预算 | [→](../works/frontier-eng.md) |
 
 ## Open Questions
 
@@ -41,6 +43,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [AIRS-Bench](../works/airs-bench.md)
 - [SimulCost](../works/simulcost.md)
 - [MedHELM](../works/medhelm.md)
+- [Frontier-Eng](../works/frontier-eng.md)
 
 ## Further Reading
 

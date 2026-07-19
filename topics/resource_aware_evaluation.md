@@ -18,6 +18,7 @@ Two meaningful distinctions structure the space:
 - **Cost as a first-class objective in tool-use.** [CostBench](../works/costbench.md) makes cost minimization the task itself in a travel-planning domain with configurable per-tool costs and blocking events that force replanning.
 - **Tool-use cost beyond tokens, in scientific simulation.** [SimulCost](../works/simulcost.md) extends cost-aware evaluation to physics-simulation parameter tuning, explicitly modeling simulation time and experimental-resource costs across 13 simulators, with direct comparison against traditional methods.
 - **Cost-performance frontier reporting.** Other work reports accuracy alongside token or dollar cost so that agents can be compared on a Pareto frontier rather than a single accuracy number. This is analysis-time resource-awareness rather than benchmark-time resource-awareness.
+- **Interaction budget as the resource constraint.** [Frontier-Eng](../works/frontier-eng.md) treats the *number of propose-execute-evaluate iterations* as a first-class budget on 47 engineering tasks; the paper's depth-vs-breadth finding — that depth matters more for constrained problems — is directly a claim about how a resource-constrained agent should allocate its budget.
 
 ## Comparison
 
@@ -25,6 +26,7 @@ Two meaningful distinctions structure the space:
 |---|---|---|---|---|---|
 | CostBench | 2025 | Configurable per-tool costs (atomic and composite) | First-class objective — plan for cost-optimality | Dynamic (blocking events); ~40% static→dynamic drop | [→](../works/costbench.md) |
 | SimulCost | 2026 | Simulation time + experimental resources | First-class objective — parameter tuning under budget | Single-round and multi-round; 13 simulators | [→](../works/simulcost.md) |
+| Frontier-Eng | 2026 | Interaction budget (propose-execute-evaluate iterations) | Bounded budget shapes the evaluation loop | Iterative optimization under continuous simulator reward + hard feasibility | [→](../works/frontier-eng.md) |
 
 ## Open Questions
 
@@ -37,6 +39,7 @@ Two meaningful distinctions structure the space:
 
 - [CostBench](../works/costbench.md) — Cost-optimal planning under dynamic tool-use conditions.
 - [SimulCost](../works/simulcost.md) — Cost-aware physics-simulation parameter tuning across 13 simulators.
+- [Frontier-Eng](../works/frontier-eng.md) — Iterative engineering optimization under a fixed interaction budget.
 
 ## Further Reading
 

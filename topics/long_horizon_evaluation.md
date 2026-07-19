@@ -18,6 +18,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - **Capability-driven proactive-agent tasks.** [UniClawBench](../works/uniclawbench.md) evaluates proactive agents across five capability axes with Docker-based closed-loop simulation.
 - **Deep-research trajectories.** [TRACE](../works/trace.md) targets long-horizon deep-research workflows with a hierarchical trajectory utility function.
 - **Long-horizon financial tool use.** [FinTrace](../works/fintrace.md) evaluates long-horizon financial decision-making with 9 metrics across 4 dimensions.
+- **Iterative optimization under bounded budget.** [Frontier-Eng](../works/frontier-eng.md) treats real-world engineering tasks as a propose-execute-evaluate loop against industrial-grade simulators, with the horizon defined by a fixed interaction budget rather than a fixed step count.
 
 ## Comparison
 
@@ -29,6 +30,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | UniClawBench | 2026 | 400 multi-turn checkpointed tasks | Live Docker + closed-loop simulation | [→](../works/uniclawbench.md) |
 | TRACE | 2026 | Deep-research multi-step trajectories | Deep research | [→](../works/trace.md) |
 | FinTrace | 2026 | 800 long-horizon financial trajectories | Financial tool use | [→](../works/fintrace.md) |
+| Frontier-Eng | 2026 | 47 tasks; iterative propose-execute-evaluate; horizon = fixed interaction budget | Engineering (industrial-grade simulators) | [→](../works/frontier-eng.md) |
 
 ## Open Questions
 
@@ -45,6 +47,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - [UniClawBench](../works/uniclawbench.md)
 - [TRACE](../works/trace.md)
 - [FinTrace](../works/fintrace.md)
+- [Frontier-Eng](../works/frontier-eng.md)
 
 ## Further Reading
 

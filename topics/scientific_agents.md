@@ -15,6 +15,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **End-to-end research lifecycle.** [AIRS-Bench](../works/airs-bench.md) provides 20 frontier research-science tasks without baseline code, requiring agents to construct workflows from scratch across language modeling, mathematics, bioinformatics, and time-series forecasting.
 - **Cost-aware scientific simulation.** [SimulCost](../works/simulcost.md) extends cost-aware evaluation to physics-simulation parameter tuning across 13 simulators, explicitly accounting for simulation-time and experimental-resource costs.
 - **Clinician-validated medical evaluation.** [MedHELM](../works/medhelm.md) extends Stanford CRFM's HELM to medical tasks with a 121-task clinician-validated taxonomy, aggregation across 35 benchmarks, and an LLM-jury evaluation methodology whose agreement against clinician ratings (ICC = 0.47) is explicitly measured.
+- **Iterative optimization on engineering tasks.** [Frontier-Eng](../works/frontier-eng.md) frames engineering-agent evaluation as a propose-execute-evaluate loop under industrial-grade simulator feedback and a fixed interaction budget, using continuous reward signals rather than binary pass/fail across 47 tasks in 5 engineering categories.
 
 ## Comparison
 
@@ -25,6 +26,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | AIRS-Bench | 2026 | Frontier research-science tasks | LM / math / bioinformatics / time-series | End-to-end research-lifecycle scoring | [→](../works/airs-bench.md) |
 | SimulCost | 2026 | Parameter tuning across 13 simulators | Physics simulation | Success rate under budget; comparison against traditional methods | [→](../works/simulcost.md) |
 | MedHELM | 2025 | Clinician-designed taxonomy (29 clinicians) | Medical / clinical | LLM-jury (ICC = 0.47 vs clinicians); aggregation across 35 benchmarks | [→](../works/medhelm.md) |
+| Frontier-Eng | 2026 | 47 tasks in 5 engineering categories | Real-world engineering | Iterative propose-execute-evaluate loop; industrial-grade simulator with continuous reward + hard feasibility; fixed interaction budget | [→](../works/frontier-eng.md) |
 
 ## Open Questions
 
@@ -41,6 +43,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [AIRS-Bench](../works/airs-bench.md)
 - [SimulCost](../works/simulcost.md)
 - [MedHELM](../works/medhelm.md)
+- [Frontier-Eng](../works/frontier-eng.md)
 
 ## Further Reading
 

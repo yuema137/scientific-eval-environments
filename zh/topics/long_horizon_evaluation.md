@@ -18,6 +18,7 @@
 - **能力驱动的 proactive-agent 任务。** [UniClawBench](../works/uniclawbench.md) 在 Docker 闭环模拟下沿五个能力轴评估 proactive agent。
 - **Deep research trajectory。** [TRACE](../works/trace.md) 面向长 horizon 的 deep-research 工作流，配 hierarchical trajectory utility function。
 - **长 horizon 金融 tool use。** [FinTrace](../works/fintrace.md) 在长 horizon 金融决策上做 4 维度共 9 指标的评估。
+- **有界预算下的迭代优化。** [Frontier-Eng](../works/frontier-eng.md) 把真实工程任务处理为面向工业级仿真器的 propose-execute-evaluate 循环——horizon 由固定的交互预算界定，而不是固定步数。
 
 ## Comparison
 
@@ -29,6 +30,7 @@
 | UniClawBench | 2026 | 400 多轮 checkpointed 任务 | 实时 Docker + 闭环模拟 | [→](../works/uniclawbench.md) |
 | TRACE | 2026 | Deep-research 多步 trajectory | Deep research | [→](../works/trace.md) |
 | FinTrace | 2026 | 800 条长 horizon 金融 trajectory | 金融 tool use | [→](../works/fintrace.md) |
+| Frontier-Eng | 2026 | 47 任务；迭代式 propose-execute-evaluate；horizon = 固定交互预算 | 工程（工业级仿真器） | [→](../works/frontier-eng.md) |
 
 ## Open Questions
 
@@ -45,6 +47,7 @@
 - [UniClawBench](../works/uniclawbench.md)
 - [TRACE](../works/trace.md)
 - [FinTrace](../works/fintrace.md)
+- [Frontier-Eng](../works/frontier-eng.md)
 
 ## Further Reading
 

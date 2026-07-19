@@ -18,6 +18,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - **在 tool use 中把成本作为一等目标。** [CostBench](../works/costbench.md) 把成本最小化本身设为任务，在 travel-planning 场景下具有可配置的原子/组合工具成本，并通过阻断事件迫使重规划。
 - **Token 之外的 tool-use 成本，聚焦科学仿真。** [SimulCost](../works/simulcost.md) 把 cost-aware 评估扩展到物理仿真参数调优，显式建模仿真时间与实验资源成本，覆盖 13 个仿真器，并直接与传统方法对比。
 - **成本–性能前沿式报告。** 另一些工作在 accuracy 之外同时报告 token 或 dollar 成本，用于在 Pareto 前沿上而非单一 accuracy 数字上做比较。这是分析时的资源意识，而非 benchmark 内部的资源意识。
+- **交互预算作为资源约束。** [Frontier-Eng](../works/frontier-eng.md) 把 *propose-execute-evaluate 迭代次数*视为 47 个工程任务上的一等预算；论文的"深度 > 广度"发现——在受约束问题上深度更重要——本身就是关于"预算受限的 agent 应如何分配预算"的声明。
 
 ## Comparison
 
@@ -25,6 +26,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 |---|---|---|---|---|---|
 | CostBench | 2025 | 可配置的原子/组合工具成本 | 一等目标——为成本最优做规划 | 动态（阻断事件）；报告约 40% 静态→动态下降 | [→](../works/costbench.md) |
 | SimulCost | 2026 | 仿真时间 + 实验资源 | 一等目标——预算下的参数调优 | 单轮与多轮；13 个仿真器 | [→](../works/simulcost.md) |
+| Frontier-Eng | 2026 | 交互预算（propose-execute-evaluate 迭代数） | 有界预算塑形整个评估循环 | 工业级仿真器连续奖励 + 硬性可行性下的迭代优化 | [→](../works/frontier-eng.md) |
 
 ## Open Questions
 
@@ -37,6 +39,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 
 - [CostBench](../works/costbench.md) — 动态 tool-use 条件下的成本最优规划。
 - [SimulCost](../works/simulcost.md) — 覆盖 13 个仿真器的 cost-aware 物理仿真参数调优。
+- [Frontier-Eng](../works/frontier-eng.md) — 固定交互预算下的迭代式工程优化。
 
 ## Further Reading
 
