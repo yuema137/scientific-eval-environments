@@ -18,6 +18,11 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - **Capability-driven proactive-agent tasks.** [UniClawBench](../works/uniclawbench.md) evaluates proactive agents across five capability axes with Docker-based closed-loop simulation.
 - **Deep-research trajectories.** [TRACE](../works/trace.md) targets long-horizon deep-research workflows with a hierarchical trajectory utility function.
 - **Long-horizon financial tool use.** [FinTrace](../works/fintrace.md) evaluates long-horizon financial decision-making with 9 metrics across 4 dimensions.
+- **Real software-engineering tasks.** [SWE-bench](../works/swe-bench.md) tasks agents with resolving 2,294 real GitHub issues by editing a codebase, graded by executing each repository's own test suite; its human-validated 500-instance SWE-bench Verified subset is the reliability-focused variant.
+- **Multi-environment agent capability.** [AgentBench](../works/agentbench.md) assembles 8 distinct interactive environments under one harness to probe LLM-as-agent reasoning and decision-making across multi-round interaction.
+- **General-assistant questions.** [GAIA](../works/gaia.md) poses 466 real-world questions requiring reasoning, multimodality, web browsing, and tool use, with single unambiguous answers — humans reach 92% vs. 15% for GPT-4 with plugins.
+- **Realistic web environments.** [WebArena](../works/webarena.md) hosts fully functional websites across four domains and scores long-horizon web tasks by functional correctness (best GPT-4 agent 14.41% vs. 78.24% human).
+- **Whole-computer tasks.** [OSWorld](../works/osworld.md) provides 369 open-ended tasks in real operating systems (Ubuntu / Windows / macOS) with per-task execution-based evaluation scripts (best model 12.24% vs. 72.36% human).
 
 ## Comparison
 
@@ -29,6 +34,11 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | UniClawBench | 2026 | 400 multi-turn checkpointed tasks | Live Docker + closed-loop simulation | [→](../works/uniclawbench.md) |
 | TRACE | 2026 | Deep-research multi-step trajectories | Deep research | [→](../works/trace.md) |
 | FinTrace | 2026 | 800 long-horizon financial trajectories | Financial tool use | [→](../works/fintrace.md) |
+| SWE-bench | 2023 | 2,294 issues; multi-file cross-function edits | Software engineering (Python repos); execution-graded | [→](../works/swe-bench.md) |
+| AgentBench | 2023 | 8 interactive environments; multi-round | Cross-environment agent capability | [→](../works/agentbench.md) |
+| GAIA | 2023 | 466 multi-tool assistant questions | General assistant (reasoning / browsing / tools) | [→](../works/gaia.md) |
+| WebArena | 2023 | Long-horizon web tasks; functional correctness | Live self-hosted websites (4 domains) | [→](../works/webarena.md) |
+| OSWorld | 2024 | 369 open-ended computer tasks | Real OS (Ubuntu / Windows / macOS); execution-graded | [→](../works/osworld.md) |
 
 ## Open Questions
 
@@ -45,6 +55,11 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - [UniClawBench](../works/uniclawbench.md)
 - [TRACE](../works/trace.md)
 - [FinTrace](../works/fintrace.md)
+- [SWE-bench](../works/swe-bench.md)
+- [AgentBench](../works/agentbench.md)
+- [GAIA](../works/gaia.md)
+- [WebArena](../works/webarena.md)
+- [OSWorld](../works/osworld.md)
 
 ## Further Reading
 
