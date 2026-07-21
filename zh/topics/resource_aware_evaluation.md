@@ -17,6 +17,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 
 - **在 tool use 中把成本作为一等目标。** [CostBench](../works/costbench.md) 把成本最小化本身设为任务，在 travel-planning 场景下具有可配置的原子/组合工具成本，并通过阻断事件迫使重规划。
 - **Token 之外的 tool-use 成本，聚焦科学仿真。** [SimulCost](../works/simulcost.md) 把 cost-aware 评估扩展到物理仿真参数调优，显式建模仿真时间与实验资源成本，覆盖 13 个仿真器，并直接与传统方法对比。
+- **面向 cost-aware planning 的专用数据集。** [CATP-LLM / OpenCATP](../works/catp-llm.md) 贡献了 OpenCATP——被称为首个面向 cost-aware planning 的数据集（11,100 样本），其中工具执行成本（如执行时间）与任务性能联合打分。其配对的规划方法属于本仓库范围之外的 agent 构建工作；数据集才是此处记录的 resource-aware 评估贡献。
 - **成本–性能前沿式报告。** 另一些工作在 accuracy 之外同时报告 token 或 dollar 成本，用于在 Pareto 前沿上而非单一 accuracy 数字上做比较。这是分析时的资源意识，而非 benchmark 内部的资源意识。
 
 ## Comparison
@@ -25,6 +26,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 |---|---|---|---|---|---|
 | CostBench | 2025 | 可配置的原子/组合工具成本 | 一等目标——为成本最优做规划 | 动态（阻断事件）；报告约 40% 静态→动态下降 | [→](../works/costbench.md) |
 | SimulCost | 2026 | 仿真时间 + 实验资源 | 一等目标——预算下的参数调优 | 单轮与多轮；13 个仿真器 | [→](../works/simulcost.md) |
+| CATP-LLM / OpenCATP | 2024 | 工具执行成本（如执行时间） | 与性能联合报告（cost-aware planning 数据集） | 对外部工具的工具规划；11,100 样本 | [→](../works/catp-llm.md) |
 
 ## Open Questions
 
@@ -37,6 +39,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 
 - [CostBench](../works/costbench.md) — 动态 tool-use 条件下的成本最优规划。
 - [SimulCost](../works/simulcost.md) — 覆盖 13 个仿真器的 cost-aware 物理仿真参数调优。
+- [CATP-LLM / OpenCATP](../works/catp-llm.md) — OpenCATP，面向 cost-aware 工具规划的数据集（11,100 样本）。
 
 ## Further Reading
 
