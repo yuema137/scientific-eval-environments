@@ -10,14 +10,17 @@ A repository organized around benchmarks and topic-level literature reviews stil
 
 ## Existing Approaches
 
-- **General LLM-agent evaluation surveys.** [Survey on Evaluation of LLM-based Agents](../works/agent-evaluation-survey.md) (Yehudai et al., 2025) organizes evaluation across foundational capabilities, domain-specific benchmarks, generalist agents, benchmark core dimensions, and evaluation frameworks; identifies cost-efficiency, safety, robustness, and scalable evaluation methodologies as gaps.
+- **General LLM-agent evaluation surveys.** [Survey on Evaluation of LLM-based Agents](../works/agent-evaluation-survey.md) (Yehudai et al., 2025) organizes evaluation across foundational capabilities, domain-specific benchmarks, generalist agents, benchmark core dimensions, and evaluation frameworks; identifies cost-efficiency, safety, robustness, and scalable evaluation methodologies as gaps. [Evaluation and Benchmarking of LLM Agents: A Survey](../works/agent-evaluation-benchmarking-survey.md) (Mohammadi et al., 2025) organizes the same field along a two-dimensional taxonomy — evaluation objectives (what to evaluate) vs. evaluation process (how to evaluate) — and foregrounds enterprise-specific challenges (role-based access, reliability, compliance).
+- **Holistic LLM-agent surveys.** [A Survey on Large Language Model based Autonomous Agents](../works/llm-autonomous-agents-survey.md) (Wang et al., 2023) surveys LLM-based autonomous agents across construction, application, and evaluation; proposes a four-module construction framework (profiling, memory, planning, action) and reviews evaluation as subjective vs. objective strategies. Its focus is agent construction rather than evaluation, so it is indexed here for completeness.
 - **Position papers on the shift toward persistent agents.** [From Chatbot to Digital Colleague](../works/from-chatbot-to-digital-colleague.md) (Zhang et al., 2026) argues that LLMs are shifting from conversational generators to integrated systems capable of reasoning, action, memory, and self-improvement — conceptualizing the shift along inference-time deliberation and persistent workstation systems with reusable skills.
 
 ## Comparison
 
 | Reference | Year | Type | Focus | Card |
 |---|---|---|---|---|
-| Survey on Evaluation of LLM-based Agents | 2025 | Survey | LLM-agent evaluation taxonomy | [→](../works/agent-evaluation-survey.md) |
+| A Survey on Large Language Model based Autonomous Agents | 2023 | Survey | Holistic agent construction, application, evaluation | [→](../works/llm-autonomous-agents-survey.md) |
+| Survey on Evaluation of LLM-based Agents | 2025 | Survey | LLM-agent evaluation taxonomy (5 perspectives) | [→](../works/agent-evaluation-survey.md) |
+| Evaluation and Benchmarking of LLM Agents: A Survey | 2025 | Survey | Objectives-vs-process taxonomy; enterprise challenges | [→](../works/agent-evaluation-benchmarking-survey.md) |
 | From Chatbot to Digital Colleague | 2026 | Position paper | Paradigm shift toward persistent autonomous AI | [→](../works/from-chatbot-to-digital-colleague.md) |
 
 ## Open Questions
@@ -27,5 +30,7 @@ A repository organized around benchmarks and topic-level literature reviews stil
 
 ## Related Works
 
+- [A Survey on Large Language Model based Autonomous Agents](../works/llm-autonomous-agents-survey.md) — Holistic survey of LLM-based autonomous agents (construction, application, evaluation).
 - [Survey on Evaluation of LLM-based Agents](../works/agent-evaluation-survey.md) — Comprehensive 5-perspective taxonomy of LLM-agent evaluation.
+- [Evaluation and Benchmarking of LLM Agents: A Survey](../works/agent-evaluation-benchmarking-survey.md) — Two-dimensional (objectives vs. process) taxonomy of LLM-agent evaluation with enterprise focus.
 - [From Chatbot to Digital Colleague](../works/from-chatbot-to-digital-colleague.md) — Position paper on the paradigm shift toward persistent autonomous AI.
