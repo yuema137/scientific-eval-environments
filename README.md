@@ -133,8 +133,8 @@ The RL cutline is judged by the paper's primary contribution: if it advances *ho
 
 Full coverage of the initial reference list. All seven canonical topic pages are written:
 
-- **22 cards** in `works/`:
-  - **Benchmark cards (14)**: AgentBoard, Agents' Last Exam, AIRS-Bench, CostBench, Enconda-bench, FinTrace, Long-Horizon-Terminal-Bench, MedHELM, NatureBench, SimulCost, T-Eval, Terminal-Bench Science, TRACE, UniClawBench.
+- **23 cards** in `works/`:
+  - **Benchmark cards (15)**: AgentBoard, Agents' Last Exam, AIRS-Bench, CostBench, Enconda-bench, FinTrace, Long-Horizon-Terminal-Bench, MedHELM, NatureBench, ScienceAgentBench, SimulCost, T-Eval, Terminal-Bench Science, TRACE, UniClawBench.
   - **Framework / methodology cards (3)**: AgentAtlas (audit protocol), Insights Generator (corpus-level trace diagnostics), Traxgen (deterministic ground-truth trajectory generation toolkit).
   - **Reference-paper cards (4)**: *Survey on Evaluation of LLM-based Agents* (Yehudai et al., 2025), *Evaluation and Benchmarking of LLM Agents: A Survey* (Mohammadi et al., 2025), *A Survey on Large Language Model based Autonomous Agents* (Wang et al., 2023), *From Chatbot to Digital Colleague* (Zhang et al., 2026).
   - **Included with an explicit scope caveat (1)**: GATE — actual paper is about tool making, not skill-hierarchy evaluation as the initial reference list suggested; card carries a repository-note flagging this.
