@@ -19,7 +19,7 @@ OSWorld addresses the limitation that existing benchmarks either lack an interac
 
 ## Tasks
 
-369 real computer tasks involving real web and desktop applications, OS file I/O, and multi-application workflows.
+369 real computer tasks. By category: OS 24, Office (Calc/Impress/Writer) 117, Daily (Chrome/VLC/Thunderbird) 78, Professional (VS Code/GIMP) 49, and multi-app Workflow 101 (27.4%). 30 tasks are infeasible (the agent must correctly predict failure); the suite spans 302 distinct initial states.
 
 ## Domains
 
@@ -27,12 +27,13 @@ Open-ended real computer use across operating systems: Ubuntu, Windows, and macO
 
 ## Evaluation
 
-- Each task includes a detailed initial-state setup configuration and a custom execution-based evaluation script for reliable, reproducible evaluation.
-- Reported: humans accomplish over 72.36% of tasks; the best model achieves 12.24%.
+- **Execution-based reward R ∈ [0, 1].** A per-task reward is awarded at the final step — 1, or a positive decimal for partial achievement, or a positive value for correctly predicting an infeasible task; 0 otherwise — so scoring is not strictly binary, though most tasks are pass/fail. The reported metric is Success Rate, the mean R over the suite.
+- **A per-task JSON config drives four phases:** (1) initial-state setup (VM snapshot, file download, opening apps — tasks deliberately start at intermediate states, not a clean boot); (2) post-processing (e.g., activating a window, saving files); (3) getters that extract the artifacts to check (files, cookies, accessibility-tree elements, or live values via crawlers); (4) evaluator functions comparing the retrieved state to gold — e.g., `compare_table` over spreadsheet ranges, `is_cookie_deleted`, `check_a11y_tree`. There are 134 unique, hand-authored evaluation functions (~2 hours per task).
+- **Reported (Table 5).** The best model, GPT-4 with accessibility-tree input, reaches 12.24% overall (OS 20.83%, Office 3.58%, Daily 25.64%, Professional 26.53%, Workflow 2.97%) vs. 72.36% for humans; multi-app Workflow tasks are the hardest (2.97%).
 
 ## Typical Duration
 
-Open-ended, multi-application workflows per task. Per-task step/time budget: TODO(reference) — not stated in the abstract.
+Capped at 15 interaction steps and a 30-minute wall-clock limit per task. Human operators take a median of ~112 seconds per task, though some tasks run to 900 seconds or more.
 
 ## Main Contribution
 
@@ -53,7 +54,7 @@ A scalable real-computer environment for multimodal agents with per-task setup a
 
 ## Limitations
 
-- Repository note: Per-task duration and step budgets are not stated in the abstract and are marked `TODO(reference)`.
+- Repository note: The execution-based reward is defined on [0, 1] (allowing partial credit), but results are reported as a single Success Rate; per-task partial-credit values are not broken out.
 
 ## Related Works
 

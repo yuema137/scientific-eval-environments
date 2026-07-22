@@ -19,7 +19,7 @@ OSWorld 针对现有 benchmark 要么缺乏交互环境、要么局限于特定�
 
 ## Tasks
 
-369 个真实计算机任务，涉及真实 web 与桌面应用、操作系统文件 I/O 与多应用工作流。
+369 个真实计算机任务。按类别：OS 24、Office（Calc/Impress/Writer）117、Daily（Chrome/VLC/Thunderbird）78、Professional（VS Code/GIMP）49，以及多应用 Workflow 101（27.4%）。其中 30 个为不可完成任务（agent 须正确预测失败）；全套覆盖 302 个不同的初始状态。
 
 ## Domains
 
@@ -27,12 +27,13 @@ OSWorld 针对现有 benchmark 要么缺乏交互环境、要么局限于特定�
 
 ## Evaluation
 
-- 每个任务包含详细的初始状态设置配置与自定义的基于执行的评估脚本，以实现可靠、可复现的评估。
-- 报告：人类完成超过 72.36% 的任务；最佳模型达 12.24%。
+- **基于执行的奖励 R ∈ [0, 1]。** 在最后一步给出逐任务奖励——达成记 1、部分达成记 0–1 间的小数、对不可完成任务正确预测失败亦记正分，其余记 0——因此打分并非严格二元，尽管多数任务是通过 / 失败。报告指标为 Success Rate，即全套任务上 R 的均值。
+- **逐任务的 JSON 配置驱动四个阶段：**（1）初始状态设置（VM 快照、下载文件、打开应用——任务刻意从中间状态而非干净启动开始）；（2）后处理（如激活窗口、保存文件）；（3）getter，抽取待检查的产物（文件、cookie、无障碍树元素，或经爬虫取实时值）；（4）evaluator 函数，将取回状态与 gold 比较——如对表格区间的 `compare_table`、`is_cookie_deleted`、`check_a11y_tree`。共 134 个人工编写的评估函数（每任务约 2 小时）。
+- **报告（表 5）。** 最佳模型 GPT-4（无障碍树输入）总体达 12.24%（OS 20.83%、Office 3.58%、Daily 25.64%、Professional 26.53%、Workflow 2.97%），人类总体 72.36%；多应用 Workflow 任务最难（2.97%）。
 
 ## Typical Duration
 
-每个任务为开放式的多应用工作流。单任务的步数 / 时间预算：TODO(reference)——摘要未说明。
+每任务上限 15 个交互步与 30 分钟 wall-clock。人工操作者每题中位约 112 秒，部分任务可达 900 秒以上。
 
 ## Main Contribution
 
@@ -53,7 +54,7 @@ OSWorld 针对现有 benchmark 要么缺乏交互环境、要么局限于特定�
 
 ## Limitations
 
-- Repository note: 单任务时长与步数预算在摘要中未说明，标注为 `TODO(reference)`。
+- Repository note: 基于执行的奖励定义在 [0, 1]（允许部分得分），但结果以单一 Success Rate 报告；逐任务的部分得分值未单独列出。
 
 ## Related Works
 
