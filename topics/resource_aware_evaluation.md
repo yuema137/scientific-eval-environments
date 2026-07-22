@@ -26,7 +26,7 @@ Two meaningful distinctions structure the space:
 |---|---|---|---|---|---|
 | CostBench | 2025 | Configurable per-tool costs (atomic and composite) | First-class objective — plan for cost-optimality | Dynamic (blocking events); ~40% static→dynamic drop | [→](../works/costbench.md) |
 | SimulCost | 2026 | Simulation time + experimental resources | First-class objective — parameter tuning under budget | Single-round and multi-round; 13 simulators | [→](../works/simulcost.md) |
-| CATP-LLM / OpenCATP | 2024 | Tool execution cost (e.g., execution time) | Reported jointly with performance (cost-aware planning dataset) | Tool planning over external tools; 11,100 samples | [→](../works/catp-llm.md) |
+| CATP-LLM / OpenCATP | 2024 | Normalized tool price (USD; execution time + memory) | Reported jointly with performance via Quality of Plan (QoP = α·perf − (1−α)·cost) | 111 tool-planning tasks / 11,100 samples | [→](../works/catp-llm.md) |
 
 ## Open Questions
 

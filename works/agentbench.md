@@ -20,20 +20,21 @@ AgentBench responds to the need to quantitatively evaluate LLMs as agents on cha
 
 ## Tasks
 
-8 distinct interactive environments spanning reasoning and decision-making tasks. Exact list of the 8 environments: TODO(reference) — not enumerated in the abstract.
+Eight interactive environments, grouped by grounding: **code-grounded** — Operating System (bash on Linux), Database (SQL on MySQL), Knowledge Graph; **game-grounded** — Digital Card Game, Lateral Thinking Puzzles, House-Holding (built on ALFWorld); **web-grounded** — Web Shopping (built on WebShop), Web Browsing (built on Mind2Web).
 
 ## Domains
 
-Interactive agent environments across multiple task types (coding/operating-system-style, knowledge/database, game, web, and household-style environments). Precise environment inventory: TODO(reference).
+Interactive agent tasks across operating systems, databases, knowledge graphs, games, embodied household simulation, and the web.
 
 ## Evaluation
 
-- Multi-round interaction within each environment, scored per environment on task-specific success.
-- Both commercial (API-based) and open-source LLMs evaluated under the same protocol.
+- **Per-environment metrics.** Each environment uses a metric suited to it: Success Rate (Operating System, Database, House-Holding), Answer F1 (Knowledge Graph), reward / win-rate (Digital Card Game, Web Shopping), Game Progress — fraction of plot points reached (Lateral Thinking Puzzles), and Step Success Rate (Web Browsing).
+- **Overall Score via per-task normalization.** Because the eight metrics live on different scales, each task's scores are normalized before averaging: a fixed per-task weight — the reciprocal of the mean score of all evaluated models on that task — rescales every task's cross-model average to 1.0; each model's per-task score is multiplied by that weight, and the weighted scores are averaged across the eight tasks. The weights are frozen so future models are scored reproducibly.
+- **Reported.** GPT-4 leads with an overall score of 4.01; the strongest open-source model (CodeLlama-34b) reaches 0.96. Averaged over models, API-based commercial LLMs score 2.15 vs. 0.51 for open-source — roughly a 4× gap. Primary failure modes: weak long-term reasoning, decision-making, and instruction-following.
 
 ## Typical Duration
 
-Multi-round interactive episodes per environment. Per-task step/time budgets: TODO(reference) — not stated in the abstract.
+Multi-round interaction whose length varies by environment — the most interactive (House-Holding, Digital Card Game, Lateral Thinking Puzzles) run to several tens of turns, while Operating System, Database, and Web Shopping episodes are shorter. Hard per-task round caps are not separately tabulated.
 
 ## Main Contribution
 
@@ -54,7 +55,7 @@ A systematic multi-environment benchmark that quantitatively evaluates LLM-as-ag
 
 ## Limitations
 
-- Repository note: The exact set of eight environments is not enumerated in the abstract and is marked `TODO(reference)` pending verification from the paper.
+- Repository note: Six of the eight environments are built on or adapted from prior datasets (ALFWorld, WebShop, Mind2Web); AgentBench's own contribution is the unified harness, the three code-grounded environments, and the normalized cross-environment scoring, not all task content.
 
 ## Related Works
 

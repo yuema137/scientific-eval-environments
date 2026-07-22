@@ -19,20 +19,20 @@ CATP-LLM argues that prior LLM tool-planning work overlooks tool execution costs
 
 ## Tasks
 
-OpenCATP comprises 11,100 evaluation samples from diverse tasks, where tools to be scheduled include external models such as vision models. Task taxonomy and per-category counts: TODO(reference) — not stated in the abstract.
+OpenCATP comprises 111 compositional tasks — 87 sequential (reused from OpenAGI; 69 train / 18 test) and 24 non-sequential (12 train / 12 test) — each paired with 100 input data samples, giving the 11,100 evaluation samples (experiments randomly sample 40 inputs per task). The tools to be scheduled are external expert models (vision and NLP).
 
 ## Domains
 
-LLM tool planning with external tools (e.g., vision models). Specific task domains covered by OpenCATP: TODO(reference).
+Compositional vision + NLP tool use, built on OpenAGI's toolkit — e.g., object detection, image super-resolution, colorization, deblurring, denoising, classification, and machine translation, with image and/or text outputs.
 
-## Evaluation
-
-- Measures the performance–cost trade-off of tool plans, with tool execution cost (e.g., execution time) treated as a first-class quantity rather than ignored.
-- Exact metric definitions and verifier type: TODO(reference) — not detailed in the abstract.
+- **Quality of Plan (QoP)** — the headline metric: QoP = α · P_task(p) − (1 − α) · C_price(p), with min–max normalization so performance and cost share a scale and α = 0.5 by default (equal weight on performance and cost).
+- **Plan performance P_task** — ViT Score (cosine similarity between the plan's generated image and the ground-truth image) for image-output tasks, BERT Score (cosine similarity of texts) for text-output tasks; multi-output tasks average the per-output scores.
+- **Plan cost C_price** — a normalized monetary price (USD) from an AWS-Lambda-inspired model in which tool execution time and constant/instant CPU–GPU memory are priced; a plan's price sums its per-tool prices, and parallel branches take the max of per-branch execution times. Execution time is an input to the price, not the metric itself.
+- **Reported:** with a Llama2-7B backbone, CATP-LLM beats GPT-4, improving plan quality by 1.5–93.9% overall; on sequential planning it gains 16.5–34.6% QoP over GPT-3.5/GPT-4, and on non-sequential planning 28.4–30.2% higher performance, 24.7–45.8% lower execution price, 67.0–78.3% lower execution time, and 129.4–683.0% higher QoP.
 
 ## Typical Duration
 
-TODO(reference): abstract does not state per-task duration or token budget.
+Not stated: OpenCATP defines a cost metric (an execution-time-based price) but imposes no per-task time, token, or cost budget limit.
 
 ## Main Contribution
 
@@ -54,7 +54,7 @@ The paper's stated contribution is CATP-LLM, described as the first coherent fra
 ## Limitations
 
 - Repository note: The paper's primary contribution is a tool-planning *method* (a tool planning language plus a cost-aware offline RL fine-tuning algorithm) — agent-planning / training work that sits outside this repository's evaluation-centric scope. It is included for OpenCATP, its cost-aware evaluation dataset; the method itself is not the reason for inclusion.
-- Repository note: Task taxonomy, metric definitions, and verifier type for OpenCATP are not stated in the abstract and are marked `TODO(reference)` above pending verification from the paper or released dataset.
+- Repository note: OpenCATP's tasks are compositional vision/NLP pipelines built on OpenAGI's toolkit; transfer of the cost model and QoP metric to other tool ecosystems is not evaluated.
 
 ## Related Works
 

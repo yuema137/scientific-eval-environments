@@ -26,11 +26,15 @@ Language modeling, mathematics, bioinformatics, time-series forecasting.
 
 ## Evaluation
 
-Agentic capability across the full research lifecycle. Baseline references are drawn from human performance (per abstract).
+- **Execution-based, outcome-only.** Although tasks are framed around the full research lifecycle, grading is on the final artifact: the agent submits a `.csv` of predictions on the held-out test split, scored by a task-specific `evaluate.py` against test labels — no LLM judge, no workflow rubric, no baseline code provided.
+- **Normalized Score (NS).** Per task, NS = [φ(s) − φ(s_min)] / [φ(s_sota) − φ(s_min)], where s_min is the worst score observed across seeds/agents and s_sota is the literature SOTA; 0 = worst observed, 1 = human SOTA, > 1 = exceeds SOTA. A "march of nines" transform φ(s) = −log₁₀|s − s_opt| (s_opt = theoretical optimum) log-scales gains near the ceiling so they count meaningfully.
+- **Valid Submission Rate (VSR)** — fraction of runs producing an executable, scoreable submission.
+- **Elo** — Bradley–Terry ratings over pairwise agent-score comparisons.
+- **Reported:** average normalized score ≈ 24.1%; mean valid submission rate ≈ 55.1%; only ~1.58% of submissions exceed SOTA. On a per-task-average basis, agents beat human SOTA on 4 of 20 tasks (16 unbeaten), and human SOTA outranks every agent on Elo.
 
 ## Typical Duration
 
-TODO(reference): abstract does not state per-task duration.
+Each run lasts 24 hours with access to one H-200 GPU, and each task is launched at least 10 times ("seeds"). Classified by the authors as a high-compute benchmark (> 1 hour per task); some tasks are noted as compute- or time-limited.
 
 ## Main Contribution
 
@@ -41,6 +45,7 @@ A frontier research-science benchmark that removes baseline code and requires ag
 - No baseline code provided — agents design workflows from scratch.
 - Full research-lifecycle coverage rather than isolated modeling or evaluation subtasks.
 - Multi-domain breadth in a compact 20-task suite.
+- Normalized Score with a "march of nines" log transform, so improvements near the performance ceiling remain meaningful; complemented by Valid Submission Rate and Elo.
 
 ## Strengths
 
@@ -50,6 +55,7 @@ A frontier research-science benchmark that removes baseline code and requires ag
 ## Limitations
 
 - Repository note: 20 tasks — small task pool relative to typical benchmarks.
+- Repository note: Although framed around the full research lifecycle, scoring is outcome-only (a predictions `.csv` vs. held-out labels); ideation and iterative refinement are not directly graded.
 
 ## Related Works
 

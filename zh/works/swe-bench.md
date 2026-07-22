@@ -28,12 +28,14 @@ SWE-bench 把软件工程作为评估语言模型的测试床。每个任务提�
 
 ## Evaluation
 
-- 基于执行：将模型生成的补丁应用到仓库，运行仓库关联的测试套件以判断 issue 是否被解决。
-- 报告：发表时表现最佳的模型 Claude 2 解决了 1.96% 的 issue。
+- **每个任务两组测试。** 每个实例附带一个*测试补丁*，定义 **FAIL_TO_PASS** 测试（修复前失败、修复后必须通过，用于验证 issue 确实被解决）与 **PASS_TO_PASS** 测试（改动前已通过、改动后仍须通过，用于防止回归）。gold 补丁平均涉及 9.1 个 FAIL_TO_PASS 测试（最多 1,633 个），每个实例平均共 120.8 个测试。
+- **判定是全有或全无。** 用 `patch` 应用预测补丁后，只有当补丁成功应用**且所有** FAIL_TO_PASS **与所有** PASS_TO_PASS 测试都通过，实例才算*已解决*，不设部分得分。
+- **指标为 % Resolved** =（已解决实例 / 总数）× 100。另有 "% Apply"（补丁能否干净应用的比例）用于诊断，但不作为评分指标。
+- **报告的 % Resolved（表 5）。** BM25 检索上下文下：Claude 2 为 1.96%、SWE-Llama 13b 为 0.70%、ChatGPT-3.5 为 0.20%、GPT-4 为 0.00%；oracle（gold 文件）上下文下：Claude 2 为 4.80%、SWE-Llama 13b 为 4.00%、SWE-Llama 7b 为 3.00%、GPT-4 为 1.74%。Claude 2 最强，BM25 下解决 1.96%。
 
 ## Typical Duration
 
-在 agentic 设定下为多步——理解 issue、浏览代码库、跨多文件编辑。单任务 wall-clock / token 预算：TODO(reference)——摘要未说明。
+原始协议是单次生成（每个实例一个补丁、贪心解码、Pass@1），而非多步 agent 循环，因此没有单任务的步数或 wall-clock 预算。规模由上下文决定：issue 描述平均 195 词，代码库平均约 3,010 个非测试文件 / 43.8 万行（最多 88.6 万行），超过所有被测模型的上下文窗口，因此改用 BM25 检索（13K / 27K / 50K token 预算）或 oracle gold 文件提供上下文；模型分别运行在 16K（ChatGPT-3.5）、32K（GPT-4）、100K+（Claude 2、SWE-Llama）窗口下。gold 补丁平均编辑 1.7 个文件 / 32.8 行 / 3 个函数。
 
 ## Main Contribution
 

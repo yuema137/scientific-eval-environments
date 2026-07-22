@@ -19,21 +19,25 @@ Aviary 将 language agent 形式化为在 language-grounded 部分可观测马�
 
 ## Tasks
 
-五个环境，其中三个为科学环境：DNA 构建操作 / 分子克隆、科学文献研究问答，以及蛋白质（稳定性）工程。确切的环境名称、任务计数以及两个非科学环境：TODO(reference)——摘要未说明。
+五个环境——两个非科学（**GSM8K** 小学数学；**HotpotQA** 基于 Wikipedia 的多跳问答）与三个科学环境：**SeqQA / 分子克隆**（DNA 构建操作；500 训练 / 约 140 测试题）、**LitQA2 / PaperQA**（从文献中回答研究问题；248 题，49 题留出测试）、**Protein Stability**（在 megascale 稳定性数据集的 40 个蛋白上提出稳定化突变）。
 
 ## Domains
 
-分子生物学（分子克隆、蛋白质工程）与科学文献研究的科学任务环境，另有两个非科学环境（摘要未说明）。
+分子生物学（分子克隆、蛋白质工程）与科学文献研究，另有两个非科学推理环境（GSM8K 数学、HotpotQA 多跳问答）。
 
 ## Evaluation
 
-- agent 作为 language-grounded POMDP 环境中的策略行动；性能按各环境的任务成功率衡量。
-- 确切指标与各环境任务计数：TODO(reference)——摘要未说明。
-- 报告：开源、非前沿 LLM 的 agent 在多个任务上以至多 100× 更低的推理成本匹敌或超越前沿 LLM agent 与人类专家。
+agent 作为 language-grounded POMDP 环境中的策略行动，每个环境提供一个终局奖励：
+
+- **SeqQA 与 LitQA2**（多选）：正确 +1、错误 −1、“unsure” +0.1——稀疏的终局奖励；准确率为头号指标，多样本推理用 majority@k。
+- **Protein Stability**：二元奖励——所提突变的 Rosetta ΔΔG < 0（稳定化）记 1，否则 0；以通过率报告。
+- **GSM8K**：正确 +1、非法工具调用 −1、其余 0。**HotpotQA**：正确 +1、其余 0。
+
+报告：经 expert iteration 训练的 Llama-3.1-8B agent 在 SeqQA 上达 0.89 准确率（多数投票；单样本 ≈0.86），匹敌或超过 Claude 3.5 Sonnet（≈0.87）；在 LitQA2 上两者均超过此前最佳 0.67，Claude 3.5 Sonnet 经多数投票达 0.89。成本：Claude 每条 SeqQA trajectory ≈$0.07，而 Llama-8B agent ≈$0.00066（约 100× 更便宜），人类 PhD 承包者每题 $4–$12。
 
 ## Typical Duration
 
-每个环境的多步推理回合。单任务步数 / 时间预算：TODO(reference)——摘要未说明。
+每个环境至多 rollout 10 步，PaperQA / LitQA2 例外，允许至多 18 步。
 
 ## Main Contribution
 
@@ -55,7 +59,7 @@ Aviary 将 language agent 形式化为在 language-grounded 部分可观测马�
 ## Limitations
 
 - Repository note: 论文的主要框架是*训练* language agent（在线训练、推理时计算扩展）——属于本仓库以评估为核心的范围之外的 agent 构建工作。此处为 Aviary 的科学环境作为评估环境而收录，而非为训练方法。
-- Repository note: 确切的环境名称、任务计数与各环境评估指标在摘要中未说明，标注为 `TODO(reference)`，待从论文或代码核实。
+- Repository note: 已发布代码已偏离论文中的五个环境（仓库现打包 GSM8K、HotpotQA、LFRQA、一个 Notebook 环境与 LAB-Bench，其中 LitQA 并入 LAB-Bench）。
 
 ## Related Works
 

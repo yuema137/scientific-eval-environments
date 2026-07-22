@@ -26,7 +26,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 |---|---|---|---|---|---|
 | CostBench | 2025 | 可配置的原子/组合工具成本 | 一等目标——为成本最优做规划 | 动态（阻断事件）；报告约 40% 静态→动态下降 | [→](../works/costbench.md) |
 | SimulCost | 2026 | 仿真时间 + 实验资源 | 一等目标——预算下的参数调优 | 单轮与多轮；13 个仿真器 | [→](../works/simulcost.md) |
-| CATP-LLM / OpenCATP | 2024 | 工具执行成本（如执行时间） | 与性能联合报告（cost-aware planning 数据集） | 对外部工具的工具规划；11,100 样本 | [→](../works/catp-llm.md) |
+| CATP-LLM / OpenCATP | 2024 | 归一化工具价格（USD；执行时间 + 内存） | 通过 Quality of Plan 与性能联合报告（QoP = α·perf − (1−α)·cost） | 111 个工具规划任务 / 11,100 样本 | [→](../works/catp-llm.md) |
 
 ## Open Questions
 
