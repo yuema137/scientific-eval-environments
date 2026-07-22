@@ -19,7 +19,7 @@ GAIA proposes real-world questions whose solution would represent a milestone fo
 
 ## Tasks
 
-466 real-world questions with answers, of which 300 answers are retained for a leaderboard. Each requires composing fundamental assistant abilities (reasoning, multimodality, web browsing, tool use).
+466 real-world questions, organized into three difficulty levels by the number of steps and tools required: **Level 1** (146 questions — no tools or at most one, ≤5 steps), **Level 2** (245 — roughly 5–10 steps combining different tools), and **Level 3** (75 — arbitrarily long action sequences for a near-perfect assistant). Answers to 166 questions are released as a validation set; the 300-question test set withholds answers to power a leaderboard. Each question requires composing fundamental assistant abilities (reasoning, multimodality, web browsing, tool use).
 
 ## Domains
 
@@ -27,13 +27,13 @@ General-assistant questions spanning everyday and knowledge-intensive tasks requ
 
 ## Evaluation
 
-- Each question is designed to have a single correct, unambiguous answer, enabling automatic scoring.
-- Exact scoring protocol details: TODO(reference) — not detailed in the abstract.
-- Reported: humans obtain 92% vs. 15% for GPT-4 equipped with plugins.
+- **Metric: quasi-exact-match accuracy.** A model's answer is compared to a single ground-truth answer up to a normalization tied to the answer type: numbers are written without commas or units, strings without articles or abbreviations and with digits in plain text. Answers must be a number, as few words as possible, or a comma-separated list. There is no partial credit.
+- **No LLM judge.** Scoring is deterministic string/number matching under those normalization rules, which is why questions are authored to have a single unambiguous answer.
+- **Reported (overall):** humans 92% vs. 15% for GPT-4 equipped with plugins. **Per level** (human vs. GPT-4+plugins): Level 1 93.9% vs. 30.3%, Level 2 91.8% vs. 9.7%, Level 3 87.3% vs. 0%.
 
 ## Typical Duration
 
-Multi-step: questions typically require several browsing/tool-use steps. Per-task budget: TODO(reference) — not stated in the abstract.
+Multi-step tool use scaled by level: Level 1 needs ≤5 steps with at most one tool, Level 2 roughly 5–10 steps across multiple tools, and Level 3 arbitrarily long action sequences. Human annotators take from ~6 minutes (simplest) to ~17 minutes (most complex) per question. No fixed model step-cap is specified.
 
 ## Main Contribution
 
@@ -54,7 +54,7 @@ A benchmark whose questions are conceptually simple and unambiguous for humans b
 
 ## Limitations
 
-- Repository note: The precise automatic-scoring protocol is not detailed in the abstract and is marked `TODO(reference)`.
+- Repository note: The single-answer quasi-exact-match format is objective but excludes open-ended tasks whose quality cannot be captured by one normalized string.
 
 ## Related Works
 

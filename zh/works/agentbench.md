@@ -20,20 +20,21 @@ AgentBench 回应了在交互环境中对 LLM 作为 agent 进行定量评估的
 
 ## Tasks
 
-8 个不同的交互环境，覆盖推理与决策任务。8 个环境的确切清单：TODO(reference)——摘要未逐一列出。
+八个交互环境，按 grounding 分组：**代码类**——Operating System（Linux bash）、Database（MySQL 上的 SQL）、Knowledge Graph；**游戏类**——Digital Card Game、Lateral Thinking Puzzles、House-Holding（基于 ALFWorld）；**web 类**——Web Shopping（基于 WebShop）、Web Browsing（基于 Mind2Web）。
 
 ## Domains
 
-跨多种任务类型的交互式 agent 环境（编码 / 操作系统式、知识 / 数据库、游戏、web、家务式环境）。精确的环境清单：TODO(reference)。
+跨操作系统、数据库、知识图谱、游戏、具身家务模拟与 web 的交互式 agent 任务。
 
 ## Evaluation
 
-- 每个环境内的多轮交互，按各环境的任务特定成功率打分。
-- 在同一协议下评估商用（基于 API）与开源 LLM。
+- **各环境指标。** 每个环境采用与之匹配的指标：Success Rate（Operating System、Database、House-Holding）、Answer F1（Knowledge Graph）、reward / 胜率（Digital Card Game、Web Shopping）、Game Progress——达成情节点的比例（Lateral Thinking Puzzles），以及 Step Success Rate（Web Browsing）。
+- **通过逐任务归一化得到 Overall Score。** 八个指标量纲不同，因此先归一化再平均：以固定的逐任务权重（该任务上所有被测模型平均分的倒数）把每个任务的跨模型平均值缩放到 1.0，将每个模型的逐任务得分乘以该权重，再对八个任务取平均。权重被冻结，以便对未来模型可复现地打分。
+- **报告。** GPT-4 以 4.01 的 overall score 大幅领先；最强开源模型（CodeLlama-34b）为 0.96。按模型平均，基于 API 的商用 LLM 为 2.15，开源为 0.51——约 4 倍差距。主要失败模式：长期推理、决策与指令遵循偏弱。
 
 ## Typical Duration
 
-每个环境的多轮交互回合。单任务的步数 / 时间预算：TODO(reference)——摘要未说明。
+多轮交互，长度随环境而异——交互最密集的（House-Holding、Digital Card Game、Lateral Thinking Puzzles）可达数十回合，而 Operating System、Database、Web Shopping 较短。论文未单独列出逐任务的硬性回合上限。
 
 ## Main Contribution
 
@@ -54,7 +55,7 @@ AgentBench 回应了在交互环境中对 LLM 作为 agent 进行定量评估的
 
 ## Limitations
 
-- Repository note: 8 个环境的确切集合在摘要中未逐一列出，标注为 `TODO(reference)`，待从论文核实。
+- Repository note: 八个环境中有六个基于或改编自既有数据集（ALFWorld、WebShop、Mind2Web）；AgentBench 自身的贡献是统一的评测框架、三个代码类环境与跨环境的归一化打分，而非全部任务内容。
 
 ## Related Works
 
