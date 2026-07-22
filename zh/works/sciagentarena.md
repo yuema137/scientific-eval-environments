@@ -19,21 +19,21 @@ SciAgentArena 是一个系统性 benchmark，用于在跨尺度的真实世界�
 
 ## Tasks
 
-约 200 个带逐步验证的任务，从跨多个领域与尺度的真实世界科学研究场景构造。确切的领域清单与各领域计数：TODO(reference)——摘要页未说明。
+约 200 个带逐步验证的任务（论文未给出确切整数），构造自跨五个领域的真实生物医学研究场景——单细胞组学、空间组学、计算药物发现、电子健康档案（EHR）建模与遗传学——外加一个小规模的跨领域集（eQTL、靶点识别、合成致死）。任务分四类：Data Analysis、Optimization、Discovery、Validity。
 
 ## Domains
 
-跨尺度的多个科学研究领域。具体学科：TODO(reference)。
+跨五个领域的生物医学研究（单细胞组学、空间组学、计算药物发现、EHR 建模、遗传学）。“across scales”指的是生物学层级——分子 → 细胞 → 组织 → 人体 → 基因组 / 群体——而非物理尺度。
 
 ## Evaluation
 
-- 支持多样 AI agent 的交互式、agent-agnostic 环境。
-- 对 agent 进展的逐步验证。
-- 报告的定性发现：在结构化数据分析工作流上强；在新颖洞见、自主探索与开放式问题上弱。
+- **按领域异构的逐步验证——基于执行与专家标准，而非 LLM judge。** 没有统一的全局 0–1 尺度；打分各领域原生：遗传学（PRS/MR）用专家设计的二元（0/1）逐子任务标准（以通过数报告，如“全部 14 个子任务”）、EHR（T1–T4）用把响应解析为动作列表后对 ground-truth 双向子串匹配的动作级 F1，其余领域用任务原生指标（AUROC、Jaccard、相关系数）。单细胞组学同时按逐步与整条 pipeline 两种方式评分。
+- **既有步骤级也有终局评分**，对代码输出做基于执行的对照（ground-truth / oracle）；药物发现分数为三次独立评估的均值，并给出逐任务标准误。
+- **报告（18 个 agent，含 GPT-5.2、Gemini 3 Pro、Claude Sonnet 4.6 及专用 agent Biomni / STELLA / ToolUniverse）：** 如 hERG 预测 68.1 AUROC、差异表达检测 29.4 F1、空间可变基因检测 47.6 Jaccard、EHR FHIR 查询最高 F1 ≈ 0.91（STELLA）。agent 在结构化数据分析上强（读取 / 连接表格、计算描述符、运行标准 pipeline），但在优化（仅约 1–25% 能解多目标分子设计，且无一会预算 oracle 调用）、发现（许多在 OOD 任务上无法产出可运行代码）与有效性（倾向假设不可行任务可行，而非拒绝）上弱。最难：EHR 用药管理（所有 agent F1 < 0.32）。
 
 ## Typical Duration
 
-多步的科学研究工作流。单任务时长：TODO(reference)——摘要页未说明。
+未说明：论文未给出单任务的 wall-clock、步数或 token 预算。唯一类似预算的约束是领域特定的——药物发现优化将分子 oracle 调用上限设为 100。
 
 ## Main Contribution
 
@@ -54,7 +54,7 @@ SciAgentArena 是一个系统性 benchmark，用于在跨尺度的真实世界�
 
 ## Limitations
 
-- Repository note: 具体的科学领域、尺度与各领域任务计数在摘要页未说明，标注为 `TODO(reference)`，待从论文或项目核实。
+- Repository note: 论文称“约 200 个任务”，但从未给出确切总数或逐领域任务表——仅有工作流内部的子任务计数。由于各领域打分尺度不同（二元标准、F1 与原生指标），跨领域聚合并无统一指标。
 
 ## Related Works
 

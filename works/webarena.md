@@ -19,20 +19,23 @@ WebArena argues that current agents are mostly created and tested in simplified 
 
 ## Tasks
 
-Diverse, long-horizon web tasks mirroring routine internet activities, issued as natural-language commands. Task count: TODO(reference) — not stated in the abstract.
+812 instantiated task intents from 241 templates (averaging 3.3 instantiations per template), issued as natural-language commands. Some intents are deliberately unachievable and labeled N/A — the agent must recognize infeasibility rather than hallucinate a result.
 
 ## Domains
 
-Fully functional websites across four domains: e-commerce, social forum discussions, collaborative software development, and content management.
+Four fully functional, self-hosted websites — e-commerce (an OneStopShop/Magento storefront), a content-management/admin site, a social forum (Postmill/Reddit-style), and collaborative software development (GitLab) — plus supporting tools (map, calculator, scratchpad) and knowledge resources (Wikipedia, manuals).
 
-## Evaluation
+Success is judged by programmatic reward functions on the resulting website state, not by trajectory matching, across two task families:
 
-- Functional correctness: task completions are checked programmatically against the resulting state of the websites.
-- Reported: best GPT-4-based agent reaches 14.41% end-to-end success vs. 78.24% for humans.
+- **Information-seeking** — the agent's textual answer is scored by `exact_match` (identical to the reference), `must_include` (contains required facts/keywords), or `fuzzy_match` (GPT-4 judges semantic equivalence).
+- **Site-navigation / configuration** — a locator retrieves the intent-critical state via a database query, a site API call, or JavaScript element selection, and annotated required contents are verified there (exact / must_include, plus URL and element-state checks).
+- **Unachievable tasks** are included and labeled N/A; the agent must respond that the task is not possible, testing whether it avoids unfounded claims.
+
+Execution allows at most **30 state transitions** per task, halting early if an action repeats more than three times or the agent emits three consecutive invalid actions. Reported: the best GPT-4 configuration reaches 14.41% end-to-end success (11.70% with the unachievable-task hint) vs. 78.24% for humans (74.68% on information-seeking, 81.32% on navigation/configuration).
 
 ## Typical Duration
 
-Long-horizon multi-step web interactions per task. Per-task step budget: TODO(reference) — not stated in the abstract.
+Long-horizon multi-step web interactions, capped at 30 state transitions per task (with early stopping on repeated or invalid actions). In the human study, five CS graduate students averaged ~110 seconds per task over 170 sampled tasks.
 
 ## Main Contribution
 
@@ -53,7 +56,7 @@ A realistic, reproducible web environment of fully functional real-world website
 
 ## Limitations
 
-- Repository note: Task count and per-domain distribution are not stated in the abstract and are marked `TODO(reference)`.
+- Repository note: The paper reports 812 total intents but gives the per-website distribution only as a chart (Figure 6), not exact per-site counts; cross-site tasks exist as a category without a stated count.
 
 ## Related Works
 
