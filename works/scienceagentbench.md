@@ -19,23 +19,28 @@ ScienceAgentBench argues that agents should be rigorously assessed on individual
 
 ## Tasks
 
-102 tasks extracted from 44 peer-reviewed publications across four scientific disciplines. Each task's target output is unified to a self-contained Python program file. Discipline names: TODO(reference) — not stated in the abstract.
+102 tasks curated from 44 peer-reviewed publications in four disciplines — Bioinformatics, Computational Chemistry, Geographical Information Science, and Psychology & Cognitive Neuroscience. Per-discipline counts (from the authors' released dataset): Bioinformatics 27, Computational Chemistry 20, Geographical Information Science 27, Psychology & Cognitive Science 28. Each task's target output is unified to a self-contained Python program file.
 
 ## Domains
 
-Data-driven scientific discovery across four disciplines (specific disciplines: TODO(reference)).
+Data-driven scientific discovery across four disciplines: Bioinformatics, Computational Chemistry, Geographical Information Science, and Psychology & Cognitive Neuroscience.
 
 ## Evaluation
 
-- Target output unified to a self-contained Python program per task.
-- An array of metrics examines the generated programs, execution results, and costs.
-- Multiple rounds of manual validation by annotators and subject matter experts.
-- Two strategies proposed to mitigate data-contamination concerns.
-- Reported: with three attempts per task, the best-performing agent solves 32.4% of tasks independently and 34.3% with expert-provided knowledge. OpenAI o1-preview (direct prompting + self-debug) reaches 42.2%, at more than 10× the cost of the other LLMs.
+Each generated standalone program is scored on four metrics:
+
+- **Valid Execution Rate (VER)** — whether the program runs without error and saves its output under the correct filename (binary).
+- **Success Rate (SR)** — whether the output meets task-specific success criteria (e.g., "≥ 0.77 ROC-AUC on the test set", prediction–answer matches, visualization quality), implemented as a hand-written executable checker per task; SR is conditioned on execution (0 if the program errors or mis-saves). Figure outputs are judged by GPT-4o against the ground truth, averaged over 3 samples.
+- **CodeBERTScore (CBS)** — F1 over contextual token embeddings measuring similarity to the annotated reference program (set to 1.0 when SR = 1).
+- **API Cost** — average USD to complete one task.
+
+A separate expert **rubric** (five stages: Data Loading, Data Processing, Modeling/Visualization, Output Formatting, Output Saving; normalized 0–100) is used for human evaluation as a complement to the stricter outcome metrics, but is not part of the automatic SR. Tasks also undergo multiple rounds of manual validation, with two strategies to mitigate data contamination.
+
+Reported (three attempts per task): the best agent (Claude-3.5-Sonnet + Self-Debug) solves 32.4% independently and 34.3% with expert-provided knowledge; o1-preview + Self-Debug reaches 42.2% (at > 10× the API cost of the cheaper models). Self-Debug solves 10.8 points more than OpenHands CodeAct (21.6 → 32.4 SR) at 17× lower cost ($0.958 → $0.057 per task).
 
 ## Typical Duration
 
-TODO(reference): abstract does not state per-task duration or token budget.
+Not reported as wall-clock; the paper reports per-task API cost instead — from ~$0.017 (Claude-3.5 direct prompting) to ~$1.09 (GPT-4o OpenHands CodeAct) per task, with o1-preview self-debug at $0.64–0.71.
 
 ## Main Contribution
 
@@ -45,7 +50,7 @@ A rigorously validated benchmark for data-driven scientific discovery that asses
 
 - Tasks extracted from real peer-reviewed publications and validated by subject matter experts for scientific authenticity.
 - Unified target output (a self-contained Python program) makes heterogeneous scientific tasks comparably gradable.
-- Evaluation spans generated program, execution result, and cost rather than a single accuracy metric.
+- Four automatic metrics — VER, SR (via per-task executable criteria), CodeBERTScore, and API cost — complemented by a five-stage expert rubric for human evaluation.
 - Two explicit data-contamination-mitigation strategies.
 - Evaluation across five open-weight and proprietary LLMs under three agent frameworks: direct prompting, OpenHands CodeAct, and self-debug.
 
