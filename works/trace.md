@@ -26,6 +26,8 @@ DeepResearch-Bench comprises 650 tasks in three subsets: **TRACE-Core** (500 tas
 
 Deep-research agent tasks: web search, evidence collection, retrieval, reasoning, report generation.
 
+## Evaluation
+
 - **Hierarchical Trajectory Utility U(H).** Final-answer accuracy is a hard multiplicative gate on a product of efficiency and cognitive quality — U(H) = 𝟙(answer correct) · E(H)^ω_E · C(H)^ω_C — so a wrong answer zeros the whole utility.
   - **Process Efficiency E(H)** rewards solving more complex tasks while dividing by a trajectory-cost functional, including a *Redundant Exploration Penalty* that down-weights consecutive uninformative actions in proportion to the cosine similarity of successive observation embeddings.
   - **Cognitive Quality C(H) = β·G_E + (1−β)·R_R** combines **Evidence Grounding** G_E — the geometric mean of per-claim NLI entailment probabilities, so a single ungrounded claim collapses the score — and **Reasoning Robustness** R_R — an exponential decay in the number of steps needed to recover after a planted information trap.
