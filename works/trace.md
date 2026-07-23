@@ -8,6 +8,7 @@ TRACE (Trajectory-Aware Comprehensive Evaluation) is an evaluation framework for
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
+- [Credit Assignment](../topics/credit_assignment.md)
 
 ## Links
 
