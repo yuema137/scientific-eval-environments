@@ -18,6 +18,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **A gymnasium of scientific environments.** [Aviary](../works/aviary.md) provides an extensible gymnasium of language-agent environments, three of them scientific (molecular cloning, scientific-literature research, protein engineering); its environments are reusable evaluation surfaces, though the paper's headline is a training framework rather than an evaluation contribution.
 - **Cost-aware scientific simulation.** [SimulCost](../works/simulcost.md) extends cost-aware evaluation to physics-simulation parameter tuning across 13 simulators, explicitly accounting for simulation-time and experimental-resource costs.
 - **Clinician-validated medical evaluation.** [MedHELM](../works/medhelm.md) extends Stanford CRFM's HELM to medical tasks with a 121-task clinician-validated taxonomy, aggregation across 35 benchmarks, and an LLM-jury evaluation methodology whose agreement against clinician ratings (ICC = 0.47) is explicitly measured.
+- **Simulation-grounded grading validity.** [GeneBench-Pro](../works/genebench-pro.md) builds 129 multistage genomics and quantitative-biology problems on constructively simulated data-generating processes rather than real datasets, so that a failure is attributable to a scientific error rather than to one of several defensible analyst choices. Each problem hides 3 to 13 dependent decision points and is graded by a single binary pass on the decision-relevant number; the best configuration measured reaches 28.7%.
 
 ## Comparison
 
@@ -31,6 +32,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | Aviary | 2024 | 5-environment gymnasium (3 scientific) | Molecular biology (cloning / protein) + literature | Per-environment task success in POMDP environments | [→](../works/aviary.md) |
 | SimulCost | 2026 | Parameter tuning across 13 simulators | Physics simulation | Success rate under budget; comparison against traditional methods | [→](../works/simulcost.md) |
 | MedHELM | 2025 | Clinician-designed taxonomy (29 clinicians) | Medical / clinical | LLM-jury (ICC = 0.47 vs clinicians); aggregation across 35 benchmarks | [→](../works/medhelm.md) |
+| GeneBench-Pro | 2026 | Constructively simulated data-generating processes | Genomics / quantitative biology / translational biomedicine | Binary match to recoverable targets under calibrated tolerances | [→](../works/genebench-pro.md) |
 
 ## Open Questions
 
@@ -50,6 +52,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [AIRS-Bench](../works/airs-bench.md)
 - [SimulCost](../works/simulcost.md)
 - [MedHELM](../works/medhelm.md)
+- [GeneBench-Pro](../works/genebench-pro.md)
 
 ## Further Reading
 
