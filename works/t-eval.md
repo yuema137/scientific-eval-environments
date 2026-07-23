@@ -7,7 +7,7 @@ T-Eval is a fine-grained tool-use benchmark that decomposes evaluation into six 
 ## Topics
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
-- Skill Hierarchy *(topic page pending)*
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Links
 

@@ -7,7 +7,7 @@ AgentBoard 是一个针对多轮 LLM agent 的评估 benchmark，同时提供一
 ## Topics
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
-- Skill Hierarchy *(topic page pending)*
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Links
 
