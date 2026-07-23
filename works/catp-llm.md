@@ -25,6 +25,8 @@ OpenCATP comprises 111 compositional tasks — 87 sequential (reused from OpenAG
 
 Compositional vision + NLP tool use, built on OpenAGI's toolkit — e.g., object detection, image super-resolution, colorization, deblurring, denoising, classification, and machine translation, with image and/or text outputs.
 
+## Evaluation
+
 - **Quality of Plan (QoP)** — the headline metric: QoP = α · P_task(p) − (1 − α) · C_price(p), with min–max normalization so performance and cost share a scale and α = 0.5 by default (equal weight on performance and cost).
 - **Plan performance P_task** — ViT Score (cosine similarity between the plan's generated image and the ground-truth image) for image-output tasks, BERT Score (cosine similarity of texts) for text-output tasks; multi-output tasks average the per-output scores.
 - **Plan cost C_price** — a normalized monetary price (USD) from an AWS-Lambda-inspired model in which tool execution time and constant/instant CPU–GPU memory are priced; a plan's price sums its per-tool prices, and parallel branches take the max of per-branch execution times. Execution time is an input to the price, not the metric itself.

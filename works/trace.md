@@ -8,6 +8,7 @@ TRACE (Trajectory-Aware Comprehensive Evaluation) is an evaluation framework for
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
+- [Credit Assignment](../topics/credit_assignment.md)
 
 ## Links
 
@@ -25,6 +26,8 @@ DeepResearch-Bench comprises 650 tasks in three subsets: **TRACE-Core** (500 tas
 ## Domains
 
 Deep-research agent tasks: web search, evidence collection, retrieval, reasoning, report generation.
+
+## Evaluation
 
 - **Hierarchical Trajectory Utility U(H).** Final-answer accuracy is a hard multiplicative gate on a product of efficiency and cognitive quality — U(H) = 𝟙(answer correct) · E(H)^ω_E · C(H)^ω_C — so a wrong answer zeros the whole utility.
   - **Process Efficiency E(H)** rewards solving more complex tasks while dividing by a trajectory-cost functional, including a *Redundant Exploration Penalty* that down-weights consecutive uninformative actions in proportion to the cosine similarity of successive observation embeddings.

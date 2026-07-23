@@ -7,7 +7,7 @@ T-Eval 是一个细粒度的 tool-use benchmark，把 tool-use 评估拆解为 6
 ## Topics
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
-- Skill Hierarchy *(topic page pending)*
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Links
 

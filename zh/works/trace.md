@@ -8,6 +8,7 @@ TRACE (Trajectory-Aware Comprehensive Evaluation) 是面向 deep research agent 
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
+- [Credit Assignment](../topics/credit_assignment.md)
 
 ## Links
 

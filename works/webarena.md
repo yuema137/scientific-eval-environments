@@ -25,6 +25,8 @@ WebArena argues that current agents are mostly created and tested in simplified 
 
 Four fully functional, self-hosted websites — e-commerce (an OneStopShop/Magento storefront), a content-management/admin site, a social forum (Postmill/Reddit-style), and collaborative software development (GitLab) — plus supporting tools (map, calculator, scratchpad) and knowledge resources (Wikipedia, manuals).
 
+## Evaluation
+
 Success is judged by programmatic reward functions on the resulting website state, not by trajectory matching, across two task families:
 
 - **Information-seeking** — the agent's textual answer is scored by `exact_match` (identical to the reference), `must_include` (contains required facts/keywords), or `fuzzy_match` (GPT-4 judges semantic equivalence).

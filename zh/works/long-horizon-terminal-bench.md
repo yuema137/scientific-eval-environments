@@ -8,6 +8,7 @@ Long-Horizon-Terminal-Bench 将 Terminal-Bench 扩展到显著更长的执行 ho
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
+- [Credit Assignment](../topics/credit_assignment.md)
 
 ## Links
 
