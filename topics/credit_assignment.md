@@ -16,6 +16,7 @@ Credit assignment is related to but distinct from [Skill Hierarchy](./skill_hier
 - **Graded partial reward under thresholds.** [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md) decomposes tasks into subtasks with graded rewards and aggregates them under configurable thresholds (0.95 partial-reward, 1.0 perfect-reward), letting the metric distinguish "almost solved" from "no progress."
 - **Per-dimension credit across a trajectory.** [FinTrace](../works/fintrace.md) scores whole trajectories against 9 metrics across 4 dimensions (action correctness, execution efficiency, process quality, output quality), so a trajectory can succeed on some dimensions and fail on others.
 - **Utility-function credit.** [TRACE](../works/trace.md) applies a hierarchical trajectory utility function that jointly credits accuracy, efficiency, evidence grounding, and reasoning quality — treating them as complementary sources of credit rather than substitutes.
+- **Action-level credit against an oracle DAG.** [Gaia2](../works/gaia2.md) credits only state-changing write actions, checked against a minimal oracle sequence along four dimensions — consistency, causality, timing, and completeness — while leaving read actions unlimited and unpenalized. On 450 hand-labeled trajectories the verifier reaches 0.98 agreement against 0.72 for an LLM-judge-only baseline.
 
 ## Comparison
 
@@ -25,6 +26,7 @@ Credit assignment is related to but distinct from [Skill Hierarchy](./skill_hier
 | Long-Horizon-Terminal-Bench | 2026 | Graded subtask reward + threshold aggregation | Per subtask, weighted | [→](../works/long-horizon-terminal-bench.md) |
 | FinTrace | 2026 | 9 metrics × 4 dimensions | Per trajectory, per dimension | [→](../works/fintrace.md) |
 | TRACE | 2026 | Hierarchical utility over accuracy / efficiency / grounding / reasoning | Per trajectory, per component | [→](../works/trace.md) |
+| Gaia2 | 2026 | Write-action match to a minimal oracle sequence (consistency / causality / timing / completeness) | Per state-changing action | [→](../works/gaia2.md) |
 
 ## Open Questions
 
@@ -38,6 +40,7 @@ Credit assignment is related to but distinct from [Skill Hierarchy](./skill_hier
 - [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md)
 - [FinTrace](../works/fintrace.md)
 - [TRACE](../works/trace.md)
+- [Gaia2](../works/gaia2.md)
 
 ## Further Reading
 

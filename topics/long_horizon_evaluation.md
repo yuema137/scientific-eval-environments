@@ -23,6 +23,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - **General-assistant questions.** [GAIA](../works/gaia.md) poses 466 real-world questions requiring reasoning, multimodality, web browsing, and tool use, with single unambiguous answers — humans reach 92% vs. 15% for GPT-4 with plugins.
 - **Realistic web environments.** [WebArena](../works/webarena.md) hosts fully functional websites across four domains and scores long-horizon web tasks by functional correctness (best GPT-4 agent 14.41% vs. 78.24% human).
 - **Whole-computer tasks.** [OSWorld](../works/osworld.md) provides 369 open-ended tasks in real operating systems (Ubuntu / Windows / macOS) with per-task execution-based evaluation scripts (best model 12.24% vs. 72.36% human).
+- **Asynchronous environments.** [Gaia2](../works/gaia2.md) runs 1,120 scenarios in event-driven environments that advance on their own clock rather than only when the agent acts, making temporal awareness a scored capability: GPT-5 (high) leads at 42.1% pass@1 overall yet scores 0.0 on the Time split, and every evaluated model scores below 9 there.
 
 ## Comparison
 
@@ -39,6 +40,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | GAIA | 2023 | 466 multi-tool assistant questions | General assistant (reasoning / browsing / tools) | [→](../works/gaia.md) |
 | WebArena | 2023 | Long-horizon web tasks; functional correctness | Live self-hosted websites (4 domains) | [→](../works/webarena.md) |
 | OSWorld | 2024 | 369 open-ended computer tasks | Real OS (Ubuntu / Windows / macOS); execution-graded | [→](../works/osworld.md) |
+| Gaia2 | 2026 | 1,120 scenarios across seven capability splits; the environment advances independently of the agent | Simulated smartphone universe of 12 stateful apps; write-action verifier | [→](../works/gaia2.md) |
 
 ## Open Questions
 
@@ -60,6 +62,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - [GAIA](../works/gaia.md)
 - [WebArena](../works/webarena.md)
 - [OSWorld](../works/osworld.md)
+- [Gaia2](../works/gaia2.md)
 
 ## Further Reading
 

@@ -16,6 +16,7 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 - **阈值下的分级部分奖励。** [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md) 把任务分解为带分级奖励的子任务，并在可配置阈值下聚合（0.95 部分奖励、1.0 完美奖励），使指标能区分"几乎解出"和"毫无进展"。
 - **沿 trajectory 的多维度部分得分。** [FinTrace](../works/fintrace.md) 在 4 个维度（action correctness、execution efficiency、process quality、output quality）下用 9 个指标评分整条 trajectory，因此一条 trajectory 可以在某些维度上成功、在另一些维度上失败。
 - **效用函数式部分得分。** [TRACE](../works/trace.md) 用 hierarchical trajectory utility 联合评价 accuracy、efficiency、evidence grounding、reasoning quality——把它们视为互补的"分数来源"，而不是彼此替代。
+- **对照 oracle DAG 的动作级 credit。** [Gaia2](../works/gaia2.md) 只为改变状态的 write 动作计功，并对照一条最小 oracle 序列在四个维度上检查——consistency、causality、timing 与 completeness——同时让 read 动作不限次数且不受惩罚。在 450 条人工标注 trajectory 上，该验证器达到 0.98 一致性，而仅用 LLM judge 的基线为 0.72。
 
 ## Comparison
 
@@ -25,6 +26,7 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 | Long-Horizon-Terminal-Bench | 2026 | 分级子任务奖励 + 阈值聚合 | Per subtask，带权重 | [→](../works/long-horizon-terminal-bench.md) |
 | FinTrace | 2026 | 9 指标 × 4 维度 | Per trajectory，每维度 | [→](../works/fintrace.md) |
 | TRACE | 2026 | 覆盖 accuracy / efficiency / grounding / reasoning 的 hierarchical utility | Per trajectory，每分量 | [→](../works/trace.md) |
+| Gaia2 | 2026 | write 动作与最小 oracle 序列的匹配（consistency / causality / timing / completeness） | 每一个改变状态的动作 | [→](../works/gaia2.md) |
 
 ## Open Questions
 
@@ -38,6 +40,7 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 - [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md)
 - [FinTrace](../works/fintrace.md)
 - [TRACE](../works/trace.md)
+- [Gaia2](../works/gaia2.md)
 
 ## Further Reading
 
