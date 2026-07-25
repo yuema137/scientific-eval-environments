@@ -20,6 +20,12 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - **效用函数（utility-function based）。** 在整条 trajectory 上定义关于多个质量维度的联合指标。[TRACE](../works/trace.md) 面向 deep-research agent，联合 accuracy、efficiency、evidence grounding、reasoning quality；[FinTrace](../works/fintrace.md) 在金融 tool use 上采用 4 维度 9 指标。
 - **诊断覆盖层（diagnostic overlay）。** 本身不是任务套件，而是把诊断词汇与审计协议覆盖到既有 benchmark 之上。[AgentAtlas](../works/agentatlas.md) 在 15 个 agent benchmark 上应用一个六路控制决策分类与失败分类；[Insights Generator](../works/insights-generator.md) 是面向 trace 语料级诊断的多 agent 系统。
 - **确定性 ground-truth 生成。** Trajectory 评估依赖高质量的参考 trajectory。[Traxgen](../works/traxgen.md) 直接针对参考生成这一问题：把结构化的 workflow 规范与用户数据编译为 DAG 上的确定性 gold trajectory，取代基于 LLM 的 ground-truth 生成，得到可复现且数量级更快的替代方案。
+- **由定理证明器裁决每一步。** [MATP](../works/matp.md) 把自然语言推理链的每一步自动形式化为一阶逻辑，交由 Vampire 定理证明器双向判定，从而以近乎零边际成本获得逐步标签，再用它来考察 10 个模型作为步骤评判者的能力。
+- **可机器检查但不可人读的轨迹。** [VCoT-Bench](../works/vcot-bench.md) 把 Z3 的底层证明经 LLM 提升为 Verus 层面的可读步骤，再据此构造 1,988 个补全任务，并按位置分层——中段推理一致最难，且不随模型规模变好。
+- **拒用 LLM 作评判的多轴部分得分。** [SysMoBench](../works/sysmobench.md) 为 AI 生成的 11 个真实系统的 TLA+ 模型评分，四项指标全部由既有检查器机器计算并逐级设卡，作者明确说明不采用 LLM-as-a-judge。
+- **从修订历史中挖掘步骤标签。** [Pseudo-Formalization](../works/pseudo-formalization.md) 筛选 arXiv 修订说明中作者自陈「某引理已修正」的记录，把（论文编号、版本对、错误位置）直接存为标签，从而以近乎零成本获得专家级的步骤错误标注。
+- **对整条轨迹的偏好判定。** [Plan-RewardBench](../works/plan-rewardbench.md) 固定工具环境与用户意图、只让轨迹变化，构造 1,171 对偏好数据来考察约 30 个评判者，并按 horizon 长度而非汇总报告其可靠性。
+- **评判者与规则式评分器的对照。** [AgentRewardBench](../works/agentrewardbench.md) 用 1,302 条专家标注的 web agent 轨迹考察 12 个 LLM judge，并指出 benchmark 自带的规则式评分器会系统性地低报成功率。
 
 ## Comparison
 
@@ -34,6 +40,12 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | AgentAtlas | 2026 | 6 路控制决策分类 + 失败分类（覆盖 15 个 benchmark 的审计） | 跨 benchmark 覆盖 | [→](../works/agentatlas.md) |
 | Insights Generator | 2026 | 自动化的语料级 trace 诊断（多 agent 假设检验） | Trace 语料分析 | [→](../works/insights-generator.md) |
 | Traxgen | 2025 | 基于 DAG 的确定性 ground-truth 生成（与 gold 100% 对齐；相较 LLM 生成中位数 > 17,000× 加速） | 客户服务 tool use（配套 benchmark） | [→](../works/traxgen.md) |
+| MATP | 2025 | 定理证明器对每一步的双向判定（True / False / Unknown） | 每个自然语言推理步骤 | [→](../works/matp.md) |
+| VCoT-Bench | 2026 | 对参考验证链的语义块级消融，经 Verus 重新验证 | 每个语义块（不变式 / 断言 / 引理） | [→](../works/vcot-bench.md) |
+| SysMoBench | 2025 | 四项机器计算的逐级部分得分（语法 / 运行时 / 一致性 / 不变式） | 每个 TLA+ action | [→](../works/sysmobench.md) |
+| Pseudo-Formalization | 2026 | 从 arXiv 修订历史挖掘的步骤错误位置 | 每个自包含的证明模块 | [→](../works/pseudo-formalization.md) |
+| Plan-RewardBench | 2026 | 成对轨迹偏好判定的准确率 | 整条工具使用轨迹 | [→](../works/plan-rewardbench.md) |
+| AgentRewardBench | 2025 | 与专家成功标签比对的 precision | 整条 web agent 轨迹 | [→](../works/agentrewardbench.md) |
 
 ## Open Questions
 
@@ -55,6 +67,12 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - [AgentAtlas](../works/agentatlas.md)
 - [Insights Generator](../works/insights-generator.md)
 - [Traxgen](../works/traxgen.md)
+- [MATP](../works/matp.md)
+- [VCoT-Bench](../works/vcot-bench.md)
+- [SysMoBench](../works/sysmobench.md)
+- [Pseudo-Formalization](../works/pseudo-formalization.md)
+- [Plan-RewardBench](../works/plan-rewardbench.md)
+- [AgentRewardBench](../works/agentrewardbench.md)
 
 ## Further Reading
 
