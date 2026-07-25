@@ -20,6 +20,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **Clinician-validated medical evaluation.** [MedHELM](../works/medhelm.md) extends Stanford CRFM's HELM to medical tasks with a 121-task clinician-validated taxonomy, aggregation across 35 benchmarks, and an LLM-jury evaluation methodology whose agreement against clinician ratings (ICC = 0.47) is explicitly measured.
 - **Generated rather than authored benchmarks.** [HeurekaBench](../works/heurekabench.md) contributes a semi-automated pipeline that derives open-ended research questions from published studies and their code repositories, verifying candidate answers against the findings those studies reported. Its single-cell instantiation holds 50 open-ended and 50 multiple-choice questions from 41 insights across 13 papers, and the strongest existing agent reaches 2.34 out of 5 on open-ended correctness.
 - **Simulation-grounded grading validity.** [GeneBench-Pro](../works/genebench-pro.md) builds 129 multistage genomics and quantitative-biology problems on constructively simulated data-generating processes rather than real datasets, so that a failure is attributable to a scientific error rather than to one of several defensible analyst choices. Each problem hides 3 to 13 dependent decision points and is graded by a single binary pass on the decision-relevant number; the best configuration measured reaches 28.7%.
+- **Physical execution on a real instrument.** [AFMBench](../works/afmbench.md) holds agents to 100 curated tasks on an actual atomic force microscope rather than a simulator, and reports that materials-science question-answering proficiency does not transfer: Claude-3.5-Sonnet carries a 51.6% error rate while the best model reaches 65% overall task completion, falling to 23.3% where documentation and analysis are merged.
 
 ## Comparison
 
@@ -35,6 +36,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | MedHELM | 2025 | Clinician-designed taxonomy (29 clinicians) | Medical / clinical | LLM-jury (ICC = 0.47 vs clinicians); aggregation across 35 benchmarks | [→](../works/medhelm.md) |
 | HeurekaBench | 2026 | Semi-automated pipeline over published studies and their code repositories | Single-cell biology (pipeline presented as domain-general) | G-Eval LLM judge (GPT-4o, 1–5) against published findings | [→](../works/heurekabench.md) |
 | GeneBench-Pro | 2026 | Constructively simulated data-generating processes | Genomics / quantitative biology / translational biomedicine | Binary match to recoverable targets under calibrated tolerances | [→](../works/genebench-pro.md) |
+| AFMBench | 2025 | 100 expert-curated tasks, stratified by tool count, agent count, complexity and functional domain | Scanning-probe microscopy of materials | Physical execution on a Nanosurf DriveAFM; per-domain completion rate plus a named error taxonomy | [→](../works/afmbench.md) |
 
 ## Open Questions
 
@@ -56,6 +58,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [MedHELM](../works/medhelm.md)
 - [HeurekaBench](../works/heurekabench.md)
 - [GeneBench-Pro](../works/genebench-pro.md)
+- [AFMBench](../works/afmbench.md)
 
 ## Further Reading
 

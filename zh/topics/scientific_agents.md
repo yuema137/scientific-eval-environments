@@ -20,6 +20,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **医生共同验证的医疗评估。** [MedHELM](../works/medhelm.md) 把 Stanford CRFM 的 HELM 扩展到医疗任务：121 任务、由医生共同验证的分类体系；跨 35 benchmark 聚合；LLM-jury 方法与医生一致性（ICC = 0.47）被显式测量。
 - **生成而非编写的 benchmark。** [HeurekaBench](../works/heurekabench.md) 贡献了一条半自动流水线，从已发表研究及其代码仓库中派生开放式研究问题，并将候选答案与这些研究已报告的发现比对验证。其单细胞实例含 50 道开放题与 50 道选择题，构建自 13 篇论文中的 41 条洞见；最强的现有 agent 在开放题正确性上为 5 分制的 2.34 分。
 - **以模拟为根基的判分有效性。** [GeneBench-Pro](../works/genebench-pro.md) 把 129 个多阶段基因组学与定量生物学问题构建在人工模拟的数据生成过程而非真实数据集之上，从而使失败可归因于科学判断失误，而非归因于若干同样站得住脚的分析选择之一。每个问题内含 3 至 13 个相互依赖的决策点，仅以对决策相关数值的二元通过与否判分；所测得的最佳配置为 28.7%。
+- **在真实仪器上物理执行。** [AFMBench](../works/afmbench.md) 要求 agent 在一台真正的原子力显微镜而非仿真器上完成 100 个经整理的任务，并报告材料科学问答能力并不迁移：Claude-3.5-Sonnet 的错误率达 51.6%，而最佳模型的总体任务完成率为 65%，在文档记录与分析合并时则跌至 23.3%。
 
 ## Comparison
 
@@ -35,6 +36,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | MedHELM | 2025 | 医生共同设计的分类（29 位医生） | 医疗 / 临床 | LLM-jury（与医生 ICC = 0.47）；跨 35 benchmark 聚合 | [→](../works/medhelm.md) |
 | HeurekaBench | 2026 | 基于已发表研究及其代码仓库的半自动流水线 | 单细胞生物学（流水线被主张为领域无关） | G-Eval LLM judge（GPT-4o，1–5 分）对照已发表发现 | [→](../works/heurekabench.md) |
 | GeneBench-Pro | 2026 | 人工模拟的数据生成过程 | 基因组学 / 定量生物学 / 转化医学 | 在校准容差下与可复原目标作二元匹配 | [→](../works/genebench-pro.md) |
+| AFMBench | 2025 | 100 个专家整理的任务，沿工具数、agent 数、复杂度与功能领域分层 | 材料的扫描探针显微术 | 在 Nanosurf DriveAFM 上物理执行；按领域的完成率加一套命名的错误分类 | [→](../works/afmbench.md) |
 
 ## Open Questions
 
@@ -56,6 +58,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [MedHELM](../works/medhelm.md)
 - [HeurekaBench](../works/heurekabench.md)
 - [GeneBench-Pro](../works/genebench-pro.md)
+- [AFMBench](../works/afmbench.md)
 
 ## Further Reading
 
