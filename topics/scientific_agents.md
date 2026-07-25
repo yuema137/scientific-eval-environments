@@ -30,6 +30,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **Simulation-driven model fitting.** [Stargazer](../works/stargazer.md) evaluates agents on iterative radial-velocity model fitting with per-criterion physical-consistency feedback; across three difficulty tiers and 20 real archival systems, no evaluated frontier agent passes a single real task.
 - **Paper reproduction as the unit of evaluation.** [PRBench](../works/prbench.md) asks agents to reproduce published physics papers end to end — 30 expert-curated tasks across 11 subfields, on which the best agent, OpenAI Codex (GPT-5.3-Codex), scores 34% with a zero end-to-end callback success rate.
 - **Holistic cost-controlled research suite.** [AstaBench](../works/astabench.md) aggregates 2,400+ problems across 11 benchmarks covering literature understanding, code & execution, data analysis, and end-to-end discovery, scoring 57 agents under standard tools with time-invariant dollar-cost accounting.
+- **Physical execution on a real instrument.** [AFMBench](../works/afmbench.md) holds agents to 100 curated tasks on an actual atomic force microscope rather than a simulator, and reports that materials-science question-answering proficiency does not transfer: Claude-3.5-Sonnet carries a 51.6% error rate while the best model reaches 65% overall task completion, falling to 23.3% where documentation and analysis are merged.
 
 ## Comparison
 
@@ -55,6 +56,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | Stargazer | 2026 | 100 seeded simulator tasks + 20 anonymized archival systems (NASA Exoplanet Archive, VizieR) | Astrophysics: exoplanet model fitting on RV time series | Four joint pass/fail criteria (residual RMS, ΔBIC, parameter match, planet count) | [→](../works/stargazer.md) |
 | PRBench | 2026 | Published physics papers curated and reproduced by 20+ research groups at Peking University | 30 tasks across 11 physics subfields | Weighted four-dimension rubric scored by a green agent against expert ground truth; end-to-end callback rate | [→](../works/prbench.md) |
 | AstaBench | 2025 | Author-built + adapted datasets, many from Asta user requests | Full pipeline: literature, code, data analysis, end-to-end discovery (CS-weighted) | LLM-judge rubrics + programmatic scoring with cost accounting | [→](../works/astabench.md) |
+| AFMBench | 2025 | 100 expert-curated tasks, stratified by tool count, agent count, complexity and functional domain | Scanning-probe microscopy of materials | Physical execution on a Nanosurf DriveAFM; per-domain completion rate plus a named error taxonomy | [→](../works/afmbench.md) |
 
 ## Open Questions
 
@@ -86,6 +88,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [Stargazer](../works/stargazer.md)
 - [PRBench](../works/prbench.md)
 - [AstaBench](../works/astabench.md)
+- [AFMBench](../works/afmbench.md)
 
 ## Further Reading
 
