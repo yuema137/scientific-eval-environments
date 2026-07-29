@@ -23,6 +23,7 @@
 - **通用助手问题。** [GAIA](../works/gaia.md) 提出 466 个需要推理、多模态、web 浏览与工具使用的真实世界问题，答案单一无歧义——人类达 92%，配插件的 GPT-4 为 15%。
 - **真实 web 环境。** [WebArena](../works/webarena.md) 托管跨四个领域的完全功能网站，以功能正确性对长 horizon web 任务打分（最佳 GPT-4 agent 14.41%，人类 78.24%）。
 - **整机计算机任务。** [OSWorld](../works/osworld.md) 在真实操作系统（Ubuntu / Windows / macOS）中提供 369 个开放式任务，配以逐任务的基于执行的评估脚本（最佳模型 12.24%，人类 72.36%）。
+- **真实感多应用工具编排。** [Toolathlon](../works/toolathlon.md) 通过 MCP server 暴露 32 个真实软件应用与 604 个工具，用来自真实软件的状态初始化环境，并以确定性的、基于状态的评估脚本为 108 个跨应用任务（平均约 20 轮）打分；最佳模型 pass@1 仅 38.6%，pass@3 / pass^3 的差距把可靠性暴露为独立短板。
 - **文档密集型数据分析。** [LongDA](../works/longda.md) 把导航长文档变成瓶颈本身：505 条分析查询覆盖 17 个美国全国性调查，配套文档平均 263k token，agent 在 100 步预算内以多轮块状交互完成文档检索、信息整合与 Python 执行；最强受评模型的 match rate 仅 68.91%，且论文把成功归因于检索与工具使用策略而非推理。
 - **开放式文献搜索。** [AutoResearchBench](../works/autoresearchbench.md) 在构造上就让 horizon 开放：其 1,000 条文献发现查询中符合条件的论文数量未知，agent 必须持续进行渐进式多步探查并自行决定何时停止；最强模型在其两类任务上均低于 10%。
 - **异步环境。** [Gaia2](../works/gaia2.md) 在事件驱动的环境中运行 1,120 个场景，这些环境按自己的时钟推进而非仅在 agent 行动时才变化，从而使时间意识成为一项被打分的能力：GPT-5（high）以 42.1% 的 pass@1 总分领先，但在 Time 划分上得分为 0.0，且每个受评模型在该划分上都低于 9 分。
@@ -45,6 +46,7 @@
 | Gaia2 | 2026 | 1,120 个场景，横跨七个能力划分；环境独立于 agent 推进 | 模拟智能手机世界，含 12 个有状态 app；面向 write 动作的验证器 | [→](../works/gaia2.md) |
 | AutoResearchBench | 2026 | 1,000 条开放式文献发现查询；答案集大小未知的渐进式多轮探查 | 学术检索与通用 web 检索上的 agentic 搜索 | [→](../works/autoresearchbench.md) |
 | LongDA | 2026 | 505 条查询按出版物分块多轮交互；平均 263k token 文档下的 100 步预算 | 美国联邦调查数据上的文档导航 + 沙箱化 Python | [→](../works/longda.md) |
+| Toolathlon | 2025 | 108 个跨应用任务；平均约 20 轮（上限 100 轮）；每任务平均暴露 69.9 个工具 | 经 MCP 的 32 个真实应用 / 604 个工具；容器化 + 远程；基于状态的脚本 | [→](../works/toolathlon.md) |
 
 ## Open Questions
 
@@ -69,6 +71,7 @@
 - [Gaia2](../works/gaia2.md)
 - [AutoResearchBench](../works/autoresearchbench.md)
 - [LongDA](../works/longda.md)
+- [Toolathlon](../works/toolathlon.md)
 
 ## Further Reading
 
