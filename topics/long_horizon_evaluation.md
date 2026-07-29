@@ -23,6 +23,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - **General-assistant questions.** [GAIA](../works/gaia.md) poses 466 real-world questions requiring reasoning, multimodality, web browsing, and tool use, with single unambiguous answers — humans reach 92% vs. 15% for GPT-4 with plugins.
 - **Realistic web environments.** [WebArena](../works/webarena.md) hosts fully functional websites across four domains and scores long-horizon web tasks by functional correctness (best GPT-4 agent 14.41% vs. 78.24% human).
 - **Whole-computer tasks.** [OSWorld](../works/osworld.md) provides 369 open-ended tasks in real operating systems (Ubuntu / Windows / macOS) with per-task execution-based evaluation scripts (best model 12.24% vs. 72.36% human).
+- **Documentation-intensive data analysis.** [LongDA](../works/longda.md) makes navigating long documentation the bottleneck: 505 analytical queries over 17 U.S. national surveys whose documentation averages 263k tokens, solved in multi-turn blocks of document retrieval, integration, and Python execution under a 100-step budget; the strongest evaluated model reaches only a 68.91% match rate, and the paper attributes success to retrieval and tool-use strategy rather than reasoning.
 - **Open-ended literature search.** [AutoResearchBench](../works/autoresearchbench.md) makes the horizon open-ended by construction: its 1,000 literature-discovery queries involve an unknown number of qualifying papers, so agents must sustain progressive multi-step probing and decide when to stop; the strongest models stay below 10% on both of its task types.
 - **Asynchronous environments.** [Gaia2](../works/gaia2.md) runs 1,120 scenarios in event-driven environments that advance on their own clock rather than only when the agent acts, making temporal awareness a scored capability: GPT-5 (high) leads at 42.1% pass@1 overall yet scores 0.0 on the Time split, and every evaluated model scores below 9 there.
 
@@ -43,6 +44,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | OSWorld | 2024 | 369 open-ended computer tasks | Real OS (Ubuntu / Windows / macOS); execution-graded | [→](../works/osworld.md) |
 | Gaia2 | 2026 | 1,120 scenarios across seven capability splits; the environment advances independently of the agent | Simulated smartphone universe of 12 stateful apps; write-action verifier | [→](../works/gaia2.md) |
 | AutoResearchBench | 2026 | 1,000 open-ended literature-discovery queries; progressive multi-turn probing with unknown answer-set size | Agentic search over academic and general web retrieval | [→](../works/autoresearchbench.md) |
+| LongDA | 2026 | 505 queries in multi-turn publication blocks; 100-step budget over avg 263k-token documentation | Document navigation + sandboxed Python over U.S. federal survey data | [→](../works/longda.md) |
 
 ## Open Questions
 
@@ -66,6 +68,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - [OSWorld](../works/osworld.md)
 - [Gaia2](../works/gaia2.md)
 - [AutoResearchBench](../works/autoresearchbench.md)
+- [LongDA](../works/longda.md)
 
 ## Further Reading
 
