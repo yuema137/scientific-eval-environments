@@ -29,6 +29,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - **Module-level proof checking.** [Pseudo-Formalization](../works/pseudo-formalization.md) verifies each premise–conclusion module of a rewritten proof independently, scoring error localization over 35 arXiv papers with 40 disclosed errors.
 - **Pairwise trajectory preference.** [Plan-RewardBench](../works/plan-rewardbench.md) pits a chosen trajectory against a confusable hard negative across 1,171 pairs, scoring the judge rather than the agent.
 - **Judge-against-expert agreement.** [AgentRewardBench](../works/agentrewardbench.md) scores 12 LLM judges and the benchmarks' own rule-based evaluators against expert labels on 1,302 web agent trajectories, finding no judge above 70% precision.
+- **Harness-effect diagnostics.** [Harness-Bench](../works/harness-bench.md) fixes tasks, sandboxes, budgets, and evaluators while varying the harness around each model backend, scoring 5,194 trajectories with a security-gated product of completion and a trace-derived process score (robustness, tool use, consistency); a 23.8-point gap between the best and worst configurable harness on identical tasks and models supports reporting capability per model–harness configuration.
 
 ## Comparison
 
@@ -52,6 +53,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 | Pseudo-Formalization | 2026 | Error-location precision + recall; per-proof coverage and false errors | Mathematical proof verification | [→](../works/pseudo-formalization.md) |
 | Plan-RewardBench | 2026 | Pairwise accuracy on chosen / rejected trajectory pairs | Tool-integrated agent planning | [→](../works/plan-rewardbench.md) |
 | AgentRewardBench | 2025 | Judge precision against expert success labels | Web agents | [→](../works/agentrewardbench.md) |
+| Harness-Bench | 2026 | Security-gated Completion × Process (robustness / tool use / consistency from traces) | Cross-harness executable agent workflows (8 categories) | [→](../works/harness-bench.md) |
 
 ## Open Questions
 
@@ -82,6 +84,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - [Pseudo-Formalization](../works/pseudo-formalization.md)
 - [Plan-RewardBench](../works/plan-rewardbench.md)
 - [AgentRewardBench](../works/agentrewardbench.md)
+- [Harness-Bench](../works/harness-bench.md)
 
 ## Further Reading
 

@@ -29,6 +29,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - **从修订历史中挖掘步骤标签。** [Pseudo-Formalization](../works/pseudo-formalization.md) 筛选 arXiv 修订说明中作者自陈「某引理已修正」的记录，把（论文编号、版本对、错误位置）直接存为标签，从而以近乎零成本获得专家级的步骤错误标注。
 - **对整条轨迹的偏好判定。** [Plan-RewardBench](../works/plan-rewardbench.md) 固定工具环境与用户意图、只让轨迹变化，构造 1,171 对偏好数据来考察约 30 个评判者，并按 horizon 长度而非汇总报告其可靠性。
 - **评判者与规则式评分器的对照。** [AgentRewardBench](../works/agentrewardbench.md) 用 1,302 条专家标注的 web agent 轨迹考察 12 个 LLM judge，并指出 benchmark 自带的规则式评分器会系统性地低报成功率。
+- **Harness 效应诊断。** [Harness-Bench](../works/harness-bench.md) 固定任务、沙箱、预算与评估器，只变换模型外围的 harness，用安全门控的 completion × 过程分（从轨迹评出的 robustness、tool use、consistency）为 5,194 条轨迹打分；在完全相同的任务与模型上，最好与最差的可配置 harness 相差 23.8 分，支持按模型–harness 配置报告能力。
 
 ## Comparison
 
@@ -52,6 +53,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | Pseudo-Formalization | 2026 | 从 arXiv 修订历史挖掘的步骤错误位置 | 每个自包含的证明模块 | [→](../works/pseudo-formalization.md) |
 | Plan-RewardBench | 2026 | 成对轨迹偏好判定的准确率 | 整条工具使用轨迹 | [→](../works/plan-rewardbench.md) |
 | AgentRewardBench | 2025 | 与专家成功标签比对的 precision | 整条 web agent 轨迹 | [→](../works/agentrewardbench.md) |
+| Harness-Bench | 2026 | 安全门控的 Completion × Process（从轨迹评出的 robustness / tool use / consistency） | 跨 harness 的可执行 agent 工作流（8 类） | [→](../works/harness-bench.md) |
 
 ## Open Questions
 
@@ -82,6 +84,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - [Pseudo-Formalization](../works/pseudo-formalization.md)
 - [Plan-RewardBench](../works/plan-rewardbench.md)
 - [AgentRewardBench](../works/agentrewardbench.md)
+- [Harness-Bench](../works/harness-bench.md)
 
 ## Further Reading
 
