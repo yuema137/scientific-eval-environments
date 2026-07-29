@@ -8,6 +8,7 @@ TRACE (Trajectory-Aware Comprehensive Evaluation) 是面向 deep research agent 
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
+- [Credit Assignment](../topics/credit_assignment.md)
 
 ## Links
 
@@ -20,7 +21,7 @@ TRACE 论文指出：Pass@1 类评估在 deep research agent 上会造成 "high-
 
 ## Tasks
 
-DeepResearch-Bench，具有可控的任务复杂度分级。精确任务数：TODO(reference)。
+DeepResearch-Bench 共 650 个任务，分三个子集：**TRACE-Core**（500 个任务，平均复杂度 C(q)=3.5，约 20% 含 "information trap"）、**TRACE-Robustness**（100 个任务，C(q)=4.2，全部含 trap）、**TRACE-Scaffolding**（50 个任务，C(q)=5.8，40% 含 trap）。复杂度是由 formalism 驱动合成得到的连续标量 C(q)，而非离散分级。
 
 ## Domains
 
@@ -28,9 +29,12 @@ Deep research agent 任务：web search、evidence collection、retrieval、reas
 
 ## Evaluation
 
-- **Hierarchical Trajectory Utility Function** — 对 accuracy、process efficiency、evidence grounding、reasoning quality 的联合评分。
-- **Scaffolded Capability Assessment** — 通过测量成功所需的最少引导，量化 agent 的潜在能力。
-- 将评估重构为揭示 accuracy / efficiency / robustness 之间的 trade-off，而非单一 Pass@1。
+- **Hierarchical Trajectory Utility U(H)。** 最终答案的正确性作为硬性乘法门，作用在效率与认知质量的乘积之上——U(H) = 𝟙(答案正确) · E(H)^ω_E · C(H)^ω_C——因此答案错误会使整条效用归零。
+  - **Process Efficiency E(H)** 奖励解决更复杂的任务，同时除以一个 trajectory 成本泛函，其中的 *Redundant Exploration Penalty* 按相邻观测 embedding 的余弦相似度，降权连续的无信息动作。
+  - **Cognitive Quality C(H) = β·G_E + (1−β)·R_R** 结合 **Evidence Grounding** G_E（各原子主张 NLI 蕴含概率的几何平均，任一未被支撑的主张都会使其崩塌）与 **Reasoning Robustness** R_R（遭遇预设 information trap 后恢复所需步数的指数衰减）。
+  - 全程采用几何平均是刻意为之：“研究过程的强度取决于其最薄弱的一环”。
+- **Scaffolded Capability Assessment。** 借用 Vygotsky 的最近发展区，它揭示 oracle 解题 trajectory 的前 λ 比例，并报告 **λ_min**——期望成功率越过阈值 θ_succ（≈0.9）所需的最小提示比例（∈ [0,1]）。λ_min 越低，内在能力越强。
+- **报告的 “high-score illusion”。** DeepSeek-V3.1-671B 的 Pass@1 最高（65.8%），但在头部模型中 trajectory utility 最低（0.65）；Gemini-2.5-pro 则为 Pass@1 75.4% / utility 0.88。Scaffolding λ̄_min：AgentFounder-30B 为 0.22，DeepSeek-V3.1 为 0.35，ReAct baseline 为 0.51。
 
 ## Typical Duration
 
@@ -55,7 +59,7 @@ Deep research agent 任务：web search、evidence collection、retrieval、reas
 
 ## Limitations
 
-- Repository note: Hierarchical utility 中的 reasoning quality 与 evidence grounding 需要 judge（模型或人）参与评分。
+- Repository note: 效用函数依赖模型组件——evidence grounding 用 NLI 模型、最终答案正确性用判定函数——因此评分继承了这些 judge 的可靠性。
 
 ## Related Works
 

@@ -7,7 +7,8 @@ AgentBoard is a multi-turn LLM-agent evaluation benchmark paired with an analyti
 ## Topics
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
-- Skill Hierarchy *(topic page pending)*
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
+- [Credit Assignment](../topics/credit_assignment.md)
 
 ## Links
 

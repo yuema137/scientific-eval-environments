@@ -18,7 +18,12 @@
 - **能力驱动的 proactive-agent 任务。** [UniClawBench](../works/uniclawbench.md) 在 Docker 闭环模拟下沿五个能力轴评估 proactive agent。
 - **Deep research trajectory。** [TRACE](../works/trace.md) 面向长 horizon 的 deep-research 工作流，配 hierarchical trajectory utility function。
 - **长 horizon 金融 tool use。** [FinTrace](../works/fintrace.md) 在长 horizon 金融决策上做 4 维度共 9 指标的评估。
-- **有界预算下的迭代优化。** [Frontier-Eng](../works/frontier-eng.md) 把真实工程任务处理为面向工业级仿真器的 propose-execute-evaluate 循环——horizon 由固定的交互预算界定，而不是固定步数。
+- **真实软件工程任务。** [SWE-bench](../works/swe-bench.md) 要求 agent 通过编辑代码库解决 2,294 个真实 GitHub issue，以各仓库自身的测试套件执行打分；其人工验证的 500 实例 SWE-bench Verified 子集是以可靠性为重点的变体。
+- **多环境 agent 能力。** [AgentBench](../works/agentbench.md) 在一个框架下汇集 8 个不同的交互环境，考察 LLM-as-agent 在多轮交互中的推理与决策。
+- **通用助手问题。** [GAIA](../works/gaia.md) 提出 466 个需要推理、多模态、web 浏览与工具使用的真实世界问题，答案单一无歧义——人类达 92%，配插件的 GPT-4 为 15%。
+- **真实 web 环境。** [WebArena](../works/webarena.md) 托管跨四个领域的完全功能网站，以功能正确性对长 horizon web 任务打分（最佳 GPT-4 agent 14.41%，人类 78.24%）。
+- **整机计算机任务。** [OSWorld](../works/osworld.md) 在真实操作系统（Ubuntu / Windows / macOS）中提供 369 个开放式任务，配以逐任务的基于执行的评估脚本（最佳模型 12.24%，人类 72.36%）。
+- **异步环境。** [Gaia2](../works/gaia2.md) 在事件驱动的环境中运行 1,120 个场景，这些环境按自己的时钟推进而非仅在 agent 行动时才变化，从而使时间意识成为一项被打分的能力：GPT-5（high）以 42.1% 的 pass@1 总分领先，但在 Time 划分上得分为 0.0，且每个受评模型在该划分上都低于 9 分。
 
 ## Comparison
 
@@ -30,7 +35,12 @@
 | UniClawBench | 2026 | 400 多轮 checkpointed 任务 | 实时 Docker + 闭环模拟 | [→](../works/uniclawbench.md) |
 | TRACE | 2026 | Deep-research 多步 trajectory | Deep research | [→](../works/trace.md) |
 | FinTrace | 2026 | 800 条长 horizon 金融 trajectory | 金融 tool use | [→](../works/fintrace.md) |
-| Frontier-Eng | 2026 | 47 任务；迭代式 propose-execute-evaluate；horizon = 固定交互预算 | 工程（工业级仿真器） | [→](../works/frontier-eng.md) |
+| SWE-bench | 2023 | 2,294 个 issue；跨多文件多函数编辑 | 软件工程（Python 仓库）；执行打分 | [→](../works/swe-bench.md) |
+| AgentBench | 2023 | 8 个交互环境；多轮 | 跨环境 agent 能力 | [→](../works/agentbench.md) |
+| GAIA | 2023 | 466 个多工具助手问题 | 通用助手（推理 / 浏览 / 工具） | [→](../works/gaia.md) |
+| WebArena | 2023 | 长 horizon web 任务；功能正确性 | 实时自托管网站（4 领域） | [→](../works/webarena.md) |
+| OSWorld | 2024 | 369 个开放式计算机任务 | 真实 OS（Ubuntu / Windows / macOS）；执行打分 | [→](../works/osworld.md) |
+| Gaia2 | 2026 | 1,120 个场景，横跨七个能力划分；环境独立于 agent 推进 | 模拟智能手机世界，含 12 个有状态 app；面向 write 动作的验证器 | [→](../works/gaia2.md) |
 
 ## Open Questions
 
@@ -47,7 +57,12 @@
 - [UniClawBench](../works/uniclawbench.md)
 - [TRACE](../works/trace.md)
 - [FinTrace](../works/fintrace.md)
-- [Frontier-Eng](../works/frontier-eng.md)
+- [SWE-bench](../works/swe-bench.md)
+- [AgentBench](../works/agentbench.md)
+- [GAIA](../works/gaia.md)
+- [WebArena](../works/webarena.md)
+- [OSWorld](../works/osworld.md)
+- [Gaia2](../works/gaia2.md)
 
 ## Further Reading
 

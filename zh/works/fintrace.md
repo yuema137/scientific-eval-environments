@@ -8,6 +8,7 @@ FinTrace 是面向 LLM 工具调用在长 horizon 金融决策任务上的 holis
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
+- [Credit Assignment](../topics/credit_assignment.md)
 
 ## Links
 

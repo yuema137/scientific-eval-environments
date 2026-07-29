@@ -17,8 +17,10 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 
 - **在 tool use 中把成本作为一等目标。** [CostBench](../works/costbench.md) 把成本最小化本身设为任务，在 travel-planning 场景下具有可配置的原子/组合工具成本，并通过阻断事件迫使重规划。
 - **Token 之外的 tool-use 成本，聚焦科学仿真。** [SimulCost](../works/simulcost.md) 把 cost-aware 评估扩展到物理仿真参数调优，显式建模仿真时间与实验资源成本，覆盖 13 个仿真器，并直接与传统方法对比。
+- **面向 cost-aware planning 的专用数据集。** [CATP-LLM / OpenCATP](../works/catp-llm.md) 贡献了 OpenCATP——被称为首个面向 cost-aware planning 的数据集（11,100 样本），其中工具执行成本（如执行时间）与任务性能联合打分。其配对的规划方法属于本仓库范围之外的 agent 构建工作；数据集才是此处记录的 resource-aware 评估贡献。
+- **按保真度定价的测量预算。** [MaD Physics](../works/mad-physics.md) 对每次观测收取随其精度上升的成本，并对每个 trial 的总花费设上限，使 agent 必须在固定预算下分配测量，以推断一条未知的——有时被改动的——物理定律。
+- **作为在线控制信号的预算。** [BAGEN](../works/bagen.md) 让 agent 在每一轮预测剩余预算的上界与下界并标记不可行，把资源使用作为逐步的估计目标而非执行后的统计来评分。
 - **成本–性能前沿式报告。** 另一些工作在 accuracy 之外同时报告 token 或 dollar 成本，用于在 Pareto 前沿上而非单一 accuracy 数字上做比较。这是分析时的资源意识，而非 benchmark 内部的资源意识。
-- **交互预算作为资源约束。** [Frontier-Eng](../works/frontier-eng.md) 把 *propose-execute-evaluate 迭代次数*视为 47 个工程任务上的一等预算；论文的"深度 > 广度"发现——在受约束问题上深度更重要——本身就是关于"预算受限的 agent 应如何分配预算"的声明。
 
 ## Comparison
 
@@ -26,7 +28,9 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 |---|---|---|---|---|---|
 | CostBench | 2025 | 可配置的原子/组合工具成本 | 一等目标——为成本最优做规划 | 动态（阻断事件）；报告约 40% 静态→动态下降 | [→](../works/costbench.md) |
 | SimulCost | 2026 | 仿真时间 + 实验资源 | 一等目标——预算下的参数调优 | 单轮与多轮；13 个仿真器 | [→](../works/simulcost.md) |
-| Frontier-Eng | 2026 | 交互预算（propose-execute-evaluate 迭代数） | 有界预算塑形整个评估循环 | 工业级仿真器连续奖励 + 硬性可行性下的迭代优化 | [→](../works/frontier-eng.md) |
+| CATP-LLM / OpenCATP | 2024 | 归一化工具价格（USD；执行时间 + 内存） | 通过 Quality of Plan 与性能联合报告（QoP = α·perf − (1−α)·cost） | 111 个工具规划任务 / 11,100 样本 | [→](../works/catp-llm.md) |
+| MaD Physics | 2026 | 测量成本（按保真度定价的观测） | agent 分配的每个 trial 固定预算 | 模拟经典 / 流体 / 量子物理 | [→](../works/mad-physics.md) |
+| BAGEN | 2026 | Token；时间 / 占用 / 成本 | 预测目标 + 提前停止目标 | 谜题 / 检索 / 编码 / 供应链 | [→](../works/bagen.md) |
 
 ## Open Questions
 
@@ -39,7 +43,9 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 
 - [CostBench](../works/costbench.md) — 动态 tool-use 条件下的成本最优规划。
 - [SimulCost](../works/simulcost.md) — 覆盖 13 个仿真器的 cost-aware 物理仿真参数调优。
-- [Frontier-Eng](../works/frontier-eng.md) — 固定交互预算下的迭代式工程优化。
+- [CATP-LLM / OpenCATP](../works/catp-llm.md) — OpenCATP，面向 cost-aware 工具规划的数据集（11,100 样本）。
+- [MaD Physics](../works/mad-physics.md) — 模拟物理中按保真度定价的测量预算；agent 在测量的质与量之间权衡以推断被改动的物理定律。
+- [BAGEN](../works/bagen.md) — 跨 token 与多资源 agent 的渐进式预算区间预测与可训练的提前停止。
 
 ## Further Reading
 

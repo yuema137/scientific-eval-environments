@@ -8,6 +8,7 @@ TRACE (Trajectory-Aware Comprehensive Evaluation) is an evaluation framework for
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
+- [Credit Assignment](../topics/credit_assignment.md)
 
 ## Links
 
@@ -20,7 +21,7 @@ TRACE argues that Pass@1-style evaluation creates a "high-score illusion" for de
 
 ## Tasks
 
-DeepResearch-Bench with controllable task complexity levels. Exact task count: TODO(reference).
+DeepResearch-Bench comprises 650 tasks in three subsets: **TRACE-Core** (500 tasks, average complexity C(q) = 3.5, ~20% embedding "information traps"), **TRACE-Robustness** (100 tasks, C(q) = 4.2, all with traps), and **TRACE-Scaffolding** (50 tasks, C(q) = 5.8, 40% with traps). Complexity is a continuous scalar C(q) from a formalism-driven synthesis procedure, not a set of discrete tiers.
 
 ## Domains
 
@@ -28,9 +29,12 @@ Deep-research agent tasks: web search, evidence collection, retrieval, reasoning
 
 ## Evaluation
 
-- **Hierarchical Trajectory Utility Function** — joint score over accuracy, process efficiency, evidence grounding, and reasoning quality.
-- **Scaffolded Capability Assessment** — quantifies latent agent capability by measuring the minimum guidance required for success.
-- Framed as revealing trade-offs across accuracy / efficiency / robustness rather than a single Pass@1 number.
+- **Hierarchical Trajectory Utility U(H).** Final-answer accuracy is a hard multiplicative gate on a product of efficiency and cognitive quality — U(H) = 𝟙(answer correct) · E(H)^ω_E · C(H)^ω_C — so a wrong answer zeros the whole utility.
+  - **Process Efficiency E(H)** rewards solving more complex tasks while dividing by a trajectory-cost functional, including a *Redundant Exploration Penalty* that down-weights consecutive uninformative actions in proportion to the cosine similarity of successive observation embeddings.
+  - **Cognitive Quality C(H) = β·G_E + (1−β)·R_R** combines **Evidence Grounding** G_E — the geometric mean of per-claim NLI entailment probabilities, so a single ungrounded claim collapses the score — and **Reasoning Robustness** R_R — an exponential decay in the number of steps needed to recover after a planted information trap.
+  - The geometric-mean design is deliberate: "the research process is only as strong as its weakest link."
+- **Scaffolded Capability Assessment.** Formalizing Vygotsky's Zone of Proximal Development, it reveals the first λ-fraction of an oracle solution trajectory and reports **λ_min** — the minimum hint fraction in [0, 1] at which expected success crosses a threshold θ_succ (≈0.9). Lower λ_min means more intrinsic capability.
+- **Reported "high-score illusion."** DeepSeek-V3.1-671B posts the highest Pass@1 (65.8%) but the lowest trajectory utility (0.65) among top models, while Gemini-2.5-pro reaches Pass@1 75.4% / utility 0.88. Scaffolding λ̄_min: AgentFounder-30B 0.22, DeepSeek-V3.1 0.35, ReAct baseline 0.51.
 
 ## Typical Duration
 
@@ -55,7 +59,7 @@ Argues explicitly that trajectories should be first-class evaluation objects for
 
 ## Limitations
 
-- Repository note: Hierarchical utility scoring relies on judges (model or human) for reasoning-quality and evidence-grounding components.
+- Repository note: The utility function relies on model components — an NLI model for evidence grounding and a judgment function for final-answer accuracy — so scores inherit those judges' reliability.
 
 ## Related Works
 

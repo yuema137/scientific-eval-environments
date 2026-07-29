@@ -19,7 +19,7 @@ Enconda-bench provides process-level trajectory assessment of software-engineeri
 
 ## Tasks
 
-Automatically constructed task instances built by injecting realistic README errors and validated in Docker. Exact task count: TODO(reference).
+4,201 erroneous-README tasks (9,471 injected errors in total) across 323 source repositories, each pinned to a fixed commit. Construction funnel: 1,772 two-error READMEs → 1,230 Docker-validated (LLM–human agreement 98.5%) → split and merged into 4,201 READMEs carrying 1–10+ errors, stratified into difficulty levels 1–10.
 
 ## Domains
 
@@ -27,14 +27,15 @@ Environment configuration for software-engineering agents.
 
 ## Evaluation
 
-Process-level trajectory assessment across four capability subprocesses:
+Process-level scoring across four capabilities (the paper's Planning, Perception, Feedback, Action), reported as separate metric groups rather than one composite score:
 
-- Planning
-- Error diagnosis
-- Repair
-- Execution
+- **Perception (error diagnosis)** — predicted error types (from six canonical categories) are matched against the gold set; reported as **Precision / Recall / F1**, since a README may contain multiple errors.
+- **Feedback (repair)** — each predicted **error description** and **fix suggestion** is matched to gold and judged by GPT-4.1-mini for consistency, giving two **accuracy** scores.
+- **Planning + Action (execution)** — the extracted shell script runs in a Docker container on a fixed commit, scored by **Pass@1**: a pass requires the environment to build, the test files to execute, and the process to exit normally.
 
-Validated in Docker containers. Reported: agents can localize errors but struggle to translate feedback into effective corrections.
+**Error-injection validation.** An injected error counts as effective only if setup fails with it and proceeds once it is repaired; a deliberately weak model (GPT-4.1-mini) generates and runs the setup script so that a stronger model cannot implicitly auto-fix errors and undermine validity — followed by LLM filtering and human validation (98.5% agreement).
+
+Reported (best configuration, Repo2Run + Claude-4): error-type F1 = 60.6, description accuracy = 52.2, fix accuracy = 47.3, Pass@1 = 22.9. The gap between fix accuracy (47.3) and Pass@1 (22.9) is the paper's evidence that agents can localize errors but struggle to translate feedback into working corrections.
 
 ## Typical Duration
 
