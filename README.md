@@ -14,29 +14,10 @@ scientific-eval-environments/
 ├── AGENT.md               # Repository constitution — read before contributing
 ├── CLAUDE.md              # Quick reference for the constitution
 ├── works/                 # One Markdown card per work (factual references)
-│   ├── README.md
-│   ├── agent-evaluation-survey.md
-│   ├── agentatlas.md
-│   ├── agentboard.md
-│   ├── agents-last-exam.md
-│   ├── airs-bench.md
-│   ├── costbench.md
-│   ├── enconda-bench.md
-│   ├── fintrace.md
-│   ├── from-chatbot-to-digital-colleague.md
-│   ├── gate.md
-│   ├── insights-generator.md
-│   ├── long-horizon-terminal-bench.md
-│   ├── medhelm.md
-│   ├── naturebench.md
-│   ├── simulcost.md
-│   ├── t-eval.md
-│   ├── terminal-bench-science.md
-│   ├── trace.md
-│   ├── traxgen.md
-│   └── uniclawbench.md
+│   ├── README.md          # Card template and rules
+│   └── ...                # 66 cards, flat, kebab-case — one file per work
 ├── topics/                # Literature-review pages, one per canonical topic
-│   ├── README.md
+│   ├── README.md          # Topic page template and rules
 │   ├── credit_assignment.md
 │   ├── long_horizon_evaluation.md
 │   ├── resource_aware_evaluation.md
@@ -131,12 +112,8 @@ The RL cutline is judged by the paper's primary contribution: if it advances *ho
 
 ## Status
 
-Full coverage of the initial reference list. All seven canonical topic pages are written:
+All seven canonical topic pages are written, and card coverage has grown well past the initial reference list:
 
-- **31 cards** in `works/`:
-  - **Benchmark cards (23)**: AgentBench, AgentBoard, Agents' Last Exam, AIRS-Bench, Aviary, CATP-LLM / OpenCATP, CostBench, Enconda-bench, FinTrace, GAIA, Long-Horizon-Terminal-Bench, MedHELM, NatureBench, OSWorld, ScienceAgentBench, SciAgentArena, SimulCost, SWE-bench, T-Eval, Terminal-Bench Science, TRACE, UniClawBench, WebArena.
-  - **Framework / methodology cards (3)**: AgentAtlas (audit protocol), Insights Generator (corpus-level trace diagnostics), Traxgen (deterministic ground-truth trajectory generation toolkit).
-  - **Reference-paper cards (4)**: *Survey on Evaluation of LLM-based Agents* (Yehudai et al., 2025), *Evaluation and Benchmarking of LLM Agents: A Survey* (Mohammadi et al., 2025), *A Survey on Large Language Model based Autonomous Agents* (Wang et al., 2023), *From Chatbot to Digital Colleague* (Zhang et al., 2026).
-  - **Included with an explicit scope caveat (1)**: GATE — actual paper is about tool making, not skill-hierarchy evaluation as the initial reference list suggested; card carries a repository-note flagging this.
-- **7 topic pages** — full literature reviews with topic-specific comparison tables and open questions.
-- **Chinese mirrors** kept in sync per bilingual cadence.
+- **66 cards** in `works/` — benchmarks, evaluation frameworks and methodologies, and reference papers (surveys and position papers). Each card notes its type explicitly; the flat directory itself is the authoritative list.
+- **7 topic pages** — full literature reviews with topic-specific comparison tables and open questions. Current Related-Works coverage per topic: Scientific Agent Benchmarks (22), Trajectory Evaluation (18), Credit Assignment (13), General Long-Horizon Agent Benchmarks (13), Skill Hierarchy (6), Resource-aware Evaluation (5), Survey (4).
+- **Chinese mirrors** under `zh/` kept in sync per the bilingual cadence.
