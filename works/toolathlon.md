@@ -1,5 +1,7 @@
 # The Tool Decathlon / Toolathlon (2025)
 
+> **English** | [简体中文](../zh/works/toolathlon.md)
+
 ## Overview
 
 The Tool Decathlon (Toolathlon) is a benchmark for language agents on diverse, realistic, long-horizon task execution: 108 tasks spanning 32 real software applications and 604 tools, with realistic initial environment states and strictly verifiable, state-based evaluation scripts.

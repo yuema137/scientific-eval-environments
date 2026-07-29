@@ -1,5 +1,7 @@
 # Enconda-bench (2025)
 
+> **English** | [简体中文](../zh/works/enconda-bench.md)
+
 ## Overview
 
 Enconda-bench (Environment Configuration Diagnosis Benchmark) evaluates software-engineering agents at the process level on environment configuration — a bottleneck where end-to-end build/test benchmarks obscure where and why agents fail.

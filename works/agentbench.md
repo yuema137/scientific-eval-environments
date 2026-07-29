@@ -1,5 +1,7 @@
 # AgentBench (2023)
 
+> **English** | [简体中文](../zh/works/agentbench.md)
+
 ## Overview
 
 AgentBench is a multi-dimensional benchmark that evaluates LLMs as agents across 8 distinct interactive environments, assessing reasoning and decision-making abilities over multi-round interaction.

@@ -1,5 +1,7 @@
 # Resource-aware Evaluation
 
+> [English](../../topics/resource_aware_evaluation.md) | **简体中文**
+
 ## Definition
 
 Resource-aware evaluation 把资源消耗——token、tool-call 费用、wall-clock 时间、计算资源、仿真时间或某种领域特定的成本单位——纳入 benchmark 所衡量的范围，而不仅作为事后统计。在其最强的形式下，某种资源（通常是成本）被作为 agent 必须与任务成功一起权衡的显式优化目标。

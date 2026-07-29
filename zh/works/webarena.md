@@ -1,5 +1,7 @@
 # WebArena (2023)
 
+> [English](../../works/webarena.md) | **简体中文**
+
 ## Overview
 
 WebArena 是一个用于构建与评估自主 agent 的真实、可复现 web 环境。它托管跨四个常见领域的完全功能网站，通过功能正确性评估语言引导的 agent 在长 horizon web 任务上的表现。

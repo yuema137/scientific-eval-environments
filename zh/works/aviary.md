@@ -1,5 +1,7 @@
 # Aviary (2024)
 
+> [English](../../works/aviary.md) | **简体中文**
+
 ## Overview
 
 Aviary 是一个面向 language agent 的可扩展 gymnasium，将 agent 形式化为在 language-grounded 部分可观测马尔可夫决策过程（POMDP）中求解的策略。它实现五个环境，其中三个为科学环境——DNA 构建操作（分子克隆）、科学文献研究与蛋白质工程——提供可复用的多步科学任务环境。本仓库为这些科学评估环境而收录它；论文的训练框架贡献是与本仓库范围相邻的 agent 构建工作（见 Limitations 中的 repository note）。

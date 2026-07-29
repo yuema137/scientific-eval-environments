@@ -1,5 +1,7 @@
 # BAGEN (2026)
 
+> **English** | [简体中文](../zh/works/bagen.md)
+
 ## Overview
 
 BAGEN is an evaluation benchmark that tests whether LLM agents are budget-aware — able to estimate mid-execution how much of their resource budget remains and whether the task is still finishable — treating budget as an active control signal rather than a passive, post-hoc cost metric. It evaluates five frontier agents across four environments and formalizes budget-awareness as progressive interval estimation, in which the agent predicts an upper and lower bound on its remaining budget at every turn.

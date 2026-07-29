@@ -1,5 +1,7 @@
 # AgentProcessBench (2026)
 
+> [English](../../works/agentprocessbench.md) | **简体中文**
+
 ## Overview
 
 AgentProcessBench 是一个用于评估 tool-using agent 中间步骤 step-level 有效性的 benchmark，面向真实的多轮 trajectory。它包含采样自 5 个 policy model、覆盖 4 个 tool-use benchmark 的 1,000 条 trajectory，以及 8,509 条人工标注的 step 标签，采用三元 +1 / 0 / −1 方案，标注者间一致性（inter-annotator agreement）达 89.1%。

@@ -1,5 +1,7 @@
 # Collider-Bench (2026)
 
+> [English](../../works/collider-bench.md) | **简体中文**
+
 ## Overview
 
 Collider-Bench 是一个 benchmark，评估 LLM agent 能否仅凭公开论文和开放科学软件复现大型强子对撞机（LHC）的实验分析。首个版本包含取自 4 项 CMS 超对称搜索的 10 个 Simulation 任务，在带有公开对撞机模拟软件栈的容器化沙盒中运行，并以对照隐藏参考产额的连续直方图保真度评分。

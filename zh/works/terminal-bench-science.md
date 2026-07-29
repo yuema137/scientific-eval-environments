@@ -1,5 +1,7 @@
 # Terminal-Bench Science (2026)
 
+> [English](../../works/terminal-bench-science.md) | **简体中文**
+
 ## Overview
 
 Terminal-Bench Science 将 Terminal-Bench 框架扩展到自然科学领域，通过确定性的编程化验证在容器化环境中评估 AI agent 在真实科学计算工作流上的表现。

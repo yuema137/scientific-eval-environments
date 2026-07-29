@@ -1,5 +1,7 @@
 # MATP (2025)
 
+> [English](../../works/matp.md) | **简体中文**
+
 ## Overview
 
 MATP（Multi-step Automatic Theorem Proving）是一个评估框架，通过将自然语言推理的每一步翻译为一阶逻辑（First-Order Logic），再交由自动定理证明器裁决，来验证 LLM 生成的推理。它被应用于一个包含 10,830 条推理实例的 benchmark，这些实例由 10 个 LLM 在取自 PrOntoQA-OOD、ProofWriter 和 FOLIO 的任务上产生。

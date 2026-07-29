@@ -1,5 +1,7 @@
 # SimulCost (2026)
 
+> **English** | [简体中文](../zh/works/simulcost.md)
+
 ## Overview
 
 SimulCost is a cost-aware benchmark for LLM agents on physics-simulation parameter tuning. It explicitly accounts for tool-use costs — simulation time and experimental resources — beyond the token-cost view of resource-aware evaluation.

@@ -1,5 +1,7 @@
 # QVal (2026)
 
+> **English** | [简体中文](../zh/works/qval.md)
+
 ## Overview
 
 QVal is a training-free evaluation methodology and testbed that scores dense supervision signals by how well they order an agent's candidate actions according to the Q-values of a strong reference policy. It is instantiated as QVal-v1.0, which benchmarks 21 dense supervision methods from seven methodological families across four environments and six open-weight model backbones.

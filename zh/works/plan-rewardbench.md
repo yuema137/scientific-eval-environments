@@ -1,5 +1,7 @@
 # Plan-RewardBench (2026)
 
+> [English](../../works/plan-rewardbench.md) | **简体中文**
+
 ## Overview
 
 Plan-RewardBench 是一个 benchmark，衡量 reward model 与 LLM judge 在工具集成场景中识别更优 agent trajectory 的能力。它包含 1,171 个成对 trajectory 偏好实例，覆盖七个评测 split 和四个场景族。

@@ -1,5 +1,7 @@
 # AgentAtlas (2026)
 
+> [English](../../works/agentatlas.md) | **简体中文**
+
 ## Overview
 
 AgentAtlas 是面向 LLM agent 的诊断词汇与审计协议，应用在 15 个已有 agent benchmark 之上。它把评估从"仅结果排行榜"重构为对**每次控制决策**的质量和**每条 trajectory** 的质量，提供一个六路控制决策分类以及一个失败分类。

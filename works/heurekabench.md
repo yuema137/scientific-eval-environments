@@ -1,5 +1,7 @@
 # HeurekaBench (2026)
 
+> **English** | [简体中文](../zh/works/heurekabench.md)
+
 ## Overview
 
 HeurekaBench is a framework for creating benchmarks of exploratory, open-ended research questions over experimental datasets, rather than a fixed benchmark itself. Each question is grounded in a published scientific study and its code repository, and is produced by a semi-automated pipeline whose candidate answers are verified against the findings that study reported.

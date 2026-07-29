@@ -1,5 +1,7 @@
 # Trajectory Evaluation
 
+> [English](../../topics/trajectory_evaluation.md) | **简体中文**
+
 ## Definition
 
 Trajectory evaluation 指的是一类评估方法：根据 agent 产生的动作序列与中间状态来打分，而不仅是最终答案。指标可以包括分步正确性、子目标完成度、按能力子过程打分、推理质量、evidence grounding 或过程效率。

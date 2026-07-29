@@ -1,5 +1,7 @@
 # TELBench (2026)
 
+> **English** | [简体中文](../zh/works/telbench.md)
+
 ## Overview
 
 TELBench is a benchmark for span-level error localization in deep-research agent trajectories, testing whether a model can pick out harmful error spans among normal exploration, failed searches, tentative hypotheses, and harmless noise. It holds 1,000 verified trajectory instances (600 easy / 400 hard) drawn from a corpus of 2,790 real agent runs, each segmented into ordered semantic spans that carry binary error / non-error labels.

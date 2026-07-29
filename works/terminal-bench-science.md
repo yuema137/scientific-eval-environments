@@ -1,5 +1,7 @@
 # Terminal-Bench Science (2026)
 
+> **English** | [简体中文](../zh/works/terminal-bench-science.md)
+
 ## Overview
 
 Terminal-Bench Science extends the Terminal-Bench framework to natural-science domains, evaluating AI agents on containerized scientific-computing workflows with deterministic programmatic verification.

@@ -1,5 +1,7 @@
 # ResearchClawBench (2026)
 
+> **English** | [简体中文](../zh/works/researchclawbench.md)
+
 ## Overview
 
 ResearchClawBench is a benchmark for end-to-end autonomous scientific research in which agents must re-discover the findings of a hidden published paper from a task description, related literature, and raw data. It comprises 40 expert-curated tasks across 10 scientific domains, scored against weighted multimodal rubrics anchored to the target paper's artifacts.

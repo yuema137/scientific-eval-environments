@@ -1,5 +1,7 @@
 # ResearchClawBench (2026)
 
+> [English](../../works/researchclawbench.md) | **简体中文**
+
 ## Overview
 
 ResearchClawBench 是一个面向端到端自主科学研究的 benchmark，agent 需要仅凭任务描述、相关文献与原始数据，重新发现一篇被隐藏的已发表论文的研究结果。它包含 40 个专家构建的任务，覆盖 10 个科学领域，并依据锚定目标论文科学产物（artifact）的加权多模态 rubric 进行评分。

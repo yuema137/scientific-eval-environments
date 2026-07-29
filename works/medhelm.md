@@ -1,5 +1,7 @@
 # MedHELM (2025)
 
+> **English** | [简体中文](../zh/works/medhelm.md)
+
 ## Overview
 
 MedHELM extends Stanford CRFM's Holistic Evaluation of Language Models (HELM) to medical tasks. It combines a clinician-validated taxonomy of medical work with a broad benchmark suite and an LLM-jury evaluation methodology whose agreement against clinician ratings is explicitly measured.

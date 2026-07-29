@@ -1,5 +1,7 @@
 # UniClawBench (2026)
 
+> **English** | [简体中文](../zh/works/uniclawbench.md)
+
 ## Overview
 
 UniClawBench is a universal benchmark for proactive agents on real-world tasks, organized around five model capabilities and evaluated in live Docker containers via a closed-loop executor / supervisor / user simulation.

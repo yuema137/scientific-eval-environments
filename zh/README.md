@@ -1,5 +1,7 @@
 # 科学评估环境（Scientific Evaluation Environments）
 
+> [English](../README.md) | **简体中文**
+
 一个开放的知识库，用于记录**面向 AI agent 的科学评估环境**的设计空间——涵盖 benchmark、评估方法学、评估框架、trajectory evaluation、resource-aware evaluation 以及科学工作流。
 
 本仓库**不是** benchmark 实现。它是一份参考手册，目标是无论读者使用什么工具或 benchmark，都能在其中获得有价值的参考。

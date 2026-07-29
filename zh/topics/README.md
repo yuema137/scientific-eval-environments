@@ -1,5 +1,7 @@
 # Topics
 
+> [English](../../topics/README.md) | **简体中文**
+
 文献综述页面，每页对应一个规范化（canonical）的评估方向。
 
 Topic 页是本仓库的**首要入口**。对某一研究方向感兴趣的读者应从这里开始，沿链接进入 [`../works/`](../works/)，再到原始论文：
@@ -36,6 +38,8 @@ Skill Hierarchy 与 Credit Assignment 是两个独立的 topic。
 ```markdown
 # <Topic Name>
 
+> **English** | [简体中文](../zh/topics/<topic_file>.md)
+
 ## Definition
 
 对该 topic 的简明定义。一个段落。
@@ -65,6 +69,7 @@ topic 的维度。
 
 ## Topic 页规则
 
+- **语言切换器。** 每个页面在 H1 正下方带一行切换器：英文页为 `> **English** | [简体中文](../zh/topics/<file>.md)`，中文镜像为 `> [English](../../topics/<file>.md) | **简体中文**`。
 - **没有全局比较矩阵。** 每个 topic 拥有各自的维度。不要用共享表格把 topic 页串联起来。
 - **综合，而非摘要。** Topic 页应阐明该 topic 的设计空间，而不是复述单张卡片。需要某份工作的细节时，链接到它的卡片。
 - **Related Works 是反向索引。** 此处列出的每份工作，其卡片的 `Topics` 块中必须包含本 topic，反之亦然。保持两侧同步是一项维护责任。

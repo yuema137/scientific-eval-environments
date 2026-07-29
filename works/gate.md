@@ -1,5 +1,7 @@
 # GATE (2026)
 
+> **English** | [简体中文](../zh/works/gate.md)
+
 ## Overview
 
 GATE (Graph-based Adaptive Tool Evolution Across Diverse Tasks) is a framework that dynamically constructs and evolves a hierarchical graph of reusable tools for LLMs. It is included in this repository for completeness of coverage of the initial reference list, but note: **its actual subject is tool-making for LLMs, not skill-hierarchy evaluation of agents** — the maintainer input's Skill-Hierarchy classification was based on a superficial name match rather than the paper's content.

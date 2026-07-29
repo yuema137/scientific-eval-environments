@@ -1,5 +1,7 @@
 # ToolPRMBench (2026)
 
+> [English](../../works/toolprmbench.md) | **简体中文**
+
 ## Overview
 
 ToolPRMBench 是一个评估面向工具使用 agent 的 process reward model（PRM）的 benchmark，它把 agent trajectory 改写为 step 级样例，要求在正确动作与貌似合理的错误动作之间做出选择。它从四个 tool-use benchmark 中抽取 987 个这样的样例，并在 step 级判别准确率上对 17 个 LLM、通用 PRM 与工具专用 PRM 进行排名。

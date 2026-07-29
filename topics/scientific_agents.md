@@ -1,5 +1,7 @@
 # Scientific Agent Benchmarks
 
+> **English** | [简体中文](../zh/topics/scientific_agents.md)
+
 ## Definition
 
 Scientific agent benchmarks evaluate AI agents on tasks drawn from scientific research and practice — computational workflows, parameter tuning, literature-grounded problems, or replication of published results. What distinguishes them from general-purpose agent benchmarks is the source of tasks (real scientific work) and the standard for correctness (matching published or expert-defined outcomes).

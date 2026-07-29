@@ -1,5 +1,7 @@
 # Gaia2 (2026)
 
+> **English** | [简体中文](../zh/works/gaia2.md)
+
 ## Overview
 
 Gaia2 is a benchmark for LLM agents in asynchronous environments, where the world evolves on its own clock rather than only when the agent acts. Its 1,120 scenarios run in a simulated smartphone universe and are scored by a verifier that checks every state-changing action against oracle annotations, making the benchmark directly usable for reinforcement learning from verifiable rewards.

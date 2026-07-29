@@ -1,5 +1,7 @@
 # Frontier-Eng (2026)
 
+> [English](../../works/frontier-eng.md) | **简体中文**
+
 ## Overview
 
 Frontier-Eng 是面向"自我进化 agent"的真实工程任务 benchmark，把评估构造成**迭代式生成优化**：agent 提出候选方案，工业级仿真器在硬性可行性约束下返回连续奖励，agent 在固定交互预算内修订。

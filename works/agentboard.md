@@ -1,5 +1,7 @@
 # AgentBoard (2024)
 
+> **English** | [简体中文](../zh/works/agentboard.md)
+
 ## Overview
 
 AgentBoard is a multi-turn LLM-agent evaluation benchmark paired with an analytical dashboard. Its central design commitment is that agent evaluation should not collapse to a binary success rate: performance is instead measured by a *fine-grained progress rate* over annotated subgoals in partially observable environments.

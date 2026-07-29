@@ -1,5 +1,7 @@
 # AgentBoard (2024)
 
+> [English](../../works/agentboard.md) | **简体中文**
+
 ## Overview
 
 AgentBoard 是一个针对多轮 LLM agent 的评估 benchmark，同时提供一个分析型评估面板。它的核心设计主张是：agent 评估不应收敛为一个二值成功率——性能应通过对已标注子目标（subgoal）的**细粒度进展率（fine-grained progress rate）**来衡量，且强调部分可观测（partially observable）的环境。

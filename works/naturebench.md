@@ -1,5 +1,7 @@
 # NatureBench (2026)
 
+> **English** | [简体中文](../zh/works/naturebench.md)
+
 ## Overview
 
 NatureBench evaluates whether AI coding agents can match the published state-of-the-art of Nature-family scientific publications — framed as a move beyond reproduction toward the claim of methodological discovery.

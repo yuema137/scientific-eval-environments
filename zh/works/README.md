@@ -1,5 +1,7 @@
 # Works
 
+> [English](../../works/README.md) | **简体中文**
+
 针对单个已有工作的事实性引用卡片。
 
 **"Works"** 比 "benchmarks" 更广。本目录为仓库记录的每一份工作保存一张卡片，包括：
@@ -26,6 +28,8 @@
 
 ```markdown
 # <Work Name> (<Year>)
+
+> **English** | [简体中文](../zh/works/<card-file>.md)
 
 ## Overview
 
@@ -89,6 +93,7 @@
 
 ## 卡片规则
 
+- **语言切换器。** 每个页面在 H1 正下方带一行切换器：英文页为 `> **English** | [简体中文](../zh/works/<card>.md)`，中文镜像为 `> [English](../../works/<card>.md) | **简体中文**`。新卡片须在同一批次内为两侧都加上切换器。
 - **`Topics` 是元数据块，不是装饰。** 它是保持 topic 页同步的内部索引。此处列出的每个 topic，在对应 topic 页的 `Related Works` 中必须有相应条目，反之亦然。只能使用 [`../../AGENT.md`](../../AGENT.md) 定义的规范化 topic 分类。
 - **不做定位。** 不得包含 "Gap to Our Work"、"Comparison with Our Framework" 或任何将某份工作与维护者自身项目对照的小节。
 - **提交前完成两级引用校验：**

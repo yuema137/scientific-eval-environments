@@ -1,5 +1,7 @@
 # Works
 
+> **English** | [简体中文](../zh/works/README.md)
+
 Factual reference cards for individual pieces of prior work.
 
 **"Works"** is broader than "benchmarks." This directory holds a card for every piece of work the repository documents, including:
@@ -26,6 +28,8 @@ Copy this structure verbatim. Do not add sections. Do not remove sections (leave
 
 ```markdown
 # <Work Name> (<Year>)
+
+> **English** | [简体中文](../zh/works/<card-file>.md)
 
 ## Overview
 
@@ -90,6 +94,7 @@ made by this repository (not the authors) must be marked `Repository note:`.
 
 ## Card rules
 
+- **Language switcher.** Every page carries a switcher line directly under the H1: `> **English** | [简体中文](../zh/works/<card>.md)` on English pages, and `> [English](../../works/<card>.md) | **简体中文**` on the Chinese mirror. A new card ships with the switcher on both sides in the same batch.
 - **`Topics` is a metadata block, not decoration.** It is the internal index that keeps topic pages in sync. Every topic listed here must have a corresponding entry in that topic page's `Related Works` section, and vice versa. Only draw from the canonical topic taxonomy defined in [`../AGENT.md`](../AGENT.md).
 - **No positioning.** Do not include "Gap to Our Work", "Comparison with Our Framework", or any section that frames a work against a maintainer's own project.
 - **Two-level reference validation** before commit:

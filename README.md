@@ -1,5 +1,7 @@
 # Scientific Evaluation Environments
 
+> **English** | [简体中文](./zh/README.md)
+
 An open knowledge base documenting the design space of **scientific evaluation environments** for AI agents — benchmarks, evaluation methodology, evaluation frameworks, trajectory evaluation, resource-aware evaluation, and scientific workflows.
 
 This repository is **not** a benchmark implementation. It is a reference manual, intended to remain useful to anyone working on scientific evaluation regardless of what tools or benchmarks they build.

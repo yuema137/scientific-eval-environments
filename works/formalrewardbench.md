@@ -1,5 +1,7 @@
 # FormalRewardBench (2026)
 
+> **English** | [简体中文](../zh/works/formalrewardbench.md)
+
 ## Overview
 
 FormalRewardBench is a benchmark that evaluates reward models on their ability to prefer a correct Lean 4 proof over an incorrect one. It consists of 250 preference pairs in which a formally verified proof is paired with an incorrect variant produced by one of five expert-curated error injection strategies.

@@ -1,5 +1,7 @@
 # Resource-aware Evaluation
 
+> **English** | [简体中文](../zh/topics/resource_aware_evaluation.md)
+
 ## Definition
 
 Resource-aware evaluation treats resource expenditure — tokens, tool-call fees, wall-clock time, compute, simulation time, or a domain-specific currency — as part of what the benchmark measures rather than as a post-hoc statistic. In its strongest form, one such resource (typically cost) becomes an explicit optimization objective the agent must balance against task success.

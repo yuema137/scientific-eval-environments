@@ -1,5 +1,7 @@
 # Agents' Last Exam (2026)
 
+> **English** | [简体中文](../zh/works/agents-last-exam.md)
+
 ## Overview
 
 Agents' Last Exam (ALE) is a frontier long-horizon benchmark co-designed with over 250 industry experts, targeting economically meaningful professional workflows organized around the U.S. occupational taxonomy. Its stated goal is to bridge the gap between benchmark performance and real-world professional deployment.

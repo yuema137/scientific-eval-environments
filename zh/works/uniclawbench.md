@@ -1,5 +1,7 @@
 # UniClawBench (2026)
 
+> [English](../../works/uniclawbench.md) | **简体中文**
+
 ## Overview
 
 UniClawBench 是面向 proactive agent 的通用 benchmark，围绕五个模型能力组织任务，并通过 executor / supervisor / user 三方闭环 agent 模拟，在实时 Docker 容器中进行评估。

@@ -1,5 +1,7 @@
 # Scientific Agent Benchmarks
 
+> [English](../../topics/scientific_agents.md) | **简体中文**
+
 ## Definition
 
 Scientific agent benchmark 是在真实科学研究或实践中提取任务的 AI agent 评估——计算工作流、参数调优、文献 grounding 的问题，或对已发表结果的复现。它们与通用 agent benchmark 的区别在于任务来源（真实科学工作）和正确性标准（对已发表或专家定义结果的匹配）。

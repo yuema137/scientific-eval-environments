@@ -1,5 +1,7 @@
 # GeneBench-Pro (2026)
 
+> **English** | [简体中文](../zh/works/genebench-pro.md)
+
 ## Overview
 
 GeneBench-Pro is a benchmark for AI agents performing realistic multistage statistical analyses in genomics, quantitative biology, and translational biomedicine. Its 129 problems are built on constructively simulated data-generating processes rather than real datasets, so that a wrong answer is attributable to a scientific error rather than to one of several equally defensible analyst choices.

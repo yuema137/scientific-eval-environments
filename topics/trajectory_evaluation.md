@@ -1,5 +1,7 @@
 # Trajectory Evaluation
 
+> **English** | [简体中文](../zh/topics/trajectory_evaluation.md)
+
 ## Definition
 
 Trajectory evaluation refers to evaluation methods that score an agent based on the sequence of actions and intermediate states it produces, not only its final answer. Metrics may include per-step correctness, subgoal completion, per-capability subprocess scoring, reasoning quality, evidence grounding, or process efficiency.

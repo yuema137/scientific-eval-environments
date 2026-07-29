@@ -1,5 +1,7 @@
 # LongDA (2026)
 
+> **English** | [简体中文](../zh/works/longda.md)
+
 ## Overview
 
 LongDA is a data analysis benchmark that evaluates LLM-based agents under documentation-intensive analytical workflows: 505 analytical queries grounded in expert-written publications over 17 publicly available U.S. national surveys, whose accompanying documentation averages 263k tokens. It ships with LongTA, a tool-augmented agent framework serving as evaluation scaffold and baseline.

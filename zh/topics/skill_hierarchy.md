@@ -1,5 +1,7 @@
 # Skill Hierarchy
 
+> [English](../../topics/skill_hierarchy.md) | **简体中文**
+
 ## Definition
 
 Skill hierarchy 指把复杂的 agent 能力分解为一组更窄的能力或 subskill 的结构化集合，并配以对每个 subskill 分别打分的评估协议。这类 benchmark 共享一个设计承诺：单一聚合分数把太多东西混在一起——要理解 agent 能做什么、不能做什么，评估必须探查能力树的多个层次。

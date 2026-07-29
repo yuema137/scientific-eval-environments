@@ -1,5 +1,7 @@
 # General Long-Horizon Agent Benchmarks
 
+> **English** | [简体中文](../zh/topics/long_horizon_evaluation.md)
+
 ## Definition
 
 Long-horizon agent evaluation covers benchmarks whose tasks require many sequential decisions, tool calls, or interaction turns before the task can be judged complete. "Long" is not a fixed step count; it is the property that failures accumulate across steps, that intermediate state matters, and that a single terminal reward gives too little diagnostic signal.

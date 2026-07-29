@@ -1,5 +1,7 @@
 # Survey
 
+> [English](../../topics/survey.md) | **简体中文**
+
 ## Definition
 
 关于 LLM-agent 评估与 agentic 系统未来方向的综述与立场论文。与 benchmark 不同，综述不引入新的任务集或评分协议——它组织文献、指出空缺。此 topic 页作为仓库其他部分对这类参考文献的索引。

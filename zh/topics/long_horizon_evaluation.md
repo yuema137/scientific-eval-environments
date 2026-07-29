@@ -1,5 +1,7 @@
 # General Long-Horizon Agent Benchmarks
 
+> [English](../../topics/long_horizon_evaluation.md) | **简体中文**
+
 ## Definition
 
 长 horizon agent 评估覆盖这样一类 benchmark：其任务需要多次顺序决策、多轮工具调用或多轮交互才能判定完成。"长"并非固定的步数——它指失败可能沿步骤累积、中间状态起作用、单一的最终奖励难以给出足够的诊断信号。

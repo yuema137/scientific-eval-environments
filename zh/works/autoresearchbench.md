@@ -1,5 +1,7 @@
 # AutoResearchBench (2026)
 
+> [English](../../works/autoresearchbench.md) | **简体中文**
+
 ## Overview
 
 AutoResearchBench 是一个面向自主科学文献发现（scientific literature discovery）的 benchmark，评估 AI agent 在两类任务上的能力：通过渐进式多步探查追踪一篇特定目标论文（Deep Research），以及全面收集满足给定条件的所有论文（Wide Research）。
