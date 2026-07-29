@@ -1,5 +1,7 @@
 # MaD Physics (2026)
 
+> [English](../../works/mad-physics.md) | **简体中文**
+
 ## Overview
 
 MaD Physics（Measuring and Discovering Physics）是一个 benchmark，用于评估 agent 能否在固定的成本预算下规划信息量大的测量，并根据收集到的数据推断底层的物理定律。它涵盖三个模拟环境——经典力学、流体力学和量子力学——每个环境还提供经过改动的物理定律，以控制记忆性知识的影响。

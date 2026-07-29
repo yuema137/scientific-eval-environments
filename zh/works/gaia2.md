@@ -1,5 +1,7 @@
 # Gaia2 (2026)
 
+> [English](../../works/gaia2.md) | **简体中文**
+
 ## Overview
 
 Gaia2 是一个面向异步环境中 LLM agent 的 benchmark——在这类环境里，世界按自己的时钟推进，而非仅在 agent 行动时才变化。它的 1,120 个场景运行在一个模拟的智能手机世界中，由一个验证器对照 oracle 标注检查每一个改变状态的动作来打分，使该 benchmark 可直接用于基于可验证奖励的强化学习（RLVR）。

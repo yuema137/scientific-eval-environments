@@ -1,5 +1,7 @@
 # Traxgen (2025)
 
+> [English](../../works/traxgen.md) | **简体中文**
+
 ## Overview
 
 Traxgen 是一个面向 AI-agent 评估的**确定性** ground-truth trajectory 生成工具包。它把结构化的 workflow 规范与用户数据编译成一份有向无环图（DAG），进而生成完整规定的参考 trajectory——把 LLM 从 ground-truth 生成流程中移除。论文同时发布一份含 675 个任务实例的配套 benchmark，用于以 Traxgen 生成的参考对比六个 LLM 的规划能力。

@@ -1,5 +1,7 @@
 # ToolPRMBench (2026)
 
+> **English** | [简体中文](../zh/works/toolprmbench.md)
+
 ## Overview
 
 ToolPRMBench is a benchmark that evaluates process reward models (PRMs) for tool-using agents, recasting agent trajectories as step-level cases in which a correct action must be chosen over a plausible incorrect alternative. It draws 987 such cases from four tool-use benchmarks and ranks 17 large language models, general PRMs, and tool-specialized PRMs on step-level judgement accuracy.

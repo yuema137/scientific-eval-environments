@@ -1,5 +1,7 @@
 # Credit Assignment
 
+> [English](../../topics/credit_assignment.md) | **简体中文**
+
 ## Definition
 
 在评估语境下，credit assignment 是把一条 trajectory 的成功或失败**归因**到具体步骤、子目标或中间输出的问题——而不是把成功当作 trajectory 整体的一个无结构属性。在 benchmark 中，credit-assignment 机制表现为密集中间奖励、部分得分或分步打分——即使最终结果只是一个二值信号，它们也能保留更细的信号。

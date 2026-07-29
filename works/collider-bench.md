@@ -1,5 +1,7 @@
 # Collider-Bench (2026)
 
+> **English** | [简体中文](../zh/works/collider-bench.md)
+
 ## Overview
 
 Collider-Bench is a benchmark that evaluates whether LLM agents can reproduce experimental analyses from the Large Hadron Collider (LHC) using only public papers and open scientific software. Its first release holds 10 Simulation tasks drawn from four CMS supersymmetry searches, run in a containerized sandbox with the public collider-simulation stack and scored by continuous histogram fidelity against hidden reference yields.

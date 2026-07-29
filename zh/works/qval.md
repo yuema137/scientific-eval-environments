@@ -1,5 +1,7 @@
 # QVal (2026)
 
+> [English](../../works/qval.md) | **简体中文**
+
 ## Overview
 
 QVal 是一个 training-free 的评估方法学与 testbed，通过稠密监督（dense supervision）信号在多大程度上能按强 reference policy 的 Q 值排序 agent 的候选 action，来为这些信号打分。它被实例化为 QVal-v1.0，在四个环境与六个开放权重模型 backbone 上，对来自七个方法学家族的 21 个稠密监督方法做 benchmark。

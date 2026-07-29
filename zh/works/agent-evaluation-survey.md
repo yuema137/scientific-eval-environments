@@ -1,5 +1,7 @@
 # Survey on Evaluation of LLM-based Agents (2025)
 
+> [English](../../works/agent-evaluation-survey.md) | **简体中文**
+
 ## Overview
 
 *Survey on Evaluation of LLM-based Agents* 是一篇覆盖广泛的综述，沿五个视角组织 LLM-agent 评估方法，并明确指出当前的空缺。此处以**参考论文**（非 benchmark 贡献）纳入。

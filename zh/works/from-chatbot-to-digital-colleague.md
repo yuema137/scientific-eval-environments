@@ -1,5 +1,7 @@
 # From Chatbot to Digital Colleague (2026)
 
+> [English](../../works/from-chatbot-to-digital-colleague.md) | **简体中文**
+
 ## Overview
 
 *From Chatbot to Digital Colleague: The Paradigm Shift Toward Persistent Autonomous AI* 是一篇立场论文，主题是 LLM 从对话式生成器向具备推理、行动、记忆与自改进能力的集成系统的转变。此处以**参考论文**（非 benchmark 贡献）纳入。

@@ -1,5 +1,7 @@
 # EXP-Bench (2025)
 
+> [English](../../works/exp-bench.md) | **简体中文**
+
 ## Overview
 
 EXP-Bench 是一个 benchmark，评估 AI agent 能否完成源自有影响力 AI 论文的完整研究实验：提出假设、设计并实现实验流程、执行实验并分析结果。它通过一条半自主（semi-autonomous）抽取流水线，从 51 篇 NeurIPS 2024 与 ICLR 2024 论文中整理出 461 个任务。

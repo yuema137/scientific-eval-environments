@@ -1,5 +1,7 @@
 # PRBench (2026)
 
+> **English** | [简体中文](../zh/works/prbench.md)
+
 ## Overview
 
 PRBench is a benchmark that tests whether AI agents can reproduce published physics research end to end — comprehending a paper's methodology, implementing its algorithms from scratch, and producing quantitative results that match the original publication. It comprises 30 expert-curated tasks spanning 11 subfields of physics, each run in a sandboxed execution environment.

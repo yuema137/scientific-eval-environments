@@ -1,5 +1,7 @@
 # Topics
 
+> **English** | [简体中文](../zh/topics/README.md)
+
 Literature-review pages, one per canonical evaluation direction.
 
 Topic pages are the **primary entry point** into this repository. A reader interested in a research direction should start here and follow links into [`../works/`](../works/), then to the original papers:
@@ -36,6 +38,8 @@ Skill Hierarchy and Credit Assignment are independent topics.
 ```markdown
 # <Topic Name>
 
+> **English** | [简体中文](../zh/topics/<topic_file>.md)
+
 ## Definition
 
 Concise definition of the topic. One paragraph.
@@ -68,6 +72,7 @@ looking rather than as established facts.
 
 ## Topic page rules
 
+- **Language switcher.** Every page carries a switcher line directly under the H1: `> **English** | [简体中文](../zh/topics/<file>.md)` on English pages, and `> [English](../../topics/<file>.md) | **简体中文**` on the Chinese mirror.
 - **No global comparison matrix.** Each topic owns its own dimensions. Do not link topic pages together through a shared table.
 - **Synthesis, not summary.** A topic page should explain the design space of the topic, not restate individual work cards. When a work's details are needed, link to its card.
 - **Related Works is the reverse index.** Every work listed here must include this topic in its card's `Topics` block, and vice versa. Keeping the two sides in sync is a maintenance responsibility.

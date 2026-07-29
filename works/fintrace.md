@@ -1,5 +1,7 @@
 # FinTrace (2026)
 
+> **English** | [简体中文](../zh/works/fintrace.md)
+
 ## Overview
 
 FinTrace is a holistic trajectory-level evaluation benchmark for LLM tool calling on long-horizon financial decision-making tasks. It scores nine metrics across four dimensions rather than only final-answer correctness.

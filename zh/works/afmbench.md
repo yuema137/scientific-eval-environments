@@ -1,5 +1,7 @@
 # AFMBench (2025)
 
+> [English](../../works/afmbench.md) | **简体中文**
+
 ## Overview
 
 AFMBench 是一个含 100 个由专家整理任务的评测套件，要求 LLM agent 操作一台真实的原子力显微镜而非仿真器，覆盖从实验设计到结果分析的完整流程。此处收录的是 AFMBench，即该论文的**评测**贡献；与之配套的 AILA 框架属于 agent 实现工作，与本仓库的评测重心相邻（见 Limitations 下的 repository note）。

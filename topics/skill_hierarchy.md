@@ -1,5 +1,7 @@
 # Skill Hierarchy
 
+> **English** | [简体中文](../zh/topics/skill_hierarchy.md)
+
 ## Definition
 
 Skill hierarchy refers to the decomposition of a complex agent capability into a structured set of narrower capabilities or subskills, together with evaluation protocols that score each subskill separately. Benchmarks in this space share the design commitment that a single aggregate score conflates too much: to understand what an agent can and cannot do, evaluation must probe multiple levels of the capability tree.

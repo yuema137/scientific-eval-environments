@@ -1,5 +1,7 @@
 # WebArena (2023)
 
+> **English** | [简体中文](../zh/works/webarena.md)
+
 ## Overview
 
 WebArena is a realistic, reproducible web environment for building and evaluating autonomous agents. It hosts fully functional websites across four common domains and evaluates language-guided agents on long-horizon web tasks by functional correctness.

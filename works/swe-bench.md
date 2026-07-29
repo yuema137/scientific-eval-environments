@@ -1,5 +1,7 @@
 # SWE-bench (2023)
 
+> **English** | [简体中文](../zh/works/swe-bench.md)
+
 ## Overview
 
 SWE-bench evaluates whether language models can resolve real-world GitHub issues by editing a codebase. It consists of 2,294 issue-and-pull-request task instances drawn from 12 popular Python repositories, and grades a model's patch by executing the repository's own tests.

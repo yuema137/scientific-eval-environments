@@ -1,5 +1,7 @@
 # Long-Horizon-Terminal-Bench (2026)
 
+> [English](../../works/long-horizon-terminal-bench.md) | **简体中文**
+
 ## Overview
 
 Long-Horizon-Terminal-Bench 将 Terminal-Bench 扩展到显著更长的执行 horizon。它使用细粒度分级子任务提供密集的中间奖励与部分得分，而不是仅采用二值的端到端 pass/fail。

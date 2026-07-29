@@ -1,5 +1,7 @@
 # Credit Assignment
 
+> **English** | [简体中文](../zh/topics/credit_assignment.md)
+
 ## Definition
 
 Credit assignment, in evaluation, is the problem of attributing a trajectory's success or failure to specific steps, subgoals, or intermediate outputs — rather than treating success as an unstructured property of the trajectory as a whole. In benchmarks, credit-assignment machinery shows up as dense intermediate rewards, partial-credit scoring, or per-step scoring that survives when the terminal outcome is a single bit.

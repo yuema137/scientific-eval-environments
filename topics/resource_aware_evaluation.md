@@ -1,5 +1,7 @@
 # Resource-aware Evaluation
 
+> **English** | [简体中文](../zh/topics/resource_aware_evaluation.md)
+
 ## Definition
 
 Resource-aware evaluation treats resource expenditure — tokens, tool-call fees, wall-clock time, compute, simulation time, or a domain-specific currency — as part of what the benchmark measures rather than as a post-hoc statistic. In its strongest form, one such resource (typically cost) becomes an explicit optimization objective the agent must balance against task success.
@@ -20,6 +22,7 @@ Two meaningful distinctions structure the space:
 - **A dedicated dataset for cost-aware planning.** [CATP-LLM / OpenCATP](../works/catp-llm.md) contributes OpenCATP, described as the first dataset for cost-aware planning (11,100 samples), where tool execution cost (e.g., execution time) is scored jointly with task performance. Its paired planning method is agent-construction work outside this repository's scope; the dataset is the resource-aware evaluation contribution documented here.
 - **Fidelity-priced measurement budgets.** [MaD Physics](../works/mad-physics.md) charges each observation a cost that rises with its precision and caps total spend per trial, so agents must allocate a fixed budget across measurements to infer an unknown — and sometimes altered — physical law.
 - **Budget as an online control signal.** [BAGEN](../works/bagen.md) makes the agent predict an upper and lower bound on remaining budget at every turn and flag infeasibility, scoring resource use as a per-step estimation target rather than a post-execution tally.
+- **Evaluation calls as the budgeted resource.** [VeRO / VeRO-Bench](../works/vero.md) benchmarks coding agents that optimize other agents under a hard evaluation-call budget: every scoring of the target agent passes through a gated evaluator that decrements n_E ≤ B and blocks requests beyond it, mirroring black-box optimization with expensive queries; a budget ablation over B ∈ {2, 4, 8, 16, 32} separates budget effects from capability effects.
 - **Cost-performance frontier reporting.** Other work reports accuracy alongside token or dollar cost so that agents can be compared on a Pareto frontier rather than a single accuracy number. This is analysis-time resource-awareness rather than benchmark-time resource-awareness.
 
 ## Comparison
@@ -31,6 +34,7 @@ Two meaningful distinctions structure the space:
 | CATP-LLM / OpenCATP | 2024 | Normalized tool price (USD; execution time + memory) | Reported jointly with performance via Quality of Plan (QoP = α·perf − (1−α)·cost) | 111 tool-planning tasks / 11,100 samples | [→](../works/catp-llm.md) |
 | MaD Physics | 2026 | Measurement cost (fidelity-priced observations) | Fixed per-trial budget the agent allocates | Simulated classical / fluid / quantum physics | [→](../works/mad-physics.md) |
 | BAGEN | 2026 | Tokens; time / occupancy / cost | Prediction target + early-stop objective | Puzzle / retrieval / coding / supply-chain | [→](../works/bagen.md) |
+| VeRO / VeRO-Bench | 2026 | Evaluation calls on the target agent (gated budget n_E ≤ B) | Enforced hard constraint — optimizer allocates expensive evaluations | Agent-harness optimization over 5 target-agent task suites | [→](../works/vero.md) |
 
 ## Open Questions
 
@@ -46,6 +50,7 @@ Two meaningful distinctions structure the space:
 - [CATP-LLM / OpenCATP](../works/catp-llm.md) — OpenCATP, a dataset for cost-aware tool planning (11,100 samples).
 - [MaD Physics](../works/mad-physics.md) — Fidelity-priced measurement budgets in simulated physics; agents trade measurement quality against quantity to infer altered physical laws.
 - [BAGEN](../works/bagen.md) — Progressive budget-interval prediction with trainable early-stopping across token and multi-resource agents.
+- [VeRO / VeRO-Bench](../works/vero.md) — Benchmarking coding agents as agent optimizers under a gated evaluation-call budget.
 
 ## Further Reading
 

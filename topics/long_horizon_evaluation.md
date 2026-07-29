@@ -1,5 +1,7 @@
 # General Long-Horizon Agent Benchmarks
 
+> **English** | [简体中文](../zh/topics/long_horizon_evaluation.md)
+
 ## Definition
 
 Long-horizon agent evaluation covers benchmarks whose tasks require many sequential decisions, tool calls, or interaction turns before the task can be judged complete. "Long" is not a fixed step count; it is the property that failures accumulate across steps, that intermediate state matters, and that a single terminal reward gives too little diagnostic signal.
@@ -23,6 +25,9 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - **General-assistant questions.** [GAIA](../works/gaia.md) poses 466 real-world questions requiring reasoning, multimodality, web browsing, and tool use, with single unambiguous answers — humans reach 92% vs. 15% for GPT-4 with plugins.
 - **Realistic web environments.** [WebArena](../works/webarena.md) hosts fully functional websites across four domains and scores long-horizon web tasks by functional correctness (best GPT-4 agent 14.41% vs. 78.24% human).
 - **Whole-computer tasks.** [OSWorld](../works/osworld.md) provides 369 open-ended tasks in real operating systems (Ubuntu / Windows / macOS) with per-task execution-based evaluation scripts (best model 12.24% vs. 72.36% human).
+- **Realistic multi-app tool orchestration.** [Toolathlon](../works/toolathlon.md) spans 32 real software applications and 604 tools exposed through MCP servers, initializing environments with realistic states from real software and scoring 108 cross-app tasks (~20 turns on average) with deterministic, state-based evaluation scripts; the best model reaches 38.6% pass@1, and the pass@3 / pass^3 gap surfaces reliability as a distinct weakness.
+- **Documentation-intensive data analysis.** [LongDA](../works/longda.md) makes navigating long documentation the bottleneck: 505 analytical queries over 17 U.S. national surveys whose documentation averages 263k tokens, solved in multi-turn blocks of document retrieval, integration, and Python execution under a 100-step budget; the strongest evaluated model reaches only a 68.91% match rate, and the paper attributes success to retrieval and tool-use strategy rather than reasoning.
+- **Open-ended literature search.** [AutoResearchBench](../works/autoresearchbench.md) makes the horizon open-ended by construction: its 1,000 literature-discovery queries involve an unknown number of qualifying papers, so agents must sustain progressive multi-step probing and decide when to stop; the strongest models stay below 10% on both of its task types.
 - **Asynchronous environments.** [Gaia2](../works/gaia2.md) runs 1,120 scenarios in event-driven environments that advance on their own clock rather than only when the agent acts, making temporal awareness a scored capability: GPT-5 (high) leads at 42.1% pass@1 overall yet scores 0.0 on the Time split, and every evaluated model scores below 9 there.
 
 ## Comparison
@@ -41,6 +46,9 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | WebArena | 2023 | Long-horizon web tasks; functional correctness | Live self-hosted websites (4 domains) | [→](../works/webarena.md) |
 | OSWorld | 2024 | 369 open-ended computer tasks | Real OS (Ubuntu / Windows / macOS); execution-graded | [→](../works/osworld.md) |
 | Gaia2 | 2026 | 1,120 scenarios across seven capability splits; the environment advances independently of the agent | Simulated smartphone universe of 12 stateful apps; write-action verifier | [→](../works/gaia2.md) |
+| AutoResearchBench | 2026 | 1,000 open-ended literature-discovery queries; progressive multi-turn probing with unknown answer-set size | Agentic search over academic and general web retrieval | [→](../works/autoresearchbench.md) |
+| LongDA | 2026 | 505 queries in multi-turn publication blocks; 100-step budget over avg 263k-token documentation | Document navigation + sandboxed Python over U.S. federal survey data | [→](../works/longda.md) |
+| Toolathlon | 2025 | 108 cross-app tasks; ~20 turns on average (100-turn cap); avg 69.9 tools exposed per task | 32 real applications / 604 tools via MCP; containerized + remote; state-based scripts | [→](../works/toolathlon.md) |
 
 ## Open Questions
 
@@ -63,6 +71,9 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - [WebArena](../works/webarena.md)
 - [OSWorld](../works/osworld.md)
 - [Gaia2](../works/gaia2.md)
+- [AutoResearchBench](../works/autoresearchbench.md)
+- [LongDA](../works/longda.md)
+- [Toolathlon](../works/toolathlon.md)
 
 ## Further Reading
 

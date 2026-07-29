@@ -1,5 +1,7 @@
 # Agents' Last Exam (2026)
 
+> [English](../../works/agents-last-exam.md) | **简体中文**
+
 ## Overview
 
 Agents' Last Exam (ALE) 是一个 frontier 长 horizon benchmark，由 250 多位行业专家共同设计，围绕美国职业分类（U.S. occupational taxonomy）中的实际专业工作流构建。它的目标是弥合 benchmark 表现与真实世界职业部署之间的差距。

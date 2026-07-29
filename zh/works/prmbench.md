@@ -1,5 +1,7 @@
 # PRMBench (2025)
 
+> [English](../../works/prmbench.md) | **简体中文**
+
 ## Overview
 
 PRMBench 是一个 benchmark，用于评估过程级奖励模型（PRMs）在多步推理链上的细粒度错误检测能力。它包含 6,216 个问题与 83,456 个 step 级标签，分布在 simplicity、soundness、sensitivity 三大类之下的九个错误子类中。

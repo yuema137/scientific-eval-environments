@@ -1,5 +1,7 @@
 # AutoMat (2026)
 
+> **English** | [简体中文](../zh/works/automat.md)
+
 ## Overview
 
 AutoMat is a benchmark that evaluates whether LLM-based coding agents can reproduce claims from computational materials science papers end-to-end. It comprises 85 expert-curated claims executed in a resource-controlled environment representative of modern HPC workflows, on which the best-performing agent setting reaches a 54.1% success rate.

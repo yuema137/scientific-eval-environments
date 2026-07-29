@@ -1,5 +1,7 @@
 # GeoNatureAgent Benchmark (2026)
 
+> **English** | [简体中文](../zh/works/geonatureagent-benchmark.md)
+
 ## Overview
 
 GeoNatureAgent Benchmark is a benchmark for evaluating LLM agents on environmental geospatial analysis conducted through structured tool calls to a production-style API. It comprises 93 tasks across 18 categories, run against an open, self-hostable API that serves three environmental indicators across Spain and Portugal through 16 tools.

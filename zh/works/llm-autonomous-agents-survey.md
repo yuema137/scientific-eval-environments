@@ -1,5 +1,7 @@
 # A Survey on Large Language Model based Autonomous Agents (2023)
 
+> [English](../../works/llm-autonomous-agents-survey.md) | **简体中文**
+
 ## Overview
 
 *A Survey on Large Language Model based Autonomous Agents* 是一篇关于 LLM-based 自主 agent 的综述：提出统一的 agent 构建框架，编目其在社会科学、自然科学与工程领域的应用，并综述这类 agent 常用的评估策略。此处以**参考论文**（非 benchmark 贡献）纳入；其主题是 agent 构建而非评估（见 Limitations 中的 repository note）。

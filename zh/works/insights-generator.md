@@ -1,5 +1,7 @@
 # Insights Generator (2026)
 
+> [English](../../works/insights-generator.md) | **简体中文**
+
 ## Overview
 
 Insights Generator 是一个面向 LLM agent 的**语料级 trace 诊断**多 agent 系统。它以在 trace 语料上"提出并验证假设"的方式回答诊断问题，产出带证据支撑的 insights 报告——自动化了原本需要人工逐条 trace 检视的工作。

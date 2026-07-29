@@ -1,5 +1,7 @@
 # FinTrace (2026)
 
+> [English](../../works/fintrace.md) | **简体中文**
+
 ## Overview
 
 FinTrace 是面向 LLM 工具调用在长 horizon 金融决策任务上的 holistic trajectory-level 评估 benchmark。它在 4 个维度下给出 9 个指标，而不仅仅打分最终答案。

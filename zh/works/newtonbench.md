@@ -1,5 +1,7 @@
 # NewtonBench (2025)
 
+> [English](../../works/newtonbench.md) | **简体中文**
+
 ## Overview
 
 NewtonBench 是一个通过在模拟物理系统上进行交互式实验来评估 LLM agent 科学定律发现能力的 benchmark。它包含 324 个任务，由对 12 条经典物理定律施加反事实定律偏移（counterfactual law shifts）生成。

@@ -1,5 +1,7 @@
 # GeoNatureAgent Benchmark (2026)
 
+> [English](../../works/geonatureagent-benchmark.md) | **简体中文**
+
 ## Overview
 
 GeoNatureAgent Benchmark 是一个通过对生产级（production-style）API 的结构化工具调用来评估 LLM agent 环境地理空间分析能力的 benchmark。它包含 18 个类别共 93 个任务，运行于一个开放、可自托管的 API 之上，该 API 通过 16 个工具提供覆盖西班牙与葡萄牙的三种环境指标。

@@ -1,5 +1,7 @@
 # Survey
 
+> **English** | [简体中文](../zh/topics/survey.md)
+
 ## Definition
 
 Survey papers and position papers on LLM-agent evaluation and the future direction of agentic systems. Unlike a benchmark, a survey does not add a task suite or a scoring protocol; it organizes the literature and identifies gaps. This topic acts as an index of such references for the rest of the repository.

@@ -1,5 +1,7 @@
 # OSWorld (2024)
 
+> **English** | [简体中文](../zh/works/osworld.md)
+
 ## Overview
 
 OSWorld is a scalable, real computer environment for multimodal agents, supporting task setup, execution-based evaluation, and interactive learning across Ubuntu, Windows, and macOS. It provides 369 real computer tasks spanning web and desktop applications, OS file I/O, and multi-application workflows.

@@ -1,5 +1,7 @@
 # Resource-aware Evaluation
 
+> [English](../../topics/resource_aware_evaluation.md) | **简体中文**
+
 ## Definition
 
 Resource-aware evaluation 把资源消耗——token、tool-call 费用、wall-clock 时间、计算资源、仿真时间或某种领域特定的成本单位——纳入 benchmark 所衡量的范围，而不仅作为事后统计。在其最强的形式下，某种资源（通常是成本）被作为 agent 必须与任务成功一起权衡的显式优化目标。
@@ -20,6 +22,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - **面向 cost-aware planning 的专用数据集。** [CATP-LLM / OpenCATP](../works/catp-llm.md) 贡献了 OpenCATP——被称为首个面向 cost-aware planning 的数据集（11,100 样本），其中工具执行成本（如执行时间）与任务性能联合打分。其配对的规划方法属于本仓库范围之外的 agent 构建工作；数据集才是此处记录的 resource-aware 评估贡献。
 - **按保真度定价的测量预算。** [MaD Physics](../works/mad-physics.md) 对每次观测收取随其精度上升的成本，并对每个 trial 的总花费设上限，使 agent 必须在固定预算下分配测量，以推断一条未知的——有时被改动的——物理定律。
 - **作为在线控制信号的预算。** [BAGEN](../works/bagen.md) 让 agent 在每一轮预测剩余预算的上界与下界并标记不可行，把资源使用作为逐步的估计目标而非执行后的统计来评分。
+- **把评估调用作为预算化的资源。** [VeRO / VeRO-Bench](../works/vero.md) 在硬性评估调用预算下 benchmark 优化其他 agent 的 coding agent：对目标 agent 的每次打分都经过门控评估器，扣减 n_E ≤ B 并阻断超额请求，对应昂贵查询下的黑盒优化设定；B ∈ {2, 4, 8, 16, 32} 的预算消融把预算效应与能力效应区分开。
 - **成本–性能前沿式报告。** 另一些工作在 accuracy 之外同时报告 token 或 dollar 成本，用于在 Pareto 前沿上而非单一 accuracy 数字上做比较。这是分析时的资源意识，而非 benchmark 内部的资源意识。
 
 ## Comparison
@@ -31,6 +34,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 | CATP-LLM / OpenCATP | 2024 | 归一化工具价格（USD；执行时间 + 内存） | 通过 Quality of Plan 与性能联合报告（QoP = α·perf − (1−α)·cost） | 111 个工具规划任务 / 11,100 样本 | [→](../works/catp-llm.md) |
 | MaD Physics | 2026 | 测量成本（按保真度定价的观测） | agent 分配的每个 trial 固定预算 | 模拟经典 / 流体 / 量子物理 | [→](../works/mad-physics.md) |
 | BAGEN | 2026 | Token；时间 / 占用 / 成本 | 预测目标 + 提前停止目标 | 谜题 / 检索 / 编码 / 供应链 | [→](../works/bagen.md) |
+| VeRO / VeRO-Bench | 2026 | 对目标 agent 的评估调用（门控预算 n_E ≤ B） | 强制硬约束——优化器须分配昂贵的评估 | 覆盖 5 个目标 agent 任务套件的 agent-harness 优化 | [→](../works/vero.md) |
 
 ## Open Questions
 
@@ -46,6 +50,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - [CATP-LLM / OpenCATP](../works/catp-llm.md) — OpenCATP，面向 cost-aware 工具规划的数据集（11,100 样本）。
 - [MaD Physics](../works/mad-physics.md) — 模拟物理中按保真度定价的测量预算；agent 在测量的质与量之间权衡以推断被改动的物理定律。
 - [BAGEN](../works/bagen.md) — 跨 token 与多资源 agent 的渐进式预算区间预测与可训练的提前停止。
+- [VeRO / VeRO-Bench](../works/vero.md) — 在门控评估调用预算下把 coding agent 作为 agent 优化器来 benchmark。
 
 ## Further Reading
 

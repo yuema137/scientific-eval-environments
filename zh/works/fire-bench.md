@@ -1,5 +1,7 @@
 # FIRE-Bench (2026)
 
+> [English](../../works/fire-bench.md) | **简体中文**
+
 ## Overview
 
 FIRE-Bench（Full-cycle Insight Rediscovery Evaluation）是一个 benchmark，要求 agent 在仅获得已发表研究的高层研究问题的情况下，重新发现近期高影响力机器学习研究中确立的、可验证的结论。它包含 40 个完整执行的任务，以及另行发布供社区评估的 60 篇论文。

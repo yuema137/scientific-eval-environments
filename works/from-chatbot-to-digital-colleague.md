@@ -1,5 +1,7 @@
 # From Chatbot to Digital Colleague (2026)
 
+> **English** | [简体中文](../zh/works/from-chatbot-to-digital-colleague.md)
+
 ## Overview
 
 *From Chatbot to Digital Colleague: The Paradigm Shift Toward Persistent Autonomous AI* is a position paper on the transition of LLMs from conversational generators to integrated systems capable of reasoning, action, memory, and self-improvement. It is included here as a reference paper, not a benchmark contribution.

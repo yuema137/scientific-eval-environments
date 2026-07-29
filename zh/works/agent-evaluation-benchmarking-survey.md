@@ -1,5 +1,7 @@
 # Evaluation and Benchmarking of LLM Agents: A Survey (2025)
 
+> [English](../../works/agent-evaluation-benchmarking-survey.md) | **简体中文**
+
 ## Overview
 
 *Evaluation and Benchmarking of LLM Agents: A Survey* 是一篇关于 LLM-agent 评估领域的综述：提出一个二维分类法，沿 evaluation objectives（评估什么）与 evaluation process（如何评估）组织现有工作，并强调面向企业部署的评估挑战。此处以**参考论文**（非 benchmark 贡献）纳入。

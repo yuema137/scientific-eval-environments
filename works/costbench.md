@@ -1,5 +1,7 @@
 # CostBench (2025)
 
+> **English** | [简体中文](../zh/works/costbench.md)
+
 ## Overview
 
 CostBench evaluates whether LLM tool-use agents can plan for **cost-optimality** and adapt when the environment blocks the cheapest path. Cost is not reported as a post-hoc statistic; it is the objective the agent is being asked to optimize.

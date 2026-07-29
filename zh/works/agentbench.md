@@ -1,5 +1,7 @@
 # AgentBench (2023)
 
+> [English](../../works/agentbench.md) | **简体中文**
+
 ## Overview
 
 AgentBench 是一个多维 benchmark，跨 8 个不同的交互环境将 LLM 作为 agent 评估，考察其在多轮交互中的推理与决策能力。
