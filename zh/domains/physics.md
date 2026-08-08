@@ -45,8 +45,6 @@
 | MooseBench | 2026 | 生成求解预期 PDE 的多物理场模拟代码，而不只是能跑的代码。 | 220 个带 PDE 级数学真值的 MOOSE 算例。 | 经确定性重构（控制项、边界条件、初始条件、系数、时间格式）计算的 Intent Fidelity Score。 | [→](../works/moosebench.md) |
 | SciConvBench | 2026 | 通过对话把不适定的计算科学请求——流体力学、固体力学、材料、PDE——变成适定规格。 | 多轮消歧与矛盾消解对话。 | 按评分标准为澄清行为、对话共识建立与最终规格保真度打分。 | [→](../works/sciconvbench.md) |
 | AInsteinBench | 2025 | 解决生产级科学代码库（含数值相对论与流体力学）中的维护者 PR 任务。 | 六个科学仓库上的仓库级 coding agent 任务。 | 可执行环境中的测试驱动验证。 | [→](../works/ainsteinbench.md) |
-| PDEBench | 2022 | 学习从对流、Burgers 到 Navier–Stokes 等经典 PDE 族的正反问题解。 | 覆盖九个方程族的即用模拟数据集；评估 SciML 代理模型而非 LLM agent。 | 在套件指标下对照经典数值模拟与 ML 基线。 | [→](../works/pdebench.md) |
-| The Well | 2024 | 建模多样的模拟物理——流体力学、声散射、天体物理磁流体、生物系统。 | 16 个专家整理数据集共 15 TB；评估 SciML 代理模型而非 LLM agent。 | 统一 PyTorch 训练/评估接口配示例基线。 | [→](../works/the-well.md) |
 
 ## Related Works
 
@@ -85,5 +83,3 @@
 - [MooseBench](../works/moosebench.md)
 - [SciConvBench](../works/sciconvbench.md)
 - [AInsteinBench](../works/ainsteinbench.md)
-- [PDEBench](../works/pdebench.md)
-- [The Well](../works/the-well.md)

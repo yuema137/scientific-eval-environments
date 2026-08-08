@@ -27,7 +27,7 @@ Domain 页是**事实性参考页，不是文献综述**——作为入口与 to
 
 | 分组 | Domain | Works |
 |---|---|---|
-| Science | [Physics](./physics.md) | 37 |
+| Science | [Physics](./physics.md) | 35 |
 | Science | [Astronomy](./astronomy.md) | 5 |
 | Science | [Mathematics](./mathematics.md) | 12 |
 | Science | [Chemistry](./chemistry.md) | 10 |

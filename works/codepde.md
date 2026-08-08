@@ -61,4 +61,4 @@ Repositioned PDE solving as an LLM code-generation problem — the solver, not t
 
 - [PDEAgent-Bench](./pdeagent-bench.md) — The fixed-suite successor: 645 solver-generation instances with staged executability/accuracy/efficiency checks.
 - [CFDLLMBench](./cfdllmbench.md) — Also evaluates solver coding with physics-grounded verification, specialized to CFD.
-- [PDEBench](./pdebench.md) — The surrogate-side counterpart: the canonical SciML PDE suite CodePDE's problems draw on.
+- [MooseBench](./moosebench.md) — Also verifies LLM-generated simulation code beyond execution, via PDE-level reconstruction.

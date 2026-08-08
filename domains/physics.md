@@ -45,8 +45,6 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 | MooseBench | 2026 | Generate multiphysics simulation code that solves the intended PDE, not merely code that runs. | 220 MOOSE cases with PDE-level mathematical ground truth. | Intent Fidelity Score via deterministic reconstruction of governing terms, BCs, ICs, coefficients, and time scheme. | [→](../works/moosebench.md) |
 | SciConvBench | 2026 | Turn ill-posed computational-science requests — fluid mechanics, solid mechanics, materials, PDEs — into well-posed specifications through dialogue. | Multi-turn disambiguation and inconsistency-resolution dialogues. | Rubric scoring of clarification behavior, grounding, and final-specification fidelity. | [→](../works/sciconvbench.md) |
 | AInsteinBench | 2025 | Resolve maintainer-PR tasks in production scientific codebases, including numerical relativity and fluid dynamics. | Repository-level coding-agent tasks across six scientific repositories. | Test-driven verification in executable environments. | [→](../works/ainsteinbench.md) |
-| PDEBench | 2022 | Learn forward and inverse solutions of canonical PDE families from advection and Burgers to Navier–Stokes. | Ready-to-use simulation datasets over nine equation families; evaluates SciML surrogates rather than LLM agents. | Comparison against classical numerical simulations and ML baselines under suite metrics. | [→](../works/pdebench.md) |
-| The Well | 2024 | Model diverse simulated physics — fluid dynamics, acoustic scattering, astrophysical MHD, biological systems. | 15 TB across 16 expert-curated datasets; evaluates SciML surrogates rather than LLM agents. | Unified PyTorch training/evaluation interface with example baselines. | [→](../works/the-well.md) |
 
 ## Related Works
 
@@ -85,5 +83,3 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 - [MooseBench](../works/moosebench.md)
 - [SciConvBench](../works/sciconvbench.md)
 - [AInsteinBench](../works/ainsteinbench.md)
-- [PDEBench](../works/pdebench.md)
-- [The Well](../works/the-well.md)

@@ -99,8 +99,6 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **Approximation as the tested skill.** [HARDMath](../works/hardmath.md) auto-generates graduate asymptotics problems validated against numerical ground truth; GPT-4 reaches only 43.8% with few-shot chain-of-thought.
 - **Recomputed grid studies.** [PowerAgentBench-SS](../works/poweragentbench-ss.md) has agents run power-system contingency studies whose reports a hidden evaluator re-derives, with false-safe penalties and severity regret pricing unsupported "all clear" claims.
 - **Calibrating an operational forecast model.** [HydroAgent](../works/hydroagent.md) benchmarks nine frontier agents on calibrating the NWS-operational CREST hydrologic model by Nash–Sutcliffe Efficiency; only one model on one gauge reaches the human-expert reference.
-- **The canonical PDE surrogate suite.** [PDEBench](../works/pdebench.md) — non-LLM scientific-ML datasets over nine PDE families with forward and inverse tasks; documented as the reference substrate solver-generation benchmarks build on.
-- **Physics simulation data at scale.** [The Well](../works/the-well.md) — 15 TB across 16 expert-curated simulation datasets behind one interface; a non-LLM surrogate resource documented as canonical data infrastructure.
 
 ## Comparison
 
@@ -193,8 +191,6 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | HARDMath | 2024 | Auto-generated asymptotics problems; 366-problem mini test set | Graduate applied mathematics (approximation techniques) | Accuracy vs. numerically validated ground truths | [→](../works/hardmath.md) |
 | PowerAgentBench-SS | 2026 | IEEE 39-bus variants; DC thermal N-2 contingency-search pilot | Power-system steady-state agent studies | Hidden evaluator recomputes physical validity; recall variants, false-safe penalties, severity regret | [→](../works/poweragentbench-ss.md) |
 | HydroAgent | 2026 | Calibration of the operational CREST model on 4 held-out gauges | Hydrologic model calibration by agents | Nash–Sutcliffe Efficiency vs. a human-expert reference | [→](../works/hydroagent.md) |
-| PDEBench | 2022 | Ready-to-use datasets over nine PDE families | SciML surrogates (non-LLM), forward and inverse tasks | Comparison vs. classical simulations and ML baselines under suite metrics | [→](../works/pdebench.md) |
-| The Well | 2024 | 15 TB / 16 expert-curated simulation datasets | SciML surrogates (non-LLM) across diverse physics | Unified PyTorch training/evaluation interface with baselines | [→](../works/the-well.md) |
 
 ## Open Questions
 
@@ -293,8 +289,6 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [HARDMath](../works/hardmath.md)
 - [PowerAgentBench-SS](../works/poweragentbench-ss.md)
 - [HydroAgent](../works/hydroagent.md)
-- [PDEBench](../works/pdebench.md)
-- [The Well](../works/the-well.md)
 
 ## Further Reading
 

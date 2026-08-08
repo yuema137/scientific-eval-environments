@@ -61,4 +61,4 @@ CodePDE 不训练代理模型，而是让 LLM 直接写出数值求解器，再�
 
 - [PDEAgent-Bench](./pdeagent-bench.md) — 固定套件的后继者：645 个求解器生成实例，带分级的可执行/精度/效率检查。
 - [CFDLLMBench](./cfdllmbench.md) — 同样以物理为根基验证求解器编码，专精于 CFD。
-- [PDEBench](./pdebench.md) — 代理模型一侧的对应物：CodePDE 的问题所依托的经典 SciML PDE 套件。
+- [MooseBench](./moosebench.md) — 同样在执行之外验证 LLM 生成的模拟代码，通过 PDE 级重构。

@@ -99,8 +99,6 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **把近似当作受测技能。** [HARDMath](../works/hardmath.md) 自动生成经数值真值验证的研究生渐近分析问题；GPT-4 少样本思维链下仅 43.8%。
 - **被重算的电网研究。** [PowerAgentBench-SS](../works/poweragentbench-ss.md) 让 agent 做电力系统故障研究，报告由隐藏评估器重新推导，false-safe 罚分与 severity regret 让没有依据的「一切正常」付出代价。
 - **率定业务化预报模型。** [HydroAgent](../works/hydroagent.md) 以 Nash–Sutcliffe 效率评测九个前沿 agent 对 NWS 业务化 CREST 水文模型的率定；仅一个模型在一个测站达到人类专家参照。
-- **经典 PDE 代理模型套件。** [PDEBench](../works/pdebench.md) — 覆盖九个 PDE 族、含正反问题的非 LLM 科学 ML 数据集；收录为求解器生成 benchmark 所依托的参照基座。
-- **规模化的物理模拟数据。** [The Well](../works/the-well.md) — 一个接口之后 16 个专家整理模拟数据集共 15 TB；非 LLM 代理模型资源，收录为经典数据基础设施。
 
 ## Comparison
 
@@ -193,8 +191,6 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | HARDMath | 2024 | 自动生成的渐近分析问题；366 题 mini 测试集 | 研究生应用数学（近似技术） | 对照经数值验证真值的准确率 | [→](../works/hardmath.md) |
 | PowerAgentBench-SS | 2026 | IEEE 39 节点系统变体；基于直流潮流的 N-2 热稳定越限搜索试点 | 电力系统稳态 agent 研究 | 隐藏评估器重算物理有效性；多种 recall、false-safe 罚分、severity regret | [→](../works/poweragentbench-ss.md) |
 | HydroAgent | 2026 | 在 4 个留出测站上率定业务化 CREST 模型 | agent 的水文模型率定 | 对照人类专家参照的 Nash–Sutcliffe 效率 | [→](../works/hydroagent.md) |
-| PDEBench | 2022 | 覆盖九个 PDE 族的即用数据集 | SciML 代理模型（非 LLM），正反问题 | 在套件指标下对照经典模拟与 ML 基线 | [→](../works/pdebench.md) |
-| The Well | 2024 | 16 个专家整理模拟数据集共 15 TB | 跨多样物理的 SciML 代理模型（非 LLM） | 统一 PyTorch 训练/评估接口配基线 | [→](../works/the-well.md) |
 
 ## Open Questions
 
@@ -293,8 +289,6 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [HARDMath](../works/hardmath.md)
 - [PowerAgentBench-SS](../works/poweragentbench-ss.md)
 - [HydroAgent](../works/hydroagent.md)
-- [PDEBench](../works/pdebench.md)
-- [The Well](../works/the-well.md)
 
 ## Further Reading
 
