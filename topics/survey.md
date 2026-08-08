@@ -1,6 +1,6 @@
 # Survey
 
-> **English** | [简体中文](../zh/topics/survey.md)
+> **English** | [简体中文](../zh/topics/survey.md) · [← All topics](./README.md)
 
 ## Definition
 

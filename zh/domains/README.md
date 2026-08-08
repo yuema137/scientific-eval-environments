@@ -16,6 +16,7 @@ Domain 页是**事实性参考页，不是文献综述**——作为入口与 to
 
 ## 规则
 
+- **语言切换器与返回链接。** 每个页面在 H1 正下方带一行引用，合并语言切换器与一个返回本索引页的链接：英文页为 `> **English** | [简体中文](../zh/domains/<file>.md) · [← All domains](./README.md)`，中文镜像为 `> [English](../../domains/<file>.md) | **简体中文** · [← 全部 domains](./README.md)`。
 - 更细的领域**折并**入规范化 domain（bioinformatics → Biology、GIS → Earth Science、psychology → Neuroscience & Cognitive Science、软件形式化验证 → Software & Systems Engineering 等）。
 - 一个 work 可以属于**多个 domain**；多领域套件出现在其覆盖的每个 domain 中，表格行侧重本领域的切片。
 - **没有兜底类别。** 没有科学或工程领域的 work——web/UI agent、computer use、通用 tool use、评估方法学、综述——不出现在这里。UI 与 computer-use 环境不是科学或工程领域。

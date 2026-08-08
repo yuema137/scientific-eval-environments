@@ -300,6 +300,6 @@ The distinction between in-scope and out-of-scope RL work is the paper's primary
 The final repository should read like a well-organized technical handbook.
 
 - Work cards provide **factual documentation**.
-- Topic pages provide **synthesis** and serve as the primary entry point.
+- Topic pages provide **synthesis** along the methodology axis; domain pages provide **field-oriented reference** along the domain axis. The two are co-equal entry points.
 
 Together they should give any reader a clear understanding of the current scientific evaluation landscape.

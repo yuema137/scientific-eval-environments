@@ -4,7 +4,7 @@
 
 文献综述页面，每页对应一个规范化（canonical）的评估方向。
 
-Topic 页是本仓库的**首要入口**。对某一研究方向感兴趣的读者应从这里开始，沿链接进入 [`../works/`](../works/)，再到原始论文：
+Topic 页是**方法学轴**——仓库两个平级入口之一，另一个是 [`../domains/`](../domains/) 中的领域轴。对某种评估方法学感兴趣的读者应从这里开始，沿链接进入 [`../works/`](../works/)，再到原始论文：
 
 ```
 Topic  →  代表性 works  →  原始论文
@@ -14,15 +14,15 @@ Topic  →  代表性 works  →  原始论文
 
 Topic 集合是固定的。新增 topic 需要更新 [`../../AGENT.md`](../../AGENT.md)。
 
-| # | Topic | 文件 |
-|---|---|---|
-| I | General Long-Horizon Agent Benchmarks | `long_horizon_evaluation.md` |
-| II | Scientific Agent Benchmarks | `scientific_agents.md` |
-| III | Trajectory Evaluation | `trajectory_evaluation.md` |
-| IV | Skill Hierarchy | `skill_hierarchy.md` |
-| V | Credit Assignment | `credit_assignment.md` |
-| VI | Resource-aware Evaluation | `resource_aware_evaluation.md` |
-| VII | Survey | `survey.md` |
+| # | Topic | 文件 | 收录 works |
+|---|---|---|---|
+| I | [General Long-Horizon Agent Benchmarks](./long_horizon_evaluation.md) | `long_horizon_evaluation.md` | 17 |
+| II | [Scientific Agent Benchmarks](./scientific_agents.md) | `scientific_agents.md` | 24 |
+| III | [Trajectory Evaluation](./trajectory_evaluation.md) | `trajectory_evaluation.md` | 20 |
+| IV | [Skill Hierarchy](./skill_hierarchy.md) | `skill_hierarchy.md` | 7 |
+| V | [Credit Assignment](./credit_assignment.md) | `credit_assignment.md` | 13 |
+| VI | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 7 |
+| VII | [Survey](./survey.md) | `survey.md` | 4 |
 
 Skill Hierarchy 与 Credit Assignment 是两个独立的 topic。
 
@@ -38,7 +38,7 @@ Skill Hierarchy 与 Credit Assignment 是两个独立的 topic。
 ```markdown
 # <Topic Name>
 
-> **English** | [简体中文](../zh/topics/<topic_file>.md)
+> **English** | [简体中文](../zh/topics/<topic_file>.md) · [← All topics](./README.md)
 
 ## Definition
 
@@ -69,7 +69,7 @@ topic 的维度。
 
 ## Topic 页规则
 
-- **语言切换器。** 每个页面在 H1 正下方带一行切换器：英文页为 `> **English** | [简体中文](../zh/topics/<file>.md)`，中文镜像为 `> [English](../../topics/<file>.md) | **简体中文**`。
+- **语言切换器与返回链接。** 每个页面在 H1 正下方带一行引用，合并语言切换器与一个返回本索引页的链接：英文页为 `> **English** | [简体中文](../zh/topics/<file>.md) · [← All topics](./README.md)`，中文镜像为 `> [English](../../topics/<file>.md) | **简体中文** · [← 全部 topics](./README.md)`。
 - **没有全局比较矩阵。** 每个 topic 拥有各自的维度。不要用共享表格把 topic 页串联起来。
 - **综合，而非摘要。** Topic 页应阐明该 topic 的设计空间，而不是复述单张卡片。需要某份工作的细节时，链接到它的卡片。
 - **Related Works 是反向索引。** 此处列出的每份工作，其卡片的 `Topics` 块中必须包含本 topic，反之亦然。保持两侧同步是一项维护责任。

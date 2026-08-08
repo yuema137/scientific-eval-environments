@@ -16,6 +16,7 @@ Domain pages are **factual reference pages, not literature reviews** — co-equa
 
 ## Rules
 
+- **Language switcher and breadcrumb.** Every page carries one quote line directly under the H1 combining the switcher and a link back to this index: `> **English** | [简体中文](../zh/domains/<file>.md) · [← All domains](./README.md)` on English pages, and `> [English](../../domains/<file>.md) | **简体中文** · [← 全部 domains](./README.md)` on the Chinese mirror.
 - Narrower fields **fold** into canonical domains (bioinformatics → Biology, GIS → Earth Science, psychology → Neuroscience & Cognitive Science, formal software verification → Software & Systems Engineering, …).
 - A work may belong to **multiple domains**; multi-domain suites appear in every domain they cover, with the table row slanted to this domain's slice.
 - **No catch-all.** Works without a science or engineering domain — web/UI agents, computer use, generic tool use, evaluation methodology, surveys — do not appear here. UI and computer-use environments are not science or engineering domains.

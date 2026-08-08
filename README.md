@@ -53,13 +53,13 @@ Topics are organized around this fixed set:
 
 | # | Topic | File |
 |---|---|---|
-| I | General Long-Horizon Agent Benchmarks | [`long_horizon_evaluation.md`](./topics/long_horizon_evaluation.md) |
-| II | Scientific Agent Benchmarks | [`scientific_agents.md`](./topics/scientific_agents.md) |
-| III | Trajectory Evaluation | [`trajectory_evaluation.md`](./topics/trajectory_evaluation.md) |
-| IV | Skill Hierarchy | [`skill_hierarchy.md`](./topics/skill_hierarchy.md) |
-| V | Credit Assignment | [`credit_assignment.md`](./topics/credit_assignment.md) |
-| VI | Resource-aware Evaluation | [`resource_aware_evaluation.md`](./topics/resource_aware_evaluation.md) |
-| VII | Survey | [`survey.md`](./topics/survey.md) |
+| I | [General Long-Horizon Agent Benchmarks](./topics/long_horizon_evaluation.md) | `long_horizon_evaluation.md` |
+| II | [Scientific Agent Benchmarks](./topics/scientific_agents.md) | `scientific_agents.md` |
+| III | [Trajectory Evaluation](./topics/trajectory_evaluation.md) | `trajectory_evaluation.md` |
+| IV | [Skill Hierarchy](./topics/skill_hierarchy.md) | `skill_hierarchy.md` |
+| V | [Credit Assignment](./topics/credit_assignment.md) | `credit_assignment.md` |
+| VI | [Resource-aware Evaluation](./topics/resource_aware_evaluation.md) | `resource_aware_evaluation.md` |
+| VII | [Survey](./topics/survey.md) | `survey.md` |
 
 Skill Hierarchy and Credit Assignment are independent topics.
 
