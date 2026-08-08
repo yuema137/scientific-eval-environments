@@ -36,6 +36,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - **Skill 感知的轨迹验证。** [SkillTV-Bench](../works/skilltv-bench.md) 在 681 条来自 skill 增强执行的真实轨迹上评测 LLM-as-a-Judge 与 Agent-as-a-Judge——在这一设定下，评判者必须掌握任务相关的 skill 知识才能判对。其 SkillTV-Evolve 循环把误判样例蒸馏为可复用的 JudgeSkill，使同一评判者的准确率提高 14.8 个百分点，并把从 rollout 池中挑出轨迹的成功率从单条时的 22.9% 提升到十条时的 45.5%。
 - **对失败搜索运行的定位-归因-修复审计。** [SearchAuditor](../works/searchauditor.md) 把失败分析变成一个有 benchmark 支撑的任务：在 SearchAuditBench 的 1,243 条专家标注失败 deep-search 轨迹（平均 65.1K token）上，端到端考察关键步骤定位、搜索特有的根因归因，以及对照带评分 rubric 的参考修复打分。
 - **错误生命周期追踪。** [TRAJDEBUG](../works/trajdebug.md) 通过多粒度历史压缩、基于证据的错误识别与解决状态追踪，把 agent 事后已恢复的错误与真正决定失败的错误区分开，以 TrajErrBench 的 486 条人工标注失败轨迹（取自 Tau2Bench 与 SWE-Bench Pro）为锚点。
+- **执行轨迹的语义评估。** [EnvTrace](../works/envtrace.md) 让 LLM 生成的仪器控制代码在同步辐射光束线的数字孪生上执行，通过对齐执行轨迹得到覆盖多个行为维度的功能正确性分——在「正确性即随时间的物理行为」的场景里，轨迹比较替代了单元测试；30 余个 LLM 受评。
 
 ## Comparison
 
@@ -64,6 +65,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | SkillTV-Bench | 2026 | Skill 增强执行上的评判准确率 + rollout 池挑选成功率 | Skill 增强的 agent 执行（11 个领域） | [→](../works/skilltv-bench.md) |
 | SearchAuditor | 2026 | 关键步骤定位、根因归因与按 rubric 修复的端到端通过率 | 长 horizon deep-search 轨迹 | [→](../works/searchauditor.md) |
 | TRAJDEBUG | 2026 | 错误识别 + 经解决状态与最终影响的关键归因 | Tool-use 与编码的失败轨迹 | [→](../works/trajdebug.md) |
+| EnvTrace | 2025 | 对照数字孪生的执行轨迹对齐；多维度功能正确性分 | 仪器控制代码（同步辐射光束线） | [→](../works/envtrace.md) |
 
 ## Open Questions
 
@@ -99,6 +101,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - [SkillTV-Bench](../works/skilltv-bench.md)
 - [SearchAuditor](../works/searchauditor.md)
 - [TRAJDEBUG](../works/trajdebug.md)
+- [EnvTrace](../works/envtrace.md)
 
 ## Further Reading
 

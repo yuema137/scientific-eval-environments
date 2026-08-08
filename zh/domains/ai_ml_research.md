@@ -14,6 +14,7 @@
 | FIRE-Bench | 2026 | 在只给高层研究问题的条件下，重新发现近期高影响力 ML 研究中已确立、可验证的发现——LLM 行为实证研究，外加 CV 与神经网络分析扩展。 | 40 个完整执行的任务，构建自逐论文的研究问题树（根问题 → 子问题 → 叶实验）；全部轻量计算（单块 80GB A100 上 ≤24 小时）。 | 把 agent 结论与真值发现各自拆为原子主张后做语义蕴含匹配，计主张级 precision/recall/F1；judge 与人类对照验证 F1 达 0.89。 | [→](../works/fire-bench.md) |
 | AIRS-Bench | 2026 | 语言建模与时间序列预测（连同数学与生物信息学）中的前沿研究任务，覆盖完整研究生命周期，不提供基线代码。 | 20 个任务；agent 以 CSV 提交留出测试集上的预测。 | 基于执行、只看结果：任务专属评估脚本计分；SOTA 归一化分数，接近上限处用 'march of nines' 变换。 | [→](../works/airs-bench.md) |
 | AstaBench | 2025 | 以计算机科学为主的整体科研能力：文献理解、代码与执行、数据分析、端到端发现；许多问题来自真实用户对已部署 Asta agent 的请求。 | 11 个 benchmark 共 2,400+ 个问题，配标准可复现工具环境与逐 benchmark 的语料日期截止；已为 57 个 agent 计分。 | 各 benchmark 自有指标（F1、recall@30、精确匹配、LLM 评判的 rubric 与假设匹配），随时间不变的美元成本核算与分数–成本 Pareto 前沿一并报告。 | [→](../works/astabench.md) |
+| PaperBench | 2025 | 复现最前沿的 AI 研究——20 篇 ICML 2024 Spotlight 与 Oral 论文——从理解贡献到执行实验。 | 从零复现，分解为 8,316 个可判分的评分节点；另征集 ML 博士人类基线。 | LLM judge 对照与作者共同开发的层级式评分标准打分，judge 本身在单独的 benchmark 上评测。 | [→](../works/paperbench.md) |
 
 ## Related Works
 
@@ -21,3 +22,4 @@
 - [FIRE-Bench](../works/fire-bench.md)
 - [AIRS-Bench](../works/airs-bench.md)
 - [AstaBench](../works/astabench.md)
+- [PaperBench](../works/paperbench.md)

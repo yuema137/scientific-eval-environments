@@ -15,6 +15,7 @@ Clinical and biomedical-application evaluation: medical tasks, drug discovery, E
 | NatureBench | 2026 | Match the published state of the art of Nature-family Biomedical Modeling studies — 14 of its 90 tasks — given the target algorithm's inputs but none of its operations or outputs. | Code-agent tasks built by a review-gated pipeline with an information firewall; ~3.7 primary metrics per task. | SOTA-normalized relative gap g on each paper's own primary metric; Match-SOTA (g ≥ 0) and Surpass-SOTA (g > 0.1) rates, with a judge flagging shortcut runs. | [→](../works/naturebench.md) |
 | Terminal-Bench Science | 2026 | Medicine tasks within the Life Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (8 at launch across all five tracks, target 100+), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
 | MetaSyn | 2026 | Conduct protocol-faithful systematic review and meta-analysis; medical science is among the subjects its 422 expert-curated meta-analyses span. | Multi-stage systematic-review workflows: identify the eligible studies for a research question with structured PI/ECO criteria within a shared PubMed-anchored corpus containing ineligible distractors. | Study identification against the original expert reviewers' included set, with stage-wise evaluation locating failures along the meta-analysis pipeline. | [→](../works/metasyn.md) |
+| CORE-Bench | 2024 | Reproduce published computational results from each paper's own code and data; medicine is one of its three disciplines. | 270 tasks from 90 papers at three difficulty levels, in language-only and vision-language forms. | Accuracy of reproduced results, checked by a fast, parallelizable evaluation harness. | [→](../works/core-bench.md) |
 
 ## Related Works
 
@@ -23,3 +24,4 @@ Clinical and biomedical-application evaluation: medical tasks, drug discovery, E
 - [NatureBench](../works/naturebench.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [MetaSyn](../works/metasyn.md)
+- [CORE-Bench](../works/core-bench.md)

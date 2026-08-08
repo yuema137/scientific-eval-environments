@@ -15,6 +15,7 @@
 | NatureBench | 2026 | 达到 Nature 系列 Biomedical Modeling 研究的已发表 SOTA——其 90 个任务中的 14 个——只给目标算法的输入，不给其操作或输出。 | 经评审门控流水线与信息防火墙构建的 code-agent 任务；每任务平均约 3.7 个主指标。 | 在论文自身主指标上的 SOTA 归一化相对差距 g；报告 Match-SOTA（g ≥ 0）与 Surpass-SOTA（g > 0.1）比率，另有 judge 标记捷径运行。 | [→](../works/naturebench.md) |
 | Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Life Sciences 分组下的医学任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | MetaSyn | 2026 | 进行忠实于协议的系统综述与 meta 分析；医学是其 422 个专家整理 meta 分析所覆盖的主题之一。 | 多阶段系统综述工作流：在掺入不合格干扰文献的共享 PubMed 文献库中，依据带结构化 PI/ECO 标准的研究问题找出应纳入的研究。 | 对照原综述作者实际纳入的研究集做识别评估，并以分阶段评估定位 meta 分析流程中的失败环节。 | [→](../works/metasyn.md) |
+| CORE-Bench | 2024 | 用论文自带的代码与数据重现已发表的计算结果；医学是其三个学科之一。 | 90 篇论文的 270 个任务，分三档难度，含纯语言与视觉-语言两种形式。 | 重现结果的准确率，由快速、可并行的评估系统校验。 | [→](../works/core-bench.md) |
 
 ## Related Works
 
@@ -23,3 +24,4 @@
 - [NatureBench](../works/naturebench.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [MetaSyn](../works/metasyn.md)
+- [CORE-Bench](../works/core-bench.md)

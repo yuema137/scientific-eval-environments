@@ -17,6 +17,7 @@ Chemistry as the science, including computational chemistry and molecular design
 | MDArena | 2026 | Run realistic computational-chemistry workflows over molecular dynamics: trajectory analysis, system preparation, alchemical free-energy calculations, and enhanced sampling. | 50 containerized tasks sourced from active research projects, spanning 29 molecular systems and 14 research protocols. | Strict-Pass@1 as the headline metric, with correctness and process-reward metrics crediting partial progress. | [→](../works/mdarena.md) |
 | PhySciBench | 2026 | Answer expert-curated deep-research questions on the chemistry side of a physics/chemistry-balanced set, targeting fragile reasoning chains, limited cross-step knowledge transfer, and missing self-verification. | 200 expert-curated questions balanced between physics and chemistry, organized into six task categories reflecting real-world scientific workflows. | Accuracy-based evaluation comparing state-of-the-art models and agent systems, with cost reported alongside accuracy. | [→](../works/physcibench.md) |
 | MetaSyn | 2026 | Conduct protocol-faithful systematic review and meta-analysis; chemistry is among the subjects its 422 expert-curated meta-analyses span. | Multi-stage systematic-review workflows: identify the eligible studies for a research question with structured PI/ECO criteria within a shared PubMed-anchored corpus containing ineligible distractors. | Study identification against the original expert reviewers' included set, with stage-wise evaluation locating failures along the meta-analysis pipeline. | [→](../works/metasyn.md) |
+| SciCode | 2024 | Write research code for scientist-curated problems; chemistry is among the five main domains its 16 natural-science subfields span. | 80 main problems decomposed into 338 subproblems mixing knowledge recall, reasoning, and code synthesis. | Execution against scientist-annotated gold-standard solutions and test cases. | [→](../works/scicode.md) |
 
 ## Related Works
 
@@ -27,3 +28,4 @@ Chemistry as the science, including computational chemistry and molecular design
 - [MDArena](../works/mdarena.md)
 - [PhySciBench](../works/physcibench.md)
 - [MetaSyn](../works/metasyn.md)
+- [SciCode](../works/scicode.md)

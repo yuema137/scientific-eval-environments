@@ -44,6 +44,29 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **按研究意图组织的文献搜索。** [ScholarQuest](../works/scholarquest.md) 按四类研究意图——方法导向、设定锚定、比较导向、范围受控——组织 agentic 论文搜索，覆盖 1,000 余个计算机科学主题；agentic 方法胜过单次检索基线，但最佳 agent 的 Recall@100 也仅有 0.314。
 - **渐进式的信息获取分层。** [SciExplore](../works/sciexplore.md) 用四类渐进任务——科学数据库导航、表述模糊的文献检索、缺失参考文献补全、跨源结构化知识综合——评估科学信息获取能力：103 个专家整理的任务，覆盖十余个学科；任务复杂度一升高，表现便急剧下滑。
 - **物理系统预测的真实世界数据。** [RealPDEBench](../works/realpdebench.md) 把五个真实测量数据集与同一批复杂物理系统的数值模拟配对，在三类任务与八项数据/物理导向指标下，把 sim-to-real 差距本身变成测量对象。其评估对象是科学 ML 代理模型而非 LLM agent——收录于此是因为其评估方法学；在十个基线上的实验显示模拟与真实数据差异显著，而用模拟数据预训练能稳定提升精度与收敛速度。
+- **预算受限的引力发现。** [Gravity-Bench-v1](../works/gravity-bench.md) 让 agent 在实验预算内规划对模拟二体引力系统的观测，再分析数据以揭示被隐藏的——有时是分布外的——物理；据官方项目页，最佳模型从全量数据下的 74% 跌到预算下的 49%。
+- **先验受控的物理发现。** [PhysGym](../works/physgym.md) 把 97 个交互式物理发现问题布置在四个受控的先验层级下，把「agent 发现了什么」与「agent 被告知了什么」分开；据官方仓库，先验逐级撤去时 o4-mini 从 62.89% 跌至 31%。
+- **反事实世界的定律发现。** [DiscoverPhysics](../works/discoverphysics.md) 让 agent 在 22 个物理刻意偏离现实的模拟世界中做实验，并同时提交解释与定律的 Python 实现，以留出粒子上的轨迹 MSE 加按评分标准的 LLM 解释分评判；最强 agent 也只通过一半的世界。
+- **操作专业 FEA 软件。** [FEABench](../works/feabench.md) 让 LLM agent 通过 API 驱动 COMSOL Multiphysics 端到端求解多物理场问题；最佳策略生成的 API 调用有 88% 可执行。
+- **量子多体复现。** [QMP-Bench](../works/qmp-bench.md) 从 21 种高影响力期刊提取 100 个研究级端到端量子多体模拟任务，由编程验证器与科学验证器成对验证。
+- **以精度为参照的引力波任务。** [gwBenchmarks](../works/gwbenchmarks.md) 在八个底层数据超过 10⁸ 核时的引力波任务上压力测试 12 个 coding agent，并因 agent 会伪造或只做部分评估而改用外部框架计分；较难任务上所有 agent 距 ≲10⁻⁴ 的领域要求差 1–2 个数量级。
+- **原作者共同开发的论文复现。** [ReplicationBench](../works/replicationbench.md) 把天体物理论文拆成 111 个与原作者共同开发的复现任务（官方仓库），把对方法的忠实与结果的正确分开打分；最好的模型得分也不足 20%。
+- **紧随期刊的研究任务。** [PRL-Bench](../works/prl-bench.md) 从 2025 年 8 月后的 Physical Review Letters 论文中派生 100 个经专家验证的长 horizon 研究任务，覆盖五个子领域，以新近性防污染；六个前沿 LLM 中最高总分不到 50（满分 100）。
+- **轨迹对齐的仪器控制。** [EnvTrace](../works/envtrace.md) 让 LLM 生成的同步辐射光束线控制代码在数字孪生上执行、再对齐执行轨迹来评估——对于「意义即物理行为」的代码，这是语义层面的正确性检验；30 余个 LLM 受评。
+- **Agent benchmark 能泛化多远？** [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md) 在 53 个显微术 benchmark 测试与 105 种 agent 配置上共运行 1,949 次，发现用这些结果训练的代理模型无法可靠预测未见任务上的表现。
+- **未发表的研究级挑战。** [CritPt](../works/critpt.md) 由 50 余位物理学家在 11 个以上子领域创作 71 个未发表、防猜测的研究挑战（分解为 190 个检查点任务），由针对物理定制的流水线自动判分；最佳基础模型 5.7%，配编码工具约 10%。
+- **全新理论问题。** [TPBench](../works/tpbench.md) 给出 57 道全新、可自动验证的理论物理问题，从本科到研究级，覆盖高能理论与宇宙学；研究级问题大多未被受评模型解出。
+- **科学家整理的科研代码。** [SciCode](../works/scicode.md) 把 80 个真实科研编码问题分解为 338 个子问题，横跨 16 个自然科学子领域；受评模型中最好的在最接近真实的设定下只解出 4.6% 的主问题。
+- **内核校验的形式化物理。** [Lean4Physics](../works/lean4physics.md) 贡献 LeanPhysBench——200 条经同行评审的 Lean4 物理命题——外加 PhysLib 基础库；最佳成绩为专业证明器 16%、Claude Sonnet 4 35%，PhysLib 平均带来 +11.75%。
+- **防记忆的方程发现。** [LLM-SRBench](../works/llm-srbench.md) 构建 239 个方程发现问题：或把已知物理模型变换到陌生表征，或直接合成发现型问题；最好的系统符号准确率仅 31.5%。
+- **本科广度的解题评估。** [UGPhysics](../works/ugphysics.md) 覆盖 5,520 道经泄漏筛查的双语问题、13 个科目，由 MARJ 流水线判分；31 个 LLM 中最高 49.8%。
+- **原创题加连续指标。** [PHYBench](../works/phybench.md) 原创 500 道从高中到奥赛的问题，用表达式编辑距离为符号答案评分；Gemini 2.5 Pro 为 36.9%，人类专家为 61.9%。
+- **视觉不可或缺的物理。** [SeePhys](../works/seephys.md) 让 75% 的题目不看图无法作答，横跨 21 类图示、从初中到博士；顶级视觉推理模型准确率不足 60%。
+- **官方奥赛评分。** [HiPhO](../works/hipho.md) 用官方评分方案与奖牌线在 13 套最新高中物理奥赛真题上评判 30 个 (M)LLM；闭源推理 MLLM 获 6–12 金，但大多数模型距满分仍远。
+- **前沿学术参照点。** [Humanity's Last Exam](../works/hle.md) 由全球领域专家在数十个学科上出 2,500 道位于人类知识前沿的题目——抗检索、可自动判分、并测量校准度。它是通用学术 benchmark 而非 agent benchmark，是研究级科学 benchmark 用来定位自身难度的天花板。
+- **大学课程广度的解题评估。** [PHYSICS](../works/physics-benchmark.md) 整理 1,297 道专家标注的大学水平问题，覆盖物理六大核心领域，配稳健的自动评估系统；受评中最先进的 o3-mini 也只有 59.9%。
+- **按评分标准分解的 AI 论文复现。** [PaperBench](../works/paperbench.md) 让 agent 从零复现 20 篇 ICML 2024 Spotlight 与 Oral 论文，由 LLM judge 对照与作者共同开发的层级式评分标准（共 8,316 个判分节点）打分——judge 本身也被单独评测；最佳 agent 得 21.0%，ML 博士仍然领先。
+- **基于自带代码与数据的可复现性。** [CORE-Bench](../works/core-bench.md) 把计算可复现性单独隔离出来——用 90 篇论文自己的代码与数据重跑其结果，跨三个学科、270 个任务；最好的基线 agent 在最难档上仅 21%。
 
 ## Comparison
 
@@ -81,6 +104,29 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | ScholarQuest | 2026 | 由 1,000+ 个计算机科学主题按四种研究意图构造的查询 | 计算机科学文献搜索 | 对照真值论文集的 Recall@100 与 Recall@All | [→](../works/scholarquest.md) |
 | SciExplore | 2026 | 103 个专家整理的任务，分四类渐进任务 | 覆盖 10+ 学科的科学信息获取 | 从数据库导航到结构化综合的分层准确率 | [→](../works/sciexplore.md) |
 | RealPDEBench | 2026 | 5 个真实测量数据集，配成对数值模拟 | 复杂物理系统（流固耦合、圆柱/翼型绕流、燃烧）；科学 ML 模型而非 LLM agent | 3 类真实-模拟对比任务上的 8 项数据/物理导向指标；10 个基线 | [→](../works/realpdebench.md) |
+| Gravity-Bench-v1 | 2025 | 含分布外物理的模拟二体系统 | 观测预算下的引力物理发现 | 对照严格动力学模拟的参考解，与人类专家对标 | [→](../works/gravity-bench.md) |
+| PhysGym | 2025 | 取自 PHYBench 的 97 个问题，以交互模拟运行 | 四个受控先验层级下的物理发现 | 假设准确性与模型保真度的标准化协议 | [→](../works/physgym.md) |
+| DiscoverPhysics | 2026 | 按需生成的 22 个反事实 N 体世界 | 刻意非标准物理中的运动定律 | 留出粒子上的轨迹 MSE + 按评分标准的 LLM 解释分 | [→](../works/discoverphysics.md) |
+| FEABench | 2025 | 经 COMSOL Multiphysics API 求解的多物理场问题 | 有限元多物理场仿真 | 对生成 API 调用与计算答案的评估；可执行率指标 | [→](../works/feabench.md) |
+| QMP-Bench | 2026 | 提取自 21 种高影响力期刊的 100 个任务 | 量子多体模拟 | 编程验证器加基于物理原理的科学验证器 | [→](../works/qmp-bench.md) |
+| gwBenchmarks | 2026 | 8 个任务，底层数据代表 10⁸+ 核时计算 | ≲10⁻⁴ 相对误差要求下的引力波天文学 | 外部预定义评估框架，配单任务物理指标 | [→](../works/gwbenchmarks.md) |
+| ReplicationBench | 2025 | 与原作者共同开发的 20 篇论文 111 个任务 | 天体物理论文复现 | 逐任务客观评分：忠实性与正确性 | [→](../works/replicationbench.md) |
+| PRL-Bench | 2026 | 100 篇 2025 年 8 月后的 PRL 论文，专家验证 | 五个子领域的前沿物理研究 | 客观可验证的结果；0–100 制评分 | [→](../works/prl-bench.md) |
+| EnvTrace | 2025 | 同步辐射装置的光束线控制代码生成 | 实验物理的仪器控制 | 对照数字孪生的执行轨迹对齐 | [→](../works/envtrace.md) |
+| Agentic Self-Driving Microscopy Benchmarks | 2026 | 53 个显微术测试 × 105 种 agent 配置 | 自主显微术 / 材料表征 | 带轨迹日志的 benchmark 测试；时延、成本与失败模式比较 | [→](../works/agentic-microscopy-benchmarks.md) |
+| CritPt | 2025 | 50 余位物理学家的 71 个未发表挑战 + 190 个检查点 | 11+ 子领域的研究入门级物理 | 防猜测、可机器验证的答案；定制自动判分 | [→](../works/critpt.md) |
+| TPBench | 2025 | 57 道全新问题，从本科到研究级 | 理论物理：高能理论与宇宙学 | 可自动验证的答案与定制判分 | [→](../works/tpbench.md) |
+| SciCode | 2024 | 科学家整理的 80 个主问题 / 338 个子问题 | 16 个自然科学子领域（数学、物理、化学、生物、材料） | 对照科学家标注的金标准解与测试执行 | [→](../works/scicode.md) |
+| Lean4Physics | 2025 | 200 条经同行评审的 Lean4 命题，取材教材与竞赛 | 作为形式化定理证明的大学物理 | Lean4 内核证明检查；无 judge 介入 | [→](../works/lean4physics.md) |
+| LLM-SRBench | 2025 | 239 个问题，分 LSR-Transform 与 LSR-Synth 两类 | 横跨四个领域的科学方程发现 | 对照真值方程的符号准确率 | [→](../works/llm-srbench.md) |
+| UGPhysics | 2025 | 5,520 道经泄漏筛查的双语本科问题 | 13 个科目的本科物理 | MARJ 模型辅助规则判分 | [→](../works/ugphysics.md) |
+| PHYBench | 2025 | 500 道原创问题，从高中到奥赛 | 以符号答案作答的物理解题 | 表达式编辑距离（EED）加准确率；人类专家基线 | [→](../works/phybench.md) |
+| SeePhys | 2025 | 2,000 道经校验的问题（官方页），从初中到博士 | 视觉不可或缺的物理：7 个领域、21 类图示 | 多模态解题准确率 | [→](../works/seephys.md) |
+| HiPhO | 2025 | 13 套最新（2024–25）国际与地区奥赛真题 | 混合模态的高中奥赛物理 | 官方评分方案的答案级与步骤级判分；奖牌线 | [→](../works/hipho.md) |
+| Humanity's Last Exam | 2025 | 全球领域专家出的 2,500 道题 | 数十个学科的前沿学术知识；非 agent 专属 | 对无歧义答案自动判分；准确率与校准度 | [→](../works/hle.md) |
+| PHYSICS | 2025 | 1,297 道专家标注的大学水平问题 | 大学物理：六大核心领域 | 稳健的自动评估系统 | [→](../works/physics-benchmark.md) |
+| PaperBench | 2025 | 20 篇 ICML 2024 Spotlight/Oral 论文，与作者共同开发评分标准 | AI 研究复现；8,316 个可判分节点 | LLM judge 对照层级式评分标准打分，judge 本身被单独评测 | [→](../works/paperbench.md) |
+| CORE-Bench | 2024 | 90 篇论文自带代码与数据的 270 个任务 | 计算可复现性：计算机科学、社会科学、医学 | 重现结果的准确率（可并行评估系统校验） | [→](../works/core-bench.md) |
 
 ## Open Questions
 
@@ -124,6 +170,29 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [ScholarQuest](../works/scholarquest.md)
 - [SciExplore](../works/sciexplore.md)
 - [RealPDEBench](../works/realpdebench.md)
+- [Gravity-Bench-v1](../works/gravity-bench.md)
+- [PhysGym](../works/physgym.md)
+- [DiscoverPhysics](../works/discoverphysics.md)
+- [FEABench](../works/feabench.md)
+- [QMP-Bench](../works/qmp-bench.md)
+- [gwBenchmarks](../works/gwbenchmarks.md)
+- [ReplicationBench](../works/replicationbench.md)
+- [PRL-Bench](../works/prl-bench.md)
+- [EnvTrace](../works/envtrace.md)
+- [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md)
+- [CritPt](../works/critpt.md)
+- [TPBench](../works/tpbench.md)
+- [SciCode](../works/scicode.md)
+- [Lean4Physics](../works/lean4physics.md)
+- [LLM-SRBench](../works/llm-srbench.md)
+- [UGPhysics](../works/ugphysics.md)
+- [PHYBench](../works/phybench.md)
+- [SeePhys](../works/seephys.md)
+- [HiPhO](../works/hipho.md)
+- [Humanity's Last Exam](../works/hle.md)
+- [PHYSICS](../works/physics-benchmark.md)
+- [PaperBench](../works/paperbench.md)
+- [CORE-Bench](../works/core-bench.md)
 
 ## Further Reading
 

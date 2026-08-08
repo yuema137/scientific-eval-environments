@@ -44,6 +44,29 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **Intent-structured literature search.** [ScholarQuest](../works/scholarquest.md) organizes agentic paper search by four research intents — method-oriented, setting-anchored, comparison-based, and scope-controlled — over 1,000+ computer science topics; agentic methods beat single-shot baselines, yet the best agent reaches only 0.314 Recall@100.
 - **Progressive information-seeking tiers.** [SciExplore](../works/sciexplore.md) grades scientific information seeking across four progressive task types — database navigation, ambiguous literature retrieval, missing reference completion, and cross-source structured knowledge synthesis — over 103 expert-curated tasks in more than ten disciplines, with performance degrading sharply as task complexity increases.
 - **Real-world data for physical-system prediction.** [RealPDEBench](../works/realpdebench.md) pairs five real-world measured datasets with numerical simulations of the same complex physical systems, making the sim-to-real gap itself the measured object across three tasks and eight data- and physics-oriented metrics. Its subject is scientific ML surrogate models rather than LLM agents — documented here for its evaluation methodology; experiments over ten baselines show significant sim-vs-real discrepancies, with simulated-data pretraining consistently improving accuracy and convergence.
+- **Budgeted gravitational discovery.** [Gravity-Bench-v1](../works/gravity-bench.md) has agents plan observations of a simulated two-body gravitational system within an experimental budget and analyze the data to uncover concealed — sometimes out-of-distribution — physics; per the official project page, the top model drops from 74% with full data access to 49% under the budget.
+- **Prior-knowledge-controlled discovery.** [PhysGym](../works/physgym.md) poses 97 interactive physics-discovery problems at four controlled levels of supplied priors, separating what an agent discovers from what it was told; per the official repository, o4-mini falls from 62.89% to 31% as priors are removed.
+- **Counterfactual-world discovery.** [DiscoverPhysics](../works/discoverphysics.md) asks agents to run experiments in 22 simulated worlds whose physics deliberately deviates from ours and submit both an explanation and a Python law, scored by held-out trajectory MSE plus a rubric-based LLM-judged explanation score; the strongest agents pass only half the worlds.
+- **Operating professional FEA software.** [FEABench](../works/feabench.md) has LLM agents solve multiphysics problems end to end by driving COMSOL Multiphysics through its API; the best strategy generates executable API calls 88% of the time.
+- **Quantum many-body reproduction.** [QMP-Bench](../works/qmp-bench.md) extracts 100 research-level, end-to-end quantum many-body simulation tasks from 21 high-impact journals, verified by paired programming and scientific verifiers.
+- **Precision-referenced gravitational-wave tasks.** [gwBenchmarks](../works/gwbenchmarks.md) stress-tests twelve coding agents on eight gravitational-wave tasks whose data represent over 10⁸ core-hours, scoring through an external framework because agents fabricated or partially evaluated results; on hard tasks all agents fall 1–2 orders of magnitude short of the ≲10⁻⁴ domain requirement.
+- **Author-co-developed paper replication.** [ReplicationBench](../works/replicationbench.md) splits astrophysics papers into 111 replication tasks co-developed with the original authors (official repository), scoring faithfulness to method and correctness of result separately; even the best models score under 20%.
+- **Journal-fresh research tasks.** [PRL-Bench](../works/prl-bench.md) derives 100 expert-validated, long-horizon research tasks from post-August-2025 Physical Review Letters papers across five subfields, with recency as contamination control; the best of six frontier LLMs scores below 50 of 100.
+- **Trace-aligned instrument control.** [EnvTrace](../works/envtrace.md) evaluates LLM-generated synchrotron-beamline control code by executing it against a digital twin and aligning execution traces — semantic correctness for code whose meaning is physical behavior — across 30+ LLMs.
+- **How far do agent benchmarks generalize?** [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md) runs 1,949 tests over 53 microscopy benchmark tests and 105 agent configurations, and finds that surrogate models trained on the results do not reliably predict performance on unseen tasks.
+- **Unpublished research-level challenges.** [CritPt](../works/critpt.md) has 50+ physicists author 71 unpublished, guess-resistant research challenges (decomposed into 190 checkpoint tasks) across 11+ subfields, auto-graded by a physics-customized pipeline; the best base model reaches 5.7%, rising to about 10% with coding tools.
+- **Novel theory problems.** [TPBench](../works/tpbench.md) poses 57 novel, auto-verifiable theoretical-physics problems from undergraduate to research level in high-energy theory and cosmology; research-level problems remain mostly unsolved.
+- **Scientist-curated research code.** [SciCode](../works/scicode.md) decomposes 80 real research coding problems into 338 subproblems across 16 natural-science subfields; the best model tested solves only 4.6% of main problems in the most realistic setting.
+- **Kernel-checked formal physics.** [Lean4Physics](../works/lean4physics.md) contributes LeanPhysBench — 200 peer-reviewed Lean4 physics statements — plus the PhysLib foundation library; best results are 16% for an expert prover and 35% for Claude Sonnet 4, with PhysLib worth an average +11.75%.
+- **Memorization-proof equation discovery.** [LLM-SRBench](../works/llm-srbench.md) builds 239 equation-discovery problems that either transform known physical models into unfamiliar representations or synthesize discovery-driven problems outright; the best system reaches 31.5% symbolic accuracy.
+- **Undergraduate-breadth problem solving.** [UGPhysics](../works/ugphysics.md) spans 5,520 leakage-screened bilingual problems over 13 subjects, judged by its MARJ pipeline; the best of 31 LLMs reaches 49.8%.
+- **Original problems with a continuous metric.** [PHYBench](../works/phybench.md) writes 500 original high-school-to-olympiad problems and grades symbolic answers by Expression Edit Distance; Gemini 2.5 Pro reaches 36.9% versus 61.9% for human experts.
+- **Vision-essential physics.** [SeePhys](../works/seephys.md) makes 75% of its middle-school-to-PhD problems unanswerable without the diagram, across 21 diagram categories; top visual reasoning models stay below 60% accuracy.
+- **Official olympiad marking.** [HiPhO](../works/hipho.md) grades 30 (M)LLMs on the 13 latest high-school physics olympiad exams using official marking schemes and medal thresholds; closed-source reasoning MLLMs reach 6–12 gold medals while most models remain far from full marks.
+- **The frontier academic reference point.** [Humanity's Last Exam](../works/hle.md) sets 2,500 globally expert-authored questions across dozens of subjects at the frontier of human knowledge — retrieval-resistant, automatically gradable, and calibration-scored. A general academic benchmark rather than an agent benchmark, it is the difficulty ceiling that research-level scientific benchmarks position themselves against.
+- **University-curriculum problem solving.** [PHYSICS](../works/physics-benchmark.md) curates 1,297 expert-annotated university-level problems across six core physics areas with a robust automated evaluation system; the most advanced model tested, o3-mini, reaches only 59.9%.
+- **Rubric-decomposed AI-paper replication.** [PaperBench](../works/paperbench.md) has agents replicate 20 ICML 2024 Spotlight and Oral papers from scratch, graded by an LLM judge against author-co-developed hierarchical rubrics totaling 8,316 gradable tasks — with the judge itself separately benchmarked; the best agent scores 21.0% and ML PhDs still lead.
+- **Reproducibility from provided artifacts.** [CORE-Bench](../works/core-bench.md) isolates computational reproducibility — rerunning 90 papers from their own code and data across three disciplines and 270 tasks; the best baseline agent reaches 21% on the hardest level.
 
 ## Comparison
 
@@ -81,6 +104,29 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | ScholarQuest | 2026 | Queries from 1,000+ computer science topics across four research intents | Computer science literature search | Recall@100 and Recall@All against ground-truth paper sets | [→](../works/scholarquest.md) |
 | SciExplore | 2026 | 103 expert-curated tasks in four progressive task types | Scientific information seeking across 10+ disciplines | Accuracy across progressive task types, from database navigation to structured synthesis | [→](../works/sciexplore.md) |
 | RealPDEBench | 2026 | 5 real-world measured datasets with paired numerical simulations | Complex physical systems (fluid–structure interaction, cylinder/foil flows, combustion); scientific ML models, not LLM agents | 8 data-oriented and physics-oriented metrics over 3 sim-vs-real tasks; 10 baselines | [→](../works/realpdebench.md) |
+| Gravity-Bench-v1 | 2025 | Simulated two-body systems incl. out-of-distribution physics | Gravitational-physics discovery under an observation budget | Reference solutions from rigorous dynamics simulations, calibrated against human expertise | [→](../works/gravity-bench.md) |
+| PhysGym | 2025 | 97 problems sourced from PHYBench, run as interactive simulations | Physics discovery under four controlled prior-knowledge levels | Standardized protocols for hypothesis accuracy and model fidelity | [→](../works/physgym.md) |
+| DiscoverPhysics | 2026 | 22 counterfactual N-body worlds generated on demand | Laws of motion in deliberately non-standard physics | Held-out trajectory MSE + rubric-based LLM-judged explanation score | [→](../works/discoverphysics.md) |
+| FEABench | 2025 | Multiphysics problems solved via the COMSOL Multiphysics API | Finite-element multiphysics simulation | Evaluation over generated API calls and computed answers; executability metric | [→](../works/feabench.md) |
+| QMP-Bench | 2026 | 100 tasks extracted from 21 high-impact journals | Quantum many-body simulation | Programming verifiers plus principle-based scientific verifiers | [→](../works/qmp-bench.md) |
+| gwBenchmarks | 2026 | 8 tasks over data representing 10⁸+ core-hours of compute | Gravitational-wave astronomy at ≲10⁻⁴ relative error | External pre-defined evaluation framework with per-task physics metrics | [→](../works/gwbenchmarks.md) |
+| ReplicationBench | 2025 | 111 tasks from 20 papers, co-developed with the original authors | Astrophysics paper replication | Objective per-task scoring of faithfulness and correctness | [→](../works/replicationbench.md) |
+| PRL-Bench | 2026 | 100 curated post-Aug-2025 PRL papers, expert-validated | Frontier physics research across 5 subfields | Objectively verifiable outcomes; 0–100 scoring | [→](../works/prl-bench.md) |
+| EnvTrace | 2025 | Beamline control-code generation at synchrotron facilities | Instrument control for experimental physics | Execution-trace alignment against a digital twin | [→](../works/envtrace.md) |
+| Agentic Self-Driving Microscopy Benchmarks | 2026 | 53 microscopy tests × 105 agent configurations | Self-driving microscopy / materials characterization | Trace-logged benchmark tests; latency, cost, and failure-mode comparison | [→](../works/agentic-microscopy-benchmarks.md) |
+| CritPt | 2025 | 71 unpublished challenges + 190 checkpoints by 50+ physicists | Research-entry physics across 11+ subfields | Guess-resistant, machine-verifiable answers; customized automated grading | [→](../works/critpt.md) |
+| TPBench | 2025 | 57 novel problems, undergraduate to research level | Theoretical physics: high-energy theory and cosmology | Auto-verifiable answers with tailored grading | [→](../works/tpbench.md) |
+| SciCode | 2024 | 80 main / 338 subproblems curated by scientists | 16 natural-science subfields (math, physics, chemistry, biology, materials) | Execution against scientist-annotated gold solutions and tests | [→](../works/scicode.md) |
+| Lean4Physics | 2025 | 200 peer-reviewed Lean4 statements from textbooks and competitions | College physics as formal theorem proving | Lean4 kernel proof checking; no judge in the loop | [→](../works/lean4physics.md) |
+| LLM-SRBench | 2025 | 239 problems in two classes: LSR-Transform and LSR-Synth | Scientific equation discovery across four domains | Symbolic accuracy against ground-truth equations | [→](../works/llm-srbench.md) |
+| UGPhysics | 2025 | 5,520 bilingual undergraduate problems, leakage-screened | Undergraduate physics across 13 subjects | MARJ model-assistant rule-based judgment | [→](../works/ugphysics.md) |
+| PHYBench | 2025 | 500 original problems, high school to olympiad | Physics problem solving with symbolic answers | Expression Edit Distance (EED) plus accuracy; human-expert baseline | [→](../works/phybench.md) |
+| SeePhys | 2025 | 2,000 validated questions (official page), middle school to PhD | Vision-essential physics: 7 domains, 21 diagram types | Accuracy on multimodal problem solving | [→](../works/seephys.md) |
+| HiPhO | 2025 | 13 latest (2024–25) olympiad exams, international and regional | High-school olympiad physics, mixed modalities | Official marking schemes at answer and step level; medal thresholds | [→](../works/hipho.md) |
+| Humanity's Last Exam | 2025 | 2,500 questions by global subject-matter experts | Frontier academic knowledge across dozens of subjects; not agent-specific | Automated grading of unambiguous solutions; accuracy and calibration | [→](../works/hle.md) |
+| PHYSICS | 2025 | 1,297 expert-annotated university problems | University physics: six core areas | Robust automated evaluation system | [→](../works/physics-benchmark.md) |
+| PaperBench | 2025 | 20 ICML 2024 Spotlight/Oral papers, author-co-developed rubrics | AI-research replication; 8,316 gradable rubric tasks | LLM judge against hierarchical rubrics, with the judge separately benchmarked | [→](../works/paperbench.md) |
+| CORE-Bench | 2024 | 270 tasks from 90 papers with provided code and data | Computational reproducibility: computer science, social science, medicine | Accuracy of reproduced results via a parallelizable harness | [→](../works/core-bench.md) |
 
 ## Open Questions
 
@@ -124,6 +170,29 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [ScholarQuest](../works/scholarquest.md)
 - [SciExplore](../works/sciexplore.md)
 - [RealPDEBench](../works/realpdebench.md)
+- [Gravity-Bench-v1](../works/gravity-bench.md)
+- [PhysGym](../works/physgym.md)
+- [DiscoverPhysics](../works/discoverphysics.md)
+- [FEABench](../works/feabench.md)
+- [QMP-Bench](../works/qmp-bench.md)
+- [gwBenchmarks](../works/gwbenchmarks.md)
+- [ReplicationBench](../works/replicationbench.md)
+- [PRL-Bench](../works/prl-bench.md)
+- [EnvTrace](../works/envtrace.md)
+- [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md)
+- [CritPt](../works/critpt.md)
+- [TPBench](../works/tpbench.md)
+- [SciCode](../works/scicode.md)
+- [Lean4Physics](../works/lean4physics.md)
+- [LLM-SRBench](../works/llm-srbench.md)
+- [UGPhysics](../works/ugphysics.md)
+- [PHYBench](../works/phybench.md)
+- [SeePhys](../works/seephys.md)
+- [HiPhO](../works/hipho.md)
+- [Humanity's Last Exam](../works/hle.md)
+- [PHYSICS](../works/physics-benchmark.md)
+- [PaperBench](../works/paperbench.md)
+- [CORE-Bench](../works/core-bench.md)
 
 ## Further Reading
 

@@ -31,6 +31,10 @@
 - **异步环境。** [Gaia2](../works/gaia2.md) 在事件驱动的环境中运行 1,120 个场景，这些环境按自己的时钟推进而非仅在 agent 行动时才变化，从而使时间意识成为一项被打分的能力：GPT-5（high）以 42.1% 的 pass@1 总分领先，但在 Time 划分上得分为 0.0，且每个受评模型在该划分上都低于 9 分。
 - **研究型 horizon 上的终端报告质量。** [DeepResearch Bench](../works/deepresearch-bench.md) 覆盖与 TRACE 相同的 deep research horizon，却有意只评价最终产物——理由是商业 agent 的内部检索与推理不可观测：100 个由专家撰写的任务，其主题配比压缩自 44,019 条经过筛选的真实用户 query，由 reference-based 自适应准则框架（RACE）与实时引用核验（FACT）共同评判。Gemini-2.5-Pro Deep Research 以 48.88 的 RACE 总分领先，而引用 grounding 的排序与报告质量的排序并不一致。
 - **迭代式工程优化。** [Frontier-Eng](../works/frontier-eng.md) 把 horizon 变成一条优化轨迹：在 47 个真实工程任务上，agent 反复提出候选设计、从工业级仿真器获得硬性可行性约束下的连续奖励，并在固定交互预算内修订——改进的频率与幅度都沿轨迹按 power law 衰减。
+- **以可合并性为目标。** [FrontierCode](../works/frontiercode.md)（Cognition；业界 benchmark，无论文）在真实开源仓库中按「维护者会不会真的合并」为 PR 量级任务打分——正确性、测试质量、范围克制、风格——采用测试、评分标准与验证器的组合，查阅含解来源的运行记零分。
+- **开放式的生存 horizon。** [KellyBench](../works/kellybench.md) 把 agent 投入一整个赛季的非平稳体育博彩市场模拟，目标是长期资金增长；受评前沿模型平均全部亏损（最佳 −8%），人类专家评分标准给其策略的精细程度打出低分。
+- **交互迁移落差。** [SWE-Interact](../works/swe-interact.md) 把软件工程任务改成需求逐步披露的多轮用户驱动会话；单轮能解约 50% 的模型，交互式下跌到约 25%。
+- **回放真实会话。** [SWE-Together](../works/swe-together.md) 从 11,260 条真实用户-agent 会话中整理出 109 个可验证的仓库级任务，经保持原意的用户模拟器回放，在最终正确性之外同时统计 agent 消耗的纠正反馈轮数。
 
 ## Comparison
 
@@ -53,6 +57,10 @@
 | Toolathlon | 2025 | 108 个跨应用任务；平均约 20 轮（上限 100 轮）；每任务平均暴露 69.9 个工具 | 经 MCP 的 32 个真实应用 / 604 个工具；容器化 + 远程；基于状态的脚本 | [→](../works/toolathlon.md) |
 | Frontier-Eng | 2026 | 47 个任务；固定交互预算下的迭代 propose-execute-evaluate 循环 | 工业级工程仿真器（连续奖励、硬性可行性约束） | [→](../works/frontier-eng.md) |
 | DeepResearch Bench | 2025 | 100 个博士级研究报告任务；horizon 不设预算，只在终端产物上打分 | 商业 deep research agent 与带搜索的 LLM；reference-based LLM judge 报告评分 + 实时引用核验 | [→](../works/deepresearch-bench.md) |
+| FrontierCode | 2026 | 每个任务投入 40+ 小时的 PR 量级端到端任务；按可合并性判分 | 真实开源仓库（业界 benchmark；测试、评分标准与验证器组合） | [→](../works/frontiercode.md) |
+| KellyBench | 2026 | 一整个模拟赛季的序贯决策；破产为吸收态 | 非平稳体育博彩市场（2023–24 英超模拟） | [→](../works/kellybench.md) |
+| SWE-Interact | 2026 | 多轮用户驱动会话；单轮约 50% vs. 交互约 25% | 需求由模拟用户逐步披露的软件工程 | [→](../works/swe-interact.md) |
+| SWE-Together | 2026 | 109 个回放的仓库级会话；正确性之外统计纠正轮数 | 源自真实会话、经保持原意的用户模拟器回放的交互式编码 | [→](../works/swe-together.md) |
 
 ## Open Questions
 
@@ -80,6 +88,10 @@
 - [Toolathlon](../works/toolathlon.md)
 - [Frontier-Eng](../works/frontier-eng.md)
 - [DeepResearch Bench](../works/deepresearch-bench.md)
+- [FrontierCode](../works/frontiercode.md)
+- [KellyBench](../works/kellybench.md)
+- [SWE-Interact](../works/swe-interact.md)
+- [SWE-Together](../works/swe-together.md)
 
 ## Further Reading
 
