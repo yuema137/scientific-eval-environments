@@ -20,6 +20,24 @@
 | SciCode | 2024 | 为科学家整理的问题编写科研代码；其 16 个自然科学子领域分属五大主领域，化学是其中之一。 | 80 个主问题分解为 338 个子问题，混合知识回忆、推理与代码合成。 | 对照科学家标注的金标准解与测试用例执行。 | [→](../works/scicode.md) |
 | SMDD-Bench | 2026 | 面向蛋白靶点求解药物化学设计问题——2D 药效团识别、骨架跃迁、先导化合物优化、片段组装。 | 有限 oracle 调用预算下、102 个靶点上 502 个保证有解的多轮任务。 | 保证有解实例上的解出率；最佳前沿模型 40.2%。 | [→](../works/smdd-bench.md) |
 | AInsteinBench | 2025 | 解决生产级科学仓库中的维护者 PR 任务；量子化学与化学信息学在其六个代码库之列。 | 可执行环境中的仓库级 coding agent 任务。 | 经专家评审整理的测试驱动验证。 | [→](../works/ainsteinbench.md) |
+| ChemBench | 2024 | 以人类化学家的专业水平为对照，测量化学知识与推理。 | 2,700 多个策划问答对；不借助工具的静态问答。 | 自动化框架评分，配招募的化学家基线与置信度分析。 | [→](../works/chembench.md) |
+| ChemEval | 2024 | 评估科研人员需要的化学能力，从文献理解到深入的化学知识。 | 42 个任务，覆盖 4 个递进层级与 12 个维度，数据来自开源与专家手工设计。 | 精选示例与提示下的零样本/少样本评估。 | [→](../works/chemeval.md) |
+| ChemCoTBench | 2025 | 把分子性质优化与反应预测当作分步化学操作来求解。 | 1,495 个样本、22 个任务，以加/删/换的模块化工作流呈现。 | 在标注操作工作流上的结构化评估，配推理分类法。 | [→](../works/chemcotbench.md) |
+| MolecularIQ | 2026 | 在分子图——决定分子性质的结构——上做推理。 | 符号可验证的结构推理任务；静态评估。 | 对照分子图的符号验证；失败可定位到结构类型。 | [→](../works/moleculariq.md) |
+| ChemIQ | 2025 | 不借助工具回答有机化学核心问题，含 NMR 结构解析。 | 816 道构造式简答题，分 8 个类别。 | 无 judge 的程序化判分：精确匹配、OPSIN 解析 IUPAC、规范 SMILES。 | [→](../works/chemiq.md) |
+| FGBench | 2025 | 把分子性质差异归因到具体官能团。 | 62.5 万个生成问题，覆盖 245 个官能团；7,000 个精选评测子集。 | 对照数据集标签的回归与分类评分。 | [→](../works/fgbench.md) |
+| QCBench | 2025 | 完成横跨分析、生物/有机、普通、无机、物理、高分子与量子化学的定量计算。 | 7 个子领域、三档难度的 350 个问题，构造上防启发式捷径。 | 24 个 LLM 上分步数值计算的分档准确率。 | [→](../works/qcbench.md) |
+| MolPuzzle | 2024 | 从 IR、MS、¹H-NMR、¹³C-NMR 谱图解析分子结构。 | 200 个实例分三阶段（理解、谱图解读、构建）；23,678 条样例。 | 最终结构精确匹配加各阶段得分，配人类基线。 | [→](../works/molpuzzle.md) |
+| MolQuest | 2026 | 通过规划实验、整合异质谱图来解析结构。 | 实验步骤由模型自主发起的多轮交互回合。 | 最终结构准确率；SOTA 约 50%，多数模型低于 30%。 | [→](../works/molquest.md) |
+| Speak-to-Structure (TOMG-Bench) | 2024 | 依据开放域自然语言指令生成、编辑与优化分子。 | 三族任务（MolEdit、MolOpt、MolCustom）；初版每子任务 5,000 个样本。 | 一对多的指令满足性检验，而非单参考匹配。 | [→](../works/tomg-bench.md) |
+| MolLangBench | 2025 | 经由语言在字符串、图像与图上识别、编辑与生成分子结构。 | 三族任务；识别自动构造，编辑与生成由专家标注。 | 按任务计准确率；GPT-5 识别/编辑/生成分别 86.2%/85.5%/43.0%。 | [→](../works/mollangbench.md) |
+| FukuyamaBench | 2026 | 为有机反应推导完整的基元步骤机理。 | 取自 Fukuyama《Advanced Organic Reaction Mechanism》的层级化机理推理问题。 | 完整路径精确匹配；已报告最好成绩 8.3%（微调 Qwen3-30B-A3B），对比 FlowER 的 5.1%。 | [→](../works/fukuyamabench.md) |
+| ChemCensor / CREED | 2026 | 在多组前体皆化学合法的前提下评估单步逆合成。 | 基于合理性的 benchmark 框架，加数百万条经验证的反应记录。 | 以 ChemCensor 化学合理性指标取代精确匹配 Top-K。 | [→](../works/chemcensor.md) |
+| MOOSE-Chem | 2024 | 重新发现近期高影响力化学论文的假说。 | 51 篇 2024 年 1 月后的论文，由化学博士标注；检索—组合—排序管线。 | 2024 年前知识截止控制下与标注真值假说的相似度。 | [→](../works/moose-chem.md) |
+| ChemX | 2025 | 从纳米材料与小分子的科学文献中抽取结构化化学数据。 | 10 个人工整理、专家校验的数据集；agent 式文档抽取。 | 对照领域专家校验记录的抽取质量。 | [→](../works/chemx.md) |
+| ChemCost | 2026 | 给化学反应定价：确定身份、检索报价、选择包装、计算成本。 | 冻结快照（2,261 种化学品、230,775 条供应商报价）上的 1,427 个可评估反应。 | 无 judge 的精确真值，配阶段级诊断；最强 agent 50.6% 落在 25% 相对误差内。 | [→](../works/chemcost.md) |
+| onepot-Bench 0 | 2026 | 预测反应结果与催化剂选择，另测化学信息学素养与拒答行为。 | 私有三组件套件（ChemAbacus、SynthRefusal、SynthBench），基于实验室私有数据。 | 分组件对照私有实验真值评分。 | [→](../works/onepot-bench.md) |
+| MaCBench | 2024 | 承担化学研究中的视觉工作：认读仪器、抽取数据、解读实验结果。 | 三个方面的多模态（图像 + 文本）任务；静态视觉-语言评估。 | 经 ChemBench 管线计准确率；抽取近乎完美，跨模态推断受限。 | [→](../works/macbench.md) |
 
 ## Related Works
 
@@ -33,3 +51,21 @@
 - [SciCode](../works/scicode.md)
 - [SMDD-Bench](../works/smdd-bench.md)
 - [AInsteinBench](../works/ainsteinbench.md)
+- [ChemBench](../works/chembench.md)
+- [ChemEval](../works/chemeval.md)
+- [ChemCoTBench](../works/chemcotbench.md)
+- [MolecularIQ](../works/moleculariq.md)
+- [ChemIQ](../works/chemiq.md)
+- [FGBench](../works/fgbench.md)
+- [QCBench](../works/qcbench.md)
+- [MolPuzzle](../works/molpuzzle.md)
+- [MolQuest](../works/molquest.md)
+- [Speak-to-Structure (TOMG-Bench)](../works/tomg-bench.md)
+- [MolLangBench](../works/mollangbench.md)
+- [FukuyamaBench](../works/fukuyamabench.md)
+- [ChemCensor / CREED](../works/chemcensor.md)
+- [MOOSE-Chem](../works/moose-chem.md)
+- [ChemX](../works/chemx.md)
+- [ChemCost](../works/chemcost.md)
+- [onepot-Bench 0](../works/onepot-bench.md)
+- [MaCBench](../works/macbench.md)

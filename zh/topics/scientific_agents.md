@@ -99,6 +99,24 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **把近似当作受测技能。** [HARDMath](../works/hardmath.md) 自动生成经数值真值验证的研究生渐近分析问题；GPT-4 少样本思维链下仅 43.8%。
 - **被重算的电网研究。** [PowerAgentBench-SS](../works/poweragentbench-ss.md) 让 agent 做电力系统故障研究，报告由隐藏评估器重新推导，false-safe 罚分与 severity regret 让没有依据的「一切正常」付出代价。
 - **率定业务化预报模型。** [HydroAgent](../works/hydroagent.md) 以 Nash–Sutcliffe 效率评测九个前沿 agent 对 NWS 业务化 CREST 水文模型的率定；仅一个模型在一个测站达到人类专家参照。
+- **以化学家为基线的大规模问答。** [ChemBench](../works/chembench.md) 用 2,700 多个策划问答对为 LLM 评分，并与招募的化学家队列对照；最强模型平均超过最强人类化学家，却在基础任务上依然过度自信。
+- **以科研需求为纲的分类法。** [ChemEval](../works/chemeval.md) 把化学能力组织为 4 个递进层级、12 个维度、42 个任务，揭示通用模型（文献、指令）与化学专用模型（深层知识）之间的取舍。
+- **考操作而非答案。** [ChemCoTBench](../works/chemcotbench.md) 把分子变换框定为加/删/换的模块化操作，使中间推理步骤可被评估，覆盖性质优化与反应预测的 1,495 个样本。
+- **符号可验证的结构推理。** [MolecularIQ](../works/moleculariq.md) 只收录能对照分子图本身检验的任务，消除文献标签泄漏，并把失败定位到具体结构。
+- **测出推理档位的跃升。** [ChemIQ](../works/chemiq.md) 出 816 道不借助工具的有机化学简答题并程序化判分；推理模型答对 50–57%，非推理模型只有 3–7%。
+- **官能团层面的归因。** [FGBench](../works/fgbench.md) 追问是 245 个官能团中的哪一个驱动了性质差异，共 62.5 万个生成问题、7,000 个精选评测子集。
+- **防捷径的定量化学。** [QCBench](../works/qcbench.md) 覆盖 7 个子领域、三档难度的 350 个计算题；24 个 LLM 随复杂度上升一致退化。
+- **谱图推结构的分段拼图。** [MolPuzzle](../works/molpuzzle.md) 把解析拆成理解、谱图解读与构建三个阶段；GPT-4o 与真值精确匹配的比例仅 1.4%，远低于人类。
+- **把解析当实验规划来考。** [MolQuest](../works/molquest.md) 让 agent 在多轮溯因循环中自己决定采集哪些谱图；SOTA 模型也只有约 50% 的准确率。
+- **一对多的分子生成。** [Speak-to-Structure (TOMG-Bench)](../works/tomg-bench.md) 对开放域的分子编辑、优化与生成按「是否满足指令」检验，而非对照单一参考，评测覆盖 31 个 LLM。
+- **读—改—写的梯度。** [MolLangBench](../works/mollangbench.md) 显示 GPT-5 在结构识别与编辑上分别达 86.2% 与 85.5%，在生成上只有 43.0%；识别任务构造即可验证。
+- **机理层面的反应推理。** [FukuyamaBench](../works/fukuyamabench.md) 要求为研究生机理教科书的题目给出完整的基元步骤路径；已报告的最好系统只精确解出 8.3%。
+- **修正逆合成的指标。** [ChemCensor / CREED](../works/chemcensor.md) 用化学合理性指标取代精确匹配 Top-K，并用同一验证器构建了百万量级的训练数据集。
+- **控制污染的假说重发现。** [MOOSE-Chem](../works/moose-chem.md) 让知识截止早于 2024 年的 LLM 重新发现 51 篇 2024 年后化学论文的假说，论文由化学博士标注为背景、灵感与假说。
+- **从文献到数据库的抽取。** [ChemX](../works/chemx.md) 用 10 个专家校验的化学数据集评测 agent 式抽取器，发现其在领域术语、复杂表格与歧义上的失败持续存在。
+- **给反应定价。** [ChemCost](../works/chemcost.md) 要求 agent 确定化学品身份、检索供应商报价并对照冻结快照计算反应成本；最强 agent 也只有 50.6% 落在 25% 相对误差内，且随噪声退化。
+- **靠数据不公开来防泄漏。** [onepot-Bench 0](../works/onepot-bench.md) 把反应结果与催化剂选择的评估锚定在实验室私有数据上，另配化学信息学素养与拒答两个子组件。
+- **实验室里的 VLM 瓶颈。** [MaCBench](../works/macbench.md) 发现视觉-语言模型在设备识别与数据抽取上近乎完美，但在空间推理与跨模态综合上存在根本性局限。
 
 ## Comparison
 
@@ -191,6 +209,24 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | HARDMath | 2024 | 自动生成的渐近分析问题；366 题 mini 测试集 | 研究生应用数学（近似技术） | 对照经数值验证真值的准确率 | [→](../works/hardmath.md) |
 | PowerAgentBench-SS | 2026 | IEEE 39 节点系统变体；基于直流潮流的 N-2 热稳定越限搜索试点 | 电力系统稳态 agent 研究 | 隐藏评估器重算物理有效性；多种 recall、false-safe 罚分、severity regret | [→](../works/poweragentbench-ss.md) |
 | HydroAgent | 2026 | 在 4 个留出测站上率定业务化 CREST 模型 | agent 的水文模型率定 | 对照人类专家参照的 Nash–Sutcliffe 效率 | [→](../works/hydroagent.md) |
+| ChemBench | 2024 | 2,700 多个专家策划的问答对 | 与人类化学家对照的化学知识与推理 | 自动化框架评分，配人类化学家基线与置信度分析 | [→](../works/chembench.md) |
+| ChemEval | 2024 | 开源数据加专家手工设计的任务 | 化学：4 个递进层级、12 个维度、42 个任务 | 精选提示下的零样本/少样本评估 | [→](../works/chemeval.md) |
+| ChemCoTBench | 2025 | 1,495 个样本、22 个任务，以模块化化学操作呈现 | 分子性质优化与反应预测 | 在标注操作工作流上的结构化分步评估 | [→](../works/chemcotbench.md) |
+| MolecularIQ | 2026 | 符号可验证的分子图任务 | 分子结构推理 | 对照分子图的符号验证 | [→](../works/moleculariq.md) |
+| ChemIQ | 2025 | 816 道有机化学简答题 | 有机化学，含 NMR 结构解析 | 无 judge 的程序化判分（精确匹配、OPSIN、规范 SMILES） | [→](../works/chemiq.md) |
+| FGBench | 2025 | 62.5 万个生成问题；7,000 个精选评测子集 | 官能团层面的分子性质推理 | 对照数据集标签的回归与分类评分 | [→](../works/fgbench.md) |
+| QCBench | 2025 | 覆盖 7 个化学子领域的 350 个定量问题 | 定量与计算化学 | 防捷径分步计算的分档准确率 | [→](../works/qcbench.md) |
+| MolPuzzle | 2024 | 200 个解析实例、23,678 条样例、三个阶段 | 基于 IR/MS/NMR 谱图的结构解析 | 各阶段精确匹配准确率，配人类基线 | [→](../works/molpuzzle.md) |
+| MolQuest | 2026 | 多轮交互的解析回合 | 由模型规划实验的结构解析 | 最终结构准确率（SOTA 约 50%） | [→](../works/molquest.md) |
+| Speak-to-Structure (TOMG-Bench) | 2024 | 开放域分子生成指令（MolEdit/MolOpt/MolCustom） | 自然语言驱动的分子设计 | 一对多的指令满足性检验 | [→](../works/tomg-bench.md) |
+| MolLangBench | 2025 | 化学信息学构造加专家标注的任务 | 语言提示的结构识别、编辑与生成 | 按任务计准确率；识别类答案构造即可验证 | [→](../works/mollangbench.md) |
+| FukuyamaBench | 2026 | 取自 Fukuyama《Advanced Organic Reaction Mechanism》的问题 | 层级化反应机理推理 | 完整路径精确匹配（最好成绩 8.3%） | [→](../works/fukuyamabench.md) |
+| ChemCensor / CREED | 2026 | 数百万条经验证的反应记录 | 单步逆合成评估 | 以 ChemCensor 化学合理性指标取代精确匹配 Top-K | [→](../works/chemcensor.md) |
+| MOOSE-Chem | 2024 | 51 篇 2024 年后的化学论文，由化学博士标注 | 化学假说重发现 | 知识截止控制下与真值假说的相似度 | [→](../works/moose-chem.md) |
+| ChemX | 2025 | 10 个专家校验的抽取数据集 | 化学信息抽取（纳米材料、小分子） | 对照专家校验记录的抽取质量 | [→](../works/chemx.md) |
+| ChemCost | 2026 | 冻结价格快照上的 1,427 个反应（230,775 条供应商报价） | 化学品采购与成本推理 | 无 judge 的精确真值，配阶段级失败诊断 | [→](../works/chemcost.md) |
+| onepot-Bench 0 | 2026 | 私有组件，含实验室产生的私有数据 | 化学信息学素养、拒答行为、反应结果预测 | 分组件对照私有实验真值评分 | [→](../works/onepot-bench.md) |
+| MaCBench | 2024 | 多模态的化学与材料任务 | 数据抽取、实验理解、结果解读 | 经 ChemBench 管线计准确率 | [→](../works/macbench.md) |
 
 ## Open Questions
 
@@ -289,6 +325,24 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [HARDMath](../works/hardmath.md)
 - [PowerAgentBench-SS](../works/poweragentbench-ss.md)
 - [HydroAgent](../works/hydroagent.md)
+- [ChemBench](../works/chembench.md)
+- [ChemEval](../works/chemeval.md)
+- [ChemCoTBench](../works/chemcotbench.md)
+- [MolecularIQ](../works/moleculariq.md)
+- [ChemIQ](../works/chemiq.md)
+- [FGBench](../works/fgbench.md)
+- [QCBench](../works/qcbench.md)
+- [MolPuzzle](../works/molpuzzle.md)
+- [MolQuest](../works/molquest.md)
+- [Speak-to-Structure (TOMG-Bench)](../works/tomg-bench.md)
+- [MolLangBench](../works/mollangbench.md)
+- [FukuyamaBench](../works/fukuyamabench.md)
+- [ChemCensor / CREED](../works/chemcensor.md)
+- [MOOSE-Chem](../works/moose-chem.md)
+- [ChemX](../works/chemx.md)
+- [ChemCost](../works/chemcost.md)
+- [onepot-Bench 0](../works/onepot-bench.md)
+- [MaCBench](../works/macbench.md)
 
 ## Further Reading
 

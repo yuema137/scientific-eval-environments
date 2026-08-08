@@ -99,6 +99,24 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **Approximation as the tested skill.** [HARDMath](../works/hardmath.md) auto-generates graduate asymptotics problems validated against numerical ground truth; GPT-4 reaches only 43.8% with few-shot chain-of-thought.
 - **Recomputed grid studies.** [PowerAgentBench-SS](../works/poweragentbench-ss.md) has agents run power-system contingency studies whose reports a hidden evaluator re-derives, with false-safe penalties and severity regret pricing unsupported "all clear" claims.
 - **Calibrating an operational forecast model.** [HydroAgent](../works/hydroagent.md) benchmarks nine frontier agents on calibrating the NWS-operational CREST hydrologic model by Nash–Sutcliffe Efficiency; only one model on one gauge reaches the human-expert reference.
+- **Chemist-baselined QA at scale.** [ChemBench](../works/chembench.md) scores LLMs on 2,700+ curated chemistry QA pairs against a recruited chemist cohort; the best models beat the best human chemists on average while remaining overconfident on basic tasks.
+- **A professional-requirements taxonomy.** [ChemEval](../works/chemeval.md) organizes chemical capability into 4 progressive levels and 12 dimensions over 42 tasks, exposing the trade-off between general models (literature, instructions) and chemistry-specialized ones (deep knowledge).
+- **Operations, not answers.** [ChemCoTBench](../works/chemcotbench.md) frames molecular transformations as modular add/delete/substitute operations so intermediate reasoning steps are evaluable, over 1,495 samples in property optimization and reaction prediction.
+- **Symbolically verifiable structure reasoning.** [MolecularIQ](../works/moleculariq.md) admits only tasks checkable against the molecular graph itself, eliminating literature-label leakage and localizing failures to specific structures.
+- **The reasoning-mode jump, measured.** [ChemIQ](../works/chemiq.md) poses 816 tool-free organic-chemistry short answers with programmatic checking; reasoning models reach 50–57% where non-reasoning models manage 3–7%.
+- **Functional-group-level attribution.** [FGBench](../works/fgbench.md) asks which of 245 functional groups drives a property difference, across 625K generated problems with a 7K curated benchmark subset.
+- **Quantitative chemistry, shortcut-proofed.** [QCBench](../works/qcbench.md) spans 350 calculation problems in 7 subfields and 3 tiers; 24 LLMs degrade consistently as complexity rises.
+- **Spectra-to-structure as a staged puzzle.** [MolPuzzle](../works/molpuzzle.md) decomposes elucidation into understanding, spectrum interpretation, and construction; GPT-4o exactly matches ground truth just 1.4% of the time, far below humans.
+- **Elucidation as experiment planning.** [MolQuest](../works/molquest.md) makes agents choose which spectra to acquire in a multi-turn abductive loop; SOTA models reach only about 50% accuracy.
+- **One-to-many molecule generation.** [Speak-to-Structure (TOMG-Bench)](../works/tomg-bench.md) checks open-domain molecule editing, optimization, and generation for instruction satisfaction rather than match to a single reference, across 31 LLMs.
+- **The read–modify–write gradient.** [MolLangBench](../works/mollangbench.md) shows GPT-5 at 86.2% on structure recognition and 85.5% on editing but 43.0% on generation, with recognition tasks verifiable by construction.
+- **Mechanism-level reaction reasoning.** [FukuyamaBench](../works/fukuyamabench.md) demands full elementary-step pathways for problems from a graduate mechanism textbook; the best reported system solves 8.3% exactly.
+- **Fixing the retrosynthesis metric.** [ChemCensor / CREED](../works/chemcensor.md) replaces exact-match Top-K with a chemical-plausibility metric and uses the same validator to build a millions-scale training dataset.
+- **Contamination-controlled hypothesis rediscovery.** [MOOSE-Chem](../works/moose-chem.md) has a pre-2024-cutoff LLM rediscover the hypotheses of 51 post-2024 chemistry papers annotated by PhD chemists into background, inspirations, and hypothesis.
+- **Literature-to-database extraction.** [ChemX](../works/chemx.md) benchmarks agentic extractors against 10 expert-validated chemistry datasets, finding persistent failures on domain terminology, complex tables, and ambiguity.
+- **Pricing a reaction.** [ChemCost](../works/chemcost.md) makes agents ground identities, retrieve supplier quotes, and compute reaction cost against a frozen snapshot; the strongest agents reach 50.6% within 25% relative error and degrade under noise.
+- **Leakage-proof by privacy.** [onepot-Bench 0](../works/onepot-bench.md) anchors reaction-outcome and catalyst-selection evaluation to private lab-generated data, alongside cheminformatics-literacy and refusal sub-suites.
+- **The VLM bottleneck in the lab.** [MaCBench](../works/macbench.md) finds vision-language models near-perfect at equipment identification and data extraction but fundamentally limited in spatial reasoning and cross-modal synthesis.
 
 ## Comparison
 
@@ -191,6 +209,24 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | HARDMath | 2024 | Auto-generated asymptotics problems; 366-problem mini test set | Graduate applied mathematics (approximation techniques) | Accuracy vs. numerically validated ground truths | [→](../works/hardmath.md) |
 | PowerAgentBench-SS | 2026 | IEEE 39-bus variants; DC thermal N-2 contingency-search pilot | Power-system steady-state agent studies | Hidden evaluator recomputes physical validity; recall variants, false-safe penalties, severity regret | [→](../works/poweragentbench-ss.md) |
 | HydroAgent | 2026 | Calibration of the operational CREST model on 4 held-out gauges | Hydrologic model calibration by agents | Nash–Sutcliffe Efficiency vs. a human-expert reference | [→](../works/hydroagent.md) |
+| ChemBench | 2024 | 2,700+ expert-curated question–answer pairs | Chemical knowledge and reasoning vs. human chemists | Automated framework scoring with a human-chemist baseline and confidence analysis | [→](../works/chembench.md) |
+| ChemEval | 2024 | Open-source data plus expert-crafted tasks | Chemistry: 4 progressive levels, 12 dimensions, 42 tasks | Zero-/few-shot evaluation with curated prompts | [→](../works/chemeval.md) |
+| ChemCoTBench | 2025 | 1,495 samples across 22 tasks as modular chemical operations | Molecular property optimization and reaction prediction | Structured step-wise evaluation over annotated operation workflows | [→](../works/chemcotbench.md) |
+| MolecularIQ | 2026 | Symbolically verifiable molecular-graph tasks | Molecular structure reasoning | Symbolic verification against the molecular graph | [→](../works/moleculariq.md) |
+| ChemIQ | 2025 | 816 short-answer organic-chemistry questions | Organic chemistry incl. NMR structure elucidation | Judge-free programmatic checking (exact match, OPSIN, canonical SMILES) | [→](../works/chemiq.md) |
+| FGBench | 2025 | 625K generated problems; 7K curated evaluation subset | Functional-group-level molecular property reasoning | Regression and classification against dataset labels | [→](../works/fgbench.md) |
+| QCBench | 2025 | 350 quantitative problems across 7 chemistry subfields | Quantitative and computational chemistry | Tiered accuracy on shortcut-resistant stepwise calculation | [→](../works/qcbench.md) |
+| MolPuzzle | 2024 | 200 elucidation instances, 23,678 examples in 3 stages | Structure elucidation from IR/MS/NMR spectra | Exact-match accuracy per stage with a human baseline | [→](../works/molpuzzle.md) |
+| MolQuest | 2026 | Multi-turn interactive elucidation episodes | Structure elucidation with model-planned experiments | Accuracy of final structures (SOTA ≈50%) | [→](../works/molquest.md) |
+| Speak-to-Structure (TOMG-Bench) | 2024 | Open-domain molecule-generation instructions (MolEdit/MolOpt/MolCustom) | Natural-language-driven molecule design | One-to-many instruction-satisfaction checking | [→](../works/tomg-bench.md) |
+| MolLangBench | 2025 | Cheminformatics-constructed and expert-annotated tasks | Language-prompted structure recognition, editing, generation | Per-task accuracy; recognition verifiable by construction | [→](../works/mollangbench.md) |
+| FukuyamaBench | 2026 | Problems from Fukuyama's Advanced Organic Reaction Mechanism book | Hierarchical reaction-mechanism reasoning | Exact pathway match (best reported 8.3%) | [→](../works/fukuyamabench.md) |
+| ChemCensor / CREED | 2026 | Millions of validated reaction records | Single-step retrosynthesis evaluation | ChemCensor chemical-plausibility metric instead of exact-match Top-K | [→](../works/chemcensor.md) |
+| MOOSE-Chem | 2024 | 51 post-2024 chemistry papers annotated by PhD chemists | Chemistry hypothesis rediscovery | Similarity to ground-truth hypotheses under a knowledge-cutoff control | [→](../works/moose-chem.md) |
+| ChemX | 2025 | 10 expert-validated extraction datasets | Chemical information extraction (nanomaterials, small molecules) | Extraction quality against expert-validated records | [→](../works/chemx.md) |
+| ChemCost | 2026 | 1,427 reactions over a frozen pricing snapshot (230,775 supplier quotes) | Chemical procurement and cost reasoning | Judge-free exact ground truth with stage-level failure diagnosis | [→](../works/chemcost.md) |
+| onepot-Bench 0 | 2026 | Proprietary suite incl. private lab-generated data | Cheminformatics literacy, refusal behavior, reaction-outcome prediction | Per-suite scoring against private experimental ground truth | [→](../works/onepot-bench.md) |
+| MaCBench | 2024 | Multimodal chemistry and materials tasks | Data extraction, experimental understanding, results interpretation | Accuracy via the ChemBench pipeline | [→](../works/macbench.md) |
 
 ## Open Questions
 
@@ -289,6 +325,24 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [HARDMath](../works/hardmath.md)
 - [PowerAgentBench-SS](../works/poweragentbench-ss.md)
 - [HydroAgent](../works/hydroagent.md)
+- [ChemBench](../works/chembench.md)
+- [ChemEval](../works/chemeval.md)
+- [ChemCoTBench](../works/chemcotbench.md)
+- [MolecularIQ](../works/moleculariq.md)
+- [ChemIQ](../works/chemiq.md)
+- [FGBench](../works/fgbench.md)
+- [QCBench](../works/qcbench.md)
+- [MolPuzzle](../works/molpuzzle.md)
+- [MolQuest](../works/molquest.md)
+- [Speak-to-Structure (TOMG-Bench)](../works/tomg-bench.md)
+- [MolLangBench](../works/mollangbench.md)
+- [FukuyamaBench](../works/fukuyamabench.md)
+- [ChemCensor / CREED](../works/chemcensor.md)
+- [MOOSE-Chem](../works/moose-chem.md)
+- [ChemX](../works/chemx.md)
+- [ChemCost](../works/chemcost.md)
+- [onepot-Bench 0](../works/onepot-bench.md)
+- [MaCBench](../works/macbench.md)
 
 ## Further Reading
 

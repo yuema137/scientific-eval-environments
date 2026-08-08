@@ -30,13 +30,13 @@ Domain 页是**事实性参考页，不是文献综述**——作为入口与 to
 | Science | [Physics](./physics.md) | 35 |
 | Science | [Astronomy](./astronomy.md) | 5 |
 | Science | [Mathematics](./mathematics.md) | 12 |
-| Science | [Chemistry](./chemistry.md) | 10 |
+| Science | [Chemistry](./chemistry.md) | 28 |
 | Science | [Biology](./biology.md) | 25 |
 | Science | [Neuroscience & Cognitive Science](./neuroscience_cognitive_science.md) | 5 |
 | Science | [Medicine & Health](./medicine_health.md) | 12 |
 | Science | [Earth Science](./earth_science.md) | 5 |
 | Science | [Environmental Science](./environmental_science.md) | 2 |
-| Science | [Materials Science](./materials_science.md) | 7 |
+| Science | [Materials Science](./materials_science.md) | 9 |
 | Science | [Computer Science](./computer_science.md) | 4 |
 | Science | [AI & Machine Learning Research](./ai_ml_research.md) | 5 |
 | Engineering | [Mechanical & Aerospace Engineering](./mechanical_aerospace_engineering.md) | 9 |
