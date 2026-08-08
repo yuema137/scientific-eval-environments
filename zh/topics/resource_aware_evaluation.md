@@ -24,6 +24,8 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - **作为在线控制信号的预算。** [BAGEN](../works/bagen.md) 让 agent 在每一轮预测剩余预算的上界与下界并标记不可行，把资源使用作为逐步的估计目标而非执行后的统计来评分。
 - **把评估调用作为预算化的资源。** [VeRO / VeRO-Bench](../works/vero.md) 在硬性评估调用预算下 benchmark 优化其他 agent 的 coding agent：对目标 agent 的每次打分都经过门控评估器，扣减 n_E ≤ B 并阻断超额请求，对应昂贵查询下的黑盒优化设定；B ∈ {2, 4, 8, 16, 32} 的预算消融把预算效应与能力效应区分开。
 - **迭代式设计优化上的交互预算。** [Frontier-Eng](../works/frontier-eng.md) 为每个真实工程任务的 propose-execute-evaluate 循环设置固定交互预算：agent 必须分配有限次数的仿真器交互，在连续奖励与硬性可行性约束下细化候选设计，使 benchmark 内在具备 resource-aware 属性。
+- **把经济一致性作为测量对象。** [EcoAgent-Bench](../works/ecoagent-bench.md) 在 304 个任务上为每个动作定价并设定显式的单任务预算，同时把「该升级」与「该省钱」的任务成对分组，使一味花钱或一味省钱的单边策略无法得高分。Tool-API agent 的经济一致性至多 7.3%；预算从低到高扫过一遍，GPT-5.4 的升级率也只从 0% 升到 3%。
+- **给 harness 优化设评估预算。** [HarnessOpt-Bench](../works/harnessopt-bench.md) 给优化器 LLM 一个种子 harness、评估反馈与固定的目标评估预算，在 TEE 审计的循环内运行，以留出测试集上相对种子的归一化增益评分；在 4 个任务、5 个优化器模型、111 次计分运行中，优化器模型之间拉开的差距大于它们借以行动的编码 harness 之间的差距。
 - **成本–性能前沿式报告。** 另一些工作在 accuracy 之外同时报告 token 或 dollar 成本，用于在 Pareto 前沿上而非单一 accuracy 数字上做比较。这是分析时的资源意识，而非 benchmark 内部的资源意识。
 
 ## Comparison
@@ -37,6 +39,8 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 | BAGEN | 2026 | Token；时间 / 占用 / 成本 | 预测目标 + 提前停止目标 | 谜题 / 检索 / 编码 / 供应链 | [→](../works/bagen.md) |
 | VeRO / VeRO-Bench | 2026 | 对目标 agent 的评估调用（门控预算 n_E ≤ B） | 强制硬约束——优化器须分配昂贵的评估 | 覆盖 5 个目标 agent 任务套件的 agent-harness 优化 | [→](../works/vero.md) |
 | Frontier-Eng | 2026 | 仿真器交互（每任务固定预算） | 对 propose-execute-evaluate 循环的硬性上限 | 真实工程优化；47 个任务、5 个类别 | [→](../works/frontier-eng.md) |
+| EcoAgent-Bench | 2026 | 显式单任务预算下的定价动作 | 一等目标——升级/省钱成对分组上的经济一致性 | 304 个源自 QA 的任务、5 个族；tool-API 与 workspace-CLI 两种设定 | [→](../works/ecoagent-bench.md) |
+| HarnessOpt-Bench | 2026 | 目标评估调用（固定预算，TEE 计量） | 对优化-评估循环的强制硬约束 | Harness 优化；4 任务 × 5 个优化器 LLM，111 次计分运行 | [→](../works/harnessopt-bench.md) |
 
 ## Open Questions
 
@@ -54,6 +58,8 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - [BAGEN](../works/bagen.md) — 跨 token 与多资源 agent 的渐进式预算区间预测与可训练的提前停止。
 - [VeRO / VeRO-Bench](../works/vero.md) — 在门控评估调用预算下把 coding agent 作为 agent 优化器来 benchmark。
 - [Frontier-Eng](../works/frontier-eng.md) — 固定仿真器交互预算下的迭代式工程优化。
+- [EcoAgent-Bench](../works/ecoagent-bench.md) — 定价动作与显式预算下的经济决策，以经济一致性评分。
+- [HarnessOpt-Bench](../works/harnessopt-bench.md) — LLM 在固定且经 TEE 审计的评估预算下优化 agent harness。
 
 ## Further Reading
 

@@ -27,6 +27,10 @@ Credit assignment is related to but distinct from [Skill Hierarchy](./skill_hier
 - **Step-level error localization.** [ProcessBench](../works/processbench.md) asks a judge to return the index of the earliest erroneous step across 3,400 expert-annotated math solutions, and finds that 51.8% of Omni-MATH solutions with correct final answers still contain a process error.
 - **Error-type-resolved step credit.** [PRMBench](../works/prmbench.md) benchmarks process-level reward models against nine injected error sub-categories, so a model's credit signal is diagnosed by failure mode rather than by aggregate step accuracy.
 - **Benchmarking the reward models that would densify credit.** [FormalRewardBench](../works/formalrewardbench.md) tests whether learned reward models prefer a verified Lean 4 proof over an injected-error variant across 250 preference pairs, making the credit signal itself the measured object rather than the scoring instrument.
+- **Standardized computer-use judge benchmarking.** [OSReward](../works/osreward.md) scores cross-platform computer-use reward models against multi-stage human-annotated verdicts, identifies systematic leniency bias in state-of-the-art judges, and shows that open 9B/35B judges trained on its OS-Shepherd-100K corpus match frontier commercial judges at 30–60× lower cost.
+- **Localize, attribute, repair.** [SearchAuditor](../works/searchauditor.md) grades auditors end-to-end on 1,243 expert-annotated failed search trajectories — localization of the critical error step, attribution to a search-specific root cause, and repair against reference rubrics — with the strongest baseline passing only 26.6% end-to-end.
+- **Credit inside the skill artifact.** [SkillSV](../works/skillsv.md) moves credit assignment from trajectory steps to the internal units of an agent skill: structure-aware Shapley valuation over a skill's compiled units, dependencies, and hierarchy, with paired deletion and length-neutral padding separating content value from context cost.
+- **Error-lifecycle attribution.** [TRAJDEBUG](../works/trajdebug.md) traces each detected error's resolution status and terminal impact over TrajErrBench's 486 manually annotated failed trajectories, so credit for a failure lands on the error that actually determined it rather than on errors the agent later recovered from.
 
 ## Comparison
 
@@ -45,6 +49,10 @@ Credit assignment is related to but distinct from [Skill Hierarchy](./skill_hier
 | ProcessBench | 2024 | Earliest erroneous step index, expert-annotated | Reasoning step within a static solution | [→](../works/processbench.md) |
 | PRMBench | 2025 | Step-level validity + redundancy scores; negative F1 and PRMScore | Individual reasoning step in a static solution process | [→](../works/prmbench.md) |
 | FormalRewardBench | 2026 | Preference judgment between a verified proof and an injected-error variant | Per whole proof; no step-level credit | [→](../works/formalrewardbench.md) |
+| OSReward | 2026 | Reward-model verdicts vs. multi-stage human annotation; fine-grained efficiency and alignment scores (Multi split) | Computer-use trajectories judged whole, plus per-dimension | [→](../works/osreward.md) |
+| SearchAuditor | 2026 | Expert-annotated critical step, search-specific root cause, rubric-graded repair | Per critical step within a failed search trajectory | [→](../works/searchauditor.md) |
+| SkillSV | 2026 | Structure-aware Shapley value over a skill's compiled units | Per skill unit, not per trajectory step | [→](../works/skillsv.md) |
+| TRAJDEBUG | 2026 | Error lifecycle: occurrence, resolution status, terminal impact | Per error within a failed trajectory | [→](../works/trajdebug.md) |
 
 ## Open Questions
 
@@ -67,6 +75,10 @@ Credit assignment is related to but distinct from [Skill Hierarchy](./skill_hier
 - [ProcessBench](../works/processbench.md)
 - [PRMBench](../works/prmbench.md)
 - [FormalRewardBench](../works/formalrewardbench.md)
+- [OSReward](../works/osreward.md)
+- [SearchAuditor](../works/searchauditor.md)
+- [SkillSV](../works/skillsv.md)
+- [TRAJDEBUG](../works/trajdebug.md)
 
 ## Further Reading
 

@@ -21,6 +21,9 @@ Skill hierarchy 与 [Credit Assignment](./credit_assignment.md) 相关但不同�
 - **跨 benchmark 的控制决策分类。** [AgentAtlas](../works/agentatlas.md) 不按任务或能力做分解，而是把 agent 的**控制决策**分成六类，覆盖 15 个 benchmark——提供的是跨任务可迁移的 skill-hierarchy 信号。
 - **单一领域内的能力深度分层。** [CFDLLMBench](../works/cfdllmbench.md) 按*深度*而非按子过程来分解 CFD 能力：知识（CFDQuery）、数值与物理推理（CFDCodeBench）、实际工作流实现（FoamBench），各自是独立的任务集。由于这些层级在难度上是嵌套而非并列的，它给出的能力剖面更像一条天花板——很高的知识分数与近乎为零的端到端仿真成功率同时存在。
 - **Tool-evolution 框架（越界归属）。** [GATE](../works/gate.md) 为覆盖完整性而纳入，但论文实际主题是面向 LLM 的图式 tool making，而非 skill 分解。详见卡片。
+- **按侧面分解的 skill 使用。** [Skill-Use](../works/skill-use.md) 把「使用一个 skill」拆成三个可分离的侧面——触发相关 skill、遵从其规定流程、守住其边界——在 79 个真实 skill 与 177 个沙箱可执行任务上评估。触发与流程遵从表现为相互独立的瓶颈，最强配置的 SU 分数也只有 0.613。
+- **为 skill 的内部结构估值。** [SkillSV](../works/skillsv.md) 把 skill 编译为单元、依赖与层级，并为每个单元赋予结构感知的 Shapley 价值，使 skill 库变得可审计——哪些单元配得上自己占用的上下文成本——并在不损失整体 skill 增益的前提下指导剪枝与压缩。
+- **把评判者的 skill 知识作为测量对象。** [SkillTV-Bench](../works/skilltv-bench.md) 在 skill 增强执行上评估轨迹评判者——在该设定下，评判者必须掌握相应的 skill 知识才能判对——并证明缺失的验证知识本身可以外化为可复用的 JudgeSkill，为同一评判者带来 14.8 个百分点的准确率提升。
 
 ## Comparison
 
@@ -33,6 +36,9 @@ Skill hierarchy 与 [Credit Assignment](./credit_assignment.md) 相关但不同�
 | AgentAtlas | 2026 | 每次控制决策（跨 benchmark 覆盖） | 6 类控制决策 | [→](../works/agentatlas.md) |
 | GATE | 2026 | *Tool-evolution 框架，非 skill 分解——见卡片* | 层级化工具图 | [→](../works/gate.md) |
 | CFDLLMBench | 2025 | 单一领域内的嵌套能力层级 | 3 个深度层级（知识 / 数值推理 / 工作流实现） | [→](../works/cfdllmbench.md) |
+| Skill-Use | 2026 | 每个 skill 的侧面分解 | 3 个侧面：触发 / 流程遵从 / 边界遵守 | [→](../works/skill-use.md) |
+| SkillSV | 2026 | Skill 内部的单元分解（单元 / 依赖 / 层级） | 每单元的结构感知 Shapley 价值 | [→](../works/skillsv.md) |
+| SkillTV-Bench | 2026 | 评判者侧的 skill 知识，外化为可复用的 JudgeSkill | 评判准确率 + rollout 挑选提升 | [→](../works/skilltv-bench.md) |
 
 ## Open Questions
 
@@ -50,6 +56,9 @@ Skill hierarchy 与 [Credit Assignment](./credit_assignment.md) 相关但不同�
 - [AgentAtlas](../works/agentatlas.md)
 - [GATE](../works/gate.md) — 为覆盖完整性而纳入；实际主题是面向 LLM 的 tool making，而非 skill-hierarchy 评估。
 - [CFDLLMBench](../works/cfdllmbench.md)
+- [Skill-Use](../works/skill-use.md)
+- [SkillSV](../works/skillsv.md)
+- [SkillTV-Bench](../works/skilltv-bench.md)
 
 ## Further Reading
 

@@ -33,6 +33,9 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - **评判者与专家标签的一致性。** [AgentRewardBench](../works/agentrewardbench.md) 用 1,302 条 web agent 轨迹上的专家标签考察 12 个 LLM judge 与各 benchmark 自带的规则式评分器，发现没有任何 judge 的 precision 超过 70%。
 - **Harness 效应诊断。** [Harness-Bench](../works/harness-bench.md) 固定任务、沙箱、预算与评估器，只变换模型外围的 harness，用安全门控的 completion × 过程分（从轨迹评出的 robustness、tool use、consistency）为 5,194 条轨迹打分；在完全相同的任务与模型上，最好与最差的可配置 harness 相差 23.8 分，支持按模型–harness 配置报告能力。
 - **以 commit 为结果锚点的真实环境轨迹。** [SWE-chat](../works/swe-chat.md) 用来自 opt-in 开源开发者的约 6,000 个真实 coding-agent 会话取代人工编写的任务，把每一行提交代码归属到人类或 agent。其轨迹指标植根于用户真正保留的内容——agent 产出代码中仅 44.3% 最终进入用户 commit——并辅以经人类 gold 标签验证的 LLM 标注会话成功度（0–100）与逐轮 pushback 标签。
+- **Skill 感知的轨迹验证。** [SkillTV-Bench](../works/skilltv-bench.md) 在 681 条来自 skill 增强执行的真实轨迹上评测 LLM-as-a-Judge 与 Agent-as-a-Judge——在这一设定下，评判者必须掌握任务相关的 skill 知识才能判对。其 SkillTV-Evolve 循环把误判样例蒸馏为可复用的 JudgeSkill，使同一评判者的准确率提高 14.8 个百分点，并把从 rollout 池中挑出轨迹的成功率从单条时的 22.9% 提升到十条时的 45.5%。
+- **对失败搜索运行的定位-归因-修复审计。** [SearchAuditor](../works/searchauditor.md) 把失败分析变成一个有 benchmark 支撑的任务：在 SearchAuditBench 的 1,243 条专家标注失败 deep-search 轨迹（平均 65.1K token）上，端到端考察关键步骤定位、搜索特有的根因归因，以及对照带评分 rubric 的参考修复打分。
+- **错误生命周期追踪。** [TRAJDEBUG](../works/trajdebug.md) 通过多粒度历史压缩、基于证据的错误识别与解决状态追踪，把 agent 事后已恢复的错误与真正决定失败的错误区分开，以 TrajErrBench 的 486 条人工标注失败轨迹（取自 Tau2Bench 与 SWE-Bench Pro）为锚点。
 
 ## Comparison
 
@@ -58,6 +61,9 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | AgentRewardBench | 2025 | 评判者相对专家成功标签的 precision | Web agent | [→](../works/agentrewardbench.md) |
 | Harness-Bench | 2026 | 安全门控的 Completion × Process（从轨迹评出的 robustness / tool use / consistency） | 跨 harness 的可执行 agent 工作流（8 类） | [→](../works/harness-bench.md) |
 | SWE-chat | 2026 | 每行提交代码的代码存活 / 效率 / 成本 + LLM 标注的会话成功度与逐轮 pushback，基于真实用户轨迹 | 真实环境的 coding-agent 会话（开源仓库） | [→](../works/swe-chat.md) |
+| SkillTV-Bench | 2026 | Skill 增强执行上的评判准确率 + rollout 池挑选成功率 | Skill 增强的 agent 执行（11 个领域） | [→](../works/skilltv-bench.md) |
+| SearchAuditor | 2026 | 关键步骤定位、根因归因与按 rubric 修复的端到端通过率 | 长 horizon deep-search 轨迹 | [→](../works/searchauditor.md) |
+| TRAJDEBUG | 2026 | 错误识别 + 经解决状态与最终影响的关键归因 | Tool-use 与编码的失败轨迹 | [→](../works/trajdebug.md) |
 
 ## Open Questions
 
@@ -90,6 +96,9 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - [AgentRewardBench](../works/agentrewardbench.md)
 - [Harness-Bench](../works/harness-bench.md)
 - [SWE-chat](../works/swe-chat.md)
+- [SkillTV-Bench](../works/skilltv-bench.md)
+- [SearchAuditor](../works/searchauditor.md)
+- [TRAJDEBUG](../works/trajdebug.md)
 
 ## Further Reading
 

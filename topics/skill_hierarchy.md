@@ -21,6 +21,9 @@ Skill hierarchy is closely related to but distinct from [Credit Assignment](./cr
 - **Cross-benchmark control-decision taxonomy.** [AgentAtlas](../works/agentatlas.md) does not decompose per-task or per-capability but instead classifies the *control decisions* an agent makes into a six-way taxonomy applied across 15 benchmarks — providing a skill-hierarchy signal that transfers across the tasks it audits.
 - **Competence-depth tiers within one domain.** [CFDLLMBench](../works/cfdllmbench.md) decomposes CFD competence by *depth* rather than by subprocess: knowledge (CFDQuery), numerical and physical reasoning (CFDCodeBench), and practical workflow implementation (FoamBench), each a separate task set. Because the tiers are nested in difficulty rather than parallel, the profile they produce reads as a ceiling — strong knowledge scores coexist with near-zero end-to-end simulation success.
 - **Tool-evolution framework (out-of-scope placement).** [GATE](../works/gate.md) is included here for completeness but its actual subject is graph-based tool making for LLMs, not skill decomposition. See the card for a full explanation.
+- **Facet-decomposed skill use.** [Skill-Use](../works/skill-use.md) splits using a skill into three separable facets — triggering the relevant skill, complying with its prescribed procedure, and respecting its boundaries — over 79 real skills and 177 sandboxed executable tasks. Triggering and compliance emerge as independent bottlenecks, and the strongest configuration reaches an SU score of only 0.613.
+- **Valuing a skill's internal structure.** [SkillSV](../works/skillsv.md) compiles a skill into units, dependencies, and hierarchy and assigns each unit a structure-aware Shapley value, making skill libraries auditable — which units earn their context cost — and guiding pruning and compression without losing aggregate skill lift.
+- **The judge's skill knowledge as the measured object.** [SkillTV-Bench](../works/skilltv-bench.md) evaluates trajectory judges on skill-augmented executions, where verifying correctly requires knowing the skill, and shows the missing verification knowledge can itself be externalized as a reusable JudgeSkill worth +14.8 accuracy points.
 
 ## Comparison
 
@@ -33,6 +36,9 @@ Skill hierarchy is closely related to but distinct from [Credit Assignment](./cr
 | AgentAtlas | 2026 | Per-control-decision (cross-benchmark overlay) | 6 control-decision types | [→](../works/agentatlas.md) |
 | GATE | 2026 | *Tool-evolution framework, not skill decomposition — see card* | Hierarchical tool graph | [→](../works/gate.md) |
 | CFDLLMBench | 2025 | Nested competence tiers within one domain | 3 depth tiers (knowledge / numerical reasoning / workflow implementation) | [→](../works/cfdllmbench.md) |
+| Skill-Use | 2026 | Per-skill facet decomposition | 3 facets: trigger / compliance / boundary | [→](../works/skill-use.md) |
+| SkillSV | 2026 | Within-skill unit decomposition (units / dependencies / hierarchy) | Structure-aware Shapley value per unit | [→](../works/skillsv.md) |
+| SkillTV-Bench | 2026 | Judge-side skill knowledge, externalized as a reusable JudgeSkill | Judge accuracy + rollout-selection lift | [→](../works/skilltv-bench.md) |
 
 ## Open Questions
 
@@ -50,6 +56,9 @@ Skill hierarchy is closely related to but distinct from [Credit Assignment](./cr
 - [AgentAtlas](../works/agentatlas.md)
 - [GATE](../works/gate.md) — Included for completeness; its actual subject is tool making for LLMs, not skill-hierarchy evaluation.
 - [CFDLLMBench](../works/cfdllmbench.md)
+- [Skill-Use](../works/skill-use.md)
+- [SkillSV](../works/skillsv.md)
+- [SkillTV-Bench](../works/skilltv-bench.md)
 
 ## Further Reading
 

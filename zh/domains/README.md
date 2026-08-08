@@ -27,17 +27,17 @@ Domain 页是**事实性参考页，不是文献综述**——作为入口与 to
 
 | 分组 | Domain | Works |
 |---|---|---|
-| Science | [Physics](./physics.md) | 8 |
+| Science | [Physics](./physics.md) | 12 |
 | Science | [Astronomy](./astronomy.md) | 3 |
 | Science | [Mathematics](./mathematics.md) | 9 |
-| Science | [Chemistry](./chemistry.md) | 4 |
-| Science | [Biology](./biology.md) | 10 |
-| Science | [Neuroscience & Cognitive Science](./neuroscience_cognitive_science.md) | 3 |
-| Science | [Medicine & Health](./medicine_health.md) | 4 |
+| Science | [Chemistry](./chemistry.md) | 7 |
+| Science | [Biology](./biology.md) | 11 |
+| Science | [Neuroscience & Cognitive Science](./neuroscience_cognitive_science.md) | 4 |
+| Science | [Medicine & Health](./medicine_health.md) | 5 |
 | Science | [Earth Science](./earth_science.md) | 4 |
 | Science | [Environmental Science](./environmental_science.md) | 2 |
 | Science | [Materials Science](./materials_science.md) | 4 |
-| Science | [Computer Science](./computer_science.md) | 2 |
+| Science | [Computer Science](./computer_science.md) | 3 |
 | Science | [AI & Machine Learning Research](./ai_ml_research.md) | 4 |
 | Engineering | [Mechanical & Aerospace Engineering](./mechanical_aerospace_engineering.md) | 2 |
 | Engineering | [Electrical Engineering](./electrical_engineering.md) | 1 |

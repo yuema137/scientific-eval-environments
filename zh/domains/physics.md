@@ -18,6 +18,10 @@
 | NatureBench | 2026 | 达到 Nature 系列 Physical Modeling 研究的已发表 SOTA——其 90 个任务中的 13 个——只给目标算法的输入，不给其操作或输出。 | 经评审门控流水线与信息防火墙构建的 code-agent 任务；每任务平均约 3.7 个主指标。 | 在论文自身主指标上的 SOTA 归一化相对差距 g；报告 Match-SOTA（g ≥ 0）与 Surpass-SOTA（g > 0.1）比率，另有 judge 标记捷径运行。 | [→](../works/naturebench.md) |
 | Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Physical Sciences 分组下的物理任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Physics 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文工件的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
+| CMT-Benchmark | 2025 | 求解专家研究者水平的凝聚态理论问题——量子多体系统与经典统计力学——横跨 Hartree-Fock、精确对角化、量子/变分蒙特卡洛、DMRG 与统计力学。 | 50 道由专家研究者按其自身工作水平编写的单题理论与计算推导；非交互式 agent 设定。 | 对照专家提供的真值做程序化检验，机器判分包括对非对易算符做正规排序后的符号处理。 | [→](../works/cmt-benchmark.md) |
+| CMPhysBench | 2025 | 完成研究生水平的凝聚态物理计算，覆盖磁学、超导、强关联体系与基础理论框架。 | 520 余道精心整理的计算题，每题要求独立生成完整解答；单题推导，非交互式 agent 设定。 | 对解答表达式的 SEED（Scalable Expression Edit Distance）部分得分，加上以正确解答百分比计的准确率。 | [→](../works/cmphysbench.md) |
+| PhySciBench | 2026 | 在物理与化学各半的题集中回答物理侧的专家 deep-research 问题，针对推理链脆弱、跨步骤知识迁移有限与缺少基于物理的自我验证。 | 200 道专家整理的问题，物理与化学各半，组织为呼应真实科研工作流的六类任务。 | 基于准确率比较最先进模型与 agent 系统，并在准确率之外报告成本。 | [→](../works/physcibench.md) |
+| MetaSyn | 2026 | 进行忠实于协议的系统综述与 meta 分析；物理学是其 422 个专家整理 meta 分析所覆盖的主题之一。 | 多阶段系统综述工作流：在掺入不合格干扰文献的共享 PubMed 文献库中，依据带结构化 PI/ECO 标准的研究问题找出应纳入的研究。 | 对照原综述作者实际纳入的研究集做识别评估，并以分阶段评估定位 meta 分析流程中的失败环节。 | [→](../works/metasyn.md) |
 
 ## Related Works
 
@@ -29,3 +33,7 @@
 - [NatureBench](../works/naturebench.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [ResearchClawBench](../works/researchclawbench.md)
+- [CMT-Benchmark](../works/cmt-benchmark.md)
+- [CMPhysBench](../works/cmphysbench.md)
+- [PhySciBench](../works/physcibench.md)
+- [MetaSyn](../works/metasyn.md)

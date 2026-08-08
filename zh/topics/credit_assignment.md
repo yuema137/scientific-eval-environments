@@ -27,6 +27,10 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 - **逐步错误定位。** [ProcessBench](../works/processbench.md) 要求评判者在 3,400 份专家标注的数学解答上返回最早出错的步骤索引，并发现最终答案正确的 Omni-MATH 解答中仍有 51.8% 含有过程错误。
 - **按错误类型细分的步骤 credit。** [PRMBench](../works/prmbench.md) 用九个注入式错误子类考察过程级奖励模型，使模型的 credit 信号按失败模式而非按聚合的步骤准确率来诊断。
 - **考察那些本可稠密化 credit 的奖励模型。** [FormalRewardBench](../works/formalrewardbench.md) 在 250 对偏好数据上测试学得的 reward model 是否更偏好经过验证的 Lean 4 证明而非注入错误的变体，从而把 credit 信号本身——而非评分工具——作为被测对象。
+- **Computer-use 评判者的标准化评测。** [OSReward](../works/osreward.md) 以多阶段人工标注的裁决为跨平台 computer-use 奖励模型打分，发现最先进的评判模型存在系统性的宽松偏差（leniency bias），并证明在其 OS-Shepherd-100K 数据上训练的 9B/35B 开源评判者能以约三十到六十分之一的成本达到前沿商业评判者的水平。
+- **定位、归因、修复。** [SearchAuditor](../works/searchauditor.md) 在 1,243 条专家标注的失败搜索轨迹上端到端地考察审计者——定位关键错误步骤、归因到搜索特有的根因、再对照带评分 rubric 的参考修复打分——最强基线的端到端通过率仅有 26.6%。
+- **深入 skill 内部的 credit。** [SkillSV](../works/skillsv.md) 把 credit assignment 从轨迹步骤移进 agent skill 的内部：在 skill 编译出的单元、依赖与层级结构上做结构感知的 Shapley 估值，并用成对删除与长度中性填充把内容价值与上下文成本区分开。
+- **错误生命周期归因。** [TRAJDEBUG](../works/trajdebug.md) 在 TrajErrBench 的 486 条人工标注失败轨迹上追踪每个错误的解决状态与最终影响，让失败的 credit 落在真正决定失败的那个错误上，而不是落在 agent 事后已恢复的错误上。
 
 ## Comparison
 
@@ -45,6 +49,10 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 | ProcessBench | 2024 | 专家标注的最早出错步骤索引 | 静态解答内的推理步骤 | [→](../works/processbench.md) |
 | PRMBench | 2025 | 步骤级 validity + redundancy 评分；negative F1 与 PRMScore | 静态解答过程中的单个推理步骤 | [→](../works/prmbench.md) |
 | FormalRewardBench | 2026 | 在已验证证明与注入错误变体之间的偏好判定 | 整份证明；无步骤级 credit | [→](../works/formalrewardbench.md) |
+| OSReward | 2026 | 奖励模型裁决对照多阶段人工标注；Multi 变体给出细粒度的效率与对齐评分 | 整条 computer-use 轨迹，另有分维度评分 | [→](../works/osreward.md) |
+| SearchAuditor | 2026 | 专家标注的关键步骤、搜索特有根因与带评分 rubric 的修复 | 失败搜索轨迹中的关键步骤 | [→](../works/searchauditor.md) |
+| SkillSV | 2026 | 对 skill 编译单元的结构感知 Shapley 价值 | 每个 skill 单元，而非轨迹步骤 | [→](../works/skillsv.md) |
+| TRAJDEBUG | 2026 | 错误生命周期：发生、解决状态、最终影响 | 失败轨迹中的每个错误 | [→](../works/trajdebug.md) |
 
 ## Open Questions
 
@@ -67,6 +75,10 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 - [ProcessBench](../works/processbench.md)
 - [PRMBench](../works/prmbench.md)
 - [FormalRewardBench](../works/formalrewardbench.md)
+- [OSReward](../works/osreward.md)
+- [SearchAuditor](../works/searchauditor.md)
+- [SkillSV](../works/skillsv.md)
+- [TRAJDEBUG](../works/trajdebug.md)
 
 ## Further Reading
 

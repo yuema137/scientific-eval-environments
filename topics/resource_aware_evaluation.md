@@ -24,6 +24,8 @@ Two meaningful distinctions structure the space:
 - **Budget as an online control signal.** [BAGEN](../works/bagen.md) makes the agent predict an upper and lower bound on remaining budget at every turn and flag infeasibility, scoring resource use as a per-step estimation target rather than a post-execution tally.
 - **Evaluation calls as the budgeted resource.** [VeRO / VeRO-Bench](../works/vero.md) benchmarks coding agents that optimize other agents under a hard evaluation-call budget: every scoring of the target agent passes through a gated evaluator that decrements n_E ≤ B and blocks requests beyond it, mirroring black-box optimization with expensive queries; a budget ablation over B ∈ {2, 4, 8, 16, 32} separates budget effects from capability effects.
 - **Interaction budget on iterative design optimization.** [Frontier-Eng](../works/frontier-eng.md) bounds each real-world engineering task with a fixed interaction budget on its propose-execute-evaluate loop: the agent must allocate a limited number of simulator interactions to refine a candidate design under continuous reward and hard feasibility constraints, making the benchmark inherently resource-aware.
+- **Economic consistency as the measured object.** [EcoAgent-Bench](../works/ecoagent-bench.md) prices every action under an explicit per-task budget across 304 tasks and pairs upgrade-oriented with save-oriented task groups, so a one-sided policy that always spends or always saves cannot score well. Tool-API agents reach at most 7.3% economic consistency, and a budget sweep moves GPT-5.4's escalation rate only from 0% to 3%.
+- **Evaluation budget on harness optimization.** [HarnessOpt-Bench](../works/harnessopt-bench.md) gives optimizer LLMs a seed harness, evaluation feedback, and a fixed budget of target evaluations inside a TEE-audited loop, scoring normalized gain over the seed on a held-out partition; across 4 tasks, 5 optimizer models, and 111 scored runs, the optimizer model separates more than the coding harness it acts through.
 - **Cost-performance frontier reporting.** Other work reports accuracy alongside token or dollar cost so that agents can be compared on a Pareto frontier rather than a single accuracy number. This is analysis-time resource-awareness rather than benchmark-time resource-awareness.
 
 ## Comparison
@@ -37,6 +39,8 @@ Two meaningful distinctions structure the space:
 | BAGEN | 2026 | Tokens; time / occupancy / cost | Prediction target + early-stop objective | Puzzle / retrieval / coding / supply-chain | [→](../works/bagen.md) |
 | VeRO / VeRO-Bench | 2026 | Evaluation calls on the target agent (gated budget n_E ≤ B) | Enforced hard constraint — optimizer allocates expensive evaluations | Agent-harness optimization over 5 target-agent task suites | [→](../works/vero.md) |
 | Frontier-Eng | 2026 | Simulator interactions (fixed per-task budget) | Hard bound on the propose-execute-evaluate loop | Real-world engineering optimization; 47 tasks, 5 categories | [→](../works/frontier-eng.md) |
+| EcoAgent-Bench | 2026 | Priced actions under explicit per-task budgets | First-class objective — economic consistency across upgrade/save paired groups | 304 QA-derived tasks in 5 families; tool-API and workspace-CLI settings | [→](../works/ecoagent-bench.md) |
+| HarnessOpt-Bench | 2026 | Target-evaluation calls (fixed budget, TEE-metered) | Enforced hard constraint on the optimize-evaluate loop | Harness optimization; 4 tasks × 5 optimizer LLMs, 111 scored runs | [→](../works/harnessopt-bench.md) |
 
 ## Open Questions
 
@@ -54,6 +58,8 @@ Two meaningful distinctions structure the space:
 - [BAGEN](../works/bagen.md) — Progressive budget-interval prediction with trainable early-stopping across token and multi-resource agents.
 - [VeRO / VeRO-Bench](../works/vero.md) — Benchmarking coding agents as agent optimizers under a gated evaluation-call budget.
 - [Frontier-Eng](../works/frontier-eng.md) — Iterative engineering optimization under a fixed simulator-interaction budget.
+- [EcoAgent-Bench](../works/ecoagent-bench.md) — Economic decision-making under priced actions and explicit budgets, scored for economic consistency.
+- [HarnessOpt-Bench](../works/harnessopt-bench.md) — LLMs optimizing agent harnesses under a fixed, TEE-audited evaluation budget.
 
 ## Further Reading
 
