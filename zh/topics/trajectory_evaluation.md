@@ -25,13 +25,14 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - **人工标注的 step-level 有效性。** [AgentProcessBench](../works/agentprocessbench.md) 以三元 +1 / 0 / −1 方案为 1,000 条多轮 tool-use trajectory 中的 8,509 个 assistant step 打标，标注者间一致性达 89.1%。
 - **与验证配对的 trajectory 评审。** [AgentLens](../works/agentlens.md) 将五个 LLM-judge 维度与形式化验证平均为一个质量指数，并为每个分数附上一份有据可查、链接到证据的书面评审，从而把靠脆弱捷径通过客观检查的运行与真正干净的运行区分开。
 - **Span 级错误定位。** [TELBench](../works/telbench.md) 把 1,000 条经验证的 deep-research trajectory（平均 11.95 个 span）切分为错误 / 非错误 span，要求模型找出最早的有害决策；其 DRIFT 审计框架把整体 macro-F1 最高提升至 54.91。
-- **由定理证明器裁决每一步。** [MATP](../works/matp.md) 把自然语言推理链的每一步自动形式化为一阶逻辑，交由 Vampire 定理证明器双向判定，从而以近乎零边际成本获得逐步标签，再用它来考察 10 个模型作为步骤评判者的能力。
-- **可机器检查但不可人读的轨迹。** [VCoT-Bench](../works/vcot-bench.md) 把 Z3 的底层证明经 LLM 提升为 Verus 层面的可读步骤，再据此构造 1,988 个补全任务，并按位置分层——中段推理一致最难，且不随模型规模变好。
-- **拒用 LLM 作评判的多轴部分得分。** [SysMoBench](../works/sysmobench.md) 为 AI 生成的 11 个真实系统的 TLA+ 模型评分，四项指标全部由既有检查器机器计算并逐级设卡，作者明确说明不采用 LLM-as-a-judge。
-- **从修订历史中挖掘步骤标签。** [Pseudo-Formalization](../works/pseudo-formalization.md) 筛选 arXiv 修订说明中作者自陈「某引理已修正」的记录，把（论文编号、版本对、错误位置）直接存为标签，从而以近乎零成本获得专家级的步骤错误标注。
-- **对整条轨迹的偏好判定。** [Plan-RewardBench](../works/plan-rewardbench.md) 固定工具环境与用户意图、只让轨迹变化，构造 1,171 对偏好数据来考察约 30 个评判者，并按 horizon 长度而非汇总报告其可靠性。
-- **评判者与规则式评分器的对照。** [AgentRewardBench](../works/agentrewardbench.md) 用 1,302 条专家标注的 web agent 轨迹考察 12 个 LLM judge，并指出 benchmark 自带的规则式评分器会系统性地低报成功率。
+- **形式逻辑裁决每一步。** [MATP](../works/matp.md) 把自然语言推理的每一步自动形式化为一阶逻辑并交由自动定理证明器裁决，在 PrOntoQA-OOD 上步骤正确性的 macro F1 达到 94.26%，而 GPT-4o prompting baseline 为 47.79%。
+- **由求解器导出的参考推理链。** [VCoT-Bench](../works/vcot-bench.md) 把 Z3 证明提升为人可读的 Verus 步骤，并让模型补全被刻意移除的块，因此轨迹 credit 是对照证明器实际所需的推理来衡量，而非一个二元的验证结果。
+- **逐级设卡的工件正确性。** [SysMoBench](../works/sysmobench.md) 为 11 个真实系统工件的 AI 生成 TLA+ 模型评分，四项自动检查的指标——语法、运行时、trace 一致性、不变式正确性——逐级设卡，并明确拒绝 LLM-as-a-judge 评分。
+- **模块级证明检查。** [Pseudo-Formalization](../works/pseudo-formalization.md) 把证明改写为自包含模块并独立核验每一个前提–结论模块，在 35 篇 arXiv 论文、共 40 处已披露错误上考察错误定位。
+- **成对轨迹偏好。** [Plan-RewardBench](../works/plan-rewardbench.md) 让一条选中轨迹与一条易混淆的 hard negative 在 1,171 对样本上对抗，考察的是评判者而非 agent。
+- **评判者与专家标签的一致性。** [AgentRewardBench](../works/agentrewardbench.md) 用 1,302 条 web agent 轨迹上的专家标签考察 12 个 LLM judge 与各 benchmark 自带的规则式评分器，发现没有任何 judge 的 precision 超过 70%。
 - **Harness 效应诊断。** [Harness-Bench](../works/harness-bench.md) 固定任务、沙箱、预算与评估器，只变换模型外围的 harness，用安全门控的 completion × 过程分（从轨迹评出的 robustness、tool use、consistency）为 5,194 条轨迹打分；在完全相同的任务与模型上，最好与最差的可配置 harness 相差 23.8 分，支持按模型–harness 配置报告能力。
+- **以 commit 为结果锚点的真实环境轨迹。** [SWE-chat](../works/swe-chat.md) 用来自 opt-in 开源开发者的约 6,000 个真实 coding-agent 会话取代人工编写的任务，把每一行提交代码归属到人类或 agent。其轨迹指标植根于用户真正保留的内容——agent 产出代码中仅 44.3% 最终进入用户 commit——并辅以经人类 gold 标签验证的 LLM 标注会话成功度（0–100）与逐轮 pushback 标签。
 
 ## Comparison
 
@@ -49,13 +50,14 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | AgentProcessBench | 2026 | 步骤有效性（StepAcc / FirstErrAcc） | Tool use（web / CLI / API） | [→](../works/agentprocessbench.md) |
 | AgentLens | 2026 | 覆盖 5 个 LLM-judge 维度的质量指数 + 形式化验证；成对并排评审 | 交互式编码（Java） | [→](../works/agentlens.md) |
 | TELBench | 2026 | Span 级 F1 + 首错准确率 | Deep-research agent trajectory（GAIA、XBench、BrowseComp） | [→](../works/telbench.md) |
-| MATP | 2025 | 定理证明器对每一步的双向判定（True / False / Unknown） | 每个自然语言推理步骤 | [→](../works/matp.md) |
-| VCoT-Bench | 2026 | 对参考验证链的语义块级消融，经 Verus 重新验证 | 每个语义块（不变式 / 断言 / 引理） | [→](../works/vcot-bench.md) |
-| SysMoBench | 2025 | 四项机器计算的逐级部分得分（语法 / 运行时 / 一致性 / 不变式） | 每个 TLA+ action | [→](../works/sysmobench.md) |
-| Pseudo-Formalization | 2026 | 从 arXiv 修订历史挖掘的步骤错误位置 | 每个自包含的证明模块 | [→](../works/pseudo-formalization.md) |
-| Plan-RewardBench | 2026 | 成对轨迹偏好判定的准确率 | 整条工具使用轨迹 | [→](../works/plan-rewardbench.md) |
-| AgentRewardBench | 2025 | 与专家成功标签比对的 precision | 整条 web agent 轨迹 | [→](../works/agentrewardbench.md) |
+| MATP | 2025 | 每一步的 provable / refutable / indeterminate 判定，外加六类推理链分类 | 演绎逻辑推理 | [→](../works/matp.md) |
+| VCoT-Bench | 2026 | 加权的语法 + 语义块补全准确率 | Verus 中的 Rust 验证 | [→](../works/vcot-bench.md) |
+| SysMoBench | 2025 | 四项逐级设卡的部分得分指标（语法 → 运行时 → trace 一致性 → 不变式），不用 LLM judge | 并发 / 分布式系统的形式化建模 | [→](../works/sysmobench.md) |
+| Pseudo-Formalization | 2026 | 错误定位 precision + recall；每份证明的覆盖率与误报错误 | 数学证明验证 | [→](../works/pseudo-formalization.md) |
+| Plan-RewardBench | 2026 | chosen / rejected 轨迹对上的成对判定准确率 | 工具集成的 agent 规划 | [→](../works/plan-rewardbench.md) |
+| AgentRewardBench | 2025 | 评判者相对专家成功标签的 precision | Web agent | [→](../works/agentrewardbench.md) |
 | Harness-Bench | 2026 | 安全门控的 Completion × Process（从轨迹评出的 robustness / tool use / consistency） | 跨 harness 的可执行 agent 工作流（8 类） | [→](../works/harness-bench.md) |
+| SWE-chat | 2026 | 每行提交代码的代码存活 / 效率 / 成本 + LLM 标注的会话成功度与逐轮 pushback，基于真实用户轨迹 | 真实环境的 coding-agent 会话（开源仓库） | [→](../works/swe-chat.md) |
 
 ## Open Questions
 
@@ -87,6 +89,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - [Plan-RewardBench](../works/plan-rewardbench.md)
 - [AgentRewardBench](../works/agentrewardbench.md)
 - [Harness-Bench](../works/harness-bench.md)
+- [SWE-chat](../works/swe-chat.md)
 
 ## Further Reading
 

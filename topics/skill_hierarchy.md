@@ -19,6 +19,7 @@ Skill hierarchy is closely related to but distinct from [Credit Assignment](./cr
 - **Capability-subprocess decomposition (environment configuration).** [Enconda-bench](../works/enconda-bench.md) decomposes software environment configuration into planning / error diagnosis / repair / execution.
 - **Capability axes as an organizing principle.** [UniClawBench](../works/uniclawbench.md) structures its 400-task benchmark around five capability axes (Skill Usage, Exploration, Long-Context Reasoning, Multimodal Understanding, Cross-Platform Coordination) and uses these axes as the primary reporting dimension.
 - **Cross-benchmark control-decision taxonomy.** [AgentAtlas](../works/agentatlas.md) does not decompose per-task or per-capability but instead classifies the *control decisions* an agent makes into a six-way taxonomy applied across 15 benchmarks — providing a skill-hierarchy signal that transfers across the tasks it audits.
+- **Competence-depth tiers within one domain.** [CFDLLMBench](../works/cfdllmbench.md) decomposes CFD competence by *depth* rather than by subprocess: knowledge (CFDQuery), numerical and physical reasoning (CFDCodeBench), and practical workflow implementation (FoamBench), each a separate task set. Because the tiers are nested in difficulty rather than parallel, the profile they produce reads as a ceiling — strong knowledge scores coexist with near-zero end-to-end simulation success.
 - **Tool-evolution framework (out-of-scope placement).** [GATE](../works/gate.md) is included here for completeness but its actual subject is graph-based tool making for LLMs, not skill decomposition. See the card for a full explanation.
 
 ## Comparison
@@ -31,6 +32,7 @@ Skill hierarchy is closely related to but distinct from [Credit Assignment](./cr
 | UniClawBench | 2026 | Benchmark-level organizing axes | 5 proactive-agent capabilities | [→](../works/uniclawbench.md) |
 | AgentAtlas | 2026 | Per-control-decision (cross-benchmark overlay) | 6 control-decision types | [→](../works/agentatlas.md) |
 | GATE | 2026 | *Tool-evolution framework, not skill decomposition — see card* | Hierarchical tool graph | [→](../works/gate.md) |
+| CFDLLMBench | 2025 | Nested competence tiers within one domain | 3 depth tiers (knowledge / numerical reasoning / workflow implementation) | [→](../works/cfdllmbench.md) |
 
 ## Open Questions
 
@@ -47,6 +49,7 @@ Skill hierarchy is closely related to but distinct from [Credit Assignment](./cr
 - [UniClawBench](../works/uniclawbench.md)
 - [AgentAtlas](../works/agentatlas.md)
 - [GATE](../works/gate.md) — Included for completeness; its actual subject is tool making for LLMs, not skill-hierarchy evaluation.
+- [CFDLLMBench](../works/cfdllmbench.md)
 
 ## Further Reading
 

@@ -32,6 +32,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - **Pairwise trajectory preference.** [Plan-RewardBench](../works/plan-rewardbench.md) pits a chosen trajectory against a confusable hard negative across 1,171 pairs, scoring the judge rather than the agent.
 - **Judge-against-expert agreement.** [AgentRewardBench](../works/agentrewardbench.md) scores 12 LLM judges and the benchmarks' own rule-based evaluators against expert labels on 1,302 web agent trajectories, finding no judge above 70% precision.
 - **Harness-effect diagnostics.** [Harness-Bench](../works/harness-bench.md) fixes tasks, sandboxes, budgets, and evaluators while varying the harness around each model backend, scoring 5,194 trajectories with a security-gated product of completion and a trace-derived process score (robustness, tool use, consistency); a 23.8-point gap between the best and worst configurable harness on identical tasks and models supports reporting capability per model–harness configuration.
+- **In-the-wild trajectories with commit-grounded outcomes.** [SWE-chat](../works/swe-chat.md) replaces curated tasks with ~6,000 real coding-agent sessions logged from opted-in open-source developers, attributing every committed line to human or agent. Its trajectory metrics are grounded in what users actually keep — only 44.3% of agent-produced code ends up in user commits — complemented by LLM-annotated session success (0–100) and per-turn pushback labels validated against human gold labels.
 
 ## Comparison
 
@@ -56,6 +57,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 | Plan-RewardBench | 2026 | Pairwise accuracy on chosen / rejected trajectory pairs | Tool-integrated agent planning | [→](../works/plan-rewardbench.md) |
 | AgentRewardBench | 2025 | Judge precision against expert success labels | Web agents | [→](../works/agentrewardbench.md) |
 | Harness-Bench | 2026 | Security-gated Completion × Process (robustness / tool use / consistency from traces) | Cross-harness executable agent workflows (8 categories) | [→](../works/harness-bench.md) |
+| SWE-chat | 2026 | Code survival / efficiency / cost per committed line + LLM-annotated session success and per-turn pushback, over real user trajectories | In-the-wild coding-agent sessions (open-source repositories) | [→](../works/swe-chat.md) |
 
 ## Open Questions
 
@@ -87,6 +89,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - [Plan-RewardBench](../works/plan-rewardbench.md)
 - [AgentRewardBench](../works/agentrewardbench.md)
 - [Harness-Bench](../works/harness-bench.md)
+- [SWE-chat](../works/swe-chat.md)
 
 ## Further Reading
 

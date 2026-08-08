@@ -17,7 +17,7 @@ scientific-eval-environments/
 ├── CLAUDE.md              # 章程速查
 ├── works/                 # 每个 work 一张 Markdown 卡片（事实性引用）
 │   ├── README.md          # 卡片模板与规则
-│   └── ...                # 70 张卡片，扁平目录，kebab-case——每份 work 一个文件
+│   └── ...                # 73 张卡片，扁平目录，kebab-case——每份 work 一个文件
 ├── topics/                # 面向单一评估方向的文献综述页面
 │   ├── README.md          # Topic 页模板与规则
 │   └── ...                # 7 个规范化 topic 页
@@ -102,6 +102,6 @@ RL 工作的界线由论文主要贡献判定：如果它推进了**如何评估
 
 7 个规范化 topic 页全部编写，卡片覆盖已远超初始参考列表：
 
-- **70 张卡片** 位于 `works/`——包括 benchmark、评估框架与方法学、以及参考论文（综述与立场论文）。每张卡片显式标注类型；扁平目录本身即权威列表。
-- **7 个 topic 页**——完整的文献综述，各自拥有专属比较表与开放问题。各 topic 当前的 Related-Works 覆盖：Scientific Agent Benchmarks（22）、Trajectory Evaluation（19）、General Long-Horizon Agent Benchmarks（15）、Credit Assignment（13）、Skill Hierarchy（6）、Resource-aware Evaluation（6）、Survey（4）。
+- **73 张卡片** 位于 `works/`——包括 benchmark、评估框架与方法学、以及参考论文（综述与立场论文）。每张卡片显式标注类型；扁平目录本身即权威列表。
+- **7 个 topic 页**——完整的文献综述，各自拥有专属比较表与开放问题。各 topic 当前的 Related-Works 覆盖：Scientific Agent Benchmarks（24）、Trajectory Evaluation（20）、General Long-Horizon Agent Benchmarks（17）、Credit Assignment（13）、Skill Hierarchy（7）、Resource-aware Evaluation（7）、Survey（4）。
 - **中文镜像**位于 `zh/`，按双语节奏同步维护。

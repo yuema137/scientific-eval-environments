@@ -1,6 +1,6 @@
-# Maintainer-facing meta-files (not part of the published repository)
-/AGENT.md
-/CLAUDE.md
+# Maintainer's private input material — not repository content.
+# Facts are extracted from it into topic and card pages; the file itself is not published.
+/initial_doc.md
 
 # Claude Code session data
 .claude/

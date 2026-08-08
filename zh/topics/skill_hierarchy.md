@@ -19,6 +19,7 @@ Skill hierarchy 与 [Credit Assignment](./credit_assignment.md) 相关但不同�
 - **能力子过程分解（环境配置）。** [Enconda-bench](../works/enconda-bench.md) 把软件环境配置拆为 planning / error diagnosis / repair / execution。
 - **以能力轴作为组织原则。** [UniClawBench](../works/uniclawbench.md) 围绕五个能力轴（Skill Usage、Exploration、Long-Context Reasoning、Multimodal Understanding、Cross-Platform Coordination）组织其 400 任务的 benchmark，并把这些轴作为主要报告维度。
 - **跨 benchmark 的控制决策分类。** [AgentAtlas](../works/agentatlas.md) 不按任务或能力做分解，而是把 agent 的**控制决策**分成六类，覆盖 15 个 benchmark——提供的是跨任务可迁移的 skill-hierarchy 信号。
+- **单一领域内的能力深度分层。** [CFDLLMBench](../works/cfdllmbench.md) 按*深度*而非按子过程来分解 CFD 能力：知识（CFDQuery）、数值与物理推理（CFDCodeBench）、实际工作流实现（FoamBench），各自是独立的任务集。由于这些层级在难度上是嵌套而非并列的，它给出的能力剖面更像一条天花板——很高的知识分数与近乎为零的端到端仿真成功率同时存在。
 - **Tool-evolution 框架（越界归属）。** [GATE](../works/gate.md) 为覆盖完整性而纳入，但论文实际主题是面向 LLM 的图式 tool making，而非 skill 分解。详见卡片。
 
 ## Comparison
@@ -31,6 +32,7 @@ Skill hierarchy 与 [Credit Assignment](./credit_assignment.md) 相关但不同�
 | UniClawBench | 2026 | Benchmark 级组织轴 | 5 个 proactive-agent 能力 | [→](../works/uniclawbench.md) |
 | AgentAtlas | 2026 | 每次控制决策（跨 benchmark 覆盖） | 6 类控制决策 | [→](../works/agentatlas.md) |
 | GATE | 2026 | *Tool-evolution 框架，非 skill 分解——见卡片* | 层级化工具图 | [→](../works/gate.md) |
+| CFDLLMBench | 2025 | 单一领域内的嵌套能力层级 | 3 个深度层级（知识 / 数值推理 / 工作流实现） | [→](../works/cfdllmbench.md) |
 
 ## Open Questions
 
@@ -47,6 +49,7 @@ Skill hierarchy 与 [Credit Assignment](./credit_assignment.md) 相关但不同�
 - [UniClawBench](../works/uniclawbench.md)
 - [AgentAtlas](../works/agentatlas.md)
 - [GATE](../works/gate.md) — 为覆盖完整性而纳入；实际主题是面向 LLM 的 tool making，而非 skill-hierarchy 评估。
+- [CFDLLMBench](../works/cfdllmbench.md)
 
 ## Further Reading
 

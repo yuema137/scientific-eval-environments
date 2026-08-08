@@ -29,6 +29,8 @@
 - **文档密集型数据分析。** [LongDA](../works/longda.md) 把导航长文档变成瓶颈本身：505 条分析查询覆盖 17 个美国全国性调查，配套文档平均 263k token，agent 在 100 步预算内以多轮块状交互完成文档检索、信息整合与 Python 执行；最强受评模型的 match rate 仅 68.91%，且论文把成功归因于检索与工具使用策略而非推理。
 - **开放式文献搜索。** [AutoResearchBench](../works/autoresearchbench.md) 在构造上就让 horizon 开放：其 1,000 条文献发现查询中符合条件的论文数量未知，agent 必须持续进行渐进式多步探查并自行决定何时停止；最强模型在其两类任务上均低于 10%。
 - **异步环境。** [Gaia2](../works/gaia2.md) 在事件驱动的环境中运行 1,120 个场景，这些环境按自己的时钟推进而非仅在 agent 行动时才变化，从而使时间意识成为一项被打分的能力：GPT-5（high）以 42.1% 的 pass@1 总分领先，但在 Time 划分上得分为 0.0，且每个受评模型在该划分上都低于 9 分。
+- **研究型 horizon 上的终端报告质量。** [DeepResearch Bench](../works/deepresearch-bench.md) 覆盖与 TRACE 相同的 deep research horizon，却有意只评价最终产物——理由是商业 agent 的内部检索与推理不可观测：100 个由专家撰写的任务，其主题配比压缩自 44,019 条经过筛选的真实用户 query，由 reference-based 自适应准则框架（RACE）与实时引用核验（FACT）共同评判。Gemini-2.5-Pro Deep Research 以 48.88 的 RACE 总分领先，而引用 grounding 的排序与报告质量的排序并不一致。
+- **迭代式工程优化。** [Frontier-Eng](../works/frontier-eng.md) 把 horizon 变成一条优化轨迹：在 47 个真实工程任务上，agent 反复提出候选设计、从工业级仿真器获得硬性可行性约束下的连续奖励，并在固定交互预算内修订——改进的频率与幅度都沿轨迹按 power law 衰减。
 
 ## Comparison
 
@@ -49,6 +51,8 @@
 | AutoResearchBench | 2026 | 1,000 条开放式文献发现查询；答案集大小未知的渐进式多轮探查 | 学术检索与通用 web 检索上的 agentic 搜索 | [→](../works/autoresearchbench.md) |
 | LongDA | 2026 | 505 条查询按出版物分块多轮交互；平均 263k token 文档下的 100 步预算 | 美国联邦调查数据上的文档导航 + 沙箱化 Python | [→](../works/longda.md) |
 | Toolathlon | 2025 | 108 个跨应用任务；平均约 20 轮（上限 100 轮）；每任务平均暴露 69.9 个工具 | 经 MCP 的 32 个真实应用 / 604 个工具；容器化 + 远程；基于状态的脚本 | [→](../works/toolathlon.md) |
+| Frontier-Eng | 2026 | 47 个任务；固定交互预算下的迭代 propose-execute-evaluate 循环 | 工业级工程仿真器（连续奖励、硬性可行性约束） | [→](../works/frontier-eng.md) |
+| DeepResearch Bench | 2025 | 100 个博士级研究报告任务；horizon 不设预算，只在终端产物上打分 | 商业 deep research agent 与带搜索的 LLM；reference-based LLM judge 报告评分 + 实时引用核验 | [→](../works/deepresearch-bench.md) |
 
 ## Open Questions
 
@@ -74,6 +78,8 @@
 - [AutoResearchBench](../works/autoresearchbench.md)
 - [LongDA](../works/longda.md)
 - [Toolathlon](../works/toolathlon.md)
+- [Frontier-Eng](../works/frontier-eng.md)
+- [DeepResearch Bench](../works/deepresearch-bench.md)
 
 ## Further Reading
 

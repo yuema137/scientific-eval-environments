@@ -29,6 +29,8 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - **Documentation-intensive data analysis.** [LongDA](../works/longda.md) makes navigating long documentation the bottleneck: 505 analytical queries over 17 U.S. national surveys whose documentation averages 263k tokens, solved in multi-turn blocks of document retrieval, integration, and Python execution under a 100-step budget; the strongest evaluated model reaches only a 68.91% match rate, and the paper attributes success to retrieval and tool-use strategy rather than reasoning.
 - **Open-ended literature search.** [AutoResearchBench](../works/autoresearchbench.md) makes the horizon open-ended by construction: its 1,000 literature-discovery queries involve an unknown number of qualifying papers, so agents must sustain progressive multi-step probing and decide when to stop; the strongest models stay below 10% on both of its task types.
 - **Asynchronous environments.** [Gaia2](../works/gaia2.md) runs 1,120 scenarios in event-driven environments that advance on their own clock rather than only when the agent acts, making temporal awareness a scored capability: GPT-5 (high) leads at 42.1% pass@1 overall yet scores 0.0 on the Time split, and every evaluated model scores below 9 there.
+- **Terminal report quality over a research horizon.** [DeepResearch Bench](../works/deepresearch-bench.md) covers the same deep-research horizon as TRACE but deliberately scores only the end product, on the grounds that commercial agents' internal retrieval and reasoning are not observable: 100 expert-authored tasks whose topical mix is compressed from 44,019 filtered real user queries, judged by a reference-based adaptive-criteria framework (RACE) alongside live citation verification (FACT). Gemini-2.5-Pro Deep Research leads at 48.88 RACE overall, and the citation-grounding ordering diverges from the report-quality ordering.
+- **Iterative engineering optimization.** [Frontier-Eng](../works/frontier-eng.md) makes the horizon an optimization trajectory: over 47 real-world engineering tasks, the agent repeatedly proposes a candidate design, receives continuous reward from an industrial-grade simulator under hard feasibility constraints, and revises within a fixed interaction budget — with both improvement frequency and improvement magnitude decaying as power laws across the trajectory.
 
 ## Comparison
 
@@ -49,6 +51,8 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | AutoResearchBench | 2026 | 1,000 open-ended literature-discovery queries; progressive multi-turn probing with unknown answer-set size | Agentic search over academic and general web retrieval | [→](../works/autoresearchbench.md) |
 | LongDA | 2026 | 505 queries in multi-turn publication blocks; 100-step budget over avg 263k-token documentation | Document navigation + sandboxed Python over U.S. federal survey data | [→](../works/longda.md) |
 | Toolathlon | 2025 | 108 cross-app tasks; ~20 turns on average (100-turn cap); avg 69.9 tools exposed per task | 32 real applications / 604 tools via MCP; containerized + remote; state-based scripts | [→](../works/toolathlon.md) |
+| Frontier-Eng | 2026 | 47 tasks; iterative propose-execute-evaluate loops under a fixed interaction budget | Industrial-grade engineering simulators (continuous reward, hard feasibility constraints) | [→](../works/frontier-eng.md) |
+| DeepResearch Bench | 2025 | 100 PhD-level research-report tasks; horizon unbudgeted and scored only at the end product | Commercial deep research agents + search-enabled LLMs; reference-based LLM-judge report scoring + live citation verification | [→](../works/deepresearch-bench.md) |
 
 ## Open Questions
 
@@ -74,6 +78,8 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - [AutoResearchBench](../works/autoresearchbench.md)
 - [LongDA](../works/longda.md)
 - [Toolathlon](../works/toolathlon.md)
+- [Frontier-Eng](../works/frontier-eng.md)
+- [DeepResearch Bench](../works/deepresearch-bench.md)
 
 ## Further Reading
 
