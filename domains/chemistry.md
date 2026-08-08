@@ -19,6 +19,7 @@ Chemistry as the science, including computational chemistry and molecular design
 | MetaSyn | 2026 | Conduct protocol-faithful systematic review and meta-analysis; chemistry is among the subjects its 422 expert-curated meta-analyses span. | Multi-stage systematic-review workflows: identify the eligible studies for a research question with structured PI/ECO criteria within a shared PubMed-anchored corpus containing ineligible distractors. | Study identification against the original expert reviewers' included set, with stage-wise evaluation locating failures along the meta-analysis pipeline. | [→](../works/metasyn.md) |
 | SciCode | 2024 | Write research code for scientist-curated problems; chemistry is among the five main domains its 16 natural-science subfields span. | 80 main problems decomposed into 338 subproblems mixing knowledge recall, reasoning, and code synthesis. | Execution against scientist-annotated gold-standard solutions and test cases. | [→](../works/scicode.md) |
 | SMDD-Bench | 2026 | Solve medicinal-chemistry design problems — 2D pharmacophore identification, scaffold hopping, lead optimization, fragment assembly — against protein targets. | 502 guaranteed-solvable multi-turn tasks over 102 targets under a limited oracle-call budget. | Solve rate over guaranteed-solvable instances; best frontier model 40.2%. | [→](../works/smdd-bench.md) |
+| AInsteinBench | 2025 | Resolve maintainer-PR tasks in production scientific repositories; quantum chemistry and cheminformatics are among its six codebases. | Repository-level coding-agent tasks in executable environments. | Test-driven verification with expert-reviewed curation. | [→](../works/ainsteinbench.md) |
 
 ## Related Works
 
@@ -31,3 +32,4 @@ Chemistry as the science, including computational chemistry and molecular design
 - [MetaSyn](../works/metasyn.md)
 - [SciCode](../works/scicode.md)
 - [SMDD-Bench](../works/smdd-bench.md)
+- [AInsteinBench](../works/ainsteinbench.md)

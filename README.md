@@ -17,7 +17,7 @@ scientific-eval-environments/
 ├── CLAUDE.md              # Quick reference for the constitution
 ├── works/                 # One Markdown card per work (factual references)
 │   ├── README.md          # Card template and rules
-│   └── ...                # 137 cards, flat, kebab-case — one file per work
+│   └── ...                # 149 cards, flat, kebab-case — one file per work
 ├── topics/                # Literature-review pages, one per canonical topic
 │   ├── README.md          # Topic page template and rules
 │   ├── credit_assignment.md
@@ -137,7 +137,7 @@ The RL cutline is judged by the paper's primary contribution: if it advances *ho
 
 All seven canonical topic pages are written, and card coverage has grown well past the initial reference list:
 
-- **137 cards** in `works/` — benchmarks, evaluation frameworks and methodologies, and reference papers (surveys and position papers). Each card notes its type explicitly; the flat directory itself is the authoritative list.
+- **149 cards** in `works/` — benchmarks, evaluation frameworks and methodologies, and reference papers (surveys and position papers). Each card notes its type explicitly; the flat directory itself is the authoritative list.
 - **7 topic pages** — full literature reviews with topic-specific comparison tables and open questions. Current Related-Works coverage per topic: Scientific Agent Benchmarks (24), Trajectory Evaluation (20), General Long-Horizon Agent Benchmarks (17), Credit Assignment (13), Skill Hierarchy (7), Resource-aware Evaluation (7), Survey (4).
 - **19 domain pages** — field-axis reference pages, each with a fixed-column comparison table (scientific problem, task form & scale, domain verification per work); largest coverage currently in Biology, Mathematics, Physics, and Software & Systems Engineering.
 - **Chinese mirrors** under `zh/` kept in sync per the bilingual cadence.

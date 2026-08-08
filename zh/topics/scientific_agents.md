@@ -87,6 +87,18 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **FHIR 虚拟 EHR。** [MedAgentBench](../works/medagentbench.md) 在 100 位真实感患者档案上、通过生产级医疗 API 运行 300 个医生撰写的任务；最佳模型 69.67%。
 - **计费的序贯诊断。** [SDBench](../works/sdbench.md) 把 304 个 NEJM-CPC 病例改成守门人中介的接诊，按准确率-成本前沿评分，配 21 位医生、平均 20% 准确率的基线。
 - **预测实验结果。** [BrainBench](../works/brainbench.md) 用困惑度检验模型能否分辨真实与改动结果的神经科学摘要；LLM 超过人类专家且信心有校准——静态 benchmark，因其预报式评估方法学收录。
+- **把求解器当作生成物。** [CodePDE](../works/codepde.md) 把 PDE 求解构造成 LLM 代码生成，在代表性 PDE 问题上评估推理、调试、自我改进与测试时扩展——「LLM 写求解器」范式的奠基性评估。
+- **分级把关的求解器生成。** [PDEAgent-Bench](../works/pdeagent-bench.md) 布置 645 个「PDE 到求解器」实例（11 个 PDE 族、三个 FEM 库），依次检查可执行性 → 精度 → 效率；一旦强制精度与效率，通过率大幅下滑。
+- **能跑但物理错了。** [MooseBench](../works/moosebench.md) 提供 220 个带 PDE 级真值的多物理场算例；其 Intent Fidelity Score 重构所编码的 PDE，显示只修执行错误时 39–40% 的算例保持「能跑但错」。
+- **从对话生成数字孪生。** [SimBench](../works/simbench.md) 在 Chrono 多物理场仿真器的多轮数字孪生生成上比较 33 个以上面向仿真的 LLM，由带规则与人在环指导的 LLM judge 打分。
+- **在科学代码库上评测 coding agent。** [AInsteinBench](../works/ainsteinbench.md) 从六个生产级科学代码库（量子化学到数值相对论与流体力学）的维护者 PR 派生任务，在可执行环境中做测试驱动验证。
+- **「工件像样」不等于「端到端做对」。** [StructureClaw](../works/structureclaw.md) 在 150 个结构工程场景上对照冻结的参考求解器响应；通用执行有 87.0% 通过模型工件检查，端到端成功率却只有 22.0%。
+- **对齐课程难度的 FEM 编码。** [FEM-Bench](../works/fem-bench.md) 在 33 个研究生课程级计算力学任务上验证函数与单元测试编写，各尝试五次；最佳模型 26/33 个任务五次全成。
+- **先澄清，再计算。** [SciConvBench](../works/sciconvbench.md) 为不适定仿真请求的多轮消歧与矛盾消解打分，覆盖流体力学、固体力学、材料科学与 PDE；最佳模型在流体力学消歧上仅解决 52.7%。
+- **从意图到 PDE 控制。** [PDE-Controller](../works/pde-controller.md) 评估热/波动方程系统控制的自动形式化（自然语言到信号时序逻辑）、推理与程序合成，配人工案例加 200 万合成样本。
+- **把近似当作受测技能。** [HARDMath](../works/hardmath.md) 自动生成经数值真值验证的研究生渐近分析问题；GPT-4 少样本思维链下仅 43.8%。
+- **被重算的电网研究。** [PowerAgentBench-SS](../works/poweragentbench-ss.md) 让 agent 做电力系统故障研究，报告由隐藏评估器重新推导，false-safe 罚分与 severity regret 让没有依据的「一切正常」付出代价。
+- **率定业务化预报模型。** [HydroAgent](../works/hydroagent.md) 以 Nash–Sutcliffe 效率评测九个前沿 agent 对 NWS 业务化 CREST 水文模型的率定；仅一个模型在一个测站达到人类专家参照。
 
 ## Comparison
 
@@ -167,11 +179,23 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | MedAgentBench | 2025 | 100 位患者档案上 300 个医生撰写的任务 | FHIR 虚拟 EHR 操作 | 对照参考解的程序化成功率检验 | [→](../works/medagentbench.md) |
 | SDBench | 2025 | 304 个 NEJM-CPC 病例的守门人中介接诊 | 带成本的序贯临床诊断 | 诊断准确率与就诊、检查费用成对报告 | [→](../works/sdbench.md) |
 | BrainBench | 2024 | 200 对原始/改动的神经科学摘要（官方数据集） | 神经科学结果预测 | 二选一强制选择；LLM 用困惑度，人类专家附信心评级 | [→](../works/brainbench.md) |
+| CodePDE | 2025 | 以求解器生成任务呈现的代表性 PDE 问题 | LLM 编写的数值 PDE 求解器 | 生成求解器对照参考解的精度；推理/调试/改进/扩展评估轴 | [→](../works/codepde.md) |
+| PDEAgent-Bench | 2026 | 645 个实例，6 个数学类别、11 个 PDE 族、3 个 FEM 库 | 有限元求解器生成 | 分级检查：可执行性 → 数值精度 → 效率，按算例设定目标 | [→](../works/pdeagent-bench.md) |
+| MooseBench | 2026 | 220 个带 PDE 级真值的 MOOSE 多物理场算例 | 多物理场模拟代码生成 | 经确定性 PDE 重构的 Intent Fidelity Score | [→](../works/moosebench.md) |
+| SimBench | 2024 | 34 个物理系统上 102 个演示任务（官方仓库） | Chrono 仿真器的数字孪生生成 | 带预定义规则与人在环指导的 LLM judge 评分 | [→](../works/simbench.md) |
+| AInsteinBench | 2025 | 6 个生产级科学仓库的维护者 PR 任务 | 科学软件工程（量子化学到流体力学） | 可执行环境中的测试驱动验证 | [→](../works/ainsteinbench.md) |
+| StructureClaw | 2026 | 150 个受控场景：标准、交互、多模态重构 | 结构工程工作流 | 严格模型匹配 + 与冻结参考求解器响应的数值一致（E2E Success） | [→](../works/structureclaw.md) |
+| FEM-Bench | 2025 | 33 个研究生课程任务，函数与单元测试两赛道，各五次尝试 | 计算力学代码生成 | 客观验证；Average Joint Success Rate | [→](../works/fem-bench.md) |
+| SciConvBench | 2026 | 四个计算科学领域的不适定仿真请求 | 任务表述的多轮澄清 | 评分标准框架：澄清行为、对话共识建立、最终规格保真度 | [→](../works/sciconvbench.md) |
+| PDE-Controller | 2025 | 人工案例 + 200 万合成样本（热/波动方程控制） | 经 STL 自动形式化的 PDE 控制 | 推理、自动形式化与程序合成指标；效用增益 | [→](../works/pde-controller.md) |
+| HARDMath | 2024 | 自动生成的渐近分析问题；366 题 mini 测试集 | 研究生应用数学（近似技术） | 对照经数值验证真值的准确率 | [→](../works/hardmath.md) |
+| PowerAgentBench-SS | 2026 | IEEE 39 节点系统变体；基于直流潮流的 N-2 热稳定越限搜索试点 | 电力系统稳态 agent 研究 | 隐藏评估器重算物理有效性；多种 recall、false-safe 罚分、severity regret | [→](../works/poweragentbench-ss.md) |
+| HydroAgent | 2026 | 在 4 个留出测站上率定业务化 CREST 模型 | agent 的水文模型率定 | 对照人类专家参照的 Nash–Sutcliffe 效率 | [→](../works/hydroagent.md) |
 
 ## Open Questions
 
 - **正确性的参照标准。** 科学任务允许多种合理的参照标准——已发表 SOTA（NatureBench）、专家分类（MedHELM）、可执行验证（Terminal-Bench Science）、与传统方法对比（SimulCost）。跨 benchmark 比较时，哪一种应成为标准？
-- **发现 vs. 复现。** NatureBench 明确区分"匹敌 SOTA"与"真正的方法论创新"。评分指标该如何操作化"发现"？
+- **发现 vs. 复现。** NatureBench 明确区分「匹敌 SOTA」与「真正的方法论创新」。评分指标该如何操作化「发现」？
 - **成本作为评估维度。** 科学工作流有真实 tool-use 成本（仿真时间、实验资源）。scientific-agent topic 是否应像 SimulCost 那样把成本作为强制维度？
 - **广度 vs. 深度。** 跨学科 benchmark（NatureBench、AIRS-Bench、MedHELM）给出广度；单仿真器 / 单领域 benchmark 给出深度。哪一种更适合作为主要评估面？
 - **Judge 可靠性。** MedHELM 报告的 LLM-jury 与医生一致性为 ICC = 0.47。这是否是其他使用 LLM-judge 评分的科学领域 benchmark 应报告的下限？多少才算充分？
@@ -253,6 +277,18 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [MedAgentBench](../works/medagentbench.md)
 - [SDBench](../works/sdbench.md)
 - [BrainBench](../works/brainbench.md)
+- [CodePDE](../works/codepde.md)
+- [PDEAgent-Bench](../works/pdeagent-bench.md)
+- [MooseBench](../works/moosebench.md)
+- [SimBench](../works/simbench.md)
+- [AInsteinBench](../works/ainsteinbench.md)
+- [StructureClaw](../works/structureclaw.md)
+- [FEM-Bench](../works/fem-bench.md)
+- [SciConvBench](../works/sciconvbench.md)
+- [PDE-Controller](../works/pde-controller.md)
+- [HARDMath](../works/hardmath.md)
+- [PowerAgentBench-SS](../works/poweragentbench-ss.md)
+- [HydroAgent](../works/hydroagent.md)
 
 ## Further Reading
 

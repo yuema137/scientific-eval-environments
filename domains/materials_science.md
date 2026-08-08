@@ -16,6 +16,7 @@ Materials characterization and computational materials science, spanning physica
 | ResearchClawBench | 2026 | Re-discover the findings of a hidden published paper from a task description, related literature, and raw data — Material is one of its ten domains (40 tasks total). | End-to-end autonomous research tasks, each grounded in a real publication kept hidden during evaluation; the agent produces a final research report. | Reference-Anchored Discovery Score (0–100; 50 = reference-level evidence) against expert-curated multimodal rubrics anchored to the hidden paper's artifacts, judged by GPT-5.1. | [→](../works/researchclawbench.md) |
 | Agentic Self-Driving Microscopy Benchmarks | 2026 | Control microscopes and materials-characterization instruments through agentic workflows, testing whether benchmark scores generalize to unseen tasks. | 53 benchmark tests across 105 agent configurations (graph topology × five LLMs × RAG/context parameters); 1,949 runs with full trace logging. | Trace-logged benchmark tests with latency, token, cost, and failure-mode comparison; generalization probed via surrogate prediction on unseen tasks. | [→](../works/agentic-microscopy-benchmarks.md) |
 | SciCode | 2024 | Write research code for scientist-curated problems; materials science is among the five main domains its 16 natural-science subfields span. | 80 main problems decomposed into 338 subproblems mixing knowledge recall, reasoning, and code synthesis. | Execution against scientist-annotated gold-standard solutions and test cases. | [→](../works/scicode.md) |
+| SciConvBench | 2026 | Clarify ill-posed simulation requests; materials science is one of its four computational-science domains. | Multi-turn disambiguation and inconsistency-resolution dialogues over a structured task ontology. | Rubric scoring of clarification behavior, conversational grounding, and final-specification fidelity. | [→](../works/sciconvbench.md) |
 
 ## Related Works
 
@@ -25,3 +26,4 @@ Materials characterization and computational materials science, spanning physica
 - [ResearchClawBench](../works/researchclawbench.md)
 - [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md)
 - [SciCode](../works/scicode.md)
+- [SciConvBench](../works/sciconvbench.md)

@@ -27,22 +27,22 @@ Domain pages are **factual reference pages, not literature reviews** — co-equa
 
 | Group | Domain | Works |
 |---|---|---|
-| Science | [Physics](./physics.md) | 30 |
+| Science | [Physics](./physics.md) | 35 |
 | Science | [Astronomy](./astronomy.md) | 5 |
-| Science | [Mathematics](./mathematics.md) | 10 |
-| Science | [Chemistry](./chemistry.md) | 9 |
+| Science | [Mathematics](./mathematics.md) | 12 |
+| Science | [Chemistry](./chemistry.md) | 10 |
 | Science | [Biology](./biology.md) | 25 |
 | Science | [Neuroscience & Cognitive Science](./neuroscience_cognitive_science.md) | 5 |
 | Science | [Medicine & Health](./medicine_health.md) | 12 |
-| Science | [Earth Science](./earth_science.md) | 4 |
+| Science | [Earth Science](./earth_science.md) | 5 |
 | Science | [Environmental Science](./environmental_science.md) | 2 |
-| Science | [Materials Science](./materials_science.md) | 6 |
+| Science | [Materials Science](./materials_science.md) | 7 |
 | Science | [Computer Science](./computer_science.md) | 4 |
 | Science | [AI & Machine Learning Research](./ai_ml_research.md) | 5 |
-| Engineering | [Mechanical & Aerospace Engineering](./mechanical_aerospace_engineering.md) | 2 |
+| Engineering | [Mechanical & Aerospace Engineering](./mechanical_aerospace_engineering.md) | 9 |
 | Engineering | [Electrical Engineering](./electrical_engineering.md) | 1 |
-| Engineering | [Energy Systems](./energy_systems.md) | 1 |
+| Engineering | [Energy Systems](./energy_systems.md) | 2 |
 | Engineering | [Chemical Engineering](./chemical_engineering.md) | 1 |
-| Engineering | [Civil & Structural Engineering](./civil_structural_engineering.md) | 1 |
+| Engineering | [Civil & Structural Engineering](./civil_structural_engineering.md) | 2 |
 | Engineering | [Robotics](./robotics.md) | 0 |
-| Engineering | [Software & Systems Engineering](./software_systems_engineering.md) | 10 |
+| Engineering | [Software & Systems Engineering](./software_systems_engineering.md) | 11 |

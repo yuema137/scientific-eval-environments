@@ -20,6 +20,8 @@
 | Terminal-Bench Science | 2026 | 其五大分组中 Mathematical Sciences 分组下的应用数学、形式化数学、运筹学与统计任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Math 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文工件的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
 | SciCode | 2024 | 为科学家整理的问题编写科研代码；其 16 个自然科学子领域分属五大主领域，数学是其中之一。 | 80 个主问题分解为 338 个子问题，混合知识回忆、推理与代码合成。 | 对照科学家标注的金标准解与测试用例执行。 | [→](../works/scicode.md) |
+| HARDMath | 2024 | 在自动生成的应用数学问题上运用研究生水平的解析近似技术——渐近方法。 | 366 题的 HARDMath-mini 测试集加 40 道应用科学应用题；少样本思维链下的静态解题。 | 对照经数值验证的真值解计算准确率。 | [→](../works/hardmath.md) |
+| PDE-Controller | 2025 | 在信号时序逻辑规格下形式化并推理 PDE 支配系统（热方程与波动方程）的控制。 | 人工案例加 200 万合成样本上的自动形式化、推理与程序合成任务。 | 任务指标加所得 PDE 控制的效用增益。 | [→](../works/pde-controller.md) |
 
 ## Related Works
 
@@ -33,3 +35,5 @@
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [ResearchClawBench](../works/researchclawbench.md)
 - [SciCode](../works/scicode.md)
+- [HARDMath](../works/hardmath.md)
+- [PDE-Controller](../works/pde-controller.md)

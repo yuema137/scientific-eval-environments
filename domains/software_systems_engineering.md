@@ -20,6 +20,7 @@ Building and verifying software as engineering: code generation on real reposito
 | FrontierCode | 2026 | Produce maintainer-mergeable pull requests in real open-source repositories — an industry benchmark with no accompanying paper. | Maintainer-written tasks authored by 20+ experienced developers at 40+ hours per task; task counts unpublished. | Mergeability graded by an ensemble of unit tests, rubrics, and verifiers over correctness, test quality, scope discipline, and style; solution-consulting runs scored zero. | [→](../works/frontiercode.md) |
 | SWE-Interact | 2026 | Complete software-engineering tasks whose requirements arrive progressively from a simulated user. | Multi-turn user-driven sessions paired with single-turn baselines on the same tasks. | Task success under the interactive protocol versus single-turn (~50% vs. ~25% for top models). | [→](../works/swe-interact.md) |
 | SWE-Together | 2026 | Collaborate with a user on repository-level coding tasks reconstructed from real sessions. | 109 tasks curated from 11,260 recorded sessions, replayed via an intent-preserving user simulator. | Final repository correctness plus the number of corrective feedback turns required. | [→](../works/swe-together.md) |
+| AInsteinBench | 2025 | Maintain production-grade scientific software: resolve maintainer-PR-derived tasks in six widely used codebases. | Repository-level coding-agent tasks curated by multi-stage filtering and expert review. | Test-driven verification in executable environments with scientifically meaningful failure modes. | [→](../works/ainsteinbench.md) |
 
 ## Related Works
 
@@ -33,3 +34,4 @@ Building and verifying software as engineering: code generation on real reposito
 - [FrontierCode](../works/frontiercode.md)
 - [SWE-Interact](../works/swe-interact.md)
 - [SWE-Together](../works/swe-together.md)
+- [AInsteinBench](../works/ainsteinbench.md)
