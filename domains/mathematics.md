@@ -20,6 +20,8 @@ Mathematical reasoning and proof: olympiad and research mathematics, formal math
 | Terminal-Bench Science | 2026 | Applied and formal mathematics, operations research, and statistics tasks in the Mathematical Sciences track of its five-track suite. | Containerized terminal tasks (8 at launch across all five tracks, target 100+), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | Re-discover the findings of a hidden published paper from a task description, related literature, and raw data — Math is one of its ten domains (40 tasks total). | End-to-end autonomous research tasks, each grounded in a real publication kept hidden during evaluation; the agent produces a final research report. | Reference-Anchored Discovery Score (0–100; 50 = reference-level evidence) against expert-curated multimodal rubrics anchored to the hidden paper's artifacts, judged by GPT-5.1. | [→](../works/researchclawbench.md) |
 | SciCode | 2024 | Write research code for scientist-curated problems; mathematics is among the five main domains its 16 natural-science subfields span. | 80 main problems decomposed into 338 subproblems mixing knowledge recall, reasoning, and code synthesis. | Execution against scientist-annotated gold-standard solutions and test cases. | [→](../works/scicode.md) |
+| HARDMath | 2024 | Apply graduate-level analytical approximation techniques — asymptotic methods — to auto-generated applied-mathematics problems. | 366-problem HARDMath-mini test set plus 40 applied-science word problems; static solving with few-shot chain-of-thought. | Accuracy against numerically validated ground-truth solutions. | [→](../works/hardmath.md) |
+| PDE-Controller | 2025 | Formalize and reason about control of PDE-governed systems (heat and wave equations) under signal-temporal-logic specifications. | Autoformalization, reasoning, and program-synthesis tasks over human-written cases plus 2M synthetic samples. | Task metrics plus utility gain of the resulting PDE control. | [→](../works/pde-controller.md) |
 
 ## Related Works
 
@@ -33,3 +35,5 @@ Mathematical reasoning and proof: olympiad and research mathematics, formal math
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [ResearchClawBench](../works/researchclawbench.md)
 - [SciCode](../works/scicode.md)
+- [HARDMath](../works/hardmath.md)
+- [PDE-Controller](../works/pde-controller.md)

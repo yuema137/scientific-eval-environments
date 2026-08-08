@@ -20,6 +20,7 @@
 | FrontierCode | 2026 | 在真实开源仓库中产出维护者愿意合并的 pull request——无配套论文的业界 benchmark。 | 由 20 余位资深开发者以每任务 40+ 小时撰写的维护者任务；任务数未公布。 | 以单元测试、评分标准与验证器的组合评判可合并性，覆盖正确性、测试质量、范围克制与风格；查阅含解来源的运行记零分。 | [→](../works/frontiercode.md) |
 | SWE-Interact | 2026 | 完成需求由模拟用户逐步披露的软件工程任务。 | 多轮用户驱动会话，与同批任务的单轮基线成对比较。 | 交互协议下的任务成功率对比单轮（顶级模型约 50% vs. 约 25%）。 | [→](../works/swe-interact.md) |
 | SWE-Together | 2026 | 在从真实会话重建的仓库级编码任务上与用户协作。 | 从 11,260 条录制会话整理出的 109 个任务，经保持原意的用户模拟器回放。 | 最终仓库正确性，加上所需的纠正反馈轮数。 | [→](../works/swe-together.md) |
+| AInsteinBench | 2025 | 维护生产级科学软件：解决六个广泛使用代码库中派生自维护者 PR 的任务。 | 经多阶段筛选与专家评审整理的仓库级 coding agent 任务。 | 可执行环境中的测试驱动验证，失败模式按科学意义归类。 | [→](../works/ainsteinbench.md) |
 
 ## Related Works
 
@@ -33,3 +34,4 @@
 - [FrontierCode](../works/frontiercode.md)
 - [SWE-Interact](../works/swe-interact.md)
 - [SWE-Together](../works/swe-together.md)
+- [AInsteinBench](../works/ainsteinbench.md)

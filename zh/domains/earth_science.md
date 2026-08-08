@@ -14,6 +14,7 @@
 | ScienceAgentBench | 2024 | 地理信息科学任务——其 102 个任务中的 27 个——提取自经同行评审的数据驱动发现工作流。 | 每个任务要求生成一个自包含的 Python 程序，复现真实论文中的分析。 | 有效执行加逐任务手写的成功检查器，对照专家标注参考；图形输出由 GPT-4o 评判。 | [→](../works/scienceagentbench.md) |
 | Terminal-Bench Science | 2026 | 其五大分组中 Earth Sciences 分组下的大气、环境、地质与海洋科学任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Earth 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文工件的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
+| HydroAgent | 2026 | 率定美国国家气象局用于山洪预报的业务化 CREST 分布式水文模型。 | 在流域面积 329–40,792 km² 的四个留出测站上迭代「模拟-调整」率定，二十轮取最优；九个前沿 agent。 | 留出测站上对照人类专家率定参照的 Nash–Sutcliffe 效率。 | [→](../works/hydroagent.md) |
 
 ## Related Works
 
@@ -21,3 +22,4 @@
 - [ScienceAgentBench](../works/scienceagentbench.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [ResearchClawBench](../works/researchclawbench.md)
+- [HydroAgent](../works/hydroagent.md)

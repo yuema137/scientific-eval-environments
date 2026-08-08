@@ -40,6 +40,13 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 | SeePhys | 2025 | Solve physics problems whose diagrams are essential — circuit schematics, Feynman diagrams, and 19 other diagram categories. | 2,000 validated multimodal questions (official page) from middle school to PhD qualifying level; 75% vision-essential. | Accuracy on multimodal problem solving, against a human-expert anchor. | [→](../works/seephys.md) |
 | HiPhO | 2025 | Solve the latest high-school physics olympiad exams under contest-grade grading. | 13 exams from 2024–2025, international and regional, mixing text-only and diagram-based problems. | Official marking schemes at answer and step level; medals assigned by official thresholds. | [→](../works/hipho.md) |
 | PHYSICS | 2025 | Solve university-level physics problems across six core areas: classical mechanics, quantum mechanics, thermodynamics and statistical mechanics, electromagnetism, atomic physics, and optics. | 1,297 expert-annotated problems; static single-problem solving. | Robust automated evaluation system for precise and reliable answer validation. | [→](../works/physics-benchmark.md) |
+| CodePDE | 2025 | Generate numerical solvers for representative PDE problems governing physical systems. | Solver code generation with iterative refinement; reasoning, debugging, self-refinement, test-time scaling evaluated. | Generated-solver accuracy against reference solutions. | [→](../works/codepde.md) |
+| PDEAgent-Bench | 2026 | Produce finite-element solvers for PDEs across 6 mathematical categories and 11 families. | 645 specification-to-code instances targeting DOLFINx, Firedrake, or deal.II. | Staged executability, numerical-accuracy (reference solutions on prescribed grids), and efficiency checks. | [→](../works/pdeagent-bench.md) |
+| MooseBench | 2026 | Generate multiphysics simulation code that solves the intended PDE, not merely code that runs. | 220 MOOSE cases with PDE-level mathematical ground truth. | Intent Fidelity Score via deterministic reconstruction of governing terms, BCs, ICs, coefficients, and time scheme. | [→](../works/moosebench.md) |
+| SciConvBench | 2026 | Turn ill-posed computational-science requests — fluid mechanics, solid mechanics, materials, PDEs — into well-posed specifications through dialogue. | Multi-turn disambiguation and inconsistency-resolution dialogues. | Rubric scoring of clarification behavior, grounding, and final-specification fidelity. | [→](../works/sciconvbench.md) |
+| AInsteinBench | 2025 | Resolve maintainer-PR tasks in production scientific codebases, including numerical relativity and fluid dynamics. | Repository-level coding-agent tasks across six scientific repositories. | Test-driven verification in executable environments. | [→](../works/ainsteinbench.md) |
+| PDEBench | 2022 | Learn forward and inverse solutions of canonical PDE families from advection and Burgers to Navier–Stokes. | Ready-to-use simulation datasets over nine equation families; evaluates SciML surrogates rather than LLM agents. | Comparison against classical numerical simulations and ML baselines under suite metrics. | [→](../works/pdebench.md) |
+| The Well | 2024 | Model diverse simulated physics — fluid dynamics, acoustic scattering, astrophysical MHD, biological systems. | 15 TB across 16 expert-curated datasets; evaluates SciML surrogates rather than LLM agents. | Unified PyTorch training/evaluation interface with example baselines. | [→](../works/the-well.md) |
 
 ## Related Works
 
@@ -73,3 +80,10 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 - [SeePhys](../works/seephys.md)
 - [HiPhO](../works/hipho.md)
 - [PHYSICS](../works/physics-benchmark.md)
+- [CodePDE](../works/codepde.md)
+- [PDEAgent-Bench](../works/pdeagent-bench.md)
+- [MooseBench](../works/moosebench.md)
+- [SciConvBench](../works/sciconvbench.md)
+- [AInsteinBench](../works/ainsteinbench.md)
+- [PDEBench](../works/pdebench.md)
+- [The Well](../works/the-well.md)

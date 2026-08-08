@@ -87,6 +87,20 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **A FHIR virtual EHR.** [MedAgentBench](../works/medagentbench.md) runs 300 physician-written tasks against production healthcare APIs over 100 realistic patient profiles; the best model reaches 69.67%.
 - **Costed sequential diagnosis.** [SDBench](../works/sdbench.md) recasts 304 NEJM-CPC cases as gatekeeper-mediated encounters scored on the accuracy-cost frontier, with a 21-physician baseline at 20% mean accuracy.
 - **Predicting experimental outcomes.** [BrainBench](../works/brainbench.md) tests whether models can tell real from result-altered neuroscience abstracts by perplexity; LLMs surpass human experts, with calibrated confidence — a static benchmark documented for its forecasting methodology.
+- **The solver as the generated artifact.** [CodePDE](../works/codepde.md) frames PDE solving as LLM code generation and evaluates reasoning, debugging, self-refinement, and test-time scaling on representative PDE problems — the founding evaluation of the LLM-writes-the-solver paradigm.
+- **Staged solver-generation gates.** [PDEAgent-Bench](../works/pdeagent-bench.md) poses 645 PDE-to-solver instances across 11 PDE families and three FEM libraries, with sequential executability → accuracy → efficiency checks; pass rates drop substantially once accuracy and efficiency are enforced.
+- **Runs but solves the wrong physics.** [MooseBench](../works/moosebench.md) supplies 220 multiphysics cases with PDE-level ground truth; its Intent Fidelity Score reconstructs the encoded PDE and shows 39–40% of cases stay runnable-but-wrong under execution-only repair.
+- **Digital twins from dialogue.** [SimBench](../works/simbench.md) compares 33+ simulator-oriented LLMs on multi-turn digital-twin generation for the Chrono multi-physics simulator, judged under rules with human-in-the-loop guidance.
+- **Coding agents on scientific repositories.** [AInsteinBench](../works/ainsteinbench.md) derives tasks from maintainer-authored pull requests in six production scientific codebases — quantum chemistry to numerical relativity and fluid dynamics — with test-driven verification in executable environments.
+- **Engineering E2E versus artifact plausibility.** [StructureClaw](../works/structureclaw.md) runs 150 structural-engineering scenarios against frozen reference solver responses; generic execution passes the model-artifact check 87.0% of the time but reaches only 22.0% end-to-end success.
+- **Coursework-calibrated FEM coding.** [FEM-Bench](../works/fem-bench.md) verifies function and unit-test writing on 33 graduate-course computational-mechanics tasks over five attempts each; the best model completes 26/33 all five times.
+- **Clarification before computation.** [SciConvBench](../works/sciconvbench.md) scores multi-turn disambiguation and inconsistency resolution of ill-posed simulation requests across fluid mechanics, solid mechanics, materials science, and PDEs; the best model resolves only 52.7% of fluid-mechanics disambiguation cases.
+- **From intent to PDE control.** [PDE-Controller](../works/pde-controller.md) evaluates autoformalization (natural language to signal temporal logic), reasoning, and program synthesis for controlling heat- and wave-equation systems, with human-written cases plus 2M synthetic samples.
+- **Approximation as the tested skill.** [HARDMath](../works/hardmath.md) auto-generates graduate asymptotics problems validated against numerical ground truth; GPT-4 reaches only 43.8% with few-shot chain-of-thought.
+- **Recomputed grid studies.** [PowerAgentBench-SS](../works/poweragentbench-ss.md) has agents run power-system contingency studies whose reports a hidden evaluator re-derives, with false-safe penalties and severity regret pricing unsupported "all clear" claims.
+- **Calibrating an operational forecast model.** [HydroAgent](../works/hydroagent.md) benchmarks nine frontier agents on calibrating the NWS-operational CREST hydrologic model by Nash–Sutcliffe Efficiency; only one model on one gauge reaches the human-expert reference.
+- **The canonical PDE surrogate suite.** [PDEBench](../works/pdebench.md) — non-LLM scientific-ML datasets over nine PDE families with forward and inverse tasks; documented as the reference substrate solver-generation benchmarks build on.
+- **Physics simulation data at scale.** [The Well](../works/the-well.md) — 15 TB across 16 expert-curated simulation datasets behind one interface; a non-LLM surrogate resource documented as canonical data infrastructure.
 
 ## Comparison
 
@@ -167,6 +181,20 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | MedAgentBench | 2025 | 300 physician-written tasks over 100 patient profiles | FHIR virtual EHR operation | Programmatic success checking against reference solutions | [→](../works/medagentbench.md) |
 | SDBench | 2025 | 304 NEJM-CPC cases as gatekeeper-mediated encounters | Sequential clinical diagnosis with costs | Diagnostic accuracy paired with cost of visits and tests | [→](../works/sdbench.md) |
 | BrainBench | 2024 | 200 original-vs-altered neuroscience abstract pairs (official dataset) | Neuroscience outcome prediction | Two-alternative forced choice; perplexity for LLMs, expert humans with confidence | [→](../works/brainbench.md) |
+| CodePDE | 2025 | Representative PDE problems posed as solver-generation tasks | LLM-written numerical PDE solvers | Generated-solver accuracy vs. reference solutions; reasoning/debugging/refinement/scaling axes | [→](../works/codepde.md) |
+| PDEAgent-Bench | 2026 | 645 instances, 6 math categories, 11 PDE families, 3 FEM libraries | Finite-element solver generation | Staged executability → numerical accuracy → efficiency checks with case-specific targets | [→](../works/pdeagent-bench.md) |
+| MooseBench | 2026 | 220 MOOSE multiphysics cases with PDE-level ground truth | Multiphysics simulation-code generation | Intent Fidelity Score via deterministic PDE reconstruction | [→](../works/moosebench.md) |
+| SimBench | 2024 | 102 demonstration tasks over 34 physical systems (official repository) | Digital-twin generation for the Chrono simulator | LLM-judge scoring with predefined rules and human-in-the-loop guidance | [→](../works/simbench.md) |
+| AInsteinBench | 2025 | Maintainer-PR tasks from 6 production scientific repositories | Scientific software engineering (quantum chemistry to fluid dynamics) | Test-driven verification in executable environments | [→](../works/ainsteinbench.md) |
+| StructureClaw | 2026 | 150 controlled scenarios: standard, interactive, multimodal reconstruction | Structural-engineering workflows | Strict model matching + numerical agreement with frozen reference solver responses (E2E Success) | [→](../works/structureclaw.md) |
+| FEM-Bench | 2025 | 33 graduate-course tasks, function and unit-test tracks, five attempts | Computational mechanics code generation | Objective verification; Average Joint Success Rate | [→](../works/fem-bench.md) |
+| SciConvBench | 2026 | Ill-posed simulation requests in four computational-science domains | Multi-turn clarification for task formulation | Rubric framework: clarification behavior, grounding, final-specification fidelity | [→](../works/sciconvbench.md) |
+| PDE-Controller | 2025 | Human-written cases + 2M synthetic samples for heat/wave control | PDE control via STL autoformalization | Metrics over reasoning, autoformalization, program synthesis; utility gain | [→](../works/pde-controller.md) |
+| HARDMath | 2024 | Auto-generated asymptotics problems; 366-problem mini test set | Graduate applied mathematics (approximation techniques) | Accuracy vs. numerically validated ground truths | [→](../works/hardmath.md) |
+| PowerAgentBench-SS | 2026 | IEEE 39-bus variants; DC thermal N-2 contingency-search pilot | Power-system steady-state agent studies | Hidden evaluator recomputes physical validity; recall variants, false-safe penalties, severity regret | [→](../works/poweragentbench-ss.md) |
+| HydroAgent | 2026 | Calibration of the operational CREST model on 4 held-out gauges | Hydrologic model calibration by agents | Nash–Sutcliffe Efficiency vs. a human-expert reference | [→](../works/hydroagent.md) |
+| PDEBench | 2022 | Ready-to-use datasets over nine PDE families | SciML surrogates (non-LLM), forward and inverse tasks | Comparison vs. classical simulations and ML baselines under suite metrics | [→](../works/pdebench.md) |
+| The Well | 2024 | 15 TB / 16 expert-curated simulation datasets | SciML surrogates (non-LLM) across diverse physics | Unified PyTorch training/evaluation interface with baselines | [→](../works/the-well.md) |
 
 ## Open Questions
 
@@ -253,6 +281,20 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [MedAgentBench](../works/medagentbench.md)
 - [SDBench](../works/sdbench.md)
 - [BrainBench](../works/brainbench.md)
+- [CodePDE](../works/codepde.md)
+- [PDEAgent-Bench](../works/pdeagent-bench.md)
+- [MooseBench](../works/moosebench.md)
+- [SimBench](../works/simbench.md)
+- [AInsteinBench](../works/ainsteinbench.md)
+- [StructureClaw](../works/structureclaw.md)
+- [FEM-Bench](../works/fem-bench.md)
+- [SciConvBench](../works/sciconvbench.md)
+- [PDE-Controller](../works/pde-controller.md)
+- [HARDMath](../works/hardmath.md)
+- [PowerAgentBench-SS](../works/poweragentbench-ss.md)
+- [HydroAgent](../works/hydroagent.md)
+- [PDEBench](../works/pdebench.md)
+- [The Well](../works/the-well.md)
 
 ## Further Reading
 
