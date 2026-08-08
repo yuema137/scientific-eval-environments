@@ -253,7 +253,8 @@ Chinese pages mirror the English tree under `zh/` (`zh/works/`, `zh/topics/`, `z
 1. Finish one batch of English pages.
 2. Review.
 3. Synchronize the corresponding Chinese pages.
-4. Only then begin the next English batch.
+4. Re-read every changed Chinese page as a Chinese reader and fix any phrasing that is stilted, ambiguous, or only makes sense with the English in mind. This naturalness review is part of the sync step, not optional polish.
+5. Only then begin the next English batch.
 
 Do not postpone Chinese translation until the whole repository is complete.
 
@@ -265,7 +266,7 @@ Translation rules:
 - proper nouns remain in English
 - technical terminology may remain in English where appropriate
 
-Translate explanations naturally, not literally.
+**Natural translation, not word-for-word.** Chinese pages must read as if originally written in Chinese. Literal renderings of English idioms and metaphors are defects — e.g., a "breadcrumb" link is a 返回链接, not 面包屑. When a sentence structure works in English but reads awkwardly in Chinese, restructure the sentence; fidelity is to the meaning, never to the word order.
 
 ---
 

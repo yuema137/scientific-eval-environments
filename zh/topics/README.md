@@ -69,7 +69,7 @@ topic 的维度。
 
 ## Topic 页规则
 
-- **语言切换器与返回链接。** 每个页面在 H1 正下方带一行引用，合并语言切换器与一个返回本索引页的链接：英文页为 `> **English** | [简体中文](../zh/topics/<file>.md) · [← All topics](./README.md)`，中文镜像为 `> [English](../../topics/<file>.md) | **简体中文** · [← 全部 topics](./README.md)`。
+- **语言切换器与返回链接。** 每个页面在标题正下方有一行导航，包含语言切换器和一个返回本索引页的链接：英文页为 `> **English** | [简体中文](../zh/topics/<file>.md) · [← All topics](./README.md)`，中文镜像为 `> [English](../../topics/<file>.md) | **简体中文** · [← 全部 topics](./README.md)`。
 - **没有全局比较矩阵。** 每个 topic 拥有各自的维度。不要用共享表格把 topic 页串联起来。
 - **综合，而非摘要。** Topic 页应阐明该 topic 的设计空间，而不是复述单张卡片。需要某份工作的细节时，链接到它的卡片。
 - **Related Works 是反向索引。** 此处列出的每份工作，其卡片的 `Topics` 块中必须包含本 topic，反之亦然。保持两侧同步是一项维护责任。

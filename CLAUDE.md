@@ -45,7 +45,7 @@ Domain rules: narrower fields **fold** into canonical domains (bioinformatics �
 - **Two-level reference validation.**
   - *Link validation*: title, URL, project, venue, year.
   - *Content validation*: statistics, task counts, metrics, reported numbers, settings — from the **original paper or official project only**, never secondary sources. Unverifiable content becomes `TODO(reference)`.
-- **English is canonical.** Chinese mirrors under `zh/` (`zh/works/`, `zh/topics/`, `zh/domains/`) sync after every English batch — not deferred.
+- **English is canonical.** Chinese mirrors under `zh/` (`zh/works/`, `zh/topics/`, `zh/domains/`) sync after every English batch — not deferred. Translations must be **natural Chinese, not word-for-word** (面包屑-style literalisms are defects); after every sync, re-read the changed zh pages as a Chinese reader and fix stilted phrasing — the naturalness review is part of the sync step.
 - **Objective only.** No "our benchmark" / "our approach" / positioning language anywhere in `works/` or `topics/`.
 - **Link, do not copy.** Prefer cross-references over duplicating content.
 - **Card template is stable.** Do not churn its structure. New evaluation dimensions extend topic pages, not card fields.
