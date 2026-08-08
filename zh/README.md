@@ -21,16 +21,21 @@ scientific-eval-environments/
 ├── topics/                # 面向单一评估方向的文献综述页面
 │   ├── README.md          # Topic 页模板与规则
 │   └── ...                # 7 个规范化 topic 页
+├── domains/               # 按科学/工程领域组织的索引页
+│   ├── README.md          # Domain 页模板与规则
+│   └── ...                # 19 个 domain 页，snake_case——每个领域一个文件
 └── zh/                    # 中文镜像（每完成一批英文后同步）
     ├── README.md
     ├── works/
-    └── topics/
+    ├── topics/
+    └── domains/
 ```
 
-仓库仅有**两层知识组织**：
+仓库有**两层知识组织，外加一层索引**：
 
 - **`works/`**：扁平目录，每份 work 一份 Markdown。卡片是事实性引用。"Works" 比 "benchmarks" 更广——该层收录 benchmark、评估方法学、评估框架（诊断覆盖层、trace 分析系统、ground-truth 生成工具包）、面向评估的 RL 工作、综述与立场论文。每张卡片会显式标注类型。
 - **`topics/`**：文献综述页面，每个页面对应一个规范化（canonical）的评估方向。每个 topic 拥有各自的比较表和各自的比较维度。**不存在全局比较矩阵。**
+- **`domains/`**：轻量索引页，按 work **所评估的科学或工程领域**聚合。这是与 topic 正交的一条轴：topic 按评估*方法学*分组，domain 按*领域*分组。Domain 页不承载综合分析——只有范围说明与带链接的 work 列表。没有科学或工程领域的 work（web/UI agent、computer use、评估方法学、综述）不出现在 domain 索引中。
 
 **Topic 之间并不互斥。** 一个 work 可以自然地属于多个 topic，因为每个 topic 代表的是一种文献视角，而不是一个互斥的类别。跨 topic 的归属是设计上的预期，而非例外。这种归属关系被冗余地表达两次——一次在卡片的 `Topics` 元数据块中，一次在 topic 页的 `Related Works` 中——并作为一项维护纪律进行同步。
 
@@ -54,6 +59,17 @@ Skill Hierarchy 与 Credit Assignment 是两个独立的 topic。
 
 ---
 
+## 规范化 domain 分类
+
+Domain 围绕固定的 19 个科学与工程领域组织，分两组（完整表格与折并规则见 [`AGENT.md`](../AGENT.md)）：
+
+- **科学：** Physics、Astronomy、Mathematics、Chemistry、Biology、Neuroscience & Cognitive Science、Medicine & Health、Earth Science、Environmental Science、Materials Science、Computer Science、AI & Machine Learning Research。
+- **工程：** Mechanical & Aerospace、Electrical、Energy Systems、Chemical、Civil & Structural、Robotics、Software & Systems。
+
+更细的领域折并入规范化 domain（bioinformatics → Biology、GIS → Earth Science、psychology → Neuroscience & Cognitive Science 等），一个 work 可以出现在多个 domain 中。UI 与 computer-use 环境不是科学或工程领域。
+
+---
+
 ## 如何阅读本仓库
 
 Topic 是首要入口。若读者对某一研究方向感兴趣，建议从 topic 页开始：
@@ -62,8 +78,15 @@ Topic 是首要入口。若读者对某一研究方向感兴趣，建议从 topi
 Topic  →  代表性 works  →  原始论文
 ```
 
+若读者带着某个领域而非某种方法学而来，则从 domain 索引进入：
+
+```
+Domain  →  该领域中的评估工作  →  原始论文
+```
+
 - 想理解**如何对 trajectory 打分**？阅读 [`topics/trajectory_evaluation.md`](./topics/trajectory_evaluation.md)。
 - 想理解**资源消耗如何进入评估**？阅读 [`topics/resource_aware_evaluation.md`](./topics/resource_aware_evaluation.md)。
+- 想知道**物理或流体力学领域有哪些工作**？阅读 [`domains/physics.md`](./domains/physics.md) 或 [`domains/mechanical_aerospace_engineering.md`](./domains/mechanical_aerospace_engineering.md)。
 - 想要某个具体 work 的事实性信息？直接看 [`works/`](./works/) 中对应的卡片。
 
 ---
@@ -73,6 +96,7 @@ Topic  →  代表性 works  →  原始论文
 - **评估方向类 topic** 使用 `_evaluation.md` 后缀：`trajectory_evaluation.md`、`resource_aware_evaluation.md`、`long_horizon_evaluation.md`。
 - **更广义的 topic** 使用自然名称：`scientific_agents.md`、`skill_hierarchy.md`、`credit_assignment.md`、`survey.md`。
 - **Work 卡片** 使用 kebab-case，与 work 官方名称对应：`agentboard.md`、`t-eval.md`、`long-horizon-terminal-bench.md`。
+- **Domain 页** 使用 snake_case，与领域名称对应：`materials_science.md`、`software_systems_engineering.md`。
 
 ---
 
@@ -104,4 +128,5 @@ RL 工作的界线由论文主要贡献判定：如果它推进了**如何评估
 
 - **73 张卡片** 位于 `works/`——包括 benchmark、评估框架与方法学、以及参考论文（综述与立场论文）。每张卡片显式标注类型；扁平目录本身即权威列表。
 - **7 个 topic 页**——完整的文献综述，各自拥有专属比较表与开放问题。各 topic 当前的 Related-Works 覆盖：Scientific Agent Benchmarks（24）、Trajectory Evaluation（20）、General Long-Horizon Agent Benchmarks（17）、Credit Assignment（13）、Skill Hierarchy（7）、Resource-aware Evaluation（7）、Survey（4）。
+- **19 个 domain 页**——按科学/工程领域索引 works，目前覆盖最多的是 Biology、Mathematics、Physics 与 Software & Systems Engineering。
 - **中文镜像**位于 `zh/`，按双语节奏同步维护。
