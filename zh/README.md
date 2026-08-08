@@ -35,7 +35,7 @@ scientific-eval-environments/
 
 - **`works/`**：扁平目录，每份 work 一份 Markdown。卡片是事实性引用。"Works" 比 "benchmarks" 更广——该层收录 benchmark、评估方法学、评估框架（诊断覆盖层、trace 分析系统、ground-truth 生成工具包）、面向评估的 RL 工作、综述与立场论文。每张卡片会显式标注类型。
 - **`topics/`**：文献综述页面，每个页面对应一个规范化（canonical）的评估方向。每个 topic 拥有各自的比较表和各自的比较维度。**不存在全局比较矩阵。**
-- **`domains/`**：轻量索引页，按 work **所评估的科学或工程领域**聚合。这是与 topic 正交的一条轴：topic 按评估*方法学*分组，domain 按*领域*分组。Domain 页不承载综合分析——只有范围说明与带链接的 work 列表。没有科学或工程领域的 work（web/UI agent、computer use、评估方法学、综述）不出现在 domain 索引中。
+- **`domains/`**：索引页，按 work **所评估的科学或工程领域**聚合。这是与 topic 正交的一条轴：topic 按评估*方法学*分组，domain 按*领域*分组。每个 domain 页含范围说明、一张列固定的比较表（科学问题、任务形式与规模、领域内验证——所有 domain 页列一致）与带链接的 work 列表；方法学综合留在 topic 页。没有科学或工程领域的 work（web/UI agent、computer use、评估方法学、综述）不出现在 domain 索引中。
 
 **Topic 之间并不互斥。** 一个 work 可以自然地属于多个 topic，因为每个 topic 代表的是一种文献视角，而不是一个互斥的类别。跨 topic 的归属是设计上的预期，而非例外。这种归属关系被冗余地表达两次——一次在卡片的 `Topics` 元数据块中，一次在 topic 页的 `Related Works` 中——并作为一项维护纪律进行同步。
 

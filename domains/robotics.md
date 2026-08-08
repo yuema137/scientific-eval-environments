@@ -6,6 +6,10 @@
 
 Evaluation on physical robot platforms and robot control. Embodied household simulators and computer-use environments do not fold here.
 
+## Comparison
+
+_No works documented yet._
+
 ## Related Works
 
 _No works documented yet._

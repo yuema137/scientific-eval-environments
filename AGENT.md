@@ -113,7 +113,7 @@ Directory: `domains/`
 
 Domains aggregate works by the **science or engineering domain they evaluate in** — an orthogonal axis to topics, which aggregate by evaluation methodology. A CFD benchmark and a proof-verification benchmark may share a topic (e.g., Skill Hierarchy) while living in different domains (Mechanical & Aerospace Engineering vs. Mathematics).
 
-Domain pages are **indexes, not literature reviews**. All synthesis — comparison tables, open questions — stays in topic pages.
+Domain pages are **factual indexes, not literature reviews**. Each carries a comparison table with **fixed, domain-oriented columns identical on every domain page** — unlike topic tables, which choose their own dimensions. The table describes what science each work tackles; methodology synthesis, topic-specific comparison dimensions, and open questions stay in topic pages.
 
 **Canonical domain taxonomy.** The repository organizes domains around this fixed set:
 
@@ -144,7 +144,8 @@ Adding a new canonical domain is a structural decision that requires updating th
 **Domain page template:**
 
 - **Scope** — one or two sentences: what counts, including fold rules.
-- **Related Works** — links to work cards with a one-line hook each. A domain with no documented works yet states so explicitly.
+- **Comparison** — a factual table with the fixed columns `Work | Year | Scientific problem | Task form & scale | Domain verification | Card`. *Scientific problem* states what science question the work actually tackles, in enough detail for a domain expert; *Task form & scale* states what the agent concretely does and how many tasks fall in this domain; *Domain verification* states how scientific correctness is checked (numerical error vs. reference, expert labels, execution, physical criteria, LLM judge, …). For multi-domain suites, the row is slanted to this domain's slice. Every cell must be verifiable from the work's card.
+- **Related Works** — bare links to the work cards (the mapping list). A domain with no documented works yet states so explicitly.
 
 **Rules:**
 

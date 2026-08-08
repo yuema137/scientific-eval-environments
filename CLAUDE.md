@@ -7,7 +7,7 @@ The maintainer constitution is canonical in [`AGENT.md`](./AGENT.md). Read it be
 - **`works/`** — flat directory, one Markdown file per work. Factual references only.
   Template: Overview, **Topics** (metadata block), Links, Summary, Tasks, Domains, Evaluation, Typical Duration, Main Contribution, Key Design Ideas, Strengths, Limitations, Related Works. **No** "Gap to Our Work" or positioning sections.
 - **`topics/`** — literature reviews. Each topic owns its own comparison table. No global matrix.
-- **`domains/`** — lightweight index by science/engineering domain (orthogonal to topics, which index by methodology). Pages hold only Scope + Related Works with one-line hooks; no synthesis, no comparison tables.
+- **`domains/`** — factual index by science/engineering domain (orthogonal to topics, which index by methodology). Pages hold Scope + a Comparison table with fixed columns (`Work | Year | Scientific problem | Task form & scale | Domain verification | Card`, identical on every domain page, every cell verifiable from the card) + bare Related Works links. No methodology synthesis or open questions — those stay in topics.
 
 "Works" is broader than "benchmarks" — the layer holds cards for benchmarks, methodologies, evaluation frameworks, surveys, position papers, and evaluation-focused RL contributions on agents. Non-benchmark works fill inapplicable sections with `N/A` and a short note.
 

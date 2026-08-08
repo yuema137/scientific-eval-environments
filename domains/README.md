@@ -7,16 +7,19 @@ Index pages aggregating works by the **science or engineering domain they evalua
 ## Domain page template
 
 - **Scope** — one or two sentences: what counts, including fold rules.
-- **Related Works** — links to work cards with a one-line hook each.
+- **Comparison** — a factual table with **fixed columns, identical on every domain page**:
+  `Work | Year | Scientific problem | Task form & scale | Domain verification | Card`.
+  *Scientific problem* states what science question the work actually tackles; *Task form & scale* states what the agent concretely does and how many tasks fall in this domain; *Domain verification* states how scientific correctness is checked (numerical error vs. reference, expert labels, execution, physical criteria, LLM judge, …).
+- **Related Works** — bare links to the work cards (the mapping list).
 
-Domain pages are **indexes, not literature reviews** — no comparison tables, no synthesis. That belongs to topic pages.
+Domain pages are **factual indexes, not literature reviews**: the table describes each work in this domain, but methodology synthesis, topic-specific comparison dimensions, and open questions stay in topic pages.
 
 ## Rules
 
 - Narrower fields **fold** into canonical domains (bioinformatics → Biology, GIS → Earth Science, psychology → Neuroscience & Cognitive Science, formal software verification → Software & Systems Engineering, …).
-- A work may belong to **multiple domains**; multi-domain suites appear in every domain they cover.
+- A work may belong to **multiple domains**; multi-domain suites appear in every domain they cover, with the table row slanted to this domain's slice.
 - **No catch-all.** Works without a science or engineering domain — web/UI agents, computer use, generic tool use, evaluation methodology, surveys — do not appear here. UI and computer-use environments are not science or engineering domains.
-- The mapping is **one-way, maintained on domain pages only**. Cards are never modified for this axis; a card's `## Domains` prose section is the evidence for assignment.
+- The mapping is **one-way, maintained on domain pages only**. Cards are never modified for this axis; a card's `## Domains` prose section is the evidence for assignment, and every table cell must be verifiable from the card.
 - Assignment must be **verifiable** from the card (backed by the paper). Unnamed categories are not force-assigned.
 
 ## Canonical domain taxonomy
