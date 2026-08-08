@@ -1,6 +1,6 @@
 # Robotics
 
-> **English** | [简体中文](../zh/domains/robotics.md)
+> **English** | [简体中文](../zh/domains/robotics.md) · [← All domains](./README.md)
 
 ## Scope
 

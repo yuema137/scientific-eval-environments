@@ -1,6 +1,6 @@
 # Astronomy
 
-> **English** | [简体中文](../zh/domains/astronomy.md)
+> **English** | [简体中文](../zh/domains/astronomy.md) · [← All domains](./README.md)
 
 ## Scope
 

@@ -23,7 +23,7 @@ The repository must remain **objective**. It must **not** contain discussion abo
 
 ## Repository Organization
 
-The repository has **two primary knowledge layers** — works and topics — plus one **lightweight index layer**, domains.
+The repository has **three primary knowledge layers**: works (facts about individual projects), topics (the **methodology axis**), and domains (the **field axis**). Topics and domains are **co-equal aggregation axes** over the works layer — neither is subordinate to the other.
 
 ### Layer 1 — Works
 
@@ -107,13 +107,13 @@ Adding a new canonical topic is a structural decision that requires updating thi
 
 There is **no global comparison matrix**. Each topic owns its own comparison dimensions.
 
-### Layer 3 — Domains (index layer)
+### Layer 3 — Domains
 
 Directory: `domains/`
 
-Domains aggregate works by the **science or engineering domain they evaluate in** — an orthogonal axis to topics, which aggregate by evaluation methodology. A CFD benchmark and a proof-verification benchmark may share a topic (e.g., Skill Hierarchy) while living in different domains (Mechanical & Aerospace Engineering vs. Mathematics).
+Domains aggregate works by the **science or engineering domain they evaluate in** — an orthogonal axis to topics, which aggregate by evaluation methodology, and **equal to topics in importance**. A CFD benchmark and a proof-verification benchmark may share a topic (e.g., Skill Hierarchy) while living in different domains (Mechanical & Aerospace Engineering vs. Mathematics).
 
-Domain pages are **factual indexes, not literature reviews**. Each carries a comparison table with **fixed, domain-oriented columns identical on every domain page** — unlike topic tables, which choose their own dimensions. The table describes what science each work tackles; methodology synthesis, topic-specific comparison dimensions, and open questions stay in topic pages.
+Domain pages are **factual reference pages, not literature reviews** — co-equal with topic pages as an entry point, different in kind. Each carries a comparison table with **fixed, domain-oriented columns identical on every domain page** — unlike topic tables, which choose their own dimensions. The table describes what science each work tackles, in enough detail for a reader from that field; methodology synthesis, topic-specific comparison dimensions, and open questions stay in topic pages.
 
 **Canonical domain taxonomy.** The repository organizes domains around this fixed set:
 
@@ -157,7 +157,7 @@ Adding a new canonical domain is a structural decision that requires updating th
 
 ---
 
-## Relationship Between Works and Topics
+## Relationship Between the Layers
 
 **Topics are not mutually exclusive.** A work may naturally belong to multiple topics, because each topic represents a different literature perspective rather than a unique category. Do not force a work into a single topic to "keep things tidy" — cross-topic membership is the intended pattern, not an exception.
 
@@ -176,16 +176,11 @@ CostBench              → resource_aware_evaluation
 AgentBoard             → trajectory_evaluation, skill_hierarchy
 ```
 
-**Topic pages are the primary entry point.** A reader interested in a research direction should start from `topics/`, follow links into `works/`, and from there to the original papers:
+**Topic and domain pages are the two primary entry points.** A reader who arrives with a methodology question starts from `topics/`; a reader who arrives with a field in mind starts from `domains/`. Both follow links into `works/` and from there to the original papers:
 
 ```
-Topic  →  Representative works  →  Original papers
-```
-
-The domain index provides the alternative entry point for readers who arrive with a field rather than a methodology in mind:
-
-```
-Domain  →  Works evaluated in that domain  →  Original papers
+Topic   →  Representative works              →  Original papers
+Domain  →  Works evaluated in that domain    →  Original papers
 ```
 
 ---

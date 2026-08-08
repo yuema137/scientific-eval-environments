@@ -1,6 +1,6 @@
 # Neuroscience & Cognitive Science
 
-> **English** | [简体中文](../zh/domains/neuroscience_cognitive_science.md)
+> **English** | [简体中文](../zh/domains/neuroscience_cognitive_science.md) · [← All domains](./README.md)
 
 ## Scope
 

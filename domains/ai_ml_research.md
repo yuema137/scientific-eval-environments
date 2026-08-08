@@ -1,6 +1,6 @@
 # AI & Machine Learning Research
 
-> **English** | [简体中文](../zh/domains/ai_ml_research.md)
+> **English** | [简体中文](../zh/domains/ai_ml_research.md) · [← All domains](./README.md)
 
 ## Scope
 

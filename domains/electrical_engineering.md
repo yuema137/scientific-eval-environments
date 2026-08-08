@@ -1,6 +1,6 @@
 # Electrical Engineering
 
-> **English** | [简体中文](../zh/domains/electrical_engineering.md)
+> **English** | [简体中文](../zh/domains/electrical_engineering.md) · [← All domains](./README.md)
 
 ## Scope
 

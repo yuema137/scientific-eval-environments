@@ -1,6 +1,6 @@
 # Civil & Structural Engineering
 
-> **English** | [简体中文](../zh/domains/civil_structural_engineering.md)
+> **English** | [简体中文](../zh/domains/civil_structural_engineering.md) · [← All domains](./README.md)
 
 ## Scope
 

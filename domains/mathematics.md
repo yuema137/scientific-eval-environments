@@ -1,6 +1,6 @@
 # Mathematics
 
-> **English** | [简体中文](../zh/domains/mathematics.md)
+> **English** | [简体中文](../zh/domains/mathematics.md) · [← All domains](./README.md)
 
 ## Scope
 

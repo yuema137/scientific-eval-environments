@@ -1,6 +1,6 @@
 # Physics
 
-> **English** | [简体中文](../zh/domains/physics.md)
+> **English** | [简体中文](../zh/domains/physics.md) · [← All domains](./README.md)
 
 ## Scope
 

@@ -1,6 +1,6 @@
 # Materials Science
 
-> **English** | [简体中文](../zh/domains/materials_science.md)
+> **English** | [简体中文](../zh/domains/materials_science.md) · [← All domains](./README.md)
 
 ## Scope
 

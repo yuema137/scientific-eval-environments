@@ -1,6 +1,6 @@
 # Biology
 
-> **English** | [简体中文](../zh/domains/biology.md)
+> **English** | [简体中文](../zh/domains/biology.md) · [← All domains](./README.md)
 
 ## Scope
 

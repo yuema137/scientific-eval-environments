@@ -21,7 +21,7 @@ scientific-eval-environments/
 ├── topics/                # 面向单一评估方向的文献综述页面
 │   ├── README.md          # Topic 页模板与规则
 │   └── ...                # 7 个规范化 topic 页
-├── domains/               # 按科学/工程领域组织的索引页
+├── domains/               # 领域轴参考页，每个规范化 domain 一页
 │   ├── README.md          # Domain 页模板与规则
 │   └── ...                # 19 个 domain 页，snake_case——每个领域一个文件
 └── zh/                    # 中文镜像（每完成一批英文后同步）
@@ -31,11 +31,11 @@ scientific-eval-environments/
     └── domains/
 ```
 
-仓库有**两层知识组织，外加一层索引**：
+仓库有**三层知识组织**——works，以及其上两条平级的聚合轴：
 
 - **`works/`**：扁平目录，每份 work 一份 Markdown。卡片是事实性引用。"Works" 比 "benchmarks" 更广——该层收录 benchmark、评估方法学、评估框架（诊断覆盖层、trace 分析系统、ground-truth 生成工具包）、面向评估的 RL 工作、综述与立场论文。每张卡片会显式标注类型。
 - **`topics/`**：文献综述页面，每个页面对应一个规范化（canonical）的评估方向。每个 topic 拥有各自的比较表和各自的比较维度。**不存在全局比较矩阵。**
-- **`domains/`**：索引页，按 work **所评估的科学或工程领域**聚合。这是与 topic 正交的一条轴：topic 按评估*方法学*分组，domain 按*领域*分组。每个 domain 页含范围说明、一张列固定的比较表（科学问题、任务形式与规模、领域内验证——所有 domain 页列一致）与带链接的 work 列表；方法学综合留在 topic 页。没有科学或工程领域的 work（web/UI agent、computer use、评估方法学、综述）不出现在 domain 索引中。
+- **`domains/`**：参考页，按 work **所评估的科学或工程领域**聚合。这是**领域轴**，与 topic 正交且地位对等：topic 按评估*方法学*分组，domain 按*领域*分组。每个 domain 页含范围说明、一张列固定的比较表（科学问题、任务形式与规模、领域内验证——所有 domain 页列一致）与带链接的 work 列表；方法学综合留在 topic 页。没有科学或工程领域的 work（web/UI agent、computer use、评估方法学、综述）不出现在 domain 层。
 
 **Topic 之间并不互斥。** 一个 work 可以自然地属于多个 topic，因为每个 topic 代表的是一种文献视角，而不是一个互斥的类别。跨 topic 的归属是设计上的预期，而非例外。这种归属关系被冗余地表达两次——一次在卡片的 `Topics` 元数据块中，一次在 topic 页的 `Related Works` 中——并作为一项维护纪律进行同步。
 
@@ -61,26 +61,40 @@ Skill Hierarchy 与 Credit Assignment 是两个独立的 topic。
 
 ## 规范化 domain 分类
 
-Domain 围绕固定的 19 个科学与工程领域组织，分两组（完整表格与折并规则见 [`AGENT.md`](../AGENT.md)）：
+Domain 围绕以下固定的 19 个科学与工程领域组织：
 
-- **科学：** Physics、Astronomy、Mathematics、Chemistry、Biology、Neuroscience & Cognitive Science、Medicine & Health、Earth Science、Environmental Science、Materials Science、Computer Science、AI & Machine Learning Research。
-- **工程：** Mechanical & Aerospace、Electrical、Energy Systems、Chemical、Civil & Structural、Robotics、Software & Systems。
+| 分组 | Domain | 文件 |
+|---|---|---|
+| 科学 | [Physics](./domains/physics.md) | `physics.md` |
+| 科学 | [Astronomy](./domains/astronomy.md) | `astronomy.md` |
+| 科学 | [Mathematics](./domains/mathematics.md) | `mathematics.md` |
+| 科学 | [Chemistry](./domains/chemistry.md) | `chemistry.md` |
+| 科学 | [Biology](./domains/biology.md) | `biology.md` |
+| 科学 | [Neuroscience & Cognitive Science](./domains/neuroscience_cognitive_science.md) | `neuroscience_cognitive_science.md` |
+| 科学 | [Medicine & Health](./domains/medicine_health.md) | `medicine_health.md` |
+| 科学 | [Earth Science](./domains/earth_science.md) | `earth_science.md` |
+| 科学 | [Environmental Science](./domains/environmental_science.md) | `environmental_science.md` |
+| 科学 | [Materials Science](./domains/materials_science.md) | `materials_science.md` |
+| 科学 | [Computer Science](./domains/computer_science.md) | `computer_science.md` |
+| 科学 | [AI & Machine Learning Research](./domains/ai_ml_research.md) | `ai_ml_research.md` |
+| 工程 | [Mechanical & Aerospace Engineering](./domains/mechanical_aerospace_engineering.md) | `mechanical_aerospace_engineering.md` |
+| 工程 | [Electrical Engineering](./domains/electrical_engineering.md) | `electrical_engineering.md` |
+| 工程 | [Energy Systems](./domains/energy_systems.md) | `energy_systems.md` |
+| 工程 | [Chemical Engineering](./domains/chemical_engineering.md) | `chemical_engineering.md` |
+| 工程 | [Civil & Structural Engineering](./domains/civil_structural_engineering.md) | `civil_structural_engineering.md` |
+| 工程 | [Robotics](./domains/robotics.md) | `robotics.md` |
+| 工程 | [Software & Systems Engineering](./domains/software_systems_engineering.md) | `software_systems_engineering.md` |
 
-更细的领域折并入规范化 domain（bioinformatics → Biology、GIS → Earth Science、psychology → Neuroscience & Cognitive Science 等），一个 work 可以出现在多个 domain 中。UI 与 computer-use 环境不是科学或工程领域。
+更细的领域折并入规范化 domain（bioinformatics → Biology、GIS → Earth Science、psychology → Neuroscience & Cognitive Science 等），一个 work 可以出现在多个 domain 中。UI 与 computer-use 环境不是科学或工程领域。各 domain 的 work 数量与完整规则见 [`domains/README.md`](./domains/README.md) 与 [`AGENT.md`](../AGENT.md)。
 
 ---
 
 ## 如何阅读本仓库
 
-Topic 是首要入口。若读者对某一研究方向感兴趣，建议从 topic 页开始：
+仓库有两个平级入口，各对应一条轴。若带着方法学问题而来，从 topic 页进入；若带着某个领域而来，从 domain 页进入：
 
 ```
-Topic  →  代表性 works  →  原始论文
-```
-
-若读者带着某个领域而非某种方法学而来，则从 domain 索引进入：
-
-```
+Topic   →  代表性 works       →  原始论文
 Domain  →  该领域中的评估工作  →  原始论文
 ```
 
@@ -128,5 +142,5 @@ RL 工作的界线由论文主要贡献判定：如果它推进了**如何评估
 
 - **73 张卡片** 位于 `works/`——包括 benchmark、评估框架与方法学、以及参考论文（综述与立场论文）。每张卡片显式标注类型；扁平目录本身即权威列表。
 - **7 个 topic 页**——完整的文献综述，各自拥有专属比较表与开放问题。各 topic 当前的 Related-Works 覆盖：Scientific Agent Benchmarks（24）、Trajectory Evaluation（20）、General Long-Horizon Agent Benchmarks（17）、Credit Assignment（13）、Skill Hierarchy（7）、Resource-aware Evaluation（7）、Survey（4）。
-- **19 个 domain 页**——按科学/工程领域索引 works，目前覆盖最多的是 Biology、Mathematics、Physics 与 Software & Systems Engineering。
+- **19 个 domain 页**——领域轴的参考页，各含一张列固定的比较表（每份 work 的科学问题、任务形式与规模、领域内验证）；目前覆盖最多的是 Biology、Mathematics、Physics 与 Software & Systems Engineering。
 - **中文镜像**位于 `zh/`，按双语节奏同步维护。

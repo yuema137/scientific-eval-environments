@@ -1,6 +1,6 @@
 # Medicine & Health
 
-> [English](../../domains/medicine_health.md) | **简体中文**
+> [English](../../domains/medicine_health.md) | **简体中文** · [← 全部 domains](./README.md)
 
 ## Scope
 

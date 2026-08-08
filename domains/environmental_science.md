@@ -1,6 +1,6 @@
 # Environmental Science
 
-> **English** | [简体中文](../zh/domains/environmental_science.md)
+> **English** | [简体中文](../zh/domains/environmental_science.md) · [← All domains](./README.md)
 
 ## Scope
 

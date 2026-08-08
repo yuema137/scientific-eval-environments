@@ -1,6 +1,6 @@
 # Software & Systems Engineering
 
-> **English** | [简体中文](../zh/domains/software_systems_engineering.md)
+> **English** | [简体中文](../zh/domains/software_systems_engineering.md) · [← All domains](./README.md)
 
 ## Scope
 

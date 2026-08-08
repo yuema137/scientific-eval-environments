@@ -7,11 +7,11 @@ The maintainer constitution is canonical in [`AGENT.md`](./AGENT.md). Read it be
 - **`works/`** — flat directory, one Markdown file per work. Factual references only.
   Template: Overview, **Topics** (metadata block), Links, Summary, Tasks, Domains, Evaluation, Typical Duration, Main Contribution, Key Design Ideas, Strengths, Limitations, Related Works. **No** "Gap to Our Work" or positioning sections.
 - **`topics/`** — literature reviews. Each topic owns its own comparison table. No global matrix.
-- **`domains/`** — factual index by science/engineering domain (orthogonal to topics, which index by methodology). Pages hold Scope + a Comparison table with fixed columns (`Work | Year | Scientific problem | Task form & scale | Domain verification | Card`, identical on every domain page, every cell verifiable from the card) + bare Related Works links. No methodology synthesis or open questions — those stay in topics.
+- **`domains/`** — the **field axis**, a full knowledge layer co-equal with topics (the methodology axis). Pages hold Scope + a Comparison table with fixed columns (`Work | Year | Scientific problem | Task form & scale | Domain verification | Card`, identical on every domain page, every cell verifiable from the card) + bare Related Works links. No methodology synthesis or open questions — those stay in topics.
 
 "Works" is broader than "benchmarks" — the layer holds cards for benchmarks, methodologies, evaluation frameworks, surveys, position papers, and evaluation-focused RL contributions on agents. Non-benchmark works fill inapplicable sections with `N/A` and a short note.
 
-**Navigation flows Topic → Work → Paper.** Topics are the primary entry point; cards are references linked from topics.
+**Navigation flows Topic → Work → Paper and Domain → Work → Paper.** Topics (methodology axis) and domains (field axis) are co-equal primary entry points; cards are references linked from both.
 
 **Topics are not mutually exclusive.** A work may belong to multiple topics — each topic is a different literature perspective, not a unique category. Cross-topic membership is the intended pattern, not an exception.
 

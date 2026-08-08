@@ -2,7 +2,7 @@
 
 > **English** | [简体中文](../zh/domains/README.md)
 
-Index pages aggregating works by the **science or engineering domain they evaluate in**. This axis is orthogonal to [`topics/`](../topics/): topics group works by evaluation *methodology*, domains by *field*. The full rules live in [`AGENT.md`](../AGENT.md).
+One reference page per canonical science or engineering domain — the **field axis** of the repository, co-equal with the methodology axis in [`topics/`](../topics/): topics group works by evaluation *methodology*, domains by *field*. The full rules live in [`AGENT.md`](../AGENT.md).
 
 ## Domain page template
 
@@ -12,7 +12,7 @@ Index pages aggregating works by the **science or engineering domain they evalua
   *Scientific problem* states what science question the work actually tackles; *Task form & scale* states what the agent concretely does and how many tasks fall in this domain; *Domain verification* states how scientific correctness is checked (numerical error vs. reference, expert labels, execution, physical criteria, LLM judge, …).
 - **Related Works** — bare links to the work cards (the mapping list).
 
-Domain pages are **factual indexes, not literature reviews**: the table describes each work in this domain, but methodology synthesis, topic-specific comparison dimensions, and open questions stay in topic pages.
+Domain pages are **factual reference pages, not literature reviews** — co-equal with topic pages as an entry point, different in kind: the table describes each work in this domain, but methodology synthesis, topic-specific comparison dimensions, and open questions stay in topic pages.
 
 ## Rules
 

@@ -1,6 +1,6 @@
 # Earth Science
 
-> **English** | [简体中文](../zh/domains/earth_science.md)
+> **English** | [简体中文](../zh/domains/earth_science.md) · [← All domains](./README.md)
 
 ## Scope
 

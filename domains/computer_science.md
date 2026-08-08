@@ -1,6 +1,6 @@
 # Computer Science
 
-> **English** | [简体中文](../zh/domains/computer_science.md)
+> **English** | [简体中文](../zh/domains/computer_science.md) · [← All domains](./README.md)
 
 ## Scope
 

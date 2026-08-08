@@ -1,6 +1,6 @@
 # Chemistry
 
-> **English** | [简体中文](../zh/domains/chemistry.md)
+> **English** | [简体中文](../zh/domains/chemistry.md) · [← All domains](./README.md)
 
 ## Scope
 

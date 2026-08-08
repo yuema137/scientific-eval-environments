@@ -1,6 +1,6 @@
 # Energy Systems
 
-> **English** | [简体中文](../zh/domains/energy_systems.md)
+> **English** | [简体中文](../zh/domains/energy_systems.md) · [← All domains](./README.md)
 
 ## Scope
 
