@@ -37,7 +37,7 @@ scientific-eval-environments/
 - **`topics/`**：文献综述页面，每个页面对应一个规范化（canonical）的评估方向。每个 topic 拥有各自的比较表和各自的比较维度。**不存在全局比较矩阵。**
 - **`domains/`**：参考页，按 work **所评估的科学或工程领域**聚合。这是**领域轴**，与 topic 正交且地位对等：topic 按评估*方法学*分组，domain 按*领域*分组。每个 domain 页含范围说明、一张列固定的比较表（科学问题、任务形式与规模、领域内验证——所有 domain 页列一致）与带链接的 work 列表；方法学综合留在 topic 页。没有科学或工程领域的 work（web/UI agent、computer use、评估方法学、综述）不出现在 domain 层。
 
-**Topic 之间并不互斥。** 一个 work 可以自然地属于多个 topic，因为每个 topic 代表的是一种文献视角，而不是一个互斥的类别。跨 topic 的归属是设计上的预期，而非例外。这种归属关系被冗余地表达两次——一次在卡片的 `Topics` 元数据块中，一次在 topic 页的 `Related Works` 中——并作为一项维护纪律进行同步。
+**Topic 之间并不互斥。** 一个 work 可以自然地属于多个 topic，因为每个 topic 代表的是一种文献视角，而不是一个互斥的类别。跨 topic 的归属是设计上的预期，而非例外。你可以双向浏览：每张卡片的 `Topics` 块向上链接到所属 topic，每个 topic 页的 `Related Works` 向下链接到卡片。
 
 ---
 
@@ -105,24 +105,15 @@ Domain  →  该领域中的评估工作  →  原始论文
 
 ---
 
-## 命名规范
+## 语言
 
-- **评估方向类 topic** 使用 `_evaluation.md` 后缀：`trajectory_evaluation.md`、`resource_aware_evaluation.md`、`long_horizon_evaluation.md`。
-- **更广义的 topic** 使用自然名称：`scientific_agents.md`、`skill_hierarchy.md`、`credit_assignment.md`、`survey.md`。
-- **Work 卡片** 使用 kebab-case，与 work 官方名称对应：`agentboard.md`、`t-eval.md`、`long-horizon-terminal-bench.md`。
-- **Domain 页** 使用 snake_case，与领域名称对应：`materials_science.md`、`software_systems_engineering.md`。
+每个页面都有英文与中文两个版本。使用任意页面顶部的语言切换器（English | **简体中文**）即可切换；英文为标准版本，位于仓库根目录。
 
 ---
 
 ## 贡献须知
 
-贡献前请先阅读英文原版 [`AGENT.md`](../AGENT.md)。核心规则：
-
-- 两级引用校验：*链接校验*（title、URL、project、venue、year）与*内容校验*（统计、任务数、评估指标、报告数字——**必须来自原始论文或官方 project**，绝不使用二手来源）。无法校验的数据一律写为 `TODO(reference)`。
-- 保持客观——不使用 "our benchmark" / "our approach" / 任何定位性表述。
-- Repository Notes 保持克制。任何论文未直接陈述的观察都需以 `Repository note:` 开头，且不允许出现推测性批评、主观意见、超出论文所评估设定的外推。
-- 卡片模板保持稳定——新增评估维度写入 topic 页，而非卡片字段。
-- 英文为标准版本，中文镜像位于 `zh/`，**每完成一批英文即同步**，不拖延。
+欢迎贡献。所有面向贡献者与维护者的规则——引用校验、页面模板、分类法与双语同步节奏——都在英文原版 [`AGENT.md`](../AGENT.md)（章程）与 [`CLAUDE.md`](../CLAUDE.md)（章程速查）中，各目录的 README 给出层内规则。
 
 ---
 

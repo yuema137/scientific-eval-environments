@@ -49,6 +49,7 @@ Domain rules: narrower fields **fold** into canonical domains (bioinformatics â†
 - **Objective only.** No "our benchmark" / "our approach" / positioning language anywhere in `works/` or `topics/`.
 - **Link, do not copy.** Prefer cross-references over duplicating content.
 - **Card template is stable.** Do not churn its structure. New evaluation dimensions extend topic pages, not card fields.
+- **Filenames.** Cards kebab-case (`t-eval.md`); topics natural names or `_evaluation` suffix; domains snake_case (`materials_science.md`).
 - **Repository Notes are conservative.** Prefix any non-paper observation with `Repository note:`. Allowed: maintenance observations, cross-paper synthesis, direct consequences of what the paper describes. Not allowed: speculative critique, opinion, extrapolation to settings the paper does not evaluate.
 
 ## Scope

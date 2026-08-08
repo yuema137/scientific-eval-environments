@@ -30,6 +30,7 @@ The repository has **three primary knowledge layers**: works (facts about indivi
 Directory: `works/`
 
 - **Flat directory.** Every documented work lives directly under `works/` as a single Markdown file — no per-category sub-folders. Each work appears in exactly one place.
+- **Filenames** use kebab-case matching the work's canonical name: `agentboard.md`, `t-eval.md`, `long-horizon-terminal-bench.md`.
 - Cards are **factual references**. They answer *"What is this work?"* — not *"How does it compare to everything else?"* Synthesis belongs in topic pages, not cards.
 - Cards must be **lightweight**. Do not let a card grow into a literature review.
 
@@ -139,7 +140,7 @@ Domain pages are **factual reference pages, not literature reviews** — co-equa
 | Engineering | Robotics | `robotics.md` |
 | Engineering | Software & Systems Engineering | `software_systems_engineering.md` |
 
-Adding a new canonical domain is a structural decision that requires updating this table.
+Adding a new canonical domain is a structural decision that requires updating this table. Domain filenames use snake_case matching the domain name.
 
 **Domain page template:**
 

@@ -43,7 +43,7 @@ The repository has **three knowledge layers** — works, plus two co-equal aggre
 - **`topics/`** — literature-review pages, each covering one canonical evaluation direction. Each topic owns its own comparison table and its own dimensions. There is **no global comparison matrix**.
 - **`domains/`** — reference pages aggregating works by the **science or engineering domain they evaluate in**. This is the **field axis**, orthogonal and equal in standing to topics: topics group by evaluation *methodology*, domains by *field*. Each domain page carries a scope note, a comparison table with fixed columns (scientific problem, task form & scale, domain verification — identical on every domain page), and a linked work list; methodology synthesis stays in topic pages. Works without a science or engineering domain (web/UI agents, computer use, evaluation methodology, surveys) do not appear in the domain layer.
 
-**Topics are not mutually exclusive.** A work may naturally belong to multiple topics, because each topic represents a different literature perspective rather than a unique category. That mapping is expressed twice — in the card's `Topics` block and in each topic page's `Related Works` section — and the two sides are kept in sync as a maintenance discipline.
+**Topics are not mutually exclusive.** A work may naturally belong to multiple topics, because each topic represents a different literature perspective rather than a unique category. You can move in either direction: each card's `Topics` block links up to its topics, and each topic page's `Related Works` links down to its cards.
 
 ---
 
@@ -111,32 +111,15 @@ Domain  →  Works evaluated in that domain  →  Original papers
 
 ---
 
-## Filename Conventions
+## Languages
 
-- **Evaluation-direction topics** use the `_evaluation.md` suffix: `trajectory_evaluation.md`, `resource_aware_evaluation.md`, `long_horizon_evaluation.md`.
-- **Broader topics** keep natural names: `scientific_agents.md`, `skill_hierarchy.md`, `credit_assignment.md`, `survey.md`.
-- **Work cards** use kebab-case matching the work's canonical name: `agentboard.md`, `t-eval.md`, `long-horizon-terminal-bench.md`.
-- **Domain pages** use snake_case matching the domain name: `materials_science.md`, `software_systems_engineering.md`.
+Every page is available in English and Chinese. Use the language switcher at the top of any page (**English** | 简体中文); the Chinese mirror lives under [`zh/`](./zh/README.md).
 
 ---
 
 ## Contributing
 
-Before making changes, read [`AGENT.md`](./AGENT.md). It defines the constitution:
-
-- Two-level reference validation. *Link validation* (title, URL, project, venue, year) and *content validation* (statistics, task counts, metrics — from the **original paper or official project only**, never secondary sources). Unverifiable content becomes `TODO(reference)`.
-- Objective only — no "our benchmark" / "our approach" / positioning language.
-- Repository Notes are conservative. Any observation not stated by the paper is prefixed `Repository note:`, and speculative critique / opinion / extrapolation is not allowed.
-- Template stability — do not churn the work-card template; new evaluation dimensions extend topic pages, not card fields.
-- English canonical, Chinese mirrored under `zh/`, synced after every English batch — not deferred.
-
-Layer-specific rules live in [`works/README.md`](./works/README.md), [`topics/README.md`](./topics/README.md), and [`domains/README.md`](./domains/README.md).
-
----
-
-## Bilingual Documentation
-
-English is the canonical source. Chinese pages mirror the English tree under `zh/` (`zh/works/`, `zh/topics/`, `zh/domains/`) and are synchronized after every English batch.
+Contributions are welcome. All contributor and maintainer rules — reference validation, page templates, taxonomies, and the bilingual sync cadence — live in [`AGENT.md`](./AGENT.md) (the constitution) and [`CLAUDE.md`](./CLAUDE.md) (its quick reference), with layer-specific rules in each directory's README.
 
 ---
 
