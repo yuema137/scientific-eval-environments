@@ -117,6 +117,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **Pricing a reaction.** [ChemCost](../works/chemcost.md) makes agents ground identities, retrieve supplier quotes, and compute reaction cost against a frozen snapshot; the strongest agents reach 50.6% within 25% relative error and degrade under noise.
 - **Leakage-proof by privacy.** [onepot-Bench 0](../works/onepot-bench.md) anchors reaction-outcome and catalyst-selection evaluation to private lab-generated data, alongside cheminformatics-literacy and refusal sub-suites.
 - **The VLM bottleneck in the lab.** [MaCBench](../works/macbench.md) finds vision-language models near-perfect at equipment identification and data extraction but fundamentally limited in spatial reasoning and cross-modal synthesis.
+- **Failure analysis for self-driving labs.** [LabRobFail](../works/labrobfail.md) builds a failure-centric benchmark for chemical self-driving laboratories — 20,000+ trajectories with control-, physics-, and semantic-level failure injection — where a domain-specialized VLM reaches 90.83% detection and improves downstream task success as a real-time supervisor.
 
 ## Comparison
 
@@ -227,6 +228,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | ChemCost | 2026 | 1,427 reactions over a frozen pricing snapshot (230,775 supplier quotes) | Chemical procurement and cost reasoning | Judge-free exact ground truth with stage-level failure diagnosis | [→](../works/chemcost.md) |
 | onepot-Bench 0 | 2026 | Proprietary suite incl. private lab-generated data | Cheminformatics literacy, refusal behavior, reaction-outcome prediction | Per-suite scoring against private experimental ground truth | [→](../works/onepot-bench.md) |
 | MaCBench | 2024 | Multimodal chemistry and materials tasks | Data extraction, experimental understanding, results interpretation | Accuracy via the ChemBench pipeline | [→](../works/macbench.md) |
+| LabRobFail | 2026 | Simulated chemical self-driving-lab failure trajectories (Isaac Sim) | Laboratory-robot failure analysis for self-driving chemistry | Six capabilities incl. detection (90.83%) and temporal localization | [→](../works/labrobfail.md) |
 
 ## Open Questions
 
@@ -343,6 +345,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [ChemCost](../works/chemcost.md)
 - [onepot-Bench 0](../works/onepot-bench.md)
 - [MaCBench](../works/macbench.md)
+- [LabRobFail](../works/labrobfail.md)
 
 ## Further Reading
 
