@@ -35,6 +35,7 @@
 - **开放式的生存 horizon。** [KellyBench](../works/kellybench.md) 把 agent 投入一整个赛季的非平稳体育博彩市场模拟，目标是长期资金增长；受评前沿模型平均全部亏损（最佳 −8%），人类专家评分标准给其策略的精细程度打出低分。
 - **交互迁移落差。** [SWE-Interact](../works/swe-interact.md) 把软件工程任务改成需求逐步披露的多轮用户驱动会话；单轮能解约 50% 的模型，交互式下跌到约 25%。
 - **回放真实会话。** [SWE-Together](../works/swe-together.md) 从 11,260 条真实用户-agent 会话中整理出 109 个可验证的仓库级任务，经保持原意的用户模拟器回放，在最终正确性之外同时统计 agent 消耗的纠正反馈轮数。
+- **长 horizon 的生物学发现。** [scBench-Long](../works/scbench-long.md) 给 agent 原始或近原始的单细胞数据、不预设方法，要求走完整条分析链路，直到该研究已发表的结论；受控答案词表让开放式 horizon 仍可确定性判分，最强模型-harness 组合也只通过 25.4% 的运行。
 
 ## Comparison
 
@@ -61,6 +62,7 @@
 | KellyBench | 2026 | 一整个模拟赛季的序贯决策；破产为吸收态 | 非平稳体育博彩市场（2023–24 英超模拟） | [→](../works/kellybench.md) |
 | SWE-Interact | 2026 | 多轮用户驱动会话；单轮约 50% vs. 交互约 25% | 需求由模拟用户逐步披露的软件工程 | [→](../works/swe-interact.md) |
 | SWE-Together | 2026 | 109 个回放的仓库级会话；正确性之外统计纠正轮数 | 源自真实会话、经保持原意的用户模拟器回放的交互式编码 | [→](../works/swe-together.md) |
+| scBench-Long | 2026 | 从近原始数据到已发表结论的 21 项评估；1,068 条轨迹 | 单细胞生物学分析；确定性判分 + 轨迹评分标准 | [→](../works/scbench-long.md) |
 
 ## Open Questions
 
@@ -92,6 +94,7 @@
 - [KellyBench](../works/kellybench.md)
 - [SWE-Interact](../works/swe-interact.md)
 - [SWE-Together](../works/swe-together.md)
+- [scBench-Long](../works/scbench-long.md)
 
 ## Further Reading
 

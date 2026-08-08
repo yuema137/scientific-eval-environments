@@ -22,6 +22,8 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - **面向 cost-aware planning 的专用数据集。** [CATP-LLM / OpenCATP](../works/catp-llm.md) 贡献了 OpenCATP——被称为首个面向 cost-aware planning 的数据集（11,100 样本），其中工具执行成本（如执行时间）与任务性能联合打分。其配对的规划方法属于本仓库范围之外的 agent 构建工作；数据集才是此处记录的 resource-aware 评估贡献。
 - **按保真度定价的测量预算。** [MaD Physics](../works/mad-physics.md) 对每次观测收取随其精度上升的成本，并对每个 trial 的总花费设上限，使 agent 必须在固定预算下分配测量，以推断一条未知的——有时被改动的——物理定律。
 - **给物理发现设观测预算。** [Gravity-Bench-v1](../works/gravity-bench.md) 限定 agent 对模拟二体引力系统可观测的次数，让实验设计本身进入评分范围；据官方项目页，最佳模型从全量数据下的 74% 跌到预算下的 49%。
+- **把 oracle 调用作为分子设计中的定价资源。** [SMDD-Bench](../works/smdd-bench.md) 为 502 个保证有解的药物设计任务设定有限的 oracle 调用预算，探索必须规划而非穷举；最佳前沿模型仅解出 40.2%。
+- **把诊断成本写上记分表。** [SDBench](../works/sdbench.md) 对 agent（与 21 位医生）的每次就诊与检查计费，守门人只应答被明确提出的询问，按准确率-成本前沿评分；改变编排方式比换模型更能移动这条前沿。
 - **作为在线控制信号的预算。** [BAGEN](../works/bagen.md) 让 agent 在每一轮预测剩余预算的上界与下界并标记不可行，把资源使用作为逐步的估计目标而非执行后的统计来评分。
 - **把评估调用作为预算化的资源。** [VeRO / VeRO-Bench](../works/vero.md) 在硬性评估调用预算下 benchmark 优化其他 agent 的 coding agent：对目标 agent 的每次打分都经过门控评估器，扣减 n_E ≤ B 并阻断超额请求，对应昂贵查询下的黑盒优化设定；B ∈ {2, 4, 8, 16, 32} 的预算消融把预算效应与能力效应区分开。
 - **迭代式设计优化上的交互预算。** [Frontier-Eng](../works/frontier-eng.md) 为每个真实工程任务的 propose-execute-evaluate 循环设置固定交互预算：agent 必须分配有限次数的仿真器交互，在连续奖励与硬性可行性约束下细化候选设计，使 benchmark 内在具备 resource-aware 属性。
@@ -43,6 +45,8 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 | EcoAgent-Bench | 2026 | 显式单任务预算下的定价动作 | 一等目标——升级/省钱成对分组上的经济一致性 | 304 个源自 QA 的任务、5 个族；tool-API 与 workspace-CLI 两种设定 | [→](../works/ecoagent-bench.md) |
 | HarnessOpt-Bench | 2026 | 目标评估调用（固定预算，TEE 计量） | 对优化-评估循环的强制硬约束 | Harness 优化；4 任务 × 5 个优化器 LLM，111 次计分运行 | [→](../works/harnessopt-bench.md) |
 | Gravity-Bench-v1 | 2025 | 对模拟系统的观测（据官方项目页每次运行至多 100 次） | 对实验设计的强制预算；报告全量与预算下的差距 | 模拟双星上的引力物理发现 | [→](../works/gravity-bench.md) |
+| SMDD-Bench | 2026 | oracle 调用（有限的单任务预算） | 对设计空间探索的强制硬约束 | 小分子药物设计；502 个有解任务、102 个靶点 | [→](../works/smdd-bench.md) |
+| SDBench | 2025 | 就诊与诊断检查的费用 | 与准确率联合评分，构成准确率-成本前沿 | 带信息守门人的 304 个 NEJM-CPC 病例序贯诊断 | [→](../works/sdbench.md) |
 
 ## Open Questions
 
@@ -63,6 +67,8 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - [EcoAgent-Bench](../works/ecoagent-bench.md) — 定价动作与显式预算下的经济决策，以经济一致性评分。
 - [HarnessOpt-Bench](../works/harnessopt-bench.md) — LLM 在固定且经 TEE 审计的评估预算下优化 agent harness。
 - [Gravity-Bench-v1](../works/gravity-bench.md) — 引力物理发现中预算受限的观测规划。
+- [SMDD-Bench](../works/smdd-bench.md) — 有限 oracle 调用预算下、保证有解的药物设计。
+- [SDBench](../works/sdbench.md) — 按准确率-成本前沿评分的序贯诊断。
 
 ## Further Reading
 

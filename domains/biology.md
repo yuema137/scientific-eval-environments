@@ -22,6 +22,19 @@ Life-science evaluation from molecular to population scale. Bioinformatics, geno
 | ResearchClawBench | 2026 | Re-discover the findings of a hidden published paper from a task description, related literature, and raw data — Life is one of its ten domains (40 tasks total). | End-to-end autonomous research tasks, each grounded in a real publication kept hidden during evaluation; the agent produces a final research report. | Reference-Anchored Discovery Score (0–100; 50 = reference-level evidence) against expert-curated multimodal rubrics anchored to the hidden paper's artifacts, judged by GPT-5.1. | [→](../works/researchclawbench.md) |
 | MDArena | 2026 | Run realistic biomolecular-simulation workflows — including membrane-protein systems — covering trajectory analysis, system preparation, free-energy calculations, and enhanced sampling. | 50 containerized tasks sourced from active research projects, spanning 29 molecular systems and 14 research protocols. | Strict-Pass@1 as the headline metric, with correctness and process-reward metrics crediting partial progress. | [→](../works/mdarena.md) |
 | SciCode | 2024 | Write research code for scientist-curated problems; biology is among the five main domains its 16 natural-science subfields span. | 80 main problems decomposed into 338 subproblems mixing knowledge recall, reasoning, and code synthesis. | Execution against scientist-annotated gold-standard solutions and test cases. | [→](../works/scicode.md) |
+| GenoTEX | 2024 | Automate gene expression analysis for gene-trait association: dataset selection, preprocessing, and statistical analysis to computational-genomics standards. | 1,384 analysis problems over 911 datasets (official repository); multi-step code-writing pipelines with self-correction. | Comparison against expert-curated annotations, reference code, and results from bioinformaticians. | [→](../works/genotex.md) |
+| BixBench | 2025 | Perform exploratory computational-biology data analysis drawn from real published notebook analyses. | 50+ scenarios with ~300 open-answer questions (abstract; current repository lists 205 questions), run as multi-step agent trajectories with containerized execution. | LLM-graded open answers plus exact-match multiple choice; majority vote over replicas. | [→](../works/bixbench.md) |
+| BioAgent Bench | 2026 | Complete end-to-end bioinformatics pipelines: RNA-seq, variant calling, metagenomics, and related workflows. | Manually curated pipeline tasks completed from prompts to concrete output artifacts, across multiple agent harnesses. | LLM grader over output artifacts for progress and validity; perturbation robustness suite (corrupted inputs, decoys, prompt bloat). | [→](../works/bioagent-bench.md) |
+| scBench | 2026 | Perform single-cell RNA-seq analysis steps that recover known biological results. | 394 verifiable problems across six sequencing platforms and seven task categories, each from a pre-step data snapshot. | Deterministic grader on recovery of a key biological result; accuracy. | [→](../works/scbench.md) |
+| scBench-Long | 2026 | Recover the published scientific conclusions of real single-cell studies from raw or near-raw data, with no prescribed methods. | 21 long-horizon evaluations over scRNA/TCR, RNA+ATAC, cross-species, and immune-repertoire data; 1,068 completed trajectories. | Controlled answer vocabularies with deterministic grading and trajectory rubrics. | [→](../works/scbench-long.md) |
+| SpatialBench | 2025 | Analyze real spatial-biology data to recover known biological results. | 146 verifiable problems across five spatial technologies and seven task categories, from pre-step snapshots. | Deterministic grader on recovery of a key biological result; accuracy. | [→](../works/spatialbench.md) |
+| BAISBench | 2025 | Annotate cell types and answer discovery questions grounded in the conclusions of published single-cell studies. | 15 expert-labeled annotation datasets plus 193 MCQs from 41 published studies; human baseline from six graduate-level bioinformaticians. | Hierarchical cell-type-tree annotation scoring plus MCQ correctness against published conclusions. | [→](../works/baisbench.md) |
+| BioXArena | 2026 | Build and train predictive models on biomedical data across nine domains from sequence modeling to biomedical imaging. | 76 end-to-end ML tasks in a standardized 2-hour single-GPU environment; agents submit predictions on private test samples. | Hidden labels with held-out graders and biology-aware metrics normalized to 0–1. | [→](../works/bioxarena.md) |
+| BioProBench | 2025 | Understand, order, correct, generate, and reason over biological wet-lab protocols. | 523,784 task instances from 22,413 human-written protocols across five task types; static evaluation. | Task-specific metrics including step recall/precision, Kendall's tau, exact match, and BLEU. | [→](../works/bioprobench.md) |
+| SciGym | 2025 | Design experiments iteratively to uncover the mechanism of hidden systems-biology models. | Sequential experiment-design episodes over hidden SBML-encoded systems; 137 evaluated, 350 released. | Recovered models compared against hidden ground-truth SBML systems. | [→](../works/scigym.md) |
+| LAB-Bench | 2024 | Exercise the practical capabilities of biology research: literature, figures, databases, protocols, DNA/protein sequences, and cloning. | 2,400+ multiple-choice questions in eight categories / 30 subtasks; static, tool-use optional. | MCQ scoring against human expert biology researchers. | [→](../works/lab-bench.md) |
+| LABBench2 | 2026 | The same biology-research capabilities under realistic contexts: PDFs, images, and bioinformatics files. | Nearly 1,900 tasks across hardened subtask families including patents, source quality, and clinical trials. | Accuracy via the released harness; −26% to −46% model-specific drops versus LAB-Bench. | [→](../works/labbench2.md) |
+| BioKGBench | 2024 | Verify scientific claims and interrogate biomedical knowledge graphs to locate factual errors. | 2,000+ atomic instances (claim verification, KGQA) plus 225 annotated agentic KGCheck instances over UniProt, STRING, Reactome, DisGeNET. | Atomic-task correctness plus agent-level KGCheck scoring; 90+ real database errors surfaced. | [→](../works/biokgbench.md) |
 
 ## Related Works
 
@@ -37,3 +50,16 @@ Life-science evaluation from molecular to population scale. Bioinformatics, geno
 - [ResearchClawBench](../works/researchclawbench.md)
 - [MDArena](../works/mdarena.md)
 - [SciCode](../works/scicode.md)
+- [GenoTEX](../works/genotex.md)
+- [BixBench](../works/bixbench.md)
+- [BioAgent Bench](../works/bioagent-bench.md)
+- [scBench](../works/scbench.md)
+- [scBench-Long](../works/scbench-long.md)
+- [SpatialBench](../works/spatialbench.md)
+- [BAISBench](../works/baisbench.md)
+- [BioXArena](../works/bioxarena.md)
+- [BioProBench](../works/bioprobench.md)
+- [SciGym](../works/scigym.md)
+- [LAB-Bench](../works/lab-bench.md)
+- [LABBench2](../works/labbench2.md)
+- [BioKGBench](../works/biokgbench.md)

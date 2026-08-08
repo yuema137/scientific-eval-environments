@@ -22,6 +22,19 @@
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Life 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文工件的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
 | MDArena | 2026 | 运行真实的生物分子模拟工作流——包括膜蛋白体系——覆盖轨迹分析、体系搭建、自由能计算与增强采样。 | 源自在研项目的 50 个容器化任务，覆盖 29 个分子体系与 14 种研究方案。 | 以 Strict-Pass@1 为主指标，另以 correctness 与过程奖励指标为部分进展计分。 | [→](../works/mdarena.md) |
 | SciCode | 2024 | 为科学家整理的问题编写科研代码；其 16 个自然科学子领域分属五大主领域，生物学是其中之一。 | 80 个主问题分解为 338 个子问题，混合知识回忆、推理与代码合成。 | 对照科学家标注的金标准解与测试用例执行。 | [→](../works/scicode.md) |
+| GenoTEX | 2024 | 自动化基因表达分析以研究基因-性状关联：按计算基因组学标准完成数据集选择、预处理与统计分析。 | 911 个数据集上的 1,384 个分析问题（官方仓库）；带自我纠错的多步编程流水线。 | 对照生物信息学家整理的专家标注、参考代码与结果。 | [→](../works/genotex.md) |
+| BixBench | 2025 | 完成取自真实已发表 notebook 分析的探索式计算生物学数据分析。 | 50+ 场景、约 300 个开放式问题（摘要口径；当前仓库为 205 个问题），以容器化执行的多步 agent 轨迹运行。 | LLM 判分的开放作答加精确匹配选择题；多副本多数投票。 | [→](../works/bixbench.md) |
+| BioAgent Bench | 2026 | 完成端到端生物信息学流水线：RNA-seq、变异检测、宏基因组及相关工作流。 | 人工整理的流水线任务，从提示做到具体输出产物，跨多个 agent harness。 | LLM 判分器基于输出产物评进度与有效性；扰动鲁棒性套件（损坏输入、诱饵、提示膨胀）。 | [→](../works/bioagent-bench.md) |
+| scBench | 2026 | 完成能复原已知生物学结果的单细胞 RNA-seq 分析步骤。 | 394 个可验证问题，横跨六种测序平台与七类任务，均从步骤前数据快照出发。 | 确定性判分器检验关键生物学结果的复原；准确率。 | [→](../works/scbench.md) |
+| scBench-Long | 2026 | 在不预设方法的前提下，从原始或近原始数据复原真实单细胞研究已发表的科学结论。 | 21 项长 horizon 评估，覆盖 scRNA/TCR、RNA+ATAC、跨物种与免疫组库数据；1,068 条完成轨迹。 | 受控答案词表配确定性判分与轨迹评分标准。 | [→](../works/scbench-long.md) |
+| SpatialBench | 2025 | 分析真实空间生物学数据以复原已知生物学结果。 | 146 个可验证问题，横跨五种空间技术与七类任务，从步骤前快照出发。 | 确定性判分器检验关键生物学结果的复原；准确率。 | [→](../works/spatialbench.md) |
+| BAISBench | 2025 | 注释细胞类型，并回答锚定于已发表单细胞研究结论的发现类问题。 | 15 个专家标注的注释数据集加派生自 41 项研究的 193 道选择题；六位研究生水平生物信息学家的人类基线。 | 层级化细胞类型树的注释评分，加对照已发表结论的选择题正确率。 | [→](../works/baisbench.md) |
+| BioXArena | 2026 | 在从序列建模到生物医学影像的九个领域上，对生物医学数据构建并训练预测模型。 | 标准化 2 小时单 GPU 环境中的 76 个端到端 ML 任务；agent 针对私有测试样本提交预测。 | 隐藏标签配留出判分器与归一化到 0–1 的生物学感知指标。 | [→](../works/bioxarena.md) |
+| BioProBench | 2025 | 对生物湿实验协议做理解、排序、纠错、生成与推理。 | 22,413 份人工撰写协议的 523,784 个任务实例，五类任务；静态评估。 | 按任务的指标，含步骤召回/精确率、Kendall's tau、精确匹配与 BLEU。 | [→](../works/bioprobench.md) |
+| SciGym | 2025 | 迭代设计实验以揭示隐藏系统生物学模型的机制。 | 在隐藏 SBML 系统上的按序实验设计回合；137 个受评，共发布 350 个。 | 复原模型对照隐藏的真值 SBML 系统。 | [→](../works/scigym.md) |
+| LAB-Bench | 2024 | 考查生物学研究的实用能力：文献、图表、数据库、协议、DNA/蛋白质序列与克隆。 | 八类 / 30 个子任务的 2,400+ 道选择题；静态，可选配工具。 | 对照人类专家生物学研究者的选择题评分。 | [→](../works/lab-bench.md) |
+| LABBench2 | 2026 | 同样的生物学研究能力，置于真实情境：PDF、图片与生物信息学文件。 | 近 1,900 个任务，子任务族经加固并新增专利、来源质量与临床试验。 | 经发布的评估 harness 计算的准确率；较 LAB-Bench 各模型下滑 −26% 至 −46%。 | [→](../works/labbench2.md) |
+| BioKGBench | 2024 | 验证科学主张并深入盘查生物医学知识图谱以定位事实错误。 | 2,000+ 原子实例（主张验证、KGQA）加 225 个标注的 agentic KGCheck 实例，覆盖 UniProt、STRING、Reactome、DisGeNET。 | 原子任务正确率加 agent 级 KGCheck 评分；发现 90 余处真实数据库错误。 | [→](../works/biokgbench.md) |
 
 ## Related Works
 
@@ -37,3 +50,16 @@
 - [ResearchClawBench](../works/researchclawbench.md)
 - [MDArena](../works/mdarena.md)
 - [SciCode](../works/scicode.md)
+- [GenoTEX](../works/genotex.md)
+- [BixBench](../works/bixbench.md)
+- [BioAgent Bench](../works/bioagent-bench.md)
+- [scBench](../works/scbench.md)
+- [scBench-Long](../works/scbench-long.md)
+- [SpatialBench](../works/spatialbench.md)
+- [BAISBench](../works/baisbench.md)
+- [BioXArena](../works/bioxarena.md)
+- [BioProBench](../works/bioprobench.md)
+- [SciGym](../works/scigym.md)
+- [LAB-Bench](../works/lab-bench.md)
+- [LABBench2](../works/labbench2.md)
+- [BioKGBench](../works/biokgbench.md)

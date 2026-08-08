@@ -67,6 +67,26 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **大学课程广度的解题评估。** [PHYSICS](../works/physics-benchmark.md) 整理 1,297 道专家标注的大学水平问题，覆盖物理六大核心领域，配稳健的自动评估系统；受评中最先进的 o3-mini 也只有 59.9%。
 - **按评分标准分解的 AI 论文复现。** [PaperBench](../works/paperbench.md) 让 agent 从零复现 20 篇 ICML 2024 Spotlight 与 Oral 论文，由 LLM judge 对照与作者共同开发的层级式评分标准（共 8,316 个判分节点）打分——judge 本身也被单独评测；最佳 agent 得 21.0%，ML 博士仍然领先。
 - **基于自带代码与数据的可复现性。** [CORE-Bench](../works/core-bench.md) 把计算可复现性单独隔离出来——用 90 篇论文自己的代码与数据重跑其结果，跨三个学科、270 个任务；最好的基线 agent 在最难档上仅 21%。
+- **专家锚定的基因组学流水线。** [GenoTEX](../works/genotex.md) 在基因-性状关联分析上评估 agent——数据集选择、预处理、统计——对照生物信息学家整理的参考流水线（据官方仓库为 911 个数据集上的 1,384 个问题）。
+- **真实 notebook 的生物信息学场景。** [BixBench](../works/bixbench.md) 把 50 余个已发表分析改成开放式探索 agent 任务并容器化执行；前沿模型开放式作答仅 17%，选择题不比随机好。
+- **带扰动鲁棒性的流水线评估。** [BioAgent Bench](../works/bioagent-bench.md) 基于输出产物为端到端生物信息学流水线（RNA-seq、变异检测、宏基因组）判分，并用损坏输入、诱饵文件与提示膨胀施压；流水线搭对不保证步骤级推理可靠。
+- **规模化的沙箱生物医学编码。** [MedAgentGym](../works/medagentgym.md) 在可执行沙箱中运行 72,413 个可验证编码任务实例（129 类、12 个真实生物医学场景），评测 29 个 LLM（并兼作 RL 训练环境）。
+- **确定性判分的单细胞分析。** [scBench](../works/scbench.md) 把六个平台上真实 scRNA-seq 数据的步骤前快照交给 agent，以确定性判分检验其是否复原出关键生物学结果；准确率 29–53%，平台选择与模型选择同等重要。
+- **长 horizon 的单细胞发现。** [scBench-Long](../works/scbench-long.md) 要求 agent 在不预设方法的前提下从近原始数据复原已发表结论，以受控答案词表判分；最强模型-harness 组合通过率 25.4%。
+- **把 harness 当变量的空间生物学。** [SpatialBench](../works/spatialbench.md) 把同一确定性快照设计用于五种空间技术（基础模型 20–38%），并主张 harness 设计应作为一等对象评估。
+- **配人类基线的 AI-scientist 任务。** [BAISBench](../works/baisbench.md) 在 15 个专家标注数据集上为细胞类型注释评分，并在派生自 41 项已发表研究的 193 道发现类选择题上评分，与六位研究生水平生物信息学家对照。
+- **Agent 作为生物医学 ML 工程师。** [BioXArena](../works/bioxarena.md) 在标准化 2 小时/单 GPU 预算与隐藏标签下运行 9 个生物医学领域的 76 个端到端 ML 任务；11 种配置中最佳平均 0.666，无一全面占优。
+- **语料规模的协议推理。** [BioProBench](../works/bioprobench.md) 把 22,413 份湿实验协议扩展为 523,784 个实例、五类任务；凡需深度推理、定量精确或安全意识处，模型表现骤降。
+- **系统生物学干实验。** [SciGym](../works/scigym.md) 让 agent 在隐藏的 SBML 系统上迭代设计实验并提交机制假设；表现随系统复杂度显著下降。
+- **面向研究实践的生物学问答。** [LAB-Bench](../works/lab-bench.md) 用 2,400 余道题测生物学研究的日常动作——文献、图表、数据库、协议、序列、克隆——配人类专家基线。
+- **真实化加固的后继。** [LABBench2](../works/labbench2.md) 让同样的能力面对真实 PDF、图片与数据文件；恢复真实情境让模型付出 26–46 个百分点。
+- **预算受限的分子设计。** [SMDD-Bench](../works/smdd-bench.md) 在有限 oracle 调用预算下布置 502 个保证有解的多轮药物设计任务（102 个蛋白靶点）；GPT-5.4 仅解出 40.2%。
+- **知识图谱审计。** [BioKGBench](../works/biokgbench.md) 把主张验证与 KGQA 组合成 agentic 的 KGCheck 任务——深入盘查生物医学知识图谱找出事实错误——并在生产级数据库中揪出 90 余处真实错误。
+- **实时来源的医学 deep research。** [MedBrowseComp](../works/medbrowsecomp.md) 在 1,000 余道医生整理的问题上要求跨实时试验注册库、监管记录、专利与费用数据做多跳综合。
+- **序贯临床接诊。** [AgentClinic](../works/agentclinic.md) 把医学问答改成有主持的医患交互，带工具并对多种认知与隐性偏倚建模；准确率跌到静态问答的十分之一以下。
+- **FHIR 虚拟 EHR。** [MedAgentBench](../works/medagentbench.md) 在 100 位真实感患者档案上、通过生产级医疗 API 运行 300 个医生撰写的任务；最佳模型 69.67%。
+- **计费的序贯诊断。** [SDBench](../works/sdbench.md) 把 304 个 NEJM-CPC 病例改成守门人中介的接诊，按准确率-成本前沿评分，配 21 位医生、平均 20% 准确率的基线。
+- **预测实验结果。** [BrainBench](../works/brainbench.md) 用困惑度检验模型能否分辨真实与改动结果的神经科学摘要；LLM 超过人类专家且信心有校准——静态 benchmark，因其预报式评估方法学收录。
 
 ## Comparison
 
@@ -127,6 +147,26 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | PHYSICS | 2025 | 1,297 道专家标注的大学水平问题 | 大学物理：六大核心领域 | 稳健的自动评估系统 | [→](../works/physics-benchmark.md) |
 | PaperBench | 2025 | 20 篇 ICML 2024 Spotlight/Oral 论文，与作者共同开发评分标准 | AI 研究复现；8,316 个可判分节点 | LLM judge 对照层级式评分标准打分，judge 本身被单独评测 | [→](../works/paperbench.md) |
 | CORE-Bench | 2024 | 90 篇论文自带代码与数据的 270 个任务 | 计算可复现性：计算机科学、社会科学、医学 | 重现结果的准确率（可并行评估系统校验） | [→](../works/core-bench.md) |
+| GenoTEX | 2024 | 专家整理的基因-性状关联流水线（据官方仓库 1,384 个问题 / 911 个数据集） | 计算基因组学与生物信息学 | 对照生物信息学家整理的参考分析 | [→](../works/genotex.md) |
+| BixBench | 2025 | 来自已发表分析的 50+ 场景、约 300 个开放式问题 | 计算生物学数据分析 | LLM 判分的开放作答 + 精确匹配选择题，容器化执行 | [→](../works/bixbench.md) |
+| BioAgent Bench | 2026 | 人工整理的端到端流水线（RNA-seq、变异检测、宏基因组） | 生物信息学工作流 | LLM 判分器基于输出产物；扰动鲁棒性套件 | [→](../works/bioagent-bench.md) |
+| MedAgentGym | 2025 | 12 个真实生物医学场景的 72,413 个实例 / 129 类 | 生物医学数据科学编码 | 可执行沙箱中的可验证真值 | [→](../works/medagentgym.md) |
+| scBench | 2026 | 394 个可验证问题，六平台、七类 | 单细胞 RNA-seq 分析 | 生物学结果复原的确定性判分 | [→](../works/scbench.md) |
+| scBench-Long | 2026 | 从原始或近原始数据出发的 21 项评估，方法不作规定 | 长 horizon 单细胞生物学 | 受控答案词表；确定性判分加轨迹评分标准 | [→](../works/scbench-long.md) |
+| SpatialBench | 2025 | 146 个可验证问题，五种空间技术 | 空间转录组分析 | 生物学结果复原的确定性判分 | [→](../works/spatialbench.md) |
+| BAISBench | 2025 | 15 个专家标注数据集 + 派生自 41 项研究的 193 道选择题 | 单细胞组学发现 | 层级化细胞类型树的注释评分 + 对照已发表结论的选择题 | [→](../works/baisbench.md) |
+| BioXArena | 2026 | 9 个生物医学领域的 76 个端到端 ML 任务 | 多模态生物医学机器学习 | 隐藏标签、留出判分器、0–1 生物学感知指标；2 小时/单 GPU 预算 | [→](../works/bioxarena.md) |
+| BioProBench | 2025 | 22,413 份人工撰写协议的 523,784 个实例 | 湿实验协议的理解与推理 | 按任务的指标，含步骤召回/精确率与 Kendall's tau | [→](../works/bioprobench.md) |
+| SciGym | 2025 | 137 个受评（共发布 350 个）隐藏 SBML 系统 | 系统生物学实验设计 | 复原模型对照隐藏真值系统 | [→](../works/scigym.md) |
+| LAB-Bench | 2024 | 8 类 2,400+ 道选择题，含 ProtocolQA 与 CloningScenarios | 生物学研究实践 | 对照人类专家基线的选择题评分 | [→](../works/lab-bench.md) |
+| LABBench2 | 2026 | 约 1,900 个任务，基于真实 PDF、图片与数据文件 | 加固后的生物学研究实践 | 经发布的评估 harness 计算的准确率；较 LAB-Bench 为 −26% 至 −46% | [→](../works/labbench2.md) |
+| SMDD-Bench | 2026 | 102 个蛋白靶点上 502 个保证有解的任务 | 小分子药物设计 | 有限 oracle 调用预算下的解出率 | [→](../works/smdd-bench.md) |
+| BioKGBench | 2024 | 2,000+ 原子实例 + 225 个标注 KGCheck 实例 | 生物医学知识图谱 | 主张验证、KGQA 与 agentic 错误定位 | [→](../works/biokgbench.md) |
+| MedBrowseComp | 2025 | 1,000+ 道医生整理的多跳问题 | 实时医学知识库 | 实时检索下对照标准答案检验 | [→](../works/medbrowsecomp.md) |
+| AgentClinic | 2024 | 模拟接诊，九个专科、七种语言 | 作为序贯决策的临床诊断 | 有主持的多 agent 对话下的诊断准确率，含偏差扰动 | [→](../works/agentclinic.md) |
+| MedAgentBench | 2025 | 100 位患者档案上 300 个医生撰写的任务 | FHIR 虚拟 EHR 操作 | 对照参考解的程序化成功率检验 | [→](../works/medagentbench.md) |
+| SDBench | 2025 | 304 个 NEJM-CPC 病例的守门人中介接诊 | 带成本的序贯临床诊断 | 诊断准确率与就诊、检查费用成对报告 | [→](../works/sdbench.md) |
+| BrainBench | 2024 | 200 对原始/改动的神经科学摘要（官方数据集） | 神经科学结果预测 | 二选一强制选择；LLM 用困惑度，人类专家附信心评级 | [→](../works/brainbench.md) |
 
 ## Open Questions
 
@@ -193,6 +233,26 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [PHYSICS](../works/physics-benchmark.md)
 - [PaperBench](../works/paperbench.md)
 - [CORE-Bench](../works/core-bench.md)
+- [GenoTEX](../works/genotex.md)
+- [BixBench](../works/bixbench.md)
+- [BioAgent Bench](../works/bioagent-bench.md)
+- [MedAgentGym](../works/medagentgym.md)
+- [scBench](../works/scbench.md)
+- [scBench-Long](../works/scbench-long.md)
+- [SpatialBench](../works/spatialbench.md)
+- [BAISBench](../works/baisbench.md)
+- [BioXArena](../works/bioxarena.md)
+- [BioProBench](../works/bioprobench.md)
+- [SciGym](../works/scigym.md)
+- [LAB-Bench](../works/lab-bench.md)
+- [LABBench2](../works/labbench2.md)
+- [SMDD-Bench](../works/smdd-bench.md)
+- [BioKGBench](../works/biokgbench.md)
+- [MedBrowseComp](../works/medbrowsecomp.md)
+- [AgentClinic](../works/agentclinic.md)
+- [MedAgentBench](../works/medagentbench.md)
+- [SDBench](../works/sdbench.md)
+- [BrainBench](../works/brainbench.md)
 
 ## Further Reading
 

@@ -16,6 +16,12 @@ Clinical and biomedical-application evaluation: medical tasks, drug discovery, E
 | Terminal-Bench Science | 2026 | Medicine tasks within the Life Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (8 at launch across all five tracks, target 100+), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
 | MetaSyn | 2026 | Conduct protocol-faithful systematic review and meta-analysis; medical science is among the subjects its 422 expert-curated meta-analyses span. | Multi-stage systematic-review workflows: identify the eligible studies for a research question with structured PI/ECO criteria within a shared PubMed-anchored corpus containing ineligible distractors. | Study identification against the original expert reviewers' included set, with stage-wise evaluation locating failures along the meta-analysis pipeline. | [→](../works/metasyn.md) |
 | CORE-Bench | 2024 | Reproduce published computational results from each paper's own code and data; medicine is one of its three disciplines. | 270 tasks from 90 papers at three difficulty levels, in language-only and vision-language forms. | Accuracy of reproduced results, checked by a fast, parallelizable evaluation harness. | [→](../works/core-bench.md) |
+| MedAgentGym | 2025 | Solve code-centric biomedical data-science tasks, including EHR-derived scenarios (MIMIC-III, eICU per the official repository). | 72,413 task instances across 129 categories from 12 real scenarios, in executable sandboxes with interactive feedback. | Verifiable ground-truth annotations checked in sandboxes; 29 LLMs benchmarked. | [→](../works/medagentgym.md) |
+| SMDD-Bench | 2026 | Design small-molecule drugs against protein targets: pharmacophores, interaction points, scaffold hopping, lead optimization, fragment assembly. | 502 guaranteed-solvable multi-turn tasks over 102 protein targets, under a limited oracle-call budget. | Solve rate over guaranteed-solvable instances; best frontier model 40.2%. | [→](../works/smdd-bench.md) |
+| MedBrowseComp | 2025 | Retrieve and reconcile multi-hop medical facts across live sources: trials, primary studies, regulatory records, patents, cost data. | 1,000+ physician-curated questions in deep-research and computer-use splits (50/605/484 per the official dataset). | Gold-answer checking over live retrieval. | [→](../works/medbrowsecomp.md) |
+| AgentClinic | 2024 | Diagnose patients through sequential dialogue, multimodal data collection under incomplete information, and tool use. | Simulated clinical encounters across nine specialties and seven languages, with patient, measurement, and moderator agents. | Diagnostic accuracy with bias perturbations and patient-centric metrics; supported by real EHRs and a clinical reader study. | [→](../works/agentclinic.md) |
+| MedAgentBench | 2025 | Execute physician-written clinical tasks against production-standard EHR interfaces. | 300 patient-specific tasks in 10 categories over 100 realistic profiles (700K+ data elements) in a FHIR-compliant environment. | Programmatic success-rate checking against reference solutions; best model 69.67%. | [→](../works/medagentbench.md) |
+| SDBench | 2025 | Reach diagnoses by iteratively querying a gatekeeper for findings and ordering costed tests. | 304 NEJM-CPC cases as sequential encounters; physician cohort baseline (21 clinicians, 20% mean accuracy). | Diagnostic accuracy scored jointly with the cost of visits and tests. | [→](../works/sdbench.md) |
 
 ## Related Works
 
@@ -25,3 +31,9 @@ Clinical and biomedical-application evaluation: medical tasks, drug discovery, E
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [MetaSyn](../works/metasyn.md)
 - [CORE-Bench](../works/core-bench.md)
+- [MedAgentGym](../works/medagentgym.md)
+- [SMDD-Bench](../works/smdd-bench.md)
+- [MedBrowseComp](../works/medbrowsecomp.md)
+- [AgentClinic](../works/agentclinic.md)
+- [MedAgentBench](../works/medagentbench.md)
+- [SDBench](../works/sdbench.md)

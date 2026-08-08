@@ -16,6 +16,12 @@
 | Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Life Sciences 分组下的医学任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | MetaSyn | 2026 | 进行忠实于协议的系统综述与 meta 分析；医学是其 422 个专家整理 meta 分析所覆盖的主题之一。 | 多阶段系统综述工作流：在掺入不合格干扰文献的共享 PubMed 文献库中，依据带结构化 PI/ECO 标准的研究问题找出应纳入的研究。 | 对照原综述作者实际纳入的研究集做识别评估，并以分阶段评估定位 meta 分析流程中的失败环节。 | [→](../works/metasyn.md) |
 | CORE-Bench | 2024 | 用论文自带的代码与数据重现已发表的计算结果；医学是其三个学科之一。 | 90 篇论文的 270 个任务，分三档难度，含纯语言与视觉-语言两种形式。 | 重现结果的准确率，由快速、可并行的评估系统校验。 | [→](../works/core-bench.md) |
+| MedAgentGym | 2025 | 解决以代码为中心的生物医学数据科学任务，含 EHR 场景（据官方仓库为 MIMIC-III、eICU）。 | 12 个真实场景的 72,413 个任务实例、129 类，在带交互反馈的可执行沙箱中。 | 沙箱中检验的可验证真值标注；29 个 LLM 受评。 | [→](../works/medagentgym.md) |
+| SMDD-Bench | 2026 | 面向蛋白靶点设计小分子药物：药效团、相互作用位点、骨架跃迁、先导化合物优化、片段组装。 | 102 个蛋白靶点上 502 个保证有解的多轮任务，受有限 oracle 调用预算约束。 | 保证有解实例上的解出率；最佳前沿模型 40.2%。 | [→](../works/smdd-bench.md) |
+| MedBrowseComp | 2025 | 跨实时来源检索并调和多跳医学事实：试验、一手研究、监管记录、专利与费用数据。 | 1,000+ 道医生整理的问题，分 deep-research 与 computer-use 切分（据官方数据集为 50/605/484）。 | 实时检索下对照标准答案检验。 | [→](../works/medbrowsecomp.md) |
+| AgentClinic | 2024 | 通过序贯对话、不完全信息下的多模态数据采集与工具使用为患者作出诊断。 | 覆盖九个专科与七种语言的模拟临床接诊，配患者、检查与主持 agent。 | 带偏差扰动与以患者为中心指标的诊断准确率；由真实 EHR 与临床阅读者研究支撑。 | [→](../works/agentclinic.md) |
+| MedAgentBench | 2025 | 通过生产级 EHR 接口执行医生撰写的临床任务。 | 100 位真实感患者档案（70 万+ 数据元素）上、10 类共 300 个患者级任务，环境符合 FHIR 标准。 | 对照参考解的程序化成功率检验；最佳模型 69.67%。 | [→](../works/medagentbench.md) |
+| SDBench | 2025 | 通过向守门人迭代索取发现并开具带费用的检查来作出诊断。 | 304 个 NEJM-CPC 病例的序贯接诊；医生队列基线（21 位临床医生，平均准确率 20%）。 | 诊断准确率与就诊、检查费用联合评分。 | [→](../works/sdbench.md) |
 
 ## Related Works
 
@@ -25,3 +31,9 @@
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [MetaSyn](../works/metasyn.md)
 - [CORE-Bench](../works/core-bench.md)
+- [MedAgentGym](../works/medagentgym.md)
+- [SMDD-Bench](../works/smdd-bench.md)
+- [MedBrowseComp](../works/medbrowsecomp.md)
+- [AgentClinic](../works/agentclinic.md)
+- [MedAgentBench](../works/medagentbench.md)
+- [SDBench](../works/sdbench.md)
