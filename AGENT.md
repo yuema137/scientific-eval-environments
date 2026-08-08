@@ -23,7 +23,7 @@ The repository must remain **objective**. It must **not** contain discussion abo
 
 ## Repository Organization
 
-The repository has **only two primary knowledge layers**.
+The repository has **two primary knowledge layers** — works and topics — plus one **lightweight index layer**, domains.
 
 ### Layer 1 — Works
 
@@ -107,6 +107,53 @@ Adding a new canonical topic is a structural decision that requires updating thi
 
 There is **no global comparison matrix**. Each topic owns its own comparison dimensions.
 
+### Layer 3 — Domains (index layer)
+
+Directory: `domains/`
+
+Domains aggregate works by the **science or engineering domain they evaluate in** — an orthogonal axis to topics, which aggregate by evaluation methodology. A CFD benchmark and a proof-verification benchmark may share a topic (e.g., Skill Hierarchy) while living in different domains (Mechanical & Aerospace Engineering vs. Mathematics).
+
+Domain pages are **indexes, not literature reviews**. All synthesis — comparison tables, open questions — stays in topic pages.
+
+**Canonical domain taxonomy.** The repository organizes domains around this fixed set:
+
+| Group | Domain | File |
+|---|---|---|
+| Science | Physics | `physics.md` |
+| Science | Astronomy | `astronomy.md` |
+| Science | Mathematics | `mathematics.md` |
+| Science | Chemistry | `chemistry.md` |
+| Science | Biology | `biology.md` |
+| Science | Neuroscience & Cognitive Science | `neuroscience_cognitive_science.md` |
+| Science | Medicine & Health | `medicine_health.md` |
+| Science | Earth Science | `earth_science.md` |
+| Science | Environmental Science | `environmental_science.md` |
+| Science | Materials Science | `materials_science.md` |
+| Science | Computer Science | `computer_science.md` |
+| Science | AI & Machine Learning Research | `ai_ml_research.md` |
+| Engineering | Mechanical & Aerospace Engineering | `mechanical_aerospace_engineering.md` |
+| Engineering | Electrical Engineering | `electrical_engineering.md` |
+| Engineering | Energy Systems | `energy_systems.md` |
+| Engineering | Chemical Engineering | `chemical_engineering.md` |
+| Engineering | Civil & Structural Engineering | `civil_structural_engineering.md` |
+| Engineering | Robotics | `robotics.md` |
+| Engineering | Software & Systems Engineering | `software_systems_engineering.md` |
+
+Adding a new canonical domain is a structural decision that requires updating this table.
+
+**Domain page template:**
+
+- **Scope** — one or two sentences: what counts, including fold rules.
+- **Related Works** — links to work cards with a one-line hook each. A domain with no documented works yet states so explicitly.
+
+**Rules:**
+
+- **Folds, not new domains.** Narrower fields fold into canonical domains: bioinformatics / genomics / single-cell → Biology; particle / nuclear / quantum physics → Physics; GIS / geospatial → Earth Science; ecology → Environmental Science; psychology → Neuroscience & Cognitive Science; formal verification of software → Software & Systems Engineering.
+- **A work may belong to multiple domains.** Multi-domain suites (e.g., a benchmark spanning ten scientific fields) appear in every domain they cover.
+- **No catch-all.** Works with no science or engineering domain — web/UI agents, computer use, generic tool use, evaluation methodology, surveys — simply do not appear in the domain index. UI and computer-use environments are **not** science or engineering domains, even when technically demanding.
+- **One-way mapping, maintained on domain pages only.** Unlike the redundant Topics mapping, cards are **not** modified for the domain axis: the card template stays stable, and the card's existing `## Domains` prose section is the evidence for domain assignment. When a card's `## Domains` section changes, check the domain pages for needed updates.
+- **Assignment must be verifiable.** A work is placed in a domain only if its card's `## Domains` section (backed by the paper) names that domain or a field that folds into it. If a paper says "5 engineering categories" without naming them, the work is not force-assigned — it waits until the categories are verified.
+
 ---
 
 ## Relationship Between Works and Topics
@@ -132,6 +179,12 @@ AgentBoard             → trajectory_evaluation, skill_hierarchy
 
 ```
 Topic  →  Representative works  →  Original papers
+```
+
+The domain index provides the alternative entry point for readers who arrive with a field rather than a methodology in mind:
+
+```
+Domain  →  Works evaluated in that domain  →  Original papers
 ```
 
 ---
@@ -196,7 +249,7 @@ Maintain both English and Chinese versions.
 
 **English is always the canonical version.**
 
-Chinese pages mirror the English tree under `zh/` (`zh/works/`, `zh/topics/`).
+Chinese pages mirror the English tree under `zh/` (`zh/works/`, `zh/topics/`, `zh/domains/`).
 
 **Cadence.** English and Chinese documentation must not diverge for long. The working cycle is:
 

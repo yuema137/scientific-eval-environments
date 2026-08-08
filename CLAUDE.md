@@ -2,11 +2,12 @@
 
 The maintainer constitution is canonical in [`AGENT.md`](./AGENT.md). Read it before making changes.
 
-## Two-layer model
+## Layer model
 
 - **`works/`** — flat directory, one Markdown file per work. Factual references only.
   Template: Overview, **Topics** (metadata block), Links, Summary, Tasks, Domains, Evaluation, Typical Duration, Main Contribution, Key Design Ideas, Strengths, Limitations, Related Works. **No** "Gap to Our Work" or positioning sections.
 - **`topics/`** — literature reviews. Each topic owns its own comparison table. No global matrix.
+- **`domains/`** — lightweight index by science/engineering domain (orthogonal to topics, which index by methodology). Pages hold only Scope + Related Works with one-line hooks; no synthesis, no comparison tables.
 
 "Works" is broader than "benchmarks" — the layer holds cards for benchmarks, methodologies, evaluation frameworks, surveys, position papers, and evaluation-focused RL contributions on agents. Non-benchmark works fill inapplicable sections with `N/A` and a short note.
 
@@ -30,12 +31,21 @@ A work card lists its topics in the `Topics` block; each topic page lists its wo
 
 Skill Hierarchy and Credit Assignment are independent topics — do not merge.
 
+## Canonical domain taxonomy (fixed)
+
+19 domains in two groups; full table in `AGENT.md`.
+
+- **Science:** Physics, Astronomy, Mathematics, Chemistry, Biology, Neuroscience & Cognitive Science, Medicine & Health, Earth Science, Environmental Science, Materials Science, Computer Science, AI & Machine Learning Research.
+- **Engineering:** Mechanical & Aerospace, Electrical, Energy Systems, Chemical, Civil & Structural, Robotics, Software & Systems.
+
+Domain rules: narrower fields **fold** into canonical domains (bioinformatics → Biology, GIS → Earth Science, psychology → Neuroscience & Cognitive Science, …); a work may belong to multiple domains; **no catch-all** — works without a science/engineering domain (web/UI agents, computer use, methodology, surveys) do not appear; mapping is **one-way, maintained on domain pages only** — cards are never modified for the domain axis, and a card's `## Domains` prose is the assignment evidence; unverifiable domain membership is not assigned.
+
 ## Working rules
 
 - **Two-level reference validation.**
   - *Link validation*: title, URL, project, venue, year.
   - *Content validation*: statistics, task counts, metrics, reported numbers, settings — from the **original paper or official project only**, never secondary sources. Unverifiable content becomes `TODO(reference)`.
-- **English is canonical.** Chinese mirrors under `zh/` (`zh/works/`, `zh/topics/`) sync after every English batch — not deferred.
+- **English is canonical.** Chinese mirrors under `zh/` (`zh/works/`, `zh/topics/`, `zh/domains/`) sync after every English batch — not deferred.
 - **Objective only.** No "our benchmark" / "our approach" / positioning language anywhere in `works/` or `topics/`.
 - **Link, do not copy.** Prefer cross-references over duplicating content.
 - **Card template is stable.** Do not churn its structure. New evaluation dimensions extend topic pages, not card fields.
