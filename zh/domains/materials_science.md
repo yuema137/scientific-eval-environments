@@ -14,6 +14,8 @@
 | AutoMat | 2026 | 端到端复现计算材料科学论文中的论断，覆盖统计/ML 方法、密度泛函理论、分子动力学与离散位错动力学。 | 85 个专家整理的论断复现任务，分三类（from-paper、from-artifact 复现、from-artifact 解读），在资源受控的 HPC 式环境中运行。 | 可浏览工件的 LLM 评估 agent 对照隐藏的专家复现步骤打 1–5 分（≥4 为成功），与盲评专家评分的二次加权 kappa 校准为 0.69。 | [→](../works/automat.md) |
 | Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Physical Sciences 分组下的材料科学任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Material 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文工件的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
+| Agentic Self-Driving Microscopy Benchmarks | 2026 | 通过 agentic 工作流控制显微镜与材料表征仪器，并检验 benchmark 分数能否泛化到未见任务。 | 53 个 benchmark 测试跑遍 105 种 agent 配置（图拓扑 × 五个 LLM × RAG/上下文参数）；1,949 次运行，附完整轨迹日志。 | 带轨迹日志的 benchmark 测试，比较时延、token、成本与失败模式；用代理模型在未见任务上做预测来检验泛化性。 | [→](../works/agentic-microscopy-benchmarks.md) |
+| SciCode | 2024 | 为科学家整理的问题编写科研代码；其 16 个自然科学子领域分属五大主领域，材料科学是其中之一。 | 80 个主问题分解为 338 个子问题，混合知识回忆、推理与代码合成。 | 对照科学家标注的金标准解与测试用例执行。 | [→](../works/scicode.md) |
 
 ## Related Works
 
@@ -21,3 +23,5 @@
 - [AutoMat](../works/automat.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [ResearchClawBench](../works/researchclawbench.md)
+- [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md)
+- [SciCode](../works/scicode.md)

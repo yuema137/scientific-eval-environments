@@ -17,6 +17,7 @@
 | MDArena | 2026 | 运行真实的分子动力学计算化学工作流：轨迹分析、体系搭建、炼金术式（alchemical）自由能计算与增强采样。 | 源自在研项目的 50 个容器化任务，覆盖 29 个分子体系与 14 种研究方案。 | 以 Strict-Pass@1 为主指标，另以 correctness 与过程奖励指标为部分进展计分。 | [→](../works/mdarena.md) |
 | PhySciBench | 2026 | 在物理与化学各半的题集中回答化学侧的专家 deep-research 问题，针对推理链脆弱、跨步骤知识迁移有限与缺少自我验证。 | 200 道专家整理的问题，物理与化学各半，组织为呼应真实科研工作流的六类任务。 | 基于准确率比较最先进模型与 agent 系统，并在准确率之外报告成本。 | [→](../works/physcibench.md) |
 | MetaSyn | 2026 | 进行忠实于协议的系统综述与 meta 分析；化学是其 422 个专家整理 meta 分析所覆盖的主题之一。 | 多阶段系统综述工作流：在掺入不合格干扰文献的共享 PubMed 文献库中，依据带结构化 PI/ECO 标准的研究问题找出应纳入的研究。 | 对照原综述作者实际纳入的研究集做识别评估，并以分阶段评估定位 meta 分析流程中的失败环节。 | [→](../works/metasyn.md) |
+| SciCode | 2024 | 为科学家整理的问题编写科研代码；其 16 个自然科学子领域分属五大主领域，化学是其中之一。 | 80 个主问题分解为 338 个子问题，混合知识回忆、推理与代码合成。 | 对照科学家标注的金标准解与测试用例执行。 | [→](../works/scicode.md) |
 
 ## Related Works
 
@@ -27,3 +28,4 @@
 - [MDArena](../works/mdarena.md)
 - [PhySciBench](../works/physcibench.md)
 - [MetaSyn](../works/metasyn.md)
+- [SciCode](../works/scicode.md)

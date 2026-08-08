@@ -36,6 +36,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - **Skill-aware trajectory verification.** [SkillTV-Bench](../works/skilltv-bench.md) benchmarks LLM-as-a-Judge and Agent-as-a-Judge methods on 681 real trajectories from skill-augmented executions — a setting where the judge needs task-aware skill knowledge to verify correctly. Its SkillTV-Evolve loop distills misjudged cases into a reusable JudgeSkill that raises the same judge's accuracy by 14.8 percentage points and lifts best-of-ten trajectory selection from 22.9% to 45.5%.
 - **Localize-attribute-repair auditing of failed search runs.** [SearchAuditor](../works/searchauditor.md) turns failure analysis into a benchmarked task over SearchAuditBench's 1,243 expert-annotated failed deep-search trajectories (averaging 65.1K tokens), grading critical-step localization, search-specific root-cause attribution, and rubric-graded repair end to end.
 - **Error-lifecycle tracing.** [TRAJDEBUG](../works/trajdebug.md) separates errors an agent later recovers from errors that actually determine failure, via multi-granularity history compression, evidence-based error identification, and resolution-status tracing, anchored by TrajErrBench's 486 manually annotated failed trajectories from Tau2Bench and SWE-Bench Pro.
+- **Execution-trace semantic evaluation.** [EnvTrace](../works/envtrace.md) scores LLM-generated instrument-control code by executing it against a synchrotron-beamline digital twin and aligning execution traces into a multi-faceted functional-correctness score — trajectory comparison standing in for unit tests where correctness is physical behavior over time; 30+ LLMs evaluated.
 
 ## Comparison
 
@@ -64,6 +65,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 | SkillTV-Bench | 2026 | Judge accuracy on skill-augmented executions + rollout-pool selection success | Skill-augmented agent execution (11 domains) | [→](../works/skilltv-bench.md) |
 | SearchAuditor | 2026 | End-to-end pass on critical-step localization, root-cause attribution, and rubric-graded repair | Long-horizon deep-search trajectories | [→](../works/searchauditor.md) |
 | TRAJDEBUG | 2026 | Error identification + critical attribution via resolution status and terminal impact | Tool-use and coding failed trajectories | [→](../works/trajdebug.md) |
+| EnvTrace | 2025 | Execution-trace alignment against a digital twin; multi-faceted functional-correctness score | Instrument-control code (synchrotron beamlines) | [→](../works/envtrace.md) |
 
 ## Open Questions
 
@@ -99,6 +101,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - [SkillTV-Bench](../works/skilltv-bench.md)
 - [SearchAuditor](../works/searchauditor.md)
 - [TRAJDEBUG](../works/trajdebug.md)
+- [EnvTrace](../works/envtrace.md)
 
 ## Further Reading
 

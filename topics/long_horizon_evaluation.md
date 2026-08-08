@@ -31,6 +31,10 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - **Asynchronous environments.** [Gaia2](../works/gaia2.md) runs 1,120 scenarios in event-driven environments that advance on their own clock rather than only when the agent acts, making temporal awareness a scored capability: GPT-5 (high) leads at 42.1% pass@1 overall yet scores 0.0 on the Time split, and every evaluated model scores below 9 there.
 - **Terminal report quality over a research horizon.** [DeepResearch Bench](../works/deepresearch-bench.md) covers the same deep-research horizon as TRACE but deliberately scores only the end product, on the grounds that commercial agents' internal retrieval and reasoning are not observable: 100 expert-authored tasks whose topical mix is compressed from 44,019 filtered real user queries, judged by a reference-based adaptive-criteria framework (RACE) alongside live citation verification (FACT). Gemini-2.5-Pro Deep Research leads at 48.88 RACE overall, and the citation-grounding ordering diverges from the report-quality ordering.
 - **Iterative engineering optimization.** [Frontier-Eng](../works/frontier-eng.md) makes the horizon an optimization trajectory: over 47 real-world engineering tasks, the agent repeatedly proposes a candidate design, receives continuous reward from an industrial-grade simulator under hard feasibility constraints, and revises within a fixed interaction budget — with both improvement frequency and improvement magnitude decaying as power laws across the trajectory.
+- **Mergeability as the target.** [FrontierCode](../works/frontiercode.md) (Cognition; industry benchmark, no paper) grades PR-scale tasks in real open-source repositories on whether a maintainer would actually merge the result — correctness, test quality, scope discipline, style — via an ensemble of tests, rubrics, and verifiers, with solution-consulting runs zeroed.
+- **Open-ended survival horizon.** [KellyBench](../works/kellybench.md) drops agents into a season-long simulation of non-stationary sports-betting markets where the objective is long-term bankroll growth; every frontier model evaluated loses money on average (best −8%), and a human-expert rubric rates their strategies as unsophisticated.
+- **The interactive transfer gap.** [SWE-Interact](../works/swe-interact.md) reruns software-engineering tasks as multi-turn, user-driven sessions with progressively revealed requirements; models that solve ~50% single-turn drop to ~25% interactive.
+- **Replayed real sessions.** [SWE-Together](../works/swe-together.md) curates 109 verifiable repository-level tasks from 11,260 real user-agent sessions and replays them through an intent-preserving user simulator, scoring final correctness together with the corrective feedback turns the agent consumes.
 
 ## Comparison
 
@@ -53,6 +57,10 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | Toolathlon | 2025 | 108 cross-app tasks; ~20 turns on average (100-turn cap); avg 69.9 tools exposed per task | 32 real applications / 604 tools via MCP; containerized + remote; state-based scripts | [→](../works/toolathlon.md) |
 | Frontier-Eng | 2026 | 47 tasks; iterative propose-execute-evaluate loops under a fixed interaction budget | Industrial-grade engineering simulators (continuous reward, hard feasibility constraints) | [→](../works/frontier-eng.md) |
 | DeepResearch Bench | 2025 | 100 PhD-level research-report tasks; horizon unbudgeted and scored only at the end product | Commercial deep research agents + search-enabled LLMs; reference-based LLM-judge report scoring + live citation verification | [→](../works/deepresearch-bench.md) |
+| FrontierCode | 2026 | PR-scale end-to-end tasks authored at 40+ hours each; graded on mergeability | Real open-source repositories (industry benchmark; ensemble of tests, rubrics, verifiers) | [→](../works/frontiercode.md) |
+| KellyBench | 2026 | A full simulated season of sequential decisions; ruin is absorbing | Non-stationary sports-betting markets (2023–24 EPL simulation) | [→](../works/kellybench.md) |
+| SWE-Interact | 2026 | Multi-turn user-driven sessions; ~50% single-turn vs. ~25% interactive | Software engineering with a simulated user revealing requirements progressively | [→](../works/swe-interact.md) |
+| SWE-Together | 2026 | 109 replayed repository-level sessions; corrective-turn counting alongside correctness | Real-session-derived interactive coding via an intent-preserving user simulator | [→](../works/swe-together.md) |
 
 ## Open Questions
 
@@ -80,6 +88,10 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - [Toolathlon](../works/toolathlon.md)
 - [Frontier-Eng](../works/frontier-eng.md)
 - [DeepResearch Bench](../works/deepresearch-bench.md)
+- [FrontierCode](../works/frontiercode.md)
+- [KellyBench](../works/kellybench.md)
+- [SWE-Interact](../works/swe-interact.md)
+- [SWE-Together](../works/swe-together.md)
 
 ## Further Reading
 
