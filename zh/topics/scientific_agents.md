@@ -34,6 +34,8 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **整体、成本受控的研究套件。** [AstaBench](../works/astabench.md) 聚合 11 个 benchmark、2,400+ 个问题，覆盖文献理解、代码与执行、数据分析、端到端发现，在标准工具下以时间不变的美元成本核算为 57 个 agent 打分。
 - **以文献发现为评估目标。** [AutoResearchBench](../works/autoresearchbench.md) 用 1,000 条查询把自主研究中的文献查找环节单独拿出来评估，分两类任务——Deep Research（通过渐进式多步探查追踪一篇目标论文）与 Wide Research（全面收集满足给定条件的所有论文）——并报告最强模型分别仅达到 9.39% accuracy 与 9.31% IoU，尽管它们已基本攻克 BrowseComp 等通用 agentic browsing benchmark。
 - **在真实仪器上物理执行。** [AFMBench](../works/afmbench.md) 要求 agent 在一台真正的原子力显微镜而非仿真器上完成 100 个经整理的任务，并报告材料科学问答能力并不迁移：Claude-3.5-Sonnet 的错误率达 51.6%，而最佳模型的总体任务完成率为 65%，在文档记录与分析合并时则跌至 23.3%。
+- **单一仿真学科内的分层评估。** [CFDLLMBench](../works/cfdllmbench.md) 把领域固定在计算流体力学，转而改变能力的深度：90 道研究生水平题、24 个 PDE 求解器编程题、126 个 OpenFOAM 算例；物理准确性由相对参考解的归一化误差、以及解在网格与时间步细化下是否收敛来评判。分数从知识层的 92% 一路跌到求解器编程的约 14%，以及 OpenFOAM Basic / Advanced 两档的 34% / 25%。
+- **仿真器反馈下的迭代式生成优化。** [Frontier-Eng](../works/frontier-eng.md) 把真实工程评估构造成 propose-execute-evaluate 循环：47 个任务横跨 5 个工程类别，工业级仿真器在硬性可行性约束下返回连续奖励，agent 在固定交互预算内修订。论文在 8 个 frontier LLM 上报告改进频率与改进幅度的双 power-law 衰减，并发现在受约束工程问题上深度比广度更重要。
 
 ## Comparison
 
@@ -61,6 +63,8 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | AstaBench | 2025 | 作者自建 + 改编数据集，多来自 Asta 用户请求 | 全流程：文献、代码、数据分析、端到端发现（CS 加权） | LLM-judge 评分标准 + 程序化打分，带成本核算 | [→](../works/astabench.md) |
 | AFMBench | 2025 | 100 个专家整理的任务，沿工具数、agent 数、复杂度与功能领域分层 | 材料的扫描探针显微术 | 在 Nanosurf DriveAFM 上物理执行；按领域的完成率加一套命名的错误分类 | [→](../works/afmbench.md) |
 | AutoResearchBench | 2026 | 1,000 条查询，由基于论文全文与引用图的 full-text-first 人机协同流水线构建 | 科学文献发现（八个核心 CS 领域） | 对照已验证答案集的精确匹配 accuracy（Deep Research）与集合级 IoU（Wide Research） | [→](../works/autoresearchbench.md) |
+| Frontier-Eng | 2026 | 47 个真实工程任务，横跨 5 个工程类别 | 真实工程（工业级仿真器） | 硬性可行性约束下的连续仿真器奖励；固定交互预算 | [→](../works/frontier-eng.md) |
+| CFDLLMBench | 2025 | 90 道专家撰写的题目、24 个 PDE 编程题、126 个 OpenFOAM 算例（110 个由 tutorial 派生 + 16 个手工设计） | 计算流体力学 | 执行 + 相对参考解的归一化误差 + 网格/时间步细化下的收敛性 | [→](../works/cfdllmbench.md) |
 
 ## Open Questions
 
@@ -94,6 +98,8 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [AstaBench](../works/astabench.md)
 - [AFMBench](../works/afmbench.md)
 - [AutoResearchBench](../works/autoresearchbench.md)
+- [Frontier-Eng](../works/frontier-eng.md)
+- [CFDLLMBench](../works/cfdllmbench.md)
 
 ## Further Reading
 

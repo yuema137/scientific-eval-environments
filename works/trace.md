@@ -67,3 +67,4 @@ Argues explicitly that trajectories should be first-class evaluation objects for
 
 - [FinTrace](./fintrace.md) — Also multi-dimensional trajectory evaluation, in finance rather than deep research.
 - [AgentBoard](./agentboard.md) — Trajectory evaluation via subgoal progress rate rather than a hierarchical utility function.
+- [DeepResearch Bench](./deepresearch-bench.md) — Also evaluates deep-research agents, but scores the final report and its citations rather than the trajectory. Repository note: it is a separate work that shares a name with TRACE's companion task set "DeepResearch-Bench".

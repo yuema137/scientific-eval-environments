@@ -23,6 +23,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - **按保真度定价的测量预算。** [MaD Physics](../works/mad-physics.md) 对每次观测收取随其精度上升的成本，并对每个 trial 的总花费设上限，使 agent 必须在固定预算下分配测量，以推断一条未知的——有时被改动的——物理定律。
 - **作为在线控制信号的预算。** [BAGEN](../works/bagen.md) 让 agent 在每一轮预测剩余预算的上界与下界并标记不可行，把资源使用作为逐步的估计目标而非执行后的统计来评分。
 - **把评估调用作为预算化的资源。** [VeRO / VeRO-Bench](../works/vero.md) 在硬性评估调用预算下 benchmark 优化其他 agent 的 coding agent：对目标 agent 的每次打分都经过门控评估器，扣减 n_E ≤ B 并阻断超额请求，对应昂贵查询下的黑盒优化设定；B ∈ {2, 4, 8, 16, 32} 的预算消融把预算效应与能力效应区分开。
+- **迭代式设计优化上的交互预算。** [Frontier-Eng](../works/frontier-eng.md) 为每个真实工程任务的 propose-execute-evaluate 循环设置固定交互预算：agent 必须分配有限次数的仿真器交互，在连续奖励与硬性可行性约束下细化候选设计，使 benchmark 内在具备 resource-aware 属性。
 - **成本–性能前沿式报告。** 另一些工作在 accuracy 之外同时报告 token 或 dollar 成本，用于在 Pareto 前沿上而非单一 accuracy 数字上做比较。这是分析时的资源意识，而非 benchmark 内部的资源意识。
 
 ## Comparison
@@ -35,6 +36,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 | MaD Physics | 2026 | 测量成本（按保真度定价的观测） | agent 分配的每个 trial 固定预算 | 模拟经典 / 流体 / 量子物理 | [→](../works/mad-physics.md) |
 | BAGEN | 2026 | Token；时间 / 占用 / 成本 | 预测目标 + 提前停止目标 | 谜题 / 检索 / 编码 / 供应链 | [→](../works/bagen.md) |
 | VeRO / VeRO-Bench | 2026 | 对目标 agent 的评估调用（门控预算 n_E ≤ B） | 强制硬约束——优化器须分配昂贵的评估 | 覆盖 5 个目标 agent 任务套件的 agent-harness 优化 | [→](../works/vero.md) |
+| Frontier-Eng | 2026 | 仿真器交互（每任务固定预算） | 对 propose-execute-evaluate 循环的硬性上限 | 真实工程优化；47 个任务、5 个类别 | [→](../works/frontier-eng.md) |
 
 ## Open Questions
 
@@ -51,6 +53,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - [MaD Physics](../works/mad-physics.md) — 模拟物理中按保真度定价的测量预算；agent 在测量的质与量之间权衡以推断被改动的物理定律。
 - [BAGEN](../works/bagen.md) — 跨 token 与多资源 agent 的渐进式预算区间预测与可训练的提前停止。
 - [VeRO / VeRO-Bench](../works/vero.md) — 在门控评估调用预算下把 coding agent 作为 agent 优化器来 benchmark。
+- [Frontier-Eng](../works/frontier-eng.md) — 固定仿真器交互预算下的迭代式工程优化。
 
 ## Further Reading
 

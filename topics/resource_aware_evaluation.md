@@ -23,6 +23,7 @@ Two meaningful distinctions structure the space:
 - **Fidelity-priced measurement budgets.** [MaD Physics](../works/mad-physics.md) charges each observation a cost that rises with its precision and caps total spend per trial, so agents must allocate a fixed budget across measurements to infer an unknown — and sometimes altered — physical law.
 - **Budget as an online control signal.** [BAGEN](../works/bagen.md) makes the agent predict an upper and lower bound on remaining budget at every turn and flag infeasibility, scoring resource use as a per-step estimation target rather than a post-execution tally.
 - **Evaluation calls as the budgeted resource.** [VeRO / VeRO-Bench](../works/vero.md) benchmarks coding agents that optimize other agents under a hard evaluation-call budget: every scoring of the target agent passes through a gated evaluator that decrements n_E ≤ B and blocks requests beyond it, mirroring black-box optimization with expensive queries; a budget ablation over B ∈ {2, 4, 8, 16, 32} separates budget effects from capability effects.
+- **Interaction budget on iterative design optimization.** [Frontier-Eng](../works/frontier-eng.md) bounds each real-world engineering task with a fixed interaction budget on its propose-execute-evaluate loop: the agent must allocate a limited number of simulator interactions to refine a candidate design under continuous reward and hard feasibility constraints, making the benchmark inherently resource-aware.
 - **Cost-performance frontier reporting.** Other work reports accuracy alongside token or dollar cost so that agents can be compared on a Pareto frontier rather than a single accuracy number. This is analysis-time resource-awareness rather than benchmark-time resource-awareness.
 
 ## Comparison
@@ -35,6 +36,7 @@ Two meaningful distinctions structure the space:
 | MaD Physics | 2026 | Measurement cost (fidelity-priced observations) | Fixed per-trial budget the agent allocates | Simulated classical / fluid / quantum physics | [→](../works/mad-physics.md) |
 | BAGEN | 2026 | Tokens; time / occupancy / cost | Prediction target + early-stop objective | Puzzle / retrieval / coding / supply-chain | [→](../works/bagen.md) |
 | VeRO / VeRO-Bench | 2026 | Evaluation calls on the target agent (gated budget n_E ≤ B) | Enforced hard constraint — optimizer allocates expensive evaluations | Agent-harness optimization over 5 target-agent task suites | [→](../works/vero.md) |
+| Frontier-Eng | 2026 | Simulator interactions (fixed per-task budget) | Hard bound on the propose-execute-evaluate loop | Real-world engineering optimization; 47 tasks, 5 categories | [→](../works/frontier-eng.md) |
 
 ## Open Questions
 
@@ -51,6 +53,7 @@ Two meaningful distinctions structure the space:
 - [MaD Physics](../works/mad-physics.md) — Fidelity-priced measurement budgets in simulated physics; agents trade measurement quality against quantity to infer altered physical laws.
 - [BAGEN](../works/bagen.md) — Progressive budget-interval prediction with trainable early-stopping across token and multi-resource agents.
 - [VeRO / VeRO-Bench](../works/vero.md) — Benchmarking coding agents as agent optimizers under a gated evaluation-call budget.
+- [Frontier-Eng](../works/frontier-eng.md) — Iterative engineering optimization under a fixed simulator-interaction budget.
 
 ## Further Reading
 

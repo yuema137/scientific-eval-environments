@@ -67,3 +67,4 @@ Deep research agent 任务：web search、evidence collection、retrieval、reas
 
 - [FinTrace](./fintrace.md) — 同样做多维 trajectory 评估，但面向金融而非 deep research。
 - [AgentBoard](./agentboard.md) — Trajectory 评估基于子目标进展率，而非 hierarchical utility function。
+- [DeepResearch Bench](./deepresearch-bench.md) — 同样评估 deep research agent，但评价的是最终报告及其引用，而非 trajectory。Repository note: 它是一份独立的工作，只是与 TRACE 的配套任务集 "DeepResearch-Bench" 同名。
