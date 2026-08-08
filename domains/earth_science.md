@@ -14,6 +14,7 @@ Geosciences: atmospheric, ocean, and geological sciences. GIS and geospatial ana
 | ScienceAgentBench | 2024 | Geographical Information Science tasks — 27 of its 102 — extracted from peer-reviewed data-driven discovery workflows. | Each task requires generating a self-contained Python program reproducing an analysis from a real publication. | Valid execution plus task-specific hand-written success checkers against expert-annotated references; figure outputs judged by GPT-4o. | [→](../works/scienceagentbench.md) |
 | Terminal-Bench Science | 2026 | Atmospheric, environmental, geo-, and ocean science tasks in the Earth Sciences track of its five-track suite. | Containerized terminal tasks (8 at launch across all five tracks, target 100+), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | Re-discover the findings of a hidden published paper from a task description, related literature, and raw data — Earth is one of its ten domains (40 tasks total). | End-to-end autonomous research tasks, each grounded in a real publication kept hidden during evaluation; the agent produces a final research report. | Reference-Anchored Discovery Score (0–100; 50 = reference-level evidence) against expert-curated multimodal rubrics anchored to the hidden paper's artifacts, judged by GPT-5.1. | [→](../works/researchclawbench.md) |
+| HydroAgent | 2026 | Calibrate the operational CREST distributed hydrologic model used by the U.S. National Weather Service for flash-flood forecasting. | Iterative simulate-and-adjust calibration on four held-out gauges spanning 329–40,792 km², best of twenty rounds; nine frontier agents. | Nash–Sutcliffe Efficiency on held-out gauges against a human-expert calibration reference. | [→](../works/hydroagent.md) |
 
 ## Related Works
 
@@ -21,3 +22,4 @@ Geosciences: atmospheric, ocean, and geological sciences. GIS and geospatial ana
 - [ScienceAgentBench](../works/scienceagentbench.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [ResearchClawBench](../works/researchclawbench.md)
+- [HydroAgent](../works/hydroagent.md)

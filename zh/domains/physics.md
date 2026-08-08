@@ -40,6 +40,13 @@
 | SeePhys | 2025 | 求解图示不可或缺的物理问题——电路图、Feynman 图及其余 19 类图示。 | 2,000 道经校验的多模态问题（官方页），从初中到博士资格考试水平；75% 视觉不可或缺。 | 多模态解题准确率，以人类专家为锚点。 | [→](../works/seephys.md) |
 | HiPhO | 2025 | 在竞赛级判分下作答最新的高中物理奥赛真题。 | 2024–2025 年的 13 套国际与地区真题，混合纯文本与图示题。 | 官方评分方案的答案级与步骤级判分；按官方阈值授牌。 | [→](../works/hipho.md) |
 | PHYSICS | 2025 | 求解覆盖六大核心领域的大学水平物理问题：经典力学、量子力学、热力学与统计力学、电磁学、原子物理与光学。 | 1,297 道专家标注的问题；静态单题解题。 | 稳健的自动评估系统，提供精确可靠的答案校验。 | [→](../works/physics-benchmark.md) |
+| CodePDE | 2025 | 为支配物理系统的代表性 PDE 问题生成数值求解器。 | 带迭代改进的求解器代码生成；评估推理、调试、自我改进与测试时扩展。 | 生成求解器对照参考解的精度。 | [→](../works/codepde.md) |
+| PDEAgent-Bench | 2026 | 为横跨 6 个数学类别、11 个族的 PDE 生成有限元求解器。 | 645 个「规格到代码」实例，面向 DOLFINx、Firedrake 或 deal.II。 | 分级检查：可执行性、数值精度（规定网格上的参考解）与效率。 | [→](../works/pdeagent-bench.md) |
+| MooseBench | 2026 | 生成求解预期 PDE 的多物理场模拟代码，而不只是能跑的代码。 | 220 个带 PDE 级数学真值的 MOOSE 算例。 | 经确定性重构（控制项、边界条件、初始条件、系数、时间格式）计算的 Intent Fidelity Score。 | [→](../works/moosebench.md) |
+| SciConvBench | 2026 | 通过对话把不适定的计算科学请求——流体力学、固体力学、材料、PDE——变成适定规格。 | 多轮消歧与矛盾消解对话。 | 按评分标准为澄清行为、对话共识建立与最终规格保真度打分。 | [→](../works/sciconvbench.md) |
+| AInsteinBench | 2025 | 解决生产级科学代码库（含数值相对论与流体力学）中的维护者 PR 任务。 | 六个科学仓库上的仓库级 coding agent 任务。 | 可执行环境中的测试驱动验证。 | [→](../works/ainsteinbench.md) |
+| PDEBench | 2022 | 学习从对流、Burgers 到 Navier–Stokes 等经典 PDE 族的正反问题解。 | 覆盖九个方程族的即用模拟数据集；评估 SciML 代理模型而非 LLM agent。 | 在套件指标下对照经典数值模拟与 ML 基线。 | [→](../works/pdebench.md) |
+| The Well | 2024 | 建模多样的模拟物理——流体力学、声散射、天体物理磁流体、生物系统。 | 16 个专家整理数据集共 15 TB；评估 SciML 代理模型而非 LLM agent。 | 统一 PyTorch 训练/评估接口配示例基线。 | [→](../works/the-well.md) |
 
 ## Related Works
 
@@ -73,3 +80,10 @@
 - [SeePhys](../works/seephys.md)
 - [HiPhO](../works/hipho.md)
 - [PHYSICS](../works/physics-benchmark.md)
+- [CodePDE](../works/codepde.md)
+- [PDEAgent-Bench](../works/pdeagent-bench.md)
+- [MooseBench](../works/moosebench.md)
+- [SciConvBench](../works/sciconvbench.md)
+- [AInsteinBench](../works/ainsteinbench.md)
+- [PDEBench](../works/pdebench.md)
+- [The Well](../works/the-well.md)
