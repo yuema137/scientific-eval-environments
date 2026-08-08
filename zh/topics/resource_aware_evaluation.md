@@ -24,6 +24,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - **给物理发现设观测预算。** [Gravity-Bench-v1](../works/gravity-bench.md) 限定 agent 对模拟二体引力系统可观测的次数，让实验设计本身进入评分范围；据官方项目页，最佳模型从全量数据下的 74% 跌到预算下的 49%。
 - **把 oracle 调用作为分子设计中的定价资源。** [SMDD-Bench](../works/smdd-bench.md) 为 502 个保证有解的药物设计任务设定有限的 oracle 调用预算，探索必须规划而非穷举；最佳前沿模型仅解出 40.2%。
 - **把诊断成本写上记分表。** [SDBench](../works/sdbench.md) 对 agent（与 21 位医生）的每次就诊与检查计费，守门人只应答被明确提出的询问，按准确率-成本前沿评分；改变编排方式比换模型更能移动这条前沿。
+- **成本本身即任务。** [ChemCost](../works/chemcost.md) 不是给 agent 的开销设预算，而是让 agent 计算一个反应的成本——对照冻结价格快照，配无 judge 的精确真值与阶段级失败诊断。
 - **作为在线控制信号的预算。** [BAGEN](../works/bagen.md) 让 agent 在每一轮预测剩余预算的上界与下界并标记不可行，把资源使用作为逐步的估计目标而非执行后的统计来评分。
 - **把评估调用作为预算化的资源。** [VeRO / VeRO-Bench](../works/vero.md) 在硬性评估调用预算下 benchmark 优化其他 agent 的 coding agent：对目标 agent 的每次打分都经过门控评估器，扣减 n_E ≤ B 并阻断超额请求，对应昂贵查询下的黑盒优化设定；B ∈ {2, 4, 8, 16, 32} 的预算消融把预算效应与能力效应区分开。
 - **迭代式设计优化上的交互预算。** [Frontier-Eng](../works/frontier-eng.md) 为每个真实工程任务的 propose-execute-evaluate 循环设置固定交互预算：agent 必须分配有限次数的仿真器交互，在连续奖励与硬性可行性约束下细化候选设计，使 benchmark 内在具备 resource-aware 属性。
@@ -47,6 +48,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 | Gravity-Bench-v1 | 2025 | 对模拟系统的观测（据官方项目页每次运行至多 100 次） | 对实验设计的强制预算；报告全量与预算下的差距 | 模拟双星上的引力物理发现 | [→](../works/gravity-bench.md) |
 | SMDD-Bench | 2026 | oracle 调用（有限的单任务预算） | 对设计空间探索的强制硬约束 | 小分子药物设计；502 个有解任务、102 个靶点 | [→](../works/smdd-bench.md) |
 | SDBench | 2025 | 就诊与诊断检查的费用 | 与准确率联合评分，构成准确率-成本前沿 | 带信息守门人的 304 个 NEJM-CPC 病例序贯诊断 | [→](../works/sdbench.md) |
+| ChemCost | 2026 | 冻结价格快照中的供应商报价与可购包装 | 成本即任务本身——agent 对照精确真值计算反应成本 | 反应定价；1,427 个反应、230,775 条报价；含噪声注入下的鲁棒性评测 | [→](../works/chemcost.md) |
 
 ## Open Questions
 
@@ -69,6 +71,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - [Gravity-Bench-v1](../works/gravity-bench.md) — 引力物理发现中预算受限的观测规划。
 - [SMDD-Bench](../works/smdd-bench.md) — 有限 oracle 调用预算下、保证有解的药物设计。
 - [SDBench](../works/sdbench.md) — 按准确率-成本前沿评分的序贯诊断。
+- [ChemCost](../works/chemcost.md) — 把反应成本计算本身作为被测任务，配无 judge 的精确定价真值。
 
 ## Further Reading
 

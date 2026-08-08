@@ -17,6 +17,8 @@ Materials characterization and computational materials science, spanning physica
 | Agentic Self-Driving Microscopy Benchmarks | 2026 | Control microscopes and materials-characterization instruments through agentic workflows, testing whether benchmark scores generalize to unseen tasks. | 53 benchmark tests across 105 agent configurations (graph topology × five LLMs × RAG/context parameters); 1,949 runs with full trace logging. | Trace-logged benchmark tests with latency, token, cost, and failure-mode comparison; generalization probed via surrogate prediction on unseen tasks. | [→](../works/agentic-microscopy-benchmarks.md) |
 | SciCode | 2024 | Write research code for scientist-curated problems; materials science is among the five main domains its 16 natural-science subfields span. | 80 main problems decomposed into 338 subproblems mixing knowledge recall, reasoning, and code synthesis. | Execution against scientist-annotated gold-standard solutions and test cases. | [→](../works/scicode.md) |
 | SciConvBench | 2026 | Clarify ill-posed simulation requests; materials science is one of its four computational-science domains. | Multi-turn disambiguation and inconsistency-resolution dialogues over a structured task ontology. | Rubric scoring of clarification behavior, conversational grounding, and final-specification fidelity. | [→](../works/sciconvbench.md) |
+| ChemX | 2025 | Extract structured data from nanomaterials literature — nanozymes, nanomagnetic materials — alongside small-molecule datasets. | 10 manually curated, expert-validated extraction datasets; agentic document processing. | Extraction quality against domain-expert-validated records. | [→](../works/chemx.md) |
+| MaCBench | 2024 | Do the visual work of materials research: read instruments and lab scenes, extract data, interpret experimental results. | Multimodal (image + text) tasks in three aspects — data extraction, experimental understanding, results interpretation. | Accuracy via the ChemBench pipeline; near-perfect extraction but limited spatial and cross-modal reasoning. | [→](../works/macbench.md) |
 
 ## Related Works
 
@@ -27,3 +29,5 @@ Materials characterization and computational materials science, spanning physica
 - [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md)
 - [SciCode](../works/scicode.md)
 - [SciConvBench](../works/sciconvbench.md)
+- [ChemX](../works/chemx.md)
+- [MaCBench](../works/macbench.md)
