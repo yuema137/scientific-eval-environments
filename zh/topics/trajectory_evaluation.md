@@ -37,6 +37,11 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - **对失败搜索运行的定位-归因-修复审计。** [SearchAuditor](../works/searchauditor.md) 把失败分析变成一个有 benchmark 支撑的任务：在 SearchAuditBench 的 1,243 条专家标注失败 deep-search 轨迹（平均 65.1K token）上，端到端考察关键步骤定位、搜索特有的根因归因，以及对照带评分 rubric 的参考修复打分。
 - **错误生命周期追踪。** [TRAJDEBUG](../works/trajdebug.md) 通过多粒度历史压缩、基于证据的错误识别与解决状态追踪，把 agent 事后已恢复的错误与真正决定失败的错误区分开，以 TrajErrBench 的 486 条人工标注失败轨迹（取自 Tau2Bench 与 SWE-Bench Pro）为锚点。
 - **执行轨迹的语义评估。** [EnvTrace](../works/envtrace.md) 让 LLM 生成的仪器控制代码在同步辐射光束线的数字孪生上执行，通过对齐执行轨迹得到覆盖多个行为维度的功能正确性分——在「正确性即随时间的物理行为」的场景里，轨迹比较替代了单元测试；30 余个 LLM 受评。
+- **模块化的具身错误分析。** [Embodied Agent Interface](../works/embodied-agent-interface.md) 把具身 LLM 的失败按决策模块拆成幻觉、affordance 与规划错误，对照模拟器状态检查。
+- **机器人失败解释。** [REFLECT / RoboFail](../works/robofail.md) 让 LLM 在层级化的多传感器经验摘要上推理，解释操作失败并引导纠正规划。
+- **规模化的失败检测。** [AHA](../works/aha.md) 在程序化生成的失败轨迹（FailGen）上微调 VLM 来检测并解释操作失败，超过 GPT-4o 上下文学习 10.3%。
+- **分类化的失败问答。** [RoboFAC](../works/robofac.md) 在 9,440 条错误轨迹上提供 78,623 个 QA 对，覆盖八个失败理解维度，并把专用模型用作真实管线的监督者。
+- **实验室机器人失败分析。** [LabRobFail](../works/labrobfail.md) 向模拟化学自主实验室执行注入控制级、物理级与语义级失败，评估六项诊断能力。
 
 ## Comparison
 
@@ -66,6 +71,11 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | SearchAuditor | 2026 | 关键步骤定位、根因归因与按 rubric 修复的端到端通过率 | 长 horizon deep-search 轨迹 | [→](../works/searchauditor.md) |
 | TRAJDEBUG | 2026 | 错误识别 + 经解决状态与最终影响的关键归因 | Tool-use 与编码的失败轨迹 | [→](../works/trajdebug.md) |
 | EnvTrace | 2025 | 对照数字孪生的执行轨迹对齐；多维度功能正确性分 | 仪器控制代码（同步辐射光束线） | [→](../works/envtrace.md) |
+| Embodied Agent Interface | 2024 | 按决策模块的类型化错误分类（幻觉/affordance/规划） | 具身任务规划（VirtualHome、BEHAVIOR） | [→](../works/embodied-agent-interface.md) |
+| REFLECT / RoboFail | 2023 | 从多传感器摘要出发的 LLM 失败解释；纠正规划成功率 | 机器人操作失败分析 | [→](../works/robofail.md) |
+| AHA | 2024 | 自由形式的失败检测/推理；模糊匹配、ROUGE-L、二元成功 | 机器人操作失败（模拟生成 + 真实） | [→](../works/aha.md) |
+| RoboFAC | 2025 | 八维度失败问答；失败分析准确率 | 机器人操作失败分析与纠正 | [→](../works/robofac.md) |
+| LabRobFail | 2026 | 六项能力，含时间定位与严重度评估 | 化学自主实验室机器人失败（模拟） | [→](../works/labrobfail.md) |
 
 ## Open Questions
 
@@ -102,6 +112,11 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - [SearchAuditor](../works/searchauditor.md)
 - [TRAJDEBUG](../works/trajdebug.md)
 - [EnvTrace](../works/envtrace.md)
+- [Embodied Agent Interface](../works/embodied-agent-interface.md)
+- [REFLECT / RoboFail](../works/robofail.md)
+- [AHA](../works/aha.md)
+- [RoboFAC](../works/robofac.md)
+- [LabRobFail](../works/labrobfail.md)
 
 ## Further Reading
 

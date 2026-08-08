@@ -36,6 +36,15 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - **The interactive transfer gap.** [SWE-Interact](../works/swe-interact.md) reruns software-engineering tasks as multi-turn, user-driven sessions with progressively revealed requirements; models that solve ~50% single-turn drop to ~25% interactive.
 - **Replayed real sessions.** [SWE-Together](../works/swe-together.md) curates 109 verifiable repository-level tasks from 11,260 real user-agent sessions and replays them through an intent-preserving user simulator, scoring final correctness together with the corrective feedback turns the agent consumes.
 - **Long-horizon biological discovery.** [scBench-Long](../works/scbench-long.md) gives agents raw or near-raw single-cell data and no prescribed methods, requiring them to sustain a full analysis journey to the study's published conclusions; controlled answer vocabularies keep the open-ended horizon deterministically gradable, and the best model-harness pair passes only 25.4% of runs.
+- **Execution-scored embodied planning.** [LoTa-Bench](../works/lota-bench.md) automates LLM task-planner comparison by executing plans in ALFRED/AI2-THOR and VirtualHome and grading goal satisfaction, replacing human plan inspection.
+- **Ability-decomposed embodied decision making.** [Embodied Agent Interface](../works/embodied-agent-interface.md) evaluates LLMs across four modules — goal interpretation, subgoal decomposition, action sequencing, transition modeling — against simulator state with a typed error taxonomy over VirtualHome and BEHAVIOR.
+- **The high-vs-low competence split.** [EmbodiedBench](../works/embodiedbench.md) runs 24 MLLMs as vision-driven agents over 1,128 tasks in four environments; models handle high-level semantics but fail low-level manipulation, capping GPT-4o at 28.9% average.
+- **Category-broad interactive evaluation.** [EmbodiedEval](../works/embodiedeval.md) puts MLLMs through 328 tasks in 125 3D scenes spanning navigation, object and social interaction, and embodied QA, with a large shortfall to human level.
+- **Collaboration overhead, measured.** [PARTNR](../works/partnr.md) benchmarks LLM planners on 100,000 human-robot collaboration tasks and finds that an LLM partner makes a human slower than working alone (1.1x the steps).
+- **Asynchrony as the variable.** [Robotouille](../works/robotouille.md) isolates asynchronous planning: identical ReAct machinery drops from 47% on synchronous cooking tasks to 11% when actions overlap in time.
+- **Dialog as coordination.** [RoCo / RoCoBench](../works/rocobench.md) evaluates multi-robot collaboration where each arm's LLM negotiates plans and waypoints in natural language, with real-UR5 demonstration.
+- **Safety-aware embodied planning.** [SafeAgentBench](../works/safeagentbench.md) pairs hazardous and safe tasks (750 total, 10 hazards) in an executable environment; the most cautious baseline rejects only 10% of detailed hazards, and swapping the LLM does not help.
+- **Scaffolding dependence in coding-agent robotics.** [CaP-X](../works/cap-x.md) benchmarks 12 frontier models writing robot-control programs across abstraction tiers, showing success degrades as human-crafted primitives are removed.
 
 ## Comparison
 
@@ -63,6 +72,15 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | SWE-Interact | 2026 | Multi-turn user-driven sessions; ~50% single-turn vs. ~25% interactive | Software engineering with a simulated user revealing requirements progressively | [→](../works/swe-interact.md) |
 | SWE-Together | 2026 | 109 replayed repository-level sessions; corrective-turn counting alongside correctness | Real-session-derived interactive coding via an intent-preserving user simulator | [→](../works/swe-together.md) |
 | scBench-Long | 2026 | 21 evaluations from near-raw data to published conclusions; 1,068 trajectories | Single-cell biology analysis with deterministic grading + trajectory rubrics | [→](../works/scbench-long.md) |
+| LoTa-Bench | 2024 | Multi-step skill-sequence plans executed to goal satisfaction | ALFRED/AI2-THOR and Watch-And-Help/VirtualHome (simulation) | [→](../works/lota-bench.md) |
+| Embodied Agent Interface | 2024 | Four decision modules scored against simulator state; typed error taxonomy | VirtualHome and BEHAVIOR (simulation) | [→](../works/embodied-agent-interface.md) |
+| EmbodiedBench | 2025 | 1,128 tasks, high-level to atomic action; six capability subsets | Four embodied environments (simulation) | [→](../works/embodiedbench.md) |
+| EmbodiedEval | 2025 | 328 interactive tasks across five categories | 125 3D scenes (simulation) | [→](../works/embodiedeval.md) |
+| PARTNR | 2024 | 100,000 collaboration tasks; steps-vs-human-baseline overhead | 60 Habitat houses, human-in-the-loop (simulation) | [→](../works/partnr.md) |
+| Robotouille | 2025 | Synchronous vs. asynchronous success gap (47% → 11%) | Long-horizon cooking simulation | [→](../works/robotouille.md) |
+| RoCo / RoCoBench | 2023 | 6 collaboration tasks; dialog + replanning under environment feedback | MuJoCo multi-robot + real UR5 demo | [→](../works/rocobench.md) |
+| SafeAgentBench | 2024 | 750 hazardous/safe tasks; rejection rate and success rate | SafeAgentEnv embodied simulation | [→](../works/safeagentbench.md) |
+| CaP-X | 2026 | Code-synthesis success across abstraction tiers; scaffolding dependence | Robosuite/LIBERO-PRO/BEHAVIOR sim + real robots | [→](../works/cap-x.md) |
 
 ## Open Questions
 
@@ -95,6 +113,15 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - [SWE-Interact](../works/swe-interact.md)
 - [SWE-Together](../works/swe-together.md)
 - [scBench-Long](../works/scbench-long.md)
+- [LoTa-Bench](../works/lota-bench.md)
+- [Embodied Agent Interface](../works/embodied-agent-interface.md)
+- [EmbodiedBench](../works/embodiedbench.md)
+- [EmbodiedEval](../works/embodiedeval.md)
+- [PARTNR](../works/partnr.md)
+- [Robotouille](../works/robotouille.md)
+- [RoCo / RoCoBench](../works/rocobench.md)
+- [SafeAgentBench](../works/safeagentbench.md)
+- [CaP-X](../works/cap-x.md)
 
 ## Further Reading
 

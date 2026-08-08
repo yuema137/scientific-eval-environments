@@ -37,6 +37,11 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - **Localize-attribute-repair auditing of failed search runs.** [SearchAuditor](../works/searchauditor.md) turns failure analysis into a benchmarked task over SearchAuditBench's 1,243 expert-annotated failed deep-search trajectories (averaging 65.1K tokens), grading critical-step localization, search-specific root-cause attribution, and rubric-graded repair end to end.
 - **Error-lifecycle tracing.** [TRAJDEBUG](../works/trajdebug.md) separates errors an agent later recovers from errors that actually determine failure, via multi-granularity history compression, evidence-based error identification, and resolution-status tracing, anchored by TrajErrBench's 486 manually annotated failed trajectories from Tau2Bench and SWE-Bench Pro.
 - **Execution-trace semantic evaluation.** [EnvTrace](../works/envtrace.md) scores LLM-generated instrument-control code by executing it against a synchrotron-beamline digital twin and aligning execution traces into a multi-faceted functional-correctness score — trajectory comparison standing in for unit tests where correctness is physical behavior over time; 30+ LLMs evaluated.
+- **Modular embodied error analysis.** [Embodied Agent Interface](../works/embodied-agent-interface.md) breaks embodied-LLM failures into hallucination, affordance, and planning errors per decision module, checked against simulator state.
+- **Robot failure explanation.** [REFLECT / RoboFail](../works/robofail.md) has an LLM reason over hierarchical multisensory experience summaries to explain manipulation failures and guide correction planning.
+- **Failure detection at scale.** [AHA](../works/aha.md) fine-tunes a VLM on procedurally generated failure trajectories (FailGen) to detect and explain manipulation failures, beating GPT-4o in-context learning by 10.3%.
+- **Categorized failure QA.** [RoboFAC](../works/robofac.md) provides 78,623 QA pairs over 9,440 erroneous trajectories across eight failure-understanding dimensions, with a specialist model used as a real-pipeline supervisor.
+- **Lab-robot failure analysis.** [LabRobFail](../works/labrobfail.md) injects control-, physics-, and semantic-level failures into simulated chemical self-driving-lab executions and scores six diagnostic capabilities.
 
 ## Comparison
 
@@ -66,6 +71,11 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 | SearchAuditor | 2026 | End-to-end pass on critical-step localization, root-cause attribution, and rubric-graded repair | Long-horizon deep-search trajectories | [→](../works/searchauditor.md) |
 | TRAJDEBUG | 2026 | Error identification + critical attribution via resolution status and terminal impact | Tool-use and coding failed trajectories | [→](../works/trajdebug.md) |
 | EnvTrace | 2025 | Execution-trace alignment against a digital twin; multi-faceted functional-correctness score | Instrument-control code (synchrotron beamlines) | [→](../works/envtrace.md) |
+| Embodied Agent Interface | 2024 | Typed error taxonomy (hallucination / affordance / planning) per decision module | Embodied task planning (VirtualHome, BEHAVIOR) | [→](../works/embodied-agent-interface.md) |
+| REFLECT / RoboFail | 2023 | LLM failure explanation from multisensory summaries; correction-planning success | Robot manipulation failure analysis | [→](../works/robofail.md) |
+| AHA | 2024 | Free-form failure detection/reasoning; fuzzy-match, ROUGE-L, binary success | Robotic-manipulation failures (sim-generated + real) | [→](../works/aha.md) |
+| RoboFAC | 2025 | Eight-dimension failure QA; failure-analysis accuracy | Robot-manipulation failure analysis and correction | [→](../works/robofac.md) |
+| LabRobFail | 2026 | Six capabilities incl. temporal localization and severity assessment | Chemical self-driving-lab robot failures (simulation) | [→](../works/labrobfail.md) |
 
 ## Open Questions
 
@@ -102,6 +112,11 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - [SearchAuditor](../works/searchauditor.md)
 - [TRAJDEBUG](../works/trajdebug.md)
 - [EnvTrace](../works/envtrace.md)
+- [Embodied Agent Interface](../works/embodied-agent-interface.md)
+- [REFLECT / RoboFail](../works/robofail.md)
+- [AHA](../works/aha.md)
+- [RoboFAC](../works/robofac.md)
+- [LabRobFail](../works/labrobfail.md)
 
 ## Further Reading
 

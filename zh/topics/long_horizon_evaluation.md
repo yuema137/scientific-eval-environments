@@ -36,6 +36,15 @@
 - **交互迁移落差。** [SWE-Interact](../works/swe-interact.md) 把软件工程任务改成需求逐步披露的多轮用户驱动会话；单轮能解约 50% 的模型，交互式下跌到约 25%。
 - **回放真实会话。** [SWE-Together](../works/swe-together.md) 从 11,260 条真实用户-agent 会话中整理出 109 个可验证的仓库级任务，经保持原意的用户模拟器回放，在最终正确性之外同时统计 agent 消耗的纠正反馈轮数。
 - **长 horizon 的生物学发现。** [scBench-Long](../works/scbench-long.md) 给 agent 原始或近原始的单细胞数据、不预设方法，要求走完整条分析链路，直到该研究已发表的结论；受控答案词表让开放式 horizon 仍可确定性判分，最强模型-harness 组合也只通过 25.4% 的运行。
+- **执行判分的具身规划。** [LoTa-Bench](../works/lota-bench.md) 把 LLM 任务规划器的比较自动化：在 ALFRED/AI2-THOR 与 VirtualHome 中执行计划、按目标达成度判分，取代人工审读。
+- **按能力分解的具身决策。** [Embodied Agent Interface](../works/embodied-agent-interface.md) 沿四个模块——目标解释、子目标分解、动作排序、状态转移建模——对照模拟器状态评估 LLM，并在 VirtualHome 与 BEHAVIOR 上配类型化错误分类。
+- **高低能力的分裂。** [EmbodiedBench](../works/embodiedbench.md) 让 24 个 MLLM 作为视觉驱动 agent 跑四个环境里的 1,128 个任务；模型能应付高层语义、却在底层操作上失手，GPT-4o 平均止于 28.9%。
+- **类别宽广的交互式评估。** [EmbodiedEval](../works/embodiedeval.md) 让 MLLM 在 125 个 3D 场景中完成 328 个任务，横跨导航、物体与社交互动及具身问答，与人类水平差距很大。
+- **量化的协作开销。** [PARTNR](../works/partnr.md) 在 100,000 个人机协作任务上评测 LLM 规划器，发现 LLM 搭档反而让人比单干更慢（步数为 1.1 倍）。
+- **异步性作为变量。** [Robotouille](../works/robotouille.md) 剥离异步规划：同一套 ReAct 机制从同步烹饪任务的 47% 跌到动作时间重叠时的 11%。
+- **对话即协调。** [RoCo / RoCoBench](../works/rocobench.md) 评估多机器人协作，每条臂的 LLM 用自然语言协商计划与路径点，并有真实 UR5 演示。
+- **安全意识的具身规划。** [SafeAgentBench](../works/safeagentbench.md) 成对给出危险与安全任务（共 750 个、10 类危险）；最谨慎的基线也只拒绝 10% 的详细危险任务，换 LLM 也无济于事。
+- **用编码 agent 做机器人控制时的脚手架依赖。** [CaP-X](../works/cap-x.md) 评测 12 个前沿模型跨抽象层级编写机器人控制程序，表明人工设计的原语被移除后成功率随之下降。
 
 ## Comparison
 
@@ -63,6 +72,15 @@
 | SWE-Interact | 2026 | 多轮用户驱动会话；单轮约 50% vs. 交互约 25% | 需求由模拟用户逐步披露的软件工程 | [→](../works/swe-interact.md) |
 | SWE-Together | 2026 | 109 个回放的仓库级会话；正确性之外统计纠正轮数 | 源自真实会话、经保持原意的用户模拟器回放的交互式编码 | [→](../works/swe-together.md) |
 | scBench-Long | 2026 | 从近原始数据到已发表结论的 21 项评估；1,068 条轨迹 | 单细胞生物学分析；确定性判分 + 轨迹评分标准 | [→](../works/scbench-long.md) |
+| LoTa-Bench | 2024 | 多步技能序列计划执行至目标达成 | ALFRED/AI2-THOR 与 Watch-And-Help/VirtualHome（模拟） | [→](../works/lota-bench.md) |
+| Embodied Agent Interface | 2024 | 四个决策模块对照模拟器状态评分；类型化错误分类 | VirtualHome 与 BEHAVIOR（模拟） | [→](../works/embodied-agent-interface.md) |
+| EmbodiedBench | 2025 | 1,128 个任务，从高层到原子动作；六个能力子集 | 四个具身环境（模拟） | [→](../works/embodiedbench.md) |
+| EmbodiedEval | 2025 | 五类共 328 个交互式任务 | 125 个 3D 场景（模拟） | [→](../works/embodiedeval.md) |
+| PARTNR | 2024 | 100,000 个协作任务；相对人类基线的步数开销 | 60 栋 Habitat 房屋，人类在环（模拟） | [→](../works/partnr.md) |
+| Robotouille | 2025 | 同步 vs 异步的成功率落差（47% → 11%） | 长程烹饪模拟 | [→](../works/robotouille.md) |
+| RoCo / RoCoBench | 2023 | 6 个协作任务；环境反馈下的对话 + 重规划 | MuJoCo 多机器人 + 真实 UR5 演示 | [→](../works/rocobench.md) |
+| SafeAgentBench | 2024 | 750 个危险/安全任务；拒绝率与成功率 | SafeAgentEnv 具身模拟 | [→](../works/safeagentbench.md) |
+| CaP-X | 2026 | 跨抽象层级的代码合成成功率；脚手架依赖 | Robosuite/LIBERO-PRO/BEHAVIOR 模拟 + 真实机器人 | [→](../works/cap-x.md) |
 
 ## Open Questions
 
@@ -95,6 +113,15 @@
 - [SWE-Interact](../works/swe-interact.md)
 - [SWE-Together](../works/swe-together.md)
 - [scBench-Long](../works/scbench-long.md)
+- [LoTa-Bench](../works/lota-bench.md)
+- [Embodied Agent Interface](../works/embodied-agent-interface.md)
+- [EmbodiedBench](../works/embodiedbench.md)
+- [EmbodiedEval](../works/embodiedeval.md)
+- [PARTNR](../works/partnr.md)
+- [Robotouille](../works/robotouille.md)
+- [RoCo / RoCoBench](../works/rocobench.md)
+- [SafeAgentBench](../works/safeagentbench.md)
+- [CaP-X](../works/cap-x.md)
 
 ## Further Reading
 

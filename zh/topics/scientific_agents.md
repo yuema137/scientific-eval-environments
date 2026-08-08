@@ -117,6 +117,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **给反应定价。** [ChemCost](../works/chemcost.md) 要求 agent 确定化学品身份、检索供应商报价并对照冻结快照计算反应成本；最强 agent 也只有 50.6% 落在 25% 相对误差内，且随噪声退化。
 - **靠数据不公开来防泄漏。** [onepot-Bench 0](../works/onepot-bench.md) 把反应结果与催化剂选择的评估锚定在实验室私有数据上，另配化学信息学素养与拒答两个子组件。
 - **实验室里的 VLM 瓶颈。** [MaCBench](../works/macbench.md) 发现视觉-语言模型在设备识别与数据抽取上近乎完美，但在空间推理与跨模态综合上存在根本性局限。
+- **自主实验室的失败分析。** [LabRobFail](../works/labrobfail.md) 为化学自主实验室搭建失败中心的 benchmark——20,000+ 条轨迹，含控制级、物理级与语义级失败注入——领域专用 VLM 检测率达 90.83%，作为实时监督者提升下游任务成功率。
 
 ## Comparison
 
@@ -227,6 +228,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | ChemCost | 2026 | 冻结价格快照上的 1,427 个反应（230,775 条供应商报价） | 化学品采购与成本推理 | 无 judge 的精确真值，配阶段级失败诊断 | [→](../works/chemcost.md) |
 | onepot-Bench 0 | 2026 | 私有组件，含实验室产生的私有数据 | 化学信息学素养、拒答行为、反应结果预测 | 分组件对照私有实验真值评分 | [→](../works/onepot-bench.md) |
 | MaCBench | 2024 | 多模态的化学与材料任务 | 数据抽取、实验理解、结果解读 | 经 ChemBench 管线计准确率 | [→](../works/macbench.md) |
+| LabRobFail | 2026 | 模拟化学自主实验室的失败轨迹（Isaac Sim） | 面向自主化学实验的实验室机器人失败分析 | 六项能力，含检测（90.83%）与时间定位 | [→](../works/labrobfail.md) |
 
 ## Open Questions
 
@@ -343,6 +345,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [ChemCost](../works/chemcost.md)
 - [onepot-Bench 0](../works/onepot-bench.md)
 - [MaCBench](../works/macbench.md)
+- [LabRobFail](../works/labrobfail.md)
 
 ## Further Reading
 

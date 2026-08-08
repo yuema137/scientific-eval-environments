@@ -44,5 +44,5 @@ Domain 页是**事实性参考页，不是文献综述**——作为入口与 to
 | Engineering | [Energy Systems](./energy_systems.md) | 2 |
 | Engineering | [Chemical Engineering](./chemical_engineering.md) | 1 |
 | Engineering | [Civil & Structural Engineering](./civil_structural_engineering.md) | 2 |
-| Engineering | [Robotics](./robotics.md) | 0 |
+| Engineering | [Robotics](./robotics.md) | 14 |
 | Engineering | [Software & Systems Engineering](./software_systems_engineering.md) | 11 |
