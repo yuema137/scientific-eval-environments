@@ -67,6 +67,26 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **University-curriculum problem solving.** [PHYSICS](../works/physics-benchmark.md) curates 1,297 expert-annotated university-level problems across six core physics areas with a robust automated evaluation system; the most advanced model tested, o3-mini, reaches only 59.9%.
 - **Rubric-decomposed AI-paper replication.** [PaperBench](../works/paperbench.md) has agents replicate 20 ICML 2024 Spotlight and Oral papers from scratch, graded by an LLM judge against author-co-developed hierarchical rubrics totaling 8,316 gradable tasks — with the judge itself separately benchmarked; the best agent scores 21.0% and ML PhDs still lead.
 - **Reproducibility from provided artifacts.** [CORE-Bench](../works/core-bench.md) isolates computational reproducibility — rerunning 90 papers from their own code and data across three disciplines and 270 tasks; the best baseline agent reaches 21% on the hardest level.
+- **Expert-anchored genomics pipelines.** [GenoTEX](../works/genotex.md) evaluates agents on gene-trait association analysis — dataset selection, preprocessing, statistics — against expert-curated reference pipelines from bioinformaticians (1,384 problems over 911 datasets per the official repository).
+- **Real-notebook bioinformatics scenarios.** [BixBench](../works/bixbench.md) turns 50+ published analyses into open-ended exploratory agent tasks with containerized execution; frontier models reach only 17% open-answer accuracy and no better than random on multiple choice.
+- **Pipelines with perturbation robustness.** [BioAgent Bench](../works/bioagent-bench.md) grades end-to-end bioinformatics pipelines (RNA-seq, variant calling, metagenomics) from output artifacts and stresses agents with corrupted inputs, decoy files, and prompt bloat; correct pipeline construction does not guarantee reliable step-level reasoning.
+- **Sandboxed biomedical coding at scale.** [MedAgentGym](../works/medagentgym.md) executes 72,413 verifiable coding task instances across 129 categories from 12 real biomedical scenarios, benchmarking 29 LLMs (and doubling as an RL training environment).
+- **Deterministic single-cell grading.** [scBench](../works/scbench.md) hands agents pre-step snapshots of real scRNA-seq data across six platforms and grades result recovery deterministically; accuracy spans 29–53% and platform choice matters as much as model choice.
+- **Long-horizon single-cell discovery.** [scBench-Long](../works/scbench-long.md) asks agents to recover published conclusions from near-raw data with no prescribed methods, graded via controlled answer vocabularies; the best model-harness pair passes 25.4% of runs.
+- **Spatial biology with the harness as a variable.** [SpatialBench](../works/spatialbench.md) applies the same deterministic-snapshot design to five spatial technologies (base models 20–38%) and argues harness design must be evaluated as a first-class object.
+- **AI-scientist tasks with a human baseline.** [BAISBench](../works/baisbench.md) scores cell-type annotation on 15 expert-labeled datasets and 193 discovery MCQs from 41 published studies against six graduate-level bioinformaticians.
+- **Agents as biomedical ML engineers.** [BioXArena](../works/bioxarena.md) runs 76 end-to-end ML tasks across 9 biomedical domains under a standardized 2h/1-GPU budget with hidden labels; the best of 11 configurations averages 0.666 and none dominates everywhere.
+- **Protocol reasoning at corpus scale.** [BioProBench](../works/bioprobench.md) expands 22,413 wet-lab protocols into 523,784 instances over five task types; models drop sharply where deep reasoning, quantitative precision, or safety awareness is demanded.
+- **A systems-biology dry lab.** [SciGym](../works/scigym.md) has agents iteratively design experiments on hidden SBML-encoded systems and submit mechanistic hypotheses; performance declines significantly with system complexity.
+- **Research-practice biology QA.** [LAB-Bench](../works/lab-bench.md) measures the daily verbs of biology research — literature, figures, databases, protocols, sequences, cloning — over 2,400+ questions with human-expert baselines.
+- **The realism-hardened successor.** [LABBench2](../works/labbench2.md) reprises those capabilities over real PDFs, images, and data files; restoring realistic context costs models 26–46 accuracy points.
+- **Budgeted molecular design.** [SMDD-Bench](../works/smdd-bench.md) poses 502 guaranteed-solvable, multi-turn drug-design tasks over 102 protein targets under a limited oracle-call budget; GPT-5.4 solves only 40.2%.
+- **Knowledge-graph auditing.** [BioKGBench](../works/biokgbench.md) composes claim verification and KGQA into the agentic KGCheck task — interrogating biomedical KGs for factual errors — and surfaces 90+ real errors in production databases.
+- **Live-source medical deep research.** [MedBrowseComp](../works/medbrowsecomp.md) requires multi-hop synthesis across live trials registries, regulatory records, patents, and cost data on 1,000+ physician-curated questions.
+- **Sequential clinical encounters.** [AgentClinic](../works/agentclinic.md) converts medical QA into moderated doctor-patient interaction with tools and modeled biases; accuracy drops below a tenth of static-QA levels.
+- **A FHIR virtual EHR.** [MedAgentBench](../works/medagentbench.md) runs 300 physician-written tasks against production healthcare APIs over 100 realistic patient profiles; the best model reaches 69.67%.
+- **Costed sequential diagnosis.** [SDBench](../works/sdbench.md) recasts 304 NEJM-CPC cases as gatekeeper-mediated encounters scored on the accuracy-cost frontier, with a 21-physician baseline at 20% mean accuracy.
+- **Predicting experimental outcomes.** [BrainBench](../works/brainbench.md) tests whether models can tell real from result-altered neuroscience abstracts by perplexity; LLMs surpass human experts, with calibrated confidence — a static benchmark documented for its forecasting methodology.
 
 ## Comparison
 
@@ -127,6 +147,26 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | PHYSICS | 2025 | 1,297 expert-annotated university problems | University physics: six core areas | Robust automated evaluation system | [→](../works/physics-benchmark.md) |
 | PaperBench | 2025 | 20 ICML 2024 Spotlight/Oral papers, author-co-developed rubrics | AI-research replication; 8,316 gradable rubric tasks | LLM judge against hierarchical rubrics, with the judge separately benchmarked | [→](../works/paperbench.md) |
 | CORE-Bench | 2024 | 270 tasks from 90 papers with provided code and data | Computational reproducibility: computer science, social science, medicine | Accuracy of reproduced results via a parallelizable harness | [→](../works/core-bench.md) |
+| GenoTEX | 2024 | Expert-curated gene-trait association pipelines (1,384 problems / 911 datasets, official repository) | Computational genomics and bioinformatics | Comparison against bioinformatician-curated reference analyses | [→](../works/genotex.md) |
+| BixBench | 2025 | 50+ scenarios from published analyses, ~300 open-answer questions | Computational biology data analysis | LLM-graded open answers + exact-match MCQ, containerized execution | [→](../works/bixbench.md) |
+| BioAgent Bench | 2026 | Manually curated end-to-end pipelines (RNA-seq, variant calling, metagenomics) | Bioinformatics workflows | LLM grader over output artifacts; perturbation robustness suite | [→](../works/bioagent-bench.md) |
+| MedAgentGym | 2025 | 72,413 instances / 129 categories from 12 real biomedical scenarios | Biomedical data-science coding | Verifiable ground truth in executable sandboxes | [→](../works/medagentgym.md) |
+| scBench | 2026 | 394 verifiable problems, six platforms, seven categories | Single-cell RNA-seq analysis | Deterministic grading of biological-result recovery | [→](../works/scbench.md) |
+| scBench-Long | 2026 | 21 evaluations from raw or near-raw data, no prescribed methods | Long-horizon single-cell biology | Controlled answer vocabularies; deterministic grading + trajectory rubrics | [→](../works/scbench-long.md) |
+| SpatialBench | 2025 | 146 verifiable problems, five spatial technologies | Spatial transcriptomics analysis | Deterministic grading of biological-result recovery | [→](../works/spatialbench.md) |
+| BAISBench | 2025 | 15 expert-labeled datasets + 193 MCQs from 41 published studies | Single-cell omics discovery | Hierarchical cell-type-tree annotation scoring + MCQ vs. published conclusions | [→](../works/baisbench.md) |
+| BioXArena | 2026 | 76 end-to-end ML tasks across 9 biomedical domains | Multi-modal biomedical machine learning | Hidden labels, held-out graders, biology-aware 0–1 metrics; 2h/1-GPU budget | [→](../works/bioxarena.md) |
+| BioProBench | 2025 | 523,784 instances from 22,413 human-written protocols | Wet-lab protocol understanding and reasoning | Task-specific metrics incl. step recall/precision and Kendall's tau | [→](../works/bioprobench.md) |
+| SciGym | 2025 | 137 evaluated (350 released) hidden SBML systems | Systems-biology experiment design | Recovered models compared against hidden ground-truth systems | [→](../works/scigym.md) |
+| LAB-Bench | 2024 | 2,400+ MCQs in 8 categories incl. ProtocolQA and CloningScenarios | Biology research practice | MCQ scoring against human-expert baselines | [→](../works/lab-bench.md) |
+| LABBench2 | 2026 | ~1,900 tasks over realistic PDFs, images, and data files | Biology research practice, hardened | Accuracy via released harness; −26% to −46% vs. LAB-Bench | [→](../works/labbench2.md) |
+| SMDD-Bench | 2026 | 502 guaranteed-solvable tasks over 102 protein targets | Small-molecule drug design | Solve rate under a limited oracle-call budget | [→](../works/smdd-bench.md) |
+| BioKGBench | 2024 | 2,000+ atomic instances + 225 annotated KGCheck instances | Biomedical knowledge graphs | Claim verification, KGQA, and agentic error-finding | [→](../works/biokgbench.md) |
+| MedBrowseComp | 2025 | 1,000+ physician-curated multi-hop questions | Live medical knowledge bases | Gold-answer checking over live retrieval | [→](../works/medbrowsecomp.md) |
+| AgentClinic | 2024 | Simulated encounters, nine specialties, seven languages | Clinical diagnosis as sequential decision-making | Diagnostic accuracy under moderated multi-agent dialogue with bias perturbations | [→](../works/agentclinic.md) |
+| MedAgentBench | 2025 | 300 physician-written tasks over 100 patient profiles | FHIR virtual EHR operation | Programmatic success checking against reference solutions | [→](../works/medagentbench.md) |
+| SDBench | 2025 | 304 NEJM-CPC cases as gatekeeper-mediated encounters | Sequential clinical diagnosis with costs | Diagnostic accuracy paired with cost of visits and tests | [→](../works/sdbench.md) |
+| BrainBench | 2024 | 200 original-vs-altered neuroscience abstract pairs (official dataset) | Neuroscience outcome prediction | Two-alternative forced choice; perplexity for LLMs, expert humans with confidence | [→](../works/brainbench.md) |
 
 ## Open Questions
 
@@ -193,6 +233,26 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [PHYSICS](../works/physics-benchmark.md)
 - [PaperBench](../works/paperbench.md)
 - [CORE-Bench](../works/core-bench.md)
+- [GenoTEX](../works/genotex.md)
+- [BixBench](../works/bixbench.md)
+- [BioAgent Bench](../works/bioagent-bench.md)
+- [MedAgentGym](../works/medagentgym.md)
+- [scBench](../works/scbench.md)
+- [scBench-Long](../works/scbench-long.md)
+- [SpatialBench](../works/spatialbench.md)
+- [BAISBench](../works/baisbench.md)
+- [BioXArena](../works/bioxarena.md)
+- [BioProBench](../works/bioprobench.md)
+- [SciGym](../works/scigym.md)
+- [LAB-Bench](../works/lab-bench.md)
+- [LABBench2](../works/labbench2.md)
+- [SMDD-Bench](../works/smdd-bench.md)
+- [BioKGBench](../works/biokgbench.md)
+- [MedBrowseComp](../works/medbrowsecomp.md)
+- [AgentClinic](../works/agentclinic.md)
+- [MedAgentBench](../works/medagentbench.md)
+- [SDBench](../works/sdbench.md)
+- [BrainBench](../works/brainbench.md)
 
 ## Further Reading
 

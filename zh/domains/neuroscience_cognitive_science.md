@@ -14,6 +14,7 @@
 | Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Life Sciences 分组下的神经科学任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Neuroscience 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文工件的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
 | MetaSyn | 2026 | 进行忠实于协议的系统综述与 meta 分析；心理学是其 422 个专家整理 meta 分析所覆盖的主题之一。 | 多阶段系统综述工作流：在掺入不合格干扰文献的共享 PubMed 文献库中，依据带结构化 PI/ECO 标准的研究问题找出应纳入的研究。 | 对照原综述作者实际纳入的研究集做识别评估，并以分阶段评估定位 meta 分析流程中的失败环节。 | [→](../works/metasyn.md) |
+| BrainBench | 2024 | 预测神经科学实验的结果：在 Journal of Neuroscience 五个栏目上分辨真实与改动结果的摘要。 | 200 对原始/改动摘要（官方数据集）；静态二选一强制选择。 | LLM 以困惑度作答；人类专家附信心与专长评级；校准性单独分析。 | [→](../works/brainbench.md) |
 
 ## Related Works
 
@@ -21,3 +22,4 @@
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [ResearchClawBench](../works/researchclawbench.md)
 - [MetaSyn](../works/metasyn.md)
+- [BrainBench](../works/brainbench.md)

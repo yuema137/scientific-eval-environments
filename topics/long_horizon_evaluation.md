@@ -35,6 +35,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - **Open-ended survival horizon.** [KellyBench](../works/kellybench.md) drops agents into a season-long simulation of non-stationary sports-betting markets where the objective is long-term bankroll growth; every frontier model evaluated loses money on average (best −8%), and a human-expert rubric rates their strategies as unsophisticated.
 - **The interactive transfer gap.** [SWE-Interact](../works/swe-interact.md) reruns software-engineering tasks as multi-turn, user-driven sessions with progressively revealed requirements; models that solve ~50% single-turn drop to ~25% interactive.
 - **Replayed real sessions.** [SWE-Together](../works/swe-together.md) curates 109 verifiable repository-level tasks from 11,260 real user-agent sessions and replays them through an intent-preserving user simulator, scoring final correctness together with the corrective feedback turns the agent consumes.
+- **Long-horizon biological discovery.** [scBench-Long](../works/scbench-long.md) gives agents raw or near-raw single-cell data and no prescribed methods, requiring them to sustain a full analysis journey to the study's published conclusions; controlled answer vocabularies keep the open-ended horizon deterministically gradable, and the best model-harness pair passes only 25.4% of runs.
 
 ## Comparison
 
@@ -61,6 +62,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | KellyBench | 2026 | A full simulated season of sequential decisions; ruin is absorbing | Non-stationary sports-betting markets (2023–24 EPL simulation) | [→](../works/kellybench.md) |
 | SWE-Interact | 2026 | Multi-turn user-driven sessions; ~50% single-turn vs. ~25% interactive | Software engineering with a simulated user revealing requirements progressively | [→](../works/swe-interact.md) |
 | SWE-Together | 2026 | 109 replayed repository-level sessions; corrective-turn counting alongside correctness | Real-session-derived interactive coding via an intent-preserving user simulator | [→](../works/swe-together.md) |
+| scBench-Long | 2026 | 21 evaluations from near-raw data to published conclusions; 1,068 trajectories | Single-cell biology analysis with deterministic grading + trajectory rubrics | [→](../works/scbench-long.md) |
 
 ## Open Questions
 
@@ -92,6 +94,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - [KellyBench](../works/kellybench.md)
 - [SWE-Interact](../works/swe-interact.md)
 - [SWE-Together](../works/swe-together.md)
+- [scBench-Long](../works/scbench-long.md)
 
 ## Further Reading
 

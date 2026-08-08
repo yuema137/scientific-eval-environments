@@ -30,10 +30,10 @@ Domain pages are **factual reference pages, not literature reviews** — co-equa
 | Science | [Physics](./physics.md) | 30 |
 | Science | [Astronomy](./astronomy.md) | 5 |
 | Science | [Mathematics](./mathematics.md) | 10 |
-| Science | [Chemistry](./chemistry.md) | 8 |
-| Science | [Biology](./biology.md) | 12 |
-| Science | [Neuroscience & Cognitive Science](./neuroscience_cognitive_science.md) | 4 |
-| Science | [Medicine & Health](./medicine_health.md) | 6 |
+| Science | [Chemistry](./chemistry.md) | 9 |
+| Science | [Biology](./biology.md) | 25 |
+| Science | [Neuroscience & Cognitive Science](./neuroscience_cognitive_science.md) | 5 |
+| Science | [Medicine & Health](./medicine_health.md) | 12 |
 | Science | [Earth Science](./earth_science.md) | 4 |
 | Science | [Environmental Science](./environmental_science.md) | 2 |
 | Science | [Materials Science](./materials_science.md) | 6 |

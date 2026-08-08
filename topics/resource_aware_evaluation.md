@@ -22,6 +22,8 @@ Two meaningful distinctions structure the space:
 - **A dedicated dataset for cost-aware planning.** [CATP-LLM / OpenCATP](../works/catp-llm.md) contributes OpenCATP, described as the first dataset for cost-aware planning (11,100 samples), where tool execution cost (e.g., execution time) is scored jointly with task performance. Its paired planning method is agent-construction work outside this repository's scope; the dataset is the resource-aware evaluation contribution documented here.
 - **Fidelity-priced measurement budgets.** [MaD Physics](../works/mad-physics.md) charges each observation a cost that rises with its precision and caps total spend per trial, so agents must allocate a fixed budget across measurements to infer an unknown — and sometimes altered — physical law.
 - **Observation budgets on physics discovery.** [Gravity-Bench-v1](../works/gravity-bench.md) caps how many observations an agent may take of a simulated two-body gravitational system, so experimental design becomes part of what is scored; per the official project page, the top model falls from 74% with full data access to 49% under the budget.
+- **Oracle calls as the priced resource in molecular design.** [SMDD-Bench](../works/smdd-bench.md) bounds each of its 502 guaranteed-solvable drug-design tasks with a limited oracle-call budget, so exploration must be planned rather than exhaustive; the best frontier model solves only 40.2%.
+- **Diagnostic cost on the score sheet.** [SDBench](../works/sdbench.md) charges agents (and 21 physicians) for every visit and test ordered while a gatekeeper reveals findings only on request, scoring the accuracy-cost frontier; orchestration shifts that frontier more than model choice.
 - **Budget as an online control signal.** [BAGEN](../works/bagen.md) makes the agent predict an upper and lower bound on remaining budget at every turn and flag infeasibility, scoring resource use as a per-step estimation target rather than a post-execution tally.
 - **Evaluation calls as the budgeted resource.** [VeRO / VeRO-Bench](../works/vero.md) benchmarks coding agents that optimize other agents under a hard evaluation-call budget: every scoring of the target agent passes through a gated evaluator that decrements n_E ≤ B and blocks requests beyond it, mirroring black-box optimization with expensive queries; a budget ablation over B ∈ {2, 4, 8, 16, 32} separates budget effects from capability effects.
 - **Interaction budget on iterative design optimization.** [Frontier-Eng](../works/frontier-eng.md) bounds each real-world engineering task with a fixed interaction budget on its propose-execute-evaluate loop: the agent must allocate a limited number of simulator interactions to refine a candidate design under continuous reward and hard feasibility constraints, making the benchmark inherently resource-aware.
@@ -43,6 +45,8 @@ Two meaningful distinctions structure the space:
 | EcoAgent-Bench | 2026 | Priced actions under explicit per-task budgets | First-class objective — economic consistency across upgrade/save paired groups | 304 QA-derived tasks in 5 families; tool-API and workspace-CLI settings | [→](../works/ecoagent-bench.md) |
 | HarnessOpt-Bench | 2026 | Target-evaluation calls (fixed budget, TEE-metered) | Enforced hard constraint on the optimize-evaluate loop | Harness optimization; 4 tasks × 5 optimizer LLMs, 111 scored runs | [→](../works/harnessopt-bench.md) |
 | Gravity-Bench-v1 | 2025 | Observations of the simulated system (up to 100 per run, official project page) | Enforced budget on experimental design; full-access vs. budget gap reported | Gravitational-physics discovery over simulated binaries | [→](../works/gravity-bench.md) |
+| SMDD-Bench | 2026 | Oracle calls (limited per-task budget) | Enforced hard constraint on design-space exploration | Small-molecule drug design; 502 solvable tasks, 102 targets | [→](../works/smdd-bench.md) |
+| SDBench | 2025 | Cost of physician visits and diagnostic tests | Scored jointly with accuracy as a frontier | Sequential diagnosis over 304 NEJM-CPC cases with an information gatekeeper | [→](../works/sdbench.md) |
 
 ## Open Questions
 
@@ -63,6 +67,8 @@ Two meaningful distinctions structure the space:
 - [EcoAgent-Bench](../works/ecoagent-bench.md) — Economic decision-making under priced actions and explicit budgets, scored for economic consistency.
 - [HarnessOpt-Bench](../works/harnessopt-bench.md) — LLMs optimizing agent harnesses under a fixed, TEE-audited evaluation budget.
 - [Gravity-Bench-v1](../works/gravity-bench.md) — Budgeted observation planning for gravitational-physics discovery.
+- [SMDD-Bench](../works/smdd-bench.md) — Guaranteed-solvable drug design under a limited oracle-call budget.
+- [SDBench](../works/sdbench.md) — Sequential diagnosis scored on the accuracy-versus-cost frontier.
 
 ## Further Reading
 
