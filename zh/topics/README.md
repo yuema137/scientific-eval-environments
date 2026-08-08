@@ -17,7 +17,7 @@ Topic 集合是固定的。新增 topic 需要更新 [`../../AGENT.md`](../../AG
 | # | Topic | 文件 | 收录 works |
 |---|---|---|---|
 | I | [General Long-Horizon Agent Benchmarks](./long_horizon_evaluation.md) | `long_horizon_evaluation.md` | 17 |
-| II | [Scientific Agent Benchmarks](./scientific_agents.md) | `scientific_agents.md` | 31 |
+| II | [Scientific Agent Benchmarks](./scientific_agents.md) | `scientific_agents.md` | 32 |
 | III | [Trajectory Evaluation](./trajectory_evaluation.md) | `trajectory_evaluation.md` | 23 |
 | IV | [Skill Hierarchy](./skill_hierarchy.md) | `skill_hierarchy.md` | 10 |
 | V | [Credit Assignment](./credit_assignment.md) | `credit_assignment.md` | 17 |

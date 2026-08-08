@@ -43,6 +43,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **Physical-science deep research.** [PhySciBench](../works/physcibench.md) curates 200 expert questions balanced between physics and chemistry in six task categories, targeting a diagnosed failure profile — fragile reasoning chains, limited cross-step knowledge transfer, and missing physics-grounded self-verification; the Gemini Deep Research baseline reaches 33.5% accuracy.
 - **Intent-structured literature search.** [ScholarQuest](../works/scholarquest.md) organizes agentic paper search by four research intents — method-oriented, setting-anchored, comparison-based, and scope-controlled — over 1,000+ computer science topics; agentic methods beat single-shot baselines, yet the best agent reaches only 0.314 Recall@100.
 - **Progressive information-seeking tiers.** [SciExplore](../works/sciexplore.md) grades scientific information seeking across four progressive task types — database navigation, ambiguous literature retrieval, missing reference completion, and cross-source structured knowledge synthesis — over 103 expert-curated tasks in more than ten disciplines, with performance degrading sharply as task complexity increases.
+- **Real-world data for physical-system prediction.** [RealPDEBench](../works/realpdebench.md) pairs five real-world measured datasets with numerical simulations of the same complex physical systems, making the sim-to-real gap itself the measured object across three tasks and eight data- and physics-oriented metrics. Its subject is scientific ML surrogate models rather than LLM agents — documented here for its evaluation methodology; experiments over ten baselines show significant sim-vs-real discrepancies, with simulated-data pretraining consistently improving accuracy and convergence.
 
 ## Comparison
 
@@ -79,6 +80,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | PhySciBench | 2026 | 200 expert-curated deep-research questions | Physical sciences: physics and chemistry, six task categories | Accuracy-based comparison of models and agent systems | [→](../works/physcibench.md) |
 | ScholarQuest | 2026 | Queries from 1,000+ computer science topics across four research intents | Computer science literature search | Recall@100 and Recall@All against ground-truth paper sets | [→](../works/scholarquest.md) |
 | SciExplore | 2026 | 103 expert-curated tasks in four progressive task types | Scientific information seeking across 10+ disciplines | Accuracy across progressive task types, from database navigation to structured synthesis | [→](../works/sciexplore.md) |
+| RealPDEBench | 2026 | 5 real-world measured datasets with paired numerical simulations | Complex physical systems (fluid–structure interaction, cylinder/foil flows, combustion); scientific ML models, not LLM agents | 8 data-oriented and physics-oriented metrics over 3 sim-vs-real tasks; 10 baselines | [→](../works/realpdebench.md) |
 
 ## Open Questions
 
@@ -121,6 +123,7 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [PhySciBench](../works/physcibench.md)
 - [ScholarQuest](../works/scholarquest.md)
 - [SciExplore](../works/sciexplore.md)
+- [RealPDEBench](../works/realpdebench.md)
 
 ## Further Reading
 

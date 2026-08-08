@@ -27,7 +27,7 @@ Domain pages are **factual reference pages, not literature reviews** — co-equa
 
 | Group | Domain | Works |
 |---|---|---|
-| Science | [Physics](./physics.md) | 12 |
+| Science | [Physics](./physics.md) | 13 |
 | Science | [Astronomy](./astronomy.md) | 3 |
 | Science | [Mathematics](./mathematics.md) | 9 |
 | Science | [Chemistry](./chemistry.md) | 7 |

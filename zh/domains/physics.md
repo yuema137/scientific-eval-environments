@@ -22,6 +22,7 @@
 | CMPhysBench | 2025 | 完成研究生水平的凝聚态物理计算，覆盖磁学、超导、强关联体系与基础理论框架。 | 520 余道精心整理的计算题，每题要求独立生成完整解答；单题推导，非交互式 agent 设定。 | 对解答表达式的 SEED（Scalable Expression Edit Distance）部分得分，加上以正确解答百分比计的准确率。 | [→](../works/cmphysbench.md) |
 | PhySciBench | 2026 | 在物理与化学各半的题集中回答物理侧的专家 deep-research 问题，针对推理链脆弱、跨步骤知识迁移有限与缺少基于物理的自我验证。 | 200 道专家整理的问题，物理与化学各半，组织为呼应真实科研工作流的六类任务。 | 基于准确率比较最先进模型与 agent 系统，并在准确率之外报告成本。 | [→](../works/physcibench.md) |
 | MetaSyn | 2026 | 进行忠实于协议的系统综述与 meta 分析；物理学是其 422 个专家整理 meta 分析所覆盖的主题之一。 | 多阶段系统综述工作流：在掺入不合格干扰文献的共享 PubMed 文献库中，依据带结构化 PI/ECO 标准的研究问题找出应纳入的研究。 | 对照原综述作者实际纳入的研究集做识别评估，并以分阶段评估定位 meta 分析流程中的失败环节。 | [→](../works/metasyn.md) |
+| RealPDEBench | 2026 | 基于与数值模拟配对的真实测量数据，预测复杂物理系统——流固耦合、圆柱与翼型绕流、燃烧——的演化。 | 五个真实测量数据集配成对模拟数据集，三类真实-模拟对比任务；评估科学 ML 代理模型而非 LLM agent。 | 横跨数据导向与物理导向的八项指标，覆盖十个基线（含预训练 PDE 基础模型与一种传统方法）。 | [→](../works/realpdebench.md) |
 
 ## Related Works
 
@@ -37,3 +38,4 @@
 - [CMPhysBench](../works/cmphysbench.md)
 - [PhySciBench](../works/physcibench.md)
 - [MetaSyn](../works/metasyn.md)
+- [RealPDEBench](../works/realpdebench.md)

@@ -22,6 +22,7 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 | CMPhysBench | 2025 | Carry out graduate-level condensed matter physics calculations across magnetism, superconductivity, strongly correlated systems, and foundational theoretical frameworks. | More than 520 curated calculation problems, each requiring an independently generated full solution; single-problem derivations, not an interactive agent setting. | SEED (Scalable Expression Edit Distance) partial credit over solution expressions, plus accuracy as the percentage of correct solutions. | [→](../works/cmphysbench.md) |
 | PhySciBench | 2026 | Answer expert-curated deep-research questions on the physics side of a physics/chemistry-balanced set, targeting fragile reasoning chains, limited cross-step knowledge transfer, and missing physics-grounded self-verification. | 200 expert-curated questions balanced between physics and chemistry, organized into six task categories reflecting real-world scientific workflows. | Accuracy-based evaluation comparing state-of-the-art models and agent systems, with cost reported alongside accuracy. | [→](../works/physcibench.md) |
 | MetaSyn | 2026 | Conduct protocol-faithful systematic review and meta-analysis; physics is among the subjects its 422 expert-curated meta-analyses span. | Multi-stage systematic-review workflows: identify the eligible studies for a research question with structured PI/ECO criteria within a shared PubMed-anchored corpus containing ineligible distractors. | Study identification against the original expert reviewers' included set, with stage-wise evaluation locating failures along the meta-analysis pipeline. | [→](../works/metasyn.md) |
+| RealPDEBench | 2026 | Predict the evolution of complex physical systems — fluid–structure interaction, cylinder and foil flows, and combustion — from real-world measurements paired with numerical simulations. | Five real-world measured datasets with paired simulated datasets and three sim-vs-real tasks; evaluates scientific ML surrogate models rather than LLM agents. | Eight metrics spanning data-oriented and physics-oriented measures, over ten baselines including pretrained PDE foundation models and a traditional method. | [→](../works/realpdebench.md) |
 
 ## Related Works
 
@@ -37,3 +38,4 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 - [CMPhysBench](../works/cmphysbench.md)
 - [PhySciBench](../works/physcibench.md)
 - [MetaSyn](../works/metasyn.md)
+- [RealPDEBench](../works/realpdebench.md)

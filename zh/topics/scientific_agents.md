@@ -43,6 +43,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **物理科学的 deep research。** [PhySciBench](../works/physcibench.md) 整理了 200 道专家出题、物理与化学各半的问题，组织为呼应真实科研工作流的六类任务，针对现有 deep-research 系统的三类缺陷——推理链脆弱、跨步骤知识迁移有限、缺少基于物理的自我验证；Gemini Deep Research 基线的准确率为 33.5%。
 - **按研究意图组织的文献搜索。** [ScholarQuest](../works/scholarquest.md) 按四类研究意图——方法导向、设定锚定、比较导向、范围受控——组织 agentic 论文搜索，覆盖 1,000 余个计算机科学主题；agentic 方法胜过单次检索基线，但最佳 agent 的 Recall@100 也仅有 0.314。
 - **渐进式的信息获取分层。** [SciExplore](../works/sciexplore.md) 用四类渐进任务——科学数据库导航、表述模糊的文献检索、缺失参考文献补全、跨源结构化知识综合——评估科学信息获取能力：103 个专家整理的任务，覆盖十余个学科；任务复杂度一升高，表现便急剧下滑。
+- **物理系统预测的真实世界数据。** [RealPDEBench](../works/realpdebench.md) 把五个真实测量数据集与同一批复杂物理系统的数值模拟配对，在三类任务与八项数据/物理导向指标下，把 sim-to-real 差距本身变成测量对象。其评估对象是科学 ML 代理模型而非 LLM agent——收录于此是因为其评估方法学；在十个基线上的实验显示模拟与真实数据差异显著，而用模拟数据预训练能稳定提升精度与收敛速度。
 
 ## Comparison
 
@@ -79,6 +80,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | PhySciBench | 2026 | 200 道专家整理的 deep-research 问题 | 物理科学：物理与化学，六类任务 | 基于准确率比较模型与 agent 系统 | [→](../works/physcibench.md) |
 | ScholarQuest | 2026 | 由 1,000+ 个计算机科学主题按四种研究意图构造的查询 | 计算机科学文献搜索 | 对照真值论文集的 Recall@100 与 Recall@All | [→](../works/scholarquest.md) |
 | SciExplore | 2026 | 103 个专家整理的任务，分四类渐进任务 | 覆盖 10+ 学科的科学信息获取 | 从数据库导航到结构化综合的分层准确率 | [→](../works/sciexplore.md) |
+| RealPDEBench | 2026 | 5 个真实测量数据集，配成对数值模拟 | 复杂物理系统（流固耦合、圆柱/翼型绕流、燃烧）；科学 ML 模型而非 LLM agent | 3 类真实-模拟对比任务上的 8 项数据/物理导向指标；10 个基线 | [→](../works/realpdebench.md) |
 
 ## Open Questions
 
@@ -121,6 +123,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [PhySciBench](../works/physcibench.md)
 - [ScholarQuest](../works/scholarquest.md)
 - [SciExplore](../works/sciexplore.md)
+- [RealPDEBench](../works/realpdebench.md)
 
 ## Further Reading
 
