@@ -36,6 +36,13 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **Physical execution on a real instrument.** [AFMBench](../works/afmbench.md) holds agents to 100 curated tasks on an actual atomic force microscope rather than a simulator, and reports that materials-science question-answering proficiency does not transfer: Claude-3.5-Sonnet carries a 51.6% error rate while the best model reaches 65% overall task completion, falling to 23.3% where documentation and analysis are merged.
 - **Tiered evaluation of one simulation discipline.** [CFDLLMBench](../works/cfdllmbench.md) fixes the domain to computational fluid dynamics and varies the depth of competence instead: 90 graduate-level questions, 24 PDE-solver coding problems, and 126 OpenFOAM cases, with physical accuracy graded by normalized error against reference solutions and by whether the solution converges under mesh and time-step refinement. Scores fall from 92% on knowledge to ~14% on solver coding and 34% / 25% on the OpenFOAM Basic / Advanced splits.
 - **Iterative generative optimization under simulator feedback.** [Frontier-Eng](../works/frontier-eng.md) frames real-world engineering evaluation as a propose-execute-evaluate loop: across 47 tasks in 5 engineering categories, an industrial-grade simulator returns continuous reward under hard feasibility constraints and the agent revises within a fixed interaction budget. Across 8 frontier LLMs the paper reports a dual power-law decay in both improvement frequency and improvement magnitude, and finds that depth matters more than breadth for constrained engineering problems.
+- **Machine-graded expert-level theory.** [CMT-Benchmark](../works/cmt-benchmark.md) poses 50 condensed-matter-theory problems authored by expert researchers at the level of their own work — single-problem derivations rather than an interactive agent setting — and grades them programmatically against expert-supplied ground truth, including normal-ordered symbolic comparison of non-commuting operators. The best model, GPT-5, solves 30%; 18 of the 50 problems are solved by none of the 17 evaluated models.
+- **Partial credit for graduate-level derivations.** [CMPhysBench](../works/cmphysbench.md) curates more than 520 graduate-level condensed-matter-physics calculation problems that require independently generating a full solution, and scores them with SEED (Scalable Expression Edit Distance), a fine-grained non-binary partial-credit measure over solution expressions; even the best model, Grok-4, reaches only a 36 average SEED score and 28% accuracy.
+- **Containerized molecular-dynamics workflows.** [MDArena](../works/mdarena.md) packages 50 tasks sourced from active research projects — trajectory analysis, system preparation, free-energy calculations, and enhanced sampling across 29 molecular systems and 14 research protocols — into containers, scoring Strict-Pass@1 alongside process-level partial credit; the best configuration, Codex GPT-5.5 (extra-high reasoning), solves 48%.
+- **Protocol-faithful evidence synthesis.** [MetaSyn](../works/metasyn.md) anchors 422 tasks to expert-conducted meta-analyses drawn from over 34,000 Nature Portfolio articles: given a research question with structured eligibility criteria (PI/ECO), agents must identify the originally included studies within a shared PubMed-anchored corpus salted with ineligible distractors, and stage-wise evaluation localizes where systems break down along the review pipeline.
+- **Physical-science deep research.** [PhySciBench](../works/physcibench.md) curates 200 expert questions balanced between physics and chemistry in six task categories, targeting a diagnosed failure profile — fragile reasoning chains, limited cross-step knowledge transfer, and missing physics-grounded self-verification; the Gemini Deep Research baseline reaches 33.5% accuracy.
+- **Intent-structured literature search.** [ScholarQuest](../works/scholarquest.md) organizes agentic paper search by four research intents — method-oriented, setting-anchored, comparison-based, and scope-controlled — over 1,000+ computer science topics; agentic methods beat single-shot baselines, yet the best agent reaches only 0.314 Recall@100.
+- **Progressive information-seeking tiers.** [SciExplore](../works/sciexplore.md) grades scientific information seeking across four progressive task types — database navigation, ambiguous literature retrieval, missing reference completion, and cross-source structured knowledge synthesis — over 103 expert-curated tasks in more than ten disciplines, with performance degrading sharply as task complexity increases.
 
 ## Comparison
 
@@ -65,6 +72,13 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | AutoResearchBench | 2026 | 1,000 queries from a full-text-first human–machine pipeline over published papers and citation graphs | Scientific literature discovery (eight core CS domains) | Exact-match accuracy (Deep Research) and set-level IoU (Wide Research) against verified answer sets | [→](../works/autoresearchbench.md) |
 | Frontier-Eng | 2026 | 47 real-world engineering tasks across 5 categories | Real-world engineering (industrial-grade simulators) | Continuous simulator reward under hard feasibility constraints; fixed interaction budget | [→](../works/frontier-eng.md) |
 | CFDLLMBench | 2025 | 90 expert-written questions, 24 PDE coding problems, 126 OpenFOAM cases (110 tutorial-derived + 16 hand-crafted) | Computational fluid dynamics | Execution + normalized error vs. reference solution + convergence under mesh/time-step refinement | [→](../works/cfdllmbench.md) |
+| CMT-Benchmark | 2025 | 50 problems authored by expert researchers at the level of their own work | Condensed matter theory: quantum many-body and classical statistical mechanics | Programmatic checking against expert ground truth; normal-ordered symbolic comparison of non-commuting operators | [→](../works/cmt-benchmark.md) |
+| CMPhysBench | 2025 | 520+ curated graduate-level calculation problems | Condensed matter physics: magnetism, superconductivity, strongly correlated systems | SEED expression edit distance (partial credit) plus binary accuracy | [→](../works/cmphysbench.md) |
+| MDArena | 2026 | 50 containerized tasks sourced from active research projects | Molecular dynamics: 29 molecular systems, 14 research protocols | Strict-Pass@1 plus correctness and process-reward partial credit | [→](../works/mdarena.md) |
+| MetaSyn | 2026 | 422 expert-conducted meta-analyses from 34,000+ Nature Portfolio articles | Systematic review spanning physics, chemistry, psychology, medical science | Study identification against the original reviewers' included set; stage-wise pipeline evaluation | [→](../works/metasyn.md) |
+| PhySciBench | 2026 | 200 expert-curated deep-research questions | Physical sciences: physics and chemistry, six task categories | Accuracy-based comparison of models and agent systems | [→](../works/physcibench.md) |
+| ScholarQuest | 2026 | Queries from 1,000+ computer science topics across four research intents | Computer science literature search | Recall@100 and Recall@All against ground-truth paper sets | [→](../works/scholarquest.md) |
+| SciExplore | 2026 | 103 expert-curated tasks in four progressive task types | Scientific information seeking across 10+ disciplines | Accuracy across progressive task types, from database navigation to structured synthesis | [→](../works/sciexplore.md) |
 
 ## Open Questions
 
@@ -100,6 +114,13 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [AutoResearchBench](../works/autoresearchbench.md)
 - [Frontier-Eng](../works/frontier-eng.md)
 - [CFDLLMBench](../works/cfdllmbench.md)
+- [CMT-Benchmark](../works/cmt-benchmark.md)
+- [CMPhysBench](../works/cmphysbench.md)
+- [MDArena](../works/mdarena.md)
+- [MetaSyn](../works/metasyn.md)
+- [PhySciBench](../works/physcibench.md)
+- [ScholarQuest](../works/scholarquest.md)
+- [SciExplore](../works/sciexplore.md)
 
 ## Further Reading
 

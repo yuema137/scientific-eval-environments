@@ -36,6 +36,13 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **在真实仪器上物理执行。** [AFMBench](../works/afmbench.md) 要求 agent 在一台真正的原子力显微镜而非仿真器上完成 100 个经整理的任务，并报告材料科学问答能力并不迁移：Claude-3.5-Sonnet 的错误率达 51.6%，而最佳模型的总体任务完成率为 65%，在文档记录与分析合并时则跌至 23.3%。
 - **单一仿真学科内的分层评估。** [CFDLLMBench](../works/cfdllmbench.md) 把领域固定在计算流体力学，转而改变能力的深度：90 道研究生水平题、24 个 PDE 求解器编程题、126 个 OpenFOAM 算例；物理准确性由相对参考解的归一化误差、以及解在网格与时间步细化下是否收敛来评判。分数从知识层的 92% 一路跌到求解器编程的约 14%，以及 OpenFOAM Basic / Advanced 两档的 34% / 25%。
 - **仿真器反馈下的迭代式生成优化。** [Frontier-Eng](../works/frontier-eng.md) 把真实工程评估构造成 propose-execute-evaluate 循环：47 个任务横跨 5 个工程类别，工业级仿真器在硬性可行性约束下返回连续奖励，agent 在固定交互预算内修订。论文在 8 个 frontier LLM 上报告改进频率与改进幅度的双 power-law 衰减，并发现在受约束工程问题上深度比广度更重要。
+- **机器判分的专家级理论。** [CMT-Benchmark](../works/cmt-benchmark.md) 收录 50 道由专家研究者按其自身研究水平编写的凝聚态理论问题——单题推导，而非交互式 agent 设定——对照专家提供的真值程序化判分，包括对非对易算符做正规排序后的符号比较。最佳模型 GPT-5 解出 30%；50 道题中有 18 道在全部 17 个受评模型上无一解出。
+- **研究生水平推导的部分得分。** [CMPhysBench](../works/cmphysbench.md) 整理了 520 余道要求独立生成完整解答的研究生水平凝聚态物理计算题，用 SEED（Scalable Expression Edit Distance）——一种对解答表达式的细粒度、非二元部分得分——来评分；即便最佳模型 Grok-4 也仅达到平均 SEED 36 分与 28% 准确率。
+- **容器化的分子动力学工作流。** [MDArena](../works/mdarena.md) 把源自在研项目的 50 个任务——轨迹分析、体系搭建、自由能计算与增强采样，覆盖 29 个分子体系与 14 种研究方案——打包进容器，以 Strict-Pass@1 为主指标并辅以过程级部分得分；最佳配置 Codex GPT-5.5（extra-high reasoning）解出 48%。
+- **协议忠实的证据综合。** [MetaSyn](../works/metasyn.md) 把 422 个任务锚定到取自 34,000 余篇 Nature Portfolio 文章的专家 meta 分析：给定带结构化入选标准（PI/ECO）的研究问题，agent 要在掺入不合格干扰文献的共享 PubMed 文献库中找出原综述作者实际纳入的研究，分阶段评估则定位系统在综述流程中的薄弱环节。
+- **物理科学的 deep research。** [PhySciBench](../works/physcibench.md) 整理了 200 道专家出题、物理与化学各半的问题，组织为呼应真实科研工作流的六类任务，针对现有 deep-research 系统的三类缺陷——推理链脆弱、跨步骤知识迁移有限、缺少基于物理的自我验证；Gemini Deep Research 基线的准确率为 33.5%。
+- **按研究意图组织的文献搜索。** [ScholarQuest](../works/scholarquest.md) 按四类研究意图——方法导向、设定锚定、比较导向、范围受控——组织 agentic 论文搜索，覆盖 1,000 余个计算机科学主题；agentic 方法胜过单次检索基线，但最佳 agent 的 Recall@100 也仅有 0.314。
+- **渐进式的信息获取分层。** [SciExplore](../works/sciexplore.md) 用四类渐进任务——科学数据库导航、表述模糊的文献检索、缺失参考文献补全、跨源结构化知识综合——评估科学信息获取能力：103 个专家整理的任务，覆盖十余个学科；任务复杂度一升高，表现便急剧下滑。
 
 ## Comparison
 
@@ -65,6 +72,13 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | AutoResearchBench | 2026 | 1,000 条查询，由基于论文全文与引用图的 full-text-first 人机协同流水线构建 | 科学文献发现（八个核心 CS 领域） | 对照已验证答案集的精确匹配 accuracy（Deep Research）与集合级 IoU（Wide Research） | [→](../works/autoresearchbench.md) |
 | Frontier-Eng | 2026 | 47 个真实工程任务，横跨 5 个工程类别 | 真实工程（工业级仿真器） | 硬性可行性约束下的连续仿真器奖励；固定交互预算 | [→](../works/frontier-eng.md) |
 | CFDLLMBench | 2025 | 90 道专家撰写的题目、24 个 PDE 编程题、126 个 OpenFOAM 算例（110 个由 tutorial 派生 + 16 个手工设计） | 计算流体力学 | 执行 + 相对参考解的归一化误差 + 网格/时间步细化下的收敛性 | [→](../works/cfdllmbench.md) |
+| CMT-Benchmark | 2025 | 由专家研究者按其自身工作水平编写的 50 道问题 | 凝聚态理论：量子多体与经典统计力学 | 对照专家真值的程序化检验；非对易算符经正规排序做符号比较 | [→](../works/cmt-benchmark.md) |
+| CMPhysBench | 2025 | 520 余道精心整理的研究生水平计算题 | 凝聚态物理：磁学、超导、强关联体系 | SEED 表达式编辑距离（部分得分）加二元准确率 | [→](../works/cmphysbench.md) |
+| MDArena | 2026 | 源自在研项目的 50 个容器化任务 | 分子动力学：29 个分子体系、14 种研究方案 | Strict-Pass@1，辅以 correctness 与过程奖励的部分得分 | [→](../works/mdarena.md) |
+| MetaSyn | 2026 | 取自 34,000+ 篇 Nature Portfolio 文章的 422 个专家 meta 分析 | 系统综述，主题横跨物理、化学、心理学与医学 | 对照原综述作者纳入集的研究识别；分阶段流程评估 | [→](../works/metasyn.md) |
+| PhySciBench | 2026 | 200 道专家整理的 deep-research 问题 | 物理科学：物理与化学，六类任务 | 基于准确率比较模型与 agent 系统 | [→](../works/physcibench.md) |
+| ScholarQuest | 2026 | 由 1,000+ 个计算机科学主题按四种研究意图构造的查询 | 计算机科学文献搜索 | 对照真值论文集的 Recall@100 与 Recall@All | [→](../works/scholarquest.md) |
+| SciExplore | 2026 | 103 个专家整理的任务，分四类渐进任务 | 覆盖 10+ 学科的科学信息获取 | 从数据库导航到结构化综合的分层准确率 | [→](../works/sciexplore.md) |
 
 ## Open Questions
 
@@ -100,6 +114,13 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [AutoResearchBench](../works/autoresearchbench.md)
 - [Frontier-Eng](../works/frontier-eng.md)
 - [CFDLLMBench](../works/cfdllmbench.md)
+- [CMT-Benchmark](../works/cmt-benchmark.md)
+- [CMPhysBench](../works/cmphysbench.md)
+- [MDArena](../works/mdarena.md)
+- [MetaSyn](../works/metasyn.md)
+- [PhySciBench](../works/physcibench.md)
+- [ScholarQuest](../works/scholarquest.md)
+- [SciExplore](../works/sciexplore.md)
 
 ## Further Reading
 

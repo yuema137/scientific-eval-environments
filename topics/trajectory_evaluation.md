@@ -33,6 +33,9 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - **Judge-against-expert agreement.** [AgentRewardBench](../works/agentrewardbench.md) scores 12 LLM judges and the benchmarks' own rule-based evaluators against expert labels on 1,302 web agent trajectories, finding no judge above 70% precision.
 - **Harness-effect diagnostics.** [Harness-Bench](../works/harness-bench.md) fixes tasks, sandboxes, budgets, and evaluators while varying the harness around each model backend, scoring 5,194 trajectories with a security-gated product of completion and a trace-derived process score (robustness, tool use, consistency); a 23.8-point gap between the best and worst configurable harness on identical tasks and models supports reporting capability per model–harness configuration.
 - **In-the-wild trajectories with commit-grounded outcomes.** [SWE-chat](../works/swe-chat.md) replaces curated tasks with ~6,000 real coding-agent sessions logged from opted-in open-source developers, attributing every committed line to human or agent. Its trajectory metrics are grounded in what users actually keep — only 44.3% of agent-produced code ends up in user commits — complemented by LLM-annotated session success (0–100) and per-turn pushback labels validated against human gold labels.
+- **Skill-aware trajectory verification.** [SkillTV-Bench](../works/skilltv-bench.md) benchmarks LLM-as-a-Judge and Agent-as-a-Judge methods on 681 real trajectories from skill-augmented executions — a setting where the judge needs task-aware skill knowledge to verify correctly. Its SkillTV-Evolve loop distills misjudged cases into a reusable JudgeSkill that raises the same judge's accuracy by 14.8 percentage points and lifts best-of-ten trajectory selection from 22.9% to 45.5%.
+- **Localize-attribute-repair auditing of failed search runs.** [SearchAuditor](../works/searchauditor.md) turns failure analysis into a benchmarked task over SearchAuditBench's 1,243 expert-annotated failed deep-search trajectories (averaging 65.1K tokens), grading critical-step localization, search-specific root-cause attribution, and rubric-graded repair end to end.
+- **Error-lifecycle tracing.** [TRAJDEBUG](../works/trajdebug.md) separates errors an agent later recovers from errors that actually determine failure, via multi-granularity history compression, evidence-based error identification, and resolution-status tracing, anchored by TrajErrBench's 486 manually annotated failed trajectories from Tau2Bench and SWE-Bench Pro.
 
 ## Comparison
 
@@ -58,6 +61,9 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 | AgentRewardBench | 2025 | Judge precision against expert success labels | Web agents | [→](../works/agentrewardbench.md) |
 | Harness-Bench | 2026 | Security-gated Completion × Process (robustness / tool use / consistency from traces) | Cross-harness executable agent workflows (8 categories) | [→](../works/harness-bench.md) |
 | SWE-chat | 2026 | Code survival / efficiency / cost per committed line + LLM-annotated session success and per-turn pushback, over real user trajectories | In-the-wild coding-agent sessions (open-source repositories) | [→](../works/swe-chat.md) |
+| SkillTV-Bench | 2026 | Judge accuracy on skill-augmented executions + rollout-pool selection success | Skill-augmented agent execution (11 domains) | [→](../works/skilltv-bench.md) |
+| SearchAuditor | 2026 | End-to-end pass on critical-step localization, root-cause attribution, and rubric-graded repair | Long-horizon deep-search trajectories | [→](../works/searchauditor.md) |
+| TRAJDEBUG | 2026 | Error identification + critical attribution via resolution status and terminal impact | Tool-use and coding failed trajectories | [→](../works/trajdebug.md) |
 
 ## Open Questions
 
@@ -90,6 +96,9 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - [AgentRewardBench](../works/agentrewardbench.md)
 - [Harness-Bench](../works/harness-bench.md)
 - [SWE-chat](../works/swe-chat.md)
+- [SkillTV-Bench](../works/skilltv-bench.md)
+- [SearchAuditor](../works/searchauditor.md)
+- [TRAJDEBUG](../works/trajdebug.md)
 
 ## Further Reading
 

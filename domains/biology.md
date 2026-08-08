@@ -20,6 +20,7 @@ Life-science evaluation from molecular to population scale. Bioinformatics, geno
 | AstaBench | 2025 | Biology-domain benchmarks within its 11-benchmark scientific-research suite — e.g., data-driven discovery in DiscoveryBench — alongside CS-weighted literature, code, and discovery tasks. | 2,400+ problems across 11 benchmarks with a standard, reproducible tool environment; 57 agents scored. | Per-benchmark metrics from exact match to LLM-judged hypothesis matching, reported with time-invariant dollar-cost accounting and score-vs-cost Pareto frontiers. | [→](../works/astabench.md) |
 | Terminal-Bench Science | 2026 | Biology tasks within the Life Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (8 at launch across all five tracks, target 100+), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | Re-discover the findings of a hidden published paper from a task description, related literature, and raw data — Life is one of its ten domains (40 tasks total). | End-to-end autonomous research tasks, each grounded in a real publication kept hidden during evaluation; the agent produces a final research report. | Reference-Anchored Discovery Score (0–100; 50 = reference-level evidence) against expert-curated multimodal rubrics anchored to the hidden paper's artifacts, judged by GPT-5.1. | [→](../works/researchclawbench.md) |
+| MDArena | 2026 | Run realistic biomolecular-simulation workflows — including membrane-protein systems — covering trajectory analysis, system preparation, free-energy calculations, and enhanced sampling. | 50 containerized tasks sourced from active research projects, spanning 29 molecular systems and 14 research protocols. | Strict-Pass@1 as the headline metric, with correctness and process-reward metrics crediting partial progress. | [→](../works/mdarena.md) |
 
 ## Related Works
 
@@ -33,3 +34,4 @@ Life-science evaluation from molecular to population scale. Bioinformatics, geno
 - [AstaBench](../works/astabench.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [ResearchClawBench](../works/researchclawbench.md)
+- [MDArena](../works/mdarena.md)
