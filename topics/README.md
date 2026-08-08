@@ -4,7 +4,7 @@
 
 Literature-review pages, one per canonical evaluation direction.
 
-Topic pages are the **primary entry point** into this repository. A reader interested in a research direction should start here and follow links into [`../works/`](../works/), then to the original papers:
+Topic pages are the **methodology axis** — one of the repository's two co-equal entry points, alongside the field axis in [`../domains/`](../domains/). A reader interested in an evaluation methodology should start here and follow links into [`../works/`](../works/), then to the original papers:
 
 ```
 Topic  →  Representative works  →  Original papers
@@ -14,15 +14,15 @@ Topic  →  Representative works  →  Original papers
 
 The set of topics is fixed. Adding a new topic requires updating [`../AGENT.md`](../AGENT.md).
 
-| # | Topic | File |
-|---|---|---|
-| I | General Long-Horizon Agent Benchmarks | `long_horizon_evaluation.md` |
-| II | Scientific Agent Benchmarks | `scientific_agents.md` |
-| III | Trajectory Evaluation | `trajectory_evaluation.md` |
-| IV | Skill Hierarchy | `skill_hierarchy.md` |
-| V | Credit Assignment | `credit_assignment.md` |
-| VI | Resource-aware Evaluation | `resource_aware_evaluation.md` |
-| VII | Survey | `survey.md` |
+| # | Topic | File | Related works |
+|---|---|---|---|
+| I | [General Long-Horizon Agent Benchmarks](./long_horizon_evaluation.md) | `long_horizon_evaluation.md` | 17 |
+| II | [Scientific Agent Benchmarks](./scientific_agents.md) | `scientific_agents.md` | 24 |
+| III | [Trajectory Evaluation](./trajectory_evaluation.md) | `trajectory_evaluation.md` | 20 |
+| IV | [Skill Hierarchy](./skill_hierarchy.md) | `skill_hierarchy.md` | 7 |
+| V | [Credit Assignment](./credit_assignment.md) | `credit_assignment.md` | 13 |
+| VI | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 7 |
+| VII | [Survey](./survey.md) | `survey.md` | 4 |
 
 Skill Hierarchy and Credit Assignment are independent topics.
 
@@ -38,7 +38,7 @@ Skill Hierarchy and Credit Assignment are independent topics.
 ```markdown
 # <Topic Name>
 
-> **English** | [简体中文](../zh/topics/<topic_file>.md)
+> **English** | [简体中文](../zh/topics/<topic_file>.md) · [← All topics](./README.md)
 
 ## Definition
 
@@ -72,7 +72,7 @@ looking rather than as established facts.
 
 ## Topic page rules
 
-- **Language switcher.** Every page carries a switcher line directly under the H1: `> **English** | [简体中文](../zh/topics/<file>.md)` on English pages, and `> [English](../../topics/<file>.md) | **简体中文**` on the Chinese mirror.
+- **Language switcher and breadcrumb.** Every page carries one quote line directly under the H1 combining the switcher and a link back to this index: `> **English** | [简体中文](../zh/topics/<file>.md) · [← All topics](./README.md)` on English pages, and `> [English](../../topics/<file>.md) | **简体中文** · [← 全部 topics](./README.md)` on the Chinese mirror.
 - **No global comparison matrix.** Each topic owns its own dimensions. Do not link topic pages together through a shared table.
 - **Synthesis, not summary.** A topic page should explain the design space of the topic, not restate individual work cards. When a work's details are needed, link to its card.
 - **Related Works is the reverse index.** Every work listed here must include this topic in its card's `Topics` block, and vice versa. Keeping the two sides in sync is a maintenance responsibility.

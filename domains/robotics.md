@@ -1,10 +1,14 @@
 # Robotics
 
-> **English** | [简体中文](../zh/domains/robotics.md)
+> **English** | [简体中文](../zh/domains/robotics.md) · [← All domains](./README.md)
 
 ## Scope
 
 Evaluation on physical robot platforms and robot control. Embodied household simulators and computer-use environments do not fold here.
+
+## Comparison
+
+_No works documented yet._
 
 ## Related Works
 

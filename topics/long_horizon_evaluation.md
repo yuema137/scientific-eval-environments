@@ -1,6 +1,6 @@
 # General Long-Horizon Agent Benchmarks
 
-> **English** | [简体中文](../zh/topics/long_horizon_evaluation.md)
+> **English** | [简体中文](../zh/topics/long_horizon_evaluation.md) · [← All topics](./README.md)
 
 ## Definition
 

@@ -27,7 +27,7 @@ scientific-eval-environments/
 │   ├── skill_hierarchy.md
 │   ├── survey.md
 │   └── trajectory_evaluation.md
-├── domains/               # Index pages, one per science/engineering domain
+├── domains/               # Field-axis reference pages, one per canonical domain
 │   ├── README.md          # Domain page template and rules
 │   └── ...                # 19 domain pages, snake_case — one file per domain
 └── zh/                    # Chinese mirror (synced after every English batch)
@@ -37,13 +37,13 @@ scientific-eval-environments/
     └── domains/
 ```
 
-The repository has **two knowledge layers plus one index layer**:
+The repository has **three knowledge layers** — works, plus two co-equal aggregation axes over them:
 
 - **`works/`** — flat directory, one Markdown page per work. Cards are factual references. "Works" is broader than "benchmarks": the layer holds cards for benchmarks, evaluation methodologies, evaluation frameworks (diagnostic overlays, trace-analysis systems, ground-truth generation toolkits), evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly.
 - **`topics/`** — literature-review pages, each covering one canonical evaluation direction. Each topic owns its own comparison table and its own dimensions. There is **no global comparison matrix**.
-- **`domains/`** — lightweight index pages aggregating works by the **science or engineering domain they evaluate in**. This is an orthogonal axis to topics: topics group by evaluation *methodology*, domains by *field*. Domain pages carry no synthesis — only a scope note and a linked work list. Works without a science or engineering domain (web/UI agents, computer use, evaluation methodology, surveys) do not appear in the domain index.
+- **`domains/`** — reference pages aggregating works by the **science or engineering domain they evaluate in**. This is the **field axis**, orthogonal and equal in standing to topics: topics group by evaluation *methodology*, domains by *field*. Each domain page carries a scope note, a comparison table with fixed columns (scientific problem, task form & scale, domain verification — identical on every domain page), and a linked work list; methodology synthesis stays in topic pages. Works without a science or engineering domain (web/UI agents, computer use, evaluation methodology, surveys) do not appear in the domain layer.
 
-**Topics are not mutually exclusive.** A work may naturally belong to multiple topics, because each topic represents a different literature perspective rather than a unique category. That mapping is expressed twice — in the card's `Topics` block and in each topic page's `Related Works` section — and the two sides are kept in sync as a maintenance discipline.
+**Topics are not mutually exclusive.** A work may naturally belong to multiple topics, because each topic represents a different literature perspective rather than a unique category. You can move in either direction: each card's `Topics` block links up to its topics, and each topic page's `Related Works` links down to its cards.
 
 ---
 
@@ -53,13 +53,13 @@ Topics are organized around this fixed set:
 
 | # | Topic | File |
 |---|---|---|
-| I | General Long-Horizon Agent Benchmarks | [`long_horizon_evaluation.md`](./topics/long_horizon_evaluation.md) |
-| II | Scientific Agent Benchmarks | [`scientific_agents.md`](./topics/scientific_agents.md) |
-| III | Trajectory Evaluation | [`trajectory_evaluation.md`](./topics/trajectory_evaluation.md) |
-| IV | Skill Hierarchy | [`skill_hierarchy.md`](./topics/skill_hierarchy.md) |
-| V | Credit Assignment | [`credit_assignment.md`](./topics/credit_assignment.md) |
-| VI | Resource-aware Evaluation | [`resource_aware_evaluation.md`](./topics/resource_aware_evaluation.md) |
-| VII | Survey | [`survey.md`](./topics/survey.md) |
+| I | [General Long-Horizon Agent Benchmarks](./topics/long_horizon_evaluation.md) | `long_horizon_evaluation.md` |
+| II | [Scientific Agent Benchmarks](./topics/scientific_agents.md) | `scientific_agents.md` |
+| III | [Trajectory Evaluation](./topics/trajectory_evaluation.md) | `trajectory_evaluation.md` |
+| IV | [Skill Hierarchy](./topics/skill_hierarchy.md) | `skill_hierarchy.md` |
+| V | [Credit Assignment](./topics/credit_assignment.md) | `credit_assignment.md` |
+| VI | [Resource-aware Evaluation](./topics/resource_aware_evaluation.md) | `resource_aware_evaluation.md` |
+| VII | [Survey](./topics/survey.md) | `survey.md` |
 
 Skill Hierarchy and Credit Assignment are independent topics.
 
@@ -67,26 +67,40 @@ Skill Hierarchy and Credit Assignment are independent topics.
 
 ## Canonical Domain Taxonomy
 
-Domains are organized around a fixed set of 19 science and engineering fields in two groups (full table with fold rules in [`AGENT.md`](./AGENT.md)):
+Domains are organized around this fixed set of 19 science and engineering fields:
 
-- **Science:** Physics, Astronomy, Mathematics, Chemistry, Biology, Neuroscience & Cognitive Science, Medicine & Health, Earth Science, Environmental Science, Materials Science, Computer Science, AI & Machine Learning Research.
-- **Engineering:** Mechanical & Aerospace, Electrical, Energy Systems, Chemical, Civil & Structural, Robotics, Software & Systems.
+| Group | Domain | File |
+|---|---|---|
+| Science | [Physics](./domains/physics.md) | `physics.md` |
+| Science | [Astronomy](./domains/astronomy.md) | `astronomy.md` |
+| Science | [Mathematics](./domains/mathematics.md) | `mathematics.md` |
+| Science | [Chemistry](./domains/chemistry.md) | `chemistry.md` |
+| Science | [Biology](./domains/biology.md) | `biology.md` |
+| Science | [Neuroscience & Cognitive Science](./domains/neuroscience_cognitive_science.md) | `neuroscience_cognitive_science.md` |
+| Science | [Medicine & Health](./domains/medicine_health.md) | `medicine_health.md` |
+| Science | [Earth Science](./domains/earth_science.md) | `earth_science.md` |
+| Science | [Environmental Science](./domains/environmental_science.md) | `environmental_science.md` |
+| Science | [Materials Science](./domains/materials_science.md) | `materials_science.md` |
+| Science | [Computer Science](./domains/computer_science.md) | `computer_science.md` |
+| Science | [AI & Machine Learning Research](./domains/ai_ml_research.md) | `ai_ml_research.md` |
+| Engineering | [Mechanical & Aerospace Engineering](./domains/mechanical_aerospace_engineering.md) | `mechanical_aerospace_engineering.md` |
+| Engineering | [Electrical Engineering](./domains/electrical_engineering.md) | `electrical_engineering.md` |
+| Engineering | [Energy Systems](./domains/energy_systems.md) | `energy_systems.md` |
+| Engineering | [Chemical Engineering](./domains/chemical_engineering.md) | `chemical_engineering.md` |
+| Engineering | [Civil & Structural Engineering](./domains/civil_structural_engineering.md) | `civil_structural_engineering.md` |
+| Engineering | [Robotics](./domains/robotics.md) | `robotics.md` |
+| Engineering | [Software & Systems Engineering](./domains/software_systems_engineering.md) | `software_systems_engineering.md` |
 
-Narrower fields fold into canonical domains (bioinformatics → Biology, GIS → Earth Science, psychology → Neuroscience & Cognitive Science, …), and a work may appear in several domains. UI and computer-use environments are not science or engineering domains.
+Narrower fields fold into canonical domains (bioinformatics → Biology, GIS → Earth Science, psychology → Neuroscience & Cognitive Science, …), and a work may appear in several domains. UI and computer-use environments are not science or engineering domains. Per-domain work counts and the full rules live in [`domains/README.md`](./domains/README.md) and [`AGENT.md`](./AGENT.md).
 
 ---
 
 ## How to Read This Repository
 
-Topics are the primary entry point. If you are new to a research direction, start there:
+There are two co-equal entry points, one per axis. If you arrive with a methodology question, start from topics; if you arrive with a field in mind, start from domains:
 
 ```
-Topic  →  Representative works  →  Original papers
-```
-
-If you arrive with a field rather than a methodology in mind, start from the domain index instead:
-
-```
+Topic   →  Representative works            →  Original papers
 Domain  →  Works evaluated in that domain  →  Original papers
 ```
 
@@ -97,32 +111,15 @@ Domain  →  Works evaluated in that domain  →  Original papers
 
 ---
 
-## Filename Conventions
+## Languages
 
-- **Evaluation-direction topics** use the `_evaluation.md` suffix: `trajectory_evaluation.md`, `resource_aware_evaluation.md`, `long_horizon_evaluation.md`.
-- **Broader topics** keep natural names: `scientific_agents.md`, `skill_hierarchy.md`, `credit_assignment.md`, `survey.md`.
-- **Work cards** use kebab-case matching the work's canonical name: `agentboard.md`, `t-eval.md`, `long-horizon-terminal-bench.md`.
-- **Domain pages** use snake_case matching the domain name: `materials_science.md`, `software_systems_engineering.md`.
+Every page is available in English and Chinese. Use the language switcher at the top of any page (**English** | 简体中文); the Chinese mirror lives under [`zh/`](./zh/README.md).
 
 ---
 
 ## Contributing
 
-Before making changes, read [`AGENT.md`](./AGENT.md). It defines the constitution:
-
-- Two-level reference validation. *Link validation* (title, URL, project, venue, year) and *content validation* (statistics, task counts, metrics — from the **original paper or official project only**, never secondary sources). Unverifiable content becomes `TODO(reference)`.
-- Objective only — no "our benchmark" / "our approach" / positioning language.
-- Repository Notes are conservative. Any observation not stated by the paper is prefixed `Repository note:`, and speculative critique / opinion / extrapolation is not allowed.
-- Template stability — do not churn the work-card template; new evaluation dimensions extend topic pages, not card fields.
-- English canonical, Chinese mirrored under `zh/`, synced after every English batch — not deferred.
-
-Layer-specific rules live in [`works/README.md`](./works/README.md), [`topics/README.md`](./topics/README.md), and [`domains/README.md`](./domains/README.md).
-
----
-
-## Bilingual Documentation
-
-English is the canonical source. Chinese pages mirror the English tree under `zh/` (`zh/works/`, `zh/topics/`, `zh/domains/`) and are synchronized after every English batch.
+Contributions are welcome. All contributor and maintainer rules — reference validation, page templates, taxonomies, and the bilingual sync cadence — live in [`AGENT.md`](./AGENT.md) (the constitution) and [`CLAUDE.md`](./CLAUDE.md) (its quick reference), with layer-specific rules in each directory's README.
 
 ---
 
@@ -142,5 +139,5 @@ All seven canonical topic pages are written, and card coverage has grown well pa
 
 - **73 cards** in `works/` — benchmarks, evaluation frameworks and methodologies, and reference papers (surveys and position papers). Each card notes its type explicitly; the flat directory itself is the authoritative list.
 - **7 topic pages** — full literature reviews with topic-specific comparison tables and open questions. Current Related-Works coverage per topic: Scientific Agent Benchmarks (24), Trajectory Evaluation (20), General Long-Horizon Agent Benchmarks (17), Credit Assignment (13), Skill Hierarchy (7), Resource-aware Evaluation (7), Survey (4).
-- **19 domain pages** — an index of works by science/engineering domain, with the largest coverage currently in Biology, Mathematics, Physics, and Software & Systems Engineering.
+- **19 domain pages** — field-axis reference pages, each with a fixed-column comparison table (scientific problem, task form & scale, domain verification per work); largest coverage currently in Biology, Mathematics, Physics, and Software & Systems Engineering.
 - **Chinese mirrors** under `zh/` kept in sync per the bilingual cadence.

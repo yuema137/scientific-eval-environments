@@ -1,6 +1,6 @@
 # Scientific Agent Benchmarks
 
-> **English** | [简体中文](../zh/topics/scientific_agents.md)
+> **English** | [简体中文](../zh/topics/scientific_agents.md) · [← All topics](./README.md)
 
 ## Definition
 

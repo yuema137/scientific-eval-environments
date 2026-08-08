@@ -1,6 +1,6 @@
 # Credit Assignment
 
-> **English** | [简体中文](../zh/topics/credit_assignment.md)
+> **English** | [简体中文](../zh/topics/credit_assignment.md) · [← All topics](./README.md)
 
 ## Definition
 

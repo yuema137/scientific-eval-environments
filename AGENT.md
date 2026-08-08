@@ -23,13 +23,14 @@ The repository must remain **objective**. It must **not** contain discussion abo
 
 ## Repository Organization
 
-The repository has **two primary knowledge layers** — works and topics — plus one **lightweight index layer**, domains.
+The repository has **three primary knowledge layers**: works (facts about individual projects), topics (the **methodology axis**), and domains (the **field axis**). Topics and domains are **co-equal aggregation axes** over the works layer — neither is subordinate to the other.
 
 ### Layer 1 — Works
 
 Directory: `works/`
 
 - **Flat directory.** Every documented work lives directly under `works/` as a single Markdown file — no per-category sub-folders. Each work appears in exactly one place.
+- **Filenames** use kebab-case matching the work's canonical name: `agentboard.md`, `t-eval.md`, `long-horizon-terminal-bench.md`.
 - Cards are **factual references**. They answer *"What is this work?"* — not *"How does it compare to everything else?"* Synthesis belongs in topic pages, not cards.
 - Cards must be **lightweight**. Do not let a card grow into a literature review.
 
@@ -107,13 +108,13 @@ Adding a new canonical topic is a structural decision that requires updating thi
 
 There is **no global comparison matrix**. Each topic owns its own comparison dimensions.
 
-### Layer 3 — Domains (index layer)
+### Layer 3 — Domains
 
 Directory: `domains/`
 
-Domains aggregate works by the **science or engineering domain they evaluate in** — an orthogonal axis to topics, which aggregate by evaluation methodology. A CFD benchmark and a proof-verification benchmark may share a topic (e.g., Skill Hierarchy) while living in different domains (Mechanical & Aerospace Engineering vs. Mathematics).
+Domains aggregate works by the **science or engineering domain they evaluate in** — an orthogonal axis to topics, which aggregate by evaluation methodology, and **equal to topics in importance**. A CFD benchmark and a proof-verification benchmark may share a topic (e.g., Skill Hierarchy) while living in different domains (Mechanical & Aerospace Engineering vs. Mathematics).
 
-Domain pages are **indexes, not literature reviews**. All synthesis — comparison tables, open questions — stays in topic pages.
+Domain pages are **factual reference pages, not literature reviews** — co-equal with topic pages as an entry point, different in kind. Each carries a comparison table with **fixed, domain-oriented columns identical on every domain page** — unlike topic tables, which choose their own dimensions. The table describes what science each work tackles, in enough detail for a reader from that field; methodology synthesis, topic-specific comparison dimensions, and open questions stay in topic pages.
 
 **Canonical domain taxonomy.** The repository organizes domains around this fixed set:
 
@@ -139,12 +140,13 @@ Domain pages are **indexes, not literature reviews**. All synthesis — comparis
 | Engineering | Robotics | `robotics.md` |
 | Engineering | Software & Systems Engineering | `software_systems_engineering.md` |
 
-Adding a new canonical domain is a structural decision that requires updating this table.
+Adding a new canonical domain is a structural decision that requires updating this table. Domain filenames use snake_case matching the domain name.
 
 **Domain page template:**
 
 - **Scope** — one or two sentences: what counts, including fold rules.
-- **Related Works** — links to work cards with a one-line hook each. A domain with no documented works yet states so explicitly.
+- **Comparison** — a factual table with the fixed columns `Work | Year | Scientific problem | Task form & scale | Domain verification | Card`. *Scientific problem* states what science question the work actually tackles, in enough detail for a domain expert; *Task form & scale* states what the agent concretely does and how many tasks fall in this domain; *Domain verification* states how scientific correctness is checked (numerical error vs. reference, expert labels, execution, physical criteria, LLM judge, …). For multi-domain suites, the row is slanted to this domain's slice. Every cell must be verifiable from the work's card.
+- **Related Works** — bare links to the work cards (the mapping list). A domain with no documented works yet states so explicitly.
 
 **Rules:**
 
@@ -156,7 +158,7 @@ Adding a new canonical domain is a structural decision that requires updating th
 
 ---
 
-## Relationship Between Works and Topics
+## Relationship Between the Layers
 
 **Topics are not mutually exclusive.** A work may naturally belong to multiple topics, because each topic represents a different literature perspective rather than a unique category. Do not force a work into a single topic to "keep things tidy" — cross-topic membership is the intended pattern, not an exception.
 
@@ -175,16 +177,11 @@ CostBench              → resource_aware_evaluation
 AgentBoard             → trajectory_evaluation, skill_hierarchy
 ```
 
-**Topic pages are the primary entry point.** A reader interested in a research direction should start from `topics/`, follow links into `works/`, and from there to the original papers:
+**Topic and domain pages are the two primary entry points.** A reader who arrives with a methodology question starts from `topics/`; a reader who arrives with a field in mind starts from `domains/`. Both follow links into `works/` and from there to the original papers:
 
 ```
-Topic  →  Representative works  →  Original papers
-```
-
-The domain index provides the alternative entry point for readers who arrive with a field rather than a methodology in mind:
-
-```
-Domain  →  Works evaluated in that domain  →  Original papers
+Topic   →  Representative works              →  Original papers
+Domain  →  Works evaluated in that domain    →  Original papers
 ```
 
 ---
@@ -256,7 +253,8 @@ Chinese pages mirror the English tree under `zh/` (`zh/works/`, `zh/topics/`, `z
 1. Finish one batch of English pages.
 2. Review.
 3. Synchronize the corresponding Chinese pages.
-4. Only then begin the next English batch.
+4. Re-read every changed Chinese page as a Chinese reader and fix any phrasing that is stilted, ambiguous, or only makes sense with the English in mind. This naturalness review is part of the sync step, not optional polish.
+5. Only then begin the next English batch.
 
 Do not postpone Chinese translation until the whole repository is complete.
 
@@ -268,7 +266,7 @@ Translation rules:
 - proper nouns remain in English
 - technical terminology may remain in English where appropriate
 
-Translate explanations naturally, not literally.
+**Natural translation, not word-for-word.** Chinese pages must read as if originally written in Chinese. Literal renderings of English idioms and metaphors are defects — e.g., a "breadcrumb" link is a 返回链接, not 面包屑. When a sentence structure works in English but reads awkwardly in Chinese, restructure the sentence; fidelity is to the meaning, never to the word order.
 
 ---
 
@@ -303,6 +301,6 @@ The distinction between in-scope and out-of-scope RL work is the paper's primary
 The final repository should read like a well-organized technical handbook.
 
 - Work cards provide **factual documentation**.
-- Topic pages provide **synthesis** and serve as the primary entry point.
+- Topic pages provide **synthesis** along the methodology axis; domain pages provide **field-oriented reference** along the domain axis. The two are co-equal entry points.
 
 Together they should give any reader a clear understanding of the current scientific evaluation landscape.

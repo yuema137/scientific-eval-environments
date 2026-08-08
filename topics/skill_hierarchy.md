@@ -1,6 +1,6 @@
 # Skill Hierarchy
 
-> **English** | [简体中文](../zh/topics/skill_hierarchy.md)
+> **English** | [简体中文](../zh/topics/skill_hierarchy.md) · [← All topics](./README.md)
 
 ## Definition
 
