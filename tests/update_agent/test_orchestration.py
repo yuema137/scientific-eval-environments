@@ -130,6 +130,28 @@ def _write(cwd, rel, obj):
     json.dump(obj, open(p, "w"), indent=2)
 
 
+def test_card_slug_is_always_valid_kebab():
+    import re
+    cases = [
+        ({"candidate_id": "x1", "title": "OR-Space: A Full-Lifecycle Workspace Benchmark for Agents",
+          "source_records": [{"source": "arxiv"}]}, "or-space"),
+        ({"candidate_id": "x2", "title": "facebookresearch/meta-agents-research-environments",
+          "source_records": [{"source": "github"}]}, "meta-agents-research-environments"),
+        ({"candidate_id": "x3", "title": "EpiBench: Can LLMs Understand Epitopes",
+          "source_records": [{"source": "arxiv"}]}, "epibench"),
+        # a title whose 50-char truncation lands on a hyphen must NOT yield a trailing hyphen
+        ({"candidate_id": "x4", "title": ("word " * 12) + "benchmark",
+          "source_records": [{"source": "arxiv"}]}, None),
+        ({"candidate_id": "2508.01234", "title": "", "source_records": [{"source": "arxiv"}]}, None),
+    ]
+    kebab = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
+    for c, expected in cases:
+        s = pipeline._card_slug(c)
+        assert kebab.match(s), "invalid slug %r for %r" % (s, c["title"])
+        if expected:
+            assert s == expected, (s, expected)
+
+
 def test_phase5_handles_null_structured_output(tmp_path, monkeypatch):
     # reviewers run without a JSON schema, so run_worker returns structured_output=None.
     # Phase 5 aggregation must not crash on that (regression: live fixture-e2e caught this).
@@ -161,3 +183,38 @@ def test_full_five_phase_orchestration_stubbed(tmp_path, monkeypatch):
     assert "../topics/scientific_agents.md" in card
     assert "../activities/simulation_scientific_computing.md" in card
     assert "TODO(axis)" not in card
+
+
+def test_integrator_builds_consistent_two_way_index_from_json(tmp_path):
+    """Worker writes ONLY the assignment JSON (no Related Works edits). The deterministic
+    integrator must produce a card<->page reverse index that passes validate_axes."""
+    import json
+    import integrate_english
+    import validators
+    from conftest import build_mini_repo
+    root = build_mini_repo(str(tmp_path), [
+        {"slug": "newcard", "title": "NewCard"},   # written with TODO(axis) below
+        {"slug": "other", "title": "Other"}])
+    # give the new card TODO(axis) placeholder blocks (as the card writer leaves them)
+    p = os.path.join(root, "works", "newcard.md")
+    t = open(p).read()
+    t = re.sub(r"(## Topics\n).*?(\n## )", r"\1TODO(axis)\2", t, flags=re.S)
+    t = re.sub(r"(## Activities\n).*?(\n## )", r"\1TODO(axis)\2", t, flags=re.S)
+    open(p, "w").write(t)
+    # empty target pages
+    for axis, f in [("topics", "trajectory_evaluation"), ("activities", "simulation_scientific_computing")]:
+        os.makedirs(os.path.join(root, axis), exist_ok=True)
+        open(os.path.join(root, axis, f + ".md"), "w").write("# %s\n\n## Related Works\n\n" % f)
+    rd = tmp_path / "rt" / "phase3"
+    rd.mkdir(parents=True)
+    (rd / "topic_assignments.json").write_text(json.dumps(
+        {"assignments": [{"slug": "newcard", "topics": ["trajectory_evaluation"]}]}))
+    (rd / "activity_assignments.json").write_text(json.dumps(
+        {"assignments": [{"slug": "newcard", "activities": ["simulation_scientific_computing"],
+                          "na_reason": None}]}))
+    integrate_english.run(str(tmp_path / "rt"), root)
+    card = open(p).read()
+    assert "../topics/trajectory_evaluation.md" in card and "TODO(axis)" not in card
+    assert "../activities/simulation_scientific_computing.md" in card
+    ok, errs = validators.validate_axes(root)
+    assert ok, errs

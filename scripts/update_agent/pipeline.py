@@ -30,6 +30,30 @@ CARD_SCHEMA = {
 }
 
 
+def _kebab(text, maxlen=50):
+    """Deterministically produce a valid kebab-case slug (never a trailing/leading hyphen)."""
+    s = re.sub(r"[^a-z0-9]+", "-", (text or "").lower())
+    s = re.sub(r"-+", "-", s).strip("-")[:maxlen].strip("-")
+    return s
+
+
+def _card_slug(c):
+    """A clean, valid, short slug for a candidate. Prefers an explicit hint; for GitHub-only works
+    uses the repo name; for papers uses the short name before the first colon (the benchmark name)."""
+    base = c.get("card_slug_hint")
+    if not base:
+        srcs = {r["source"] for r in c.get("source_records", [])}
+        title = c.get("title", "") or c["candidate_id"]
+        if srcs == {"github"} and "/" in title:
+            base = title.split("/")[-1]
+        else:
+            base = re.split(r":", title, 1)[0] if ":" in title else title
+    slug = _kebab(base)
+    if not re.match(r"^[a-z0-9]+(-[a-z0-9]+)*$", slug):
+        slug = _kebab(c["candidate_id"]) or "candidate"
+    return slug
+
+
 def _git(repo_root, *args):
     return subprocess.run(["git", "-C", repo_root, *args], capture_output=True, text=True)
 
@@ -55,8 +79,7 @@ def phase2(run_dir, repo_root, candidates, cfg, fixture=False):
         return False, {"needs_attention": True}
 
     def make_task(c):
-        slug = c.get("card_slug_hint") or re.sub(r"[^a-z0-9]+", "-",
-                                                 c["title"].lower()).strip("-")[:50] or c["candidate_id"]
+        slug = _card_slug(c)
         card_path = "works/%s.md" % slug
         src_block = ""
         if fixture and c.get("fixture_source"):
@@ -90,7 +113,7 @@ def phase2(run_dir, repo_root, candidates, cfg, fixture=False):
             op_failures += 1
             continue
         if dec.get("decision") == "accepted":
-            slug = dec.get("card_slug") or res["slug"]
+            slug = res["slug"]   # the deterministic, validated path we told the worker to write
             if os.path.exists(os.path.join(repo_root, "works", "%s.md" % slug)):
                 accepted.append({"candidate_id": dec["candidate_id"], "card_slug": slug,
                                  "card_title": dec.get("card_title", slug),
