@@ -63,6 +63,7 @@ Activity  →  执行该任务的 works  →  原始论文   （agent 做什么�
 ## 维护规则
 
 - **反向索引是双向的。** 卡片 `## Activities` 块中的每个活动都必须出现在该活动页的 `Related Works`（及 Comparison 表）中，反之亦然。两侧必须完全一致——不得有仅出现在表中的条目、重复项或失效链接。
+- **数量自动生成。** 上表中的 work 数量（以及仓库中所有计数）均由 [`../scripts/update_counts.py`](../scripts/update_counts.py) 从反向索引生成——任何卡片改动后运行该脚本，切勿手工修改计数。
 - **仅用规范化标签。** 卡片只能取自上表分类；不得自造活动标签。
 - **证据标准。** 分类依据卡片所描述的实际任务（`Overview`、`Tasks`、`Summary`、`Main Contribution`、`Domains`、`Key Design Ideas`），必要时回溯到经核验的原始来源——绝不依据标题关键词。
 - **不强行归类、不设 `Other`。** 确实不适用的工作给出明确的 `N/A` 原因；不存在兜底活动。

@@ -63,6 +63,7 @@ Each activity page follows one structure:
 ## Maintenance rules
 
 - **Reverse index is two-way.** Every activity on a card's `## Activities` block must appear in that activity page's `Related Works`, and every work in a page's `Related Works` (and Comparison table) must list that activity on its card. The two sides must agree exactly — no table-only entries, no duplicates, no broken links.
+- **Counts are auto-derived.** The work counts in the table above (and everywhere else in the repository) are generated from the reverse indexes by [`../scripts/update_counts.py`](../scripts/update_counts.py) — run it after any card change, and never hand-edit a count.
 - **Canonical labels only.** Cards draw solely from the taxonomy above; no free-form activity tags.
 - **Evidence standard.** Classification is based on the actual task the card describes (its `Overview`, `Tasks`, `Summary`, `Main Contribution`, `Domains`, `Key Design Ideas`), falling back to the verified primary source — never on title keywords.
 - **No force-assignment and no `Other`.** Genuinely non-applicable works get an explicit `N/A` reason; there is no catch-all activity.
