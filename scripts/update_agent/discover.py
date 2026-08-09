@@ -25,7 +25,7 @@ def _profile_queries(prof, axis, item):
     return list(qs) if qs else ["%s LLM agent benchmark" % item]
 
 
-def run(mode, run_dir, now_iso=None):
+def run(mode, run_dir, now_iso=None, since_iso=None):
     cfg = config()
     tax = taxonomy()
     prof = search_profiles()
@@ -33,7 +33,8 @@ def run(mode, run_dir, now_iso=None):
 
     smoke = mode == "discovery-smoke"
     lookback = cfg["smoke"]["lookback_days"] if smoke else cfg["lookback_days"]
-    since = _since_iso(lookback)
+    # production runs pass the watermark-derived window via since_iso; smoke uses its own lookback
+    since = since_iso if (since_iso and not smoke) else _since_iso(lookback)
     now_iso = now_iso or dt.datetime.utcnow().replace(microsecond=0).isoformat()
 
     # which axis items to cover
@@ -123,6 +124,11 @@ def run(mode, run_dir, now_iso=None):
                               coverage["global_by_source"][s]["status"] == "success"
                               for s in sources) else "partial"}
     coverage["raw_hit_count"] = len(raw)
+    rbs = {}
+    for r in raw.values():
+        rbs[r["source"]] = rbs.get(r["source"], 0) + 1
+    coverage["raw_by_source"] = rbs
+    coverage["search_window"] = {"start": since, "end": now_iso}
     coverage["finished_at"] = dt.datetime.utcnow().replace(microsecond=0).isoformat()
 
     write_json("%s/phase1/coverage.json" % run_dir, coverage)

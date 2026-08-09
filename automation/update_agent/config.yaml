@@ -3,9 +3,18 @@
 
 # Overlapping lookback window (days) for discovery. Deduplication — not a hard cutoff —
 # prevents repeat additions, so overlap safely absorbs indexing delays and missed runs.
-# Matched to the every-3-days schedule (with 0-day overlap; dedup still guards repeats). Keeping
-# this small also bounds token cost: fewer days -> fewer candidates -> fewer Phase-2 card workers.
+# Fallback window (days) used ONLY when there is no watermark yet (first run). Normal runs use the
+# watermark (see below), not a fixed lookback. Keeping this small bounds first-run token cost.
 lookback_days: 3
+
+# Discovery window is driven by the last SUCCESSFUL production run, not a fixed lookback:
+#   window = last_success - overlap_hours  ->  now
+# Failed runs never advance the watermark, so the next run catches up automatically. If the backlog
+# exceeds max_catchup_days the run fails as needs_attention instead of deep-reviewing hundreds.
+watermark:
+  overlap_hours: 24        # re-cover 24h before the last success (indexing delays; dedup drops repeats)
+  max_catchup_days: 14     # beyond this backlog -> needs_attention (no silent truncation)
+  min_interval_hours: 72   # scheduled runs proceed only every ~72h (true cadence, month-independent)
 
 # Per-source result caps in PRODUCTION (full) mode. Keep broad but bounded.
 source_limits:

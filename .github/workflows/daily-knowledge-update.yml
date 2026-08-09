@@ -4,13 +4,14 @@ name: Daily Knowledge Update
 # trigger, so untrusted fork input can never run this secret-bearing workflow.
 on:
   # ┌── PRODUCTION SCHEDULE — TEMPORARILY DISABLED (until a real full run opens a legit PR) ──┐
-  # │ Cadence: once every 3 days at 00:01 America/Los_Angeles (matches the 3-day lookback in  │
-  # │ automation/update_agent/config.yaml, which bounds per-run token cost).                 │
-  # │ TO RE-ENABLE: uncomment the two `schedule:` lines below. Nothing else changes.         │
+  # │ Wakes DAILY at 00:17 America/Los_Angeles, but the discovery job's due-check only runs a │
+  # │ full update when >= 72h have passed since the last successful run (min_interval_hours in │
+  # │ config.yaml). This gives a true ~72h cadence decoupled from the calendar month (avoids   │
+  # │ the day-of-month `*/3` drift), and the off-the-hour minute avoids the top-of-hour        │
+  # │ high-load window. TO RE-ENABLE: uncomment the two `schedule:` lines below.               │
   # └────────────────────────────────────────────────────────────────────────────────────────┘
   # schedule:
-  #   # every 3 days (day-of-month step) at 00:01 America/Los_Angeles (native timezone; DST-adjusted).
-  #   - cron: '1 0 */3 * *'
+  #   - cron: '17 0 * * *'          # 00:17 daily; the 72h due-check enforces the real cadence
   #     timezone: 'America/Los_Angeles'
   workflow_dispatch:
     inputs:
@@ -137,6 +138,7 @@ jobs:
     outputs:
       candidates: ${{ steps.disc.outputs.candidates }}
       discovery: ${{ steps.disc.outputs.discovery }}
+      not_due: ${{ steps.disc.outputs.not_due }}
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
@@ -251,3 +253,26 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: run-manifests, path: runtime/state }
+
+  # Advance the durable discovery watermark ONLY on production success (a legitimate PR, or a
+  # genuine no-op that searched and found nothing). Never on failure, needs_attention, or a
+  # not-due no-op — so a failed run's window is automatically re-covered by the next run.
+  watermark:
+    if: >-
+      ${{ always() && (github.event_name == 'schedule' || github.event.inputs.mode == 'full')
+      && needs.discovery.result == 'success' && needs.discovery.outputs.not_due != 'true'
+      && (needs.discovery.outputs.candidates == '0' || needs.finalize.result == 'success') }}
+    needs: [discovery, finalize]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q requests pyyaml
+      - uses: actions/download-artifact@v4
+        with: { name: stage-runtime, path: runtime/ }
+      - name: Advance discovery watermark to this run's window end
+        run: python scripts/update_agent/run_phase.py advance-watermark

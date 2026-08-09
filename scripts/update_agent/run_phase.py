@@ -15,6 +15,7 @@ sys.path.insert(0, os.path.join(CWD, "scripts", "update_agent"))
 
 from common import config, write_json, read_json, log   # noqa: E402
 import discover as discovery                              # noqa: E402
+import watermark                                          # noqa: E402
 import prefilter                                          # noqa: E402
 import deduplicate                                        # noqa: E402
 import relevance                                          # noqa: E402
@@ -55,7 +56,35 @@ def _pending_index(rolling_branch):
 
 def cmd_discover(a):
     cfg = config()
-    cov = discovery.run(a.mode, RUN_DIR)
+    # ---- watermark-driven window + scheduled due-check (production only) ----
+    since_override = None
+    now_iso = watermark.now_iso()
+    if a.mode == "full":
+        wm_iso = watermark.read_watermark_iso()
+        event = os.environ.get("GITHUB_EVENT_NAME", "workflow_dispatch")
+        if event == "schedule" and not watermark.is_due(now_iso, wm_iso,
+                                                         cfg["watermark"]["min_interval_hours"]):
+            phase_state.write_phase_result(RUN_DIR, "discovery", "pass",
+                                           {"skipped": "not due", "watermark": wm_iso})
+            _gh_output(candidates=0, discovery="pass", not_due="true")
+            _summary("Discovery", ["Scheduled run not due yet (< %dh since last success) — no-op."
+                                   % cfg["watermark"]["min_interval_hours"]])
+            sys.exit(0)
+        win = watermark.compute_window(now_iso, wm_iso, cfg["watermark"]["overlap_hours"],
+                                       cfg["watermark"]["max_catchup_days"], cfg["lookback_days"])
+        if win["catch_up_exceeded"]:
+            phase_state.write_phase_result(RUN_DIR, "discovery", "fail",
+                                           {"needs_attention": "catch-up window exceeded",
+                                            "backlog_days": win.get("backlog_days"),
+                                            "max_catchup_days": cfg["watermark"]["max_catchup_days"]})
+            _gh_output(candidates=0, discovery="fail")
+            _summary("Discovery", ["needs_attention: %d-day backlog exceeds max_catchup_days=%d — "
+                                   "not deep-reviewing a backlog. Investigate."
+                                   % (win.get("backlog_days", 0), cfg["watermark"]["max_catchup_days"])])
+            sys.exit(1)
+        since_override = win["start_iso"]
+        log("discovery window %s -> %s (basis=%s)" % (since_override, now_iso, win["basis"]))
+    cov = discovery.run(a.mode, RUN_DIR, now_iso=now_iso, since_iso=since_override)
     # 1) deterministic source-aware prefilter
     raw = read_json(os.path.join(RUN_DIR, "phase1", "raw_hits.json"))
     kept, pre_rej = prefilter.run(raw)
@@ -82,15 +111,30 @@ def cmd_discover(a):
                                     "prefiltered": len(kept), "cross_source_merged": cross_merged,
                                     "relevance": rep, "admitted": n, "errors": errs[:20]})
     _gh_output(candidates=n, discovery=("pass" if ok else "fail"))
-    _summary("Discovery", [
-        "Sources: %s" % cov["sources"],
-        "Raw hits: %d -> prefilter kept: %d" % (cov["raw_hit_count"], len(kept)),
+    rbs = cov.get("raw_by_source", {})
+    win = cov.get("search_window", {})
+    _summary("Discovery funnel", [
+        "Window: %s -> %s" % (win.get("start", "?")[:10], win.get("end", "?")[:10]),
+        "Raw: arXiv %d, OpenReview %d, GitHub %d (total %d)"
+        % (rbs.get("arxiv", 0), rbs.get("openreview", 0), rbs.get("github", 0), cov["raw_hit_count"]),
+        "Deterministic prefilter -> %d" % len(kept),
         "Cross-source merged: %d" % cross_merged,
-        "Relevance: deep_review=%d uncertain=%d(admitted %d) rejected=%d"
+        "Relevance: deep_review=%d, uncertain=%d (admitted %d, github-only excluded %d), rejected=%d"
         % (rep["deep_review"], rep["uncertain_total"], rep["uncertain_admitted"],
-           rep["rejected_low_relevance"]),
-        "Deep-review admitted: %d (cap %d, overflow=%s)" % (n, cap, rep["overflow"])])
+           rep.get("uncertain_github_only_excluded", 0), rep["rejected_low_relevance"]),
+        "Sent to Phase 2 (deep-review admitted): %d (cap %d, overflow=%s)" % (n, cap, rep["overflow"])])
     sys.exit(0 if ok else 1)
+
+
+def cmd_advance_watermark(a):
+    """Advance the durable watermark to this run's search-window end (called only on production
+    success — a legitimate PR or a successful no-op). Failed runs never reach here."""
+    cov = read_json(os.path.join(RUN_DIR, "phase1", "coverage.json")) \
+        if os.path.exists(os.path.join(RUN_DIR, "phase1", "coverage.json")) else {}
+    ts = (cov.get("search_window") or {}).get("end") or cov.get("started_at") or watermark.now_iso()
+    subprocess.run(["bash", os.path.join(CWD, "scripts", "update_agent", "advance_watermark.sh"), ts],
+                   check=False)
+    print("watermark advance requested for", ts)
 
 
 def cmd_english(a):
@@ -101,8 +145,10 @@ def cmd_english(a):
         _gh_output(accepted=0, english="fail")
         sys.exit(1)
     accepted = r2["slugs"]
+    rate = (100.0 * len(accepted) / len(candidates)) if candidates else 0.0
     _summary("Cards", ["Reviewed: %d" % len(candidates), "Accepted: %d" % len(accepted),
-                       "Rejected: %d" % len(r2["rejected"])])
+                       "Rejected: %d" % len(r2["rejected"]),
+                       "Phase-2 acceptance rate (discovery-precision proxy): %.0f%%" % rate])
     if not accepted:
         # successful no-op
         _gh_output(accepted=0, english="pass")
@@ -170,7 +216,8 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     d = sub.add_parser("discover"); d.add_argument("--mode", default="full"); d.set_defaults(fn=cmd_discover)
     for name, fn in [("english", cmd_english), ("chinese", cmd_chinese),
-                     ("review", cmd_review), ("finalize", cmd_finalize)]:
+                     ("review", cmd_review), ("finalize", cmd_finalize),
+                     ("advance-watermark", cmd_advance_watermark)]:
         p = sub.add_parser(name); p.set_defaults(fn=fn)
     a = ap.parse_args()
     a.fn(a)

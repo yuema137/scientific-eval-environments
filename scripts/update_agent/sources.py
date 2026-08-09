@@ -54,10 +54,10 @@ class ArxivSource(Source):
             aid_url = (e.findtext("a:id", default="", namespaces=self.NS) or "").strip()
             m = re.search(r"arxiv\.org/abs/([\w.\-]+?)(v\d+)?$", aid_url)
             arxiv_id = m.group(1) if m else aid_url
+            # new-work discovery keys on INITIAL submission date, not lastUpdatedDate, so a v2/v3
+            # revision of an old paper is not surfaced as a new work.
             published = (e.findtext("a:published", default="", namespaces=self.NS) or "").strip()
-            updated = (e.findtext("a:updated", default="", namespaces=self.NS) or "").strip()
-            newest = updated or published
-            d = _parse_iso(newest)
+            d = _parse_iso(published)
             if since and d and d.tzinfo:
                 since_cmp = since if since.tzinfo else since.replace(tzinfo=d.tzinfo)
                 if d < since_cmp:
@@ -72,7 +72,7 @@ class ArxivSource(Source):
                 "abstract_or_description": " ".join(
                     (e.findtext("a:summary", default="", namespaces=self.NS) or "").split()),
                 "authors": [a for a in authors if a],
-                "date": newest,
+                "date": published,
             })
         return out
 
@@ -123,10 +123,12 @@ class GitHubSource(Source):
         return h
 
     def search(self, query, since_iso, limit):
+        # new-work discovery keys on repository CREATION date (a standalone repo), not pushed/updated,
+        # so an old repo with a recent commit is not surfaced as a new work.
         since_day = (since_iso or "")[:10]
         q = query
         if since_day:
-            q = "%s pushed:>=%s" % (query, since_day)
+            q = "%s created:>=%s" % (query, since_day)
         r = http_get(self.ENDPOINT, params={
             "q": q, "sort": "updated", "order": "desc", "per_page": min(limit, 50),
         }, headers=self._headers())
@@ -139,7 +141,8 @@ class GitHubSource(Source):
                 "title": it.get("full_name", ""),
                 "abstract_or_description": " ".join((it.get("description") or "").split()),
                 "authors": [(it.get("owner") or {}).get("login", "")],
-                "date": it.get("pushed_at") or it.get("updated_at") or "",
+                "date": it.get("created_at") or it.get("pushed_at") or "",
+                "created_at": it.get("created_at") or "",
                 "topics": it.get("topics") or [],
                 "homepage": it.get("homepage") or "",
                 "stars": it.get("stargazers_count", 0),

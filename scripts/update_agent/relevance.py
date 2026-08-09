@@ -82,17 +82,31 @@ def score(candidates, cfg=None, batch_size=None, max_workers=None):
     return out
 
 
+def _github_only(c):
+    return {r["source"] for r in c.get("source_records", [])} == {"github"}
+
+
 def admit(candidates, decisions, cap):
-    """Ranked triage. Returns (admitted, report)."""
+    """Ranked triage (source-aware). Returns (admitted, report).
+
+    deep_review is admitted from any source. `uncertain` fills the remaining budget by confidence
+    — but ONLY for candidates backed by a paper (arXiv/OpenReview abstract). A GitHub-only
+    `uncertain` is NOT admitted: repo name+description+topics carry far less signal than an
+    abstract, so a standalone repo must earn `deep_review` (or be merged onto a paper) to proceed.
+    """
     by_id = {c["candidate_id"]: c for c in candidates}
     deep = [cid for cid, d in decisions.items() if d["decision"] == "deep_review"]
-    uncertain = sorted([cid for cid, d in decisions.items() if d["decision"] == "uncertain"],
-                       key=lambda cid: -decisions[cid]["confidence"])
+    uncertain = [cid for cid, d in decisions.items() if d["decision"] == "uncertain"]
     rejected = [cid for cid, d in decisions.items() if d["decision"] == "reject_low_relevance"]
+
+    uncertain_admittable = sorted(
+        [cid for cid in uncertain if cid in by_id and not _github_only(by_id[cid])],
+        key=lambda cid: -decisions[cid]["confidence"])
+    gh_only_uncertain = [cid for cid in uncertain if cid in by_id and _github_only(by_id[cid])]
 
     admitted_ids = list(deep)
     room = cap - len(admitted_ids)
-    admitted_from_uncertain = uncertain[:room] if room > 0 else []
+    admitted_from_uncertain = uncertain_admittable[:room] if room > 0 else []
     admitted_ids += admitted_from_uncertain
 
     admitted = [by_id[cid] for cid in admitted_ids if cid in by_id]
@@ -100,6 +114,7 @@ def admit(candidates, decisions, cap):
         "deep_review": len(deep),
         "uncertain_total": len(uncertain),
         "uncertain_admitted": len(admitted_from_uncertain),
+        "uncertain_github_only_excluded": len(gh_only_uncertain),
         "rejected_low_relevance": len(rejected),
         "admitted": len(admitted),
         "cap": cap,

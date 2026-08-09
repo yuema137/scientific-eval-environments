@@ -168,3 +168,46 @@ def test_admit_uncertain_fills_remaining_budget_by_confidence():
             dec[c["candidate_id"]] = {"decision": "uncertain", "confidence": (i / 100.0)}
     admitted, rep = relevance.admit(cands, dec, cap=40)
     assert len(admitted) == 40 and rep["uncertain_admitted"] == 10 and rep["overflow"] is False
+
+
+# ------------------------------------------------------------ watermark
+import watermark
+
+
+def test_watermark_no_wm_uses_default_lookback():
+    w = watermark.compute_window("2026-08-10T00:00:00+00:00", None, 24, 14, 3)
+    assert w["basis"] == "default_lookback" and w["catch_up_exceeded"] is False
+    assert w["start_iso"].startswith("2026-08-07")
+
+
+def test_watermark_recent_uses_overlap():
+    w = watermark.compute_window("2026-08-10T00:00:00+00:00", "2026-08-07T00:00:00+00:00", 24, 14, 3)
+    assert w["basis"] == "watermark" and w["catch_up_exceeded"] is False
+    assert w["start_iso"].startswith("2026-08-06")   # 2026-08-07 minus 24h overlap
+
+
+def test_watermark_catch_up_exceeded_needs_attention():
+    w = watermark.compute_window("2026-08-30T00:00:00+00:00", "2026-08-01T00:00:00+00:00", 24, 14, 3)
+    assert w["catch_up_exceeded"] is True and w["basis"] == "catch_up_exceeded"
+
+
+def test_is_due():
+    assert watermark.is_due("2026-08-10T00:00:00+00:00", None, 72) is True                 # first run
+    assert watermark.is_due("2026-08-10T00:00:00+00:00", "2026-08-06T00:00:00+00:00", 72) is True   # 96h
+    assert watermark.is_due("2026-08-10T00:00:00+00:00", "2026-08-09T12:00:00+00:00", 72) is False  # 12h
+
+
+# ------------------------------------------------------------ source-aware admission
+def test_admit_excludes_github_only_uncertain():
+    cands = [
+        {"candidate_id": "p1", "source_records": [{"source": "arxiv"}]},
+        {"candidate_id": "g1", "source_records": [{"source": "github"}]},
+        {"candidate_id": "pg", "source_records": [{"source": "arxiv"}, {"source": "github"}]},
+    ]
+    dec = {"p1": {"decision": "uncertain", "confidence": 0.5},
+           "g1": {"decision": "uncertain", "confidence": 0.9},   # high conf but github-only -> excluded
+           "pg": {"decision": "uncertain", "confidence": 0.4}}
+    admitted, rep = relevance.admit(cands, dec, cap=40)
+    ids = {c["candidate_id"] for c in admitted}
+    assert "g1" not in ids and "p1" in ids and "pg" in ids
+    assert rep["uncertain_github_only_excluded"] == 1
