@@ -1,9 +1,11 @@
 # Daily Update Agent — configuration
 # All operational knobs live here; code reads this file rather than hard-coding values.
 
-# Overlapping lookback window (days) for discovery. Deduplication — not a 1-day cutoff —
+# Overlapping lookback window (days) for discovery. Deduplication — not a hard cutoff —
 # prevents repeat additions, so overlap safely absorbs indexing delays and missed runs.
-lookback_days: 7
+# Matched to the every-3-days schedule (with 0-day overlap; dedup still guards repeats). Keeping
+# this small also bounds token cost: fewer days -> fewer candidates -> fewer Phase-2 card workers.
+lookback_days: 3
 
 # Per-source result caps in PRODUCTION (full) mode. Keep broad but bounded.
 source_limits:

@@ -24,7 +24,7 @@ finalize job open a PR.
 
 ## Schedule & concurrency
 
-- Runs daily at **00:01 America/Los_Angeles** (native `timezone:` cron; GitHub adjusts for DST).
+- Runs **once every 3 days** at **00:01 America/Los_Angeles** (native `timezone:` cron; GitHub adjusts for DST).
 - `workflow_dispatch` supports manual modes (below). Scheduled runs are always `full`.
 - Concurrency group `daily-knowledge-update`, `cancel-in-progress: false` — a running production
   update is never interrupted by the next trigger.
@@ -118,6 +118,8 @@ overlapping lookback lets the next day's run recover. To debug: open the failed 
 - Live smokes: `discovery-smoke` (sources), `auth-smoke` (token), `fixture-e2e-smoke` (5 phases).
 
 ## Disable / enable
+
+Cadence/lookback are in `config.yaml` (`lookback_days: 3`) and the workflow `schedule` (every 3 days) — both chosen to bound per-run token cost.
 
 Disable: GitHub → Actions → “Daily Knowledge Update” → **⋯ → Disable workflow** (or delete the
 schedule block). Re-enable from the same menu. Tune cost via `config.yaml` limits.

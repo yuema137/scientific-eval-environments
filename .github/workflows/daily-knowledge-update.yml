@@ -3,14 +3,14 @@ name: Daily Knowledge Update
 # Security: triggers are schedule + manual only. There is NO pull_request/pull_request_target
 # trigger, so untrusted fork input can never run this secret-bearing workflow.
 on:
-  # ┌── PRODUCTION SCHEDULE — TEMPORARILY DISABLED (discovery precision remediation) ──┐
-  # │ The daily 00:01 America/Los_Angeles run is intentionally commented out until a   │
-  # │ real manual `full` run reaches the final gate and opens a legitimate PR.         │
-  # │ TO RE-ENABLE: uncomment the two `schedule:` lines below. Nothing else changes.   │
-  # └──────────────────────────────────────────────────────────────────────────────────┘
+  # ┌── PRODUCTION SCHEDULE — TEMPORARILY DISABLED (until a real full run opens a legit PR) ──┐
+  # │ Cadence: once every 3 days at 00:01 America/Los_Angeles (matches the 3-day lookback in  │
+  # │ automation/update_agent/config.yaml, which bounds per-run token cost).                 │
+  # │ TO RE-ENABLE: uncomment the two `schedule:` lines below. Nothing else changes.         │
+  # └────────────────────────────────────────────────────────────────────────────────────────┘
   # schedule:
-  #   # 00:01 America/Los_Angeles year-round (native timezone; GitHub adjusts for DST).
-  #   - cron: '1 0 * * *'
+  #   # every 3 days (day-of-month step) at 00:01 America/Los_Angeles (native timezone; DST-adjusted).
+  #   - cron: '1 0 */3 * *'
   #     timezone: 'America/Los_Angeles'
   workflow_dispatch:
     inputs:
