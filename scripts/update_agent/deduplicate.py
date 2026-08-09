@@ -20,6 +20,21 @@ _RELEVANT = re.compile(
     r"research|reasoning|autonomous|trajector|reproduc)\w*", re.I)
 
 
+def _paper_ids_from_text(text):
+    """Extract paper identifiers embedded in free text (e.g. a GitHub repo's description or
+    homepage linking its arXiv paper) so the repo merges onto the paper candidate."""
+    keys = set()
+    for a in re.findall(r"arxiv\.org/abs/(\d{4}\.\d{4,5})", text, re.I):
+        keys.add(("arxiv", normalize_arxiv_id(a)))
+    for a in re.findall(r"\barxiv[:\s]+(\d{4}\.\d{4,5})", text, re.I):
+        keys.add(("arxiv", normalize_arxiv_id(a)))
+    for o in re.findall(r"openreview\.net/forum\?id=([\w\-]+)", text, re.I):
+        keys.add(("openreview", o))
+    for d in re.findall(r"\b(10\.\d{4,9}/[^\s>)\]]+)", text):
+        keys.add(("doi", d.lower()))
+    return keys
+
+
 def _ids(rec):
     """Return normalized identity keys for one raw record."""
     keys = set()
@@ -34,6 +49,9 @@ def _ids(rec):
         if m:
             keys.add(("github", "github.com/%s/%s" % (m.group(1).lower(),
                      re.sub(r"\.git$", "", m.group(2).lower()))))
+        # a repo that links its paper -> gains the paper's identifier keys
+        keys |= _paper_ids_from_text(" ".join([rec.get("url", ""), rec.get("homepage", ""),
+                                               rec.get("abstract_or_description", "")]))
     tn = normalize_title(rec["title"])
     if tn:
         keys.add(("title_norm", tn))
@@ -44,8 +62,36 @@ def _merge_key(existing_keys, rec_keys):
     return bool(existing_keys & rec_keys)
 
 
-def run(run_dir, extra_inventory=None, repo_root=REPO_ROOT):
-    raw = read_json("%s/phase1/raw_hits.json" % run_dir)
+def _author_lastnames(rec):
+    out = set()
+    for a in (rec.get("authors") or []):
+        toks = re.sub(r"[^a-z\s]", "", str(a).lower()).split()
+        if toks:
+            out.add(toks[-1])
+    return out
+
+
+def _title_tokens(t):
+    return set(w for w in re.sub(r"[^a-z0-9\s]", " ", (t or "").lower()).split() if len(w) > 2)
+
+
+def _fuzzy_same_paper(a, b):
+    """Cautious cross-record equivalence for PAPER records (arxiv/openreview): high title
+    token-set overlap AND at least one shared author last name. Never merges on title alone."""
+    if a["source"] not in ("arxiv", "openreview") or b["source"] not in ("arxiv", "openreview"):
+        return False
+    ta, tb = _title_tokens(a.get("title")), _title_tokens(b.get("title"))
+    if not ta or not tb:
+        return False
+    jac = len(ta & tb) / len(ta | tb)
+    subtitle = ta <= tb or tb <= ta   # one title is a prefix/superset (subtitle difference)
+    if jac < 0.85 and not subtitle:
+        return False
+    return bool(_author_lastnames(a) & _author_lastnames(b))
+
+
+def run(run_dir, extra_inventory=None, repo_root=REPO_ROOT, raw_path=None):
+    raw = read_json(raw_path or "%s/phase1/raw_hits.json" % run_dir)
     index = inv.build_index(repo_root)
     pending = read_json(extra_inventory) if extra_inventory and os.path.exists(extra_inventory) else \
         {"arxiv": {}, "openreview": {}, "doi": {}, "github": {}, "title_norm": {}}
@@ -65,6 +111,23 @@ def run(run_dir, extra_inventory=None, repo_root=REPO_ROOT):
         if not placed:
             clusters.append({"keys": set(rk), "records": [rec],
                              "matched_profiles": set(rec.get("matched_profiles", []))})
+
+    # second pass: cautious fuzzy merge of paper clusters (title+author), never title-only
+    merged = True
+    while merged:
+        merged = False
+        for i in range(len(clusters)):
+            for j in range(i + 1, len(clusters)):
+                if any(_fuzzy_same_paper(ra, rb)
+                       for ra in clusters[i]["records"] for rb in clusters[j]["records"]):
+                    clusters[i]["keys"] |= clusters[j]["keys"]
+                    clusters[i]["records"] += clusters[j]["records"]
+                    clusters[i]["matched_profiles"] |= clusters[j]["matched_profiles"]
+                    del clusters[j]
+                    merged = True
+                    break
+            if merged:
+                break
 
     candidates, duplicates, rejected = [], [], []
     for c in clusters:
