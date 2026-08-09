@@ -1,0 +1,54 @@
+# Daily Update Agent — configuration
+# All operational knobs live here; code reads this file rather than hard-coding values.
+
+# Overlapping lookback window (days) for discovery. Deduplication — not a 1-day cutoff —
+# prevents repeat additions, so overlap safely absorbs indexing delays and missed runs.
+lookback_days: 7
+
+# Per-source result caps in PRODUCTION (full) mode. Keep broad but bounded.
+source_limits:
+  arxiv: 60          # max results per arXiv query
+  openreview: 40     # max notes per OpenReview query
+  github: 30         # max repos per GitHub query
+
+# Discovery-smoke mode: heavily bounded, one representative axis item per kind.
+smoke:
+  lookback_days: 30
+  per_source_limit: 3
+  sample_domains: ["Physics"]
+  sample_topics: ["Trajectory Evaluation"]
+  sample_activities: ["Simulation & Scientific Computing"]
+
+# Runaway-cost protection (spec §47). If Phase-1 yields more deep-review candidates than
+# max_deep_review_candidates the run is marked needs_attention and the FULL candidate list is
+# preserved as an artifact — never silently truncated.
+limits:
+  max_deep_review_candidates: 40
+  max_parallel_card_workers: 4
+  max_parallel_translation_workers: 4
+  max_parallel_review_workers: 4
+
+# Bounded retries for transient public-source failures (operational, not semantic).
+retry:
+  attempts: 3
+  backoff_seconds: 5      # exponential: 5, 10, 20
+
+# Claude worker bounds (headless CLI).
+claude:
+  model: "claude-opus-4-8"
+  card_worker_max_turns: 40
+  axis_worker_max_turns: 40
+  translator_max_turns: 30
+  reviewer_max_turns: 30
+
+# Branch / PR strategy: single rolling automated PR (spec §14).
+pr:
+  branch_prefix: "auto-daily-update"
+  rolling_branch: "auto/knowledge-update"     # the one long-lived automated update branch
+  title: "Automated knowledge update"
+  label: "automated-update"
+
+# HTTP niceties
+http:
+  user_agent: "scientific-eval-environments-daily-updater (+https://github.com/yuema137/scientific-eval-environments)"
+  timeout_seconds: 30

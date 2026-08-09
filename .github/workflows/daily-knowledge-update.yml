@@ -1,0 +1,244 @@
+name: Daily Knowledge Update
+
+# Security: triggers are schedule + manual only. There is NO pull_request/pull_request_target
+# trigger, so untrusted fork input can never run this secret-bearing workflow.
+on:
+  schedule:
+    # 00:01 America/Los_Angeles year-round (native timezone; GitHub adjusts for DST).
+    - cron: '1 0 * * *'
+      timezone: 'America/Los_Angeles'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Run mode'
+        type: choice
+        default: full
+        options: [full, validators-only, discovery-smoke, auth-smoke, fixture-e2e-smoke]
+
+# Only one production update mutates state at a time; never cancel an in-progress run.
+concurrency:
+  group: daily-knowledge-update
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  MODE: ${{ github.event.inputs.mode || 'full' }}
+  PYTHONUNBUFFERED: '1'
+
+jobs:
+  # ----------------------------------------------------------------- deterministic tests + validators
+  validators:
+    if: ${{ github.event.inputs.mode != 'auth-smoke' && github.event.inputs.mode != 'discovery-smoke' && github.event.inputs.mode != 'fixture-e2e-smoke' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q requests pyyaml pytest
+      - name: Deterministic unit/fixture tests
+        run: python -m pytest tests/update_agent -q
+      - name: Repo validators (profiles, axes, counts)
+        run: |
+          python scripts/update_agent/validators.py profiles
+          python scripts/update_agent/validators.py axes
+          python scripts/update_counts.py --check
+
+  # ----------------------------------------------------------------- Claude auth smoke (Test Layer C)
+  auth-smoke:
+    if: ${{ github.event.inputs.mode == 'auth-smoke' || github.event.inputs.mode == 'fixture-e2e-smoke' || (github.event_name == 'schedule' || github.event.inputs.mode == 'full') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Bounded Claude authentication smoke
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          set -e
+          if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ]; then
+            echo "::error::CLAUDE_CODE_OAUTH_TOKEN secret is not set — auth smoke BLOCKED"; exit 1
+          fi
+          claude -p "Read AGENT.md. Return the requested JSON only; do not include the file contents." \
+            --output-format json --allowedTools "Read" --max-turns 4 --model claude-opus-4-8 \
+            --json-schema '{"type":"object","properties":{"auth_smoke":{"type":"string"},"can_read_constitution":{"type":"boolean"}},"required":["auth_smoke","can_read_constitution"]}' \
+            > result.json
+          python - <<'PY'
+          import json
+          d = json.load(open("result.json"))
+          so = d.get("structured_output") or {}
+          ok = bool(d.get("result") is not None) and so.get("can_read_constitution") is True
+          print("auth_smoke marker:", json.dumps({"auth_smoke": so.get("auth_smoke", "pass"),
+                "can_read_constitution": so.get("can_read_constitution")}))
+          raise SystemExit(0 if ok else 1)
+          PY
+      - name: Summary
+        if: always()
+        run: |
+          printf '### Claude auth smoke\n- result: %s\n' "${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
+
+  # ----------------------------------------------------------------- live discovery smoke (Test Layer B)
+  discovery-smoke:
+    if: ${{ github.event.inputs.mode == 'discovery-smoke' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q requests pyyaml
+      - name: Bounded live discovery (no writes, no branch, no PR)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/update_agent/run_phase.py discover --mode discovery-smoke
+      - name: Validate discovery outputs
+        run: python scripts/update_agent/validators.py discovery --run-dir runtime
+      - uses: actions/upload-artifact@v4
+        with: { name: discovery-smoke, path: runtime/, if-no-files-found: warn }
+
+  # ----------------------------------------------------------------- fixture five-phase E2E (Test Layer D)
+  fixture-e2e-smoke:
+    if: ${{ github.event.inputs.mode == 'fixture-e2e-smoke' }}
+    needs: auth-smoke
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q requests pyyaml
+      - run: npm install -g @anthropic-ai/claude-code
+      - name: Fixture five-phase E2E (isolated workspace, no PR)
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          python scripts/update_agent/fixture_e2e.py \
+            --workspace "$RUNNER_TEMP/fixture_ws" --artifacts "$RUNNER_TEMP/fixture_art"
+      - name: Publish fixture artifacts (diff, gate, phase state — no knowledge-base changes)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fixture-e2e
+          path: ${{ runner.temp }}/fixture_art
+          if-no-files-found: warn
+
+  # ================================================================= PRODUCTION FULL PATH (5 phases) =========
+  discovery:
+    if: ${{ (github.event_name == 'schedule' || github.event.inputs.mode == 'full') }}
+    needs: [validators, auth-smoke]
+    runs-on: ubuntu-latest
+    outputs:
+      candidates: ${{ steps.disc.outputs.candidates }}
+      discovery: ${{ steps.disc.outputs.discovery }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q requests pyyaml
+      - id: disc
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/update_agent/run_phase.py discover --mode full
+      - uses: actions/upload-artifact@v4
+        with: { name: stage-runtime, path: runtime/ }
+
+  english:
+    if: ${{ (github.event_name == 'schedule' || github.event.inputs.mode == 'full') && needs.discovery.outputs.candidates != '0' }}
+    needs: discovery
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q requests pyyaml
+      - run: npm install -g @anthropic-ai/claude-code
+      - name: Base on rolling automated branch (accumulate pending batches)
+        run: bash scripts/update_agent/base_branch.sh
+      - uses: actions/download-artifact@v4
+        with: { name: stage-runtime, path: runtime/ }
+      - name: Phase 2 + Phase 3 (cards + English axes)
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: python scripts/update_agent/run_phase.py english
+      - name: Stage working tree for next phase
+        if: always()
+        run: tar -czf stage.tgz works zh topics domains activities README.md runtime
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: stage-english, path: stage.tgz }
+
+  chinese:
+    if: ${{ (github.event_name == 'schedule' || github.event.inputs.mode == 'full') && needs.discovery.outputs.candidates != '0' }}
+    needs: english
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q requests pyyaml
+      - run: npm install -g @anthropic-ai/claude-code
+      - uses: actions/download-artifact@v4
+        with: { name: stage-english }
+      - run: tar -xzf stage.tgz
+      - name: Phase 4 (Chinese mirror)
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: python scripts/update_agent/run_phase.py chinese
+      - run: tar -czf stage.tgz works zh topics domains activities README.md runtime
+      - uses: actions/upload-artifact@v4
+        with: { name: stage-chinese, path: stage.tgz }
+
+  review:
+    if: ${{ (github.event_name == 'schedule' || github.event.inputs.mode == 'full') && needs.discovery.outputs.candidates != '0' }}
+    needs: chinese
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q requests pyyaml
+      - run: npm install -g @anthropic-ai/claude-code
+      - uses: actions/download-artifact@v4
+        with: { name: stage-chinese }
+      - run: tar -xzf stage.tgz
+      - name: Phase 5 (independent Chinese review) + final validation
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: python scripts/update_agent/run_phase.py review
+      - run: tar -czf stage.tgz works zh topics domains activities README.md runtime
+      - uses: actions/upload-artifact@v4
+        with: { name: stage-review, path: stage.tgz }
+
+  finalize:
+    if: ${{ (github.event_name == 'schedule' || github.event.inputs.mode == 'full') && needs.discovery.outputs.candidates != '0' }}
+    needs: review
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q requests pyyaml
+      - name: Base on rolling automated branch
+        run: bash scripts/update_agent/base_branch.sh
+      - uses: actions/download-artifact@v4
+        with: { name: stage-review }
+      - run: tar -xzf stage.tgz
+      - name: Final gate
+        id: gate
+        run: python scripts/update_agent/run_phase.py finalize
+      - name: Open or update the automated PR (never auto-merge)
+        if: ${{ steps.gate.outputs.ready_for_pr == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/update_agent/open_pr.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: run-manifests, path: runtime/state }

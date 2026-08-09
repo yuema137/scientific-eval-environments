@@ -320,6 +320,22 @@ Translation rules:
 
 ---
 
+## Automated maintenance
+
+A daily automated updater (GitHub Actions + Claude Code workers) may discover newly released work
+and propose additions. Its mechanics live in [`automation/update_agent/README.md`](./automation/update_agent/README.md); the durable rules it must obey are:
+
+- **Same evidence standard as humans.** Automated additions follow the same two-level reference
+  validation and scope rules as any contribution; automatic discovery never relaxes inclusion standards.
+- **English before Chinese.** The English knowledge axes must pass their deterministic gate before any
+  Chinese synchronization begins.
+- **Chinese naturalness review is mandatory** and is performed by a reviewer independent of the translator.
+- **Propose, never merge.** The automation may open or update a single rolling pull request; a human makes
+  the final editorial decision. It must never auto-merge or auto-approve.
+- **Counts are derived, never hand-written** (see Documentation Principles).
+
+---
+
 ## Scope
 
 **In scope:**

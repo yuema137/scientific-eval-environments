@@ -1,0 +1,38 @@
+# Topic-axis search profiles. Keys MUST match canonical topic page titles (topics/*.md H1).
+General Long-Horizon Agent Benchmarks:
+  - long-horizon LLM agent benchmark
+  - multi-step agent evaluation environment
+  - interactive agent benchmark long horizon
+  - sequential decision-making agent benchmark
+Scientific Agent Benchmarks:
+  - scientific agent benchmark
+  - LLM scientific research agent evaluation
+  - AI scientist benchmark
+  - science agent evaluation environment
+  - autonomous research agent benchmark
+Trajectory Evaluation:
+  - agent trajectory evaluation
+  - process-level agent evaluation
+  - step-level agent evaluation benchmark
+  - agent trace evaluation
+  - process reward agent benchmark
+Skill Hierarchy:
+  - agent skill decomposition benchmark
+  - subskill agent evaluation
+  - capability hierarchy agent benchmark
+  - fine-grained agent capability evaluation
+Credit Assignment:
+  - agent credit assignment evaluation
+  - dense reward agent benchmark
+  - partial credit agent scoring
+  - per-step reward agent evaluation
+Resource-aware Evaluation:
+  - cost-aware agent evaluation
+  - resource-aware agent benchmark
+  - token budget agent evaluation
+  - compute-efficient agent benchmark
+Survey:
+  - survey LLM agent evaluation
+  - position paper agent benchmark
+  - survey autonomous research agents
+  - LLM agent evaluation review
