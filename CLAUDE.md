@@ -62,6 +62,7 @@ Activity rules: **multi-label**, assigned conservatively (typically 1–3, only 
 - **Card template is stable.** Do not churn its structure. New evaluation dimensions extend topic pages, not card fields.
 - **Filenames.** Cards kebab-case (`t-eval.md`); topics natural names or `_evaluation` suffix; domains snake_case (`materials_science.md`).
 - **Repository Notes are conservative.** Prefix any non-paper observation with `Repository note:`. Allowed: maintenance observations, cross-paper synthesis, direct consequences of what the paper describes. Not allowed: speculative critique, opinion, extrapolation to settings the paper does not evaluate.
+- **Counts are auto-derived.** All topic/domain/activity work counts, membership totals, and the root-README card/page totals come from `scripts/update_counts.py` (reads the reverse indexes). Run `python scripts/update_counts.py` after adding/removing/re-mapping cards; `--check` flags drift without writing. Never hand-edit a count cell.
 
 ## Scope
 
