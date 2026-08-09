@@ -152,6 +152,22 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **中文心理学考试。** [CPsyExam](../works/cpsyexam.md) 从 22,000 道题库中提炼出 4,000 道，沿心理学知识与案例分析两轴组织。
 - **概念级心理学。** [ConceptPsy](../works/conceptpsy.md) 把心理学题目标注到 12 个学科的 1,383 个概念，显现总分会掩盖的逐概念表现差异。
 - **专业咨询知识。** [PsychCounsel-Bench](../works/psychcounsel-bench.md) 用约 2,252 道美国国家咨询师认证考试题对照约 70% 及格线评测 LLM。
+- **Kaggle 上的 ML 工程。** [MLE-bench](../works/mle-bench.md)（OpenAI）在 75 个精选 Kaggle 竞赛上以按奖牌门槛评分评测 agent；o1-preview 配 AIDE 在 16.9% 上达到铜牌。
+- **可训练的 ML 工程竞技场。** [MLE-Dojo](../works/mle-dojo.md) 把 200+ Kaggle 挑战变成支持 SFT/RL 的交互环境，测量迭代改进与错误修复效率。
+- **ML 实验。** [MLAgentBench](../works/mlagentbench.md) 让 agent 读写文件、运行代码、迭代以超过起始代码基线，覆盖 13 个任务；Claude 3 Opus 平均成功率最高 37.5%。
+- **仓库级 ML 代码。** [ML-Bench](../works/ml-bench.md) 把 18 个仓库上的 9,641 个样例分为文本到代码赛道（Pass@5）与自主沙箱执行赛道。
+- **数据科学专长。** [DSBench](../works/dsbench.md) 出 540 个多模态、多表分析与建模任务；最佳 agent 只解出 34.12% 的分析任务。
+- **数据科学编码。** [DA-Code](../works/da-code.md) 在可执行沙箱中为 agent 式数据整理与分析代码评分，最强 LLM 达 30.5%。
+- **分析判断。** [BLADE](../works/blade.md) 在 12 个数据集上，对照独立专家分析为数据驱动科学 agent 的构念、变换与模型选择评分。
+- **新颖方法 ML 研究。** [MLRC-Bench](../works/mlrc-bench.md) 在 7 个竞赛任务上按「基线到顶尖人类差距」缩小的比例为 agent 评分；最佳只缩小 9.3%。
+- **仓库复现。** [SUPER](../works/super.md) 评测搭建并执行真实研究仓库中的任务；GPT-4o 端到端解出 16.3%。
+- **全流程 ML 研究。** [MLR-Bench](../works/mlr-bench.md) 在想法、方案、实验、论文四阶段评估 201 个开放式任务，发现 agent 约 80% 的情形编造结果。
+- **AI R&D 对照人类专家。** [RE-Bench](../works/re-bench.md)（METR）在 7 个研究工程环境上以时间预算对照 61 位专家——2h 时 agent 4 倍，32h 时人类 2 倍。
+- **面向 AI 研究的 RL 竞技场。** [MLGym](../works/mlgym.md)（Meta）把 Gym 环境与 13 个开放式研究任务配对，发现前沿 agent 调参却不创新。
+- **实现新颖研究代码。** [ResearchCodeBench](../works/researchcodebench.md) 要模型实现 2024–2025 论文的贡献；最强（Gemini-2.5-Pro）达 37.3%。
+- **研究想法生成。** [IdeaBench](../works/ideabench.md) 把 LLM 以有影响力论文上下文为依据，用两阶段框架按新颖性与可行性为想法评分。
+- **发散式科学思维。** [LiveIdeaBench](../works/liveideabench.md) 在 1,180 个关键词、22 个领域上评估单关键词想法生成，发现创造力难以由通用智力预测。
+- **AI 开发 agent，由 agent 评判。** [DevAI / Agent-as-a-Judge](../works/devai.md) 提供 55 个 AI 开发任务、365 个层级化需求，由 agent 化评判器评估、可靠性媲美人类。
 
 ## Comparison
 
@@ -297,6 +313,22 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | CPsyExam | 2024 | 4,000 道题（取自 22,000 题库）；知识 + 案例分析两轴 | 心理学考试知识 | 跨学科与两轴的准确率 | [→](../works/cpsyexam.md) |
 | ConceptPsy | 2023 | 12 个学科、1,383 个概念；标注到章节 | 概念级心理学知识 | 总体加章节级（逐概念）准确率 | [→](../works/conceptpsy.md) |
 | PsychCounsel-Bench | 2025 | 约 2,252 道美国咨询师认证题 | 专业咨询心理学 | 对照约 70% 及格线的准确率 | [→](../works/psychcounsel-bench.md) |
+| MLE-bench | 2024 | 75 个精选 Kaggle ML 工程竞赛（OpenAI） | 机器学习工程 | Kaggle 奖牌门槛对照排行榜人类基线 | [→](../works/mle-bench.md) |
+| MLE-Dojo | 2025 | 交互式 Gym 环境中的 200+ Kaggle 挑战 | ML 工程（可训练环境） | 迭代改进、长 horizon 质量、错误修复效率 | [→](../works/mle-dojo.md) |
+| MLAgentBench | 2023 | 13 个 ML 实验任务（CIFAR-10 到 BabyLM） | ML 实验 | 成功率（超基线 >10%）与平均提升 | [→](../works/mlagentbench.md) |
+| ML-Bench | 2023 | 18 个 GitHub 仓库上的 9,641 个样例 | 仓库级 ML 代码 | Pass@5（LLM 赛道）与成功率（agent 赛道） | [→](../works/ml-bench.md) |
+| DSBench | 2024 | 540 个分析 + 建模任务（多模态、多表） | 数据科学 | 任务解出率与相对性能差距 | [→](../works/dsbench.md) |
+| DA-Code | 2024 | 可执行沙箱中的 agent 式数据科学编码 | 数据科学（代码） | 基于执行的准确率；最强 LLM 30.5% | [→](../works/da-code.md) |
+| BLADE | 2024 | 12 个配研究问题与专家分析的数据集 | 数据驱动的科学分析 | 对照专家真值为分析决策做多方面评分 | [→](../works/blade.md) |
+| MLRC-Bench | 2025 | 7 个 ML 研究竞赛任务 | ML 研究（新颖方法） | 相对顶尖人类的差距缩小（客观）；最佳 9.3% | [→](../works/mlrc-bench.md) |
+| SUPER | 2024 | 来自研究仓库的 45 端到端 + 152 子 + 602 自动 | 研究复现 | 端到端与场景成功率；GPT-4o 端到端 16.3% | [→](../works/super.md) |
+| MLR-Bench | 2025 | 201 个开放式 ML 研究任务（workshop） | 全流程 ML 研究 | MLR-Judge（LLM 评审 + 评分标准）；约 80% 编造结果 | [→](../works/mlr-bench.md) |
+| RE-Bench | 2024 | 7 个研究工程环境对照 61 位人类专家 | AI R&D / 研究工程 | 时间预算下对照参考的 best-of-k；与人类直接对照 | [→](../works/re-bench.md) |
+| MLGym | 2025 | Gym 中的 13 个开放式 AI 研究任务（Meta） | 开放式 AI 研究 | 五个前沿模型在 Gym 中的任务表现 | [→](../works/mlgym.md) |
+| ResearchCodeBench | 2025 | 实现 2024–25 论文贡献的 212 个挑战 | ML 研究代码实现 | 带污染控制的成功率；最佳 37.3% | [→](../works/researchcodebench.md) |
+| IdeaBench | 2024 | 以有影响力论文为依据的研究想法生成 | 研究构思 | 两阶段 GPT-4o 排序 + 相对 Insight Score | [→](../works/ideabench.md) |
+| LiveIdeaBench | 2024 | 单关键词构思；1,180 关键词、22 领域、40+ 模型 | 科学想法生成 | LLM 面板按五个创造力维度评分 | [→](../works/liveideabench.md) |
+| DevAI / Agent-as-a-Judge | 2024 | 55 个 AI 开发任务、365 个层级化需求 | 自动化 AI 开发 | 需求级、过程级的 Agent-as-a-Judge 评估 | [→](../works/devai.md) |
 
 ## Open Questions
 
@@ -448,6 +480,22 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [CPsyExam](../works/cpsyexam.md)
 - [ConceptPsy](../works/conceptpsy.md)
 - [PsychCounsel-Bench](../works/psychcounsel-bench.md)
+- [MLE-bench](../works/mle-bench.md)
+- [MLE-Dojo](../works/mle-dojo.md)
+- [MLAgentBench](../works/mlagentbench.md)
+- [ML-Bench](../works/ml-bench.md)
+- [DSBench](../works/dsbench.md)
+- [DA-Code](../works/da-code.md)
+- [BLADE](../works/blade.md)
+- [MLRC-Bench](../works/mlrc-bench.md)
+- [SUPER](../works/super.md)
+- [MLR-Bench](../works/mlr-bench.md)
+- [RE-Bench](../works/re-bench.md)
+- [MLGym](../works/mlgym.md)
+- [ResearchCodeBench](../works/researchcodebench.md)
+- [IdeaBench](../works/ideabench.md)
+- [LiveIdeaBench](../works/liveideabench.md)
+- [DevAI / Agent-as-a-Judge](../works/devai.md)
 
 ## Further Reading
 

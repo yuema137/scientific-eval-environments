@@ -45,6 +45,15 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - **Dialog as coordination.** [RoCo / RoCoBench](../works/rocobench.md) evaluates multi-robot collaboration where each arm's LLM negotiates plans and waypoints in natural language, with real-UR5 demonstration.
 - **Safety-aware embodied planning.** [SafeAgentBench](../works/safeagentbench.md) pairs hazardous and safe tasks (750 total, 10 hazards) in an executable environment; the most cautious baseline rejects only 10% of detailed hazards, and swapping the LLM does not help.
 - **Scaffolding dependence in coding-agent robotics.** [CaP-X](../works/cap-x.md) benchmarks 12 frontier models writing robot-control programs across abstraction tiers, showing success degrades as human-crafted primitives are removed.
+- **ML engineering on Kaggle.** [MLE-bench](../works/mle-bench.md) has agents run full Kaggle competitions end to end — data prep, training, iteration — graded against medal thresholds over 75 competitions.
+- **A trainable ML-engineering gym.** [MLE-Dojo](../works/mle-dojo.md) makes ML engineering an interactive, RL-trainable environment over 200+ Kaggle challenges with iterative feedback loops.
+- **Improve-the-metric experimentation.** [MLAgentBench](../works/mlagentbench.md) runs read-execute-inspect-iterate loops across 13 ML tasks, scoring measured improvement over starter code.
+- **Novel-method research competitions.** [MLRC-Bench](../works/mlrc-bench.md) has agents propose and implement research methods over 7 competition tasks, scored by the human-gap they close.
+- **Repository setup and execution.** [SUPER](../works/super.md) requires multi-step configuration and execution of real research repositories to reproduce results.
+- **Full research pipelines.** [MLR-Bench](../works/mlr-bench.md) spans idea, proposal, experiment, and paper stages over 201 tasks, foregrounding result-fabrication reliability.
+- **Time-budgeted AI R&D.** [RE-Bench](../works/re-bench.md) evaluates agents against human experts on open-ended research engineering under 2/8/32-hour budgets.
+- **An AI-research gym.** [MLGym](../works/mlgym.md) runs the full research loop — idea to analysis — over 13 tasks in a Gym environment supporting RL training.
+- **AI-development agents.** [DevAI / Agent-as-a-Judge](../works/devai.md) has agents build AI/ML projects against 365 hierarchical requirements, evaluated step by step.
 
 ## Comparison
 
@@ -81,6 +90,15 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | RoCo / RoCoBench | 2023 | 6 collaboration tasks; dialog + replanning under environment feedback | MuJoCo multi-robot + real UR5 demo | [→](../works/rocobench.md) |
 | SafeAgentBench | 2024 | 750 hazardous/safe tasks; rejection rate and success rate | SafeAgentEnv embodied simulation | [→](../works/safeagentbench.md) |
 | CaP-X | 2026 | Code-synthesis success across abstraction tiers; scaffolding dependence | Robosuite/LIBERO-PRO/BEHAVIOR sim + real robots | [→](../works/cap-x.md) |
+| MLE-bench | 2024 | End-to-end Kaggle competitions; medal-anchored scoring | 75 curated Kaggle ML-engineering competitions | [→](../works/mle-bench.md) |
+| MLE-Dojo | 2025 | Iterative experiment/debug loops; long-horizon solution quality | Gym environment over 200+ Kaggle challenges | [→](../works/mle-dojo.md) |
+| MLAgentBench | 2023 | Read-execute-inspect-iterate; improvement over starter code | 13 ML-experimentation tasks | [→](../works/mlagentbench.md) |
+| MLRC-Bench | 2025 | Propose + implement novel methods; gap-closed vs. top humans | 7 ML research-competition tasks | [→](../works/mlrc-bench.md) |
+| SUPER | 2024 | Multi-step repo setup and execution; end-to-end vs. scenario success | Real ML/NLP research repositories | [→](../works/super.md) |
+| MLR-Bench | 2025 | Four research stages; ~80% fabricated-result rate | 201 open-ended ML research tasks | [→](../works/mlr-bench.md) |
+| RE-Bench | 2024 | Best-of-k under 2/8/32-hour budgets vs. human experts | 7 research-engineering environments (METR) | [→](../works/re-bench.md) |
+| MLGym | 2025 | Full research loop; RL-trainable Gym | 13 open-ended AI-research tasks (Meta) | [→](../works/mlgym.md) |
+| DevAI / Agent-as-a-Judge | 2024 | Build AI/ML projects; step-wise requirement grading | 55 AI-development tasks, 365 requirements | [→](../works/devai.md) |
 
 ## Open Questions
 
@@ -122,6 +140,15 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - [RoCo / RoCoBench](../works/rocobench.md)
 - [SafeAgentBench](../works/safeagentbench.md)
 - [CaP-X](../works/cap-x.md)
+- [MLE-bench](../works/mle-bench.md)
+- [MLE-Dojo](../works/mle-dojo.md)
+- [MLAgentBench](../works/mlagentbench.md)
+- [MLRC-Bench](../works/mlrc-bench.md)
+- [SUPER](../works/super.md)
+- [MLR-Bench](../works/mlr-bench.md)
+- [RE-Bench](../works/re-bench.md)
+- [MLGym](../works/mlgym.md)
+- [DevAI / Agent-as-a-Judge](../works/devai.md)
 
 ## Further Reading
 

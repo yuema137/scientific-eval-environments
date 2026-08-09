@@ -152,6 +152,22 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **Chinese psychology examinations.** [CPsyExam](../works/cpsyexam.md) distills 4,000 questions from a 22,000-question pool along psychological-knowledge and case-analysis axes.
 - **Concept-level psychology.** [ConceptPsy](../works/conceptpsy.md) annotates psychology questions to 1,383 concepts across 12 subjects, surfacing per-concept performance variation an aggregate score would hide.
 - **Professional counseling knowledge.** [PsychCounsel-Bench](../works/psychcounsel-bench.md) scores LLMs on ~2,252 U.S. National Counselor Certification Exam questions against the exam's ~70% pass threshold.
+- **ML engineering on Kaggle.** [MLE-bench](../works/mle-bench.md) (OpenAI) evaluates agents on 75 curated Kaggle competitions with medal-anchored scoring; o1-preview with AIDE reaches bronze in 16.9%.
+- **A trainable ML-engineering gym.** [MLE-Dojo](../works/mle-dojo.md) turns 200+ Kaggle challenges into an interactive environment supporting SFT/RL, measuring iterative improvement and error-resolution efficiency.
+- **ML experimentation.** [MLAgentBench](../works/mlagentbench.md) has agents read/write files, run code, and iterate to beat starter-code baselines across 13 tasks; Claude 3 Opus tops at 37.5% average success.
+- **Repository-level ML code.** [ML-Bench](../works/ml-bench.md) splits 9,641 examples over 18 repos into a text-to-code track (Pass@5) and an autonomous sandbox-execution track.
+- **Data-science expertise.** [DSBench](../works/dsbench.md) poses 540 multimodal, multi-table analysis and modeling tasks; the best agent solves only 34.12% of analysis tasks.
+- **Data-science coding.** [DA-Code](../works/da-code.md) grades agentic data-wrangling and analytics code in an executable sandbox, where the best LLMs reach 30.5%.
+- **Analytical judgment.** [BLADE](../works/blade.md) grades data-driven-science agents' choices of constructs, transformations, and models against independent expert analyses over 12 datasets.
+- **Novel-method ML research.** [MLRC-Bench](../works/mlrc-bench.md) scores agents on 7 competition tasks by the fraction of the baseline-to-top-human gap they close; the best closes only 9.3%.
+- **Repository reproduction.** [SUPER](../works/super.md) benchmarks setting up and executing tasks from real research repos; GPT-4o solves 16.3% end to end.
+- **Full-pipeline ML research.** [MLR-Bench](../works/mlr-bench.md) evaluates 201 open-ended tasks across idea, proposal, experiment, and paper stages, and finds agents fabricate results ~80% of the time.
+- **AI R&D vs human experts.** [RE-Bench](../works/re-bench.md) (METR) compares agents to 61 experts on 7 research-engineering environments under time budgets — agents 4x at 2h, humans 2x at 32h.
+- **An RL gym for AI research.** [MLGym](../works/mlgym.md) (Meta) pairs a Gym environment with 13 open-ended research tasks, finding frontier agents tune hyperparameters but do not innovate.
+- **Implementing novel research code.** [ResearchCodeBench](../works/researchcodebench.md) asks models to code the contributions of 2024–2025 papers; the best (Gemini-2.5-Pro) reaches 37.3%.
+- **Research idea generation.** [IdeaBench](../works/ideabench.md) grounds LLMs in influential-paper context and scores generated ideas by novelty and feasibility via a two-stage framework.
+- **Divergent scientific thinking.** [LiveIdeaBench](../works/liveideabench.md) evaluates single-keyword idea generation across 1,180 keywords and 22 domains, finding creativity is poorly predicted by general intelligence.
+- **AI-development agents, judged by agents.** [DevAI / Agent-as-a-Judge](../works/devai.md) provides 55 AI-development tasks with 365 hierarchical requirements, evaluated by an agentic judge as reliable as humans.
 
 ## Comparison
 
@@ -297,6 +313,22 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | CPsyExam | 2024 | 4,000 questions (from a 22,000 pool); knowledge + case-analysis axes | Psychology examination knowledge | Accuracy across subjects and both axes | [→](../works/cpsyexam.md) |
 | ConceptPsy | 2023 | 12 subjects, 1,383 concepts; chapter-annotated | Concept-level psychology knowledge | Overall plus chapter-wise (per-concept) accuracy | [→](../works/conceptpsy.md) |
 | PsychCounsel-Bench | 2025 | ~2,252 U.S. counselor-certification questions | Professional counseling psychology | Accuracy against the exam's ~70% pass threshold | [→](../works/psychcounsel-bench.md) |
+| MLE-bench | 2024 | 75 curated Kaggle ML-engineering competitions (OpenAI) | Machine-learning engineering | Kaggle medal thresholds vs. leaderboard human baselines | [→](../works/mle-bench.md) |
+| MLE-Dojo | 2025 | 200+ Kaggle challenges in an interactive Gym environment | ML engineering (trainable environment) | Iterative improvement, long-horizon quality, error-resolution efficiency | [→](../works/mle-dojo.md) |
+| MLAgentBench | 2023 | 13 ML-experimentation tasks (CIFAR-10 to BabyLM) | ML experimentation | Success rate (>10% over starter-code baseline) and average improvement | [→](../works/mlagentbench.md) |
+| ML-Bench | 2023 | 9,641 examples over 18 GitHub repos | Repository-level ML code | Pass@5 (LLM track) and success rate (agent track) | [→](../works/ml-bench.md) |
+| DSBench | 2024 | 540 analysis + modeling tasks (multimodal, multi-table) | Data science | Task-solve rate and relative performance gap | [→](../works/dsbench.md) |
+| DA-Code | 2024 | Agentic data-science coding in an executable sandbox | Data science (code) | Execution-based accuracy; best LLM 30.5% | [→](../works/da-code.md) |
+| BLADE | 2024 | 12 datasets with research questions and expert analyses | Data-driven scientific analysis | Multifaceted grading of analytical decisions vs. expert ground truth | [→](../works/blade.md) |
+| MLRC-Bench | 2025 | 7 ML research-competition tasks | ML research (novel methods) | Gap-closed vs. top human participants (objective); best 9.3% | [→](../works/mlrc-bench.md) |
+| SUPER | 2024 | 45 e2e + 152 sub + 602 auto tasks from research repos | Research reproduction | End-to-end and scenario success; GPT-4o 16.3% e2e | [→](../works/super.md) |
+| MLR-Bench | 2025 | 201 open-ended ML research tasks (workshops) | Full-pipeline ML research | MLR-Judge (LLM reviewers + rubrics); ~80% fabricated results | [→](../works/mlr-bench.md) |
+| RE-Bench | 2024 | 7 research-engineering environments vs. 61 human experts | AI R&D / research engineering | Best-of-k vs. reference under time budgets; direct human comparison | [→](../works/re-bench.md) |
+| MLGym | 2025 | 13 open-ended AI-research tasks in a Gym (Meta) | Open-ended AI research | Task performance in the Gym over five frontier models | [→](../works/mlgym.md) |
+| ResearchCodeBench | 2025 | 212 challenges implementing 2024–25 paper contributions | ML research-code implementation | Success rate with contamination controls; best 37.3% | [→](../works/researchcodebench.md) |
+| IdeaBench | 2024 | Research idea generation grounded in influential papers | Research ideation | Two-stage GPT-4o ranking + relative Insight Score | [→](../works/ideabench.md) |
+| LiveIdeaBench | 2024 | Single-keyword ideation; 1,180 keywords, 22 domains, 40+ models | Scientific idea generation | LLM-panel scoring on five creativity dimensions | [→](../works/liveideabench.md) |
+| DevAI / Agent-as-a-Judge | 2024 | 55 AI-development tasks, 365 hierarchical requirements | Automated AI development | Requirement-level, process-aware Agent-as-a-Judge evaluation | [→](../works/devai.md) |
 
 ## Open Questions
 
@@ -448,6 +480,22 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [CPsyExam](../works/cpsyexam.md)
 - [ConceptPsy](../works/conceptpsy.md)
 - [PsychCounsel-Bench](../works/psychcounsel-bench.md)
+- [MLE-bench](../works/mle-bench.md)
+- [MLE-Dojo](../works/mle-dojo.md)
+- [MLAgentBench](../works/mlagentbench.md)
+- [ML-Bench](../works/ml-bench.md)
+- [DSBench](../works/dsbench.md)
+- [DA-Code](../works/da-code.md)
+- [BLADE](../works/blade.md)
+- [MLRC-Bench](../works/mlrc-bench.md)
+- [SUPER](../works/super.md)
+- [MLR-Bench](../works/mlr-bench.md)
+- [RE-Bench](../works/re-bench.md)
+- [MLGym](../works/mlgym.md)
+- [ResearchCodeBench](../works/researchcodebench.md)
+- [IdeaBench](../works/ideabench.md)
+- [LiveIdeaBench](../works/liveideabench.md)
+- [DevAI / Agent-as-a-Judge](../works/devai.md)
 
 ## Further Reading
 
