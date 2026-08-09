@@ -147,6 +147,11 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **Telecom knowledge.** [TeleQnA](../works/teleqna.md) benchmarks LLMs on 10,000 telecom questions from 3GPP/IEEE standards, rivaling professionals on general knowledge but faltering on standards specifications.
 - **Control-system design.** [ControlAgent](../works/controleval.md) automates controller design with cooperating LLM agents, evaluated on ControlEval (500 tasks) and beating toolbox-plus-human baselines.
 - **Power-grid dispatch.** [ElecBench](../works/elecbench.md) evaluates LLMs on power-dispatch scenarios with a six-metric / 24-sub-metric framework centered on grid stability and security.
+- **Comprehensive EEG understanding.** [BrainBench (EEG)](../works/brainbench-eeg.md) evaluates LLMs on instruction-conditioned EEG analysis across four subsets and 17 datasets, scoring execution-grounded reports under autonomous-code and agentic paradigms (distinct from the earlier result-prediction BrainBench).
+- **Rodent behavior annotation.** [Rodent-Bench](../works/rodent-bench.md) tests multimodal LLMs on annotating real rodent behavior video across neuroscience paradigms, finding no model strong enough to serve as an annotation assistant.
+- **Chinese psychology examinations.** [CPsyExam](../works/cpsyexam.md) distills 4,000 questions from a 22,000-question pool along psychological-knowledge and case-analysis axes.
+- **Concept-level psychology.** [ConceptPsy](../works/conceptpsy.md) annotates psychology questions to 1,383 concepts across 12 subjects, surfacing per-concept performance variation an aggregate score would hide.
+- **Professional counseling knowledge.** [PsychCounsel-Bench](../works/psychcounsel-bench.md) scores LLMs on ~2,252 U.S. National Counselor Certification Exam questions against the exam's ~70% pass threshold.
 
 ## Comparison
 
@@ -287,6 +292,11 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | TeleQnA | 2023 | 10,000 telecom questions from 3GPP/IEEE + research | Telecommunications knowledge | Multiple-choice accuracy vs. a telecom-professional baseline | [→](../works/teleqna.md) |
 | ControlAgent / ControlEval | 2024 | 500 control-design tasks (ControlEval) | Control-system design and tuning | Average and agent success rates vs. toolbox+human baselines | [→](../works/controleval.md) |
 | ElecBench | 2024 | Power-dispatch scenarios, 8 LLMs | Power-grid operation and dispatch | Six metrics / 24 sub-metrics (stability, security, ...) | [→](../works/elecbench.md) |
+| BrainBench (EEG) | 2026 | Instruction-conditioned EEG analysis; 4 subsets, 17 datasets, 100K+ executions | Comprehensive EEG understanding | Numerical/categorical/set/sequence/semantic/artifact validation (CodeAct + BrainAgent) | [→](../works/brainbench-eeg.md) |
+| Rodent-Bench | 2026 | Rodent behavior video (10–35 min) across paradigms; 3 MLLMs | Behavioral-neuroscience video annotation | Second-wise accuracy, macro F1, mAP, mutual information, MCC | [→](../works/rodent-bench.md) |
+| CPsyExam | 2024 | 4,000 questions (from a 22,000 pool); knowledge + case-analysis axes | Psychology examination knowledge | Accuracy across subjects and both axes | [→](../works/cpsyexam.md) |
+| ConceptPsy | 2023 | 12 subjects, 1,383 concepts; chapter-annotated | Concept-level psychology knowledge | Overall plus chapter-wise (per-concept) accuracy | [→](../works/conceptpsy.md) |
+| PsychCounsel-Bench | 2025 | ~2,252 U.S. counselor-certification questions | Professional counseling psychology | Accuracy against the exam's ~70% pass threshold | [→](../works/psychcounsel-bench.md) |
 
 ## Open Questions
 
@@ -433,6 +443,11 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [TeleQnA](../works/teleqna.md)
 - [ControlAgent / ControlEval](../works/controleval.md)
 - [ElecBench](../works/elecbench.md)
+- [BrainBench (EEG)](../works/brainbench-eeg.md)
+- [Rodent-Bench](../works/rodent-bench.md)
+- [CPsyExam](../works/cpsyexam.md)
+- [ConceptPsy](../works/conceptpsy.md)
+- [PsychCounsel-Bench](../works/psychcounsel-bench.md)
 
 ## Further Reading
 

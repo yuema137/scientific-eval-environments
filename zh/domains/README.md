@@ -32,7 +32,7 @@ Domain 页是**事实性参考页，不是文献综述**——作为入口与 to
 | Science | [Mathematics](./mathematics.md) | 12 |
 | Science | [Chemistry](./chemistry.md) | 28 |
 | Science | [Biology](./biology.md) | 25 |
-| Science | [Neuroscience & Cognitive Science](./neuroscience_cognitive_science.md) | 5 |
+| Science | [Neuroscience & Cognitive Science](./neuroscience_cognitive_science.md) | 10 |
 | Science | [Medicine & Health](./medicine_health.md) | 12 |
 | Science | [Earth Science](./earth_science.md) | 5 |
 | Science | [Environmental Science](./environmental_science.md) | 2 |

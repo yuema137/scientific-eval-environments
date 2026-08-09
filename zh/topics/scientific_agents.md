@@ -92,7 +92,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **能跑但物理错了。** [MooseBench](../works/moosebench.md) 提供 220 个带 PDE 级真值的多物理场算例；其 Intent Fidelity Score 重构所编码的 PDE，显示只修执行错误时 39–40% 的算例保持「能跑但错」。
 - **从对话生成数字孪生。** [SimBench](../works/simbench.md) 在 Chrono 多物理场仿真器的多轮数字孪生生成上比较 33 个以上面向仿真的 LLM，由带规则与人在环指导的 LLM judge 打分。
 - **在科学代码库上评测 coding agent。** [AInsteinBench](../works/ainsteinbench.md) 从六个生产级科学代码库（量子化学到数值相对论与流体力学）的维护者 PR 派生任务，在可执行环境中做测试驱动验证。
-- **「工件像样」不等于「端到端做对」。** [StructureClaw](../works/structureclaw.md) 在 150 个结构工程场景上对照冻结的参考求解器响应；通用执行有 87.0% 通过模型工件检查，端到端成功率却只有 22.0%。
+- **「产物像样」不等于「端到端做对」。** [StructureClaw](../works/structureclaw.md) 在 150 个结构工程场景上对照冻结的参考求解器响应；通用执行有 87.0% 通过模型产物检查，端到端成功率却只有 22.0%。
 - **对齐课程难度的 FEM 编码。** [FEM-Bench](../works/fem-bench.md) 在 33 个研究生课程级计算力学任务上验证函数与单元测试编写，各尝试五次；最佳模型 26/33 个任务五次全成。
 - **先澄清，再计算。** [SciConvBench](../works/sciconvbench.md) 为不适定仿真请求的多轮消歧与矛盾消解打分，覆盖流体力学、固体力学、材料科学与 PDE；最佳模型在流体力学消歧上仅解决 52.7%。
 - **从意图到 PDE 控制。** [PDE-Controller](../works/pde-controller.md) 评估热/波动方程系统控制的自动形式化（自然语言到信号时序逻辑）、推理与程序合成，配人工案例加 200 万合成样本。
@@ -147,6 +147,11 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **电信知识。** [TeleQnA](../works/teleqna.md) 在取自 3GPP/IEEE 标准的 10,000 道电信题上评测 LLM，通用知识可比肩专业人士，却在标准规范上吃力。
 - **控制系统设计。** [ControlAgent](../works/controleval.md) 用协作 LLM agent 自动化控制器设计，在 ControlEval（500 任务）上评估并胜过「工具箱+人工」基线。
 - **电网调度。** [ElecBench](../works/elecbench.md) 用以电网稳定性与安全性为中心的六指标/24 子指标框架评测 LLM 的电力调度。
+- **综合 EEG 理解。** [BrainBench (EEG)](../works/brainbench-eeg.md) 在四个子集、17 个数据集上评测 LLM 的指令条件 EEG 分析，基于执行、在自主代码与 agent 两种范式下为报告评分（不同于更早那个「结果预测」的 BrainBench）。
+- **啮齿类行为标注。** [Rodent-Bench](../works/rodent-bench.md) 在真实啮齿类行为视频上测试多模态 LLM 的跨范式标注，发现没有模型强到能充当标注助手。
+- **中文心理学考试。** [CPsyExam](../works/cpsyexam.md) 从 22,000 道题库中提炼出 4,000 道，沿心理学知识与案例分析两轴组织。
+- **概念级心理学。** [ConceptPsy](../works/conceptpsy.md) 把心理学题目标注到 12 个学科的 1,383 个概念，显现总分会掩盖的逐概念表现差异。
+- **专业咨询知识。** [PsychCounsel-Bench](../works/psychcounsel-bench.md) 用约 2,252 道美国国家咨询师认证考试题对照约 70% 及格线评测 LLM。
 
 ## Comparison
 
@@ -287,6 +292,11 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | TeleQnA | 2023 | 取自 3GPP/IEEE 与研究的 10,000 道电信题 | 电信知识 | 对照电信专业人士基线的选择题准确率 | [→](../works/teleqna.md) |
 | ControlAgent / ControlEval | 2024 | 500 个控制设计任务（ControlEval） | 控制系统设计与整定 | 对照「工具箱+人工」基线的平均与 agent 成功率 | [→](../works/controleval.md) |
 | ElecBench | 2024 | 电力调度场景、8 个 LLM | 电网运行与调度 | 六指标 / 24 子指标（稳定性、安全性……） | [→](../works/elecbench.md) |
+| BrainBench (EEG) | 2026 | 指令条件 EEG 分析；4 个子集、17 个数据集、逾 10 万次执行 | 综合 EEG 理解 | 数值/类别/集合/序列/语义/产物校验（CodeAct + BrainAgent） | [→](../works/brainbench-eeg.md) |
+| Rodent-Bench | 2026 | 跨范式的啮齿类行为视频（10–35 分钟）；3 个 MLLM | 行为神经科学视频标注 | 逐秒准确率、宏 F1、mAP、互信息、MCC | [→](../works/rodent-bench.md) |
+| CPsyExam | 2024 | 4,000 道题（取自 22,000 题库）；知识 + 案例分析两轴 | 心理学考试知识 | 跨学科与两轴的准确率 | [→](../works/cpsyexam.md) |
+| ConceptPsy | 2023 | 12 个学科、1,383 个概念；标注到章节 | 概念级心理学知识 | 总体加章节级（逐概念）准确率 | [→](../works/conceptpsy.md) |
+| PsychCounsel-Bench | 2025 | 约 2,252 道美国咨询师认证题 | 专业咨询心理学 | 对照约 70% 及格线的准确率 | [→](../works/psychcounsel-bench.md) |
 
 ## Open Questions
 
@@ -433,6 +443,11 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [TeleQnA](../works/teleqna.md)
 - [ControlAgent / ControlEval](../works/controleval.md)
 - [ElecBench](../works/elecbench.md)
+- [BrainBench (EEG)](../works/brainbench-eeg.md)
+- [Rodent-Bench](../works/rodent-bench.md)
+- [CPsyExam](../works/cpsyexam.md)
+- [ConceptPsy](../works/conceptpsy.md)
+- [PsychCounsel-Bench](../works/psychcounsel-bench.md)
 
 ## Further Reading
 
