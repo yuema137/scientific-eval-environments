@@ -10,6 +10,10 @@ Agents' Last Exam (ALE) 是一个 frontier 长 horizon benchmark，由 250 多�
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.05405>

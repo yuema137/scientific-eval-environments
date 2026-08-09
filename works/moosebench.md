@@ -10,6 +10,11 @@ MooseBench is a 220-case multiphysics benchmark with PDE-level ground truth, rel
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Simulation & Scientific Computing](../activities/simulation_scientific_computing.md)
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.09360>

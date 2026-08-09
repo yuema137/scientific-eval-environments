@@ -10,6 +10,11 @@ PowerAgentBench-SS 评测电力系统稳态研究中的 agentic AI：agent 获�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [模拟与科学计算](../activities/simulation_scientific_computing.md)
+- [优化与工程设计](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.18789>

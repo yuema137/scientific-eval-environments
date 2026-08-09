@@ -10,6 +10,10 @@ CostBench evaluates whether LLM tool-use agents can plan for **cost-optimality**
 
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
+## Activities
+
+N/A — evaluates an agent meta-property (cost, safety, or robustness), not a scientific or research activity.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2511.02734>

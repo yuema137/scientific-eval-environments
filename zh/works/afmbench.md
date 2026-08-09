@@ -10,6 +10,10 @@ AFMBench 是一个含 100 个由专家整理任务的评测套件，要求 LLM a
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [实验室与仪器控制](../activities/laboratory_instrument_control.md)
+
 ## Links
 
 - **Paper:** <https://www.nature.com/articles/s41467-025-64105-7>

@@ -10,6 +10,10 @@ CostBench 评估 LLM tool-use agent 是否能够以**成本最优（cost-optimal
 
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
+## Activities
+
+N/A — 评估的是 agent 的元属性（成本、安全性或鲁棒性），而非科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2511.02734>

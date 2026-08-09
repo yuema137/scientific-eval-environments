@@ -10,6 +10,11 @@ PowerAgentBench-SS benchmarks agentic AI in power-system steady-state studies: g
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Simulation & Scientific Computing](../activities/simulation_scientific_computing.md)
+- [Optimization & Engineering Design](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.18789>

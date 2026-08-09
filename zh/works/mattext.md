@@ -10,6 +10,10 @@ MatText 是用大语言模型从晶体文本表示预测材料性质的 benchmar
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [建模与预测](../activities/modeling_prediction.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2406.17295>

@@ -10,6 +10,10 @@ GeneBench-Pro 是一个面向 AI agent 的 benchmark，考察其在基因组学�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
+
 ## Links
 
 - **Paper:** <https://cdn.openai.com/pdf/21938268-21af-442f-af93-3b2249afb241/genebench-pro.pdf>

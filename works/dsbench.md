@@ -10,6 +10,11 @@ DSBench asks how far data-science agents are from becoming data-science experts:
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
+- [Modeling & Prediction](../activities/modeling_prediction.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2409.07703>

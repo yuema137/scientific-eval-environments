@@ -10,6 +10,10 @@ VHDL-Eval 是评测 LLM 生成 VHDL 代码的框架：202 个问题，由 Verilo
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2406.04379>

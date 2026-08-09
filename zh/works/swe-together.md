@@ -10,6 +10,10 @@ SWE-Together 是从真实用户-agent 会话重建的多轮编码 benchmark：�
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.29957>

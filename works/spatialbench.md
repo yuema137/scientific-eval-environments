@@ -10,6 +10,10 @@ SpatialBench asks whether agents can analyze real-world spatial biology data: 14
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2512.21907>

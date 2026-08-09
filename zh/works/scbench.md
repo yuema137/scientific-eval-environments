@@ -10,6 +10,10 @@ scBench 评估 AI agent 的单细胞 RNA-seq 分析能力：394 个可验证问�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2602.09063>

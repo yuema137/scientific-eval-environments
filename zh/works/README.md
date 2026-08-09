@@ -40,6 +40,10 @@
 - [<Topic Name>](../topics/<topic_file>.md)
 - [<Topic Name>](../topics/<topic_file>.md)
 
+## Activities
+
+- [<Activity Name>](../activities/<activity_file>.md)
+
 ## Links
 
 - **Paper:** <已验证的 URL>
@@ -95,6 +99,7 @@
 
 - **语言切换器。** 每个页面在 H1 正下方带一行切换器：英文页为 `> **English** | [简体中文](../zh/works/<card>.md)`，中文镜像为 `> [English](../../works/<card>.md) | **简体中文**`。新卡片须在同一批次内为两侧都加上切换器。
 - **`Topics` 是元数据块，不是装饰。** 它是保持 topic 页同步的内部索引。此处列出的每个 topic，在对应 topic 页的 `Related Works` 中必须有相应条目，反之亦然。只能使用 [`../../AGENT.md`](../../AGENT.md) 定义的规范化 topic 分类。
+- **`Activities` 是必填的规范化元数据。** 每张卡片都恰有一个 `## Activities` 块，紧跟在 `## Topics` 之后。它列出一个或多个取自固定分类（见 [`../../AGENT.md`](../../AGENT.md) / [`../activities/README.md`](../activities/README.md)）的规范化活动；对于不评估任何科学/研究任务的工作（综述、纯方法学、通用型或安全性/资源类 benchmark），则写一行明确的 `N/A — <原因>` 且不带链接。活动是**多标签**的，但赋予时保守（通常一到三个，仅当该活动是任务中有意义的受评组成部分——依据卡片内容判断，绝不依据标题关键词）。映射是**双向**的：此处链接的每个活动都必须在对应活动页的 `Related Works` 中列出本工作，反之亦然。不得自造活动标签。
 - **不做定位。** 不得包含 "Gap to Our Work"、"Comparison with Our Framework" 或任何将某份工作与维护者自身项目对照的小节。
 - **提交前完成两级引用校验：**
   - *链接校验*：title、URL、project、venue、year——对照实际来源验证。

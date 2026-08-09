@@ -10,6 +10,10 @@ BixBench is a benchmark for LLM-based agents in computational biology: over 50 r
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2503.00096>

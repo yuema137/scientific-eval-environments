@@ -10,6 +10,10 @@ AHA 是检测并推理机器人操作失败的开源视觉-语言模型，把失
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — 能力探针，agent 本身并不执行科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2410.00371>

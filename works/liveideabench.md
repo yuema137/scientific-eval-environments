@@ -10,6 +10,10 @@ LiveIdeaBench evaluates LLMs' divergent-thinking capabilities for scientific ide
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Experiment Design & Scientific Discovery](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2412.17596>

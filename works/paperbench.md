@@ -10,6 +10,11 @@ PaperBench evaluates whether AI agents can replicate state-of-the-art AI researc
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+- [Research Reproduction & Replication](../activities/research_reproduction_replication.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2504.01848>

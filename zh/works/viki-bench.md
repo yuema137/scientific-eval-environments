@@ -10,6 +10,10 @@ VIKI-Bench 是首个面向具身多 agent 协作的层级化 benchmark，设三�
 
 _无方法论轴主题——在 [Robotics](../domains/robotics.md) 领域（领域轴）下索引。_
 
+## Activities
+
+N/A — 能力探针，agent 本身并不执行科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2506.09049>

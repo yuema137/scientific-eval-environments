@@ -10,6 +10,10 @@ SWE-Interact 是评估 coding agent 在多轮、交互式、用户驱动的软�
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.30573>

@@ -10,6 +10,10 @@ ProcessBench 是一个用于衡量识别数学推理中错误步骤能力的 ben
 
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2412.06559>

@@ -10,6 +10,10 @@ LoTa-Bench 为具身 agent 的语言任务规划器提供全自动评测：LLM �
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2402.08178>

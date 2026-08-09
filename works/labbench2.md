@@ -10,6 +10,11 @@ LABBench2 is an improved benchmark for AI systems performing biology research: n
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Literature Search & Evidence Synthesis](../activities/literature_evidence_synthesis.md)
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2604.09554>

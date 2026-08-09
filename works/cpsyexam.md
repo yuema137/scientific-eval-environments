@@ -10,6 +10,10 @@ CPsyExam is a Chinese benchmark for evaluating psychology knowledge in LLMs usin
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2405.10212>

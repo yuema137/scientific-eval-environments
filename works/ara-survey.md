@@ -10,6 +10,10 @@ A survey of autonomous research agents ('AI scientists') centered on the verific
 
 - [Survey](../topics/survey.md)
 
+## Activities
+
+N/A — survey or position paper; no evaluated task.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2608.05179>

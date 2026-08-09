@@ -10,6 +10,10 @@ VerilogEval is the canonical benchmark for evaluating LLMs on Verilog code gener
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2309.07544>

@@ -10,6 +10,10 @@ CATP-LLM（Cost-Aware Tool Planning with LLMs）是一个让 LLM 在考虑工具
 
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
+## Activities
+
+N/A — 评估的是 agent 的元属性（成本、安全性或鲁棒性），而非科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2411.16313>

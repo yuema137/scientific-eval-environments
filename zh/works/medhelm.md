@@ -10,6 +10,10 @@ MedHELM 将 Stanford CRFM 的 HELM（Holistic Evaluation of Language Models）�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.23802>

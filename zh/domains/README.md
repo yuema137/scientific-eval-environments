@@ -2,7 +2,7 @@
 
 > [English](../../domains/README.md) | **简体中文**
 
-每个规范化科学或工程领域一页参考页——仓库的**领域轴**，与 [`topics/`](../topics/) 的方法学轴地位对等：topic 按评估*方法学*分组，domain 按*领域*分组。完整规则见 [`AGENT.md`](../../AGENT.md)。
+每个规范化科学或工程领域一页参考页——仓库的**领域轴**，与 [`topics/`](../topics/) 的方法学轴、[`activities/`](../activities/) 的研究活动轴地位对等：topic 按评估*方法学*分组，domain 按*领域*分组，activity 按 *agent 所执行的任务*分组。完整规则见 [`AGENT.md`](../../AGENT.md)。
 
 ## Domain 页模板
 

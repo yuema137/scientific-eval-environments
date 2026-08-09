@@ -10,6 +10,10 @@ TELBench is a benchmark for span-level error localization in deep-research agent
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.02060>

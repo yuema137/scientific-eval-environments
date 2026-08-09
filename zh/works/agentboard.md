@@ -12,6 +12,10 @@ AgentBoard 是一个针对多轮 LLM agent 的评估 benchmark，同时提供一
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2401.13178>

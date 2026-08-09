@@ -10,6 +10,10 @@ PRL-Bench (Physics Research by LLMs) is a benchmark for frontier physics researc
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2604.15411>

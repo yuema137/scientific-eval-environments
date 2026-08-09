@@ -10,6 +10,10 @@ PhySciBench is a benchmark of 200 expert-curated deep-research questions in the 
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.18648>

@@ -10,6 +10,12 @@ SciAgentArena 是一个系统性 benchmark，用于在跨尺度的真实世界�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
+- [实验设计与科学发现](../activities/experiment_design_discovery.md)
+- [优化与工程设计](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.12736>

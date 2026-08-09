@@ -10,6 +10,10 @@ AnalogXpert 是把电路设计专长注入大语言模型、自动完成模拟�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [优化与工程设计](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2412.19824>

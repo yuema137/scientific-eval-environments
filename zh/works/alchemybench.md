@@ -10,6 +10,11 @@ AlchemyBench 是 LLM 驱动材料合成的端到端 benchmark，建立在 17,000
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [建模与预测](../activities/modeling_prediction.md)
+- [实验设计与科学发现](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2502.16457>

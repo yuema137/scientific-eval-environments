@@ -11,6 +11,11 @@ RE-Bench（Research Engineering Benchmark，v1）在前沿 AI R&D 能力上对�
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+- [优化与工程设计](../activities/optimization_engineering_design.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2411.15114>

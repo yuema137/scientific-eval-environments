@@ -10,6 +10,10 @@ EmbodiedBench 大规模评测作为视觉驱动具身 agent 的多模态 LLM：1
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2502.09560>

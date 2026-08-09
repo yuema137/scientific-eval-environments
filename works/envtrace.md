@@ -11,6 +11,10 @@ EnvTrace is a simulation-based evaluation methodology for LLM-generated instrume
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Laboratory & Instrument Control](../activities/laboratory_instrument_control.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2511.09964>

@@ -11,6 +11,10 @@ MLR-Bench evaluates AI agents on open-ended machine-learning research: 201 resea
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+- [End-to-End Research](../activities/end_to_end_research.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.19955>

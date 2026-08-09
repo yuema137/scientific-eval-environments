@@ -10,6 +10,10 @@ Insights Generator 是一个面向 LLM agent 的**语料级 trace 诊断**多 ag
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.21347>

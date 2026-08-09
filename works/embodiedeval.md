@@ -10,6 +10,10 @@ EmbodiedEval evaluates multimodal LLMs as embodied agents in an interactive 3D s
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — general-purpose agent benchmark; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2501.11858>

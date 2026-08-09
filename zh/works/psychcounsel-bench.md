@@ -10,6 +10,10 @@ PsychCounsel-Bench 用专业认证题评测 LLM 的心理学水平：约 2,252 �
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2510.01611>

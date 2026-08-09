@@ -10,6 +10,10 @@ ScholarQuest 是面向开放文献环境中 agent 式学术论文检索的大规
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [文献检索与证据综合](../activities/literature_evidence_synthesis.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.20235>

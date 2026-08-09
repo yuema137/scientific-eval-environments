@@ -11,6 +11,12 @@ CFDLLMBench 是评估大语言模型计算流体力学（CFD）能力的三层 b
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+- [模拟与科学计算](../activities/simulation_scientific_computing.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2509.20374>

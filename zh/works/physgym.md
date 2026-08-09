@@ -10,6 +10,10 @@ PhysGym 是面向 LLM agent 交互式物理发现的 benchmark 套件与模拟�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [实验设计与科学发现](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2507.15550>

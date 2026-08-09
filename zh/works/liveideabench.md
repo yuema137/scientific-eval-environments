@@ -10,6 +10,10 @@ LiveIdeaBench 在极简上下文下评测 LLM 的发散思维——科学想法�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [实验设计与科学发现](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2412.17596>

@@ -10,6 +10,12 @@ AstaBench 是一个为 agent 的科学研究能力提供整体度量的 benchmar
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [文献检索与证据综合](../activities/literature_evidence_synthesis.md)
+- [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
+- [端到端研究](../activities/end_to_end_research.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2510.21652>

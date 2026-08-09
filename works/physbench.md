@@ -10,6 +10,10 @@ PhysBench benchmarks vision-language models on physical-world understanding: 10,
 
 _No methodology-axis topic — indexed under the [Robotics](../domains/robotics.md) domain (field axis)._
 
+## Activities
+
+N/A — capability probe; the agent does not itself perform a scientific or research activity.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2501.16411>

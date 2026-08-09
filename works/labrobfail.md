@@ -11,6 +11,10 @@ LabRobFail benchmarks robotic failure analysis in chemical self-driving laborato
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — capability probe; the agent does not itself perform a scientific or research activity.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2607.23704>

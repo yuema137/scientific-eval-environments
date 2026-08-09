@@ -10,6 +10,10 @@ QVal is a training-free evaluation methodology and testbed that scores dense sup
 
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.32034>

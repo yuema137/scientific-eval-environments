@@ -10,6 +10,10 @@
 
 - [Survey](../topics/survey.md)
 
+## Activities
+
+N/A — survey or position paper; no evaluated task.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/pdf/2606.14502>

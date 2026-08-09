@@ -10,6 +10,10 @@ GATE（Graph-based Adaptive Tool Evolution Across Diverse Tasks）是一个动�
 
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://aclanthology.org/2026.acl-long.87/>

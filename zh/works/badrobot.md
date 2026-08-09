@@ -10,6 +10,10 @@ BadRobot 在物理世界越狱具身 LLM agent：一套利用 LLM-机器人栈�
 
 _无方法论轴主题——在 [Robotics](../domains/robotics.md) 领域（领域轴）下索引。_
 
+## Activities
+
+N/A — 评估的是 agent 的元属性（成本、安全性或鲁棒性），而非科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2407.20242>

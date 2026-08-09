@@ -10,6 +10,11 @@ HydroAgent 评测九个前沿 LLM agent 对业务化 CREST 分布式水文模型
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [模拟与科学计算](../activities/simulation_scientific_computing.md)
+- [优化与工程设计](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.17792>

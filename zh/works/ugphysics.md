@@ -10,6 +10,10 @@ UGPhysics 是本科物理推理的综合 benchmark：5,520 道中英双语问题
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2502.00334>

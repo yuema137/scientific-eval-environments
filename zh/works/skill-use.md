@@ -10,6 +10,10 @@ Skill-Use 是追问 LLM agent 能否真正在 agentic harness 中使用 skill �
 
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2608.04828>

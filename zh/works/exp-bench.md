@@ -10,6 +10,12 @@ EXP-Bench 是一个 benchmark，评估 AI agent 能否完成源自有影响力 A
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
+- [实验设计与科学发现](../activities/experiment_design_discovery.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.24785>

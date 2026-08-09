@@ -10,6 +10,11 @@ CVDP（Comprehensive Verilog Design Problems）是 NVIDIA 面向 LLM 与 agent �
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [优化与工程设计](../activities/optimization_engineering_design.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2506.14074>

@@ -10,6 +10,11 @@ MOOSE-Chem 评估 LLM 能否重新发现未见过的化学假说：benchmark 由
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [文献检索与证据综合](../activities/literature_evidence_synthesis.md)
+- [实验设计与科学发现](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2410.07076>

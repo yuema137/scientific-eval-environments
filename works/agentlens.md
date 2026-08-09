@@ -10,6 +10,10 @@ AgentLens is a production-assessed benchmark for interactive code agents that ev
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — general-purpose agent benchmark; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2607.06624>

@@ -10,6 +10,11 @@ MOOSE-Chem evaluates whether LLMs can rediscover unseen chemistry hypotheses: a 
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Literature Search & Evidence Synthesis](../activities/literature_evidence_synthesis.md)
+- [Experiment Design & Scientific Discovery](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2410.07076>

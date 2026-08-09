@@ -10,6 +10,10 @@ Humanity's Last Exam（HLE）是位于人类知识前沿的多模态 benchmark�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2501.14249>

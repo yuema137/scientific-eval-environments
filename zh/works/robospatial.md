@@ -10,6 +10,10 @@ RoboSpatial 为面向机器人的视觉-语言模型教授并测试空间理解�
 
 _无方法论轴主题——在 [Robotics](../domains/robotics.md) 领域（领域轴）下索引。_
 
+## Activities
+
+N/A — 能力探针，agent 本身并不执行科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2411.16537>

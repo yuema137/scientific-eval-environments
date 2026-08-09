@@ -10,6 +10,10 @@ BadRobot jailbreaks embodied LLM agents in the physical world: an attack paradig
 
 _No methodology-axis topic — indexed under the [Robotics](../domains/robotics.md) domain (field axis)._
 
+## Activities
+
+N/A — evaluates an agent meta-property (cost, safety, or robustness), not a scientific or research activity.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2407.20242>

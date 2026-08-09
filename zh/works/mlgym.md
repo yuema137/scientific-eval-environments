@@ -11,6 +11,10 @@ MLGym 是首个面向 AI 研究任务的 Gym 环境——支持对「训练 agen
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+- [端到端研究](../activities/end_to_end_research.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2502.14499>

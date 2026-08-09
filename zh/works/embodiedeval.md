@@ -10,6 +10,10 @@ EmbodiedEval 在一个交互式 3D 模拟框架中把多模态 LLM 当作具身 
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2501.11858>

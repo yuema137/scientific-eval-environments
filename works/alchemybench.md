@@ -10,6 +10,11 @@ AlchemyBench is an end-to-end benchmark for LLM-driven materials synthesis, buil
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Modeling & Prediction](../activities/modeling_prediction.md)
+- [Experiment Design & Scientific Discovery](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2502.16457>

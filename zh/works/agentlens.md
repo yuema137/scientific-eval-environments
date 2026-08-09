@@ -10,6 +10,10 @@ AgentLens 是一个面向 interactive code agent 的 production-assessed benchma
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2607.06624>

@@ -10,6 +10,10 @@ CaP-X 评测并改进面向机器人操作的编码 agent：agent 通过合成�
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 能力探针，agent 本身并不执行科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2603.22435>

@@ -11,6 +11,10 @@ SearchAuditor 是对长 horizon 搜索 agent 的失败做定位、归因与修�
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2608.05212>

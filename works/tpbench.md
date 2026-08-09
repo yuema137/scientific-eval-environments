@@ -10,6 +10,10 @@ TPBench (Theoretical Physics Benchmark) is a dataset and study of AI reasoning i
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2502.15815>

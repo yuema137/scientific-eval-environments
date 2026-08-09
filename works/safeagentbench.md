@@ -10,6 +10,10 @@ SafeAgentBench evaluates whether embodied LLM agents plan safely: 750 executable
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — evaluates an agent meta-property (cost, safety, or robustness), not a scientific or research activity.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2412.13178>

@@ -10,6 +10,10 @@ Harness-Bench 是一个诊断性 benchmark，用于测量配置级的 *harness �
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.27922>

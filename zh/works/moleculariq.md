@@ -10,6 +10,10 @@ MolecularIQ 是只收录「符号可验证」任务的分子结构推理 benchma
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2601.15279>

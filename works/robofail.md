@@ -10,6 +10,10 @@ REFLECT queries an LLM for robot failure explanation over a hierarchical summary
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — capability probe; the agent does not itself perform a scientific or research activity.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2306.15724>

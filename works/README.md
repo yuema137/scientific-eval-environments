@@ -40,6 +40,10 @@ One or two sentences describing what the work is.
 - [<Topic Name>](../topics/<topic_file>.md)
 - [<Topic Name>](../topics/<topic_file>.md)
 
+## Activities
+
+- [<Activity Name>](../activities/<activity_file>.md)
+
 ## Links
 
 - **Paper:** <verified URL>
@@ -96,6 +100,7 @@ made by this repository (not the authors) must be marked `Repository note:`.
 
 - **Language switcher.** Every page carries a switcher line directly under the H1: `> **English** | [简体中文](../zh/works/<card>.md)` on English pages, and `> [English](../../works/<card>.md) | **简体中文**` on the Chinese mirror. A new card ships with the switcher on both sides in the same batch.
 - **`Topics` is a metadata block, not decoration.** It is the internal index that keeps topic pages in sync. Every topic listed here must have a corresponding entry in that topic page's `Related Works` section, and vice versa. Only draw from the canonical topic taxonomy defined in [`../AGENT.md`](../AGENT.md).
+- **`Activities` is mandatory canonical metadata.** Every card carries exactly one `## Activities` block, placed directly after `## Topics`. It lists one or more canonical activities from the fixed taxonomy in [`../AGENT.md`](../AGENT.md) / [`../activities/README.md`](../activities/README.md) — or, for works that evaluate no scientific/research task (surveys, pure methodology, general-purpose or safety/resource-awareness benchmarks), a single explicit `N/A — <reason>` line and no links. Activities are **multi-label** but assigned conservatively (typically one to three, only when the activity is a meaningful evaluated component of the task — judged from the card's content, never from title keywords). The mapping is **two-way**: every activity linked here must list this work in that activity page's `Related Works`, and vice versa. No free-form activity labels.
 - **No positioning.** Do not include "Gap to Our Work", "Comparison with Our Framework", or any section that frames a work against a maintainer's own project.
 - **Two-level reference validation** before commit:
   - *Link validation*: title, URL, project, venue, year — verified against the actual source.

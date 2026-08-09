@@ -10,6 +10,10 @@ MaScQA 是探测大语言模型材料科学知识的问答数据集：650 个取
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2308.09115>

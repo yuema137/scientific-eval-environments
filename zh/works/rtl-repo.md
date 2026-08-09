@@ -10,6 +10,10 @@ RTL-Repo 在大规模 RTL 设计项目上评测 LLM：4,000 多个从公开 GitH
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2405.17378>

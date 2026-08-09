@@ -10,6 +10,10 @@ RoboFAC 是机器人失败分析与纠正的综合框架：9,440 条错误操作
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — 能力探针，agent 本身并不执行科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.12224>

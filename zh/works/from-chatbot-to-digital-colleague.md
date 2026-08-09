@@ -10,6 +10,10 @@
 
 - [Survey](../topics/survey.md)
 
+## Activities
+
+N/A — 综述或立场论文，无受评任务。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/pdf/2606.14502>

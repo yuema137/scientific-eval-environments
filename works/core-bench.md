@@ -10,6 +10,10 @@ CORE-Bench (Computational Reproducibility Agent Benchmark) measures whether AI a
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Research Reproduction & Replication](../activities/research_reproduction_replication.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2409.11363>

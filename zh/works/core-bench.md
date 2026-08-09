@@ -10,6 +10,10 @@ CORE-Bench（Computational Reproducibility Agent Benchmark）测量 AI agent 能
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [研究复现与重复](../activities/research_reproduction_replication.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2409.11363>

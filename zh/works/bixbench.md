@@ -10,6 +10,10 @@ BixBench 是面向计算生物学 LLM agent 的 benchmark：50 余个来自真�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2503.00096>

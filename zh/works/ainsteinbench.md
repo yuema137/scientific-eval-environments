@@ -10,6 +10,10 @@ AInsteinBench 在科学代码仓库上评测 coding agent：任务派生自六�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2512.21373>

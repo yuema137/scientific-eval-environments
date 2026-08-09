@@ -10,6 +10,10 @@ LLM4Mat-Bench 评测大语言模型的材料性质预测：约 190 万个晶体�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [建模与预测](../activities/modeling_prediction.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2411.00177>

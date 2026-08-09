@@ -10,6 +10,10 @@ HARDMath 是应用数学难题的 benchmark 数据集——研究生渐近分析
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2410.09988>

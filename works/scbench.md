@@ -10,6 +10,10 @@ scBench evaluates AI agents on single-cell RNA-seq analysis: 394 verifiable prob
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2602.09063>

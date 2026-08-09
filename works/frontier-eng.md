@@ -12,6 +12,10 @@ Frontier-Eng is a benchmark for self-evolving agents on real-world engineering t
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
+## Activities
+
+- [Optimization & Engineering Design](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2604.12290>

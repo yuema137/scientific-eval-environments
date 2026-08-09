@@ -10,6 +10,12 @@ AstaBench is a benchmark suite that provides a holistic measure of agentic abili
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Literature Search & Evidence Synthesis](../activities/literature_evidence_synthesis.md)
+- [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
+- [End-to-End Research](../activities/end_to_end_research.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2510.21652>

@@ -10,6 +10,10 @@ TPBench（Theoretical Physics Benchmark）是关于 AI 理论物理推理能力�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2502.15815>

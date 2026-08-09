@@ -10,6 +10,11 @@ CodePDE 是 LLM 驱动的 PDE 求解器生成推理框架：把 PDE 求解构造
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [模拟与科学计算](../activities/simulation_scientific_computing.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.08783>

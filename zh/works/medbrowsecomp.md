@@ -10,6 +10,10 @@ MedBrowseComp 评测医学 deep research 与 computer use：1,000 余道由医�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [文献检索与证据综合](../activities/literature_evidence_synthesis.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.14963>

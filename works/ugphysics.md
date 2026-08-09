@@ -10,6 +10,10 @@ UGPhysics is a comprehensive benchmark for undergraduate physics reasoning: 5,52
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2502.00334>

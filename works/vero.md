@@ -10,6 +10,10 @@ VeRO (Versioning, Rewards, and Observations) is an outer harness for benchmarkin
 
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2602.22480>

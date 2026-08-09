@@ -10,6 +10,10 @@ MetaSyn is a benchmark for LLM agents on systematic review and meta-analysis, bu
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Literature Search & Evidence Synthesis](../activities/literature_evidence_synthesis.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.17041>

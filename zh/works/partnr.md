@@ -10,6 +10,10 @@ PARTNR 以空前的规模评测具身多 agent 任务——家居活动中的人
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2411.00081>

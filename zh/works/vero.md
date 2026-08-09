@@ -10,6 +10,10 @@ VeRO（Versioning, Rewards, and Observations）是一个外层 harness，用于 
 
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2602.22480>

@@ -10,6 +10,10 @@ Traxgen is a deterministic ground-truth trajectory generation toolkit for AI-age
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** *Traxgen: Ground-Truth Trajectory Generation for AI Agent Evaluation* (Mazzolenis & Zhang)

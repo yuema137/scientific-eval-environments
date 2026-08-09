@@ -10,6 +10,10 @@ REFLECT 在机器人多传感器经验的层级摘要之上让 LLM 解释失败�
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — 能力探针，agent 本身并不执行科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2306.15724>

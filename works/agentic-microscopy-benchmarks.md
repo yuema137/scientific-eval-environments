@@ -10,6 +10,10 @@ An industry study (Carl Zeiss Research Microscopy Solutions) pairing a benchmark
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Laboratory & Instrument Control](../activities/laboratory_instrument_control.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2608.05266>

@@ -10,6 +10,10 @@ RoCoBench 是一个 6 任务的多机器人协作 benchmark，其中每台机器
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2307.04738>

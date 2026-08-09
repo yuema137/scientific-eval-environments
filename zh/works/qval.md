@@ -10,6 +10,10 @@ QVal 是一个 training-free 的评估方法学与 testbed，通过稠密监督�
 
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.32034>

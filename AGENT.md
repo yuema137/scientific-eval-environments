@@ -23,7 +23,11 @@ The repository must remain **objective**. It must **not** contain discussion abo
 
 ## Repository Organization
 
-The repository has **three primary knowledge layers**: works (facts about individual projects), topics (the **methodology axis**), and domains (the **field axis**). Topics and domains are **co-equal aggregation axes** over the works layer — neither is subordinate to the other.
+The repository has **four knowledge layers**: works (facts about individual projects), plus **three co-equal aggregation axes** over them — topics (the **methodology axis**), domains (the **field axis**), and activities (the **research-activity / task axis**). No axis is subordinate to the others.
+
+- **Topic** — the evaluation or research *theme* a work relates to (why / how we evaluate).
+- **Domain** — the scientific or engineering *field* a work is grounded in (where the task lives).
+- **Activity** — the substantive scientific or research *task* the evaluated agent or system performs (what the agent does).
 
 ### Layer 1 — Works
 
@@ -40,6 +44,7 @@ Directory: `works/`
 
 - Overview
 - **Topics** *(metadata block — bulleted list of topic pages this work belongs to)*
+- **Activities** *(metadata block — bulleted list of activity pages, or an explicit `N/A — <reason>`)*
 - Links
 - Summary
 - Tasks
@@ -52,7 +57,7 @@ Directory: `works/`
 - Limitations
 - Related Works
 
-The `Topics` block is not just navigation for readers — it is the **internal index** used to keep topic pages in sync. When a new topic page is added, its `Topics` entry on each relevant card is how a maintainer finds the cards to link. When a card is updated, its `Topics` block tells the maintainer which topic pages may need synchronization.
+The `Topics` block is not just navigation for readers — it is the **internal index** used to keep topic pages in sync. When a new topic page is added, its `Topics` entry on each relevant card is how a maintainer finds the cards to link. When a card is updated, its `Topics` block tells the maintainer which topic pages may need synchronization. The `Activities` block works the same way for the activity axis (see Layer 4): it is the reverse index that keeps activity pages in sync, and it is **mandatory on every card** — applicable works link one or more canonical activities, and genuinely non-applicable works carry an explicit `N/A — <reason>`.
 
 **Do NOT include** sections such as:
 
@@ -61,7 +66,7 @@ The `Topics` block is not just navigation for readers — it is the **internal i
 - Our Positioning
 - Any other section that positions a work against a maintainer's own project
 
-**Template stability.** Once the card template is established, avoid changing its structure. Consistency across cards is more valuable than optimizing individual pages. New evaluation dimensions should extend **topic pages**, not card fields.
+**Template stability.** Once the card template is established, avoid changing its structure. Consistency across cards is more valuable than optimizing individual pages. New evaluation dimensions should extend **topic pages**, not card fields. The `Activities` block was a deliberate, one-time schema extension adding a core navigation axis (mirroring `Topics`); it does not license further casual additions. Activities are controlled navigation metadata drawn from a fixed taxonomy — not a place for topic-specific evaluation dimensions.
 
 **Repository Notes discipline.** Any observation that is not stated by the paper or official project must be prefixed `Repository note:`. Repository Notes must be conservative:
 
@@ -156,6 +161,47 @@ Adding a new canonical domain is a structural decision that requires updating th
 - **One-way mapping, maintained on domain pages only.** Unlike the redundant Topics mapping, cards are **not** modified for the domain axis: the card template stays stable, and the card's existing `## Domains` prose section is the evidence for domain assignment. When a card's `## Domains` section changes, check the domain pages for needed updates.
 - **Assignment must be verifiable.** A work is placed in a domain only if its card's `## Domains` section (backed by the paper) names that domain or a field that folds into it. If a paper says "5 engineering categories" without naming them, the work is not force-assigned — it waits until the categories are verified.
 
+### Layer 4 — Activities
+
+Directory: `activities/`
+
+Activities aggregate works by the **substantive scientific or research task the evaluated agent performs** — the *what does the agent do* axis, orthogonal to topics (how/why we evaluate) and domains (what field). A physics benchmark (domain: Physics) might evaluate *Scientific Problem Solving & Reasoning*, while a physics-law-discovery benchmark in the same domain evaluates *Experiment Design & Scientific Discovery*.
+
+Activity pages are **reference pages with light synthesis** — co-equal with topic and domain pages as an entry point. Each carries a Definition, a Scope note, a Task-Patterns synthesis of how the activity appears across the corpus, a fixed-column Comparison table, and a Related Works reverse index. Detailed evaluation-methodology synthesis stays in topics; field-specific scientific verification stays in domains.
+
+**Canonical activity taxonomy.** The repository organizes activities around this fixed set of 11:
+
+| # | Activity | File |
+|---|---|---|
+| 1 | Literature Search & Evidence Synthesis | `literature_evidence_synthesis.md` |
+| 2 | Scientific Problem Solving & Reasoning | `scientific_problem_solving_reasoning.md` |
+| 3 | Data Analysis & Statistical Inference | `data_analysis_statistical_inference.md` |
+| 4 | Modeling & Prediction | `modeling_prediction.md` |
+| 5 | Simulation & Scientific Computing | `simulation_scientific_computing.md` |
+| 6 | Experiment Design & Scientific Discovery | `experiment_design_discovery.md` |
+| 7 | Laboratory & Instrument Control | `laboratory_instrument_control.md` |
+| 8 | Optimization & Engineering Design | `optimization_engineering_design.md` |
+| 9 | Scientific Software & Workflow Engineering | `scientific_software_workflow_engineering.md` |
+| 10 | Research Reproduction & Replication | `research_reproduction_replication.md` |
+| 11 | End-to-End Research | `end_to_end_research.md` |
+
+Adding, renaming, splitting, or removing a canonical activity is a structural decision that requires updating this table. Activity filenames use snake_case. Per-activity definitions and scope live on each page and in [`activities/README.md`](./activities/README.md).
+
+**Activity page template:**
+
+- **Definition** — one concise paragraph defining the activity.
+- **Scope** — what belongs here and the key boundary cases.
+- **Task Patterns** — synthesis of how the activity appears across the corpus, linking work cards.
+- **Comparison** — a factual table with the fixed columns `Work | Year | Activity instantiation | Task form / environment | Deliverable or success target | Card`. *Activity instantiation* states what the work asks the agent to do with respect to **this** activity (not a whole-benchmark summary). Every cell must be verifiable from the work's card.
+- **Related Works** — bare links to the work cards (the reverse-index mapping list).
+
+**Rules:**
+
+- **Multi-label, assigned conservatively.** Activities are not mutually exclusive; a work may appear on several activity pages. But an activity is listed only when it is a **meaningful evaluated component** — if removing it would materially change what capability the benchmark measures. Incidental tool use is not enough. Typical cards carry one to three activities; four or more is rare and must reflect a genuinely broad or end-to-end task.
+- **Two-way reverse index.** Unlike domains, the activity mapping is redundant like topics: every activity on a card's `## Activities` block must appear in that activity page's `Related Works` (and Comparison table), and vice versa. The two sides must agree exactly — no table-only entries, no duplicates, no broken links.
+- **Not every work has an activity.** Surveys, position papers, pure evaluation methodologies and diagnostic/reward frameworks over arbitrary trajectories, general-purpose web/UI/computer-use and coding-assistant benchmarks, and safety/robustness/resource-awareness probes do not evaluate a scientific/research activity. Their cards carry an explicit `## Activities` block reading `N/A — <reason>` and appear on no activity page. Use `N/A` only when the axis genuinely does not apply — never because classification is hard.
+- **Canonical labels only, evidence-based.** Cards draw solely from the taxonomy above. Classification is based on the actual task the card describes (`Overview`, `Tasks`, `Summary`, `Main Contribution`, `Domains`, `Key Design Ideas`), falling back to the verified primary source — never on title keywords. Do not confuse activities with topics (Trajectory Evaluation, Credit Assignment…), domains (Physics, Robotics…), verifier types (LLM judge, execution-based…), or work types (benchmark, survey…).
+
 ---
 
 ## Relationship Between the Layers
@@ -177,11 +223,14 @@ CostBench              → resource_aware_evaluation
 AgentBoard             → trajectory_evaluation, skill_hierarchy
 ```
 
-**Topic and domain pages are the two primary entry points.** A reader who arrives with a methodology question starts from `topics/`; a reader who arrives with a field in mind starts from `domains/`. Both follow links into `works/` and from there to the original papers:
+**Activities work the same way.** A work's activity memberships are expressed twice, redundantly on purpose: in the card's `Activities` metadata block, and in each activity page's `Related Works` section. The one difference from topics is that activities admit an explicit `N/A` state for works that evaluate no scientific/research task.
+
+**Topic, domain, and activity pages are the three co-equal primary entry points.** A reader who arrives with a methodology question starts from `topics/`; a reader who arrives with a field in mind starts from `domains/`; a reader who arrives asking what the agent actually does starts from `activities/`. All follow links into `works/` and from there to the original papers:
 
 ```
-Topic   →  Representative works              →  Original papers
-Domain  →  Works evaluated in that domain    →  Original papers
+Topic     →  Representative works              →  Original papers
+Domain    →  Works evaluated in that domain    →  Original papers
+Activity  →  Works performing that task        →  Original papers
 ```
 
 ---
@@ -246,7 +295,7 @@ Maintain both English and Chinese versions.
 
 **English is always the canonical version.**
 
-Chinese pages mirror the English tree under `zh/` (`zh/works/`, `zh/topics/`, `zh/domains/`).
+Chinese pages mirror the English tree under `zh/` (`zh/works/`, `zh/topics/`, `zh/domains/`, `zh/activities/`). Every card's `## Activities` block is mirrored on the Chinese card under the heading `## 研究活动`, using the fixed Chinese activity labels; every English activity page has a Chinese counterpart.
 
 **Cadence.** English and Chinese documentation must not diverge for long. The working cycle is:
 
@@ -301,6 +350,6 @@ The distinction between in-scope and out-of-scope RL work is the paper's primary
 The final repository should read like a well-organized technical handbook.
 
 - Work cards provide **factual documentation**.
-- Topic pages provide **synthesis** along the methodology axis; domain pages provide **field-oriented reference** along the domain axis. The two are co-equal entry points.
+- Topic pages provide **synthesis** along the methodology axis; domain pages provide **field-oriented reference** along the domain axis; activity pages provide **task-oriented reference** along the research-activity axis. The three are co-equal entry points.
 
 Together they should give any reader a clear understanding of the current scientific evaluation landscape.

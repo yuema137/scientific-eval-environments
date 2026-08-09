@@ -10,6 +10,10 @@ CUARewardBench 是一个把 outcome reward model（ORM）与 process reward mode
 
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2510.18596>

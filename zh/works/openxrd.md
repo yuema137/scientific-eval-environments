@@ -10,6 +10,10 @@ OpenXRD 是面向 LLM 与多模态 LLM 的 X 射线衍射问答 benchmark 框架
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2507.09155>

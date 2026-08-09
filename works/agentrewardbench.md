@@ -10,6 +10,10 @@ AgentRewardBench is a benchmark that measures how well automatic evaluators — 
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2504.08942>

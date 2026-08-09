@@ -12,6 +12,10 @@ Long-Horizon-Terminal-Bench extends Terminal-Bench to substantially longer execu
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — general-purpose agent benchmark; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2607.08964>

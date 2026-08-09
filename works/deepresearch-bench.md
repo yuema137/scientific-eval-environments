@@ -10,6 +10,10 @@ DeepResearch Bench is a benchmark for Deep Research Agents (DRAs) built from 100
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+- [Literature Search & Evidence Synthesis](../activities/literature_evidence_synthesis.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2506.11763>

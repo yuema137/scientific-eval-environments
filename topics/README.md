@@ -4,7 +4,7 @@
 
 Literature-review pages, one per canonical evaluation direction.
 
-Topic pages are the **methodology axis** — one of the repository's two co-equal entry points, alongside the field axis in [`../domains/`](../domains/). A reader interested in an evaluation methodology should start here and follow links into [`../works/`](../works/), then to the original papers:
+Topic pages are the **methodology axis** — one of the repository's three co-equal entry points, alongside the field axis in [`../domains/`](../domains/) and the research-activity axis in [`../activities/`](../activities/). A reader interested in an evaluation methodology should start here and follow links into [`../works/`](../works/), then to the original papers:
 
 ```
 Topic  →  Representative works  →  Original papers

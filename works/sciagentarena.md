@@ -10,6 +10,12 @@ SciAgentArena is a systematic benchmark for evaluating AI agents in real-world s
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
+- [Experiment Design & Scientific Discovery](../activities/experiment_design_discovery.md)
+- [Optimization & Engineering Design](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.12736>

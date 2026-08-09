@@ -11,6 +11,11 @@ MLAgentBench evaluates language agents on machine-learning experimentation: a su
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+- [Modeling & Prediction](../activities/modeling_prediction.md)
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2310.03302>

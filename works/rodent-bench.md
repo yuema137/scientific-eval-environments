@@ -10,6 +10,10 @@ Rodent-Bench evaluates multimodal LLMs on annotating rodent behavior video acros
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2602.18540>

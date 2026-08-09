@@ -10,6 +10,10 @@ MATP（Multi-step Automatic Theorem Proving）是一个评估框架，通过将�
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2512.23511>

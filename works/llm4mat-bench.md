@@ -10,6 +10,10 @@ LLM4Mat-Bench benchmarks large language models for materials property prediction
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Modeling & Prediction](../activities/modeling_prediction.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2411.00177>

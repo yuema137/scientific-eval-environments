@@ -10,6 +10,10 @@ BLADE benchmarks language-model agents for data-driven science: 12 datasets pair
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2408.09667>

@@ -10,6 +10,10 @@ HarnessOpt-Bench is a benchmark measuring how well frontier LLMs perform automat
 
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2608.06301>

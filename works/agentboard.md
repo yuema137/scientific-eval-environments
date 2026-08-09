@@ -12,6 +12,10 @@ AgentBoard is a multi-turn LLM-agent evaluation benchmark paired with an analyti
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — general-purpose agent benchmark; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2401.13178>

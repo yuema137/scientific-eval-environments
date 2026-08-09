@@ -10,6 +10,10 @@ FrontierCode is an industry benchmark from Cognition presented as the first to m
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — general-purpose agent benchmark; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Project:** <https://cognition.com/frontiercode>

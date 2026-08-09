@@ -10,6 +10,10 @@ MedBrowseComp benchmarks medical deep research and computer use: more than 1,000
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Literature Search & Evidence Synthesis](../activities/literature_evidence_synthesis.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.14963>

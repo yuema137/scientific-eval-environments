@@ -10,6 +10,10 @@ FrontierCode 是 Cognition 推出的业界 benchmark，自称首个测量「可�
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Project:** <https://cognition.com/frontiercode>

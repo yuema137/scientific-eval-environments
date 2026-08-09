@@ -10,6 +10,10 @@ Who&When Pro 是一个基准，用于衡量 LLM 将失败的智能体轨迹归�
 
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2607.09996>

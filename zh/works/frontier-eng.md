@@ -12,6 +12,10 @@ Frontier-Eng 是面向"自我进化 agent"的真实工程任务 benchmark，把�
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
+## Activities
+
+- [优化与工程设计](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2604.12290>

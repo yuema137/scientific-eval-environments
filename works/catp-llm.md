@@ -10,6 +10,10 @@ CATP-LLM (Cost-Aware Tool Planning with LLMs) is a framework for empowering LLMs
 
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
+## Activities
+
+N/A — evaluates an agent meta-property (cost, safety, or robustness), not a scientific or research activity.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2411.16313>

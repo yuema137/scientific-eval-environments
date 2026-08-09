@@ -10,6 +10,10 @@ ToolPRMBench is a benchmark that evaluates process reward models (PRMs) for tool
 
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2601.12294>

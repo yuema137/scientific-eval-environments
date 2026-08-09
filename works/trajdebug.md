@@ -11,6 +11,10 @@ TRAJDEBUG is an error-lifecycle tracing framework for identifying critical failu
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2608.06346>

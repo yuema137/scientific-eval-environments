@@ -10,6 +10,10 @@ RoCoBench is a 6-task benchmark for multi-robot collaboration in which each robo
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — general-purpose agent benchmark; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2307.04738>

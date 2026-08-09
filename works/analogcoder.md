@@ -10,6 +10,10 @@ AnalogCoder is the first training-free LLM agent for designing analog circuits t
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Optimization & Engineering Design](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2405.14918>

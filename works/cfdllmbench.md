@@ -11,6 +11,12 @@ CFDLLMBench is a three-tier benchmark suite for evaluating large language models
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 
+## Activities
+
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+- [Simulation & Scientific Computing](../activities/simulation_scientific_computing.md)
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2509.20374>

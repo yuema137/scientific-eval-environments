@@ -12,6 +12,10 @@ Long-Horizon-Terminal-Bench 将 Terminal-Bench 扩展到显著更长的执行 ho
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2607.08964>

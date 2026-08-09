@@ -10,6 +10,10 @@ The ASIMOV Benchmark evaluates the semantic safety of VLMs serving as robot brai
 
 _No methodology-axis topic — indexed under the [Robotics](../domains/robotics.md) domain (field axis)._
 
+## Activities
+
+N/A — evaluates an agent meta-property (cost, safety, or robustness), not a scientific or research activity.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2503.08663>

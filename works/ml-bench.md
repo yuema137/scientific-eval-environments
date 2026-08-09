@@ -10,6 +10,10 @@ ML-Bench evaluates LLMs and agents on machine-learning tasks at repository-level
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2311.09835>

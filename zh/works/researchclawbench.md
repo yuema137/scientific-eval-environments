@@ -10,6 +10,10 @@ ResearchClawBench 是一个面向端到端自主科学研究的 benchmark，agen
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [端到端研究](../activities/end_to_end_research.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.07591>

@@ -10,6 +10,10 @@ MedHELM extends Stanford CRFM's Holistic Evaluation of Language Models (HELM) to
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.23802>

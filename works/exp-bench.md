@@ -10,6 +10,12 @@ EXP-Bench is a benchmark that evaluates AI agents on conducting complete researc
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
+- [Experiment Design & Scientific Discovery](../activities/experiment_design_discovery.md)
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.24785>

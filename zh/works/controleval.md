@@ -10,6 +10,10 @@ ControlEval 是含 500 个、目标各异的控制系统设计任务的 benchmar
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [优化与工程设计](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2410.19811>

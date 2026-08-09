@@ -10,6 +10,11 @@ onepot-Bench 0 is a proprietary, lab-aware chemistry benchmark suite in three pa
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+- [Modeling & Prediction](../activities/modeling_prediction.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2608.02595>

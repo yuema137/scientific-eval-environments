@@ -10,6 +10,10 @@ Traxgen 是一个面向 AI-agent 评估的**确定性** ground-truth trajectory 
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** *Traxgen: Ground-Truth Trajectory Generation for AI Agent Evaluation*（Mazzolenis & Zhang）

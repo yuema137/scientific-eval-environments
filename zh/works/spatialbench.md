@@ -10,6 +10,10 @@ SpatialBench 追问 agent 能否分析真实世界的空间生物学数据：146
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2512.21907>
