@@ -19,6 +19,20 @@
 | SciConvBench | 2026 | 澄清不适定的仿真请求；材料科学是其四个计算科学领域之一。 | 基于结构化任务本体的多轮消歧与矛盾消解对话。 | 按评分标准为澄清行为、对话共识建立与最终规格保真度打分。 | [→](../works/sciconvbench.md) |
 | ChemX | 2025 | 从纳米材料文献——纳米酶、纳米磁性材料——与小分子数据集中抽取结构化数据。 | 10 个人工整理、专家校验的抽取数据集；agent 式文档处理。 | 对照领域专家校验记录的抽取质量。 | [→](../works/chemx.md) |
 | MaCBench | 2024 | 承担材料研究中的视觉工作：认读仪器与实验场景、抽取数据、解读实验结果。 | 三个方面的多模态（图像 + 文本）任务——数据抽取、实验理解、结果解读。 | 经 ChemBench 管线计准确率；抽取近乎完美，空间与跨模态推理受限。 | [→](../works/macbench.md) |
+| MaScQA | 2023 | 回答横跨 14 个主题的材料科学与冶金考题。 | 650 个源自 GATE 的问题，四种题型；零样本与链式思维提示下的静态问答。 | 准确率加「概念 vs 计算」错误分类；GPT-4 约 62%。 | [→](../works/mascqa.md) |
+| MatSciBench | 2025 | 求解横跨材料核心子学科的大学水平问题。 | 1,340 个问题（946 个配参考解、315 个带图像）；静态文本与多模态问答。 | 文本与图像题准确率；DeepSeek-R1 75.22% / GPT-5 53.02%。 | [→](../works/matscibench.md) |
+| LLM4Mat-Bench | 2024 | 从晶体的文本编码预测材料性质。 | 约 190 万结构、45 种性质、3 种模态（成分/CIF/文本）；静态预测。 | 回归用 MAD:MAE、分类用 AUC；生成式 LLM 近乎随机。 | [→](../works/llm4mat-bench.md) |
+| MatText | 2024 | 从文本表示预测晶体性质，并对照几何感知模型。 | 9 种文本表示，参数至 70B，数据至 200 万结构；静态预测。 | 对照 GNN 基线的回归误差；记录「GNN-LM 墙」。 | [→](../works/mattext.md) |
+| AtomWorld | 2025 | 在标准建模操作下构建与修改晶态原子结构。 | 四类建模范式下的 10 种基本操作；可静态验证。 | 可验证结构检查；旋转成功率低于 12%。 | [→](../works/atomworld.md) |
+| OpenXRD | 2025 | 回答 X 射线衍射与晶体学问题。 | 217 个专家策划问题，闭卷与开卷；74 个 LLM/MLLM。 | token 数相同下比较专家策划与 AI 生成上下文的准确率。 | [→](../works/openxrd.md) |
+| MatVQA | 2025 | 对材料显微与衍射影像做视觉推理。 | 横跨 4 类结构-性质-性能任务的 1,325 个问题；17 个 MLLM；剔除捷径。 | 真实材料影像上的准确率，带文本捷径剔除。 | [→](../works/matvqa.md) |
+| MatCha | 2025 | 理解贯穿研究工作流的材料表征。 | 横跨 4 个阶段、21 个任务、覆盖真实表征影像的 1,500 个问题。 | 带人类专家基线的准确率；少样本与 CoT 无法弥合差距。 | [→](../works/matcha.md) |
+| MatQnA | 2025 | 解读十种主流表征方法（XPS、XRD、SEM、TEM 等）的数据。 | 覆盖真实表征数据的选择题与主观题；多模态。 | 客观准确率（前沿 MLLM 约 90%）加主观评估。 | [→](../works/matqna.md) |
+| MatViX | 2024 | 从图文丰富的论文中抽取结构化数据——成分与性质曲线。 | 324 篇全文论文 → 1,688 个专家策划 JSON；零样本 VLM 抽取。 | 成分 F1；曲线的相似度分与对齐分。 | [→](../works/matvix.md) |
+| MatTools | 2025 | 理解并编程材料科学工具（pymatgen）以计算性质。 | 69,225 对理解问答 + 49 个真实任务（138 个子任务），需 Python 代码。 | 理解准确率加经执行验证的代码生成。 | [→](../works/mattools.md) |
+| AutoDFT / VASPBench | 2026 | 自主规划、运行并修复密度泛函理论（VASP）计算。 | 横跨 9 种 DFT 计算类型的 34 个任务；闭环多 agent 执行。 | 任务级成功率（GPT-5.2 94.1%）加对照数据库的性质准确率。 | [→](../works/vaspbench.md) |
+| AlchemyBench | 2025 | 规划无机材料合成：前体、设备、流程、表征。 | 对 17,000 条专家核验合成配方的端到端预测；静态。 | 对自由文本预测的、经专家一致性验证的 LLM-as-a-Judge。 | [→](../works/alchemybench.md) |
+| Materials Hypothesis Generation | 2025 | 在明确目标与约束下生成材料发现假说。 | 基于从近期论文策划的数据集的假说生成。 | 一个模拟材料科学家批判性评估的可扩展指标。 | [→](../works/materials-hypothesis.md) |
 
 ## Related Works
 
@@ -31,3 +45,17 @@
 - [SciConvBench](../works/sciconvbench.md)
 - [ChemX](../works/chemx.md)
 - [MaCBench](../works/macbench.md)
+- [MaScQA](../works/mascqa.md)
+- [MatSciBench](../works/matscibench.md)
+- [LLM4Mat-Bench](../works/llm4mat-bench.md)
+- [MatText](../works/mattext.md)
+- [AtomWorld](../works/atomworld.md)
+- [OpenXRD](../works/openxrd.md)
+- [MatVQA](../works/matvqa.md)
+- [MatCha](../works/matcha.md)
+- [MatQnA](../works/matqna.md)
+- [MatViX](../works/matvix.md)
+- [MatTools](../works/mattools.md)
+- [AutoDFT / VASPBench](../works/vaspbench.md)
+- [AlchemyBench](../works/alchemybench.md)
+- [Materials Hypothesis Generation](../works/materials-hypothesis.md)

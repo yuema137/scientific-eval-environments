@@ -118,6 +118,20 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **靠数据不公开来防泄漏。** [onepot-Bench 0](../works/onepot-bench.md) 把反应结果与催化剂选择的评估锚定在实验室私有数据上，另配化学信息学素养与拒答两个子组件。
 - **实验室里的 VLM 瓶颈。** [MaCBench](../works/macbench.md) 发现视觉-语言模型在设备识别与数据抽取上近乎完美，但在空间推理与跨模态综合上存在根本性局限。
 - **自主实验室的失败分析。** [LabRobFail](../works/labrobfail.md) 为化学自主实验室搭建失败中心的 benchmark——20,000+ 条轨迹，含控制级、物理级与语义级失败注入——领域专用 VLM 检测率达 90.83%，作为实时监督者提升下游任务成功率。
+- **材料知识考试问答。** [MaScQA](../works/mascqa.md) 用 650 个 GATE 考题测 LLM 的材料知识，GPT-4 约 62%，概念性错误多于计算性错误。
+- **大学水平的材料推理。** [MatSciBench](../works/matscibench.md) 出 1,340 个带参考解与图像的问题；DeepSeek-R1 文本达 75.22%，而图像最好仅 53.02%，把多模态推理标记为更难的前沿。
+- **LLM 作为性质预测器。** [LLM4Mat-Bench](../works/llm4mat-bench.md) 在约 190 万晶体、45 种性质上评测生成式对话 LLM 与微调模型，发现任务专用模型仍占主导。
+- **几何盲区。** [MatText](../works/mattext.md) 在九种晶体文本表示上评测 LLM，记录了一堵「GNN-LM 墙」：模型抓住类别模式却漏掉坐标信息。
+- **晶体结构空间推理。** [AtomWorld](../works/atomworld.md) 以十种可验证的原子结构操作为 LLM 评分，旋转成功率低于 12%，暴露几何缺陷。
+- **模型广度的晶体学问答。** [OpenXRD](../works/openxrd.md) 在 217 个专家策划 XRD 问题上评测 74 个 LLM/MLLM，表明 token 数相同时专家策划的上下文胜过 AI 生成的。
+- **抗捷径的表征视觉问答。** [MatVQA](../works/matvqa.md) 用覆盖真实显微与衍射影像的 1,325 个问题测 17 个 MLLM，并迭代剔除文本捷径。
+- **按阶段组织的表征。** [MatCha](../works/matcha.md) 横跨四个研究阶段、21 个任务共 1,500 个问题，发现与人类专家的显著差距且提示无法弥合。
+- **按方法组织的表征问答。** [MatQnA](../works/matqna.md) 覆盖十种表征方法（XPS、XRD、SEM、TEM 等）；前沿 MLLM 在客观题上已达约 90%。
+- **图级材料抽取。** [MatViX](../works/matvix.md) 在 324 篇全文论文上评测多模态抽取，产出 1,688 个 JSON 目标，评判性质曲线（CSS、CAS）而不只是实体。
+- **材料工具使用。** [MatTools](../works/mattools.md) 测 LLM 能否理解并编程 pymatgen——69,225 对理解问答加 49 个执行任务——发现通用模型胜过专用模型。
+- **自主 DFT 编排。** [AutoDFT / VASPBench](../works/vaspbench.md) 在 34 个任务、9 种计算类型上评测闭环 DFT agent，AutoDFT 达到 94.1% 的任务级成功率。
+- **配方级规模的合成规划。** [AlchemyBench](../works/alchemybench.md) 把 17,000 条专家核验配方变成端到端预测，由一个经专家一致性验证的 LLM judge 判分。
+- **面向发现的假说生成。** [Materials Hypothesis Generation](../works/materials-hypothesis.md) 用一个模拟专家的指标评测目标驱动、约束引导的 LLM agent 的材料设计假说。
 
 ## Comparison
 
@@ -229,6 +243,20 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | onepot-Bench 0 | 2026 | 私有组件，含实验室产生的私有数据 | 化学信息学素养、拒答行为、反应结果预测 | 分组件对照私有实验真值评分 | [→](../works/onepot-bench.md) |
 | MaCBench | 2024 | 多模态的化学与材料任务 | 数据抽取、实验理解、结果解读 | 经 ChemBench 管线计准确率 | [→](../works/macbench.md) |
 | LabRobFail | 2026 | 模拟化学自主实验室的失败轨迹（Isaac Sim） | 面向自主化学实验的实验室机器人失败分析 | 六项能力，含检测（90.83%）与时间定位 | [→](../works/labrobfail.md) |
+| MaScQA | 2023 | 650 个 GATE 考试的材料与冶金问题 | 材料科学知识问答 | 准确率加「概念 vs 计算」错误分类；GPT-4 约 62% | [→](../works/mascqa.md) |
+| MatSciBench | 2025 | 1,340 个大学水平问题（946 个有解、315 个带图像） | 横跨子学科的材料推理 | 文本与图像题准确率；DeepSeek-R1 75.22% / GPT-5 53.02% | [→](../works/matscibench.md) |
+| LLM4Mat-Bench | 2024 | 约 190 万晶体、45 种性质、3 种文本模态 | 材料性质预测 | MAD:MAE（回归）与 AUC（分类）；生成式 LLM 近乎随机 | [→](../works/llm4mat-bench.md) |
+| MatText | 2024 | 9 种晶体文本表示，参数至 70B / 200 万结构 | 从文本做晶体性质预测 | 对照 GNN 基线的回归误差；「GNN-LM 墙」 | [→](../works/mattext.md) |
+| AtomWorld | 2025 | 四类建模范式下的 10 种原子结构操作 | 晶体结构空间推理 | 可验证结构检查；旋转成功率低于 12% | [→](../works/atomworld.md) |
+| OpenXRD | 2025 | 217 个专家策划 XRD 问题、74 个模型 | 晶体学（XRD）问答 | 闭卷 vs 开卷准确率；专家 vs AI 生成上下文 | [→](../works/openxrd.md) |
+| MatVQA | 2025 | 1,325 个问题、17 个 MLLM、真实显微/衍射 | 材料表征视觉推理 | 四类 SPP 任务准确率，带捷径剔除 | [→](../works/matvqa.md) |
+| MatCha | 2025 | 横跨 4 个阶段 / 21 个任务的 1,500 个问题 | 材料表征理解 | 带人类专家基线的准确率；提示无法弥合差距 | [→](../works/matcha.md) |
+| MatQnA | 2025 | 10 种表征方法（XPS/XRD/SEM/TEM 等） | 材料表征与分析 | 客观 + 主观问答；前沿 MLLM 客观题约 90% | [→](../works/matqna.md) |
+| MatViX | 2024 | 324 篇全文论文 → 1,688 个结构化 JSON | 材料数据抽取（文本/表格/图） | 成分 F1；性质曲线的相似度/对齐分 | [→](../works/matvix.md) |
+| MatTools | 2025 | 69,225 对理解问答 + 49 任务 / 138 子任务 | 材料计算工具使用（pymatgen） | 工具理解准确率 + 经执行验证的代码生成 | [→](../works/mattools.md) |
+| AutoDFT / VASPBench | 2026 | 横跨 9 种 DFT 计算类型的 34 个任务 | 自主 DFT 工作流编排 | 任务级成功率（GPT-5.2 94.1%）+ 对照数据库的性质准确率 | [→](../works/vaspbench.md) |
+| AlchemyBench | 2025 | 17,000 条专家核验合成配方 | 材料合成规划 | 对自由文本预测的、经专家一致性验证的 LLM-as-a-Judge | [→](../works/alchemybench.md) |
+| Materials Hypothesis Generation | 2025 | 从近期论文策划的目标/约束/方法 | 材料发现的假说生成 | 一个可扩展、模拟专家的评估指标 | [→](../works/materials-hypothesis.md) |
 
 ## Open Questions
 
@@ -346,6 +374,20 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [onepot-Bench 0](../works/onepot-bench.md)
 - [MaCBench](../works/macbench.md)
 - [LabRobFail](../works/labrobfail.md)
+- [MaScQA](../works/mascqa.md)
+- [MatSciBench](../works/matscibench.md)
+- [LLM4Mat-Bench](../works/llm4mat-bench.md)
+- [MatText](../works/mattext.md)
+- [AtomWorld](../works/atomworld.md)
+- [OpenXRD](../works/openxrd.md)
+- [MatVQA](../works/matvqa.md)
+- [MatCha](../works/matcha.md)
+- [MatQnA](../works/matqna.md)
+- [MatViX](../works/matvix.md)
+- [MatTools](../works/mattools.md)
+- [AutoDFT / VASPBench](../works/vaspbench.md)
+- [AlchemyBench](../works/alchemybench.md)
+- [Materials Hypothesis Generation](../works/materials-hypothesis.md)
 
 ## Further Reading
 

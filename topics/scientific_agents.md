@@ -118,6 +118,20 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **Leakage-proof by privacy.** [onepot-Bench 0](../works/onepot-bench.md) anchors reaction-outcome and catalyst-selection evaluation to private lab-generated data, alongside cheminformatics-literacy and refusal sub-suites.
 - **The VLM bottleneck in the lab.** [MaCBench](../works/macbench.md) finds vision-language models near-perfect at equipment identification and data extraction but fundamentally limited in spatial reasoning and cross-modal synthesis.
 - **Failure analysis for self-driving labs.** [LabRobFail](../works/labrobfail.md) builds a failure-centric benchmark for chemical self-driving laboratories — 20,000+ trajectories with control-, physics-, and semantic-level failure injection — where a domain-specialized VLM reaches 90.83% detection and improves downstream task success as a real-time supervisor.
+- **Materials-knowledge exam QA.** [MaScQA](../works/mascqa.md) tests LLM materials knowledge on 650 GATE-exam questions, with GPT-4 at ~62% and conceptual errors dominating over computational ones.
+- **College-level materials reasoning.** [MatSciBench](../works/matscibench.md) poses 1,340 problems with reference solutions and images; DeepSeek-R1 reaches 75.22% on text but the best image score is 53.02%, marking multimodal reasoning as the harder frontier.
+- **LLMs as property predictors.** [LLM4Mat-Bench](../works/llm4mat-bench.md) benchmarks generative chat LLMs and fine-tuned models on materials property prediction over ~1.9M crystals and 45 properties, finding task-specific models still dominate.
+- **The geometric blind spot.** [MatText](../works/mattext.md) benchmarks LLMs on nine text representations of crystals and documents a "GNN-LM wall": models capture category patterns but miss coordinate information.
+- **Crystal-structure spatial reasoning.** [AtomWorld](../works/atomworld.md) scores LLMs on ten verifiable atomic-structure operations, with rotation success below 12% exposing a geometric deficit.
+- **Crystallography QA at model breadth.** [OpenXRD](../works/openxrd.md) evaluates 74 LLMs/MLLMs on 217 expert-curated XRD questions, showing expert-curated context beats AI-generated context at matched token counts.
+- **Shortcut-resistant characterization VQA.** [MatVQA](../works/matvqa.md) tests 17 MLLMs on 1,325 questions over real microscopy and diffraction imagery, with textual shortcuts iteratively removed.
+- **Stage-structured characterization.** [MatCha](../works/matcha.md) spans 1,500 questions across four research stages and 21 tasks, finding a significant human-expert gap that prompting does not close.
+- **Method-organized characterization QA.** [MatQnA](../works/matqna.md) covers ten characterization methods (XPS, XRD, SEM, TEM…); frontier MLLMs already reach ~90% on objective questions.
+- **Figure-level materials extraction.** [MatViX](../works/matvix.md) benchmarks multimodal extraction over 324 full-length articles into 1,688 JSON targets, grading property curves (CSS, CAS), not just entities.
+- **Materials tool-use.** [MatTools](../works/mattools.md) tests whether LLMs can understand and program pymatgen — 69,225 comprehension QA plus 49 execution tasks — finding generalists beat specialists.
+- **Autonomous DFT orchestration.** [AutoDFT / VASPBench](../works/vaspbench.md) benchmarks closed-loop DFT agents over 34 tasks across 9 calculation types, with AutoDFT reaching 94.1% task-level success.
+- **Synthesis planning at recipe scale.** [AlchemyBench](../works/alchemybench.md) turns 17,000 expert-verified synthesis recipes into end-to-end prediction, graded by an expert-agreement-validated LLM judge.
+- **Hypothesis generation for discovery.** [Materials Hypothesis Generation](../works/materials-hypothesis.md) evaluates goal-driven, constraint-guided LLM agents on materials-design hypotheses with an expert-emulating metric.
 
 ## Comparison
 
@@ -229,6 +243,20 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | onepot-Bench 0 | 2026 | Proprietary suite incl. private lab-generated data | Cheminformatics literacy, refusal behavior, reaction-outcome prediction | Per-suite scoring against private experimental ground truth | [→](../works/onepot-bench.md) |
 | MaCBench | 2024 | Multimodal chemistry and materials tasks | Data extraction, experimental understanding, results interpretation | Accuracy via the ChemBench pipeline | [→](../works/macbench.md) |
 | LabRobFail | 2026 | Simulated chemical self-driving-lab failure trajectories (Isaac Sim) | Laboratory-robot failure analysis for self-driving chemistry | Six capabilities incl. detection (90.83%) and temporal localization | [→](../works/labrobfail.md) |
+| MaScQA | 2023 | 650 GATE-exam materials & metallurgy questions | Materials-science knowledge QA | Accuracy with a conceptual-vs-computational error taxonomy; GPT-4 ~62% | [→](../works/mascqa.md) |
+| MatSciBench | 2025 | 1,340 college-level problems (946 solved, 315 with images) | Materials reasoning across subdisciplines | Accuracy on text and image questions; DeepSeek-R1 75.22% / GPT-5 53.02% | [→](../works/matscibench.md) |
+| LLM4Mat-Bench | 2024 | ~1.9M crystals, 45 properties, 3 text modalities | Materials property prediction | MAD:MAE (regression) and AUC (classification); generative LLMs near-random | [→](../works/llm4mat-bench.md) |
+| MatText | 2024 | 9 crystal text representations, up to 70B params / 2M structures | Crystal property prediction from text | Regression error vs. GNN baselines; the "GNN-LM wall" | [→](../works/mattext.md) |
+| AtomWorld | 2025 | 10 atomic-structure actions across 4 modelling categories | Crystal-structure spatial reasoning | Verifiable structure checks; rotation success below 12% | [→](../works/atomworld.md) |
+| OpenXRD | 2025 | 217 expert-curated XRD questions, 74 models | Crystallography (XRD) QA | Closed- vs open-book accuracy; expert vs AI-generated context | [→](../works/openxrd.md) |
+| MatVQA | 2025 | 1,325 questions, 17 MLLMs, real microscopy/diffraction | Materials characterization visual reasoning | Accuracy across 4 SPP tasks with shortcut removal | [→](../works/matvqa.md) |
+| MatCha | 2025 | 1,500 questions across 4 stages / 21 tasks | Materials characterization understanding | Accuracy with a human-expert baseline; prompting does not close the gap | [→](../works/matcha.md) |
+| MatQnA | 2025 | 10 characterization methods (XPS/XRD/SEM/TEM…) | Materials characterization and analysis | Objective + subjective QA; frontier MLLMs ~90% objective | [→](../works/matqna.md) |
+| MatViX | 2024 | 324 full-length articles → 1,688 structured JSON | Materials data extraction (text/tables/figures) | F1 for compositions; Curve Similarity/Alignment scores for property curves | [→](../works/matvix.md) |
+| MatTools | 2025 | 69,225 comprehension QA + 49 tasks / 138 subtasks | Materials computational tool-use (pymatgen) | Tool-comprehension accuracy + execution-verified code generation | [→](../works/mattools.md) |
+| AutoDFT / VASPBench | 2026 | 34 tasks across 9 DFT calculation types | Autonomous DFT workflow orchestration | Task-level success (94.1% with GPT-5.2) + property accuracy vs databases | [→](../works/vaspbench.md) |
+| AlchemyBench | 2025 | 17,000 expert-verified synthesis recipes | Materials synthesis planning | Expert-agreement-validated LLM-as-a-Judge over free-form predictions | [→](../works/alchemybench.md) |
+| Materials Hypothesis Generation | 2025 | Goals/constraints/methods curated from recent publications | Materials-discovery hypothesis generation | A scalable expert-emulating evaluation metric | [→](../works/materials-hypothesis.md) |
 
 ## Open Questions
 
@@ -346,6 +374,20 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [onepot-Bench 0](../works/onepot-bench.md)
 - [MaCBench](../works/macbench.md)
 - [LabRobFail](../works/labrobfail.md)
+- [MaScQA](../works/mascqa.md)
+- [MatSciBench](../works/matscibench.md)
+- [LLM4Mat-Bench](../works/llm4mat-bench.md)
+- [MatText](../works/mattext.md)
+- [AtomWorld](../works/atomworld.md)
+- [OpenXRD](../works/openxrd.md)
+- [MatVQA](../works/matvqa.md)
+- [MatCha](../works/matcha.md)
+- [MatQnA](../works/matqna.md)
+- [MatViX](../works/matvix.md)
+- [MatTools](../works/mattools.md)
+- [AutoDFT / VASPBench](../works/vaspbench.md)
+- [AlchemyBench](../works/alchemybench.md)
+- [Materials Hypothesis Generation](../works/materials-hypothesis.md)
 
 ## Further Reading
 

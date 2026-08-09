@@ -19,6 +19,20 @@ Materials characterization and computational materials science, spanning physica
 | SciConvBench | 2026 | Clarify ill-posed simulation requests; materials science is one of its four computational-science domains. | Multi-turn disambiguation and inconsistency-resolution dialogues over a structured task ontology. | Rubric scoring of clarification behavior, conversational grounding, and final-specification fidelity. | [→](../works/sciconvbench.md) |
 | ChemX | 2025 | Extract structured data from nanomaterials literature — nanozymes, nanomagnetic materials — alongside small-molecule datasets. | 10 manually curated, expert-validated extraction datasets; agentic document processing. | Extraction quality against domain-expert-validated records. | [→](../works/chemx.md) |
 | MaCBench | 2024 | Do the visual work of materials research: read instruments and lab scenes, extract data, interpret experimental results. | Multimodal (image + text) tasks in three aspects — data extraction, experimental understanding, results interpretation. | Accuracy via the ChemBench pipeline; near-perfect extraction but limited spatial and cross-modal reasoning. | [→](../works/macbench.md) |
+| MaScQA | 2023 | Answer materials-science and metallurgy exam questions across 14 topics. | 650 GATE-derived questions in four types; static QA under zero-shot and chain-of-thought prompting. | Accuracy with a conceptual-vs-computational error taxonomy; GPT-4 ~62%. | [→](../works/mascqa.md) |
+| MatSciBench | 2025 | Reason through college-level problems spanning the essential materials subdisciplines. | 1,340 problems (946 with reference solutions, 315 with images); static text and multimodal QA. | Accuracy on text and image questions; DeepSeek-R1 75.22% / GPT-5 53.02%. | [→](../works/matscibench.md) |
+| LLM4Mat-Bench | 2024 | Predict materials properties from text encodings of crystals. | ~1.9M structures, 45 properties, 3 modalities (composition/CIF/text); static prediction. | MAD:MAE for regression, AUC for classification; generative LLMs near-random. | [→](../works/llm4mat-bench.md) |
+| MatText | 2024 | Predict crystal properties from text representations, versus geometry-aware models. | 9 text representations, model scales up to 70B, datasets up to 2M structures; static prediction. | Regression error vs. GNN baselines; documents the "GNN-LM wall." | [→](../works/mattext.md) |
+| AtomWorld | 2025 | Construct and modify crystalline atomic structures under standard modelling operations. | 10 fundamental actions across 4 modelling categories; statically verifiable. | Verifiable structure checks; rotation success below 12%. | [→](../works/atomworld.md) |
+| OpenXRD | 2025 | Answer X-ray diffraction and crystallography questions. | 217 expert-curated questions, closed- and open-book; 74 LLMs/MLLMs. | Accuracy comparing expert-curated vs. AI-generated context at matched tokens. | [→](../works/openxrd.md) |
+| MatVQA | 2025 | Reason visually over materials microscopy and diffraction imagery. | 1,325 questions across 4 structure-property-performance tasks; 17 MLLMs; shortcuts removed. | Accuracy on real materials imagery with textual-shortcut removal. | [→](../works/matvqa.md) |
+| MatCha | 2025 | Understand materials characterization across the research workflow. | 1,500 questions across 4 stages and 21 tasks over real characterization imagery. | Accuracy with a human-expert baseline; few-shot and CoT do not close the gap. | [→](../works/matcha.md) |
+| MatQnA | 2025 | Interpret data from ten mainstream characterization methods (XPS, XRD, SEM, TEM…). | Multiple-choice and subjective QA over real characterization data; multimodal. | Objective accuracy (~90% for frontier MLLMs) plus subjective evaluation. | [→](../works/matqna.md) |
+| MatViX | 2024 | Extract structured data — compositions and property curves — from visually rich articles. | 324 full-length articles → 1,688 expert-curated JSON; zero-shot VLM extraction. | F1 for compositions; Curve Similarity and Curve Alignment scores for curves. | [→](../works/matvix.md) |
+| MatTools | 2025 | Understand and program materials-science tools (pymatgen) to compute properties. | 69,225 comprehension QA + 49 real tasks (138 subtasks) requiring Python code. | Comprehension accuracy plus execution-verified code generation. | [→](../works/mattools.md) |
+| AutoDFT / VASPBench | 2026 | Autonomously plan, run, and repair density-functional-theory (VASP) calculations. | 34 tasks across 9 DFT calculation types; closed-loop multi-agent execution. | Task-level success (94.1% with GPT-5.2) plus property accuracy vs. databases. | [→](../works/vaspbench.md) |
+| AlchemyBench | 2025 | Plan inorganic materials synthesis: precursors, equipment, procedure, characterization. | End-to-end prediction over 17,000 expert-verified synthesis recipes; static. | Expert-agreement-validated LLM-as-a-Judge over free-form predictions. | [→](../works/alchemybench.md) |
+| Materials Hypothesis Generation | 2025 | Generate materials-discovery hypotheses under explicit goals and constraints. | Hypothesis generation over a dataset curated from recent publications. | A scalable metric emulating a materials scientist's critical assessment. | [→](../works/materials-hypothesis.md) |
 
 ## Related Works
 
@@ -31,3 +45,17 @@ Materials characterization and computational materials science, spanning physica
 - [SciConvBench](../works/sciconvbench.md)
 - [ChemX](../works/chemx.md)
 - [MaCBench](../works/macbench.md)
+- [MaScQA](../works/mascqa.md)
+- [MatSciBench](../works/matscibench.md)
+- [LLM4Mat-Bench](../works/llm4mat-bench.md)
+- [MatText](../works/mattext.md)
+- [AtomWorld](../works/atomworld.md)
+- [OpenXRD](../works/openxrd.md)
+- [MatVQA](../works/matvqa.md)
+- [MatCha](../works/matcha.md)
+- [MatQnA](../works/matqna.md)
+- [MatViX](../works/matvix.md)
+- [MatTools](../works/mattools.md)
+- [AutoDFT / VASPBench](../works/vaspbench.md)
+- [AlchemyBench](../works/alchemybench.md)
+- [Materials Hypothesis Generation](../works/materials-hypothesis.md)
