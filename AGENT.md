@@ -242,6 +242,7 @@ Activity  →  Works performing that task        →  Original papers
 - Keep files reasonably small.
 - Avoid duplication.
 - Prefer **linking** over **copying**.
+- **Counts are derived, never hand-written.** Every reader-facing count — per-topic, per-domain, and per-activity work counts, activity-membership totals, and the card/page totals in the root READMEs — is generated from the reverse indexes by [`scripts/update_counts.py`](./scripts/update_counts.py). After any change that adds, removes, or re-maps a card, run `python scripts/update_counts.py` to refresh the numbers; `--check` reports drift without writing (suitable for CI). Do not edit a count cell by hand.
 
 The repository should feel like a technical handbook rather than research notes.
 
