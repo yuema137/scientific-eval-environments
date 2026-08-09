@@ -178,6 +178,10 @@ def _mirror_pairs(repo_root):
             continue
         if not f.endswith(".md"):
             continue
+        # index READMEs carry only count changes, already synced in both languages by
+        # update_counts.py — never re-translate them (would clobber the maintained zh index).
+        if os.path.basename(f) == "README.md":
+            continue
         pairs.append((f, "zh/" + f))
     return pairs
 

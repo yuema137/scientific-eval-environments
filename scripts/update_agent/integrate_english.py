@@ -75,6 +75,7 @@ def run(run_dir, repo_root=REPO_ROOT):
             txt = _set_block(txt, "Topics", tbody)
         for f in topics:
             _ensure_related(os.path.join(repo_root, "topics", "%s.md" % f), slug, title)
+            _ensure_related(os.path.join(repo_root, "zh", "topics", "%s.md" % f), slug, title)
 
         # card-side Activities block (or N/A) + activity-page Related Works
         arec = amap.get(slug, {})
@@ -87,12 +88,14 @@ def run(run_dir, repo_root=REPO_ROOT):
         txt = _set_block(txt, "Activities", abody)
         for f in acts:
             _ensure_related(os.path.join(repo_root, "activities", "%s.md" % f), slug, title)
+            _ensure_related(os.path.join(repo_root, "zh", "activities", "%s.md" % f), slug, title)
 
         open(path, "w").write(txt)
 
         # domain pages: one-way — page Related Works only, never the card
         for f in dmap.get(slug, []):
             _ensure_related(os.path.join(repo_root, "domains", "%s.md" % f), slug, title)
+            _ensure_related(os.path.join(repo_root, "zh", "domains", "%s.md" % f), slug, title)
 
         log("  integrated %s (topics=%d activities=%d domains=%d)"
             % (slug, len(topics), len(acts), len(dmap.get(slug, []))))
