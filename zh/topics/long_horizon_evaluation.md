@@ -45,6 +45,15 @@
 - **对话即协调。** [RoCo / RoCoBench](../works/rocobench.md) 评估多机器人协作，每条臂的 LLM 用自然语言协商计划与路径点，并有真实 UR5 演示。
 - **安全意识的具身规划。** [SafeAgentBench](../works/safeagentbench.md) 成对给出危险与安全任务（共 750 个、10 类危险）；最谨慎的基线也只拒绝 10% 的详细危险任务，换 LLM 也无济于事。
 - **用编码 agent 做机器人控制时的脚手架依赖。** [CaP-X](../works/cap-x.md) 评测 12 个前沿模型跨抽象层级编写机器人控制程序，表明人工设计的原语被移除后成功率随之下降。
+- **Kaggle 上的 ML 工程。** [MLE-bench](../works/mle-bench.md) 让 agent 端到端跑完整 Kaggle 竞赛——数据准备、训练、迭代——在 75 个竞赛上对照奖牌门槛评分。
+- **可训练的 ML 工程竞技场。** [MLE-Dojo](../works/mle-dojo.md) 把 ML 工程做成 200+ Kaggle 挑战上、带迭代反馈循环的可 RL 训练交互环境。
+- **提升指标的实验。** [MLAgentBench](../works/mlagentbench.md) 在 13 个 ML 任务上跑「读取-执行-检查-迭代」循环，按相对起始代码的实测提升评分。
+- **新颖方法研究竞赛。** [MLRC-Bench](../works/mlrc-bench.md) 让 agent 在 7 个竞赛任务上提出并实现研究方法，按缩小的人类差距评分。
+- **仓库搭建与执行。** [SUPER](../works/super.md) 要求多步配置并执行真实研究仓库以复现结果。
+- **完整研究流程。** [MLR-Bench](../works/mlr-bench.md) 在 201 个任务上覆盖想法、方案、实验、论文四阶段，凸显结果编造的可靠性问题。
+- **带时间预算的 AI R&D。** [RE-Bench](../works/re-bench.md) 在 2/8/32 小时预算下就开放式研究工程对照人类专家评估 agent。
+- **AI 研究竞技场。** [MLGym](../works/mlgym.md) 在支持 RL 训练的 Gym 环境中，于 13 个任务上跑从想法到分析的完整研究循环。
+- **AI 开发 agent。** [DevAI / Agent-as-a-Judge](../works/devai.md) 让 agent 对照 365 个层级化需求构建 AI/ML 项目，逐步评估。
 
 ## Comparison
 
@@ -81,6 +90,15 @@
 | RoCo / RoCoBench | 2023 | 6 个协作任务；环境反馈下的对话 + 重规划 | MuJoCo 多机器人 + 真实 UR5 演示 | [→](../works/rocobench.md) |
 | SafeAgentBench | 2024 | 750 个危险/安全任务；拒绝率与成功率 | SafeAgentEnv 具身模拟 | [→](../works/safeagentbench.md) |
 | CaP-X | 2026 | 跨抽象层级的代码合成成功率；脚手架依赖 | Robosuite/LIBERO-PRO/BEHAVIOR 模拟 + 真实机器人 | [→](../works/cap-x.md) |
+| MLE-bench | 2024 | 端到端 Kaggle 竞赛；按奖牌门槛评分 | 75 个精选 Kaggle ML 工程竞赛 | [→](../works/mle-bench.md) |
+| MLE-Dojo | 2025 | 迭代实验/调试循环；长 horizon 解质量 | 200+ Kaggle 挑战的 Gym 环境 | [→](../works/mle-dojo.md) |
+| MLAgentBench | 2023 | 读取-执行-检查-迭代；相对起始代码的提升 | 13 个 ML 实验任务 | [→](../works/mlagentbench.md) |
+| MLRC-Bench | 2025 | 提出+实现新颖方法；相对顶尖人类的差距缩小 | 7 个 ML 研究竞赛任务 | [→](../works/mlrc-bench.md) |
+| SUPER | 2024 | 多步仓库搭建与执行；端到端 vs 场景成功率 | 真实 ML/NLP 研究仓库 | [→](../works/super.md) |
+| MLR-Bench | 2025 | 四个研究阶段；约 80% 编造结果率 | 201 个开放式 ML 研究任务 | [→](../works/mlr-bench.md) |
+| RE-Bench | 2024 | 2/8/32 小时预算下对照人类专家的 best-of-k | 7 个研究工程环境（METR） | [→](../works/re-bench.md) |
+| MLGym | 2025 | 完整研究循环；可 RL 训练的 Gym | 13 个开放式 AI 研究任务（Meta） | [→](../works/mlgym.md) |
+| DevAI / Agent-as-a-Judge | 2024 | 构建 AI/ML 项目；逐步的需求判分 | 55 个 AI 开发任务、365 个需求 | [→](../works/devai.md) |
 
 ## Open Questions
 
@@ -122,6 +140,15 @@
 - [RoCo / RoCoBench](../works/rocobench.md)
 - [SafeAgentBench](../works/safeagentbench.md)
 - [CaP-X](../works/cap-x.md)
+- [MLE-bench](../works/mle-bench.md)
+- [MLE-Dojo](../works/mle-dojo.md)
+- [MLAgentBench](../works/mlagentbench.md)
+- [MLRC-Bench](../works/mlrc-bench.md)
+- [SUPER](../works/super.md)
+- [MLR-Bench](../works/mlr-bench.md)
+- [RE-Bench](../works/re-bench.md)
+- [MLGym](../works/mlgym.md)
+- [DevAI / Agent-as-a-Judge](../works/devai.md)
 
 ## Further Reading
 
