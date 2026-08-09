@@ -10,6 +10,10 @@ ResearchClawBench is a benchmark for end-to-end autonomous scientific research i
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [End-to-End Research](../activities/end_to_end_research.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.07591>

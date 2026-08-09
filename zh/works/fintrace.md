@@ -12,6 +12,10 @@ FinTrace 是面向 LLM 工具调用在长 horizon 金融决策任务上的 holis
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2604.10015>

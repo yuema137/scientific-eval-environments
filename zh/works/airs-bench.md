@@ -10,6 +10,10 @@ AIRS-Bench (AI Research Science Benchmark) 是面向 LLM agent 的 frontier 研�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [端到端研究](../activities/end_to_end_research.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2602.06855>

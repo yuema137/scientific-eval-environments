@@ -10,6 +10,11 @@ DSBench 追问数据科学 agent 离数据科学专家还有多远：540 个任�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
+- [建模与预测](../activities/modeling_prediction.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2409.07703>

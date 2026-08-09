@@ -10,6 +10,10 @@ SafeAgentBench 评测具身 LLM agent 是否会安全地规划：750 个可执�
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 评估的是 agent 的元属性（成本、安全性或鲁棒性），而非科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2412.13178>

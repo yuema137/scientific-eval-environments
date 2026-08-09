@@ -11,6 +11,10 @@ MLR-Bench 在开放式机器学习研究上评测 AI agent：201 个取自 NeurI
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+- [端到端研究](../activities/end_to_end_research.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.19955>

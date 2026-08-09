@@ -10,6 +10,11 @@ VASPBench 是面向自主密度泛函理论计算的专建 benchmark，横跨 34
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [模拟与科学计算](../activities/simulation_scientific_computing.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.26179>

@@ -10,6 +10,10 @@ CUARewardBench is a benchmark that treats outcome reward models (ORM) and proces
 
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2510.18596>

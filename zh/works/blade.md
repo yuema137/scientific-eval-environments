@@ -10,6 +10,10 @@ BLADE 为数据驱动科学评测语言模型 agent：12 个数据集配来自�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2408.09667>

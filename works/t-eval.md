@@ -11,6 +11,10 @@ T-Eval is a fine-grained tool-use benchmark that decomposes evaluation into six 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 
+## Activities
+
+N/A — general-purpose agent benchmark; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2312.14033>

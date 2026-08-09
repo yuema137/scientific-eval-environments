@@ -10,6 +10,10 @@ GAIA 是一个面向通用 AI 助手的 benchmark，提出需要推理、多模�
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2311.12983>

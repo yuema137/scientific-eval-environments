@@ -10,6 +10,10 @@ Who&When Pro is a benchmark that measures how well LLMs attribute a failed agent
 
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2607.09996>

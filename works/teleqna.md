@@ -10,6 +10,10 @@ TeleQnA is the first benchmark dataset for assessing the telecommunications know
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2310.15051>

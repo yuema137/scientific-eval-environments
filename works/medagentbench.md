@@ -10,6 +10,10 @@ MedAgentBench is a realistic virtual EHR environment to benchmark medical LLM ag
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+N/A — general-purpose agent benchmark; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2501.14654>

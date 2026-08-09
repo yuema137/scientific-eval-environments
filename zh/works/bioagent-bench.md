@@ -10,6 +10,11 @@ BioAgent Bench 是生物信息学的 AI agent 评估套件：人工整理的端�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2601.21800>

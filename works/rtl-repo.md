@@ -10,6 +10,10 @@ RTL-Repo benchmarks LLMs on large-scale RTL design projects: more than 4,000 Ver
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2405.17378>

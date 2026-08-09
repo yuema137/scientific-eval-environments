@@ -11,6 +11,10 @@ scBench-Long is a verifiable benchmark of long-horizon single-cell biology: 21 e
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+- [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.26563>

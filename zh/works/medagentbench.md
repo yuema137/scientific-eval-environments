@@ -10,6 +10,10 @@ MedAgentBench 是评测医疗 LLM agent 的真实感虚拟 EHR 环境：300 个�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2501.14654>

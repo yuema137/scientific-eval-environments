@@ -10,6 +10,10 @@ Robotouille 是面向 LLM agent 的异步规划 benchmark：长程烹饪任务�
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2502.05227>

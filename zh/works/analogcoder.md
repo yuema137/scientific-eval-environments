@@ -10,6 +10,10 @@ AnalogCoder 是首个通过 Python 代码生成来设计模拟电路的免训练
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [优化与工程设计](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2405.14918>

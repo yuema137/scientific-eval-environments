@@ -10,6 +10,10 @@ DeepResearch Bench 是面向 Deep Research Agent（DRA）的 benchmark，由 22 
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+- [文献检索与证据综合](../activities/literature_evidence_synthesis.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2506.11763>

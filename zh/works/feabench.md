@@ -10,6 +10,11 @@ FEABench 评估 LLM 与 LLM agent 能否用有限元分析（FEA）端到端地�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [模拟与科学计算](../activities/simulation_scientific_computing.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2504.06260>

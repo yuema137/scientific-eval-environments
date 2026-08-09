@@ -11,6 +11,11 @@ MLE-bench 在机器学习工程上评测机器学习 agent：从 Kaggle 精选�
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+- [建模与预测](../activities/modeling_prediction.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2410.07095>

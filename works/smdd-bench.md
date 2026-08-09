@@ -11,6 +11,10 @@ SMDD-Bench asks whether LLMs can solve real-world small-molecule drug design tas
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
+## Activities
+
+- [Optimization & Engineering Design](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.21740>

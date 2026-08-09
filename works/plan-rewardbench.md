@@ -10,6 +10,10 @@ Plan-RewardBench is a benchmark that measures how well reward models and LLM jud
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2604.08178>

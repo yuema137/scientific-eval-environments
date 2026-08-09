@@ -10,6 +10,10 @@ RealPDEBench 是把真实世界测量数据与配对数值模拟整合在一起�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [建模与预测](../activities/modeling_prediction.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2601.01829>

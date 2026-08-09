@@ -11,6 +11,11 @@ Gravity-Bench-v1 是引力物理发现的 agentic benchmark：agent 观测一个
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
+## Activities
+
+- [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
+- [实验设计与科学发现](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2501.18411>

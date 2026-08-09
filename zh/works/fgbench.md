@@ -10,6 +10,11 @@ FGBench 在官能团粒度上评估分子性质推理：62.5 万个生成的推�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+- [建模与预测](../activities/modeling_prediction.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2508.01055>

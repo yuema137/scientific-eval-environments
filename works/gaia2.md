@@ -11,6 +11,10 @@ Gaia2 is a benchmark for LLM agents in asynchronous environments, where the worl
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — general-purpose agent benchmark; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2602.11964>

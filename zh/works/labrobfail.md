@@ -11,6 +11,10 @@ LabRobFail 评测化学自主实验室中的机器人失败分析：20,000+ 条�
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — 能力探针，agent 本身并不执行科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2607.23704>

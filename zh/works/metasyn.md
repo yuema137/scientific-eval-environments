@@ -10,6 +10,10 @@ MetaSyn 是面向系统综述与 meta 分析的 LLM agent benchmark，基于从 
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [文献检索与证据综合](../activities/literature_evidence_synthesis.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.17041>

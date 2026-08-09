@@ -10,6 +10,10 @@ SWE-chat is a large-scale, continually growing dataset of real human–coding-ag
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — general-purpose agent benchmark; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2604.20779>

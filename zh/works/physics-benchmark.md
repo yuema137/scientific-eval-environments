@@ -10,6 +10,10 @@ PHYSICS 是大学水平物理解题的综合 benchmark：1,297 道专家标注�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2503.21821>

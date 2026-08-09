@@ -10,6 +10,11 @@ LABBench2 是面向生物学研究 AI 系统的改进版 benchmark：近 1,900 �
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [文献检索与证据综合](../activities/literature_evidence_synthesis.md)
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2604.09554>

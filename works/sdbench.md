@@ -11,6 +11,11 @@ SDBench (the Sequential Diagnosis Benchmark) recasts 304 diagnostically challeng
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
+## Activities
+
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+- [Experiment Design & Scientific Discovery](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2506.22405>

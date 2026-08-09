@@ -10,6 +10,11 @@ FVEval 是 NVIDIA 面向数字硬件形式验证、理解语言模型能力的 b
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2410.23299>

@@ -10,6 +10,10 @@ Robo2VLM generates visual question answering from large-scale in-the-wild robot 
 
 _No methodology-axis topic — indexed under the [Robotics](../domains/robotics.md) domain (field axis)._
 
+## Activities
+
+N/A — capability probe; the agent does not itself perform a scientific or research activity.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.15517>

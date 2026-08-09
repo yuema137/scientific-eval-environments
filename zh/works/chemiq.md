@@ -10,6 +10,10 @@ ChemIQ 用 816 道有机化学简答题测量 LLM 的化学智力——含 NMR �
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.07735>

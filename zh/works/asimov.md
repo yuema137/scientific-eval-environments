@@ -10,6 +10,10 @@ ASIMOV Benchmark 评测作为机器人大脑的 VLM 的语义安全——判断�
 
 _无方法论轴主题——在 [Robotics](../domains/robotics.md) 领域（领域轴）下索引。_
 
+## Activities
+
+N/A — 评估的是 agent 的元属性（成本、安全性或鲁棒性），而非科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2503.08663>

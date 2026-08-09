@@ -11,6 +11,10 @@ SkillSV（结构感知的 agent skill Shapley 估值）是把 credit 分配到 s
 - [Credit Assignment](../topics/credit_assignment.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2608.04562>

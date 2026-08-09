@@ -10,6 +10,10 @@ MatTools benchmarks large language models on materials-science tools: 69,225 QA 
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.10852>

@@ -10,6 +10,11 @@ StructureClaw 把一个可追溯的结构工程 LLM agent 工作台与一个可�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [模拟与科学计算](../activities/simulation_scientific_computing.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2607.14896>

@@ -10,6 +10,10 @@ OSReward 是评估跨平台 computer-use 奖励模型——对 computer-using ag
 
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2607.28609>

@@ -10,6 +10,10 @@ PHYBench is a benchmark of 500 original physics problems, ranging from high scho
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2504.16074>

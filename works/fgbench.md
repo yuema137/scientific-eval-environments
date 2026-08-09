@@ -10,6 +10,11 @@ FGBench evaluates molecular property reasoning at functional-group granularity: 
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+- [Modeling & Prediction](../activities/modeling_prediction.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2508.01055>

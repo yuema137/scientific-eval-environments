@@ -10,6 +10,10 @@ SysMoBench 是一个 benchmark，评估 AI 用 TLA+ 为大型复杂计算机系�
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2509.23130>

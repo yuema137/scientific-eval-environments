@@ -10,6 +10,10 @@ LongDA 是一个在 documentation-intensive（文档密集型）分析工作流�
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+- [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2601.02598>

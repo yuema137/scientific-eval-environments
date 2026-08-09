@@ -11,6 +11,10 @@ DevAI is a benchmark of 55 realistic automated-AI-development tasks with 365 hie
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2410.10934>

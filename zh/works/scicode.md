@@ -10,6 +10,11 @@ SciCode 是由科学家整理的科研编码 benchmark：80 个高难度主问�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2407.13168>

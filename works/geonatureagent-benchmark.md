@@ -10,6 +10,10 @@ GeoNatureAgent Benchmark is a benchmark for evaluating LLM agents on environment
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.12821>

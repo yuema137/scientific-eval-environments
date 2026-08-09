@@ -10,6 +10,10 @@ FormalRewardBench is a benchmark that evaluates reward models on their ability t
 
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.10141>

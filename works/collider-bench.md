@@ -10,6 +10,12 @@ Collider-Bench is a benchmark that evaluates whether LLM agents can reproduce ex
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Simulation & Scientific Computing](../activities/simulation_scientific_computing.md)
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+- [Research Reproduction & Replication](../activities/research_reproduction_replication.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.13950>

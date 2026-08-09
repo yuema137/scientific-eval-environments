@@ -10,6 +10,10 @@ AssertionBench 评测大语言模型的硬件断言生成：100 个从 OpenCores
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2406.18627>

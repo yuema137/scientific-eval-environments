@@ -10,6 +10,10 @@ RTLLM is an open-source benchmark for generating design RTL from natural-languag
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2308.05345>

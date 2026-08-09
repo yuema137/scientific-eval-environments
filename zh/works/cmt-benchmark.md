@@ -10,6 +10,10 @@ CMT-Benchmark 是由专家研究者构建的凝聚态理论 benchmark，含 50 �
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2510.05228>

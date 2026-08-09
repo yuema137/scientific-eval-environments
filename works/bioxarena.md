@@ -10,6 +10,11 @@ BioXArena benchmarks LLM agents on multi-modal biomedical machine-learning tasks
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Modeling & Prediction](../activities/modeling_prediction.md)
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.15766>

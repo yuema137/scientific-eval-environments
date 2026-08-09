@@ -11,6 +11,10 @@ Enconda-bench (Environment Configuration Diagnosis Benchmark) evaluates software
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 
+## Activities
+
+N/A — general-purpose agent benchmark; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2510.25694>

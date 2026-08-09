@@ -10,6 +10,11 @@ AutoMat 是一个评估基于 LLM 的编码智能体能否端到端复现计算�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [模拟与科学计算](../activities/simulation_scientific_computing.md)
+- [研究复现与重复](../activities/research_reproduction_replication.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.00803>

@@ -10,6 +10,10 @@ AgentProcessBench 是一个用于评估 tool-using agent 中间步骤 step-level
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2603.14465>

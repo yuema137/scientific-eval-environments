@@ -10,6 +10,10 @@ CMPhysBench 是凝聚态物理领域的 benchmark，含 520 余道精心整理�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2508.18124>

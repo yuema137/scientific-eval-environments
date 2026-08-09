@@ -10,6 +10,12 @@ Aviary 是一个面向 language agent 的可扩展 gymnasium，将 agent 形式�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [文献检索与证据综合](../activities/literature_evidence_synthesis.md)
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+- [优化与工程设计](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2412.21154>

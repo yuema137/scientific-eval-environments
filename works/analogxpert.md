@@ -10,6 +10,10 @@ AnalogXpert is an LLM agent for automating analog topology synthesis by incorpor
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Optimization & Engineering Design](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2412.19824>

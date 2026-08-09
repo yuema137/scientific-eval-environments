@@ -10,6 +10,10 @@ ReplicationBench 是追问「AI agent 能否复现天体物理研究论文」的
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [研究复现与重复](../activities/research_reproduction_replication.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2510.24591>

@@ -10,6 +10,10 @@ PRMBench 是一个 benchmark，用于评估过程级奖励模型（PRMs）在多
 
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://aclanthology.org/2025.acl-long.1230/>

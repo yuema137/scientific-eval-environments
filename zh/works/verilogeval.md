@@ -10,6 +10,10 @@ VerilogEval 是评测 LLM 生成 Verilog 代码的标杆 benchmark：取自 HDLB
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2309.07544>

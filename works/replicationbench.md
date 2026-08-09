@@ -10,6 +10,10 @@ ReplicationBench is an evaluation framework asking whether AI agents can replica
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Research Reproduction & Replication](../activities/research_reproduction_replication.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2510.24591>

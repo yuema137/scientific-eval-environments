@@ -10,6 +10,10 @@ Skill-Use is a benchmark asking whether LLM agents can actually use skills in ag
 
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 
+## Activities
+
+N/A — general-purpose agent benchmark; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2608.04828>

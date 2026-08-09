@@ -10,6 +10,10 @@ PAC Bench 追问基础模型是否理解执行操作策略的前提——物体�
 
 _无方法论轴主题——在 [Robotics](../domains/robotics.md) 领域（领域轴）下索引。_
 
+## Activities
+
+N/A — 能力探针，agent 本身并不执行科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2506.23725>

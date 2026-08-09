@@ -10,6 +10,11 @@ GenoTEX is an LLM-agent benchmark for automated gene expression data analysis: a
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2406.15341>

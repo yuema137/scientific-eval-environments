@@ -10,6 +10,11 @@ SciGym 用一个系统生物学干实验（dry lab）来测量语言模型的科
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
+- [实验设计与科学发现](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2507.02083>

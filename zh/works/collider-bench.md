@@ -10,6 +10,12 @@ Collider-Bench 是一个 benchmark，评估 LLM agent 能否仅凭公开论文�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [模拟与科学计算](../activities/simulation_scientific_computing.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+- [研究复现与重复](../activities/research_reproduction_replication.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.13950>

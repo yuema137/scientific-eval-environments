@@ -10,6 +10,10 @@ AFMBench is an evaluation suite of 100 expertly curated tasks that requires LLM 
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Laboratory & Instrument Control](../activities/laboratory_instrument_control.md)
+
 ## Links
 
 - **Paper:** <https://www.nature.com/articles/s41467-025-64105-7>

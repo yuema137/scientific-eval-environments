@@ -10,6 +10,10 @@ SWE-chat 是一个大规模、持续增长的真实人类–coding agent 交互�
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2604.20779>

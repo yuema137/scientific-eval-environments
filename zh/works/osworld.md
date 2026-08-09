@@ -10,6 +10,10 @@ OSWorld 是一个面向多模态 agent 的可扩展真实计算机环境，支�
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2404.07972>

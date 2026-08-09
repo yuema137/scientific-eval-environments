@@ -10,6 +10,10 @@ TeleQnA 是评估大语言模型电信知识的首个 benchmark 数据集：10,0
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2310.15051>

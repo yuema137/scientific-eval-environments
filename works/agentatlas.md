@@ -11,6 +11,10 @@ AgentAtlas is a diagnostic vocabulary and audit protocol for LLM agents, applied
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/html/2605.20530v1>

@@ -10,6 +10,10 @@ IdeaBench benchmarks LLMs for research idea generation: it profiles LLMs as doma
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Experiment Design & Scientific Discovery](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2411.02429>

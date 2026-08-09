@@ -11,6 +11,11 @@ Gravity-Bench-v1 is an agentic benchmark on gravitational-physics discovery: the
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
+## Activities
+
+- [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
+- [Experiment Design & Scientific Discovery](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2501.18411>

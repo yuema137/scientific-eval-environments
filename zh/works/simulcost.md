@@ -11,6 +11,11 @@ SimulCost 是面向 LLM agent 在物理仿真参数调优上的 cost-aware bench
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [模拟与科学计算](../activities/simulation_scientific_computing.md)
+- [优化与工程设计](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2603.20253>

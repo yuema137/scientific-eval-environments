@@ -10,6 +10,10 @@ SeePhys 是基于视觉的物理推理大规模多模态 benchmark，覆盖从�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.19099>

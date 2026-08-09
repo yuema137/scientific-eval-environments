@@ -10,6 +10,10 @@ PhysGym is a benchmark suite and simulation platform for LLM-based agents in int
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Experiment Design & Scientific Discovery](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2507.15550>

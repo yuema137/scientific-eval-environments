@@ -12,6 +12,10 @@ FinTrace is a holistic trajectory-level evaluation benchmark for LLM tool callin
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2604.10015>

@@ -10,6 +10,10 @@ LLM-SRBench 是用 LLM 做科学方程发现的 benchmark，含 239 个高难度
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [实验设计与科学发现](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2504.10415>

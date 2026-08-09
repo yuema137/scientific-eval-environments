@@ -10,6 +10,10 @@ Pseudo-Formalization (PF) is an evaluation methodology that verifies natural-lan
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.20531>

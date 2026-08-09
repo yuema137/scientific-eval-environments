@@ -10,6 +10,10 @@ MatSciBench 评测大语言模型在材料科学中的推理能力：1,340 个�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2510.12171>

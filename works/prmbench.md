@@ -10,6 +10,10 @@ PRMBench is a benchmark that assesses the fine-grained error-detection capabilit
 
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://aclanthology.org/2025.acl-long.1230/>

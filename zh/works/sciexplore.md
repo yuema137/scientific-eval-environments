@@ -10,6 +10,10 @@ SciExplore 是评估自主 agent 科学信息获取能力的 benchmark，覆盖�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [文献检索与证据综合](../activities/literature_evidence_synthesis.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2607.20926>

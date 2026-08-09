@@ -10,6 +10,10 @@ QCBench evaluates LLMs on domain-specific quantitative chemistry: 350 computatio
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2508.01670>

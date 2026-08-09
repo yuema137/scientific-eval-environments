@@ -11,6 +11,10 @@ EnvTrace 提出一套基于模拟来评估 LLM 生成的仪器控制代码的方
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [实验室与仪器控制](../activities/laboratory_instrument_control.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2511.09964>

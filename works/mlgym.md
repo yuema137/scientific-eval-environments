@@ -11,6 +11,10 @@ MLGym is the first Gym environment for AI-research tasks — enabling reinforcem
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+- [End-to-End Research](../activities/end_to_end_research.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2502.14499>

@@ -11,6 +11,10 @@ AgentAtlas 是面向 LLM agent 的诊断词汇与审计协议，应用在 15 个
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/html/2605.20530v1>

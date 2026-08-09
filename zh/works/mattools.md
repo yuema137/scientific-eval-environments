@@ -10,6 +10,10 @@ MatTools 评测大语言模型使用材料科学工具的能力：69,225 个问�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.10852>

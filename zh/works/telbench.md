@@ -10,6 +10,10 @@ TELBench 是一个针对 deep-research agent trajectory 的 span 级错误定位
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.02060>

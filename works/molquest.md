@@ -10,6 +10,11 @@ MolQuest recasts chemical structure elucidation as an agentic task: a multi-turn
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+- [Experiment Design & Scientific Discovery](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2603.25253>

@@ -10,6 +10,10 @@ ScholarQuest is a large-scale, taxonomy-guided benchmark for agentic academic pa
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Literature Search & Evidence Synthesis](../activities/literature_evidence_synthesis.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2606.20235>

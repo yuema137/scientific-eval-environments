@@ -10,6 +10,10 @@ Robo2VLM 从大规模真实场景机器人操作数据生成视觉问答：Robo2
 
 _无方法论轴主题——在 [Robotics](../domains/robotics.md) 领域（领域轴）下索引。_
 
+## Activities
+
+N/A — 能力探针，agent 本身并不执行科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.15517>

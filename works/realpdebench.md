@@ -10,6 +10,10 @@ RealPDEBench is a benchmark for scientific machine learning that integrates real
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Modeling & Prediction](../activities/modeling_prediction.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2601.01829>

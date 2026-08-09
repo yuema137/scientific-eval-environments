@@ -10,6 +10,10 @@ HeurekaBench is a framework for creating benchmarks of exploratory, open-ended r
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2601.01678>

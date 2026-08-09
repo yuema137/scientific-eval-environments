@@ -11,6 +11,10 @@ SkillSV (structure-aware Shapley valuation of agent skills) is an attribution fr
 - [Credit Assignment](../topics/credit_assignment.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2608.04562>

@@ -10,6 +10,10 @@ Plan-RewardBench 是一个 benchmark，衡量 reward model 与 LLM judge 在工�
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2604.08178>

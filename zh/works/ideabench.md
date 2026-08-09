@@ -10,6 +10,10 @@ IdeaBench 为研究想法生成评测 LLM：把 LLM 设定为特定领域的研�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [实验设计与科学发现](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2411.02429>

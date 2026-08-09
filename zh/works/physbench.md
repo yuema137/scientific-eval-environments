@@ -10,6 +10,10 @@ PhysBench 评测视觉-语言模型的物理世界理解：10,002 条视频-图�
 
 _无方法论轴主题——在 [Robotics](../domains/robotics.md) 领域（领域轴）下索引。_
 
+## Activities
+
+N/A — 能力探针，agent 本身并不执行科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2501.16411>

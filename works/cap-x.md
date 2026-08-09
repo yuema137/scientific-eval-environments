@@ -10,6 +10,10 @@ CaP-X benchmarks and improves coding agents for robot manipulation: agents contr
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — capability probe; the agent does not itself perform a scientific or research activity.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2603.22435>

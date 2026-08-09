@@ -11,6 +11,11 @@ Terminal-Bench Science extends the Terminal-Bench framework to natural-science d
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+- [Simulation & Scientific Computing](../activities/simulation_scientific_computing.md)
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Project:** <https://www.tbench.ai/news/tb-science-announcement>

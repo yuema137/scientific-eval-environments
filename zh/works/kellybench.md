@@ -10,6 +10,10 @@ KellyBench 是评估非平稳市场中长 horizon 序贯决策的环境：agent 
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2604.27865>

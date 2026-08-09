@@ -10,6 +10,11 @@ FEM-Bench is a structured scientific-reasoning benchmark for code-generating LLM
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Simulation & Scientific Computing](../activities/simulation_scientific_computing.md)
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2512.20732>

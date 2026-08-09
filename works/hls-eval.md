@@ -10,6 +10,11 @@ HLS-Eval is a benchmark and framework for evaluating LLMs on high-level synthesi
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Optimization & Engineering Design](../activities/optimization_engineering_design.md)
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2504.12268>

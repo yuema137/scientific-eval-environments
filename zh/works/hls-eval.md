@@ -10,6 +10,11 @@ HLS-Eval 是评测 LLM 高层综合（HLS）设计任务的 benchmark 与框架�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [优化与工程设计](../activities/optimization_engineering_design.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2504.12268>

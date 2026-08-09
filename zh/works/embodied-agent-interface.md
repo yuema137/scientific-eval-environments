@@ -11,6 +11,10 @@ Embodied Agent Interface（EAI）把 LLM 的具身决策评测分解为四个模
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2410.07166>

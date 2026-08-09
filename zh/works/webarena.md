@@ -10,6 +10,10 @@ WebArena 是一个用于构建与评估自主 agent 的真实、可复现 web �
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2307.13854>

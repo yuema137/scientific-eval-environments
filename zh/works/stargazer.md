@@ -10,6 +10,11 @@ Stargazer 是一个可扩展的 benchmark 环境，用于在径向速度（RV）
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
+- [建模与预测](../activities/modeling_prediction.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2604.15664>

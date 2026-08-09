@@ -10,6 +10,10 @@ AIRS-Bench (AI Research Science Benchmark) is a suite of 20 frontier research-sc
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [End-to-End Research](../activities/end_to_end_research.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2602.06855>

@@ -10,6 +10,10 @@ MolPuzzle 把分子结构解析做成三阶段的多模态「拼图」——分�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper (OpenReview):** <https://openreview.net/forum?id=t1mAXb4Cop>

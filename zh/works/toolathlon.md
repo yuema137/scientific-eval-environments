@@ -10,6 +10,10 @@ The Tool Decathlon（Toolathlon）是一个面向多样、真实、长 horizon �
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2510.25726>

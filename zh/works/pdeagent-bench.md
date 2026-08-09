@@ -10,6 +10,11 @@ PDEAgent-Bench 是多指标、多库的 PDE 求解器生成 benchmark：645 个�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [模拟与科学计算](../activities/simulation_scientific_computing.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.09636>

@@ -10,6 +10,10 @@ ChemX 评测 agent 系统在化学科学信息自动抽取上的表现：10 个�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [文献检索与证据综合](../activities/literature_evidence_synthesis.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2510.00795>

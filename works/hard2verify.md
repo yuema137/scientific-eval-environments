@@ -10,6 +10,10 @@ Hard2Verify is a benchmark that scores step-level verifiers on their ability to 
 
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2510.13744>

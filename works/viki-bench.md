@@ -10,6 +10,10 @@ VIKI-Bench is the first hierarchical benchmark for embodied multi-agent cooperat
 
 _No methodology-axis topic — indexed under the [Robotics](../domains/robotics.md) domain (field axis)._
 
+## Activities
+
+N/A — capability probe; the agent does not itself perform a scientific or research activity.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2506.09049>

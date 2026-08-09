@@ -10,6 +10,11 @@ BioXArena 在多模态生物医学机器学习任务上评测 LLM agent：76 个
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [建模与预测](../activities/modeling_prediction.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.15766>

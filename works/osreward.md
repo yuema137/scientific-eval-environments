@@ -10,6 +10,10 @@ OSReward is a standardized benchmark for evaluating cross-platform computer-use 
 
 - [Credit Assignment](../topics/credit_assignment.md)
 
+## Activities
+
+N/A — evaluation methodology; no scientific or research activity is directly evaluated.
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2607.28609>

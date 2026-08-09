@@ -10,6 +10,10 @@ Speak-to-Structure（S²-Bench，最初名为 TOMG-Bench）评估 LLM 在开放�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [优化与工程设计](../activities/optimization_engineering_design.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2412.14642>

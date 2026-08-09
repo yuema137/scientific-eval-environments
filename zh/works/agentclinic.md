@@ -10,6 +10,11 @@ AgentClinic 是模拟临床环境中评估 AI 的多模态 agent benchmark：医
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+- [实验设计与科学发现](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2405.07960>

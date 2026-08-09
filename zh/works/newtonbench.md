@@ -10,6 +10,10 @@ NewtonBench 是一个通过在模拟物理系统上进行交互式实验来评�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [实验设计与科学发现](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2510.07172>

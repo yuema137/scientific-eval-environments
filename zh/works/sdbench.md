@@ -11,6 +11,11 @@ SDBench（Sequential Diagnosis Benchmark）把 304 个高难度 NEJM 临床病�
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+- [实验设计与科学发现](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2506.22405>

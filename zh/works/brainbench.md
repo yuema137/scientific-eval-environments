@@ -10,6 +10,10 @@ BrainBench 是面向神经科学的前瞻式 benchmark，出自论文《Large la
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2403.03230>

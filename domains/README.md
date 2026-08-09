@@ -2,7 +2,7 @@
 
 > **English** | [简体中文](../zh/domains/README.md)
 
-One reference page per canonical science or engineering domain — the **field axis** of the repository, co-equal with the methodology axis in [`topics/`](../topics/): topics group works by evaluation *methodology*, domains by *field*. The full rules live in [`AGENT.md`](../AGENT.md).
+One reference page per canonical science or engineering domain — the **field axis** of the repository, co-equal with the methodology axis in [`topics/`](../topics/) and the research-activity axis in [`activities/`](../activities/): topics group works by evaluation *methodology*, domains by *field*, activities by the *task the agent performs*. The full rules live in [`AGENT.md`](../AGENT.md).
 
 ## Domain page template
 

@@ -10,6 +10,11 @@ FIRE-Bench (Full-cycle Insight Rediscovery Evaluation) is a benchmark that asks 
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Experiment Design & Scientific Discovery](../activities/experiment_design_discovery.md)
+- [Research Reproduction & Replication](../activities/research_reproduction_replication.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2602.02905>

@@ -11,6 +11,10 @@ SkillTV-Bench 是面向 skill-aware 轨迹验证的 benchmark：评估 LLM-as-a-
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2608.05573>

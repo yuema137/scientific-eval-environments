@@ -10,6 +10,10 @@ ElecBench is a power-dispatch evaluation benchmark for large language models: ei
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2407.05365>

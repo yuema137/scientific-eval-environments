@@ -10,6 +10,10 @@ ResearchCodeBench benchmarks LLMs on implementing novel machine-learning researc
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2506.02314>

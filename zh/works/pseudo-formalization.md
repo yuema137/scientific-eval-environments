@@ -10,6 +10,10 @@ Pseudo-Formalization（PF）是一种评估方法论，它把自然语言数学�
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
+## Activities
+
+N/A — 评估方法学，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.20531>

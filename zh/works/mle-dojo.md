@@ -11,6 +11,11 @@ MLE-Dojo 是训练、评估并改进自主 LLM agent 做机器学习工程的 Gy
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+- [建模与预测](../activities/modeling_prediction.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2505.07782>

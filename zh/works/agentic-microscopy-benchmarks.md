@@ -10,6 +10,10 @@
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [实验室与仪器控制](../activities/laboratory_instrument_control.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2608.05266>

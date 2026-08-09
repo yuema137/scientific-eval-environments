@@ -10,6 +10,11 @@ PRBench 是一个 benchmark，检验 AI agent 能否端到端地复现已发表�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+- [研究复现与重复](../activities/research_reproduction_replication.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2603.27646>

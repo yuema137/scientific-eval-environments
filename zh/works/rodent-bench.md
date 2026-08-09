@@ -10,6 +10,10 @@ Rodent-Bench 评测多模态 LLM 标注啮齿类行为视频的能力，覆盖�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2602.18540>

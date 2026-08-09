@@ -11,6 +11,10 @@ T-Eval 是一个细粒度的 tool-use benchmark，把 tool-use 评估拆解为 6
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2312.14033>

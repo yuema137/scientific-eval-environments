@@ -4,18 +4,21 @@ The maintainer constitution is canonical in [`AGENT.md`](./AGENT.md). Read it be
 
 ## Layer model
 
+There are **three co-equal aggregation axes** over the works layer: topics (methodology), domains (field), and activities (research task).
+
 - **`works/`** — flat directory, one Markdown file per work. Factual references only.
-  Template: Overview, **Topics** (metadata block), Links, Summary, Tasks, Domains, Evaluation, Typical Duration, Main Contribution, Key Design Ideas, Strengths, Limitations, Related Works. **No** "Gap to Our Work" or positioning sections.
+  Template: Overview, **Topics** (metadata block), **Activities** (metadata block), Links, Summary, Tasks, Domains, Evaluation, Typical Duration, Main Contribution, Key Design Ideas, Strengths, Limitations, Related Works. **No** "Gap to Our Work" or positioning sections.
 - **`topics/`** — literature reviews. Each topic owns its own comparison table. No global matrix.
-- **`domains/`** — the **field axis**, a full knowledge layer co-equal with topics (the methodology axis). Pages hold Scope + a Comparison table with fixed columns (`Work | Year | Scientific problem | Task form & scale | Domain verification | Card`, identical on every domain page, every cell verifiable from the card) + bare Related Works links. No methodology synthesis or open questions — those stay in topics.
+- **`domains/`** — the **field axis**, a full knowledge layer co-equal with topics. Pages hold Scope + a Comparison table with fixed columns (`Work | Year | Scientific problem | Task form & scale | Domain verification | Card`, identical on every domain page, every cell verifiable from the card) + bare Related Works links. No methodology synthesis or open questions — those stay in topics.
+- **`activities/`** — the **research-activity / task axis** (what the agent actually does), a full knowledge layer co-equal with topics and domains. Pages hold Definition + Scope + a Task-Patterns synthesis + a Comparison table with fixed columns (`Work | Year | Activity instantiation | Task form / environment | Deliverable or success target | Card`) + bare Related Works links.
 
 "Works" is broader than "benchmarks" — the layer holds cards for benchmarks, methodologies, evaluation frameworks, surveys, position papers, and evaluation-focused RL contributions on agents. Non-benchmark works fill inapplicable sections with `N/A` and a short note.
 
-**Navigation flows Topic → Work → Paper and Domain → Work → Paper.** Topics (methodology axis) and domains (field axis) are co-equal primary entry points; cards are references linked from both.
+**Navigation flows Topic → Work → Paper, Domain → Work → Paper, and Activity → Work → Paper.** Topics (methodology axis), domains (field axis), and activities (task axis) are three co-equal primary entry points; cards are references linked from all three.
 
-**Topics are not mutually exclusive.** A work may belong to multiple topics — each topic is a different literature perspective, not a unique category. Cross-topic membership is the intended pattern, not an exception.
+**Topics and activities are not mutually exclusive.** A work may belong to multiple topics and multiple activities — each is a different perspective, not a unique category. Cross-membership is the intended pattern, not an exception.
 
-A work card lists its topics in the `Topics` block; each topic page lists its works in `Related Works`. This redundant mapping is the internal index for keeping the two layers in sync.
+A work card lists its topics in the `Topics` block and its activities in the `Activities` block; each topic/activity page lists its works in `Related Works`. These redundant mappings are the internal index for keeping the layers in sync. The `Activities` block is **mandatory on every card**: applicable works link one or more canonical activities; genuinely non-applicable works (surveys, pure methodology, general-purpose or safety/resource probes) carry an explicit `N/A — <reason>` and appear on no activity page. Assign activities conservatively (typically 1–3), from evidence in the card, never from title keywords.
 
 ## Canonical topic taxonomy (fixed)
 
@@ -40,12 +43,20 @@ Skill Hierarchy and Credit Assignment are independent topics — do not merge.
 
 Domain rules: narrower fields **fold** into canonical domains (bioinformatics → Biology, GIS → Earth Science, psychology → Neuroscience & Cognitive Science, …); a work may belong to multiple domains; **no catch-all** — works without a science/engineering domain (web/UI agents, computer use, methodology, surveys) do not appear; mapping is **one-way, maintained on domain pages only** — cards are never modified for the domain axis, and a card's `## Domains` prose is the assignment evidence; unverifiable domain membership is not assigned.
 
+## Canonical activity taxonomy (fixed)
+
+11 activities; full table and per-activity rules in `AGENT.md` and [`activities/README.md`](./activities/README.md).
+
+Literature Search & Evidence Synthesis (`literature_evidence_synthesis`), Scientific Problem Solving & Reasoning (`scientific_problem_solving_reasoning`), Data Analysis & Statistical Inference (`data_analysis_statistical_inference`), Modeling & Prediction (`modeling_prediction`), Simulation & Scientific Computing (`simulation_scientific_computing`), Experiment Design & Scientific Discovery (`experiment_design_discovery`), Laboratory & Instrument Control (`laboratory_instrument_control`), Optimization & Engineering Design (`optimization_engineering_design`), Scientific Software & Workflow Engineering (`scientific_software_workflow_engineering`), Research Reproduction & Replication (`research_reproduction_replication`), End-to-End Research (`end_to_end_research`).
+
+Activity rules: **multi-label**, assigned conservatively (typically 1–3, only when a meaningful evaluated component); **two-way** card↔page reverse index like topics (card `## Activities` ⇆ page `Related Works`, agree exactly); **mandatory block** on every card, with explicit `N/A — <reason>` for works that evaluate no scientific/research task; **canonical labels only**, evidence-based (not title keywords); do not confuse activities with topics, domains, verifier types, or work types.
+
 ## Working rules
 
 - **Two-level reference validation.**
   - *Link validation*: title, URL, project, venue, year.
   - *Content validation*: statistics, task counts, metrics, reported numbers, settings — from the **original paper or official project only**, never secondary sources. Unverifiable content becomes `TODO(reference)`.
-- **English is canonical.** Chinese mirrors under `zh/` (`zh/works/`, `zh/topics/`, `zh/domains/`) sync after every English batch — not deferred. Translations must be **natural Chinese, not word-for-word** (面包屑-style literalisms are defects); after every sync, re-read the changed zh pages as a Chinese reader and fix stilted phrasing — the naturalness review is part of the sync step.
+- **English is canonical.** Chinese mirrors under `zh/` (`zh/works/`, `zh/topics/`, `zh/domains/`, `zh/activities/`) sync after every English batch — not deferred. Every card's `## Activities` block mirrors on the Chinese card under `## 研究活动` with the fixed Chinese activity labels. Translations must be **natural Chinese, not word-for-word** (面包屑-style literalisms are defects); after every sync, re-read the changed zh pages as a Chinese reader and fix stilted phrasing — the naturalness review is part of the sync step.
 - **Objective only.** No "our benchmark" / "our approach" / positioning language anywhere in `works/` or `topics/`.
 - **Link, do not copy.** Prefer cross-references over duplicating content.
 - **Card template is stable.** Do not churn its structure. New evaluation dimensions extend topic pages, not card fields.

@@ -10,6 +10,10 @@ MatCha 是材料表征的多模态 benchmark：1,500 个问题横跨材料研究
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2509.09307>

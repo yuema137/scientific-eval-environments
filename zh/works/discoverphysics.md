@@ -10,6 +10,11 @@ DiscoverPhysics 是考察「跳出框架的科学思维」的 agentic benchmark�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [建模与预测](../activities/modeling_prediction.md)
+- [实验设计与科学发现](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.26087>

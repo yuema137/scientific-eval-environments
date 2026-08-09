@@ -10,6 +10,10 @@ SciExplore is a benchmark evaluating autonomous agents on scientific information
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Literature Search & Evidence Synthesis](../activities/literature_evidence_synthesis.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2607.20926>

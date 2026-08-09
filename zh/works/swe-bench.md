@@ -10,6 +10,10 @@ SWE-bench 评估语言模型能否通过编辑代码库来解决真实的 GitHub
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
+## Activities
+
+N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2310.06770>

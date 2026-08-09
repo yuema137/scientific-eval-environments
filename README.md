@@ -4,7 +4,7 @@
 
 An open knowledge base on **how AI agents are evaluated on scientific and long-horizon tasks**. It documents the design space — benchmarks, evaluation methodologies, evaluation frameworks, trajectory and resource-aware evaluation, scientific workflows, and evaluation-focused RL work on agents.
 
-Each piece of work has a concise, factual reference card. Cards are organized along two independent axes: **topics** (the evaluation methodology) and **domains** (the scientific field). Start from whichever question you arrive with, follow the links to representative works, and go on to the original papers.
+Each piece of work has a concise, factual reference card. Cards are organized along three independent axes: **topics** (the evaluation methodology), **domains** (the scientific field), and **activities** (what the evaluated agent actually does). Start from whichever question you arrive with, follow the links to representative works, and go on to the original papers.
 
 This is a reference, not a benchmark implementation — it aims to stay useful to anyone working on scientific evaluation, whatever tools they build.
 
@@ -14,16 +14,18 @@ This is a reference, not a benchmark implementation — it aims to stay useful t
 
 - **[Browse by Topic](./topics/README.md)** — explore research themes in scientific-agent and agent-evaluation methodology.
 - **[Browse by Domain](./domains/README.md)** — explore evaluation work within a scientific or engineering field.
+- **[Browse by Research Activity](./activities/README.md)** — explore works by what the evaluated agent or system actually does.
 - **[Browse All Works](./works/README.md)** — the complete collection of indexed work cards.
 
-The two axes are co-equal entry points over the same cards:
+The three axes are co-equal entry points over the same cards:
 
 ```
-Topic   →  Representative works            →  Original papers
-Domain  →  Works evaluated in that domain  →  Original papers
+Topic     →  Representative works            →  Original papers   (why / how we evaluate)
+Domain    →  Works evaluated in that domain  →  Original papers   (where the task lives)
+Activity  →  Works performing that task      →  Original papers   (what the agent does)
 ```
 
-A work may appear under several topics and several domains — each is a different lens on the same work, not an exclusive bucket.
+A work may appear under several topics, domains, and activities — each is a different lens on the same work, not an exclusive bucket.
 
 ---
 
@@ -80,6 +82,26 @@ Narrower fields fold into these canonical domains (bioinformatics → Biology, G
 
 ---
 
+## Browse by Research Activity
+
+Activities are the **task axis**: what the evaluated agent or system actually does, independent of field or evaluation method. A work may perform several activities; works that evaluate no scientific or research task (surveys, pure methodology, general-purpose benchmarks) carry an explicit `N/A` and appear on no activity page. Full index in [`activities/`](./activities/README.md).
+
+| Activity | What it covers | Works |
+|---|---|--:|
+| [Scientific Problem Solving & Reasoning](./activities/scientific_problem_solving_reasoning.md) | Scientific QA, derivations, proofs, quantitative and multimodal problem solving, diagnostic reasoning | 58 |
+| [Scientific Software & Workflow Engineering](./activities/scientific_software_workflow_engineering.md) | Scientific/engineering code, repository and pipeline engineering, HDL and formal-spec code | 46 |
+| [Data Analysis & Statistical Inference](./activities/data_analysis_statistical_inference.md) | Statistical analysis and inference, bioinformatics/omics analysis, data interpretation | 25 |
+| [Experiment Design & Scientific Discovery](./activities/experiment_design_discovery.md) | Experiment and observation planning, hypothesis generation, law discovery | 19 |
+| [Simulation & Scientific Computing](./activities/simulation_scientific_computing.md) | Numerical simulation, PDE/FEM, MD/DFT, running and building scientific simulators | 17 |
+| [Modeling & Prediction](./activities/modeling_prediction.md) | Predictive and surrogate modelling, property prediction, forecasting | 14 |
+| [Optimization & Engineering Design](./activities/optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 14 |
+| [Literature Search & Evidence Synthesis](./activities/literature_evidence_synthesis.md) | Literature retrieval, systematic review, evidence synthesis, literature-grounded extraction | 14 |
+| [Research Reproduction & Replication](./activities/research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 9 |
+| [End-to-End Research](./activities/end_to_end_research.md) | Multi-stage research lifecycle across several major phases | 5 |
+| [Laboratory & Instrument Control](./activities/laboratory_instrument_control.md) | Instrument, microscope, and beamline control; lab automation; behaviour-defined control code | 3 |
+
+---
+
 ## Scope
 
 **In scope:** scientific evaluation environments, the benchmark landscape, evaluation methodology, evaluation frameworks, scientific workflows, trajectory evaluation, resource-aware evaluation, benchmark design, and evaluation-focused RL work on agents (reward design, credit-assignment methods, off-policy evaluation of agent trajectories).
@@ -88,19 +110,20 @@ Narrower fields fold into these canonical domains (bioinformatics → Biology, G
 
 The RL cutline is judged by the paper's primary contribution: if it advances *how agents are evaluated*, it belongs here; if it advances *how agents are trained*, it does not.
 
-"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **238 work cards**, **7 topic pages**, and **19 domain pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
+"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **238 work cards**, **7 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
 
 ---
 
 ## Repository Structure
 
-The knowledge base has **three layers**: the works layer, plus two co-equal aggregation axes over it.
+The knowledge base has **four layers**: the works layer, plus three co-equal aggregation axes over it.
 
 | Directory | Role |
 |---|---|
 | [`works/`](./works/README.md) | One factual reference card per work. Flat, kebab-case, one Markdown file each. |
 | [`topics/`](./topics/README.md) | Literature-review pages — the methodology axis. Each topic owns its own comparison table; there is no global matrix. |
 | [`domains/`](./domains/README.md) | Field-axis reference pages, one per canonical science or engineering domain, with a fixed-column comparison table. |
+| [`activities/`](./activities/README.md) | Task-axis reference pages, one per canonical research activity, with Definition, Scope, task patterns, and a comparison table. |
 | [`zh/`](./zh/README.md) | Chinese mirror of every page, synced after each English batch. |
 
 Two navigational conventions keep the axes in sync: each card's `Topics` block links up to its topics, and each topic page's `Related Works` links back down to its cards. The domain mapping is maintained one-way on the domain pages. Root-level [`AGENT.md`](./AGENT.md) is the repository constitution and [`CLAUDE.md`](./CLAUDE.md) is its quick reference; each directory's own `README.md` documents its page template and rules.

@@ -10,6 +10,10 @@ This work evaluates goal-driven, constraint-guided LLM agents for materials disc
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Experiment Design & Scientific Discovery](../activities/experiment_design_discovery.md)
+
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2501.13299>

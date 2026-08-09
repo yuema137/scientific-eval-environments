@@ -10,6 +10,10 @@ MolPuzzle is a multimodal benchmark for molecular structure elucidation posed as
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
+## Activities
+
+- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+
 ## Links
 
 - **Paper (OpenReview):** <https://openreview.net/forum?id=t1mAXb4Cop>
