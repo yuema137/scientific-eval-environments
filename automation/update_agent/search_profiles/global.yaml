@@ -1,0 +1,11 @@
+# Broad catch-all queries (spec §9). Run once per source, independent of the taxonomy, to catch
+# relevant works that do not carry an obvious axis term. Do not overfit to current paper titles.
+queries:
+  - scientific agent benchmark
+  - LLM scientific agent evaluation
+  - research agent benchmark
+  - agent evaluation environment science
+  - autonomous research agent evaluation
+  - long-horizon scientific agent
+  - AI scientist evaluation benchmark
+  - LLM agent for science benchmark

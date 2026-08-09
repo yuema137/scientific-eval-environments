@@ -1,0 +1,56 @@
+# Activity-axis search profiles. Keys MUST match canonical activity page titles (activities/*.md H1).
+Literature Search & Evidence Synthesis:
+  - LLM literature search agent benchmark
+  - scientific evidence synthesis agent
+  - systematic review agent evaluation
+  - deep research agent benchmark
+Scientific Problem Solving & Reasoning:
+  - scientific reasoning benchmark LLM
+  - research-level problem solving benchmark
+  - scientific question answering benchmark
+  - quantitative scientific reasoning agent
+Data Analysis & Statistical Inference:
+  - LLM data analysis agent benchmark
+  - statistical inference agent evaluation
+  - autonomous data science agent benchmark
+  - exploratory data analysis agent
+Modeling & Prediction:
+  - scientific machine learning benchmark agent
+  - property prediction agent benchmark
+  - surrogate modeling agent evaluation
+  - forecasting agent benchmark
+Simulation & Scientific Computing:
+  - LLM agent simulation benchmark
+  - PDE solver code generation benchmark
+  - scientific computing agent evaluation
+  - numerical simulation agent benchmark
+Experiment Design & Scientific Discovery:
+  - autonomous experiment design agent
+  - scientific discovery agent benchmark
+  - hypothesis generation agent evaluation
+  - law discovery agent benchmark
+Laboratory & Instrument Control:
+  - autonomous laboratory agent benchmark
+  - instrument control agent evaluation
+  - self-driving lab agent
+  - robotic laboratory agent benchmark
+Optimization & Engineering Design:
+  - engineering design optimization agent benchmark
+  - inverse design agent evaluation
+  - parameter optimization agent benchmark
+  - materials design optimization agent
+Scientific Software & Workflow Engineering:
+  - scientific software agent benchmark
+  - research code generation benchmark
+  - scientific workflow agent evaluation
+  - numerical algorithm implementation benchmark
+Research Reproduction & Replication:
+  - paper reproduction agent benchmark
+  - research replication agent evaluation
+  - reproduce published results agent
+  - reproducibility agent benchmark
+End-to-End Research:
+  - end-to-end research agent benchmark
+  - full research pipeline agent evaluation
+  - autonomous research lifecycle benchmark
+  - idea-to-paper agent benchmark

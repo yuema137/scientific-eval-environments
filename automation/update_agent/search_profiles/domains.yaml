@@ -1,0 +1,97 @@
+# Domain-axis search profiles. Keys MUST match canonical domain page titles (domains/*.md H1).
+# Each profile lists calibrated query concepts — not just "<name> LLM".
+Physics:
+  - LLM agent physics benchmark
+  - scientific agent physics evaluation
+  - autonomous agent physics simulation
+  - LLM physics problem solving benchmark
+  - agent computational physics
+Astronomy:
+  - LLM agent astronomy benchmark
+  - astrophysics agent evaluation
+  - LLM telescope observation planning agent
+  - agent exoplanet analysis benchmark
+Mathematics:
+  - LLM agent mathematics benchmark
+  - automated theorem proving agent evaluation
+  - LLM mathematical reasoning benchmark
+  - formal proof agent benchmark
+Chemistry:
+  - LLM agent chemistry benchmark
+  - autonomous chemistry agent evaluation
+  - LLM retrosynthesis benchmark
+  - molecular design agent benchmark
+  - chemical reasoning LLM evaluation
+Biology:
+  - LLM agent biology benchmark
+  - bioinformatics agent evaluation
+  - single-cell analysis agent benchmark
+  - LLM genomics agent
+  - protein engineering agent benchmark
+Neuroscience & Cognitive Science:
+  - LLM agent neuroscience benchmark
+  - cognitive science agent evaluation
+  - EEG analysis agent benchmark
+  - LLM neuroscience reasoning
+Medicine & Health:
+  - LLM medical agent benchmark
+  - clinical diagnosis agent evaluation
+  - autonomous medical agent
+  - LLM healthcare agent benchmark
+Earth Science:
+  - LLM agent geoscience benchmark
+  - climate science agent evaluation
+  - LLM geospatial analysis agent
+  - remote sensing agent benchmark
+Environmental Science:
+  - LLM environmental science agent benchmark
+  - ecology agent evaluation
+  - environmental data analysis agent
+Materials Science:
+  - LLM agent materials science benchmark
+  - materials discovery agent evaluation
+  - autonomous materials synthesis agent
+  - crystal structure agent benchmark
+Computer Science:
+  - LLM agent computer science benchmark
+  - algorithm design agent evaluation
+  - LLM systems research agent
+AI & Machine Learning Research:
+  - LLM agent machine learning research benchmark
+  - autonomous ML engineering agent evaluation
+  - ML research agent benchmark
+  - Kaggle agent benchmark
+  - AI research automation agent
+Mechanical & Aerospace Engineering:
+  - LLM agent mechanical engineering benchmark
+  - aerospace design agent evaluation
+  - CAD agent benchmark
+  - finite element agent benchmark
+Electrical Engineering:
+  - LLM agent electrical engineering benchmark
+  - circuit design agent evaluation
+  - RTL Verilog generation benchmark
+  - analog design agent benchmark
+  - EDA agent benchmark
+Energy Systems:
+  - LLM agent power grid benchmark
+  - energy systems agent evaluation
+  - power dispatch agent benchmark
+Chemical Engineering:
+  - LLM agent chemical engineering benchmark
+  - process engineering agent evaluation
+  - reaction engineering agent
+Civil & Structural Engineering:
+  - LLM agent structural engineering benchmark
+  - civil engineering design agent evaluation
+  - structural analysis agent benchmark
+Robotics:
+  - LLM agent robotics benchmark
+  - embodied agent evaluation
+  - robot manipulation benchmark LLM
+  - lab robotics agent benchmark
+Software & Systems Engineering:
+  - LLM software engineering agent benchmark
+  - SWE agent evaluation
+  - formal verification agent benchmark
+  - repository-level coding agent benchmark

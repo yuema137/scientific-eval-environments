@@ -1,0 +1,103 @@
+# Daily Update Agent
+
+A deterministic GitHub Actions orchestrator + Claude Code semantic workers that keeps this
+knowledge base current: it discovers newly released relevant work, writes verified English
+work cards, integrates them into every canonical axis, mirrors and independently reviews the
+Chinese translation, validates everything, and **opens a pull request for human review — it
+never auto-merges.**
+
+## Five phases (ordered; a later phase never starts if an earlier one failed)
+
+```
+Phase 1  Discovery        arXiv + OpenReview + GitHub metadata, every Topic/Domain/Activity + global queries
+Phase 2  Cards            deep primary-source review; write factual English cards; reject aggressively
+Phase 3  English axes     Topic / Domain / Activity specialists + deterministic integration + count refresh
+Phase 4  Chinese mirror   translate every changed English page (English is canonical)
+Phase 5  Chinese review   independent editor rewrites literal/awkward Chinese
+Final gate               machine-readable; PR is impossible unless all five phases pass
+```
+
+Each GitHub Actions job is one phase (`discovery → english → chinese → review → finalize`);
+state passes between jobs as `runtime/` artifacts. Every phase writes `runtime/state/<phase>.json`,
+and `scripts/update_agent/phase_state.py` computes `ready_for_pr` — the only thing that lets the
+finalize job open a PR.
+
+## Schedule & concurrency
+
+- Runs daily at **00:01 America/Los_Angeles** (native `timezone:` cron; GitHub adjusts for DST).
+- `workflow_dispatch` supports manual modes (below). Scheduled runs are always `full`.
+- Concurrency group `daily-knowledge-update`, `cancel-in-progress: false` — a running production
+  update is never interrupted by the next trigger.
+
+## Manual modes (`workflow_dispatch` → `mode`)
+
+| Mode | What it does | Claude? | Writes repo? | PR? |
+|---|---|---|---|---|
+| `validators-only` | pytest suite + repo validators + count check | no | no | no |
+| `discovery-smoke` | bounded live discovery (1 axis item/kind), no deep review | no | no | no |
+| `auth-smoke` | tiny `claude -p` reads AGENT.md, returns a marker | yes | no | no |
+| `fixture-e2e-smoke` | full 5 phases on ONE synthetic candidate in an isolated temp workspace | yes | no (temp only) | no |
+| `full` | production run | yes | rolling branch | yes (never merged) |
+
+## Sources & search
+
+Adapters (`sources.py`): `ArxivSource`, `OpenReviewSource`, `GitHubSource` — **metadata only**
+(Phase 1 never downloads papers or clones repos). Add a source = add one `Source` subclass.
+Search profiles live in `automation/update_agent/search_profiles/{domains,topics,activities,global}.yaml`
+and are calibrated per axis item; `validators.py profiles` fails if a taxonomy item lacks coverage.
+The canonical taxonomy is read from the repo (topic/domain/activity page titles) — never hard-coded.
+
+## Deduplication & pending-PR awareness
+
+`inventory.py` builds an identity index of existing cards (arXiv ID → OpenReview ID → DOI →
+GitHub URL → normalized title). `deduplicate.py` merges cross-source hits into one candidate,
+drops works already in the repo, and drops works already staged on the open automated-update
+branch. There is a single **rolling PR** on branch `auto/knowledge-update`; each successful run
+accumulates onto it, and new changes only become visible after that run passes the final gate.
+
+## Configuration (`config.yaml`)
+
+`lookback_days` (overlapping window; dedup, not a 1-day cutoff, prevents repeats), per-source
+limits, smoke sampling, retry/backoff, Claude model/turn bounds, and the runaway-cost limits:
+`max_deep_review_candidates`, `max_parallel_{card,translation,review}_workers`. If Phase 1 yields
+more deep-review candidates than the max, the run fails as **needs_attention** and preserves the
+full candidate artifact — it never silently truncates.
+
+## Claude workers (`automation/update_agent/agents/`)
+
+`work-card-writer`, `topic-axis-updater`, `domain-axis-updater`, `activity-axis-updater`,
+`chinese-mirror-translator`, `chinese-naturalness-reviewer`, `final-update-auditor`. All are
+invoked headless via `run_claude_worker.py` (`claude -p --output-format json`, bounded turns,
+**Bash/code-execution never allowed**). Structured JSON decisions only — no prose grepping.
+
+## Security
+
+- `CLAUDE_CODE_OAUTH_TOKEN` is consumed only as a GitHub secret env var; never logged/committed.
+- No `pull_request`/`pull_request_target` trigger — a fork can never run this secret-bearing workflow.
+- Every paper/README/abstract/webpage is **untrusted data**; agent prompts forbid obeying embedded
+  instructions, running external code, cloning/executing candidate repos, or leaking secrets.
+- Least-privilege: top-level `contents: read`; only `finalize` has `contents: write` + `pull-requests: write`.
+- Counts are auto-derived (`scripts/update_counts.py`).
+
+## Failure behavior & debugging
+
+A failed phase blocks the PR, uploads `runtime/` artifacts, and writes a job summary. The
+overlapping lookback lets the next day's run recover. To debug: open the failed run, download the
+`runtime`/`stage-*` artifacts, and inspect `state/*.json` and the phase manifests.
+
+## Tests
+
+- `tests/update_agent/` — deterministic unit/fixture tests (inventory, dedup, phase gate,
+  profile coverage, axis/bilingual validators, empty-run, failure-injection).
+- Live smokes: `discovery-smoke` (sources), `auth-smoke` (token), `fixture-e2e-smoke` (5 phases).
+
+## Disable / enable
+
+Disable: GitHub → Actions → “Daily Knowledge Update” → **⋯ → Disable workflow** (or delete the
+schedule block). Re-enable from the same menu. Tune cost via `config.yaml` limits.
+
+## One-time maintainer setup
+
+1. Repository secret **`CLAUDE_CODE_OAUTH_TOKEN`** (Settings → Secrets and variables → Actions).
+2. **Settings → Actions → General → Workflow permissions → enable "Allow GitHub Actions to create
+   and approve pull requests"** (lets the `finalize` job open the automated PR; it still never merges).

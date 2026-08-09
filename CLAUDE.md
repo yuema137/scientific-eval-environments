@@ -68,6 +68,10 @@ Activity rules: **multi-label**, assigned conservatively (typically 1–3, only 
 
 Evaluation-focused RL work on agents is **in scope** (reward design for agents, credit-assignment methods, off-policy evaluation of agent trajectories). Pure RL algorithm / training / policy optimization is **out of scope**. Judge by the paper's primary contribution: does it advance *how agents are evaluated* or *how agents are trained*?
 
+## Automated daily updater
+
+A GitHub Actions + Claude Code pipeline (`.github/workflows/daily-knowledge-update.yml`, `automation/update_agent/`, `scripts/update_agent/`) discovers new work daily and opens a rolling PR. Durable rules: automated additions meet the same evidence/scope bar as human ones; the English gate must pass before Chinese sync; the Chinese naturalness review is mandatory and independent; the automation opens/updates one PR but **never merges**. Mechanics: `automation/update_agent/README.md`.
+
 ## Files not part of the published repository
 
 - `initial_doc.md` — the maintainer's private input material. **Not** repository content. Extract verifiable facts from it into topic and card pages; discard positioning language.
