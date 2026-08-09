@@ -103,9 +103,12 @@ def run(workspace, artifacts_dir):
 def _finalize(run_dir, ws, artifacts_dir, accepted_count, failed_phase):
     gate = phase_state.run(run_dir, accepted_count, smoke=True)
     os.makedirs(artifacts_dir, exist_ok=True)
+    # stage so NEW (untracked) files — e.g. the new card + its zh mirror — appear in the diff
+    subprocess.run(["git", "-C", ws, "add", "-A", "--", "works", "zh", "topics", "domains",
+                    "activities", "README.md"], check=False)
     diff = subprocess.run(["git", "-C", ws, "-c", "core.quotepath=false", "diff",
-                           "--stat", "HEAD"], capture_output=True, text=True).stdout
-    namelist = subprocess.run(["git", "-C", ws, "diff", "--name-only", "HEAD"],
+                           "--cached", "--stat", "HEAD"], capture_output=True, text=True).stdout
+    namelist = subprocess.run(["git", "-C", ws, "diff", "--cached", "--name-only", "HEAD"],
                               capture_output=True, text=True).stdout
     write_json(os.path.join(artifacts_dir, "final_gate.json"), gate)
     open(os.path.join(artifacts_dir, "workspace_diffstat.txt"), "w").write(diff)
