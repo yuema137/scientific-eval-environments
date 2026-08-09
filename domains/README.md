@@ -40,8 +40,8 @@ Domain pages are **factual reference pages, not literature reviews** — co-equa
 | Science | [Computer Science](./computer_science.md) | 4 |
 | Science | [AI & Machine Learning Research](./ai_ml_research.md) | 5 |
 | Engineering | [Mechanical & Aerospace Engineering](./mechanical_aerospace_engineering.md) | 9 |
-| Engineering | [Electrical Engineering](./electrical_engineering.md) | 1 |
-| Engineering | [Energy Systems](./energy_systems.md) | 2 |
+| Engineering | [Electrical Engineering](./electrical_engineering.md) | 15 |
+| Engineering | [Energy Systems](./energy_systems.md) | 3 |
 | Engineering | [Chemical Engineering](./chemical_engineering.md) | 1 |
 | Engineering | [Civil & Structural Engineering](./civil_structural_engineering.md) | 2 |
 | Engineering | [Robotics](./robotics.md) | 14 |

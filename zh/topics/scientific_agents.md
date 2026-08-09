@@ -132,6 +132,21 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **自主 DFT 编排。** [AutoDFT / VASPBench](../works/vaspbench.md) 在 34 个任务、9 种计算类型上评测闭环 DFT agent，AutoDFT 达到 94.1% 的任务级成功率。
 - **配方级规模的合成规划。** [AlchemyBench](../works/alchemybench.md) 把 17,000 条专家核验配方变成端到端预测，由一个经专家一致性验证的 LLM judge 判分。
 - **面向发现的假说生成。** [Materials Hypothesis Generation](../works/materials-hypothesis.md) 用一个模拟专家的指标评测目标驱动、约束引导的 LLM agent 的材料设计假说。
+- **Verilog 代码生成——标杆任务。** [VerilogEval](../works/verilogeval.md) 在 156 个 HDLBits 问题上，通过与参考解仿真为 LLM Verilog 生成评分；其 v2 增加规格到 RTL，GPT-4o 达 63%。
+- **从自然语言生成设计级 RTL。** [RTLLM](../works/rtllm.md) 在 29 个手工设计（v2 为 50 个）上按语法、功能、设计质量为完整设计 RTL 生成判分，并提出 self-planning 提示。
+- **仓库级 RTL。** [RTL-Repo](../works/rtl-repo.md) 在 4,000+ 真实 GitHub 样本上考察带完整仓库上下文的多文件 Verilog 补全，按编辑相似度与精确匹配判分。
+- **另一种 HDL。** [VHDL-Eval](../works/vhdl-eval.md) 在 202 个问题上评测 VHDL 生成，发现 Verilog 中心的模型迁移不佳、需 VHDL 专门微调。
+- **综合的 RTL 设计与验证。** [CVDP](../works/cvdp.md)（NVIDIA）横跨 783 问题 / 13 类别，兼有非 agent 与 agent 格式；最先进的模型代码生成 pass@1 不超过 34%。
+- **以形式验证为根基的断言生成。** [AssertionBench](../works/assertionbench.md) 在 100 个 OpenCores 设计上，对照经形式验证的参考衡量 LLM 硬件断言生成。
+- **形式验证能力。** [FVEval](../works/fveval.md)（NVIDIA）把硬件形式验证分解为三个子任务，用 Cadence Jasper 工具校验所生成断言。
+- **高层综合。** [HLS-Eval](../works/hls-eval.md) 在 94 个设计上评测 LLM 的 HLS 代码生成与优化，在 Vitis HLS 上按可解析/可编译/可运行/可综合判分。
+- **免训练的模拟设计。** [AnalogCoder](../works/analogcoder.md) 是通过 Python 代码生成设计模拟电路的 LLM agent，在精选 benchmark 上解出 20 个电路——比 GPT-4o 多 5 个。
+- **模拟拓扑综合。** [AnalogXpert](../works/analogxpert.md) 把设计专长编码进 LLM agent，在合成/真实拓扑 benchmark 上达 40%/23%，而 GPT-4o 仅 3%。
+- **多模态 EE 广度。** [EEE-Bench](../works/eee-bench.md) 出 2,860 个横跨 10 个 EE 子领域、需理解电路与框图的问题；17 个模型平均 19–47%，并有「偷懒」（文本压过视觉）失败模式。
+- **沿 EDA 流程的电路问答。** [MMCircuitEval](../works/mmcircuiteval.md) 把 3,614 个多模态问答按设计阶段与能力组织，定位后端设计与复杂计算的短板。
+- **电信知识。** [TeleQnA](../works/teleqna.md) 在取自 3GPP/IEEE 标准的 10,000 道电信题上评测 LLM，通用知识可比肩专业人士，却在标准规范上吃力。
+- **控制系统设计。** [ControlAgent](../works/controleval.md) 用协作 LLM agent 自动化控制器设计，在 ControlEval（500 任务）上评估并胜过「工具箱+人工」基线。
+- **电网调度。** [ElecBench](../works/elecbench.md) 用以电网稳定性与安全性为中心的六指标/24 子指标框架评测 LLM 的电力调度。
 
 ## Comparison
 
@@ -181,7 +196,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | Agentic Self-Driving Microscopy Benchmarks | 2026 | 53 个显微术测试 × 105 种 agent 配置 | 自主显微术 / 材料表征 | 带轨迹日志的 benchmark 测试；时延、成本与失败模式比较 | [→](../works/agentic-microscopy-benchmarks.md) |
 | CritPt | 2025 | 50 余位物理学家的 71 个未发表挑战 + 190 个检查点 | 11+ 子领域的研究入门级物理 | 防猜测、可机器验证的答案；定制自动判分 | [→](../works/critpt.md) |
 | TPBench | 2025 | 57 道全新问题，从本科到研究级 | 理论物理：高能理论与宇宙学 | 可自动验证的答案与定制判分 | [→](../works/tpbench.md) |
-| SciCode | 2024 | 科学家整理的 80 个主问题 / 338 个子问题 | 16 个自然科学子领域（数学、物理、化学、生物、材料） | 对照科学家标注的金标准解与测试执行 | [→](../works/scicode.md) |
+| SciCode | 2024 | 科学家整理的 80 个主问题 / 338 个子问题 | 16 个自然科学子领域（数学、物理、化学、生物、材料） | 对照科学家标注的参考解与测试执行 | [→](../works/scicode.md) |
 | Lean4Physics | 2025 | 200 条经同行评审的 Lean4 命题，取材教材与竞赛 | 作为形式化定理证明的大学物理 | Lean4 内核证明检查；无 judge 介入 | [→](../works/lean4physics.md) |
 | LLM-SRBench | 2025 | 239 个问题，分 LSR-Transform 与 LSR-Synth 两类 | 横跨四个领域的科学方程发现 | 对照真值方程的符号准确率 | [→](../works/llm-srbench.md) |
 | UGPhysics | 2025 | 5,520 道经泄漏筛查的双语本科问题 | 13 个科目的本科物理 | MARJ 模型辅助规则判分 | [→](../works/ugphysics.md) |
@@ -257,6 +272,21 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | AutoDFT / VASPBench | 2026 | 横跨 9 种 DFT 计算类型的 34 个任务 | 自主 DFT 工作流编排 | 任务级成功率（GPT-5.2 94.1%）+ 对照数据库的性质准确率 | [→](../works/vaspbench.md) |
 | AlchemyBench | 2025 | 17,000 条专家核验合成配方 | 材料合成规划 | 对自由文本预测的、经专家一致性验证的 LLM-as-a-Judge | [→](../works/alchemybench.md) |
 | Materials Hypothesis Generation | 2025 | 从近期论文策划的目标/约束/方法 | 材料发现的假说生成 | 一个可扩展、模拟专家的评估指标 | [→](../works/materials-hypothesis.md) |
+| VerilogEval | 2023 | 156 个 HDLBits Verilog 问题 | Verilog RTL 代码生成 | 与参考解仿真对比；pass@k | [→](../works/verilogeval.md) |
+| RTLLM | 2023 | 29 个手工 RTL 设计（v2 为 50 个） | 从自然语言生成设计级 RTL | 语法、功能、设计质量三目标 | [→](../works/rtllm.md) |
+| RTL-Repo | 2024 | 4,000+ 带完整仓库上下文的 Verilog 样本 | 仓库级 RTL 代码补全 | 编辑相似度与精确匹配 | [→](../works/rtl-repo.md) |
+| VHDL-Eval | 2024 | 202 个配自验证测试台的 VHDL 问题 | VHDL 代码生成 | 零样本/ICL/PEFT 下的功能正确性 | [→](../works/vhdl-eval.md) |
+| CVDP | 2025 | 783 问题 / 13 类别，非 agent + agent（NVIDIA） | RTL 设计、验证与调试 | 容器化开源 EDA 环境中的 pass@1；SOTA ≤34% | [→](../works/cvdp.md) |
+| AssertionBench | 2024 | 100 个 OpenCores 设计、经形式验证的断言 | 硬件断言生成 | 功能正确断言的比例 | [→](../works/assertionbench.md) |
+| FVEval | 2024 | 3 个形式验证子任务（NVIDIA） | 数字硬件的形式验证 | Cadence Jasper 形式工具校验 | [→](../works/fveval.md) |
+| HLS-Eval | 2025 | 94 个 HLS 设计 + 测试台 | 高层综合代码生成与优化 | 可解析/可编译/可运行/可综合 + pass@k | [→](../works/hls-eval.md) |
+| AnalogCoder | 2024 | 精选模拟设计任务集（24 个任务） | 经代码生成的模拟电路设计 | 按解出任务数的 Pass@1/Pass@5；20 个电路对 GPT-4o 的 15 个 | [→](../works/analogcoder.md) |
+| AnalogXpert | 2024 | 30 个真实 + 2,000 个合成拓扑案例 | 模拟拓扑综合 | 单次正确性；40%/23% 对 GPT-4o 3% | [→](../works/analogxpert.md) |
+| EEE-Bench | 2024 | 横跨 10 个 EE 子领域的 2,860 个多模态问题 | 多模态电气与电子工程 | 17 个 LLM/LMM 的准确率；平均 19.48–46.78% | [→](../works/eee-bench.md) |
+| MMCircuitEval | 2025 | 横跨数字+模拟、EDA 阶段的 3,614 个多模态问答 | 跨 EDA 流程的电路知识与设计 | 按设计阶段、电路类型、能力、难度的准确率 | [→](../works/mmcircuiteval.md) |
+| TeleQnA | 2023 | 取自 3GPP/IEEE 与研究的 10,000 道电信题 | 电信知识 | 对照电信专业人士基线的选择题准确率 | [→](../works/teleqna.md) |
+| ControlAgent / ControlEval | 2024 | 500 个控制设计任务（ControlEval） | 控制系统设计与整定 | 对照「工具箱+人工」基线的平均与 agent 成功率 | [→](../works/controleval.md) |
+| ElecBench | 2024 | 电力调度场景、8 个 LLM | 电网运行与调度 | 六指标 / 24 子指标（稳定性、安全性……） | [→](../works/elecbench.md) |
 
 ## Open Questions
 
@@ -388,6 +418,21 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [AutoDFT / VASPBench](../works/vaspbench.md)
 - [AlchemyBench](../works/alchemybench.md)
 - [Materials Hypothesis Generation](../works/materials-hypothesis.md)
+- [VerilogEval](../works/verilogeval.md)
+- [RTLLM](../works/rtllm.md)
+- [RTL-Repo](../works/rtl-repo.md)
+- [VHDL-Eval](../works/vhdl-eval.md)
+- [CVDP](../works/cvdp.md)
+- [AssertionBench](../works/assertionbench.md)
+- [FVEval](../works/fveval.md)
+- [HLS-Eval](../works/hls-eval.md)
+- [AnalogCoder](../works/analogcoder.md)
+- [AnalogXpert](../works/analogxpert.md)
+- [EEE-Bench](../works/eee-bench.md)
+- [MMCircuitEval](../works/mmcircuiteval.md)
+- [TeleQnA](../works/teleqna.md)
+- [ControlAgent / ControlEval](../works/controleval.md)
+- [ElecBench](../works/elecbench.md)
 
 ## Further Reading
 

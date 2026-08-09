@@ -132,6 +132,21 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **Autonomous DFT orchestration.** [AutoDFT / VASPBench](../works/vaspbench.md) benchmarks closed-loop DFT agents over 34 tasks across 9 calculation types, with AutoDFT reaching 94.1% task-level success.
 - **Synthesis planning at recipe scale.** [AlchemyBench](../works/alchemybench.md) turns 17,000 expert-verified synthesis recipes into end-to-end prediction, graded by an expert-agreement-validated LLM judge.
 - **Hypothesis generation for discovery.** [Materials Hypothesis Generation](../works/materials-hypothesis.md) evaluates goal-driven, constraint-guided LLM agents on materials-design hypotheses with an expert-emulating metric.
+- **Verilog code generation, the canonical task.** [VerilogEval](../works/verilogeval.md) scores LLM Verilog generation on 156 HDLBits problems by simulating against golden solutions; its v2 adds spec-to-RTL, where GPT-4o reaches 63%.
+- **Design-level RTL from natural language.** [RTLLM](../works/rtllm.md) grades full-design RTL generation on syntax, functionality, and design quality over 29 hand-crafted designs (50 in v2), and introduces self-planning prompting.
+- **Repository-scale RTL.** [RTL-Repo](../works/rtl-repo.md) tests multi-file Verilog completion with full-repository context over 4,000+ real GitHub samples, scored by edit similarity and exact match.
+- **The other HDL.** [VHDL-Eval](../works/vhdl-eval.md) benchmarks VHDL generation on 202 problems and finds Verilog-centric models transfer poorly, requiring VHDL-specific fine-tuning.
+- **Comprehensive RTL design and verification.** [CVDP](../works/cvdp.md) (NVIDIA) spans 783 problems / 13 categories in both non-agentic and agentic formats; state-of-the-art models reach no more than 34% pass@1 on code generation.
+- **Assertion generation, formally grounded.** [AssertionBench](../works/assertionbench.md) measures LLM hardware assertion generation on 100 OpenCores designs against formally verified references.
+- **Formal-verification capabilities.** [FVEval](../works/fveval.md) (NVIDIA) decomposes hardware formal verification into three sub-tasks, validating generated assertions with the Cadence Jasper tool.
+- **High-level synthesis.** [HLS-Eval](../works/hls-eval.md) evaluates LLM HLS code generation and optimization on 94 designs, graded by parseability, compilability, runnability, and synthesizability on Vitis HLS.
+- **Analog design, training-free.** [AnalogCoder](../works/analogcoder.md) is an LLM agent that designs analog circuits via Python code generation, solving 20 circuits — five more than GPT-4o — over a curated benchmark.
+- **Analog topology synthesis.** [AnalogXpert](../works/analogxpert.md) encodes design expertise into an LLM agent that reaches 40%/23% success on synthetic/real topology benchmarks versus GPT-4o's 3%.
+- **Multimodal EE breadth.** [EEE-Bench](../works/eee-bench.md) poses 2,860 problems across 10 EE subdomains requiring circuit and diagram understanding; 17 models average 19–47%, with a "laziness" (text-over-vision) failure mode.
+- **Circuit QA along the EDA flow.** [MMCircuitEval](../works/mmcircuiteval.md) organizes 3,614 multimodal QA pairs by design stage and ability, locating weakness in back-end design and complex computation.
+- **Telecom knowledge.** [TeleQnA](../works/teleqna.md) benchmarks LLMs on 10,000 telecom questions from 3GPP/IEEE standards, rivaling professionals on general knowledge but faltering on standards specifications.
+- **Control-system design.** [ControlAgent](../works/controleval.md) automates controller design with cooperating LLM agents, evaluated on ControlEval (500 tasks) and beating toolbox-plus-human baselines.
+- **Power-grid dispatch.** [ElecBench](../works/elecbench.md) evaluates LLMs on power-dispatch scenarios with a six-metric / 24-sub-metric framework centered on grid stability and security.
 
 ## Comparison
 
@@ -257,6 +272,21 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | AutoDFT / VASPBench | 2026 | 34 tasks across 9 DFT calculation types | Autonomous DFT workflow orchestration | Task-level success (94.1% with GPT-5.2) + property accuracy vs databases | [→](../works/vaspbench.md) |
 | AlchemyBench | 2025 | 17,000 expert-verified synthesis recipes | Materials synthesis planning | Expert-agreement-validated LLM-as-a-Judge over free-form predictions | [→](../works/alchemybench.md) |
 | Materials Hypothesis Generation | 2025 | Goals/constraints/methods curated from recent publications | Materials-discovery hypothesis generation | A scalable expert-emulating evaluation metric | [→](../works/materials-hypothesis.md) |
+| VerilogEval | 2023 | 156 HDLBits Verilog problems | Verilog RTL code generation | Simulation vs. golden solution; pass@k | [→](../works/verilogeval.md) |
+| RTLLM | 2023 | 29 hand-crafted RTL designs (50 in v2) | Design-level RTL generation from natural language | Three goals: syntax, functionality, design quality | [→](../works/rtllm.md) |
+| RTL-Repo | 2024 | 4,000+ Verilog samples with full-repo context | Repository-scale RTL code completion | Edit similarity and exact match | [→](../works/rtl-repo.md) |
+| VHDL-Eval | 2024 | 202 VHDL problems with self-verifying testbenches | VHDL code generation | Functional correctness across zero-shot / ICL / PEFT | [→](../works/vhdl-eval.md) |
+| CVDP | 2025 | 783 problems / 13 categories, non-agentic + agentic (NVIDIA) | RTL design, verification, and debugging | pass@1 in a containerized OSS-EDA environment; SOTA ≤34% | [→](../works/cvdp.md) |
+| AssertionBench | 2024 | 100 OpenCores designs, formally verified assertions | Hardware assertion generation | Fraction of functionally correct assertions | [→](../works/assertionbench.md) |
+| FVEval | 2024 | 3 formal-verification sub-tasks (NVIDIA) | Formal verification of digital hardware | Cadence Jasper formal-tool validation | [→](../works/fveval.md) |
+| HLS-Eval | 2025 | 94 HLS designs + testbenches | High-level-synthesis code generation and optimization | Parseability / compilability / runnability / synthesizability + pass@k | [→](../works/hls-eval.md) |
+| AnalogCoder | 2024 | Curated analog-design task set (24 tasks) | Analog circuit design via code generation | Pass@1/Pass@5 by tasks solved; 20 circuits vs. GPT-4o's 15 | [→](../works/analogcoder.md) |
+| AnalogXpert | 2024 | 30 real + 2,000 synthetic topology cases | Analog topology synthesis | One-trial correctness; 40%/23% vs. GPT-4o 3% | [→](../works/analogxpert.md) |
+| EEE-Bench | 2024 | 2,860 multimodal problems across 10 EE subdomains | Multimodal electrical & electronics engineering | Accuracy over 17 LLMs/LMMs; avg 19.48–46.78% | [→](../works/eee-bench.md) |
+| MMCircuitEval | 2025 | 3,614 multimodal QA across digital + analog, EDA stages | Circuit knowledge and design across the EDA flow | Accuracy by design stage, circuit type, ability, difficulty | [→](../works/mmcircuiteval.md) |
+| TeleQnA | 2023 | 10,000 telecom questions from 3GPP/IEEE + research | Telecommunications knowledge | Multiple-choice accuracy vs. a telecom-professional baseline | [→](../works/teleqna.md) |
+| ControlAgent / ControlEval | 2024 | 500 control-design tasks (ControlEval) | Control-system design and tuning | Average and agent success rates vs. toolbox+human baselines | [→](../works/controleval.md) |
+| ElecBench | 2024 | Power-dispatch scenarios, 8 LLMs | Power-grid operation and dispatch | Six metrics / 24 sub-metrics (stability, security, ...) | [→](../works/elecbench.md) |
 
 ## Open Questions
 
@@ -388,6 +418,21 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [AutoDFT / VASPBench](../works/vaspbench.md)
 - [AlchemyBench](../works/alchemybench.md)
 - [Materials Hypothesis Generation](../works/materials-hypothesis.md)
+- [VerilogEval](../works/verilogeval.md)
+- [RTLLM](../works/rtllm.md)
+- [RTL-Repo](../works/rtl-repo.md)
+- [VHDL-Eval](../works/vhdl-eval.md)
+- [CVDP](../works/cvdp.md)
+- [AssertionBench](../works/assertionbench.md)
+- [FVEval](../works/fveval.md)
+- [HLS-Eval](../works/hls-eval.md)
+- [AnalogCoder](../works/analogcoder.md)
+- [AnalogXpert](../works/analogxpert.md)
+- [EEE-Bench](../works/eee-bench.md)
+- [MMCircuitEval](../works/mmcircuiteval.md)
+- [TeleQnA](../works/teleqna.md)
+- [ControlAgent / ControlEval](../works/controleval.md)
+- [ElecBench](../works/elecbench.md)
 
 ## Further Reading
 
