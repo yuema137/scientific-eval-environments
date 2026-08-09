@@ -130,6 +130,17 @@ def _write(cwd, rel, obj):
     json.dump(obj, open(p, "w"), indent=2)
 
 
+def test_phase5_handles_null_structured_output(tmp_path, monkeypatch):
+    # reviewers run without a JSON schema, so run_worker returns structured_output=None.
+    # Phase 5 aggregation must not crash on that (regression: live fixture-e2e caught this).
+    monkeypatch.setattr(pipeline, "run_worker",
+                        lambda *a, **k: {"ok": True, "structured_output": None, "result": ""})
+    run_dir = str(tmp_path / "rt")
+    os.makedirs(os.path.join(run_dir, "phase5"), exist_ok=True)
+    ok, r = pipeline.phase5(run_dir, str(tmp_path), ["zh/works/x.md"], pipeline.config())
+    assert ok is True and r["edited"] == 0
+
+
 def test_full_five_phase_orchestration_stubbed(tmp_path, monkeypatch):
     monkeypatch.setattr(pipeline, "run_worker", _stub_worker)
     ws = str(tmp_path / "ws")

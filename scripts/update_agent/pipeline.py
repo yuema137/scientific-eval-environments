@@ -200,8 +200,11 @@ def phase5(run_dir, repo_root, zh_files, cfg):
                                   cfg["claude"]["reviewer_max_turns"])
 
     res = parallel([make(g) for g in groups], n)
-    edited = sum(len((r or {}).get("structured_output", {}).get("files_edited", []) or [])
-                 for r in res if r and r.get("ok"))
+
+    def _edited(r):
+        so = (r or {}).get("structured_output") or {}
+        return len(so.get("files_edited") or [])
+    edited = sum(_edited(r) for r in res if r and r.get("ok"))
     write_json("%s/phase5/review_manifest.json" % run_dir,
                {"reviewed": len(zh_files), "edited": edited,
                 "worker_ok": [bool(r and r.get("ok")) for r in res]})
