@@ -22,6 +22,7 @@ TOOLSETS = {
     "translate": "Read,Write,Edit",
     "review": "Read,Write,Edit",
     "audit": "Read",
+    "score": "Read",
 }
 
 

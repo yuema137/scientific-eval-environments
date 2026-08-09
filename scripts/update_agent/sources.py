@@ -141,6 +141,8 @@ class GitHubSource(Source):
                 "authors": [(it.get("owner") or {}).get("login", "")],
                 "date": it.get("pushed_at") or it.get("updated_at") or "",
                 "topics": it.get("topics") or [],
+                "homepage": it.get("homepage") or "",
+                "stars": it.get("stargazers_count", 0),
             })
         return out
 

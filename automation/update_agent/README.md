@@ -47,6 +47,32 @@ Search profiles live in `automation/update_agent/search_profiles/{domains,topics
 and are calibrated per axis item; `validators.py profiles` fails if a taxonomy item lacks coverage.
 The canonical taxonomy is read from the repo (topic/domain/activity page titles) — never hard-coded.
 
+## Phase-1 precision triage
+
+Discovery is high-recall then **progressively discriminative** — noise is removed *after* retrieval, not by narrowing the search:
+
+```
+raw hits
+  → deterministic source-aware prefilter   (prefilter.py; arXiv/OR need eval+agent/science signal;
+                                             GitHub needs a benchmark/environment noun + not a
+                                             noise repo: awesome-*/skills/templates/MCP/SDK/apps)
+  → cross-source merge + existing/pending dedup  (deduplicate.py; repo↔paper via linked arXiv id,
+                                             arXiv↔OR via fuzzy title + shared author — never title-only)
+  → metadata relevance scorer               (relevance.py + relevance-scorer agent; Claude, metadata
+                                             only, batched; deep_review / uncertain / reject_low_relevance;
+                                             "a paper evaluating its own method" ≠ "an agent-evaluation
+                                             contribution")
+  → ranked admission                        (all deep_review + highest-confidence uncertain while under
+                                             the cap; a scorer failure fails OPEN to 'uncertain', never a
+                                             silent reject)
+  → deep-review safety cap                  (unchanged; if genuine deep_review still exceeds the cap the
+                                             run is needs_attention — the cap is never raised to force green)
+```
+
+Every stage's kept/rejected sets and reasons are preserved as workflow artifacts
+(`prefilter_rejected.json`, `merged_candidates.json`, `relevance.json`, `candidates.json`), so the
+next audit can compute precision by stage. None are committed to the knowledge base.
+
 ## Deduplication & pending-PR awareness
 
 `inventory.py` builds an identity index of existing cards (arXiv ID → OpenReview ID → DOI →

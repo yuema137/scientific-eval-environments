@@ -27,6 +27,11 @@ limits:
   max_parallel_card_workers: 4
   max_parallel_translation_workers: 4
   max_parallel_review_workers: 4
+  max_relevance_workers: 4
+
+# Metadata relevance scorer (Phase-1 triage between dedup and the deep-review cap).
+relevance:
+  batch_size: 12        # candidates scored per Claude call (cheap; metadata only)
 
 # Bounded retries for transient public-source failures (operational, not semantic).
 retry:
@@ -40,6 +45,7 @@ claude:
   axis_worker_max_turns: 40
   translator_max_turns: 30
   reviewer_max_turns: 30
+  scorer_max_turns: 6
 
 # Branch / PR strategy: single rolling automated PR (spec §14).
 pr:

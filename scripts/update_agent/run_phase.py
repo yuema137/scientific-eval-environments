@@ -15,7 +15,9 @@ sys.path.insert(0, os.path.join(CWD, "scripts", "update_agent"))
 
 from common import config, write_json, read_json, log   # noqa: E402
 import discover as discovery                              # noqa: E402
+import prefilter                                          # noqa: E402
 import deduplicate                                        # noqa: E402
+import relevance                                          # noqa: E402
 import inventory                                          # noqa: E402
 import pipeline                                           # noqa: E402
 import validators                                         # noqa: E402
@@ -54,16 +56,40 @@ def _pending_index(rolling_branch):
 def cmd_discover(a):
     cfg = config()
     cov = discovery.run(a.mode, RUN_DIR)
+    # 1) deterministic source-aware prefilter
+    raw = read_json(os.path.join(RUN_DIR, "phase1", "raw_hits.json"))
+    kept, pre_rej = prefilter.run(raw)
+    write_json(os.path.join(RUN_DIR, "phase1", "raw_prefiltered.json"), kept)
+    write_json(os.path.join(RUN_DIR, "phase1", "prefilter_rejected.json"), pre_rej)
+    # 2) cross-source merge + existing/pending dedup (on the prefiltered set)
     pending = _pending_index(cfg["pr"]["rolling_branch"])
-    d = deduplicate.run(RUN_DIR, pending, CWD)
+    deduplicate.run(RUN_DIR, pending, CWD,
+                    raw_path=os.path.join(RUN_DIR, "phase1", "raw_prefiltered.json"))
+    merged = read_json(os.path.join(RUN_DIR, "phase1", "candidates.json"))
+    write_json(os.path.join(RUN_DIR, "phase1", "merged_candidates.json"), merged)
+    cross_merged = sum(1 for c in merged if len({r["source"] for r in c["source_records"]}) > 1)
+    # 3) metadata relevance scoring + ranked admission (triage, not truncation)
+    cap = cfg["limits"]["max_deep_review_candidates"]
+    decisions = relevance.score(merged, cfg)
+    admitted, rep = relevance.admit(merged, decisions, cap)
+    write_json(os.path.join(RUN_DIR, "phase1", "relevance.json"),
+               {"report": rep, "decisions": decisions})
+    write_json(os.path.join(RUN_DIR, "phase1", "candidates.json"), admitted)  # admitted = deep-review queue
     ok, errs = validators.validate_discovery(RUN_DIR)
-    n = d["candidates"]
+    n = len(admitted)
     phase_state.write_phase_result(RUN_DIR, "discovery", "pass" if ok else "fail",
                                    {"sources": cov["sources"], "raw": cov["raw_hit_count"],
-                                    "candidates": n, "errors": errs[:20]})
+                                    "prefiltered": len(kept), "cross_source_merged": cross_merged,
+                                    "relevance": rep, "admitted": n, "errors": errs[:20]})
     _gh_output(candidates=n, discovery=("pass" if ok else "fail"))
-    _summary("Discovery", ["Sources: %s" % cov["sources"], "Raw hits: %d" % cov["raw_hit_count"],
-                           "Deduplicated candidates: %d" % n])
+    _summary("Discovery", [
+        "Sources: %s" % cov["sources"],
+        "Raw hits: %d -> prefilter kept: %d" % (cov["raw_hit_count"], len(kept)),
+        "Cross-source merged: %d" % cross_merged,
+        "Relevance: deep_review=%d uncertain=%d(admitted %d) rejected=%d"
+        % (rep["deep_review"], rep["uncertain_total"], rep["uncertain_admitted"],
+           rep["rejected_low_relevance"]),
+        "Deep-review admitted: %d (cap %d, overflow=%s)" % (n, cap, rep["overflow"])])
     sys.exit(0 if ok else 1)
 
 
