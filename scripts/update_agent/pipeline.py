@@ -8,6 +8,7 @@ import json
 import os
 import re
 import subprocess
+import time
 
 from common import config, taxonomy, write_json, read_json, log, REPO_ROOT
 import validators
@@ -186,30 +187,124 @@ def _mirror_pairs(repo_root):
     return pairs
 
 
+# Only genuinely transient OPERATIONAL failures are retryable. A worker that reports success but
+# fails to write its files (produced_incomplete), or any semantic/parity problem, is a HARD failure
+# and is never retried — retries must never mask a real defect. auth_missing is a config error that
+# a retry cannot fix, so it is also non-retryable.
+_RETRYABLE_CATEGORIES = {"timeout", "cli_error", "malformed_worker_output", "operational_error"}
+
+
+def _scrub(text):
+    """Strip anything secret-shaped from a worker error before it is persisted or logged."""
+    t = re.sub(r"(?i)(authorization|bearer|token|sk-[A-Za-z0-9_\-]{6,})[:=]?\s*\S+", "[redacted]",
+               str(text or ""))
+    tok = os.environ.get("CLAUDE_CODE_OAUTH_TOKEN")
+    if tok:
+        t = t.replace(tok, "[redacted]")
+    return t[:300]
+
+
+def _translator_category(worker_ok, err, missing):
+    if worker_ok:
+        return "ok" if not missing else "produced_incomplete"   # success but no files -> hard fail
+    e = (err or "").lower()
+    if "timeout" in e:
+        return "timeout"
+    if "not set" in e:            # missing token/config — not transient, a retry cannot help
+        return "auth_missing"
+    if "claude exit" in e:        # nonzero CLI exit (incl. immediate failures / rate limits)
+        return "cli_error"
+    if "non-json" in e:           # CLI envelope crash (translators run without a schema)
+        return "malformed_worker_output"
+    return "operational_error"
+
+
+def _run_translator(worker_id, group, repo_root, cfg):
+    """Run one translator group and return a structured, sanitized result (never raises)."""
+    listing = "\n".join("%s -> %s" % (e, z) for e, z in group)
+    prompt = ("Translate/synchronize these changed English knowledge pages into their Chinese "
+              "mirror (English is canonical). For each `en -> zh` pair, write the zh file:\n%s\n"
+              "Follow repository bilingual conventions and canonical Chinese taxonomy labels."
+              % listing)
+    zh_targets = [z for _, z in group]
+    t0 = time.monotonic()
+    try:
+        r = run_worker("chinese-mirror-translator", "translate", prompt, repo_root,
+                       cfg["claude"]["translator_max_turns"]) or {}
+    except Exception as e:  # noqa: BLE001 - never let a worker crash abort the phase silently
+        r = {"ok": False, "error": "worker crashed: %s" % e}
+    dur = round(time.monotonic() - t0, 1)
+    produced = [z for z in zh_targets if os.path.exists(os.path.join(repo_root, z))]
+    missing = [z for z in zh_targets if z not in produced]
+    worker_ok = bool(r.get("ok"))
+    return {
+        "worker_id": worker_id,
+        "assigned_files": zh_targets,
+        "worker_ok": worker_ok,
+        "duration_s": dur,
+        "error_category": _translator_category(worker_ok, r.get("error", ""), missing),
+        "error_detail": _scrub(r.get("error", "")),
+        "produced_files": produced,
+        "missing_files": missing,
+        "success": worker_ok and not missing,
+        "retried": False,
+    }
+
+
 def phase4(run_dir, repo_root, cfg):
     pairs = _mirror_pairs(repo_root)
     n = max(1, cfg["limits"]["max_parallel_translation_workers"])
-    groups = [pairs[i::n] for i in range(n)]
-    groups = [g for g in groups if g]
+    groups = {i: g for i, g in enumerate(pairs[k::n] for k in range(n)) if g}
+    ids = sorted(groups)
 
-    def make(group):
-        listing = "\n".join("%s -> %s" % (e, z) for e, z in group)
-        prompt = ("Translate/synchronize these changed English knowledge pages into their Chinese "
-                  "mirror (English is canonical). For each `en -> zh` pair, write the zh file:\n%s\n"
-                  "Follow repository bilingual conventions and canonical Chinese taxonomy labels. "
-                  "Return the strict JSON." % listing)
-        return lambda: run_worker("chinese-mirror-translator", "translate", prompt, repo_root,
-                                  cfg["claude"]["translator_max_turns"])
+    def run_pass(work_ids):
+        raw = parallel([(lambda wid=wid: _run_translator(wid, groups[wid], repo_root, cfg))
+                        for wid in work_ids], n)
+        out = {}
+        for pos, wid in enumerate(work_ids):
+            res = raw[pos] if pos < len(raw) else None
+            if not isinstance(res, dict) or "worker_id" not in res:  # thunk crashed in parallel()
+                zt = [z for _, z in groups[wid]]
+                res = {"worker_id": wid, "assigned_files": zt, "worker_ok": False, "duration_s": 0.0,
+                       "error_category": "operational_error",
+                       "error_detail": _scrub((res or {}).get("error", "thunk crashed")),
+                       "produced_files": [], "missing_files": zt, "success": False, "retried": False}
+            out[wid] = res
+        return out
 
-    parallel([make(g) for g in groups], n)
-    # structural parity
+    by_id = run_pass(ids)
+
+    # exactly one bounded retry, for genuinely transient operational failures only
+    retry_ids = [wid for wid in ids
+                 if not by_id[wid]["success"] and by_id[wid]["error_category"] in _RETRYABLE_CATEGORIES]
+    if retry_ids:
+        log("  phase4: one retry for %d transient translator failure(s): %s"
+            % (len(retry_ids), ",".join(str(w) for w in retry_ids)))
+        time.sleep(cfg.get("retry", {}).get("backoff_seconds", 5))
+        for wid, res in run_pass(retry_ids).items():
+            res["retried"] = True
+            by_id[wid] = res
+
+    worker_results = [by_id[wid] for wid in ids]
+    write_json("%s/phase4/translation_worker_results.json" % run_dir, worker_results)
+
+    # structural parity (file existence). Semantics unchanged; evidence is now richer and a worker
+    # failure is recorded explicitly instead of surfacing only as "some mirror files were missing".
     files = [z for _, z in pairs]
-    missing = [z for z in files if not os.path.exists(os.path.join(repo_root, z))]
-    write_json("%s/phase4/parity_validation.json" % run_dir, {"files": files, "missing": missing})
+    produced = [z for z in files if os.path.exists(os.path.join(repo_root, z))]
+    missing = [z for z in files if z not in produced]
+    write_json("%s/phase4/parity_validation.json" % run_dir,
+               {"expected": files, "produced": produced, "missing": missing})
+    failed = [w for w in worker_results if not w["success"]]
     ok = not missing
     write_phase_result(run_dir, "chinese_mirror", "pass" if ok else "fail",
-                       {"translated": len(files), "missing": missing})
-    return ok, {"zh_files": files}
+                       {"expected": len(files), "translated": len(produced), "missing": missing,
+                        "failed_workers": [{"worker_id": w["worker_id"],
+                                            "error_category": w["error_category"],
+                                            "retried": w["retried"],
+                                            "missing_files": w["missing_files"]} for w in failed]})
+    return ok, {"zh_files": files, "missing": missing, "worker_results": worker_results,
+                "failed_workers": failed}
 
 
 # ----------------------------------------------------------------- Phase 5

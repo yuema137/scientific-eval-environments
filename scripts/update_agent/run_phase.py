@@ -187,8 +187,14 @@ def cmd_english(a):
 def cmd_chinese(a):
     cfg = config()
     ok, r = pipeline.phase4(RUN_DIR, CWD, cfg)
-    _summary("Chinese", ["Translated files: %d" % len(r.get("zh_files", [])),
-                         "Parity gate: %s" % ("PASS" if ok else "FAIL")])
+    lines = ["Expected mirror files: %d" % len(r.get("zh_files", [])),
+             "Missing: %d" % len(r.get("missing", [])),
+             "Parity gate: %s" % ("PASS" if ok else "FAIL")]
+    for w in r.get("failed_workers", []):
+        lines.append("worker %s: %s (retried=%s) missing=%s"
+                     % (w["worker_id"], w["error_category"], w["retried"],
+                        ",".join(w["missing_files"][:3]) or "-"))
+    _summary("Chinese", lines)
     sys.exit(0 if ok else 1)
 
 

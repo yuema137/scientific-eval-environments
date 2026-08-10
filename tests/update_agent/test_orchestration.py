@@ -248,3 +248,106 @@ def test_integrator_adds_related_works_even_when_table_links_the_card(tmp_path):
     assert "../works/crest.md" in rw, "card not added to Related Works section"
     ok, errs = validators.validate_axes(root)
     assert ok, errs
+
+
+# ------------------------------------------------------------ Phase-4 operational robustness
+def _p4cfg(workers=1, backoff=0):
+    return {"limits": {"max_parallel_translation_workers": workers},
+            "claude": {"translator_max_turns": 5},
+            "retry": {"backoff_seconds": backoff}}
+
+
+def _write_zh(cwd, prompt):
+    for en, zh in re.findall(r"(\S+\.md) -> (\S+\.md)", prompt):
+        p = os.path.join(cwd, zh)
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        open(p, "w").write("# zh mirror\n")
+
+
+def _run_phase4(tmp_path, monkeypatch, worker, pairs=None, workers=1, backoff=0):
+    monkeypatch.setattr(pipeline, "run_worker", worker)
+    monkeypatch.setattr(pipeline, "_mirror_pairs",
+                        lambda rr: pairs or [("works/a.md", "zh/works/a.md")])
+    rd = str(tmp_path / "rt")
+    repo = str(tmp_path / "repo")
+    os.makedirs(repo, exist_ok=True)
+    return pipeline.phase4(rd, repo, _p4cfg(workers, backoff)) + (rd,)
+
+
+def _results(rd):
+    import json
+    return json.load(open(os.path.join(rd, "phase4", "translation_worker_results.json")))
+
+
+def test_phase4_transient_failure_gets_exactly_one_retry_then_succeeds(tmp_path, monkeypatch):
+    calls = {"n": 0}
+
+    def worker(agent, kind, prompt, cwd, mt, schema=None, model=None):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return {"ok": False, "error": "claude exit 1: transient overload"}   # cli_error -> retryable
+        _write_zh(cwd, prompt)
+        return {"ok": True, "structured_output": {}}
+
+    ok, r, rd = _run_phase4(tmp_path, monkeypatch, worker)
+    assert ok is True
+    assert calls["n"] == 2, "expected exactly one retry"
+    w = _results(rd)[0]
+    assert w["retried"] is True and w["success"] is True
+
+
+def test_phase4_persistent_transient_failure_stays_failure_with_one_retry(tmp_path, monkeypatch):
+    calls = {"n": 0}
+
+    def worker(agent, kind, prompt, cwd, mt, schema=None, model=None):
+        calls["n"] += 1
+        return {"ok": False, "error": "worker timeout"}     # timeout -> retryable, but never succeeds
+
+    ok, r, rd = _run_phase4(tmp_path, monkeypatch, worker)
+    assert ok is False
+    assert calls["n"] == 2, "exactly one retry, no more (no indefinite retries)"
+    # failure retained in structured results (not merely 'files missing')
+    w = _results(rd)[0]
+    assert w["worker_ok"] is False and w["error_category"] == "timeout" and w["retried"] is True
+    assert w["missing_files"] == ["zh/works/a.md"]
+    # diagnostics available despite failure
+    import json
+    parity = json.load(open(os.path.join(rd, "phase4", "parity_validation.json")))
+    assert parity["expected"] == ["zh/works/a.md"] and parity["missing"] == ["zh/works/a.md"]
+
+
+def test_phase4_success_without_files_is_hard_fail_and_not_retried(tmp_path, monkeypatch):
+    calls = {"n": 0}
+
+    def worker(agent, kind, prompt, cwd, mt, schema=None, model=None):
+        calls["n"] += 1
+        return {"ok": True, "structured_output": {}}        # claims success, writes nothing
+
+    ok, r, rd = _run_phase4(tmp_path, monkeypatch, worker)
+    assert ok is False
+    assert calls["n"] == 1, "produced_incomplete must NOT be retried"
+    w = _results(rd)[0]
+    assert w["worker_ok"] is True and w["success"] is False
+    assert w["error_category"] == "produced_incomplete" and w["retried"] is False
+
+
+def test_phase4_auth_missing_is_not_retried(tmp_path, monkeypatch):
+    calls = {"n": 0}
+
+    def worker(agent, kind, prompt, cwd, mt, schema=None, model=None):
+        calls["n"] += 1
+        return {"ok": False, "error": "CLAUDE_CODE_OAUTH_TOKEN not set"}
+
+    ok, r, rd = _run_phase4(tmp_path, monkeypatch, worker)
+    assert ok is False
+    assert calls["n"] == 1, "auth_missing is a config error, not transient -> no retry"
+    assert _results(rd)[0]["error_category"] == "auth_missing"
+
+
+def test_phase4_error_detail_is_scrubbed_of_secrets(tmp_path, monkeypatch):
+    def worker(agent, kind, prompt, cwd, mt, schema=None, model=None):
+        return {"ok": False, "error": "claude exit 1: Authorization: Bearer sk-secret-abc123 failed"}
+
+    ok, r, rd = _run_phase4(tmp_path, monkeypatch, worker)
+    detail = _results(rd)[0]["error_detail"]
+    assert "sk-secret-abc123" not in detail and "[redacted]" in detail
