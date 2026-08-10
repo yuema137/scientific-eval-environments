@@ -12,9 +12,24 @@ lookback_days: 3
 # Failed runs never advance the watermark, so the next run catches up automatically. If the backlog
 # exceeds max_catchup_days the run fails as needs_attention instead of deep-reviewing hundreds.
 watermark:
-  overlap_hours: 24        # re-cover 24h before the last success (indexing delays; dedup drops repeats)
+  overlap_hours: 72        # re-cover ~3 days before the last success. Different sources use different
+                           # "new-work" dates (arXiv submittedDate, OpenReview odate/first-public,
+                           # GitHub creation) and each lags differently, so a 3-day cadence searches
+                           # the last ~5-6 days. Dedup drops the repeats, so overlap is nearly free.
   max_catchup_days: 14     # beyond this backlog -> needs_attention (no silent truncation)
   min_interval_hours: 72   # scheduled runs proceed only every ~72h (true cadence, month-independent)
+
+# Semantic source-health: a source that returns ZERO results across many independent, all-succeeding
+# mandatory queries is a "zero storm" — the transport succeeded (HTTP 200) but coverage is not
+# credible (e.g. arXiv briefly serving empty Atom feeds). This is NOT the same as a source that
+# legitimately returns few/zero (OpenReview's relevance-ranked short window, GitHub's low volume),
+# so only listed sources are checked. On a storm: one bounded canary of representative queries; if it
+# recovers, the source is re-run once and the recovered result used; if it stays empty the source is
+# marked suspicious_empty and the run does NOT advance the trusted watermark. No magic result count is
+# hard-coded — the trigger is the structural symptom (many independent valid queries, zero total).
+source_health:
+  zero_storm_suspicious: [arxiv]   # sources where an all-zero result across many queries is anomalous
+  zero_storm_min_queries: 5        # need at least this many all-succeeding queries to call it a storm
 
 # Per-source result caps in PRODUCTION (full) mode. Keep broad but bounded.
 source_limits:

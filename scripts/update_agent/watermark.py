@@ -54,6 +54,14 @@ def is_due(now, wm_iso, min_interval_hours):
     return (_parse(now) - wm) >= dt.timedelta(hours=min_interval_hours)
 
 
+def should_advance(coverage):
+    """Trusted-watermark invariant: advance ONLY after a discovery run whose mandatory source
+    coverage is credible. A run with an unresolved suspicious_empty source (a zero-storm a canary
+    could not clear) must not advance the watermark past an interval it failed to ingest. Absent
+    flag -> credible (backward-compatible with pre-suspicious-empty coverage files)."""
+    return (coverage or {}).get("discovery_credible") is not False
+
+
 # ---- durable I/O ---------------------------------------------------------
 def read_watermark_iso():
     """Read the last-success timestamp from origin/auto/updater-state:watermark.json (or None)."""

@@ -394,3 +394,88 @@ def test_openreview_live_smoke():
     assert len(recent) > 0, "recent-window query returned nothing despite recent matches existing"
     assert all(r["date"][:10] >= since[:10] for r in recent if r["date"]), "cdate filter not honored"
     assert all(r["title"] for r in recent)
+
+
+# ------------------------------------------------------------ suspicious-empty / zero-storm
+class _ZeroSrc:
+    """Fake source: returns [] for the first `empty_calls` search_many calls, then non-empty."""
+    name = "arxiv"
+
+    def __init__(self, empty_calls):
+        self.calls = 0
+        self.empty_calls = empty_calls
+
+    def search_many(self, queries, since, limit):
+        self.calls += 1
+        if self.calls <= self.empty_calls:
+            return ([], 1)
+        return ([{"source": "arxiv", "id": "a-%d" % self.calls, "title": "t",
+                  "abstract_or_description": "", "authors": [], "date": ""}], 1)
+
+
+def _discover_with(monkeypatch, tmp_path, src, n_items):
+    doms = {"D%d" % i: "d%d" % i for i in range(n_items)}
+    monkeypatch.setattr(discover, "all_sources", lambda: {"arxiv": src})
+    monkeypatch.setattr(discover, "taxonomy",
+                        lambda *a, **k: {"domains": doms, "topics": {}, "activities": {}})
+    monkeypatch.setattr(discover, "search_profiles", lambda *a, **k:
+                        {"domains": {it: ["q_%s" % it] for it in doms},
+                         "topics": {}, "activities": {}, "global": []})
+    monkeypatch.setattr(discover, "_DELAY", {"arxiv": 0})
+    return discover.run("full", str(tmp_path / "rt"), since_iso="2026-08-07T00:00:00")
+
+
+def test_zero_storm_unresolved_is_suspicious_and_not_credible(tmp_path, monkeypatch):
+    cov = _discover_with(monkeypatch, tmp_path, _ZeroSrc(empty_calls=10 ** 6), n_items=6)
+    assert cov["sources"]["arxiv"] == "suspicious_empty"
+    assert cov["suspicious_empty"] == ["arxiv"]
+    assert cov["discovery_credible"] is False
+
+
+def test_zero_storm_canary_recovers_is_credible(tmp_path, monkeypatch):
+    # 6 empty item calls (the storm) -> canary (call 7) recovers -> source re-run yields hits
+    cov = _discover_with(monkeypatch, tmp_path, _ZeroSrc(empty_calls=6), n_items=6)
+    assert cov["discovery_credible"] is True
+    assert cov["suspicious_empty"] == []
+    assert cov["raw_by_source"].get("arxiv", 0) > 0
+
+
+def test_sparse_zero_below_threshold_is_not_flagged(tmp_path, monkeypatch):
+    # only 2 mandatory queries, both legitimately zero -> below min_queries=5 -> credible empty
+    cov = _discover_with(monkeypatch, tmp_path, _ZeroSrc(empty_calls=10 ** 6), n_items=2)
+    assert cov["discovery_credible"] is True and cov["suspicious_empty"] == []
+
+
+def test_watermark_should_advance_requires_credible_discovery():
+    assert watermark.should_advance({"discovery_credible": True}) is True
+    assert watermark.should_advance({"discovery_credible": False}) is False
+    assert watermark.should_advance({}) is True          # backward-compatible (flag absent)
+
+
+def test_validate_discovery_accepts_suspicious_empty(tmp_path):
+    # a suspicious_empty source does NOT fail discovery (run proceeds green); the watermark gate holds
+    run = tmp_path / "run" / "phase1"
+    run.mkdir(parents=True)
+    (run / "coverage.json").write_text(json.dumps(
+        {"sources": {"arxiv": "suspicious_empty", "openreview": "success", "github": "success"},
+         "axes": {"domains": {"Physics": {"status": "success"}}}}))
+    (run / "candidates.json").write_text(json.dumps([]))
+    ok, errs = validators.validate_discovery(str(tmp_path / "run"))
+    assert ok, errs
+
+
+def test_openreview_prefers_odate_over_cdate(monkeypatch):
+    import datetime as _dt
+    import sources
+    odate_ms = int(_dt.datetime(2026, 6, 1).timestamp() * 1000)   # first public: 2026
+    cdate_ms = int(_dt.datetime(2025, 1, 1).timestamp() * 1000)   # private creation: 2025
+
+    class _Resp:
+        def json(self):
+            return {"notes": [{"id": "x", "cdate": cdate_ms, "odate": odate_ms,
+                    "content": {"title": {"value": "T"}, "abstract": {"value": "a"},
+                                "authors": {"value": ["A"]}}}]}
+
+    monkeypatch.setattr(sources, "http_get", lambda *a, **k: _Resp())
+    recs = sources.OpenReviewSource().search("q", "2000-01-01T00:00:00", 10)
+    assert recs and recs[0]["date"].startswith("2026"), recs[0]["date"]

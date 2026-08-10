@@ -134,8 +134,13 @@ def cmd_discover(a):
         "Sources: %s" % "  ".join(
             "%s=%s%s" % (s, cov.get("sources", {}).get(s, "?"),
                          (" (%s)" % cov.get("source_status_detail", {}).get(s, ""))
-                         if cov.get("sources", {}).get(s) == "degraded_success" else "")
+                         if cov.get("sources", {}).get(s) in ("degraded_success", "suspicious_empty")
+                         else "")
             for s in ("arxiv", "openreview", "github")),
+        "Discovery credible: %s%s" % (
+            cov.get("discovery_credible", True),
+            "" if cov.get("discovery_credible", True)
+            else " — suspicious_empty: %s (watermark will NOT advance)" % ",".join(cov.get("suspicious_empty", []))),
         "",
         "Timing:",
         "  arXiv     %5ss (%s req, %s raw)" % (tm.get("arxiv", {}).get("wall_s", "?"),
@@ -155,6 +160,14 @@ def cmd_advance_watermark(a):
     success — a legitimate PR or a successful no-op). Failed runs never reach here."""
     cov = read_json(os.path.join(RUN_DIR, "phase1", "coverage.json")) \
         if os.path.exists(os.path.join(RUN_DIR, "phase1", "coverage.json")) else {}
+    # Credibility invariant: the trusted watermark advances ONLY after a discovery run whose mandatory
+    # source coverage is credible. An operationally-green run with an unresolved suspicious_empty source
+    # must NOT advance the watermark — otherwise a silent source outage would permanently skip the
+    # interval it failed to ingest. (Absent key -> treat as credible, for backward compatibility.)
+    if not watermark.should_advance(cov):
+        print("watermark NOT advanced: discovery not credible (suspicious_empty: %s)"
+              % ",".join(cov.get("suspicious_empty", []) or ["?"]))
+        return
     ts = (cov.get("search_window") or {}).get("end") or cov.get("started_at") or watermark.now_iso()
     subprocess.run(["bash", os.path.join(CWD, "scripts", "update_agent", "advance_watermark.sh"), ts],
                    check=False)

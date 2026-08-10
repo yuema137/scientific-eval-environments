@@ -126,7 +126,23 @@ def _search_source(sname, src, axes_items, global_qs, prof, since, limit, delay,
         "global": {"queries_attempted": gatt, "status": "success" if gok else "failed"},
         "status": status, "status_detail": detail,
         "requests": requests, "wall_s": round(time.monotonic() - t0, 1),
+        "item_total": item_total, "item_failures": item_failures,
     }
+
+
+def _canary_queries(prof, axes_items, allowed_axes, k=3):
+    """A few representative mandatory queries, used to health-check a zero-storm source."""
+    qs = []
+    for axis, items in axes_items.items():
+        if allowed_axes is not None and axis not in allowed_axes:
+            continue
+        for item in items:
+            pql = _profile_queries(prof, axis, item)
+            if pql:
+                qs.append(pql[0])
+            if len(qs) >= k:
+                return qs
+    return qs or ["agent benchmark"]
 
 
 def run(mode, run_dir, now_iso=None, since_iso=None):
@@ -161,13 +177,55 @@ def run(mode, run_dir, now_iso=None, since_iso=None):
         return lambda: _search_source(sname, src, axes_items, global_qs, prof, since, limit,
                                       delay, allowed, cap, now_iso)
 
+    thunks = {n: make(n, s) for n, s in sources.items()}
+    order = list(thunks)
     t0 = time.monotonic()
     with ThreadPoolExecutor(max_workers=len(sources)) as ex:
-        results = list(ex.map(lambda f: f(), [make(n, s) for n, s in sources.items()]))
+        results = dict(zip(order, ex.map(lambda n: thunks[n](), order)))
     discovery_wall = round(time.monotonic() - t0, 1)
 
+    # Semantic-health check: a "zero storm" (many independent, all-succeeding mandatory queries but
+    # zero total results) on a source where zero is anomalous is NOT a credible empty window. One
+    # bounded canary; if it recovers, re-run the source once; if it stays empty, mark suspicious_empty
+    # so the watermark is not advanced past a silent outage. Only listed sources are checked (a source
+    # that legitimately returns few/zero is never flagged). Skipped in smoke mode.
+    sh = {} if smoke else cfg.get("source_health", {})
+    suspicious_cfg = set(sh.get("zero_storm_suspicious", []))
+    min_q = sh.get("zero_storm_min_queries", 5)
+    coverage["suspicious_empty"] = []
+    for sname in order:
+        res = results[sname]
+        if sname not in suspicious_cfg:
+            continue
+        zero_storm = (len(res["records"]) == 0 and res.get("item_failures", 0) == 0
+                      and res.get("item_total", 0) >= min_q)
+        if not zero_storm:
+            continue
+        log("  ! %s zero-storm: %d successful queries returned 0 raw -> canary health check"
+            % (sname, res.get("item_total", 0)))
+        canary_hits = 0
+        try:
+            recs, _ = sources[sname].search_many(
+                _canary_queries(prof, axes_items, cfg.get("source_axes", {}).get(sname)),
+                since, cfg["source_limits"][sname])
+            canary_hits = len(recs)
+        except Exception as e:  # noqa: BLE001 - canary is best-effort
+            log("  ! %s canary failed: %s" % (sname, e))
+        if canary_hits > 0:
+            log("  %s canary recovered (%d hits) -> re-running source once" % (sname, canary_hits))
+            res = thunks[sname]()                     # bounded single full re-run
+            res["recovered_from_zero_storm"] = True
+            results[sname] = res
+        if len(res["records"]) == 0:                  # still empty -> not credible
+            res["status"] = "suspicious_empty"
+            res["status_detail"] = ("zero-storm unresolved: %d successful queries returned 0 raw "
+                                    "(canary=%d)" % (res.get("item_total", 0), canary_hits))
+            coverage["suspicious_empty"].append(sname)
+
+    coverage["discovery_credible"] = not coverage["suspicious_empty"]
+
     raw = {}
-    for res in results:
+    for res in results.values():
         sname = res["source"]
         for r in res["records"]:
             raw[(sname, r["id"])] = r

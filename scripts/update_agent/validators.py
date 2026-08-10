@@ -36,7 +36,10 @@ def validate_discovery(run_dir, mandatory=("arxiv", "openreview", "github")):
     # A source may be `degraded_success` (reachable, mandatory coverage complete, only a supplemental
     # query — e.g. the broad global catch-all — failed transiently). That does not block discovery.
     # Only a real `failure` (source broadly unavailable / substantial mandatory failures) does.
-    ok_source = ("success", "degraded_success")
+    # `suspicious_empty` (a zero-storm that a canary could not resolve) does NOT fail discovery — the
+    # run proceeds as an operationally-green (usually empty) no-op. Credibility is enforced separately:
+    # coverage["discovery_credible"] is false, so the watermark is not advanced past the silent outage.
+    ok_source = ("success", "degraded_success", "suspicious_empty")
     for s in mandatory:
         st = cov.get("sources", {}).get(s)
         if st not in ok_source:

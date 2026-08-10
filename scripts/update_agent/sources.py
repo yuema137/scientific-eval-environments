@@ -134,8 +134,12 @@ class OpenReviewSource(Source):
             def _v(k):
                 v = c.get(k)
                 return v.get("value") if isinstance(v, dict) else v
-            cdate = n.get("cdate") or n.get("tcdate")
-            d = dt.datetime.utcfromtimestamp(cdate / 1000.0) if cdate else None
+            # `odate` = when the note FIRST became public — the correct new-work signal, since a
+            # submission can be created privately months before it is made visible (a paper made
+            # public in Aug must be discoverable in Aug, not by its private-creation cdate). Fall
+            # back to creation date only when odate is absent.
+            pubdate = n.get("odate") or n.get("cdate") or n.get("tcdate")
+            d = dt.datetime.utcfromtimestamp(pubdate / 1000.0) if pubdate else None
             if since and d and d < (since.replace(tzinfo=None) if since.tzinfo else since):
                 continue
             nid = n.get("id", "")
