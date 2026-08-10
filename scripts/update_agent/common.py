@@ -78,21 +78,26 @@ def http_get(url, params=None, headers=None, timeout=None, attempts=None, backof
     h = {"User-Agent": cfg["http"]["user_agent"]}
     if headers:
         h.update(headers)
+    backoff_cap = 30           # never sleep longer than this on a single retry (avoid storms)
     last = None
     for i in range(attempts):
+        wait = min(backoff * (2 ** i), backoff_cap)
         try:
             r = requests.get(url, params=params, headers=h, timeout=timeout)
             if r.status_code == 200:
                 return r
-            if r.status_code in (429, 500, 502, 503, 504):
+            if r.status_code in (403, 429, 500, 502, 503, 504):   # incl. 403 = secondary rate limit
                 last = "HTTP %d" % r.status_code
+                ra = r.headers.get("Retry-After")
+                if ra and ra.isdigit():
+                    wait = min(int(ra), backoff_cap)
             else:
                 r.raise_for_status()
                 return r
         except Exception as e:  # noqa: BLE001 - transient network error
             last = str(e)
         if i < attempts - 1:
-            time.sleep(backoff * (2 ** i))
+            time.sleep(wait)
     raise RuntimeError("http_get failed for %s after %d attempts: %s" % (url, attempts, last))
 
 

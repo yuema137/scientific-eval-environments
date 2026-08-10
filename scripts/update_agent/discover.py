@@ -11,8 +11,9 @@ import time
 from common import config, taxonomy, search_profiles, write_json, log
 from sources import all_sources
 
-# polite inter-request delays (seconds) per source in full mode
-_DELAY = {"arxiv": 3.0, "github": 2.0, "openreview": 1.0}
+# polite inter-request delays (seconds) per source in full mode. GitHub search is capped at
+# 30 req/min, so 3.0s keeps it at ~20/min, safely under the limit.
+_DELAY = {"arxiv": 3.0, "github": 3.0, "openreview": 1.0}
 
 
 def _since_iso(days):
@@ -83,13 +84,22 @@ def run(mode, run_dir, now_iso=None, since_iso=None):
         delay = 0.0 if smoke else _DELAY.get(sname, 1.0)
         item_failures = 0
         item_total = 0
+        # per-source axis scope: a source may search only a subset of axes (e.g. GitHub = domains
+        # only) to bound query count / rate-limit exposure. Global queries always run for every source.
+        allowed_axes = cfg.get("source_axes", {}).get(sname)
+        per_item_cap = cfg.get("github_queries_per_item") if sname == "github" else None
         # axis items
         for axis, items in axes_items.items():
+            if allowed_axes is not None and axis not in allowed_axes:
+                continue
             for item in items:
                 item_total += 1
                 attempted = 0
                 ok = False
-                for q in _profile_queries(prof, axis, item):
+                queries = _profile_queries(prof, axis, item)
+                if per_item_cap:
+                    queries = queries[:per_item_cap]
+                for q in queries:
                     res = do_search(src, q, "%s: %s" % (axis[:-1].capitalize(), item), limit)
                     attempted += 1
                     if res is not None:

@@ -22,6 +22,14 @@ source_limits:
   openreview: 40     # max notes per OpenReview query
   github: 30         # max repos per GitHub query
 
+# Per-source query-matrix scope. GitHub is the low-precision, noisy, and rate-limited source
+# (search is capped at 30 requests/min), so it runs ONLY the broad global + domain queries — not
+# the full topic/activity matrix — and at most one query per item. This bounds its query count
+# (~27 instead of ~156), avoiding secondary rate-limit storms, while arXiv/OpenReview stay broad.
+source_axes:
+  github: [domains]           # + global (always). Skips topics/activities for GitHub.
+github_queries_per_item: 1
+
 # Discovery-smoke mode: heavily bounded, one representative axis item per kind.
 smoke:
   lookback_days: 30
