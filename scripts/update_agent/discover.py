@@ -1,18 +1,21 @@
 """Phase 1 — large-scale discovery (recall-oriented, metadata only).
 
-Runs the source x axis-profile query matrix, records a coverage manifest proving the
-search space was attempted, and emits deduplicated raw hits. Deep validation and
-candidate filtering happen later (deduplicate.py -> Phase 2).
+The three public sources are searched CONCURRENTLY (one deterministic worker thread per source),
+each preserving its own request spacing / rate limit. Within a source, synonym queries for one
+taxonomy item are consolidated into a single request (search_many). Total discovery wall time is
+therefore ~max(arXiv, OpenReview, GitHub), not their sum. This is deterministic API work — no
+Claude here (relevance scoring happens after, in run_phase). Per-stage timing is recorded.
 """
 import argparse
 import datetime as dt
 import time
+from concurrent.futures import ThreadPoolExecutor
 
 from common import config, taxonomy, search_profiles, write_json, log
 from sources import all_sources
 
-# polite inter-request delays (seconds) per source in full mode. GitHub search is capped at
-# 30 req/min, so 3.0s keeps it at ~20/min, safely under the limit.
+# polite inter-request delays (seconds) per source. Each source runs in its OWN thread, so these
+# only rate-limit that one source; the three sources still overlap in wall time.
 _DELAY = {"arxiv": 3.0, "github": 3.0, "openreview": 1.0}
 
 
@@ -22,8 +25,71 @@ def _since_iso(days):
 
 def _profile_queries(prof, axis, item):
     qs = (prof.get(axis) or {}).get(item)
-    # every taxonomy item is guaranteed coverage: explicit profile, else a derived query
     return list(qs) if qs else ["%s LLM agent benchmark" % item]
+
+
+def _search_source(sname, src, axes_items, global_qs, prof, since, limit, delay,
+                   allowed_axes, per_item_cap, now_iso):
+    """Deterministic per-source worker (runs in its own thread). Returns records + coverage + timing."""
+    t0 = time.monotonic()
+    records = {}
+    cov_axes = {axis: {} for axis in axes_items}
+    item_failures = item_total = requests = 0
+
+    def add(recs, tag):
+        for r in recs:
+            k = r["id"]
+            if k not in records:
+                r = dict(r)
+                r["matched_profiles"] = []
+                r["discovered_at"] = now_iso
+                records[k] = r
+            if tag not in records[k]["matched_profiles"]:
+                records[k]["matched_profiles"].append(tag)
+
+    for axis, items in axes_items.items():
+        if allowed_axes is not None and axis not in allowed_axes:
+            continue
+        for item in items:
+            item_total += 1
+            qs = _profile_queries(prof, axis, item)
+            if per_item_cap:
+                qs = qs[:per_item_cap]
+            ok = False
+            try:
+                recs, n = src.search_many(qs, since, limit)
+                requests += n
+                add(recs, "%s: %s" % (axis[:-1].capitalize(), item))
+                ok = True
+            except Exception as e:  # operational failure for this item
+                log("  ! %s (%s: %s) failed: %s" % (sname, axis, item, e))
+            cov_axes[axis][item] = {"queries_attempted": len(qs), "status": "success" if ok else "failed"}
+            if not ok:
+                item_failures += 1
+            if delay:
+                time.sleep(delay)
+
+    gok = False
+    gatt = 0
+    if global_qs:
+        try:
+            recs, n = src.search_many(global_qs, since, limit)
+            requests += n
+            add(recs, "Global")
+            gok = True
+            gatt = 1
+        except Exception as e:
+            log("  ! %s (global) failed: %s" % (sname, e))
+        if delay:
+            time.sleep(delay)
+
+    frac_fail = (item_failures / item_total) if item_total else (0.0 if gok else 1.0)
+    status = "success" if (frac_fail < 0.5 and (gok or not global_qs)) else "failure"
+    return {
+        "source": sname, "records": list(records.values()), "cov_axes": cov_axes,
+        "global": {"queries_attempted": gatt, "status": "success" if gok else "failed"},
+        "status": status, "requests": requests, "wall_s": round(time.monotonic() - t0, 1),
+    }
 
 
 def run(mode, run_dir, now_iso=None, since_iso=None):
@@ -34,11 +100,9 @@ def run(mode, run_dir, now_iso=None, since_iso=None):
 
     smoke = mode == "discovery-smoke"
     lookback = cfg["smoke"]["lookback_days"] if smoke else cfg["lookback_days"]
-    # production runs pass the watermark-derived window via since_iso; smoke uses its own lookback
     since = since_iso if (since_iso and not smoke) else _since_iso(lookback)
     now_iso = now_iso or dt.datetime.utcnow().replace(microsecond=0).isoformat()
 
-    # which axis items to cover
     axes_items = {}
     for axis in ("domains", "topics", "activities"):
         items = list(tax.get(axis, {}).keys())
@@ -46,99 +110,52 @@ def run(mode, run_dir, now_iso=None, since_iso=None):
             sample = set(cfg["smoke"].get("sample_%s" % axis, []))
             items = [i for i in items if i in sample]
         axes_items[axis] = items
+    global_qs = (prof.get("global") or [])[:2] if smoke else (prof.get("global") or [])
 
-    global_qs = (prof.get("global") or [])
-    if smoke:
-        global_qs = global_qs[:2]     # keep the smoke tiny
-    coverage = {
-        "run_id": run_dir.rstrip("/").split("/")[-1],
-        "mode": mode,
-        "started_at": now_iso,
-        "lookback_days": lookback,
-        "sources": {},
-        "axes": {a: {} for a in axes_items},
-        "global": {},
-    }
-    raw = {}          # key (source,id) -> record (+ matched_profiles)
-    source_ok = {n: True for n in sources}
+    coverage = {"run_id": run_dir.rstrip("/").split("/")[-1], "mode": mode, "started_at": now_iso,
+                "lookback_days": lookback, "sources": {}, "axes": {a: {} for a in axes_items},
+                "global_by_source": {}, "timing": {}}
 
-    def do_search(src, query, tag, limit):
-        try:
-            recs = src.search(query, since, limit)
-        except Exception as e:  # operational failure
-            log("  ! %s query failed (%s): %s" % (src.name, tag, e))
-            return None
-        for r in recs:
-            key = (r["source"], r["id"])
-            if key not in raw:
-                r = dict(r)
-                r["matched_profiles"] = []
-                r["discovered_at"] = now_iso
-                raw[key] = r
-            if tag not in raw[key]["matched_profiles"]:
-                raw[key]["matched_profiles"].append(tag)
-        return len(recs)
-
-    for sname, src in sources.items():
-        limit = cfg["smoke"]["per_source_limit"] if smoke else cfg["source_limits"][sname]
+    def make(sname, src):
         delay = 0.0 if smoke else _DELAY.get(sname, 1.0)
-        item_failures = 0
-        item_total = 0
-        # per-source axis scope: a source may search only a subset of axes (e.g. GitHub = domains
-        # only) to bound query count / rate-limit exposure. Global queries always run for every source.
-        allowed_axes = cfg.get("source_axes", {}).get(sname)
-        per_item_cap = cfg.get("github_queries_per_item") if sname == "github" else None
-        # axis items
-        for axis, items in axes_items.items():
-            if allowed_axes is not None and axis not in allowed_axes:
-                continue
-            for item in items:
-                item_total += 1
-                attempted = 0
-                ok = False
-                queries = _profile_queries(prof, axis, item)
-                if per_item_cap:
-                    queries = queries[:per_item_cap]
-                for q in queries:
-                    res = do_search(src, q, "%s: %s" % (axis[:-1].capitalize(), item), limit)
-                    attempted += 1
-                    if res is not None:
-                        ok = True
-                    if delay:
-                        time.sleep(delay)
-                coverage["axes"][axis][item] = {"queries_attempted": attempted,
-                                                "status": "success" if ok else "failed"}
-                if not ok:
-                    item_failures += 1
-        # global queries
-        gattempted = 0
-        gok = False
-        for q in global_qs:
-            res = do_search(src, q, "Global", limit)
-            gattempted += 1
-            if res is not None:
-                gok = True
-            if delay:
-                time.sleep(delay)
-        coverage.setdefault("global_by_source", {})[sname] = {
-            "queries_attempted": gattempted, "status": "success" if gok else "failed"}
-        # source status: fail if it could not complete a substantial portion
-        frac_fail = (item_failures / item_total) if item_total else (0.0 if gok else 1.0)
-        source_ok[sname] = frac_fail < 0.5 and (gok or not global_qs)
-        coverage["sources"][sname] = "success" if source_ok[sname] else "failure"
-        log("  %s: %s (%d items, %d failed, %d raw so far)"
-            % (sname, coverage["sources"][sname], item_total, item_failures, len(raw)))
+        limit = cfg["smoke"]["per_source_limit"] if smoke else cfg["source_limits"][sname]
+        allowed = cfg.get("source_axes", {}).get(sname)
+        cap = cfg.get("github_queries_per_item") if sname == "github" else None
+        return lambda: _search_source(sname, src, axes_items, global_qs, prof, since, limit,
+                                      delay, allowed, cap, now_iso)
+
+    t0 = time.monotonic()
+    with ThreadPoolExecutor(max_workers=len(sources)) as ex:
+        results = list(ex.map(lambda f: f(), [make(n, s) for n, s in sources.items()]))
+    discovery_wall = round(time.monotonic() - t0, 1)
+
+    raw = {}
+    for res in results:
+        sname = res["source"]
+        for r in res["records"]:
+            raw[(sname, r["id"])] = r
+        for axis, items in res["cov_axes"].items():
+            for item, st in items.items():
+                cur = coverage["axes"][axis].get(item)
+                if cur is None or st["status"] == "success":   # any source covering the item counts
+                    coverage["axes"][axis][item] = st
+        coverage["sources"][sname] = res["status"]
+        coverage["global_by_source"][sname] = res["global"]
+        coverage["timing"][sname] = {"wall_s": res["wall_s"], "requests": res["requests"],
+                                     "raw_hits": len(res["records"])}
+        log("  %s: %s (%d requests, %ds, %d raw)"
+            % (sname, res["status"], res["requests"], res["wall_s"], len(res["records"])))
 
     coverage["global"] = {"queries": global_qs,
-                          "status": "success" if all(
-                              coverage["global_by_source"][s]["status"] == "success"
-                              for s in sources) else "partial"}
-    coverage["raw_hit_count"] = len(raw)
+                          "status": "success" if all(coverage["global_by_source"][s]["status"] == "success"
+                                                     for s in sources) else "partial"}
     rbs = {}
     for r in raw.values():
         rbs[r["source"]] = rbs.get(r["source"], 0) + 1
     coverage["raw_by_source"] = rbs
+    coverage["raw_hit_count"] = len(raw)
     coverage["search_window"] = {"start": since, "end": now_iso}
+    coverage["timing"]["discovery_wall_s"] = discovery_wall
     coverage["finished_at"] = dt.datetime.utcnow().replace(microsecond=0).isoformat()
 
     write_json("%s/phase1/coverage.json" % run_dir, coverage)
@@ -152,4 +169,5 @@ if __name__ == "__main__":
     ap.add_argument("--run-dir", required=True)
     a = ap.parse_args()
     cov = run(a.mode, a.run_dir)
-    log("discovery: sources=%s raw=%d" % (cov["sources"], cov["raw_hit_count"]))
+    log("discovery: sources=%s raw=%d wall=%ss"
+        % (cov["sources"], cov["raw_hit_count"], cov["timing"]["discovery_wall_s"]))

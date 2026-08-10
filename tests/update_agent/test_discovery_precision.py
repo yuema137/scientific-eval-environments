@@ -211,3 +211,54 @@ def test_admit_excludes_github_only_uncertain():
     ids = {c["candidate_id"] for c in admitted}
     assert "g1" not in ids and "p1" in ids and "pg" in ids
     assert rep["uncertain_github_only_excluded"] == 1
+
+
+# ------------------------------------------------------------ discovery performance/concurrency
+def test_arxiv_search_many_consolidates_to_one_or_query(monkeypatch):
+    import sources
+    captured = {}
+    src = sources.ArxivSource()
+    monkeypatch.setattr(src, "_fetch", lambda sq, since, limit: captured.setdefault("q", sq) or [])
+    recs, reqs = src.search_many(["LLM agent physics", "scientific agent physics"], "2026-01-01", 60)
+    assert reqs == 1
+    assert captured["q"] == "all:LLM agent physics OR all:scientific agent physics"
+
+
+def test_openreview_search_many_single_request(monkeypatch):
+    import sources
+    calls = {"n": 0}
+    src = sources.OpenReviewSource()
+    monkeypatch.setattr(src, "search", lambda q, since, limit: calls.__setitem__("n", calls["n"] + 1) or [])
+    recs, reqs = src.search_many(["a", "b", "c"], "2026-01-01", 40)
+    assert reqs == 1 and calls["n"] == 1
+
+
+def test_sources_run_concurrently(monkeypatch):
+    import time as _t
+    import discover
+
+    class _Fake:
+        def __init__(self, name):
+            self.name = name
+
+        def search_many(self, queries, since, limit):
+            _t.sleep(0.4)
+            return ([{"source": self.name, "id": self.name + "-1", "title": "t",
+                      "abstract_or_description": "", "authors": [], "date": ""}], 1)
+
+    monkeypatch.setattr(discover, "all_sources",
+                        lambda: {n: _Fake(n) for n in ("arxiv", "openreview", "github")})
+    monkeypatch.setattr(discover, "taxonomy", lambda *a, **k: {"domains": {"Physics": "physics"},
+                                                               "topics": {}, "activities": {}})
+    monkeypatch.setattr(discover, "search_profiles", lambda *a, **k:
+                        {"domains": {"Physics": ["q1"]}, "topics": {}, "activities": {}, "global": []})
+    monkeypatch.setattr(discover, "_DELAY", {"arxiv": 0, "openreview": 0, "github": 0})
+    import tempfile
+    rd = tempfile.mkdtemp()
+    t0 = _t.monotonic()
+    cov = discover.run("full", rd, since_iso="2026-01-01T00:00:00")
+    wall = _t.monotonic() - t0
+    # three 0.4s sources in parallel finish in < 0.9s (serial would be ~1.2s)
+    assert wall < 0.9, wall
+    assert set(cov["sources"]) == {"arxiv", "openreview", "github"}
+    assert cov["timing"]["discovery_wall_s"] < 0.9

@@ -57,7 +57,8 @@ def score(candidates, cfg=None, batch_size=None, max_workers=None):
         prompt = ("Triage these candidates (metadata only). Return the strict JSON object with one "
                   "result per candidate_id.\nCANDIDATES:\n" + payload)
         return lambda: (batch, run_worker("relevance-scorer", "score", prompt, ".",
-                                          cfg["claude"].get("scorer_max_turns", 6), schema=SCHEMA))
+                                          cfg["claude"].get("scorer_max_turns", 6), schema=SCHEMA,
+                                          model=cfg["claude"].get("relevance_model")))
 
     results = parallel([make(b) for b in batches], max_workers)
     out = {}

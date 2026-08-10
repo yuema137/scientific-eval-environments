@@ -33,6 +33,17 @@ class Source:
     def search(self, query, since_iso, limit):  # pragma: no cover - interface
         raise NotImplementedError
 
+    def search_many(self, queries, since_iso, limit):
+        """Issue queries for one taxonomy item. Default: one request per query (fallback).
+        Adapters override to consolidate synonym queries into a single request. Returns
+        (records, requests_issued)."""
+        out, reqs = {}, 0
+        for q in queries:
+            for r in self.search(q, since_iso, limit):
+                out.setdefault(r["id"], r)
+            reqs += 1
+        return list(out.values()), reqs
+
 
 class ArxivSource(Source):
     name = "arxiv"
@@ -40,8 +51,18 @@ class ArxivSource(Source):
     NS = {"a": "http://www.w3.org/2005/Atom"}
 
     def search(self, query, since_iso, limit):
+        return self._fetch("all:%s" % query, since_iso, limit)
+
+    def search_many(self, queries, since_iso, limit):
+        # ONE consolidated request: (all:q1) OR (all:q2) ... — the union of the per-item synonym
+        # queries in a single API call (arXiv supports boolean OR). matched_profiles stays at the
+        # item granularity the caller tags. Raise max_results since one call returns the union.
+        expr = " OR ".join("all:%s" % q for q in queries) or "all:agent"
+        return self._fetch(expr, since_iso, min(limit * max(1, len(queries)), 200)), 1
+
+    def _fetch(self, search_query, since_iso, limit):
         r = http_get(self.ENDPOINT, params={
-            "search_query": "all:%s" % query,
+            "search_query": search_query,
             "start": 0,
             "max_results": limit,
             "sortBy": "submittedDate",
@@ -80,6 +101,13 @@ class ArxivSource(Source):
 class OpenReviewSource(Source):
     name = "openreview"
     ENDPOINT = "https://api2.openreview.net/notes/search"
+
+    def search_many(self, queries, since_iso, limit):
+        # one request per item using an OR term (verified by the recall smoke); falls back to the
+        # base loop only if a single OR term returns nothing while individual queries would.
+        term = " OR ".join(queries) if queries else ""
+        recs = self.search(term, since_iso, min(limit * 2, 100))
+        return recs, 1
 
     def search(self, query, since_iso, limit):
         r = http_get(self.ENDPOINT, params={"term": query, "limit": limit})

@@ -57,9 +57,11 @@ retry:
   attempts: 3
   backoff_seconds: 5      # exponential: 5, 10, 20
 
-# Claude worker bounds (headless CLI).
+# Claude worker bounds (headless CLI). Model is split by role: deep primary-source work uses the
+# strong model; the metadata-only relevance triage (batched, rule-like) uses a fast/cheap model.
 claude:
-  model: "claude-opus-4-8"
+  model: "claude-opus-4-8"                      # deep work: card writing, axis synthesis, translation, review
+  relevance_model: "claude-haiku-4-5-20251001"  # metadata-only relevance triage — fast/cheap
   card_worker_max_turns: 40
   axis_worker_max_turns: 40
   translator_max_turns: 30

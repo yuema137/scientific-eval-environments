@@ -9,6 +9,7 @@ import json
 import os
 import subprocess
 import sys
+import time
 
 CWD = os.path.abspath(".")
 sys.path.insert(0, os.path.join(CWD, "scripts", "update_agent"))
@@ -85,24 +86,31 @@ def cmd_discover(a):
         since_override = win["start_iso"]
         log("discovery window %s -> %s (basis=%s)" % (since_override, now_iso, win["basis"]))
     cov = discovery.run(a.mode, RUN_DIR, now_iso=now_iso, since_iso=since_override)
+    tm = dict(cov.get("timing", {}))
     # 1) deterministic source-aware prefilter
+    _t = time.monotonic()
     raw = read_json(os.path.join(RUN_DIR, "phase1", "raw_hits.json"))
     kept, pre_rej = prefilter.run(raw)
     write_json(os.path.join(RUN_DIR, "phase1", "raw_prefiltered.json"), kept)
     write_json(os.path.join(RUN_DIR, "phase1", "prefilter_rejected.json"), pre_rej)
+    tm["prefilter_s"] = round(time.monotonic() - _t, 2)
     # 2) cross-source merge + existing/pending dedup (on the prefiltered set)
+    _t = time.monotonic()
     pending = _pending_index(cfg["pr"]["rolling_branch"])
     deduplicate.run(RUN_DIR, pending, CWD,
                     raw_path=os.path.join(RUN_DIR, "phase1", "raw_prefiltered.json"))
     merged = read_json(os.path.join(RUN_DIR, "phase1", "candidates.json"))
     write_json(os.path.join(RUN_DIR, "phase1", "merged_candidates.json"), merged)
     cross_merged = sum(1 for c in merged if len({r["source"] for r in c["source_records"]}) > 1)
+    tm["merge_dedup_s"] = round(time.monotonic() - _t, 2)
     # 3) metadata relevance scoring + ranked admission (triage, not truncation)
+    _t = time.monotonic()
     cap = cfg["limits"]["max_deep_review_candidates"]
     decisions = relevance.score(merged, cfg)
     admitted, rep = relevance.admit(merged, decisions, cap)
+    tm["relevance_s"] = round(time.monotonic() - _t, 2)
     write_json(os.path.join(RUN_DIR, "phase1", "relevance.json"),
-               {"report": rep, "decisions": decisions})
+               {"report": rep, "decisions": decisions, "timing": tm})
     write_json(os.path.join(RUN_DIR, "phase1", "candidates.json"), admitted)  # admitted = deep-review queue
     ok, errs = validators.validate_discovery(RUN_DIR)
     n = len(admitted)
@@ -122,7 +130,18 @@ def cmd_discover(a):
         "Relevance: deep_review=%d, uncertain=%d (admitted %d, github-only excluded %d), rejected=%d"
         % (rep["deep_review"], rep["uncertain_total"], rep["uncertain_admitted"],
            rep.get("uncertain_github_only_excluded", 0), rep["rejected_low_relevance"]),
-        "Sent to Phase 2 (deep-review admitted): %d (cap %d, overflow=%s)" % (n, cap, rep["overflow"])])
+        "Sent to Phase 2 (deep-review admitted): %d (cap %d, overflow=%s)" % (n, cap, rep["overflow"]),
+        "",
+        "Timing:",
+        "  arXiv     %5ss (%s req, %s raw)" % (tm.get("arxiv", {}).get("wall_s", "?"),
+            tm.get("arxiv", {}).get("requests", "?"), tm.get("arxiv", {}).get("raw_hits", "?")),
+        "  OpenReview%5ss (%s req, %s raw)" % (tm.get("openreview", {}).get("wall_s", "?"),
+            tm.get("openreview", {}).get("requests", "?"), tm.get("openreview", {}).get("raw_hits", "?")),
+        "  GitHub    %5ss (%s req, %s raw)" % (tm.get("github", {}).get("wall_s", "?"),
+            tm.get("github", {}).get("requests", "?"), tm.get("github", {}).get("raw_hits", "?")),
+        "  (sources run concurrently -> retrieval wall = %ss)" % tm.get("discovery_wall_s", "?"),
+        "  prefilter %ss | merge+dedup %ss | relevance %ss"
+        % (tm.get("prefilter_s", "?"), tm.get("merge_dedup_s", "?"), tm.get("relevance_s", "?"))])
     sys.exit(0 if ok else 1)
 
 
