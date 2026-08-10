@@ -36,17 +36,21 @@ def _set_block(text, heading, body):
 
 
 def _ensure_related(page_path, slug, title):
-    """Idempotently ensure `- [title](../works/slug.md)` appears once in the page's Related Works."""
+    """Idempotently ensure `- [title](../works/slug.md)` appears once in the page's Related Works
+    SECTION. The presence check is scoped to that section — a comparison-table Card link elsewhere
+    on the page must NOT suppress the Related Works entry (that mismatch fails the axis gate)."""
     if not os.path.exists(page_path):
         return
     t = open(page_path).read()
-    if re.search(r"\]\(\.\./works/%s\.md\)" % re.escape(slug), t):
-        return  # already listed
-    line = "- [%s](../works/%s.md)" % (title, slug)
-    if re.search(r"^##\s+Related Works\s*$", t, re.M):
-        t = re.sub(r"(^##\s+Related Works\s*\n)", r"\1" + line + "\n", t, count=1, flags=re.M)
+    line = "- [%s](../works/%s.md)\n" % (title, slug)
+    link_re = r"\]\(\.\./works/%s\.md\)" % re.escape(slug)
+    m = re.search(r"(^##\s+Related Works\s*\n)(.*?)(?=^##\s|\Z)", t, re.S | re.M)
+    if m:
+        if re.search(link_re, m.group(2)):
+            return  # already listed IN the Related Works section
+        t = t[:m.start(2)] + line + m.group(2) + t[m.end(2):]
     else:
-        t = t.rstrip() + "\n\n## Related Works\n\n" + line + "\n"
+        t = t.rstrip() + "\n\n## Related Works\n\n" + line
     open(page_path, "w").write(t)
 
 

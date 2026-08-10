@@ -218,3 +218,33 @@ def test_integrator_builds_consistent_two_way_index_from_json(tmp_path):
     assert "../activities/simulation_scientific_computing.md" in card
     ok, errs = validators.validate_axes(root)
     assert ok, errs
+
+
+def test_integrator_adds_related_works_even_when_table_links_the_card(tmp_path):
+    """Reproduces the Phase-3 gate failure: a page whose Comparison table already links
+    ../works/slug.md must still get the slug added to its Related Works section."""
+    import json
+    import integrate_english
+    import validators
+    from conftest import build_mini_repo
+    root = build_mini_repo(str(tmp_path), [
+        {"slug": "crest", "title": "CREST"}, {"slug": "other", "title": "Other"}])
+    p = os.path.join(root, "works", "crest.md")
+    t = open(p).read()
+    t = re.sub(r"(## Topics\n).*?(\n## )", r"\1TODO(axis)\2", t, flags=re.S)
+    t = re.sub(r"(## Activities\n).*?(\n## )", r"\1TODO(axis)\2", t, flags=re.S)
+    open(p, "w").write(t)
+    # topic page: has a Comparison table row linking the card, but EMPTY Related Works
+    os.makedirs(os.path.join(root, "topics"), exist_ok=True)
+    open(os.path.join(root, "topics", "long_horizon_evaluation.md"), "w").write(
+        "# long_horizon_evaluation\n\n## Comparison\n\n| Work | Card |\n|---|---|\n"
+        "| CREST | [card](../works/crest.md) |\n\n## Related Works\n\n")
+    rd = tmp_path / "rt" / "phase3"
+    rd.mkdir(parents=True)
+    (rd / "topic_assignments.json").write_text(json.dumps(
+        {"assignments": [{"slug": "crest", "topics": ["long_horizon_evaluation"]}]}))
+    integrate_english.run(str(tmp_path / "rt"), root)
+    rw = open(os.path.join(root, "topics", "long_horizon_evaluation.md")).read().split("## Related Works")[1]
+    assert "../works/crest.md" in rw, "card not added to Related Works section"
+    ok, errs = validators.validate_axes(root)
+    assert ok, errs
