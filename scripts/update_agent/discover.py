@@ -35,6 +35,7 @@ def _search_source(sname, src, axes_items, global_qs, prof, since, limit, delay,
     records = {}
     cov_axes = {axis: {} for axis in axes_items}
     item_failures = item_total = requests = 0
+    failed_items = []
 
     def add(recs, tag):
         for r in recs:
@@ -66,6 +67,7 @@ def _search_source(sname, src, axes_items, global_qs, prof, since, limit, delay,
             cov_axes[axis][item] = {"queries_attempted": len(qs), "status": "success" if ok else "failed"}
             if not ok:
                 item_failures += 1
+                failed_items.append("%s/%s" % (axis, item))
             if delay:
                 time.sleep(delay)
 
@@ -83,12 +85,47 @@ def _search_source(sname, src, axes_items, global_qs, prof, since, limit, delay,
         if delay:
             time.sleep(delay)
 
-    frac_fail = (item_failures / item_total) if item_total else (0.0 if gok else 1.0)
-    status = "success" if (frac_fail < 0.5 and (gok or not global_qs)) else "failure"
+    # Tri-state source health (conservative, bounded tolerance).
+    #   success          — every attempted query worked.
+    #   degraded_success — the source is clearly reachable AND mandatory taxonomy coverage is
+    #                      essentially complete, but a minority of queries failed transiently:
+    #                        (a) all per-item queries succeeded and only the broad GLOBAL catch-all
+    #                            failed  (the exact production case we must tolerate), OR
+    #                        (b) a very small bounded number of per-item queries failed:
+    #                            <= MAX_DEGRADED_ITEM_FAILS AND <= MAX_DEGRADED_ITEM_FRAC.
+    #                      Discovery may proceed; the exact lost source-item coverage is recorded.
+    #   failure          — failures exceed that bounded tolerance, or the source is broadly
+    #                      unavailable (no item queries, or the only query — global — failed).
+    # A single source degrading never silently drops a taxonomy item: validate_discovery's per-axis
+    # check (merged across ALL sources) independently blocks the run if an item lost every source's
+    # coverage. Source health and cross-source completeness are deliberately separate concerns.
+    MAX_DEGRADED_ITEM_FAILS = 2
+    MAX_DEGRADED_ITEM_FRAC = 0.10
+    frac_fail = (item_failures / item_total) if item_total else 0.0
+    lost = (" [lost: %s]" % ",".join(failed_items)) if failed_items else ""
+    if item_total and item_failures == item_total:
+        status, detail = "failure", "all %d item queries failed" % item_total
+    elif item_failures == 0 and (gok or not global_qs):
+        status, detail = "success", ""
+    elif item_total == 0 and global_qs and not gok:
+        status, detail = "failure", "no item queries and global query failed"
+    elif item_failures <= MAX_DEGRADED_ITEM_FAILS and frac_fail <= MAX_DEGRADED_ITEM_FRAC:
+        parts = []
+        if item_failures:
+            parts.append("%d/%d item queries failed%s" % (item_failures, item_total, lost))
+        if global_qs and not gok:
+            parts.append("global catch-all query failed")
+        status, detail = "degraded_success", "; ".join(parts) or "supplemental query failed"
+    else:
+        status, detail = "failure", ("%d/%d item queries failed (exceeds degraded tolerance "
+                                     "<=%d and <=%d%%)%s"
+                                     % (item_failures, item_total, MAX_DEGRADED_ITEM_FAILS,
+                                        int(MAX_DEGRADED_ITEM_FRAC * 100), lost))
     return {
         "source": sname, "records": list(records.values()), "cov_axes": cov_axes,
         "global": {"queries_attempted": gatt, "status": "success" if gok else "failed"},
-        "status": status, "requests": requests, "wall_s": round(time.monotonic() - t0, 1),
+        "status": status, "status_detail": detail,
+        "requests": requests, "wall_s": round(time.monotonic() - t0, 1),
     }
 
 
@@ -114,7 +151,7 @@ def run(mode, run_dir, now_iso=None, since_iso=None):
 
     coverage = {"run_id": run_dir.rstrip("/").split("/")[-1], "mode": mode, "started_at": now_iso,
                 "lookback_days": lookback, "sources": {}, "axes": {a: {} for a in axes_items},
-                "global_by_source": {}, "timing": {}}
+                "global_by_source": {}, "source_status_detail": {}, "timing": {}}
 
     def make(sname, src):
         delay = 0.0 if smoke else _DELAY.get(sname, 1.0)
@@ -140,11 +177,13 @@ def run(mode, run_dir, now_iso=None, since_iso=None):
                 if cur is None or st["status"] == "success":   # any source covering the item counts
                     coverage["axes"][axis][item] = st
         coverage["sources"][sname] = res["status"]
+        coverage["source_status_detail"][sname] = res.get("status_detail", "")
         coverage["global_by_source"][sname] = res["global"]
         coverage["timing"][sname] = {"wall_s": res["wall_s"], "requests": res["requests"],
                                      "raw_hits": len(res["records"])}
-        log("  %s: %s (%d requests, %ds, %d raw)"
-            % (sname, res["status"], res["requests"], res["wall_s"], len(res["records"])))
+        log("  %s: %s%s (%d requests, %ds, %d raw)"
+            % (sname, res["status"], (" [%s]" % res["status_detail"]) if res.get("status_detail") else "",
+               res["requests"], res["wall_s"], len(res["records"])))
 
     coverage["global"] = {"queries": global_qs,
                           "status": "success" if all(coverage["global_by_source"][s]["status"] == "success"

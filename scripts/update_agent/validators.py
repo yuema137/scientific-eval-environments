@@ -33,9 +33,17 @@ def validate_profiles(repo_root=REPO_ROOT):
 def validate_discovery(run_dir, mandatory=("arxiv", "openreview", "github")):
     errs = []
     cov = read_json("%s/phase1/coverage.json" % run_dir)
+    # A source may be `degraded_success` (reachable, mandatory coverage complete, only a supplemental
+    # query — e.g. the broad global catch-all — failed transiently). That does not block discovery.
+    # Only a real `failure` (source broadly unavailable / substantial mandatory failures) does.
+    ok_source = ("success", "degraded_success")
     for s in mandatory:
-        if cov.get("sources", {}).get(s) != "success":
-            errs.append("source %s not success: %s" % (s, cov.get("sources", {}).get(s)))
+        st = cov.get("sources", {}).get(s)
+        if st not in ok_source:
+            errs.append("source %s not success/degraded_success: %s" % (s, st))
+    # Cross-source completeness stays STRICT: an axis item is covered if ANY source succeeded for it
+    # (see discover.run). If some item lost coverage from every source, block the run regardless of
+    # per-source health — this is what guarantees a degraded source never silently drops a taxonomy item.
     for axis, items in cov.get("axes", {}).items():
         for item, rec in items.items():
             if rec.get("status") != "success":

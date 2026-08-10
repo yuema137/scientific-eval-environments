@@ -131,6 +131,11 @@ def cmd_discover(a):
         % (rep["deep_review"], rep["uncertain_total"], rep["uncertain_admitted"],
            rep.get("uncertain_github_only_excluded", 0), rep["rejected_low_relevance"]),
         "Sent to Phase 2 (deep-review admitted): %d (cap %d, overflow=%s)" % (n, cap, rep["overflow"]),
+        "Sources: %s" % "  ".join(
+            "%s=%s%s" % (s, cov.get("sources", {}).get(s, "?"),
+                         (" (%s)" % cov.get("source_status_detail", {}).get(s, ""))
+                         if cov.get("sources", {}).get(s) == "degraded_success" else "")
+            for s in ("arxiv", "openreview", "github")),
         "",
         "Timing:",
         "  arXiv     %5ss (%s req, %s raw)" % (tm.get("arxiv", {}).get("wall_s", "?"),

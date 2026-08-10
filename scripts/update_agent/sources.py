@@ -102,15 +102,30 @@ class OpenReviewSource(Source):
     name = "openreview"
     ENDPOINT = "https://api2.openreview.net/notes/search"
 
+    # Verified API2 contract (live-audited 2026-08): /notes/search is a RELEVANCE-ranked full-text
+    # endpoint that offers NO reliable server-side new-work window.
+    #   * sort=cdate:desc / sort=tmdate:desc  -> accepted (HTTP 200) but NOT honored (results stay
+    #                                            relevance-ordered, not date-descending);
+    #   * sort=pdate:desc / sort=mdate:desc   -> HTTP 400 (no such sortable field);
+    #   * mintcdate / mincdate / mindate      -> accepted but silently ignored (still returns old notes).
+    # The date-filterable /notes GET endpoint, conversely, has no full-text term search. So there is
+    # no way to combine "matches our taxonomy terms" with "created in the last N days" server-side.
+    # Smallest recall-safe strategy: fetch a bounded-depth relevance page restricted to submission
+    # (forum) notes, then filter by CREATION date (cdate) client-side. cdate = new-work semantics; we
+    # deliberately do NOT sort/filter by tmdate, which would surface recently-MODIFIED old works.
+    # Because submissions arrive in venue-deadline BURSTS (ICLR/NeurIPS windows), a short window
+    # legitimately yields few/zero hits — expected, not a failure (arXiv is the primary recency source).
+    # `source=forum` also drops reviews/comments/decision notes, which have no title and are discarded.
     def search_many(self, queries, since_iso, limit):
-        # one request per item using an OR term (verified by the recall smoke); falls back to the
-        # base loop only if a single OR term returns nothing while individual queries would.
+        # one request per item using an OR term; the endpoint treats the whole term as full-text.
+        # Scan a bounded-depth relevance page so recent matches present in the ranking survive the
+        # client-side cdate filter.
         term = " OR ".join(queries) if queries else ""
         recs = self.search(term, since_iso, min(limit * 2, 100))
         return recs, 1
 
     def search(self, query, since_iso, limit):
-        r = http_get(self.ENDPOINT, params={"term": query, "limit": limit})
+        r = http_get(self.ENDPOINT, params={"term": query, "limit": limit, "source": "forum"})
         since = _parse_iso(since_iso)
         out = []
         for n in (r.json().get("notes") or []):

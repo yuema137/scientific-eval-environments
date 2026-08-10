@@ -262,3 +262,135 @@ def test_sources_run_concurrently(monkeypatch):
     assert wall < 0.9, wall
     assert set(cov["sources"]) == {"arxiv", "openreview", "github"}
     assert cov["timing"]["discovery_wall_s"] < 0.9
+
+
+# ------------------------------------------------------------ source status tri-state + gate
+import discover
+import validators
+import pytest
+
+
+class _StubSrc:
+    """Deterministic source stub: raises for any query in fail_on (a transient per-query failure);
+    otherwise returns one record. Lets us exercise the success/degraded_success/failure logic."""
+
+    def __init__(self, name="arxiv", fail_on=()):
+        self.name = name
+        self.fail_on = set(fail_on)
+
+    def search_many(self, queries, since, limit):
+        if any(q in self.fail_on for q in queries):
+            raise RuntimeError("transient boom")
+        return ([{"source": self.name, "id": "%s-%s" % (self.name, queries[0]), "title": "t",
+                  "abstract_or_description": "", "authors": [], "date": ""}], 1)
+
+
+def _run_n(n_items, fail_idx=(), global_fail=False):
+    """Run _search_source over n_items single-query domains; fail the item queries at fail_idx
+    (and/or the global catch-all). Exercises the bounded degraded-success threshold."""
+    items = ["D%d" % i for i in range(n_items)]
+    prof = {"domains": {it: ["q%d" % i] for i, it in enumerate(items)}, "topics": {}, "activities": {}}
+    fail_on = {"q%d" % i for i in fail_idx}
+    if global_fail:
+        fail_on.add("glob-q")
+    return discover._search_source(
+        "arxiv", _StubSrc("arxiv", fail_on), {"domains": items}, ["glob-q"],
+        prof, "2026-01-01", 10, 0, None, None, "2026-08-10T00:00:00")
+
+
+def test_source_status_success_when_all_ok():
+    res = _run_n(5)
+    assert res["status"] == "success" and res["status_detail"] == ""
+
+
+def test_source_status_degraded_on_global_only_failure():
+    # the exact production case: every per-item query succeeds; only the global catch-all fails
+    res = _run_n(20, global_fail=True)
+    assert res["status"] == "degraded_success" and "global" in res["status_detail"]
+
+
+def test_source_status_degraded_on_small_bounded_item_failure():
+    # 2 of 20 item queries fail (<=2 AND <=10%) -> degraded_success, with lost coverage recorded
+    res = _run_n(20, fail_idx=[0, 1])
+    assert res["status"] == "degraded_success"
+    assert "2/20" in res["status_detail"] and "lost:" in res["status_detail"]
+
+
+def test_source_status_failure_when_item_failures_exceed_count_tolerance():
+    # 3 of 30 item queries fail: within 10% but > 2 absolute -> failure (bounded count wins)
+    res = _run_n(30, fail_idx=[0, 1, 2])
+    assert res["status"] == "failure" and "exceeds degraded tolerance" in res["status_detail"]
+
+
+def test_source_status_failure_when_item_failures_exceed_fraction_tolerance():
+    # 2 of 10 item queries fail: within count 2 but 20% > 10% -> failure (bounded fraction wins)
+    res = _run_n(10, fail_idx=[0, 1])
+    assert res["status"] == "failure"
+
+
+def test_source_status_failure_when_all_items_fail():
+    res = _run_n(3, fail_idx=[0, 1, 2])
+    assert res["status"] == "failure" and "all 3" in res["status_detail"]
+
+
+def _write_cov(tmp_path, sources, axes=None, cands=None):
+    run = tmp_path / "run" / "phase1"
+    run.mkdir(parents=True)
+    cov = {"sources": sources,
+           "axes": axes if axes is not None else {"domains": {"Physics": {"status": "success"}}}}
+    (run / "coverage.json").write_text(json.dumps(cov))
+    (run / "candidates.json").write_text(json.dumps(cands if cands is not None else
+        [{"candidate_id": "c1", "title": "t", "source_records": [{"source": "arxiv"}]}]))
+    return str(tmp_path / "run")
+
+
+def test_gate_allows_degraded_success(tmp_path):
+    rd = _write_cov(tmp_path, {"arxiv": "degraded_success", "openreview": "success", "github": "success"})
+    ok, errs = validators.validate_discovery(rd)
+    assert ok, errs
+
+
+def test_gate_blocks_source_failure(tmp_path):
+    rd = _write_cov(tmp_path, {"arxiv": "failure", "openreview": "success", "github": "success"})
+    ok, errs = validators.validate_discovery(rd)
+    assert not ok and any("arxiv" in e for e in errs)
+
+
+def test_gate_blocks_axis_coverage_loss_even_if_all_sources_degraded(tmp_path):
+    # all sources degraded_success (allowed), BUT a taxonomy item lost all cross-source coverage
+    # -> still blocked. This is the guarantee that a degraded source never silently drops an item.
+    rd = _write_cov(tmp_path,
+                    {"arxiv": "degraded_success", "openreview": "degraded_success",
+                     "github": "degraded_success"},
+                    axes={"domains": {"Physics": {"status": "success"},
+                                      "Chemistry": {"status": "failed"}}})
+    ok, errs = validators.validate_discovery(rd)
+    assert not ok and any("Chemistry" in e for e in errs)
+
+
+# ------------------------------------------------------------ OpenReview adapter live smoke (opt-in)
+@pytest.mark.skipif(os.environ.get("RUN_LIVE_SMOKE") != "1",
+                    reason="live network smoke; set RUN_LIVE_SMOKE=1 to run")
+def test_openreview_live_smoke():
+    """Bounded live demonstration of the OpenReview adapter's three required properties."""
+    import datetime as _dt
+    import sources
+    src = sources.OpenReviewSource()
+
+    # (1) known matching submissions are returned over a wide validation window
+    wide, reqs = src.search_many(["agent benchmark", "LLM evaluation"], "2024-01-01T00:00:00", 40)
+    assert reqs == 1
+    assert len(wide) > 0, "no records for a broad query over a wide window"
+
+    # (3) source=forum excludes reviews/comments/decision notes -> every record is a titled submission
+    assert all(r["title"] for r in wide), "a non-forum (title-less) note leaked through"
+    assert all(r["source"] == "openreview" for r in wide)
+
+    # (2) a recent-window query retrieves recent matching submissions when they exist. Uses a 180-day
+    # window (bounded-but-non-trivial): submissions arrive in venue bursts, so this proves the
+    # relevance-page + client-side cdate-filter path surfaces recent matches, while honoring the filter.
+    since = (_dt.datetime.utcnow() - _dt.timedelta(days=180)).replace(microsecond=0).isoformat()
+    recent, _ = src.search_many(["agent benchmark", "LLM evaluation", "scientific agent"], since, 60)
+    assert len(recent) > 0, "recent-window query returned nothing despite recent matches existing"
+    assert all(r["date"][:10] >= since[:10] for r in recent if r["date"]), "cdate filter not honored"
+    assert all(r["title"] for r in recent)
