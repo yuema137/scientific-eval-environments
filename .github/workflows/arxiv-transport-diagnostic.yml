@@ -1,0 +1,21 @@
+name: arXiv Transport Diagnostic
+
+# Bounded, manual-only diagnostic. Characterizes arXiv Search-API vs OAI-PMH reachability FROM a
+# GitHub-hosted runner (the production discovery execution path). Not the production pipeline:
+# no secrets, no Claude, no writes, no PR. Safe to run any time.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  arxiv-transport:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q requests
+      - name: arXiv transport diagnostic (Search API vs OAI-PMH)
+        run: python scripts/update_agent/transport_diag.py
