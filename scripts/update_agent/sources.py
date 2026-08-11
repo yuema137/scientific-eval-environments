@@ -8,10 +8,11 @@ Adding a new stable public source = adding one Source subclass.
 """
 import os
 import re
+import time
 import datetime as dt
 import xml.etree.ElementTree as ET
 
-from common import http_get, config
+from common import http_get, config, log
 
 
 def _parse_iso(s):
@@ -96,6 +97,80 @@ class ArxivSource(Source):
                 "date": published,
             })
         return out
+
+
+class ArxivOAISource(Source):
+    """arXiv incremental discovery via OAI-PMH (the officially preferred bulk-metadata path).
+
+    Instead of fanning out ~38 Search-API queries (one per taxonomy item — which trips arXiv's
+    request-volume throttle from shared-cloud runners, yielding empty-200 feeds), we do a small
+    number of paginated OAI-PMH harvests over a date window and match the taxonomy LOCALLY. The OAI
+    `datestamp` (metadata last-modified) is the harvest cursor, NOT the paper date; the canonical
+    submission date comes from the record's <created> field. Old papers resurfacing on a metadata
+    update are harmless — existing-work dedup drops them.
+    """
+    name = "arxiv"
+    ENDPOINT = "https://oaipmh.arxiv.org/oai"
+    NS = {"o": "http://www.openarchives.org/OAI/2.0/", "ax": "http://arxiv.org/OAI/arXiv/"}
+
+    def harvest(self, from_date, until_date, max_pages=50, delay=3.0, timeout=90):
+        """Harvest arXiv metadata records with datestamp in [from_date, until_date] (YYYY-MM-DD),
+        following resumptionToken pagination up to max_pages. Returns (records, requests, truncated).
+        `truncated` is True if max_pages was hit with a token still pending (coverage incomplete)."""
+        records, requests, token, truncated = [], 0, None, False
+        for page in range(max_pages):
+            params = ({"verb": "ListRecords", "resumptionToken": token} if token else
+                      {"verb": "ListRecords", "metadataPrefix": "arXiv",
+                       "from": from_date, "until": until_date})
+            r = http_get(self.ENDPOINT, params=params, timeout=timeout)
+            requests += 1
+            root = ET.fromstring(r.text)
+            err = root.find(".//o:error", self.NS)
+            if err is not None:
+                if err.get("code") == "noRecordsMatch":
+                    break                                   # genuinely empty window
+                raise RuntimeError("OAI error %s: %s" % (err.get("code"), (err.text or "")[:120]))
+            for rec in root.findall(".//o:record", self.NS):
+                hdr = rec.find("o:header", self.NS)
+                if hdr is not None and hdr.get("status") == "deleted":
+                    continue
+                meta = rec.find(".//ax:arXiv", self.NS)
+                if meta is not None:
+                    records.append(self._parse(meta, hdr))
+            rt = root.find(".//o:resumptionToken", self.NS)
+            token = (rt.text or "").strip() if rt is not None else ""
+            if not token:
+                break
+            if delay:
+                time.sleep(delay)
+        else:
+            truncated = bool(token)                         # loop exhausted with a token still pending
+        return records, requests, truncated
+
+    def _parse(self, meta, hdr):
+        ax = self.NS
+
+        def t(tag):
+            return (meta.findtext("ax:%s" % tag, default="", namespaces=ax) or "").strip()
+        authors = []
+        for a in meta.findall(".//ax:author", ax):
+            nm = (" ".join([a.findtext("ax:forenames", default="", namespaces=ax) or "",
+                            a.findtext("ax:keyname", default="", namespaces=ax) or ""])).strip()
+            if nm:
+                authors.append(nm)
+        aid = t("id")
+        return {
+            "source": self.name,
+            "id": aid,
+            "url": "https://arxiv.org/abs/%s" % aid,
+            "title": " ".join(t("title").split()),
+            "abstract_or_description": " ".join(t("abstract").split()),
+            "authors": authors,
+            "date": t("created"),                            # canonical submission date (new-work signal)
+            "updated": t("updated"),
+            "categories": t("categories"),
+            "datestamp": (hdr.findtext("o:datestamp", default="", namespaces=ax) if hdr is not None else ""),
+        }
 
 
 class OpenReviewSource(Source):
@@ -198,4 +273,6 @@ class GitHubSource(Source):
 
 
 def all_sources():
-    return {s.name: s for s in (ArxivSource(), OpenReviewSource(), GitHubSource())}
+    # arXiv discovery uses OAI-PMH incremental harvesting (ArxivOAISource); the legacy Search-API
+    # ArxivSource is retained only as a fallback/reference and is not used in production discovery.
+    return {s.name: s for s in (ArxivOAISource(), OpenReviewSource(), GitHubSource())}

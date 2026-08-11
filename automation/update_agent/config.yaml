@@ -19,17 +19,14 @@ watermark:
   max_catchup_days: 14     # beyond this backlog -> needs_attention (no silent truncation)
   min_interval_hours: 72   # scheduled runs proceed only every ~72h (true cadence, month-independent)
 
-# Semantic source-health: a source that returns ZERO results across many independent, all-succeeding
-# mandatory queries is a "zero storm" — the transport succeeded (HTTP 200) but coverage is not
-# credible (e.g. arXiv briefly serving empty Atom feeds). This is NOT the same as a source that
-# legitimately returns few/zero (OpenReview's relevance-ranked short window, GitHub's low volume),
-# so only listed sources are checked. On a storm: one bounded canary of representative queries; if it
-# recovers, the source is re-run once and the recovered result used; if it stays empty the source is
-# marked suspicious_empty and the run does NOT advance the trusted watermark. No magic result count is
-# hard-coded — the trigger is the structural symptom (many independent valid queries, zero total).
-source_health:
-  zero_storm_suspicious: [arxiv]   # sources where an all-zero result across many queries is anomalous
-  zero_storm_min_queries: 5        # need at least this many all-succeeding queries to call it a storm
+# arXiv discovery uses OAI-PMH incremental harvesting (not the Search API — a ~38-query fan-out
+# trips arXiv's request-volume throttle from shared-cloud runners, yielding empty-200 feeds). The
+# harvest pages over the discovery date window; max_pages bounds cost and guards runaway catch-up.
+# Hitting the cap with records still pending marks the source suspicious_empty (incomplete coverage
+# -> watermark not advanced) rather than silently truncating. An empty/failed harvest is likewise
+# suspicious_empty/failure, so a silent arXiv outage never advances the trusted watermark.
+arxiv_oai:
+  max_pages: 50        # ~1000-1300 records/page; 50 pages covers any credible incremental window
 
 # Per-source result caps in PRODUCTION (full) mode. Keep broad but bounded.
 source_limits:

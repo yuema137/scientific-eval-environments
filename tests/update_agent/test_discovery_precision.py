@@ -246,6 +246,13 @@ def test_sources_run_concurrently(monkeypatch):
             return ([{"source": self.name, "id": self.name + "-1", "title": "t",
                       "abstract_or_description": "", "authors": [], "date": ""}], 1)
 
+        def harvest(self, frm, until, max_pages=50, delay=0):   # arxiv OAI path
+            _t.sleep(0.4)
+            return ([{"source": "arxiv", "id": "arxiv-1",
+                      "title": "AgentBench: a benchmark for LLM agents",
+                      "abstract_or_description": "A benchmark evaluating autonomous LLM agents.",
+                      "authors": [], "date": "2026-01-02", "categories": "cs.AI"}], 1, False)
+
     monkeypatch.setattr(discover, "all_sources",
                         lambda: {n: _Fake(n) for n in ("arxiv", "openreview", "github")})
     monkeypatch.setattr(discover, "taxonomy", lambda *a, **k: {"domains": {"Physics": "physics"},
@@ -386,64 +393,114 @@ def test_openreview_live_smoke():
     assert all(r["title"] for r in wide), "a non-forum (title-less) note leaked through"
     assert all(r["source"] == "openreview" for r in wide)
 
-    # (2) a recent-window query retrieves recent matching submissions when they exist. Uses a 180-day
-    # window (bounded-but-non-trivial): submissions arrive in venue bursts, so this proves the
-    # relevance-page + client-side cdate-filter path surfaces recent matches, while honoring the filter.
+    # (2) the client-side date filter (now keyed on odate = first-public) is honored: every record a
+    # windowed query returns respects the lower bound. We do NOT assert the window is non-empty — the
+    # documented limitation is that /notes/search is relevance-ranked with no server-side date sort, so
+    # a short window legitimately returns zero (recent submissions rarely sit in the relevance top-N).
     since = (_dt.datetime.utcnow() - _dt.timedelta(days=180)).replace(microsecond=0).isoformat()
     recent, _ = src.search_many(["agent benchmark", "LLM evaluation", "scientific agent"], since, 60)
-    assert len(recent) > 0, "recent-window query returned nothing despite recent matches existing"
-    assert all(r["date"][:10] >= since[:10] for r in recent if r["date"]), "cdate filter not honored"
+    assert all(r["date"][:10] >= since[:10] for r in recent if r["date"]), "odate filter not honored"
     assert all(r["title"] for r in recent)
 
 
 # ------------------------------------------------------------ suspicious-empty / zero-storm
-class _ZeroSrc:
-    """Fake source: returns [] for the first `empty_calls` search_many calls, then non-empty."""
+def _rec(i):
+    return {"source": "arxiv", "id": "a%d" % i, "title": "AgentBench: a benchmark for LLM agents",
+            "abstract_or_description": "A benchmark evaluating autonomous LLM agents.",
+            "authors": ["X"], "date": "2026-08-09", "categories": "cs.AI"}
+
+
+class _OaiFake:
+    """Fake arXiv OAI source: returns self.pages[call] records on each harvest() call (clamped)."""
     name = "arxiv"
 
-    def __init__(self, empty_calls):
+    def __init__(self, pages, truncated=False):
         self.calls = 0
-        self.empty_calls = empty_calls
+        self.pages = pages
+        self.truncated = truncated
 
-    def search_many(self, queries, since, limit):
+    def harvest(self, frm, until, max_pages=50, delay=0):
+        i = min(self.calls, len(self.pages) - 1)
         self.calls += 1
-        if self.calls <= self.empty_calls:
-            return ([], 1)
-        return ([{"source": "arxiv", "id": "a-%d" % self.calls, "title": "t",
-                  "abstract_or_description": "", "authors": [], "date": ""}], 1)
+        return (list(self.pages[i]), 1, self.truncated)
 
 
-def _discover_with(monkeypatch, tmp_path, src, n_items):
-    doms = {"D%d" % i: "d%d" % i for i in range(n_items)}
+def _discover_arxiv(monkeypatch, tmp_path, src):
     monkeypatch.setattr(discover, "all_sources", lambda: {"arxiv": src})
     monkeypatch.setattr(discover, "taxonomy",
-                        lambda *a, **k: {"domains": doms, "topics": {}, "activities": {}})
+                        lambda *a, **k: {"domains": {"Physics": "physics"}, "topics": {}, "activities": {}})
     monkeypatch.setattr(discover, "search_profiles", lambda *a, **k:
-                        {"domains": {it: ["q_%s" % it] for it in doms},
+                        {"domains": {"Physics": ["LLM agent physics benchmark"]},
                          "topics": {}, "activities": {}, "global": []})
     monkeypatch.setattr(discover, "_DELAY", {"arxiv": 0})
     return discover.run("full", str(tmp_path / "rt"), since_iso="2026-08-07T00:00:00")
 
 
-def test_zero_storm_unresolved_is_suspicious_and_not_credible(tmp_path, monkeypatch):
-    cov = _discover_with(monkeypatch, tmp_path, _ZeroSrc(empty_calls=10 ** 6), n_items=6)
+def test_arxiv_oai_zero_storm_unresolved_is_suspicious(tmp_path, monkeypatch):
+    # harvest empty on both the initial pass and the bounded canary re-harvest -> not credible
+    cov = _discover_arxiv(monkeypatch, tmp_path, _OaiFake(pages=[[]]))
     assert cov["sources"]["arxiv"] == "suspicious_empty"
-    assert cov["suspicious_empty"] == ["arxiv"]
-    assert cov["discovery_credible"] is False
+    assert cov["suspicious_empty"] == ["arxiv"] and cov["discovery_credible"] is False
 
 
-def test_zero_storm_canary_recovers_is_credible(tmp_path, monkeypatch):
-    # 6 empty item calls (the storm) -> canary (call 7) recovers -> source re-run yields hits
-    cov = _discover_with(monkeypatch, tmp_path, _ZeroSrc(empty_calls=6), n_items=6)
-    assert cov["discovery_credible"] is True
-    assert cov["suspicious_empty"] == []
+def test_arxiv_oai_zero_storm_canary_recovers_is_credible(tmp_path, monkeypatch):
+    # initial harvest empty -> canary recovers -> credible, records present
+    cov = _discover_arxiv(monkeypatch, tmp_path, _OaiFake(pages=[[], [_rec(1)]]))
+    assert cov["discovery_credible"] is True and cov["suspicious_empty"] == []
     assert cov["raw_by_source"].get("arxiv", 0) > 0
 
 
-def test_sparse_zero_below_threshold_is_not_flagged(tmp_path, monkeypatch):
-    # only 2 mandatory queries, both legitimately zero -> below min_queries=5 -> credible empty
-    cov = _discover_with(monkeypatch, tmp_path, _ZeroSrc(empty_calls=10 ** 6), n_items=2)
-    assert cov["discovery_credible"] is True and cov["suspicious_empty"] == []
+def test_arxiv_oai_truncated_harvest_is_suspicious(tmp_path, monkeypatch):
+    # hit max_pages with records still pending -> coverage incomplete -> not credible
+    cov = _discover_arxiv(monkeypatch, tmp_path, _OaiFake(pages=[[_rec(1)]], truncated=True))
+    assert cov["sources"]["arxiv"] == "suspicious_empty" and cov["discovery_credible"] is False
+
+
+def test_arxiv_oai_local_match_keeps_relevant_drops_irrelevant(tmp_path, monkeypatch):
+    good = _rec(1)
+    bad = {"source": "arxiv", "id": "bad", "title": "A study of galaxy formation",
+           "abstract_or_description": "We simulate galaxy mergers.", "authors": [],
+           "date": "2026-08-09", "categories": "astro-ph"}
+    _discover_arxiv(monkeypatch, tmp_path, _OaiFake(pages=[[good, bad]]))
+    ids = {r["id"] for r in json.loads((tmp_path / "rt" / "phase1" / "raw_hits.json").read_text())}
+    assert "a1" in ids and "bad" not in ids
+
+
+def test_arxiv_oai_parses_record_fields(monkeypatch):
+    import sources
+    xml = ('<?xml version="1.0"?>'
+           '<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/"><ListRecords><record>'
+           '<header><identifier>oai:arXiv.org:2508.01234</identifier><datestamp>2026-08-10</datestamp></header>'
+           '<metadata><arXiv xmlns="http://arxiv.org/OAI/arXiv/">'
+           '<id>2508.01234</id><created>2026-08-07</created><updated>2026-08-09</updated>'
+           '<authors><author><keyname>Doe</keyname><forenames>Jane</forenames></author></authors>'
+           '<title>AgentBench Sci</title><categories>cs.AI cs.LG</categories>'
+           '<abstract>A benchmark for scientific agents.</abstract>'
+           '</arXiv></metadata></record></ListRecords></OAI-PMH>')
+
+    class _R:
+        text = xml
+
+    monkeypatch.setattr(sources, "http_get", lambda *a, **k: _R())
+    recs, reqs, trunc = sources.ArxivOAISource().harvest("2026-08-07", "2026-08-10", max_pages=1, delay=0)
+    assert reqs == 1 and trunc is False and len(recs) == 1
+    r = recs[0]
+    assert r["id"] == "2508.01234" and r["date"] == "2026-08-07"      # date = created (submission)
+    assert r["datestamp"] == "2026-08-10" and r["updated"] == "2026-08-09"
+    assert r["title"] == "AgentBench Sci" and r["authors"] == ["Jane Doe"]
+    assert r["abstract_or_description"].startswith("A benchmark") and r["source"] == "arxiv"
+
+
+@pytest.mark.skipif(os.environ.get("RUN_LIVE_SMOKE") != "1",
+                    reason="live network smoke; set RUN_LIVE_SMOKE=1 to run")
+def test_arxiv_oai_live_smoke():
+    import datetime as _dt
+    import sources
+    day = (_dt.datetime.utcnow() - _dt.timedelta(days=1)).date().isoformat()
+    recs, reqs, trunc = sources.ArxivOAISource().harvest(day, day, max_pages=1, delay=0)
+    assert reqs == 1 and len(recs) > 0
+    r = recs[0]
+    assert r["id"] and r["title"] and r["date"]      # created (submission date) present
 
 
 def test_watermark_should_advance_requires_credible_discovery():

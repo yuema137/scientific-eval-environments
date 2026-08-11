@@ -8,10 +8,12 @@ Claude here (relevance scoring happens after, in run_phase). Per-stage timing is
 """
 import argparse
 import datetime as dt
+import re
 import time
 from concurrent.futures import ThreadPoolExecutor
 
 from common import config, taxonomy, search_profiles, write_json, log
+import prefilter
 from sources import all_sources
 
 # polite inter-request delays (seconds) per source. Each source runs in its OWN thread, so these
@@ -130,19 +132,114 @@ def _search_source(sname, src, axes_items, global_qs, prof, since, limit, delay,
     }
 
 
-def _canary_queries(prof, axes_items, allowed_axes, k=3):
-    """A few representative mandatory queries, used to health-check a zero-storm source."""
-    qs = []
+# ---- arXiv OAI incremental harvest + local taxonomy matching --------------------------------
+# Tokens too generic to distinguish a taxonomy item (they appear in nearly every eval paper). A
+# profile query's DISTINCTIVE tokens (what's left) are what a harvested record must contain to be
+# tagged with that item — e.g. "LLM agent physics benchmark" -> distinctive {physics}.
+_GENERIC_TOKENS = {
+    "llm", "llms", "agent", "agents", "agentic", "benchmark", "benchmarks", "evaluation",
+    "evaluations", "evaluate", "evaluating", "eval", "ai", "scientific", "science", "sciences",
+    "autonomous", "model", "models", "for", "the", "a", "an", "of", "on", "and", "to", "in",
+    "with", "using", "based", "via", "problem", "solving", "task", "tasks", "reasoning",
+}
+# A harvested record is a candidate only if it names a CONCRETE benchmark/evaluation artifact
+# (prefilter.EVAL_STRONG: benchmark/testbed/leaderboard/arena/gym/eval suite/environment) AND has an
+# agent or LLM angle. This replaces the targeting the Search-API ranking used to provide — the OAI
+# harvest sees every recent paper, so a bare "we evaluate our method on <science>" must NOT pass (that
+# is the prefilter's loose EVAL+SCI floodgate). The downstream prefilter + relevance scorer decide last.
+_LLM_SIGNAL = re.compile(r"\b(llm|llms|large language model|language model|foundation model|"
+                         r"multimodal model|gpt[-\s]?\d|vision[-\s]language)\b", re.I)
+
+
+def _distinctive(query):
+    return [t for t in re.findall(r"[a-z0-9][a-z0-9\-]+", query.lower())
+            if t not in _GENERIC_TOKENS and len(t) > 2]
+
+
+def _local_match(rec, prof, axes_items, allowed_axes):
+    """Return the matched_profiles tags for one harvested record (empty = drop). A record is kept
+    when it names a concrete benchmark/eval artifact AND has an agent/LLM angle; axis tags are added
+    when a profile's distinctive tokens are all present. Mirrors, locally, the old Search-API fan-out."""
+    hay = " ".join([rec.get("title", ""), rec.get("abstract_or_description", ""),
+                    rec.get("categories", "")]).lower()
+    if not (prefilter.EVAL_STRONG.search(hay)
+            and (prefilter.AGENT.search(hay) or _LLM_SIGNAL.search(hay))):
+        return []
+    tags = ["Global"]                                    # broad catch-all: concrete benchmark + agent/LLM
     for axis, items in axes_items.items():
         if allowed_axes is not None and axis not in allowed_axes:
             continue
         for item in items:
-            pql = _profile_queries(prof, axis, item)
-            if pql:
-                qs.append(pql[0])
-            if len(qs) >= k:
-                return qs
-    return qs or ["agent benchmark"]
+            for q in _profile_queries(prof, axis, item):
+                dts = _distinctive(q)
+                if dts and all(re.search(r"\b%s\b" % re.escape(t), hay) for t in dts):
+                    tags.append("%s: %s" % (axis[:-1].capitalize(), item))
+                    break
+    return tags
+
+
+def _harvest_arxiv(sname, src, axes_items, global_qs, prof, since, now_iso, allowed_axes,
+                   max_pages, delay, now_stamp):
+    """Deterministic arXiv collector: OAI harvest -> local taxonomy match. Returns the same result
+    shape as _search_source so downstream (raw merge, coverage, credibility) is unchanged."""
+    t0 = time.monotonic()
+    from_date, until_date = since[:10], now_iso[:10]
+
+    def _do():
+        return src.harvest(from_date, until_date, max_pages=max_pages, delay=delay)
+
+    raw, requests, truncated, transport_ok, err = [], 0, False, True, None
+    try:
+        raw, requests, truncated = _do()
+    except Exception as e:  # noqa: BLE001 - transport/parse failure
+        transport_ok, err = False, str(e)
+        log("  ! arxiv OAI harvest failed: %s" % e)
+    canary_note = ""
+    if transport_ok and not raw:                          # zero-storm: one bounded canary re-harvest
+        log("  ! arxiv OAI returned 0 records for %s..%s -> canary re-harvest" % (from_date, until_date))
+        try:
+            raw2, req2, truncated = _do()
+            requests += req2
+            if raw2:
+                raw, canary_note = raw2, " (recovered on canary)"
+        except Exception as e:  # noqa: BLE001
+            log("  ! arxiv canary failed: %s" % e)
+
+    matched = {}
+    for rec in raw:
+        tags = _local_match(rec, prof, axes_items, allowed_axes)
+        if not tags:
+            continue
+        r = dict(rec)
+        r["matched_profiles"] = tags
+        r["discovered_at"] = now_stamp
+        matched[rec["id"]] = r
+
+    cov_axes = {axis: {} for axis in axes_items}
+    for axis, items in axes_items.items():
+        if allowed_axes is not None and axis not in allowed_axes:
+            continue
+        for item in items:                                # locally evaluated against every harvested record
+            cov_axes[axis][item] = {"queries_attempted": 1,
+                                    "status": "success" if transport_ok else "failed"}
+    item_total = sum(len(v) for v in cov_axes.values())
+
+    if not transport_ok:
+        status, detail = "failure", "OAI harvest transport error: %s" % (err or "")[:120]
+    elif truncated:
+        status, detail = "suspicious_empty", "harvest truncated at max_pages -> coverage incomplete"
+    elif not raw:
+        status, detail = "suspicious_empty", ("OAI returned 0 records for %s..%s (canary also empty)"
+                                              % (from_date, until_date))
+    else:
+        status, detail = "success", ""
+    return {
+        "source": sname, "records": list(matched.values()), "cov_axes": cov_axes,
+        "global": {"queries_attempted": 1, "status": "success" if transport_ok else "failed"},
+        "status": status, "status_detail": detail + canary_note, "requests": requests,
+        "wall_s": round(time.monotonic() - t0, 1), "item_total": item_total, "item_failures": 0,
+        "raw_harvested": len(raw),
+    }
 
 
 def run(mode, run_dir, now_iso=None, since_iso=None):
@@ -170,9 +267,14 @@ def run(mode, run_dir, now_iso=None, since_iso=None):
                 "global_by_source": {}, "source_status_detail": {}, "timing": {}}
 
     def make(sname, src):
+        allowed = cfg.get("source_axes", {}).get(sname)
+        if sname == "arxiv":                              # OAI incremental harvest + local matching
+            mp = 2 if smoke else cfg.get("arxiv_oai", {}).get("max_pages", 50)
+            d = 0.0 if smoke else _DELAY.get("arxiv", 3.0)
+            return lambda: _harvest_arxiv(sname, src, axes_items, global_qs, prof, since, now_iso,
+                                          allowed, mp, d, now_iso)
         delay = 0.0 if smoke else _DELAY.get(sname, 1.0)
         limit = cfg["smoke"]["per_source_limit"] if smoke else cfg["source_limits"][sname]
-        allowed = cfg.get("source_axes", {}).get(sname)
         cap = cfg.get("github_queries_per_item") if sname == "github" else None
         return lambda: _search_source(sname, src, axes_items, global_qs, prof, since, limit,
                                       delay, allowed, cap, now_iso)
@@ -184,44 +286,12 @@ def run(mode, run_dir, now_iso=None, since_iso=None):
         results = dict(zip(order, ex.map(lambda n: thunks[n](), order)))
     discovery_wall = round(time.monotonic() - t0, 1)
 
-    # Semantic-health check: a "zero storm" (many independent, all-succeeding mandatory queries but
-    # zero total results) on a source where zero is anomalous is NOT a credible empty window. One
-    # bounded canary; if it recovers, re-run the source once; if it stays empty, mark suspicious_empty
-    # so the watermark is not advanced past a silent outage. Only listed sources are checked (a source
-    # that legitimately returns few/zero is never flagged). Skipped in smoke mode.
-    sh = {} if smoke else cfg.get("source_health", {})
-    suspicious_cfg = set(sh.get("zero_storm_suspicious", []))
-    min_q = sh.get("zero_storm_min_queries", 5)
-    coverage["suspicious_empty"] = []
-    for sname in order:
-        res = results[sname]
-        if sname not in suspicious_cfg:
-            continue
-        zero_storm = (len(res["records"]) == 0 and res.get("item_failures", 0) == 0
-                      and res.get("item_total", 0) >= min_q)
-        if not zero_storm:
-            continue
-        log("  ! %s zero-storm: %d successful queries returned 0 raw -> canary health check"
-            % (sname, res.get("item_total", 0)))
-        canary_hits = 0
-        try:
-            recs, _ = sources[sname].search_many(
-                _canary_queries(prof, axes_items, cfg.get("source_axes", {}).get(sname)),
-                since, cfg["source_limits"][sname])
-            canary_hits = len(recs)
-        except Exception as e:  # noqa: BLE001 - canary is best-effort
-            log("  ! %s canary failed: %s" % (sname, e))
-        if canary_hits > 0:
-            log("  %s canary recovered (%d hits) -> re-running source once" % (sname, canary_hits))
-            res = thunks[sname]()                     # bounded single full re-run
-            res["recovered_from_zero_storm"] = True
-            results[sname] = res
-        if len(res["records"]) == 0:                  # still empty -> not credible
-            res["status"] = "suspicious_empty"
-            res["status_detail"] = ("zero-storm unresolved: %d successful queries returned 0 raw "
-                                    "(canary=%d)" % (res.get("item_total", 0), canary_hits))
-            coverage["suspicious_empty"].append(sname)
-
+    # Credibility: sources self-report `suspicious_empty` when their coverage is not trustworthy —
+    # the arXiv OAI collector runs its own bounded zero-storm canary and flags an empty/truncated
+    # harvest; a transport failure is `failure`. A run is credible only when no mandatory source is
+    # suspicious_empty; on an incredible run the watermark is NOT advanced (watermark.should_advance),
+    # so a silent outage never skips the interval it failed to ingest.
+    coverage["suspicious_empty"] = [n for n in order if results[n]["status"] == "suspicious_empty"]
     coverage["discovery_credible"] = not coverage["suspicious_empty"]
 
     raw = {}
