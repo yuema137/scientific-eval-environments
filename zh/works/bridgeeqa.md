@@ -26,18 +26,18 @@ BridgeEQA 是面向桥梁检测的具身问答 benchmark：2,200 组开放词汇
 
 ## Tasks
 
-2,200 组开放词汇问答对，覆盖 200 个真实桥梁场景，共含 9,586 张图像，平均每个场景 47.93 张；这些桥梁分布在佛蒙特州的 73 个镇。问题由 Gemini 视觉语言模型从佛蒙特州交通厅的检测报告中自动抽取，依据是检测员记录以及这些记录明确引用的照片。报告的问题分四类：聚合型（38.5%）、比较型（27.2%）、关系型（21.3%）与空间型（17.5%）。问答对经自动检查筛选，指标包括忠实度（0.997）、答案相关性（0.997）、可回答性（0.996）与检测员相关性（0.980），并对随机子集做人工复核，检查视觉覆盖与图像质量。
+2,200 组开放词汇问答对，覆盖 200 个真实桥梁场景，共含 9,586 张图像，平均每个场景 47.93 张；这些桥梁分布在佛蒙特州的 73 个镇。问题由 Gemini 视觉语言模型从 Vermont Agency of Transportation 的检测报告中自动抽取，依据是检测员记录以及这些记录明确引用的照片。报告的问题分四类：聚合型（38.5%）、比较型（27.2%）、关系型（21.3%）与空间型（17.5%）。问答对经自动检查筛选，指标包括忠实度（0.997）、答案相关性（0.997）、可回答性（0.996）与检测员相关性（0.980），并对随机子集做人工复核，检查视觉覆盖与图像质量。
 
 ## Domains
 
-土木与结构工程：在役公路桥梁的检测与状态评估，答案对齐到各州交通机构使用的 National Bridge Inventory 0–9 状态评定量表。影像与推理都取自专业的结构检测实务，而非一般的室内外场景理解。
+土木与结构工程：在役公路桥梁的检测与状态评估，答案与各州交通机构通用的 National Bridge Inventory 0–9 状态评定量表对齐。影像与推理都取自专业的结构检测实务，而非一般的室内外场景理解。
 
 ## Evaluation
 
 - **Answer Correctness** —— 以 LLM-as-a-judge 把回答与依据报告的 ground truth 对比，沿用 OpenEQA 的协议。
 - **Condition Rating Accuracy** —— NBI 0–9 量表上的精确匹配准确率与 ±1 以内准确率；之所以设 ±1 带宽，是因为专家检测员之间通常也只能一致到一个评定等级之内。
 - **Image Citation Relevance** —— 由 VLM-as-a-judge（Gemini 2.5 Flash）在 0.0–1.0 区间上比较 agent 引用的图像与参考图像并打分，同时惩罚过度选取；该指标与人工标注的 Spearman 相关系数为 0.817。
-- **报告。** 五种方法（多帧 VLM、带场景图的 Socratic LLM、带场景图的多帧 VLM、仅用场景图的 EMVR、图像加场景图的 EMVR）在三个商业视觉语言模型（Gemini 2.5 Flash Lite、Gemini 2.5 Flash、Grok 4 Fast）上运行。answer correctness 分布在 0.484–0.648，Image Citation Relevance 在 0.687–0.889。在 Grok 4 Fast 上，EMVR 相对多帧 VLM 基线在 ±1 以内的状态评定准确率上提升 9.3 个百分点，Image Citation Relevance 提升 20.2 个百分点，answer correctness 提升 7.2 个百分点。
+- **报告。** 五种方法（多帧 VLM、带场景图的 Socratic LLM、带场景图的多帧 VLM、仅用场景图的 EMVR、图像加场景图的 EMVR）在三个闭源视觉语言模型（Gemini 2.5 Flash Lite、Gemini 2.5 Flash、Grok 4 Fast）上运行。answer correctness 分布在 0.484–0.648，Image Citation Relevance 在 0.687–0.889。在 Grok 4 Fast 上，EMVR 相对多帧 VLM 基线在 ±1 以内的状态评定准确率上提升 9.3 个百分点，Image Citation Relevance 提升 20.2 个百分点，answer correctness 提升 7.2 个百分点。
 
 ## Typical Duration
 
@@ -64,10 +64,10 @@ N/A — 论文未报告单个 episode 的步数上限、wall-clock 预算或 tok
 
 ## Limitations
 
-- 只评测了商业模型：作者报告开源 VLM 无法稳定遵循所需的结构化输出与函数调用格式。
+- 只评测了闭源模型：作者报告开源 VLM 无法稳定遵循所需的结构化输出与函数调用格式。
 - ground truth 问答对由 Gemini 模型从报告中自动生成，人工只复核了随机子集，因此 benchmark 的标注部分继承了某个模型对源文档的理解。
 - 三项主要指标中有两项由模型评判（LLM-as-a-judge 与 VLM-as-a-judge），且其中一个 judge 与受评模型出自同一家族。
-- 所有场景都来自单一的州级检测项目（佛蒙特州交通厅），报告惯例与桥梁总体因此谈不上多样。
+- 所有场景都来自单一的州级检测项目（Vermont Agency of Transportation），报告惯例与桥梁总体因此谈不上多样。
 - Repository note: 该 benchmark 考的是从影像出发的状态评估；它不评测定量结构分析、荷载评级或任何下游的养护决策。
 
 ## Related Works

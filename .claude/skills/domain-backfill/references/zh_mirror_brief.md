@@ -53,7 +53,15 @@ If the corpus disagrees with this brief, **follow the corpus** and report the di
 - Link **paths identical** to the English card; topic/activity membership must match exactly (validator-enforced).
 - `TODO(reference)` verbatim, explanation after it in Chinese.
 - **`Repository note:` stays in English**, with the note text in Chinese after it.
-- `**Reported.**` renders as `**报告。**`. Related Works separator is ` — `. `N/A — ` keeps its form.
+- `**Reported.**` renders as `**报告。**`. Related Works separator is ` — `. `N/A — ` keeps its form
+  (single em dash; the corpus is ~99:10 against `—— `).
+- **Quoted source text uses corner quotes 「」**, not `"…"` — the corpus runs ~532 to 20 in their favour.
+  Leave a genuinely English quoted string (a verbatim prompt, a flag) in ASCII quotes.
+- When the English `Typical Duration` opens with a **backticked** `` `N/A — …` `` sentence, the corpus keeps
+  that sentence in English verbatim and continues in Chinese; when it is unbackticked prose, translate it.
+- **Do NOT translate institution names.** Universities, labs, companies and agencies stay in their original
+  form (University of Toronto, Florida International University, FHWA). Some older cards translate them;
+  that is not the convention to follow. Model, tool, metric and benchmark names likewise stay as-is.
 - Long descriptive English work titles stay English in the `# ` heading.
 
 **Axis pages under `zh/`**
