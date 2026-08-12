@@ -30,6 +30,7 @@ Two meaningful distinctions structure the space:
 - **Interaction budget on iterative design optimization.** [Frontier-Eng](../works/frontier-eng.md) bounds each real-world engineering task with a fixed interaction budget on its propose-execute-evaluate loop: the agent must allocate a limited number of simulator interactions to refine a candidate design under continuous reward and hard feasibility constraints, making the benchmark inherently resource-aware.
 - **Economic consistency as the measured object.** [EcoAgent-Bench](../works/ecoagent-bench.md) prices every action under an explicit per-task budget across 304 tasks and pairs upgrade-oriented with save-oriented task groups, so a one-sided policy that always spends or always saves cannot score well. Tool-API agents reach at most 7.3% economic consistency, and a budget sweep moves GPT-5.4's escalation rate only from 0% to 3%.
 - **Evaluation budget on harness optimization.** [HarnessOpt-Bench](../works/harnessopt-bench.md) gives optimizer LLMs a seed harness, evaluation feedback, and a fixed budget of target evaluations inside a TEE-audited loop, scoring normalized gain over the seed on a held-out partition; across 4 tasks, 5 optimizer models, and 111 scored runs, the optimizer model separates more than the coding harness it acts through.
+- **Efficiency written into the rubric.** [MASSE](../works/masse.md) neither budgets the agent nor reports cost separately: its holistic system benchmark MASEB allots 20 of 100 points to Efficiency and Robustness, and the GPT-5 judge that grades a complete structural-engineering analysis log emits total token usage and total runtime in the same JSON object as the four scores, so an accurate but expensive pipeline cannot reach full marks. The paper's accompanying cost/runtime trade-off analysis across four backends then reads off the same measurements.
 - **Cost-performance frontier reporting.** Other work reports accuracy alongside token or dollar cost so that agents can be compared on a Pareto frontier rather than a single accuracy number. This is analysis-time resource-awareness rather than benchmark-time resource-awareness.
 
 ## Comparison
@@ -49,6 +50,7 @@ Two meaningful distinctions structure the space:
 | SMDD-Bench | 2026 | Oracle calls (limited per-task budget) | Enforced hard constraint on design-space exploration | Small-molecule drug design; 502 solvable tasks, 102 targets | [→](../works/smdd-bench.md) |
 | SDBench | 2025 | Cost of physician visits and diagnostic tests | Scored jointly with accuracy as a frontier | Sequential diagnosis over 304 NEJM-CPC cases with an information gatekeeper | [→](../works/sdbench.md) |
 | ChemCost | 2026 | Supplier quotes and purchasable packs from a frozen pricing snapshot | Cost is the task itself — agents compute reaction cost against exact ground truth | Reaction pricing; 1,427 reactions, 230,775 quotes; noise-injected robustness views | [→](../works/chemcost.md) |
+| MASSE | 2025 | Total token usage and total runtime, emitted by the judge alongside the quality scores | Scored component — Efficiency and Robustness carries 20 of the 100 MASEB points; the same totals drive a cost/runtime trade-off analysis across four backends | Multi-agent structural engineering workflow; 100 expert-validated problems, ten trials each | [→](../works/masse.md) |
 
 ## Open Questions
 
@@ -72,6 +74,7 @@ Two meaningful distinctions structure the space:
 - [SMDD-Bench](../works/smdd-bench.md) — Guaranteed-solvable drug design under a limited oracle-call budget.
 - [SDBench](../works/sdbench.md) — Sequential diagnosis scored on the accuracy-versus-cost frontier.
 - [ChemCost](../works/chemcost.md) — Reaction-cost computation as the measured task, with judge-free exact pricing ground truth.
+- [MASSE](../works/masse.md) — Token usage and runtime scored as a rubric component of an end-to-end structural engineering workflow benchmark.
 
 ## Further Reading
 

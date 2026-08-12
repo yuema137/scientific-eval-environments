@@ -32,6 +32,7 @@ A third cluster is **physics-grounded forecasting and model-fitting**, where the
 | FGBench | 2025 | Reason about molecular property at functional-group level | 625K problems (245 groups); 7K curated LLM subset, static QA | Regression/classification accuracy; LLMs struggle | [card](../works/fgbench.md) |
 | MLE-Dojo | 2025 | Iteratively build and refine ML models with feedback | 200+ Kaggle challenges, Gym-style interactive, SFT/RL-trainable | Iterative improvement and solution quality across 8 LLMs | [card](../works/mle-dojo.md) |
 | BioXArena | 2026 | Build and train biomedical predictive models | 76 end-to-end tasks, 9 domains, 2-hour single-GPU budget | Hidden-label 0-1 score; best MLEvolve 0.666 | [card](../works/bioxarena.md) |
+| Cognitive Agents for Bridge Inspection Prioritization | 2026 | Rank bridges by predicted future deterioration from inventory records | 3,365 Connecticut bridges, six annual NBI releases, four competing methods | AUC and average precision vs sustained deterioration observed to 2025 | [card](../works/cognitive-agents-for-bridge-inspection-prioritizat.md) |
 | DiscoverPhysics | 2026 | Infer and implement laws of counterfactual worlds | 22 simulated N-body worlds, iterative experiment proposal | Trajectory MSE plus rubric-judged explanation; best | [card](../works/discoverphysics.md) |
 | DSAgentBench | 2026 | Build predictive models within data-science workflows | 275 real-environment tasks including a modeling stage | Deterministic model-performance verification | [card](../works/dsagentbench.md) |
 | gwBenchmarks | 2026 | Build high-precision surrogates and fit remnant properties | 8 tasks over >10^8 core-hours of NR-grade data | Relative error near 1e-4 via external evaluator; agents fall short | [card](../works/gwbenchmarks.md) |
@@ -57,3 +58,4 @@ A third cluster is **physics-grounded forecasting and model-fitting**, where the
 - [RealPDEBench](../works/realpdebench.md)
 - [Stargazer](../works/stargazer.md)
 - [ChemEBench](../works/chemebench.md)
+- [Cognitive Agents for Bridge Inspection Prioritization](../works/cognitive-agents-for-bridge-inspection-prioritizat.md)

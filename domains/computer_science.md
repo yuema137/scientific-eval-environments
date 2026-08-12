@@ -15,6 +15,7 @@ Computer science as the studied field outside AI/ML research itself — see AI &
 | ScholarQuest | 2026 | Search the computer science literature (information retrieval and AI focus) the way researchers actually do: method-oriented, setting-anchored, comparison-based, and scope-controlled queries. | Iterative literature-exploration episodes in open literature environments, with queries constructed from over 1,000 computer science topics across the four research intents. | Recall@100 and Recall@All against ground-truth paper sets, with analyses of search efficiency, intent-level robustness, and failure cases. | [→](../works/scholarquest.md) |
 | CORE-Bench | 2024 | Reproduce published computational results from each paper's own code and data; computer science is one of its three disciplines. | 270 tasks from 90 papers at three difficulty levels, in language-only and vision-language forms. | Accuracy of reproduced results, checked by a fast, parallelizable evaluation harness. | [→](../works/core-bench.md) |
 | TCS-Bench | 2026 | Research-level theoretical computer science proof generation — proving results drawn from top TCS venues (FOCS, STOC, SODA). | 300 theorem-proving tasks, each a target statement plus assembled context extracted from FOCS/STOC/SODA papers (2020–2026); the model produces a self-contained proof. | Proofs checked by an automated verification agent (four Gemini 3.1 Flash calls, 3-of-4 majority vote), calibrated against a 100-item human-expert–labeled set at over 90% agreement. | [→](../works/tcs-bench.md) |
+| EngDesign | 2025 | Operating system design and computer architecture design posed as engineering design specifications with stated goals, constraints and performance requirements. | Operating System Design (8) and Computer Architecture Design (5) within 101 design tasks carrying 473 gradable items across nine engineering areas; 12 chat and reasoning models. | Structured model output executed by a per-task evaluation script, returning a binary pass/fail, a 0–100 partial-credit score and a detailed log; 53 of the 101 tasks are licence-free and released separately as EngDesign-Open. | [→](../works/engdesign.md) |
 
 ## Related Works
 
@@ -23,3 +24,4 @@ Computer science as the studied field outside AI/ML research itself — see AI &
 - [ResearchClawBench](../works/researchclawbench.md)
 - [ScholarQuest](../works/scholarquest.md)
 - [CORE-Bench](../works/core-bench.md)
+- [EngDesign](../works/engdesign.md)
