@@ -177,6 +177,10 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **Human-authorized physical energy agents.** [EnergyBridge](../works/energybridge.md) couples capacity reporting, household authorization, and physical execution for residential virtual power plants, metering outcomes from region-specific EnergyPlus models.
 - **VLSI physical design.** [PDAgent-Bench](../works/pdagent-bench.md) unifies task-level assessment (353 curated EDA problems) with workflow-level closed-loop physical-design flows, finding models competitive on concepts but weak on tool-centric, long-horizon execution.
 - **Reliability-scored mental-health reasoning.** [MiraMind](../works/miramind.md) evaluates mental-health reasoning across six task families and 13 datasets, scoring not only outcomes but the reliability of the evidence-to-judgment reasoning trajectory.
+- **Chemical process development end to end.** [CeProBench](../works/ceprobench.md) organizes process-development evaluation around knowledge, concept, and parameter: six task classes over 243 questions and 235 tasks, built from 70 technical documents (4,406 entities / 4,967 relations), 113 competition-derived process flow diagrams (986 equipment units, 1,172 connections), and 20 Aspen Plus parameter files, with the parameter tasks scored by executing candidate operating settings in Aspen Plus so that thermodynamic feasibility rather than text similarity determines the score.
+- **Convergence as the pass criterion, timed against experts.** [Simona](../works/simona.md) scores 1,000 expert-written process descriptions by Simulation Convergence Rate — a design counts only if the generated flowsheet actually converges in the simulator — and reports design time on the same axis, with a human-expert baseline at 100% SCR and 8,301.91 s giving both quality and time an interpretable upper reference against the evaluated systems (80.3% for the proposed workflow, 23.4% for GPT-4o).
+- **Similarity is not domain validity.** [Can Large Language Models Automate the HAZOP Process?](../works/can-large-language-models-automate-the-hazop-proce.md) separates model-level performance from process-safety performance on the same generated worksheets: all four multimodal models exceed 86% F1 against an expert-prepared HAZOP reference, yet only 0.19–0.37 of the scenarios they generate are semantically valid, and their proposed safeguards skew to procedural rather than engineered protection layers.
+- **Judge ensembles calibrated against process engineers.** [PSE-Bench](../works/pse-bench.md) scores 200 open-ended process-systems-engineering questions with five independent LLM judges against seven-element rubrics, then has three domain experts re-grade the answers: agreement is Spearman rs = 0.416 with ICC = 0.793, and the judges are systematically lenient by +0.85 points on the 0–7 scale — an offset the paper reports as a calibration constant rather than leaving implicit.
 
 ## Comparison
 
@@ -347,6 +351,17 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | EnergyBridge | 2026 | Residential VPP demand-response workflow over region-specific EnergyPlus models | Energy systems (household grid flexibility) | Metered EnergyPlus outcomes: authorization rate + capacity-commitment reliability within ±20% | [→](../works/energybridge.md) |
 | PDAgent-Bench | 2026 | 353 curated tasks + 10 full-flow designs from real industrial EDA artifacts | VLSI physical design / EDA | pass@1/@5 with execution-checked scripts and expert references; full-flow timing-closure / DRC outcomes | [→](../works/pdagent-bench.md) |
 | MiraMind | 2025 | Six task families over 13 mental-health datasets | Mental health / psychiatry (Medicine & Health; Neuroscience & Cognitive Science) | Per-family outcome metrics plus human-validated LLM-judged reasoning-trajectory scoring | [→](../works/miramind.md) |
+| CeProBench | 2026 | 6 task classes (243 questions / 235 tasks) from 70 technical documents, 113 competition-derived PFDs, and 20 Aspen Plus parameter files | Chemical process development: knowledge, concept (PFD), parameter | Aspen Plus execution for parameter tasks; entity F1 and MEC/MED, equipment and connection accuracy, Valid / Correct Rate; judged Correctness / Rationality / Clarity / Completeness | [→](../works/ceprobench.md) |
+| Simona | 2026 | 1,000 process descriptions written by chemical engineering experts | Chemical process simulation: description to converging flowsheet | Simulation Convergence Rate in an in-house simulator plus design time, against LLM, multi-agent, and human-expert baselines | [→](../works/simona.md) |
+| CRAFTS | 2026 | OpenIDAES-450: 450 requests paired with executable IDAES models, 82 frozen as held-out | Chemical process simulation (IDAES/Pyomo equation-oriented flowsheeting) | Staged Workflow Success contract behind deterministic IDAES/Pyomo promotion gates, plus macro-F1 on units, streams, and directed connections | [→](../works/crafts.md) |
+| A Tutorial on Autonomous Fault-Tolerant Control | 2026 | Two openly released executable environments (batch mixing module, CSTR) with typed injectable faults | Process-plant fault recovery and supervisory control | Per-proposal symbolic validation (state reachability, actuator existence) and simulation-based validation in a digital twin; no model scores reported | [→](../works/ctrl-alt-recover.md) |
+| Autonomous Action Execution (AAE) Framework | 2026 | Five process-plant scenarios (three from the Tennessee Eastman Process) plus 43 crafted invalid proposals | Industrial process control and functional safety | Deterministic P&ID graph traversal per proposed action (tag existence, actuatability, fail-state, downstream impact); error-injection recall, N = 50 robustness runs, B0–B3 context ladder | [→](../works/aae-framework.md) |
+| PSE-Bench | 2026 | 200 open-ended questions, 50 in each of four process-systems-engineering domains, with released ground truths and rubrics | Process systems engineering: modeling and simulation, optimization, ML for processes, design | Five-judge ensemble on a seven-element rubric with a composite ROUGE / cosine / element-coverage score; human-expert calibration (rs = 0.416, ICC = 0.793, +0.85 leniency) | [→](../works/pse-bench.md) |
+| Can Large Language Models Automate the HAZOP Process? | 2026 | One expert-referenced P&ID and a standardized prompt, run once per model across four multimodal LLMs | Process safety: HAZOP hazard identification | Similarity (F1) and cost per worksheet against an expert reference, scored separately from scenario validity and safeguard diversity | [→](../works/can-large-language-models-automate-the-hazop-proce.md) |
+| ChemEBench | 2025 | 101 chemical-engineering tasks over 15 dimensions in three progressive levels | Chemical engineering: foundational knowledge, molecular-level tasks, professional engineering skill | Accuracy on objective items; 0–5 rubric on completeness / clarity with step-by-step reasoning-chain checking for subjective items; 14-model comparison | [→](../works/chemebench.md) |
+| ERI Benchmark | 2026 | 57,750 generated records as a controlled cross-product of 9 engineering fields, 55 subdomains, 7 intents, and 3 difficulty tiers | Engineering reasoning and instruction (chemical engineering one of nine fields) | Automatic output checks beneath a rubric layer judged by a three-provider panel (Claude Haiku 4.5, GPT-4.1 Mini, Mistral Small 3); 115,962 judgments averaged 1–5 | [→](../works/eri-benchmark.md) |
+| PEOA | 2024 | MathComp (8,500+ pairs) and ChemProc (7,000+ pairs) compiled from scholarly sources and textbooks | Chemical and process engineering problem solving with mathematical modeling and numerical methods | Stage-decomposed tool-learning metrics (planning, tool selection Recall/NDCG/COMP@K, tool calling, BLEU/ROUGE-L/EM) plus an eight-aspect human study | [→](../works/peoa.md) |
+| Using Large Language Models for Solving Thermodynamic Problems | 2025 | 22 author-written problems (13 simple, 9 advanced), each posed three times per model | Chemical-engineering thermodynamics | Trained human experts grading exam-style, 0.5 points per correctly executed step; answer consistency across repetitions | [→](../works/llm-thermodynamics.md) |
 
 ## Open Questions
 
@@ -358,6 +373,17 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 
 ## Related Works
 
+- [CeProBench](../works/ceprobench.md)
+- [Simona](../works/simona.md)
+- [CRAFTS](../works/crafts.md)
+- [A Tutorial on Autonomous Fault-Tolerant Control Using Knowledge-Grounded LLM Agents](../works/ctrl-alt-recover.md)
+- [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md)
+- [PSE-Bench](../works/pse-bench.md)
+- [Can Large Language Models Automate the HAZOP Process Without Human Intervention?](../works/can-large-language-models-automate-the-hazop-proce.md)
+- [ChemEBench](../works/chemebench.md)
+- [ERI Benchmark](../works/eri-benchmark.md)
+- [PEOA](../works/peoa.md)
+- [Using Large Language Models for Solving Thermodynamic Problems](../works/llm-thermodynamics.md)
 - [SciVisAgentBench](../works/scivisagentbench.md)
 - [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
 - [TCS-Bench](../works/tcs-bench.md)

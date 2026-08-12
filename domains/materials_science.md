@@ -34,6 +34,7 @@ Materials characterization and computational materials science, spanning physica
 | AlchemyBench | 2025 | Plan inorganic materials synthesis: precursors, equipment, procedure, characterization. | End-to-end prediction over 17,000 expert-verified synthesis recipes; static. | Expert-agreement-validated LLM-as-a-Judge over free-form predictions. | [→](../works/alchemybench.md) |
 | Materials Hypothesis Generation | 2025 | Generate materials-discovery hypotheses under explicit goals and constraints. | Hypothesis generation over a dataset curated from recent publications. | A scalable metric emulating a materials scientist's critical assessment. | [→](../works/materials-hypothesis.md) |
 | Science Edge Evaluation (SEE) | 2026 | Evidence-bounded reasoning over real materials-characterization data — SEM/TEM/AFM microscopy, X-ray diffraction patterns, and thermal-analysis curves — rather than concept recall; materials science is one of its three disciplines. | 1,116 expert-curated multimodal questions (1,049 public) across three experimental disciplines (chemistry, biology, materials science) and 17 sub-fields, in multiple-choice and numerical fill-in-the-blank formats; a visual-agent setting adds web search and a code interpreter. | Answers scored against expert ground truth — exact match for multiple choice, expert tolerance for numerical answers — under a strict binary LLM-as-judge protocol (Gemini 3.1 Pro); image-ablation checking confirms each question needs its visual input. | [→](../works/science-edge-evaluation.md) |
+| ERI Benchmark | 2026 | Materials engineering as one of nine covered fields, with six subdomains: structure of materials, mechanical properties, phase diagrams, failure analysis, polymers and composites, and corrosion. | 57,750 instruction–response records generated over a controlled field × subdomain × intent × difficulty cross-product (1,155 cells, 50 pairs per cell), with per-field means reported separately. | Automatic checks for refusals, missing final answers, and machine-parsable constraint violations, beneath rubric scoring by a three-provider judge panel (Claude Haiku 4.5, GPT-4.1 Mini, Mistral Small 3) averaged per item. | [→](../works/eri-benchmark.md) |
 
 ## Related Works
 
@@ -61,3 +62,4 @@ Materials characterization and computational materials science, spanning physica
 - [AutoDFT / VASPBench](../works/vaspbench.md)
 - [AlchemyBench](../works/alchemybench.md)
 - [Materials Hypothesis Generation](../works/materials-hypothesis.md)
+- [ERI Benchmark](../works/eri-benchmark.md)
