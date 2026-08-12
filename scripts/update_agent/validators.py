@@ -11,7 +11,17 @@ import sys
 
 from common import taxonomy, search_profiles, read_json, REPO_ROOT
 
-PLACEHOLDER = re.compile(r"\b(TODO\(card\)|TBD|FIXME|lorem ipsum|<placeholder>|FILL[_ ]?ME)\b", re.I)
+# Real template residue that must never survive into a finished card. Bare words like TBD/TBA are
+# NOT banned outright: they appear in legitimate prose ("the preprint lists the venue as TBD"). Only
+# an actual unfilled template token, OR a metadata field whose entire value is TBD/TBA, is a defect.
+PLACEHOLDER = re.compile(r"(TODO\(card\)|FIXME|lorem\s+ipsum|<\s*placeholder\s*>|"
+                         r"\{\{\s*[A-Z][A-Z0-9_ ]*\s*\}\}|FILL[_ ]?ME)", re.I)
+# a bold field label whose value is ONLY TBD/TBA (e.g. "**Venue:** TBD") -> an unfilled field.
+PLACEHOLDER_FIELD = re.compile(r"\*\*[^*\n]+:\*\*\s*(TBD|TBA)\b[\s.)\]]*$", re.I | re.M)
+
+
+def _has_placeholder(txt):
+    return bool(PLACEHOLDER.search(txt) or PLACEHOLDER_FIELD.search(txt))
 
 
 # ---------------------------------------------------------------- profiles
@@ -90,7 +100,7 @@ def validate_cards(repo_root, slugs):
             n = len(re.findall(r"^##\s+" + re.escape(h) + r"\s*$", txt, re.M))
             if n != 1:
                 errs.append("%s: heading '## %s' appears %d times (want 1)" % (slug, h, n))
-        if PLACEHOLDER.search(txt):
+        if _has_placeholder(txt):
             errs.append("%s: contains a placeholder token" % slug)
         links = _section(txt, "Links") or ""
         if not re.search(r"https?://", links):

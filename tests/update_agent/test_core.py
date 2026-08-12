@@ -193,11 +193,25 @@ def test_cards_schema(tmp_path):
                                             "activities": ["simulation_scientific_computing"]}])
     ok, errs = validators.validate_cards(root, ["good"])
     assert ok, errs
-    # placeholder + missing link
+    # a real template placeholder token still fails the card
     bad = os.path.join(root, "works", "good.md")
-    open(bad, "w").write(open(bad).read().replace("One line.", "TBD"))
+    open(bad, "w").write(open(bad).read().replace("One line.", "TODO(card)"))
     ok, errs = validators.validate_cards(root, ["good"])
     assert not ok
+
+
+def test_placeholder_prose_tbd_allowed_but_unfilled_field_and_tokens_flagged():
+    # bare TBD/TBA in legitimate descriptive prose must NOT fail (regression: a real card said
+    # "the preprint lists the venue as TBD" and was wrongly rejected)
+    assert validators._has_placeholder("the preprint text lists the venue as TBD") is False
+    assert validators._has_placeholder("we leave the extension as TBD for future work") is False
+    assert validators._has_placeholder("## Activities\nN/A — evaluation methodology.") is False
+    # an unfilled metadata field whose value is only TBD/TBA is still a defect
+    assert validators._has_placeholder("- **Venue:** TBD") is True
+    assert validators._has_placeholder("- **Year:** TBA") is True
+    # genuine template tokens are still rejected anywhere
+    for tok in ("TODO(card)", "FILL_ME", "<placeholder>", "{{PLACEHOLDER}}", "lorem ipsum"):
+        assert validators._has_placeholder("Overview: %s" % tok) is True, tok
 
 
 # ------------------------------------------------------------ bilingual
