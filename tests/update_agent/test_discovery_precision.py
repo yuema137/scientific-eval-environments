@@ -47,6 +47,21 @@ def test_prefilter_github_negatives():
         assert keep is False, (name, reason)
 
 
+def test_prefilter_closes_eval_sci_without_agent_floodgate():
+    # science + benchmark but NO agent and NO LLM -> now rejected (was the EVAL+SCI floodgate)
+    assert prefilter.judge(_arx("GraphBench: A Benchmark for Molecular Property Prediction",
+                                "We introduce a benchmark evaluating GNN models on chemistry datasets."))[0] is False
+    # a scientific LLM benchmark (SCI + LLM, no agent) stays IN scope
+    assert prefilter.judge(_arx("SciEval: Benchmarking Large Language Models on Physics Problems",
+                                "An evaluation benchmark for LLMs on physics reasoning."))[0] is True
+    # closing that path must NOT open an EVAL+LLM floodgate: generic NLP LLM benchmark, no science,
+    # no agent -> still rejected
+    assert prefilter.judge(_arx("GLUEBench: A Benchmark for Language Model Text Classification",
+                                "We benchmark language models on sentiment and entailment."))[0] is False
+    # agent benchmark still passes (EVAL+AGENT)
+    assert prefilter.judge(_arx("AgentArena: A Benchmark for Evaluating Autonomous Agents"))[0] is True
+
+
 def test_prefilter_reduces_and_keeps_benchmarks():
     raw = [_arx("MolBench: benchmark for scientific agents"),
            _gh("org/awesome-llm"), _gh("org/foo-benchmark", "Benchmark evaluating research agents"),

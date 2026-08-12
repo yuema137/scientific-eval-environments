@@ -23,6 +23,11 @@ SCI = re.compile(r"\b(scientif\w+|science|research|experiment\w*|laborator\w+|\b
                  r"simulat\w+|discovery|hypothes\w+|physic\w*|chemi\w+|biolog\w+|material\w*|"
                  r"astronom\w+|mathemat\w+|engineering|clinical|medical|genomic\w*|"
                  r"bioinformatic\w*|scientific computing|molecular|quantum|pde)\b", re.I)
+# An LLM/foundation-model signal. This repo is an LLM/agent-evaluation catalog, so for a PAPER the
+# evaluation signal must pair with an agent OR LLM angle — a science paper that merely has a
+# benchmark/eval word but no agent/LLM angle (the old EVAL+SCI floodgate) is out of scope.
+LLM = re.compile(r"\b(llm|llms|large language model(s)?|language model(s)?|foundation model(s)?|"
+                 r"gpt[-\s]?\d|multimodal model(s)?|vision[-\s]language(?:[-\s]action)?)\b", re.I)
 # A concrete benchmark/environment noun — required for a standalone GitHub repo (a repo merely
 # describing itself as a "research agent" is not evidence of a catalogable evaluation work).
 EVAL_STRONG = re.compile(r"\b(benchmark(s|ing)?|testbed|leaderboard|arena|gym(nasium)?|"
@@ -48,7 +53,15 @@ def _text_paper(rec):
 
 
 def _combined(text):
-    return bool(STRONG.search(text) or (EVAL.search(text) and (AGENT.search(text) or SCI.search(text))))
+    # PAPER gate (arXiv/OpenReview). A strong compound phrase (agent benchmark, scientific agent,
+    # AI scientist, trajectory evaluation, evaluation environment, …) always passes. Otherwise an
+    # evaluation signal must pair with EITHER an agent angle OR (a scientific angle AND an LLM angle).
+    # This closes the old EVAL+SCI floodgate — a science paper with a benchmark word but no agent and
+    # no LLM is out of scope — WITHOUT opening an EVAL+LLM floodgate for generic NLP/coding benchmarks
+    # that have neither a scientific nor an agent angle. (Calibration audit: the bare EVAL+SCI path
+    # admitted 131/432 arXiv records, largely generic-science/ML benchmarks.)
+    return bool(STRONG.search(text)
+                or (EVAL.search(text) and (AGENT.search(text) or (SCI.search(text) and LLM.search(text)))))
 
 
 def judge(rec):
