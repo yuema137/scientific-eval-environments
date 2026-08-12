@@ -18,7 +18,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 
 - **基于子目标（subgoal-based）。** 将 trajectory 用一条子目标链标注，以完成比例作为主指标。[AgentBoard](../works/agentboard.md) 是这一路线的代表，将子目标级的进展率与分析面板结合。
 - **分级子任务 / 密集奖励（graded-subtask）。** 任务被分解为可打分（非二值）的子任务，在可配置的奖励阈值下聚合。[Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md) 在长 horizon terminal 任务上沿这一路线。
-- **能力分解（capability-decomposed）。** 将某种复杂能力拆解为若干子过程，并在孤立任务上分别打分。[T-Eval](../works/t-eval.md) 将 tool use 拆为 6 个子过程；[Enconda-bench](../works/enconda-bench.md) 将环境配置拆为 planning / diagnosis / repair / execution 四个子过程。
+- **能力分解（capability-decomposed）。** 将某种复杂能力拆解为若干子过程，并在孤立任务上分别打分。[T-Eval](../works/t-eval.md) 将 tool use 拆为 6 个子过程；[Enconda-bench](../works/enconda-bench.md) 将环境配置拆为 planning / diagnosis / repair / execution 四个子过程；[PEOA](../works/peoa.md) 把这一思路用于化工与过程工程，对工具学习的四个阶段分别打分——任务规划对照标准计划，工具选择以 Recall@K / NDCG@K / COMP@K 对照标准工具集，工具调用看约定一致性、参数抽取正确性与错误处理，回答生成则用 BLEU / ROUGE-L / 精确匹配。
 - **效用函数（utility-function based）。** 在整条 trajectory 上定义关于多个质量维度的联合指标。[TRACE](../works/trace.md) 面向 deep-research agent，联合 accuracy、efficiency、evidence grounding、reasoning quality；[FinTrace](../works/fintrace.md) 在金融 tool use 上采用 4 维度 9 指标。
 - **诊断覆盖层（diagnostic overlay）。** 本身不是任务套件，而是把诊断词汇与审计协议覆盖到既有 benchmark 之上。[AgentAtlas](../works/agentatlas.md) 在 15 个 agent benchmark 上应用一个六路控制决策分类与失败分类；[Insights Generator](../works/insights-generator.md) 是面向 trace 语料级诊断的多 agent 系统。
 - **确定性 ground-truth 生成。** Trajectory 评估依赖高质量的参考 trajectory。[Traxgen](../works/traxgen.md) 直接针对参考生成这一问题：把结构化的 workflow 规范与用户数据编译为 DAG 上的确定性 gold trajectory，取代基于 LLM 的 ground-truth 生成，得到可复现且数量级更快的替代方案。
@@ -50,6 +50,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - **推理对齐的代码评估。** [RACE-Bench](../works/race-bench.md) 把可执行的补丁验证与结构化的参考推理配对，评估仓库级 code agent 的中间推理与开发者认可轨迹的对齐程度。
 - **阶段对齐的问题解决诊断。** [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) 在可执行补丁评估之外，补充需求澄清与实现规划的已验证真值，实现对完整编码轨迹的 GT 对齐诊断。
 - **推理轨迹可靠性。** [MiraMind](../works/miramind.md) 沿可用性、逻辑结构与信息贡献为心理健康推理轨迹打分，把正确的最终答案与不可靠的"证据到判断"路径区分开。
+- **以对抗方式度量的逐动作可行性。** [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md) 把判定单位从最终任务下移到单个被提出的动作：LLM 每提出一个控制动作，都要经由对装置 P&ID 的图遍历，核查位号是否存在、是否可执行、失效状态是否一致以及下游影响如何。校验器自身的覆盖面同样被纳入度量——针对其各类失效模式构造了 43 个无效方案，在所覆盖的类别上报告 100% 召回率；此外还有一项 N = 50 的鲁棒性研究，覆盖不安全方案占比从 10% 到 70% 的各种运行，以及一条 B0–B3 阶梯，为每一级上下文增强单独计分。
 
 ## Comparison
 
@@ -92,6 +93,8 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | RACE-Bench | 2026 | 双轨：补丁解决率 + 相对开发者参考轨迹的推理对齐召回 / 过预测 | 仓库级 code agent（功能新增） | [→](../works/race-bench.md) |
 | SWE-RPG | 2026 | 解决率 + GT 对齐的阶段失败归因与逐阶段澄清 / 规划覆盖 | 仓库级问题解决（Python / Java） | [→](../works/a-unified-issue-resolution-benchmark-for-requireme.md) |
 | MiraMind | 2025 | 在可用性、逻辑结构、信息贡献上给推理轨迹打分（与结果指标并列） | 心理健康推理 | [→](../works/miramind.md) |
+| PEOA | 2024 | 工具学习的分阶段打分：规划（工具使用意识、通过率、相对标准计划的计划准确率）、工具选择（Recall@K、NDCG@K、COMP@K）、工具调用（约定一致性、参数抽取、错误处理）、回答生成（BLEU、ROUGE-L、EM） | 化工与过程工程问题求解（MathComp、ChemProc） | [→](../works/peoa.md) |
+| Autonomous Action Execution (AAE) Framework | 2026 | 通过 P&ID 图遍历逐动作校验（位号存在性、可执行性、失效状态、下游影响）；在 43 个注入的无效方案上的校验器召回率、N = 50 次鲁棒性运行、B0–B3 上下文阶梯 | 工业过程控制（Tennessee Eastman 以及另外两个装置场景） | [→](../works/aae-framework.md) |
 
 ## Open Questions
 
@@ -104,6 +107,8 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 
 ## Related Works
 
+- [PEOA](../works/peoa.md)
+- [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md)
 - [TempoBench](../works/tempobench.md)
 - [TelemetrySuffBench](../works/telemetrysuffbench.md)
 - [Evaluating Plan Compliance in Autonomous Programming Agents](../works/from-plan-to-action.md)

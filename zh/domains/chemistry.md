@@ -41,6 +41,7 @@
 | SciVisAgentBench | 2026 | 对化学数据做科学可视化与数据分析——化学是其七个应用领域之一——把自然语言意图转译为可执行的可视化操作，含分子动力学工具链。 | 108 个专家构造的 SciVis 案例，覆盖七个科学领域与 15 类可视化操作，经 CLI、MCP 服务器与 Python API 在 ParaView、napari 等平台上运行。 | 以结果为中心的多模态流水线，结合 MLLM judge（报告为 Claude-Opus-4.6；与人工评分 Pearson 0.808）与确定性评估器——图像指标（PSNR、SSIM、LPIPS）、代码检查器与规则/逐案例验证器。 | [→](../works/scivisagentbench.md) |
 | DrBencher | 2026 | 生物化学领域（归入 Chemistry）的网页浏览与计算交织问题——对化学实体做多跳识别，从 PubChem、ChEMBL、RCSB PDB 等来源检索定量属性，再做领域特定计算。 | 由知识图谱链条答案优先合成的问题，需多跳识别、定量属性检索与多步计算；覆盖五个领域（生物化学、地球物理、金融、安全、历史），生物化学是其一。 | 基于执行：金标准答案由对知识图谱数值执行参数化代码算得，在约 2% 相对容差内评分；两阶段难度级联；人工校验有效率 76%。 | [→](../works/drbencher.md) |
 | Science Edge Evaluation (SEE) | 2026 | 对真实化学实验数据——谱图（IR、NMR、质谱）、X 射线衍射及相关测量——做证据受限的科学推理，而非概念回忆；化学是其三个学科之一。 | 1,116 道专家整理的多模态题目（公开 1,049 道），覆盖三个实验学科（化学、生物、材料科学）与 17 个子领域，采用选择题与数值填空格式；视觉智能体设定另加网页检索与代码解释器。 | 对照专家标准答案评分——选择题精确匹配，数值答案按专家容差——采用严格的二元 LLM-as-judge 协议（Gemini 3.1 Pro）；图像消融检查确认每题都需要其视觉输入。 | [→](../works/science-edge-evaluation.md) |
+| ChemEBench | 2025 | 该 benchmark L2 层级上的分子化学：SMILES 转 IUPAC 命名、依文字描述给分子命名、分子性质预测与反应预测。 | 整套 benchmark 覆盖 15 个维度、101 个不同任务，分三个递进层级，此为其中之一；题目为静态单次作答，比较 14 个模型。 | 客观题计准确率；主观的简答与计算题按完整性与清晰度打 0–5 分，并逐步核查推理链。 | [→](../works/chemebench.md) |
 
 ## Related Works
 
@@ -75,3 +76,4 @@
 - [ChemCost](../works/chemcost.md)
 - [onepot-Bench 0](../works/onepot-bench.md)
 - [MaCBench](../works/macbench.md)
+- [ChemEBench](../works/chemebench.md)
