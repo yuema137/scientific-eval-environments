@@ -121,6 +121,13 @@ Two failure modes seen in the reference run, both worth checking explicitly:
 
 Commit accepted cards here so progress survives interruption.
 
+**Expect `tests/update_agent/test_orchestration.py` to fail between this commit and the axis commit.** The
+updater's fixture harness builds its workspace with `git archive HEAD`, so it validates the *committed*
+state. Cards committed without their axis rows leave HEAD internally inconsistent (`card lists
+topics/... but page omits it`) and the fixture's Phase-3 gate fails. This is an artifact of split commits,
+not a defect — it clears once Phase 5's axis commit lands. Run the full suite at the English gate, not
+between these two commits.
+
 ### 5. English axis integration
 Three specialists **in parallel on disjoint files**: `topics/`, `domains/`, `activities/`.
 

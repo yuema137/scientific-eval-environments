@@ -17,6 +17,7 @@
 | HydroAgent | 2026 | 率定美国国家气象局用于山洪预报的业务化 CREST 分布式水文模型。 | 在流域面积 329–40,792 km² 的四个留出测站上迭代「模拟-调整」率定，二十轮取最优；九个前沿 agent。 | 留出测站上对照人类专家率定参照的 Nash–Sutcliffe 效率。 | [→](../works/hydroagent.md) |
 | SciVisAgentBench | 2026 | 地球系统科学数据的科学可视化与数据分析——其七个应用领域之一——把自然语言意图翻译为对多变量场及时变场的可执行可视化操作。 | 108 个专家精心设计的 SciVis 案例，横跨七个科学领域与 15 类可视化操作，通过 CLI、MCP 服务器与 Python API 在 ParaView、napari 等平台上运行。 | 以结果为中心的多模态管线，结合一个 MLLM judge（报告为 Claude-Opus-4.6；与人类评分 Pearson 0.808）与确定性评估器——图像指标（PSNR、SSIM、LPIPS）、代码检查器，以及基于规则/逐案例的验证器。 | [→](../works/scivisagentbench.md) |
 | DrBencher | 2026 | 地球物理领域（折并入地球科学）中「网页浏览 + 计算」交织的问题——从知识图谱来源做多跳实体识别与定量地球物理属性检索，再做领域特定计算。 | 由知识图谱链合成的答案优先问题，要求多跳识别、定量属性检索与多步计算；横跨五个领域（生物化学、地球物理、金融、安全、历史），地球物理是其一。 | 基于执行：金标准答案由对知识图谱数值执行参数化代码算得，以约 2% 相对容差评分；两阶段难度级联；76% 经人工验证有效。 | [→](../works/drbencher.md) |
+| Hydro-SE Bench | 2025 | 水文与水资源、水力学与河流动力学、气象学——水科学与水利工程九个子领域中的三个。 | 覆盖九个子领域的 4,000 道中文单选与多选题，取材于教科书、行业标准、法律法规与统计年鉴，由专家范例引导的半自动流水线生成，每题至少经三位专家审核；16 个模型。 | 零样本思维链、温度 0 提问，答案抽取交由另一个 LLM 完成；准确率按总体以及子领域、题型、认知层级分别报告。论文指出，模型在这几个偏科学基础的子领域上强于偏规范条文的工程子领域。 | [→](../works/hydro-se-bench.md) |
 
 ## Related Works
 
@@ -27,3 +28,4 @@
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [ResearchClawBench](../works/researchclawbench.md)
 - [HydroAgent](../works/hydroagent.md)
+- [Hydro-SE Bench](../works/hydro-se-bench.md)
