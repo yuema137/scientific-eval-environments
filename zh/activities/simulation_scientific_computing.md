@@ -33,7 +33,7 @@
 | AutoMat | 2026 | 在 HPC 上端到端复现计算材料学的结论 | 85 条由领域专家甄选的结论，三种复现类型 | 支持或推翻结论的证据；54.1% 成功率 | [卡片](../works/automat.md) |
 | CeProBench | 2026 | 在 Aspen Plus 中实际执行的操作参数闭环调优 | 20 个高保真 Aspen Plus 文件，91 个可调参数，65 个目标 | 经 Aspen 验证的可行性；收率/纯度/成本与收敛迭代次数 | [卡片](../works/ceprobench.md) |
 | Collider-Bench | 2026 | 通过公开模拟工具栈重现 LHC 上的 SUSY 搜寻 | 来自四项 CMS 搜寻的 10 个模拟任务 | 直方图与隐藏产额的吻合度；LLM 溯源评判 | [卡片](../works/collider-bench.md) |
-| CRAFTS | 2026 | 从用户请求与 PFD 出发构建可执行的 IDAES/Pyomo 过程模拟模型 | OpenIDAES-450，82 个冻结的留出算例，确定性的 IDAES/Pyomo 晋级关卡 | Workflow Success 91.5%，外加设备/物流/连接的宏平均 F1 | [卡片](../works/crafts.md) |
+| CRAFTS | 2026 | 从用户请求与 PFD 出发构建可执行的 IDAES/Pyomo 过程模拟模型 | OpenIDAES-450，82 个冻结的留出算例，确定性的 IDAES/Pyomo 晋级关卡 | Workflow Success 91.5%，外加单元/物流/连接的宏平均 F1 | [卡片](../works/crafts.md) |
 | HydroAgent | 2026 | 率定运行中的 CREST 水文模型，重模拟循环 | 4 个留出的水文站（329-40,792 km2），从 20 轮中取最优 | 相对人类专家参考的 Nash-Sutcliffe 效率系数 | [卡片](../works/hydroagent.md) |
 | MDArena | 2026 | 真实的分子动力学研究工作流 | 50 个容器化任务，29 个系统，14 种协议 | 严格成功率外加过程级部分得分 | [卡片](../works/mdarena.md) |
 | MooseBench | 2026 | 带 PDE 真值的 MOOSE 多物理场输入文件生成 | 220 个算例，每个都带有预期的 PDE 契约 | 通过确定性 PDE 重建得到的意图保真度分数 | [卡片](../works/moosebench.md) |
