@@ -12,7 +12,7 @@
 
 ## Task Patterns
 
-最大的一类是**领域知识问答**，其交付成果是对精心整理的考试或教科书题目给出正确答案。心理学在其中自成一支——[ConceptPsy](../works/conceptpsy.md) 将概念标注到章节，[CPsyExam](../works/cpsyexam.md) 把知识题与案例分析题分开，[PsychCounsel-Bench](../works/psychcounsel-bench.md) 则对标真实的执业认证及格线。工程知识问答见于 [MaScQA](../works/mascqa.md)（材料）、[TeleQnA](../works/teleqna.md)（电信）和 [ElecBench](../works/elecbench.md)（电力调度），而 [HLE](../works/hle.md) 则刻意设定了一个宽泛的、触及知识前沿的高标准。化学知识问答从 [ChemBench](../works/chembench.md) 和 [ChemEval](../works/chemeval.md)，一直延伸到侧重定量计算的 [QCBench](../works/qcbench.md) 和 [ChemIQ](../works/chemiq.md)。
+最大的一类是**领域知识问答**，其交付成果是对精心整理的考试或教科书题目给出正确答案。心理学在其中自成一支——[ConceptPsy](../works/conceptpsy.md) 将概念标注到章节，[CPsyExam](../works/cpsyexam.md) 把知识题与案例分析题分开，[PsychCounsel-Bench](../works/psychcounsel-bench.md) 则对标真实的执业认证及格线。工程知识问答见于 [MaScQA](../works/mascqa.md)（材料）、[TeleQnA](../works/teleqna.md)（电信）和 [ElecBench](../works/elecbench.md)（电力调度），而 [HLE](../works/hle.md) 则刻意设定了一个宽泛的、触及知识前沿的高标准。化学与过程工程则另成一脉：从 [Using LLMs for Solving Thermodynamic Problems](../works/llm-thermodynamics.md) 的热力学计算题、[PEOA](../works/peoa.md) 融合工具调用的教科书解题轨迹，到 [ChemEBench](../works/chemebench.md) 按层级铺开的能力覆盖，再到 [PSE-Bench](../works/pse-bench.md) 的开放式过程系统工程问答；[ERI Benchmark](../works/eri-benchmark.md) 则把化学工程作为九个工程领域之一，纳入一套交叉组合的题目设计。[HAZOP 自动化评估](../works/can-large-language-models-automate-the-hazop-proce.md)属于边界情形——交付物是一份完整的专业工作表而非一个答案，且它把与专家参考的相似度和所写内容在语义上是否成立分开考察。化学知识问答从 [ChemBench](../works/chembench.md) 和 [ChemEval](../works/chemeval.md)，一直延伸到侧重定量计算的 [QCBench](../works/qcbench.md) 和 [ChemIQ](../works/chemiq.md)。
 
 第二类是**竞赛、考试及研究级别的定量物理推理**，其交付成果是符号推导，连续评分或部分给分的指标在此至关重要。[PHYBench](../works/phybench.md) 和 [HiPhO](../works/hipho.md) 评判奥赛风格的题目；[UGPhysics](../works/ugphysics.md) 和 [PHYSICS](../works/physics-benchmark.md) 覆盖本科阶段的广度；难度则经由 [CMPhysBench](../works/cmphysbench.md)、[CMT-Benchmark](../works/cmt-benchmark.md)、[TPBench](../works/tpbench.md)、[CritPt](../works/critpt.md) 和 [PRL-Bench](../works/prl-bench.md) 逐级攀升，进入真正研究级、且经过防数据污染处理的挑战。应用数学方面的对应工作包括 [HARDMath](../works/hardmath.md)（渐近分析）和 [PDE-Controller](../works/pde-controller.md)。
 
@@ -43,12 +43,14 @@
 | LAB-Bench | 2024 | 求解生物学研究实践任务 | 2,400+ 道选择题，8 个类别，可选用工具 | 相较于专家生物学家的准确率 | [卡片](../works/lab-bench.md) |
 | MaCBench | 2024 | 解读化学/材料实验室图像 | 多模态 VLM，3 个方面，静态 | 各方面的任务准确率 | [卡片](../works/macbench.md) |
 | MolPuzzle | 2024 | 从谱图解析分子结构 | 200 个实例，3 个阶段，多模态 | 结构精确匹配（GPT-4o 1.4%） | [卡片](../works/molpuzzle.md) |
+| PEOA | 2024 | 以融合工具调用的轨迹形式求解化工/过程工程问题 | MathComp（8,500+）与 ChemProc（7,000+）问答对，按 70/15/15 划分 | 规划/工具选择/工具调用的分阶段得分，外加 BLEU/ROUGE-L/EM | [卡片](../works/peoa.md) |
 | SciCode | 2024 | 求解科研级编程科学问题 | 80 个主问题 / 338 个子问题，16 个子领域 | 通过参考测试用例（Claude 4.6%） | [卡片](../works/scicode.md) |
 | AtomWorld | 2025 | 操作晶态原子结构 | 10 种操作，4 类建模，可验证 | 经验证的结构正确性 | [卡片](../works/atomworld.md) |
 | BAISBench | 2025 | 标注细胞类型并回答发现类问题 | 15 个单细胞数据集 + 193 道选择题 | 相较于人类的标注+发现准确率 | [卡片](../works/baisbench.md) |
 | BioProBench | 2025 | 对生物湿实验方案进行推理 | 523,784 个实例，5 种任务类型，静态 | Accuracy/F1/tau/BLEU 指标 | [卡片](../works/bioprobench.md) |
 | CFDLLMBench | 2025 | 回答 CFD 知识、编写求解器、运行 OpenFOAM | 三个层级，240 项任务 | 可执行性、数值误差、收敛性 | [卡片](../works/cfdllmbench.md) |
 | ChemCoTBench | 2025 | 以模块化操作链形式求解分子任务 | 1,495 个样本，22 项任务，静态 | 分步推理正确性 | [卡片](../works/chemcotbench.md) |
+| ChemEBench | 2025 | 回答化学工程知识与专业技能类题目 | 3 个递进层级，15 个维度，101 项任务，静态 | 客观题准确率，外加对推理链的 0-5 分 rubric 评分 | [卡片](../works/chemebench.md) |
 | ChemIQ | 2025 | 回答有机化学构造类题目 | 816 道简答题，8 个类别，无需工具 | 程序化验证的准确率 | [卡片](../works/chemiq.md) |
 | CMPhysBench | 2025 | 求解研究生级凝聚态计算题目 | 520+ 道题，生成完整解答 | SEED 部分给分评分 | [卡片](../works/cmphysbench.md) |
 | CMT-Benchmark | 2025 | 求解专家级凝聚态理论问题 | 50 道题，涉及符号算符处理 | 相较于标准答案的程序化评分 | [卡片](../works/cmt-benchmark.md) |
@@ -74,15 +76,19 @@
 | SeePhys | 2025 | 求解以视觉为核心的物理题目 | 2,000 道题，7 个领域，21 种示意图类型 | 准确率（最佳不足 60%） | [卡片](../works/seephys.md) |
 | TPBench | 2025 | 求解新颖的理论物理题目 | 57 道题，高能物理/宇宙学，可自动验证 | 经验证的答案准确率 | [卡片](../works/tpbench.md) |
 | UGPhysics | 2025 | 求解本科物理题目 | 5,520 道双语题，13 个科目，7 种答案类型 | MARJ 评判的准确率（最佳 49.8%） | [卡片](../works/ugphysics.md) |
+| Using LLMs for Solving Thermodynamic Problems | 2025 | 计算化工热力学问题的数值答案 | 22 道题（13 道基础 / 9 道进阶），每个模型重复作答 3 次 | 专家按步给分的得分（进阶题最佳 55.19%） | [卡片](../works/llm-thermodynamics.md) |
 | ChemCensor / CREED | 2026 | 提出合理的逆合成前体 | 单步逆合成，合理性评分 | 化学合理性指标 | [卡片](../works/chemcensor.md) |
 | ChemCost | 2026 | 通过检索基准信息与报价为反应定价 | 1,427 项任务，冻结快照，使用工具 | 误差 25% 以内的准确率（50.6%） | [卡片](../works/chemcost.md) |
+| ERI Benchmark | 2026 | 回答横跨九个工程领域的开放式工程指令 | 57,750 条记录，55 个子领域，7 类意图，3 个难度层级 | 三家厂商模型组成的评审团给出的 1-5 分均值（GPT-5 为 4.48） | [卡片](../works/eri-benchmark.md) |
 | FukuyamaBench | 2026 | 推演基元反应机理路径 | 源自教科书的分步机理任务 | 路径精确匹配（8.3%） | [卡片](../works/fukuyamabench.md) |
+| HAZOP Automation Evaluation | 2026 | 依据一张 P&ID 生成完整的 HAZOP 工作表 | 一张 P&ID，统一提示词，四个多模态 LLM | 与专家参考的相似度（F1 >86%）对照有效场景占比（0.19-0.37） | [卡片](../works/can-large-language-models-automate-the-hazop-proce.md) |
 | LABBench2 | 2026 | 求解贴近实际的生物学研究任务 | 1,900 项任务，含 PDF/图像/生物信息学文件 | 准确率（较 LAB-Bench 下降 26-46%） | [卡片](../works/labbench2.md) |
 | MolecularIQ | 2026 | 对分子图进行符号化推理 | 可符号验证的任务，静态 | 经验证的正确性 / 指纹 | [卡片](../works/moleculariq.md) |
 | MolQuest | 2026 | 通过多轮实验规划解析结构 | 交互式谱图采集回合 | 结构准确率（约 50%） | [卡片](../works/molquest.md) |
 | onepot-Bench 0 | 2026 | 化学信息学、拒答、反应结果预测 | 三个部分，含私有实验室数据，静态 | 准确率 / 拒答行为 | [卡片](../works/onepot-bench.md) |
 | PhySciBench | 2026 | 回答物理科学深度研究问题 | 200 道精选题，物理+化学，6 个类别 | 答案正确性 | [卡片](../works/physcibench.md) |
 | PRL-Bench | 2026 | 求解前沿物理研究任务 | 100 项任务，取自近期 PRL 论文，5 个子领域 | 可验证评分（最佳 <50/100） | [卡片](../works/prl-bench.md) |
+| PSE-Bench | 2026 | 回答开放式的过程系统工程问题 | 200 道题，4 个 PSE 领域，单轮零样本 | 五位评审基于 rubric 的综合得分；要素覆盖率 60.8-78.1% | [卡片](../works/pse-bench.md) |
 | SciConvBench | 2026 | 澄清表述不清的计算科学请求 | 多轮对话，4 个领域 | 消歧/一致性求解（52.7%） | [卡片](../works/sciconvbench.md) |
 | Science Edge Evaluation (SEE) | 2026 | 对实验数据进行证据受限的推理 | 1,116 道多模态选择/数值填空题；化学、生物、材料 | 相较于专家标准答案的准确率（最佳 48.7%，用工具 52.7%） | [卡片](../works/science-edge-evaluation.md) |
 | TCS-Bench | 2026 | 生成研究级的理论计算机科学证明 | 300 项定理证明任务，取自 FOCS/STOC/SODA（2020–2026） | 自包含证明；verifier-agent 准确率（最佳 68%） | [卡片](../works/tcs-bench.md) |
@@ -151,3 +157,9 @@
 - [PRL-Bench](../works/prl-bench.md)
 - [SciConvBench](../works/sciconvbench.md)
 - [VCoT-Bench](../works/vcot-bench.md)
+- [PEOA](../works/peoa.md)
+- [ChemEBench](../works/chemebench.md)
+- [Using Large Language Models for Solving Thermodynamic Problems](../works/llm-thermodynamics.md)
+- [ERI Benchmark](../works/eri-benchmark.md)
+- [Can Large Language Models Automate the HAZOP Process Without Human Intervention?](../works/can-large-language-models-automate-the-hazop-proce.md)
+- [PSE-Bench](../works/pse-bench.md)

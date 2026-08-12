@@ -28,6 +28,7 @@
 | MatText | 2024 | 从文本表示预测晶体性质 | 静态回归，9 种表示，参数量最高达 70B，2M 个结构 | 达到几何 GNN 基线水平；揭示几何盲区 | [卡片](../works/mattext.md) |
 | MLE-bench | 2024 | 端到端 ML 工程以训练有竞争力的模型 | 75 个精选 Kaggle 竞赛，agentic，长时程 | Kaggle 奖牌门槛；o1-preview 在 16.9% 上获铜牌 | [卡片](../works/mle-bench.md) |
 | AlchemyBench | 2025 | 预测完整的材料合成配方及结果 | 对 17,000 个专家验证配方的静态预测 | LLM-as-a-Judge 与专家评估的一致性 | [卡片](../works/alchemybench.md) |
+| ChemEBench | 2025 | 预测分子性质与反应结果 | L2 层级：SMILES 转 IUPAC、分子命名、性质预测与反应预测 | 客观题准确率；14 个模型的排行榜 | [卡片](../works/chemebench.md) |
 | FGBench | 2025 | 在官能团层面推理分子性质 | 625K 个问题（245 个官能团）；7K 精选 LLM 子集，静态 QA | 回归/分类准确率；LLM 表现吃力 | [卡片](../works/fgbench.md) |
 | MLE-Dojo | 2025 | 借助反馈迭代式构建并优化 ML 模型 | 200+ 个 Kaggle 挑战，Gym 风格交互，可用于 SFT/RL 训练 | 8 个 LLM 上的迭代改进与解答质量 | [卡片](../works/mle-dojo.md) |
 | BioXArena | 2026 | 构建并训练生物医学预测模型 | 76 个端到端任务，9 个领域，2 小时单 GPU 预算 | 隐藏标签 0-1 评分；最佳 MLEvolve 0.666 | [卡片](../works/bioxarena.md) |
@@ -55,3 +56,4 @@
 - [onepot-Bench 0](../works/onepot-bench.md)
 - [RealPDEBench](../works/realpdebench.md)
 - [Stargazer](../works/stargazer.md)
+- [ChemEBench](../works/chemebench.md)

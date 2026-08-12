@@ -16,7 +16,7 @@
 
 第二类任务考察以证据为依托的问答以及对文献的多跳综合。[Aviary](../works/aviary.md) 贡献了 LitQA2/PaperQA 文献研究环境；[LAB-Bench](../works/lab-bench.md) 及其后续版本 [LABBench2](../works/labbench2.md) 都把文献记忆与推理嵌入到更广泛的生物学能力套件中，其中 LABBench2 通过将答案锚定在 PDF 和图像上，让任务重新贴近真实场景。[MedBrowseComp](../works/medbrowsecomp.md) 把多跳综合推向真实、碎片化的医学来源，考察的正是信息时效性与整合协调的能力；[DeepResearch Bench](../works/deepresearch-bench.md) 则通过其 RACE 和 FACT 框架，评估端到端的深度研究报告生成与引用锚定。[BioKGBench](../works/biokgbench.md) 把文献理解重新表述为可核验的行为——将论断核实与 KGQA 组合起来，用于在生物医学知识图谱中查找事实性错误。
 
-第三类任务是以文献为依托的结构化抽取：把论文转化为结构化记录。[MatViX](../works/matvix.md) 从完整篇幅的材料学文章中抽取成分组成与性质曲线并生成 JSON（评分对象包括图中曲线，而不仅是实体）；[ChemX](../works/chemx.md) 则从涵盖纳米材料与小分子数据集的文档中完成经专家验证的化学信息抽取。[MetaSyn](../works/metasyn.md) 处于系统综述 / 元分析这一终点，要求智能体在 PI/ECO 协议下从含有干扰项的语料中筛选出符合条件的研究集合并加以综合。
+第三类任务是以文献为依托的结构化抽取：把论文转化为结构化记录。[MatViX](../works/matvix.md) 从完整篇幅的材料学文章中抽取成分组成与性质曲线并生成 JSON（评分对象包括图中曲线，而不仅是实体）；[ChemX](../works/chemx.md) 则从涵盖纳米材料与小分子数据集的文档中完成经专家验证的化学信息抽取。[CeProBench](../works/ceprobench.md) 的 Knowledge 维度把同一思路搬到工程文献上：从 70 份技术文档中抽取实体与关系、构建知识图谱，用实体 F1 与边结构指标打分，再用这张图为流程工程场景检索并综合上下文。[MetaSyn](../works/metasyn.md) 处于系统综述 / 元分析这一终点，要求智能体在 PI/ECO 协议下从含有干扰项的语料中筛选出符合条件的研究集合并加以综合。
 
 边界情形：Aviary、LAB-Bench、LABBench2 和 AstaBench 都是多能力套件，其中只有文献、问答与抽取相关的组成部分才明确落在本活动范围内（序列、克隆、实验流程以及代码类子任务则不属于）。[MOOSE-Chem](../works/moose-chem.md) 在一个 3,000 篇论文的语料上进行灵感检索，但其目的是重新发现假说而非证据综合，因此它主要归入 Experiment Design & Scientific Discovery。
 
@@ -34,6 +34,7 @@
 | DeepResearch Bench | 2025 | 开展端到端深度研究并生成带引用的报告 | 100 个专家任务，22 个领域（50 英文/50 中文） | 报告质量（RACE）与引用锚定（FACT） | [卡片](../works/deepresearch-bench.md) |
 | MedBrowseComp | 2025 | 从实时来源检索并综合多跳事实 | 1,000+ 道精选问题；深度研究与 computer-use | 给出经协调整合的最新正确答案 | [卡片](../works/medbrowsecomp.md) |
 | AutoResearchBench | 2026 | 找到目标论文并收集所有符合条件的论文 | 1,000 条查询：Deep Research（600）+ Wide Research（400） | 定位到目标论文/完整的论文集合 | [卡片](../works/autoresearchbench.md) |
+| CeProBench | 2026 | 从技术文档构建知识图谱并综合工程场景所需的上下文 | 70 份核心技术文档；Knowledge Extract 与 Knowledge Augment 两类任务 | 实体 F1/召回率/准确率，外加 MEC/MED 图结构指标 | [卡片](../works/ceprobench.md) |
 | LABBench2 | 2026 | 在真实产物情境下进行文献/专利/试验问答 | 涵盖 PDF、图像、文件的 1,900 个任务；静态测评框架 | 准确率（比 LAB-Bench 难 26-46%） | [卡片](../works/labbench2.md) |
 | MetaSyn | 2026 | 筛选符合条件的研究并综合成系统综述 | 422 项专家元分析；含干扰项的 PubMed 语料 | 正确的符合条件研究集合与忠于协议的综合 | [卡片](../works/metasyn.md) |
 | ScholarQuest | 2026 | 按研究意图进行迭代式学术论文检索 | 1,000+ 个 CS 主题，四类意图类别 | Recall@100/@All（最优 | [卡片](../works/scholarquest.md) |
@@ -55,3 +56,4 @@
 - [MetaSyn](../works/metasyn.md)
 - [ScholarQuest](../works/scholarquest.md)
 - [SciExplore](../works/sciexplore.md)
+- [CeProBench](../works/ceprobench.md)
