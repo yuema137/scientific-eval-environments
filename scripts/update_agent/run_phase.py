@@ -109,6 +109,10 @@ def cmd_discover(a):
     decisions = relevance.score(merged, cfg)
     admitted, rep = relevance.admit(merged, decisions, cap)
     tm["relevance_s"] = round(time.monotonic() - _t, 2)
+    # Budget deferral is a transparent bounded-coverage policy: record every overflow candidate as
+    # deferred_by_budget in its own artifact (never a silent drop, never a persistent auto-backlog).
+    deferred = rep.pop("deferred_candidates", [])
+    write_json(os.path.join(RUN_DIR, "phase1", "deferred_by_budget.json"), deferred)
     write_json(os.path.join(RUN_DIR, "phase1", "relevance.json"),
                {"report": rep, "decisions": decisions, "timing": tm})
     write_json(os.path.join(RUN_DIR, "phase1", "candidates.json"), admitted)  # admitted = deep-review queue
@@ -130,7 +134,10 @@ def cmd_discover(a):
         "Relevance: deep_review=%d, uncertain=%d (admitted %d, github-only excluded %d), rejected=%d"
         % (rep["deep_review"], rep["uncertain_total"], rep["uncertain_admitted"],
            rep.get("uncertain_github_only_excluded", 0), rep["rejected_low_relevance"]),
-        "Sent to Phase 2 (deep-review admitted): %d (cap %d, overflow=%s)" % (n, cap, rep["overflow"]),
+        "Sent to Phase 2: %d (budget %d) | deferred_by_budget: %d%s"
+        % (n, cap, rep.get("deferred_by_budget", 0),
+           " (budget exceeded — top-%d admitted by confidence, rest deferred)" % cap
+           if rep.get("budget_exceeded") else ""),
         "Sources: %s" % "  ".join(
             "%s=%s%s" % (s, cov.get("sources", {}).get(s, "?"),
                          (" (%s)" % cov.get("source_status_detail", {}).get(s, ""))

@@ -87,39 +87,63 @@ def _github_only(c):
     return {r["source"] for r in c.get("source_records", [])} == {"github"}
 
 
-def admit(candidates, decisions, cap):
-    """Ranked triage (source-aware). Returns (admitted, report).
+def _rank_key(cid, decisions):
+    # deterministic, reproducible priority: confidence desc, then candidate_id asc (stable tie-break)
+    return (-float(decisions[cid].get("confidence") or 0.0), cid)
 
-    deep_review is admitted from any source. `uncertain` fills the remaining budget by confidence
-    — but ONLY for candidates backed by a paper (arXiv/OpenReview abstract). A GitHub-only
-    `uncertain` is NOT admitted: repo name+description+topics carry far less signal than an
-    abstract, so a standalone repo must earn `deep_review` (or be merged onto a paper) to proceed.
+
+def admit(candidates, decisions, cap):
+    """Budgeted, ranked, source-aware admission. Returns (admitted, report).
+
+    `cap` is a per-run PROCESSING BUDGET, not a completeness requirement: a credible discovery run
+    may legitimately surface more metadata-plausible works than one run can deep-review. Priority:
+    deep_review first (ranked by confidence), then paper-backed `uncertain` fills any remaining
+    budget. A GitHub-only `uncertain` is never admitted (repo metadata carries far less signal than
+    an abstract). Candidates that don't fit the budget are recorded as `deferred_by_budget` — this is
+    an explicit bounded-coverage policy, NOT silent truncation and NOT a persistent backlog: deferred
+    items are retained for observability / manual backfill only, never auto-processed later.
     """
     by_id = {c["candidate_id"]: c for c in candidates}
-    deep = [cid for cid, d in decisions.items() if d["decision"] == "deep_review"]
-    uncertain = [cid for cid, d in decisions.items() if d["decision"] == "uncertain"]
+    deep = [cid for cid, d in decisions.items() if d["decision"] == "deep_review" and cid in by_id]
+    uncertain = [cid for cid, d in decisions.items() if d["decision"] == "uncertain" and cid in by_id]
     rejected = [cid for cid, d in decisions.items() if d["decision"] == "reject_low_relevance"]
 
-    uncertain_admittable = sorted(
-        [cid for cid in uncertain if cid in by_id and not _github_only(by_id[cid])],
-        key=lambda cid: -decisions[cid]["confidence"])
-    gh_only_uncertain = [cid for cid in uncertain if cid in by_id and _github_only(by_id[cid])]
+    deep_ranked = sorted(deep, key=lambda cid: _rank_key(cid, decisions))
+    uncertain_admittable = sorted([cid for cid in uncertain if not _github_only(by_id[cid])],
+                                  key=lambda cid: _rank_key(cid, decisions))
+    gh_only_uncertain = [cid for cid in uncertain if _github_only(by_id[cid])]
 
-    admitted_ids = list(deep)
-    room = cap - len(admitted_ids)
-    admitted_from_uncertain = uncertain_admittable[:room] if room > 0 else []
-    admitted_ids += admitted_from_uncertain
+    # fill the budget: highest-priority deep_review first, then paper-backed uncertain
+    admitted_deep = deep_ranked[:cap]
+    deferred_deep = deep_ranked[cap:]
+    room = cap - len(admitted_deep)
+    admitted_uncertain = uncertain_admittable[:room] if room > 0 else []
+    deferred_uncertain = uncertain_admittable[room:] if room > 0 else list(uncertain_admittable)
 
-    admitted = [by_id[cid] for cid in admitted_ids if cid in by_id]
+    admitted_ids = admitted_deep + admitted_uncertain
+    admitted = [by_id[cid] for cid in admitted_ids]
+
+    def _defrow(cid):
+        c = by_id[cid]
+        return {"candidate_id": cid, "title": c.get("title", ""),
+                "sources": sorted({r["source"] for r in c.get("source_records", [])}),
+                "confidence": decisions[cid].get("confidence"),
+                "decision": decisions[cid]["decision"],
+                "matched_profiles": c.get("matched_profiles", []),
+                "reason": "deferred_by_budget"}
+    deferred = [_defrow(cid) for cid in (deferred_deep + deferred_uncertain)]
+
     report = {
         "deep_review": len(deep),
         "uncertain_total": len(uncertain),
-        "uncertain_admitted": len(admitted_from_uncertain),
+        "uncertain_admitted": len(admitted_uncertain),
         "uncertain_github_only_excluded": len(gh_only_uncertain),
         "rejected_low_relevance": len(rejected),
         "admitted": len(admitted),
         "cap": cap,
-        "overflow": len(deep) > cap,   # deep_review alone exceeds cap -> Phase 2 will needs_attention
+        "deferred_by_budget": len(deferred),
+        "deferred_candidates": deferred,
+        "budget_exceeded": len(deep) > cap,   # deep_review alone exceeded the budget (reporting only)
     }
     return admitted, report
 

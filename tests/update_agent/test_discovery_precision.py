@@ -177,31 +177,51 @@ def test_relevance_malformed_output_is_uncertain(monkeypatch):
     assert all(v["decision"] == "uncertain" for v in d.values())
 
 
-# ------------------------------------------------------------ admission / cap
-def test_admit_under_cap():
+# ------------------------------------------------------------ admission / budget + deferral
+def test_admit_under_budget_processes_all():
     cands = _cands(35)
     dec = {c["candidate_id"]: {"decision": "deep_review", "confidence": 0.9} for c in cands}
     admitted, rep = relevance.admit(cands, dec, cap=40)
-    assert len(admitted) == 35 and rep["overflow"] is False
+    assert len(admitted) == 35 and rep["budget_exceeded"] is False and rep["deferred_by_budget"] == 0
 
 
-def test_admit_overflow_keeps_all_deep_for_needs_attention():
+def test_admit_over_budget_selects_exactly_cap_and_defers_rest():
+    # 45 deep_review, distinct confidences -> admit the 40 highest, defer the 5 lowest (no silent drop)
     cands = _cands(45)
-    dec = {c["candidate_id"]: {"decision": "deep_review", "confidence": 0.9} for c in cands}
+    dec = {c["candidate_id"]: {"decision": "deep_review", "confidence": i / 100.0}
+           for i, c in enumerate(cands)}
     admitted, rep = relevance.admit(cands, dec, cap=40)
-    assert len(admitted) == 45 and rep["overflow"] is True   # Phase 2 cap check will fail -> no PR
+    assert len(admitted) == 40
+    assert rep["budget_exceeded"] is True and rep["deferred_by_budget"] == 5
+    # the 5 deferred are the 5 LOWEST confidence (ids c0..c4), all marked deferred_by_budget
+    deferred_ids = {d["candidate_id"] for d in rep["deferred_candidates"]}
+    assert deferred_ids == {"c0", "c1", "c2", "c3", "c4"}
+    assert all(d["reason"] == "deferred_by_budget" for d in rep["deferred_candidates"])
+    # nothing silently disappears: admitted ∪ deferred == all deep_review candidates
+    admitted_ids = {c["candidate_id"] for c in admitted}
+    assert admitted_ids | deferred_ids == {c["candidate_id"] for c in cands}
+    assert not (admitted_ids & deferred_ids)
 
 
-def test_admit_uncertain_fills_remaining_budget_by_confidence():
+def test_admit_budget_selection_is_deterministic():
+    cands = _cands(45)
+    dec = {c["candidate_id"]: {"decision": "deep_review", "confidence": 0.9} for c in cands}  # ties
+    a1, r1 = relevance.admit(cands, dec, cap=40)
+    a2, r2 = relevance.admit(cands, dec, cap=40)
+    assert [c["candidate_id"] for c in a1] == [c["candidate_id"] for c in a2]      # stable tie-break
+    assert {d["candidate_id"] for d in r1["deferred_candidates"]} == {d["candidate_id"] for d in r2["deferred_candidates"]}
+
+
+def test_admit_uncertain_fills_remaining_budget_then_defers():
     cands = _cands(50)
     dec = {}
     for i, c in enumerate(cands):
-        if i < 30:
-            dec[c["candidate_id"]] = {"decision": "deep_review", "confidence": 0.9}
-        else:
-            dec[c["candidate_id"]] = {"decision": "uncertain", "confidence": (i / 100.0)}
+        dec[c["candidate_id"]] = ({"decision": "deep_review", "confidence": 0.9} if i < 30
+                                  else {"decision": "uncertain", "confidence": (i / 100.0)})
     admitted, rep = relevance.admit(cands, dec, cap=40)
-    assert len(admitted) == 40 and rep["uncertain_admitted"] == 10 and rep["overflow"] is False
+    # 30 deep + 10 highest-confidence uncertain = 40; remaining 10 uncertain deferred_by_budget
+    assert len(admitted) == 40 and rep["uncertain_admitted"] == 10
+    assert rep["budget_exceeded"] is False and rep["deferred_by_budget"] == 10
 
 
 # ------------------------------------------------------------ watermark
@@ -541,6 +561,13 @@ def test_watermark_should_advance_requires_credible_discovery():
     assert watermark.should_advance({"discovery_credible": True}) is True
     assert watermark.should_advance({"discovery_credible": False}) is False
     assert watermark.should_advance({}) is True          # backward-compatible (flag absent)
+
+
+def test_watermark_advances_despite_budget_deferral_but_not_on_incredible():
+    # a credible run may advance even when candidates were intentionally deferred by the budget policy
+    assert watermark.should_advance({"discovery_credible": True, "suspicious_empty": []}) is True
+    # a source-credibility failure still blocks advancement regardless of deferral
+    assert watermark.should_advance({"discovery_credible": False, "suspicious_empty": ["arxiv"]}) is False
 
 
 def test_validate_discovery_accepts_suspicious_empty(tmp_path):
