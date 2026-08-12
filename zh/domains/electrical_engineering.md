@@ -25,9 +25,11 @@
 | MMCircuitEval | 2025 | 回答跨 EDA 设计流程的电路问题。 | 横跨数字与模拟电路及 EDA 阶段的 3,614 个多模态问答对。 | 按设计阶段、电路类型、所测能力与难度的准确率。 | [→](../works/mmcircuiteval.md) |
 | TeleQnA | 2023 | 回答以标准为依据的电信知识问题。 | 取自 3GPP/IEEE 标准与研究文献的 10,000 道选择题。 | 对照在职电信专业人士基线的选择题准确率。 | [→](../works/teleqna.md) |
 | ControlAgent / ControlEval | 2024 | 设计满足稳定性与性能规格的控制器。 | 500 个控制设计任务（ControlEval），横跨一/二阶、时滞与高阶系统。 | 对照设计判据、相对「工具箱+人工」基线的平均与 agent 成功率。 | [→](../works/controleval.md) |
+| PDAgent-Bench | 2026 | VLSI 物理设计 / 电子设计自动化——芯片后端实现，涵盖布图规划、供电规划、布局、时钟树综合、布线、静态时序分析与工程变更单。 | 353 个精选的任务级问题，横跨五个能力维度（基础知识、报告理解、根因分析、静态时序分析、脚本生成），另加 10 个全流程设计项目，使用 TSMC 28nm / Nangate 45nm 及 Cadence Innovus、Synopsys ICC2/PrimeTime、OpenROAD 等工具；11 个模型。 | 任务级 pass@1/pass@5：脚本解经执行检查、概念性答案对照三位专家验证的参考评分；工作流级全流程运行则按 TinyRISCV、AES-256、Ethernet MAC 等设计上的时序收敛与 DRC 违规结果评估。 | [→](../works/pdagent-bench.md) |
 
 ## Related Works
 
+- [PDAgent-Bench](../works/pdagent-bench.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [VerilogEval](../works/verilogeval.md)
 - [RTLLM](../works/rtllm.md)

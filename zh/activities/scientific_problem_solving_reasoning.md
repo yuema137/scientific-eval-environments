@@ -61,6 +61,7 @@
 | MatQnA | 2025 | 解读十种材料表征方法 | 选择题+主观题，多模态 | 准确率（前沿约 90%） | [卡片](../works/matqna.md) |
 | MatSciBench | 2025 | 求解大学水平的材料科学题目 | 1,340 道题（315 道含图），文字+多模态 | 推理准确率 | [卡片](../works/matscibench.md) |
 | MatVQA | 2025 | 对显微/衍射图像进行推理 | 1,325 道题，4 项结构-性质任务 | 抗捷径的准确率 | [卡片](../works/matvqa.md) |
+| MiraMind | 2025 | 跨六大任务族的心理健康 / 临床推理 | 13 个数据集；评估、诊断、干预、问答、抽象、核验 | 各任务族的结果指标加推理轨迹可靠性 | [卡片](../works/miramind.md) |
 | MMCircuitEval | 2025 | 回答贯穿设计流程的电路/EDA 问题 | 3,614 组多模态问答，数字+模拟 | 按设计阶段统计的准确率 | [卡片](../works/mmcircuiteval.md) |
 | MolLangBench | 2025 | 识别、编辑、生成分子结构 | 3 个族系，涵盖字符串/图像/图 | 自动/专家核验的准确率 | [卡片](../works/mollangbench.md) |
 | OpenXRD | 2025 | 回答 XRD/晶体学问题 | 217 道题，闭卷/开卷，74 个模型 | 问答准确率 | [卡片](../works/openxrd.md) |
@@ -83,10 +84,15 @@
 | PhySciBench | 2026 | 回答物理科学深度研究问题 | 200 道精选题，物理+化学，6 个类别 | 答案正确性 | [卡片](../works/physcibench.md) |
 | PRL-Bench | 2026 | 求解前沿物理研究任务 | 100 项任务，取自近期 PRL 论文，5 个子领域 | 可验证评分（最佳 <50/100） | [卡片](../works/prl-bench.md) |
 | SciConvBench | 2026 | 澄清表述不清的计算科学请求 | 多轮对话，4 个领域 | 消歧/一致性求解（52.7%） | [卡片](../works/sciconvbench.md) |
+| Science Edge Evaluation (SEE) | 2026 | 对实验数据进行证据受限的推理 | 1,116 道多模态选择/数值填空题；化学、生物、材料 | 相较于专家标准答案的准确率（最佳 48.7%，用工具 52.7%） | [卡片](../works/science-edge-evaluation.md) |
+| TCS-Bench | 2026 | 生成研究级的理论计算机科学证明 | 300 项定理证明任务，取自 FOCS/STOC/SODA（2020–2026） | 自包含证明；verifier-agent 准确率（最佳 68%） | [卡片](../works/tcs-bench.md) |
 | VCoT-Bench | 2026 | 完成 Verus 验证的思维链 | 1,988 项任务，源自 150 个 Verus 程序 | 证明块补全准确率 | [卡片](../works/vcot-bench.md) |
 
 ## Related Works
 
+- [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
+- [TCS-Bench](../works/tcs-bench.md)
+- [MiraMind](../works/miramind.md)
 - [ConceptPsy](../works/conceptpsy.md)
 - [MaScQA](../works/mascqa.md)
 - [TeleQnA](../works/teleqna.md)

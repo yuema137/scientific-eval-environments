@@ -168,6 +168,15 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - **Research idea generation.** [IdeaBench](../works/ideabench.md) grounds LLMs in influential-paper context and scores generated ideas by novelty and feasibility via a two-stage framework.
 - **Divergent scientific thinking.** [LiveIdeaBench](../works/liveideabench.md) evaluates single-keyword idea generation across 1,180 keywords and 22 domains, finding creativity is poorly predicted by general intelligence.
 - **AI-development agents, judged by agents.** [DevAI / Agent-as-a-Judge](../works/devai.md) provides 55 AI-development tasks with 365 hierarchical requirements, evaluated by an agentic judge as reliable as humans.
+- **Expert-grade neuroscience pipeline.** [A Case Study of Evaluating AI Agents on a Neuroscience Data-to-Discovery Pipeline](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md) decomposes a real fly-optogenetics research pipeline into seven expert-scored stages, finding that agents solve individual stages but not correct end-to-end discovery.
+- **End-to-end data science in real environments.** [DSAgentBench](../works/dsagentbench.md) evaluates whether agents can automate the full data-science life-cycle across 275 tasks inside real computer environments (notebooks, IDEs, terminals, browsers, databases), each paired with a deterministic evaluator.
+- **Scientific visualization agents.** [SciVisAgentBench](../works/scivisagentbench.md) grades 108 expert-crafted SciVis cases across seven science domains with a multimodal outcome-centric pipeline combining image metrics, code/rule verifiers, and a human-validated LLM judge.
+- **Research-level proof generation.** [TCS-Bench](../works/tcs-bench.md) assembles 300 theorem-proving tasks from FOCS/STOC/SODA papers (2020–2026) and grades them with an automated verifier agent calibrated to over 90% expert agreement.
+- **Evidence-bounded experimental reasoning.** [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md) tests multimodal inference over real experimental figures and data across chemistry, biology, and materials science, isolating evidence-bounded reasoning discipline from information access.
+- **Statistically valid hypothesis testing.** [Fisher-R1 / P-Bench](../works/fisher-r1.md) scores whether agents select an appropriate statistical method, compute a valid p-value, and reach a correct reject/fail-to-reject conclusion on 425 tasks grounded in logged reference-code executions.
+- **Human-authorized physical energy agents.** [EnergyBridge](../works/energybridge.md) couples capacity reporting, household authorization, and physical execution for residential virtual power plants, metering outcomes from region-specific EnergyPlus models.
+- **VLSI physical design.** [PDAgent-Bench](../works/pdagent-bench.md) unifies task-level assessment (353 curated EDA problems) with workflow-level closed-loop physical-design flows, finding models competitive on concepts but weak on tool-centric, long-horizon execution.
+- **Reliability-scored mental-health reasoning.** [MiraMind](../works/miramind.md) evaluates mental-health reasoning across six task families and 13 datasets, scoring not only outcomes but the reliability of the evidence-to-judgment reasoning trajectory.
 
 ## Comparison
 
@@ -329,6 +338,15 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | IdeaBench | 2024 | Research idea generation grounded in influential papers | Research ideation | Two-stage GPT-4o ranking + relative Insight Score | [→](../works/ideabench.md) |
 | LiveIdeaBench | 2024 | Single-keyword ideation; 1,180 keywords, 22 domains, 40+ models | Scientific idea generation | LLM-panel scoring on five creativity dimensions | [→](../works/liveideabench.md) |
 | DevAI / Agent-as-a-Judge | 2024 | 55 AI-development tasks, 365 hierarchical requirements | Automated AI development | Requirement-level, process-aware Agent-as-a-Judge evaluation | [→](../works/devai.md) |
+| A Case Study on a Neuroscience Data-to-Discovery Pipeline | 2026 | Real fly-optogenetics pipeline decomposed into 7 stages (9 released tasks) | Neuroscience (Drosophila behavior analysis) | Expert-defined per-stage criteria vs. human annotations and legacy code; Mann–Whitney U for the statistical stage | [→](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md) |
+| DSAgentBench | 2026 | 275 tasks over the full data-science life-cycle in real computer environments | Data science (wrangling → modeling → validation) | Deterministic per-task evaluator of analytical correctness, visual outputs, and model performance | [→](../works/dsagentbench.md) |
+| SciVisAgentBench | 2026 | 108 expert-crafted scientific-visualization cases (four-dimension taxonomy) | Scientific visualization across 7 science domains | Multimodal outcome-centric pipeline: image metrics + code/rule verifiers + human-validated LLM judge | [→](../works/scivisagentbench.md) |
+| TCS-Bench | 2026 | 300 theorem-proving tasks from FOCS/STOC/SODA papers (2020–2026) | Theoretical computer science / mathematics (proof generation) | Automated verifier agent (4× Gemini 3.1 Flash, 3-of-4 vote); >90% expert agreement | [→](../works/tcs-bench.md) |
+| Science Edge Evaluation (SEE) | 2026 | 1,116 expert-curated multimodal questions from literature and first-hand experimental data | Chemistry, biology, materials science | Exact-match / tolerance scoring against expert ground truth; strict binary LLM judge | [→](../works/science-edge-evaluation.md) |
+| Fisher-R1 / P-Bench | 2026 | 425 hypothesis-testing tasks reproduced from expert analyses | Economics, biology, medicine (statistical inference) | Decisions and p-values checked against logged reference-code executions (Raw / Strict) | [→](../works/fisher-r1.md) |
+| EnergyBridge | 2026 | Residential VPP demand-response workflow over region-specific EnergyPlus models | Energy systems (household grid flexibility) | Metered EnergyPlus outcomes: authorization rate + capacity-commitment reliability within ±20% | [→](../works/energybridge.md) |
+| PDAgent-Bench | 2026 | 353 curated tasks + 10 full-flow designs from real industrial EDA artifacts | VLSI physical design / EDA | pass@1/@5 with execution-checked scripts and expert references; full-flow timing-closure / DRC outcomes | [→](../works/pdagent-bench.md) |
+| MiraMind | 2025 | Six task families over 13 mental-health datasets | Mental health / psychiatry (Medicine & Health; Neuroscience & Cognitive Science) | Per-family outcome metrics plus human-validated LLM-judged reasoning-trajectory scoring | [→](../works/miramind.md) |
 
 ## Open Questions
 
@@ -340,6 +358,15 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 
 ## Related Works
 
+- [SciVisAgentBench](../works/scivisagentbench.md)
+- [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
+- [TCS-Bench](../works/tcs-bench.md)
+- [MiraMind](../works/miramind.md)
+- [Fisher-R1 / P-Bench](../works/fisher-r1.md)
+- [DSAgentBench](../works/dsagentbench.md)
+- [PDAgent-Bench](../works/pdagent-bench.md)
+- [EnergyBridge](../works/energybridge.md)
+- [A Case Study of Evaluating AI Agents on a Neuroscience Data-to-Discovery Pipeline](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [NatureBench](../works/naturebench.md)
 - [ScienceAgentBench](../works/scienceagentbench.md)

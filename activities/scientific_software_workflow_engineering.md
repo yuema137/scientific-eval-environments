@@ -67,14 +67,20 @@ Covers scientific **and** engineering software or workflow artifacts — includi
 | MDArena | 2026 | Molecular-dynamics workflow code | 50 containerized tasks, 29 systems, 14 protocols | Strict success rate + process partial credit | [card](../works/mdarena.md) |
 | MooseBench | 2026 | MOOSE multiphysics simulation input files | 220 cases with PDE-level ground truth | Intent Fidelity Score (reconstructed PDE match) | [card](../works/moosebench.md) |
 | NatureBench | 2026 | Match published SOTA scientific code | 90 tasks from Nature-family papers, six domains | Reach/exceed published SOTA under info firewall | [card](../works/naturebench.md) |
+| Neuroscience Data-to-Discovery Case Study | 2026 | Build a neuroscience data-to-discovery pipeline in code | 9 computational tasks (7 stages + end-to-end); Harbor-compatible | Correct stage code vs expert annotations and legacy codebases | [card](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md) |
+| PDAgent-Bench | 2026 | Generate EDA-tool scripts for VLSI physical design | 210 script-gen tasks + closed-loop flow; Innovus/ICC2/OpenROAD | Execution-validated scripts (pass@1/5) | [card](../works/pdagent-bench.md) |
 | PDEAgent-Bench | 2026 | PDE solver code for FEM libraries | 645 instances, 6 categories; DOLFINx/Firedrake/deal.II | Staged executability, accuracy, efficiency | [card](../works/pdeagent-bench.md) |
 | PRBench | 2026 | Reproduce physics research from papers | 30 expert-curated tasks, 11 subfields; sandbox | Quantitative match to publication (CSV rubric) | [card](../works/prbench.md) |
 | QMP-Bench | 2026 | Quantum many-body simulation code | 100 end-to-end tasks from 21 journals | Coding correctness + physical validity | [card](../works/qmp-bench.md) |
+| SciVisAgentBench | 2026 | Generate executable scientific-visualization code | 108 cases; ParaView/napari/MD/topology via CLI/MCP/Python | Image metrics + code checkers + rule-based verifiers | [card](../works/scivisagentbench.md) |
 | StructureClaw | 2026 | Structural-engineering workflow (model to solver to checks) | 150 scenarios; artifact workbench w/ OpenSees | Model-match + numerical agreement vs frozen refs | [card](../works/structureclaw.md) |
 | Terminal-Bench Science | 2026 | Containerized scientific-computing workflows | 8 tasks across 5 domains (target 100+); agentic | pytest deterministic programmatic verification | [card](../works/terminal-bench-science.md) |
 
 ## Related Works
 
+- [SciVisAgentBench](../works/scivisagentbench.md)
+- [PDAgent-Bench](../works/pdagent-bench.md)
+- [A Case Study of Evaluating AI Agents on a Neuroscience Data-to-Discovery Pipeline](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md)
 - [ML-Bench](../works/ml-bench.md)
 - [MLAgentBench](../works/mlagentbench.md)
 - [RTLLM](../works/rtllm.md)

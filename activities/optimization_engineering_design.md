@@ -30,8 +30,10 @@ A third cluster is **simulation-guided parameter tuning and iterative engineerin
 | Speak-to-Structure / TOMG-Bench | 2024 | Natural-language-driven open-domain molecule generation | MolEdit/MolOpt/MolCustom, 5,000 samples per subtask | Instruction-satisfying valid molecule (one-to-many) | [card](../works/tomg-bench.md) |
 | CVDP | 2025 | RTL design, verification, and debugging of Verilog | 783 problems, 13 categories, agentic and non-agentic | Pass@1 on generation (SOTA <=34%) | [card](../works/cvdp.md) |
 | HLS-Eval | 2025 | LLM generates and optimizes synthesizable HLS code | 94 HLS designs, NL-to-code and optimization edits | Parseable/compilable/runnable/synthesizable on Vitis HLS (pass@k) | [card](../works/hls-eval.md) |
+| EnergyBridge | 2026 | Generate constraint-aware residential demand-response plans | VPP workflow over EnergyPlus models (Tianjin, Berlin) | Authorization rate plus capacity-commitment reliability | [card](../works/energybridge.md) |
 | Frontier-Eng | 2026 | Iterative generative design under simulator feedback | 47 tasks, 5 engineering categories, bounded budget | Continuous reward under hard feasibility constraints | [card](../works/frontier-eng.md) |
 | HydroAgent | 2026 | Agents calibrate operational CREST hydrologic model | 4 held-out gauges (329-40,792 km2), best-of-20 rounds | Nash-Sutcliffe Efficiency vs human-expert reference | [card](../works/hydroagent.md) |
+| PDAgent-Bench | 2026 | VLSI physical-design optimization under constraints | Full-flow implementation plus tasks; Innovus/ICC2/OpenROAD EDA | Timing closure and DRC-clean layout; pass@1/5 | [card](../works/pdagent-bench.md) |
 | PowerAgentBench-SS | 2026 | Agents screen contingencies and propose grid mitigations | IEEE 39-bus DC thermal N-2 search under validation budget | Hidden-evaluator recall, severity regret, residual violation | [card](../works/poweragentbench-ss.md) |
 | SciAgentArena | 2026 | Biomedical research tasks including optimization and design |  | 200 stepwise-verified tasks across five biomedical fields | [card](../works/sciagentarena.md) |
 | SimulCost | 2026 | Cost-aware parameter tuning of physics simulations | 2,947 single-round + 1,931 multi-round tasks, 13 simulators | Tuning quality under simulation-time/resource budget | [card](../works/simulcost.md) |
@@ -39,6 +41,8 @@ A third cluster is **simulation-guided parameter tuning and iterative engineerin
 
 ## Related Works
 
+- [PDAgent-Bench](../works/pdagent-bench.md)
+- [EnergyBridge](../works/energybridge.md)
 - [AnalogCoder](../works/analogcoder.md)
 - [AnalogXpert](../works/analogxpert.md)
 - [Aviary](../works/aviary.md)

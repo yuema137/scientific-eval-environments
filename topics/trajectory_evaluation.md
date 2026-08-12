@@ -42,6 +42,14 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - **Failure detection at scale.** [AHA](../works/aha.md) fine-tunes a VLM on procedurally generated failure trajectories (FailGen) to detect and explain manipulation failures, beating GPT-4o in-context learning by 10.3%.
 - **Categorized failure QA.** [RoboFAC](../works/robofac.md) provides 78,623 QA pairs over 9,440 erroneous trajectories across eight failure-understanding dimensions, with a specialist model used as a real-pipeline supervisor.
 - **Lab-robot failure analysis.** [LabRobFail](../works/labrobfail.md) injects control-, physics-, and semantic-level failures into simulated chemical self-driving-lab executions and scores six diagnostic capabilities.
+- **Counterfactual routing evaluation.** [The Replay Gap](../works/the-replay-gap.md) shows that scoring per-step model switching by replaying logged trajectories measures a world that never runs, and replaces it with branching counterfactual rollouts and matched same-model control forks.
+- **Telemetry sufficiency for fault localization.** [TelemetrySuffBench](../works/telemetrysuffbench.md) separates failure detection from fault-origin localization over synthetic multi-component traces with delayed-binding faults, exposing a detection–localization gap under ablated telemetry.
+- **Component-level trajectory attribution.** [Long-Horizon Agent Trajectory Attribution](../works/long-horizon-agent-trajectory-attribution.md) introduces primary-component attribution and attribution-chain recovery over 1,351 annotated agent trajectories under a unified component schema.
+- **Plan compliance.** [Evaluating Plan Compliance in Autonomous Programming Agents](../works/from-plan-to-action.md) measures how faithfully SWE-agent trajectories follow an instructed plan across 16,991 runs, decomposing compliance into phase coverage, ordering, and per-phase fidelity.
+- **Counterfactual causal attribution over traces.** [TempoBench](../works/tempobench.md) separates forward simulation from minimal-necessary-cause identification on formally verifiable Mealy-machine execution traces, quantifying the SIM/MIN gap.
+- **Reasoning-aligned code evaluation.** [RACE-Bench](../works/race-bench.md) pairs executable patch verification with structured reference reasoning, scoring how well a repository-level code agent's intermediate reasoning aligns with developer-accepted trajectories.
+- **Stage-aligned issue-resolution diagnosis.** [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) augments executable patch evaluation with validated ground truths for requirement clarification and implementation planning, enabling GT-aligned diagnosis of full coding trajectories.
+- **Reasoning-trajectory reliability.** [MiraMind](../works/miramind.md) scores mental-health reasoning trajectories along usability, logical structure, and informational contribution, separating a correct final answer from an unreliable evidence-to-judgment path.
 
 ## Comparison
 
@@ -76,6 +84,14 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 | AHA | 2024 | Free-form failure detection/reasoning; fuzzy-match, ROUGE-L, binary success | Robotic-manipulation failures (sim-generated + real) | [→](../works/aha.md) |
 | RoboFAC | 2025 | Eight-dimension failure QA; failure-analysis accuracy | Robot-manipulation failure analysis and correction | [→](../works/robofac.md) |
 | LabRobFail | 2026 | Six capabilities incl. temporal localization and severity assessment | Chemical self-driving-lab robot failures (simulation) | [→](../works/labrobfail.md) |
+| The Replay Gap | 2026 | Branching-rollout divergence (normalized edit distance, action-rewrite fraction) vs. matched same-model control forks; replay-evaluator audit | Agentic model routing (SWE-bench substrate) | [→](../works/the-replay-gap.md) |
+| TelemetrySuffBench | 2026 | Origin-step Top-1 localization vs. detection F1 under telemetry masks; abstention (FAR / UAR) | Agent telemetry / trace diagnosis (synthetic) | [→](../works/telemetrysuffbench.md) |
+| Long-Horizon Agent Trajectory Attribution | 2026 | Primary-component localization (Hit@1, MRR) + attribution-chain recovery (Recall@K, MAP) | LLM-agent tool-use / safety trajectories | [→](../works/long-horizon-agent-trajectory-attribution.md) |
+| Evaluating Plan Compliance (From Plan to Action) | 2026 | Plan Phase Compliance / Order Compliance / Phase Fidelity (geometric mean) over 16,991 trajectories | Programming agents (SWE-bench) | [→](../works/from-plan-to-action.md) |
+| TempoBench | 2025 | SIM/MIN separation: forward-simulation step accuracy vs. minimal-necessary-cause identification | Execution-trace causal reasoning (Mealy machines) | [→](../works/tempobench.md) |
+| RACE-Bench | 2026 | Dual-track: patch resolved rate + reasoning-alignment recall / over-prediction vs. developer reference trajectories | Repository-level code agents (feature addition) | [→](../works/race-bench.md) |
+| SWE-RPG | 2026 | Resolved rate + GT-aligned stage failure attribution and per-stage clarification / planning coverage | Repository-level issue resolution (Python / Java) | [→](../works/a-unified-issue-resolution-benchmark-for-requireme.md) |
+| MiraMind | 2025 | Reasoning-trajectory scoring on usability, logical structure, informational contribution (alongside outcome metrics) | Mental-health reasoning | [→](../works/miramind.md) |
 
 ## Open Questions
 
@@ -88,6 +104,14 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 
 ## Related Works
 
+- [TempoBench](../works/tempobench.md)
+- [TelemetrySuffBench](../works/telemetrysuffbench.md)
+- [Evaluating Plan Compliance in Autonomous Programming Agents](../works/from-plan-to-action.md)
+- [Long-Horizon Agent Trajectory Attribution](../works/long-horizon-agent-trajectory-attribution.md)
+- [MiraMind](../works/miramind.md)
+- [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md)
+- [RACE-Bench](../works/race-bench.md)
+- [The Replay Gap](../works/the-replay-gap.md)
 - [AgentBoard](../works/agentboard.md)
 - [T-Eval](../works/t-eval.md)
 - [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md)

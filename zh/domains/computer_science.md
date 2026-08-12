@@ -14,9 +14,11 @@
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Information 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文工件的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
 | ScholarQuest | 2026 | 以研究者的真实检索方式搜索计算机科学文献（侧重信息检索与 AI）：方法导向、设定锚定、比较导向、范围受控四类查询。 | 在开放文献环境中的迭代式文献探索；查询由 1,000 余个计算机科学主题按四种研究意图构造。 | 对照真值论文集的 Recall@100 与 Recall@All，并分析搜索效率、意图级鲁棒性与失败案例。 | [→](../works/scholarquest.md) |
 | CORE-Bench | 2024 | 用论文自带的代码与数据重现已发表的计算结果；计算机科学是其三个学科之一。 | 90 篇论文的 270 个任务，分三档难度，含纯语言与视觉-语言两种形式。 | 重现结果的准确率，由快速、可并行的评估系统校验。 | [→](../works/core-bench.md) |
+| TCS-Bench | 2026 | 研究级理论计算机科学的证明生成——证明取自顶级 TCS 会议（FOCS、STOC、SODA）的结论。 | 300 个定理证明任务，每个由目标命题加上从 FOCS/STOC/SODA 论文（2020–2026）中提取并组织的上下文构成；模型产出一份自包含的证明。 | 证明由自动化验证 agent 检查（四次 Gemini 3.1 Flash 调用，四选三多数表决），并对照一个 100 项人类专家标注集校准，一致率超过 90%。 | [→](../works/tcs-bench.md) |
 
 ## Related Works
 
+- [TCS-Bench](../works/tcs-bench.md)
 - [AutoResearchBench](../works/autoresearchbench.md)
 - [ResearchClawBench](../works/researchclawbench.md)
 - [ScholarQuest](../works/scholarquest.md)

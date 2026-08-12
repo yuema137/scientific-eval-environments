@@ -19,9 +19,9 @@
 | AIRS-Bench | 2026 | 其四个领域之一的生物信息学中的前沿研究任务，覆盖完整研究生命周期，不提供基线代码。 | 套件共 20 个任务；agent 以 CSV 提交留出测试集上的预测。 | 基于执行、只看结果：任务专属评估脚本计分；SOTA 归一化分数，接近上限处用 'march of nines' 变换。 | [→](../works/airs-bench.md) |
 | AstaBench | 2025 | 其 11 个 benchmark 的科研套件中的生物学领域 benchmark——如 DiscoveryBench 的数据驱动发现——与以 CS 为主的文献、代码与发现任务并列。 | 11 个 benchmark 共 2,400+ 个问题，配标准、可复现的工具环境；已为 57 个 agent 计分。 | 各 benchmark 自有指标，从精确匹配到 LLM 评判的假设匹配，随时间不变的美元成本核算与分数–成本 Pareto 前沿一并报告。 | [→](../works/astabench.md) |
 | Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Life Sciences 分组下的生物学任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
-| ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Life 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文工件的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
+| ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Life 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文产物的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
 | MDArena | 2026 | 运行真实的生物分子模拟工作流——包括膜蛋白体系——覆盖轨迹分析、体系搭建、自由能计算与增强采样。 | 源自在研项目的 50 个容器化任务，覆盖 29 个分子体系与 14 种研究方案。 | 以 Strict-Pass@1 为主指标，另以 correctness 与过程奖励指标为部分进展计分。 | [→](../works/mdarena.md) |
-| SciCode | 2024 | 为科学家整理的问题编写科研代码；其 16 个自然科学子领域分属五大主领域，生物学是其中之一。 | 80 个主问题分解为 338 个子问题，混合知识回忆、推理与代码合成。 | 对照科学家标注的金标准解与测试用例执行。 | [→](../works/scicode.md) |
+| SciCode | 2024 | 为科学家整理的问题编写科研代码；其 16 个自然科学子领域分属五大主领域，生物学是其中之一。 | 80 个主问题分解为 338 个子问题，混合知识回忆、推理与代码合成。 | 对照科学家标注的参考解与测试用例执行。 | [→](../works/scicode.md) |
 | GenoTEX | 2024 | 自动化基因表达分析以研究基因-性状关联：按计算基因组学标准完成数据集选择、预处理与统计分析。 | 911 个数据集上的 1,384 个分析问题（官方仓库）；带自我纠错的多步编程流水线。 | 对照生物信息学家整理的专家标注、参考代码与结果。 | [→](../works/genotex.md) |
 | BixBench | 2025 | 完成取自真实已发表 notebook 分析的探索式计算生物学数据分析。 | 50+ 场景、约 300 个开放式问题（摘要口径；当前仓库为 205 个问题），以容器化执行的多步 agent 轨迹运行。 | LLM 判分的开放作答加精确匹配选择题；多副本多数投票。 | [→](../works/bixbench.md) |
 | BioAgent Bench | 2026 | 完成端到端生物信息学流水线：RNA-seq、变异检测、宏基因组及相关工作流。 | 人工整理的流水线任务，从提示做到具体输出产物，跨多个 agent harness。 | LLM 判分器基于输出产物评进度与有效性；扰动鲁棒性套件（损坏输入、诱饵、提示膨胀）。 | [→](../works/bioagent-bench.md) |
@@ -35,9 +35,17 @@
 | LAB-Bench | 2024 | 考查生物学研究的实用能力：文献、图表、数据库、协议、DNA/蛋白质序列与克隆。 | 八类 / 30 个子任务的 2,400+ 道选择题；静态，可选配工具。 | 对照人类专家生物学研究者的选择题评分。 | [→](../works/lab-bench.md) |
 | LABBench2 | 2026 | 同样的生物学研究能力，置于真实情境：PDF、图片与生物信息学文件。 | 近 1,900 个任务，子任务族经加固并新增专利、来源质量与临床试验。 | 经发布的评估 harness 计算的准确率；较 LAB-Bench 各模型下滑 −26% 至 −46%。 | [→](../works/labbench2.md) |
 | BioKGBench | 2024 | 验证科学主张并深入盘查生物医学知识图谱以定位事实错误。 | 2,000+ 原子实例（主张验证、KGQA）加 225 个标注的 agentic KGCheck 实例，覆盖 UniProt、STRING、Reactome、DisGeNET。 | 原子任务正确率加 agent 级 KGCheck 评分；发现 90 余处真实数据库错误。 | [→](../works/biokgbench.md) |
+| SciVisAgentBench | 2026 | 对生物学数据的科学可视化与数据分析——其七个应用领域之一——将自然语言意图转成可执行的可视化操作，含基于 napari 的生物影像工具。 | 108 个专家精制的 SciVis 案例，横跨七个科学领域与 15 类可视化操作，经 CLI、MCP server 与 Python API 在 ParaView、napari 等平台上运行。 | 以结果为中心的多模态流水线：将 MLLM judge（报告为 Claude-Opus-4.6；与人工评分 Pearson 0.808）与确定性评估器结合——图像指标（PSNR、SSIM、LPIPS）、代码检查器与基于规则/按案例的验证器。 | [→](../works/scivisagentbench.md) |
+| DrBencher | 2026 | 生物化学领域（折并入 Biology）中"网页浏览加计算"交织的问题——多跳识别生物分子实体、从 UniProt、RCSB PDB、PubChem 等来源检索定量属性，再做领域特定计算。 | 答案优先的问题，由知识图谱链合成，需多跳识别、定量属性检索与多步计算；跨五个领域（生物化学、地球物理、金融、安全、历史），生物化学是其中之一。 | 基于执行：标准答案由在知识图谱取值上执行参数化代码算得，按约 2% 相对容差评分；两阶段难度级联；76% 经人工验证有效。 | [→](../works/drbencher.md) |
+| Science Edge Evaluation (SEE) | 2026 | 对真实生物学实验数据的证据受限推理——生物活性测量、Cryo-EM 结构、Western blot 与凝胶电泳图像、以及显微成像——而非概念回忆；生物学是其三个学科之一。 | 1,116 道专家整理的多模态问题（1,049 道公开），横跨三个实验学科（化学、生物、材料科学）与 17 个子领域，含选择题与数值填空两种形式；视觉 agent 设定另加网页搜索与代码解释器。 | 对照专家真值评分——选择题精确匹配、数值答案按专家容差——在严格的二元 LLM-as-judge 协议（Gemini 3.1 Pro）下进行；图像消融检查确认每题都需要其视觉输入。 | [→](../works/science-edge-evaluation.md) |
+| Fisher-R1 / P-Bench | 2026 | 在真实生物学数据集（取自数据存于 cBioPortal 的同行评审论文）上进行统计有效的假设检验——生物学是其三个领域之一——检验 agent 所报 p 值在数据假设下是否有效。 | 425 个开放式假设检验任务（Easy 203 / Hard 222），横跨经济学、生物与医学；每题只给一个假设与一个数据集，要求选择统计检验、计算 p 值并作出拒绝/不拒绝的结论。卡片未给出各领域计数。 | 标准答案的 p 值、检验统计量与决策取自对规范参考代码一次带日志运行的读数；按 Raw（决策匹配）与 Strict（决策加 p 值接近度在 0.5 个 z-score 单位内）计分，pass@1 与 pass@3。 | [→](../works/fisher-r1.md) |
 
 ## Related Works
 
+- [DrBencher](../works/drbencher.md)
+- [SciVisAgentBench](../works/scivisagentbench.md)
+- [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
+- [Fisher-R1 / P-Bench](../works/fisher-r1.md)
 - [Aviary](../works/aviary.md)
 - [HeurekaBench](../works/heurekabench.md)
 - [GeneBench-Pro](../works/genebench-pro.md)

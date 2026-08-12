@@ -42,6 +42,14 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - **规模化的失败检测。** [AHA](../works/aha.md) 在程序化生成的失败轨迹（FailGen）上微调 VLM 来检测并解释操作失败，超过 GPT-4o 上下文学习 10.3%。
 - **分类化的失败问答。** [RoboFAC](../works/robofac.md) 在 9,440 条错误轨迹上提供 78,623 个 QA 对，覆盖八个失败理解维度，并把专用模型用作真实管线的监督者。
 - **实验室机器人失败分析。** [LabRobFail](../works/labrobfail.md) 向模拟化学自主实验室执行注入控制级、物理级与语义级失败，评估六项诊断能力。
+- **反事实的路由评估。** [The Replay Gap](../works/the-replay-gap.md) 指出：通过重放已记录轨迹来给逐步模型切换打分，度量的是一个从未真正运行过的世界，并以分叉的反事实 rollout 与匹配的同模型对照分叉取而代之。
+- **面向故障定位的遥测充分性。** [TelemetrySuffBench](../works/telemetrysuffbench.md) 在带延迟绑定故障的合成多组件轨迹上，把失败检测与故障源定位分开，揭示遥测被削减时的检测–定位落差。
+- **组件级轨迹归因。** [Long-Horizon Agent Trajectory Attribution](../works/long-horizon-agent-trajectory-attribution.md) 在统一组件 schema 下，于 1,351 条标注 agent 轨迹上引入主责组件归因与归因链恢复。
+- **计划遵从度。** [Evaluating Plan Compliance in Autonomous Programming Agents](../works/from-plan-to-action.md) 在 16,991 次运行上衡量 SWE-agent 轨迹对既定计划的忠实程度，把遵从度拆解为阶段覆盖、顺序与逐阶段保真度。
+- **轨迹上的反事实因果归因。** [TempoBench](../works/tempobench.md) 在可形式验证的 Mealy 机执行轨迹上，把前向模拟与最小必要成因识别分开，量化 SIM/MIN 落差。
+- **推理对齐的代码评估。** [RACE-Bench](../works/race-bench.md) 把可执行的补丁验证与结构化的参考推理配对，评估仓库级 code agent 的中间推理与开发者认可轨迹的对齐程度。
+- **阶段对齐的问题解决诊断。** [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) 在可执行补丁评估之外，补充需求澄清与实现规划的已验证真值，实现对完整编码轨迹的 GT 对齐诊断。
+- **推理轨迹可靠性。** [MiraMind](../works/miramind.md) 沿可用性、逻辑结构与信息贡献为心理健康推理轨迹打分，把正确的最终答案与不可靠的"证据到判断"路径区分开。
 
 ## Comparison
 
@@ -76,6 +84,14 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | AHA | 2024 | 自由形式的失败检测/推理；模糊匹配、ROUGE-L、二元成功 | 机器人操作失败（模拟生成 + 真实） | [→](../works/aha.md) |
 | RoboFAC | 2025 | 八维度失败问答；失败分析准确率 | 机器人操作失败分析与纠正 | [→](../works/robofac.md) |
 | LabRobFail | 2026 | 六项能力，含时间定位与严重度评估 | 化学自主实验室机器人失败（模拟） | [→](../works/labrobfail.md) |
+| The Replay Gap | 2026 | 分叉 rollout 的偏离（归一化编辑距离、动作改写比例）对照匹配的同模型对照分叉；重放评估器审计 | agent 式模型路由（SWE-bench 底座） | [→](../works/the-replay-gap.md) |
+| TelemetrySuffBench | 2026 | 遥测掩蔽下的起源步骤 Top-1 定位对照检测 F1；弃权（FAR / UAR） | agent 遥测 / trace 诊断（合成） | [→](../works/telemetrysuffbench.md) |
+| Long-Horizon Agent Trajectory Attribution | 2026 | 主责组件定位（Hit@1、MRR）+ 归因链恢复（Recall@K、MAP） | LLM-agent 工具使用 / 安全轨迹 | [→](../works/long-horizon-agent-trajectory-attribution.md) |
+| Evaluating Plan Compliance (From Plan to Action) | 2026 | 计划阶段遵从 / 顺序遵从 / 阶段保真度（几何平均），覆盖 16,991 条轨迹 | 编程 agent（SWE-bench） | [→](../works/from-plan-to-action.md) |
+| TempoBench | 2025 | SIM/MIN 分离：前向模拟步骤准确率对照最小必要成因识别 | 执行轨迹的因果推理（Mealy 机） | [→](../works/tempobench.md) |
+| RACE-Bench | 2026 | 双轨：补丁解决率 + 相对开发者参考轨迹的推理对齐召回 / 过预测 | 仓库级 code agent（功能新增） | [→](../works/race-bench.md) |
+| SWE-RPG | 2026 | 解决率 + GT 对齐的阶段失败归因与逐阶段澄清 / 规划覆盖 | 仓库级问题解决（Python / Java） | [→](../works/a-unified-issue-resolution-benchmark-for-requireme.md) |
+| MiraMind | 2025 | 在可用性、逻辑结构、信息贡献上给推理轨迹打分（与结果指标并列） | 心理健康推理 | [→](../works/miramind.md) |
 
 ## Open Questions
 
@@ -88,6 +104,14 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 
 ## Related Works
 
+- [TempoBench](../works/tempobench.md)
+- [TelemetrySuffBench](../works/telemetrysuffbench.md)
+- [Evaluating Plan Compliance in Autonomous Programming Agents](../works/from-plan-to-action.md)
+- [Long-Horizon Agent Trajectory Attribution](../works/long-horizon-agent-trajectory-attribution.md)
+- [MiraMind](../works/miramind.md)
+- [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md)
+- [RACE-Bench](../works/race-bench.md)
+- [The Replay Gap](../works/the-replay-gap.md)
 - [AgentBoard](../works/agentboard.md)
 - [T-Eval](../works/t-eval.md)
 - [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md)

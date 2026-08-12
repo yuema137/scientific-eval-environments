@@ -39,19 +39,27 @@ A final cluster addresses **neuroscience and behavioral signal analysis**: [Brai
 | SpatialBench | 2025 | Spatial-biology analysis from data snapshot | 146 problems, five technologies, seven categories | Deterministic recovery of key biological result | [card](../works/spatialbench.md) |
 | BioAgent Bench | 2026 | End-to-end bioinformatics pipeline execution | RNA-seq/variant-calling/metagenomics, perturbation probes | LLM-graded output artifacts and step reasoning | [card](../works/bioagent-bench.md) |
 | BrainBench | 2026 | Instruction-conditioned EEG understanding and analysis | Four subsets, 17 datasets, CodeAct/agentic | Scientifically grounded report across output dimensions | [card](../works/brainbench-eeg.md) |
+| DSAgentBench | 2026 | Automate full data-science analysis workflows | 275 tasks in real computer envs (notebooks, terminals, browsers, DBs) | Deterministic checks of analytical correctness (best 56.7%) | [card](../works/dsagentbench.md) |
+| Fisher-R1 / P-Bench | 2026 | Select test, compute p-value, draw valid inference | 425 hypothesis-testing tasks; economics, biology, medicine | Reject/fail-to-reject match plus p-value closeness (Raw/Strict) | [card](../works/fisher-r1.md) |
 | GeneBench-Pro | 2026 | Multistage statistical genomics analysis | 129 problems on simulated data-generating processes | Binary pass on decision-relevant number (best 28.7%) | [card](../works/genebench-pro.md) |
 | GeoNatureAgent Benchmark | 2026 | Environmental geospatial analysis via tool calls | 93 tasks, 18 categories, self-hostable API | Expected tool calls and must-contain answers (best 60.8%) | [card](../works/geonatureagent-benchmark.md) |
 | HeurekaBench | 2026 | Exploratory end-to-end research over published studies | 50 open + 50 MCQ from 41 insights, single-cell | Data-driven answers verified vs reported findings | [card](../works/heurekabench.md) |
 | LongDA | 2026 | Documentation-intensive survey data analysis | 505 queries, 17 U.S. surveys, | 263k-token docs | [card](../works/longda.md) |
 | MaD Physics | 2026 | Budgeted measurement and physical-law inference | Three simulated environments, altered-physics variants | Infer law to predict future system state | [card](../works/mad-physics.md) |
+| Neuroscience Data-to-Discovery Case Study | 2026 | Behavior classification and statistical comparison of fly data | 9-task fly-optogenetics pipeline; ~47 GB data | Stage outputs vs expert annotations (e.g., Mann–Whitney U) | [card](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md) |
 | Rodent-Bench | 2026 | Multimodal rodent-behavior video annotation | Long recordings (10-35 min), multiple paradigms | Temporal segmentation/classification (second-wise accuracy, F1) | [card](../works/rodent-bench.md) |
 | scBench | 2026 | Single scRNA-seq analysis step from snapshot | 394 problems, six platforms, seven categories | Deterministic recovery of key biological result (29-53%) | [card](../works/scbench.md) |
 | scBench-Long | 2026 | Long-horizon single-cell discovery from near-raw data | 21 evaluations, no prescribed method | Recover study conclusions, deterministic grading (25.4%) | [card](../works/scbench-long.md) |
 | SciAgentArena | 2026 | Real biomedical research across scales |  | 200 tasks, five fields, stepwise verification | [card](../works/sciagentarena.md) |
+| SciVisAgentBench | 2026 | Scientific data analysis and visualization for insight | 108 expert cases, seven science domains; multi-platform tools | Outcome-centric image metrics plus deterministic verifiers | [card](../works/scivisagentbench.md) |
 | Stargazer | 2026 | Iterative physics-grounded RV model fitting | 120 tasks (100 synthetic + 20 real archival) | Per-criterion pass on Keplerian fits (Easy 80%, real 0%) | [card](../works/stargazer.md) |
 
 ## Related Works
 
+- [SciVisAgentBench](../works/scivisagentbench.md)
+- [Fisher-R1 / P-Bench](../works/fisher-r1.md)
+- [DSAgentBench](../works/dsagentbench.md)
+- [A Case Study of Evaluating AI Agents on a Neuroscience Data-to-Discovery Pipeline](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md)
 - [BLADE](../works/blade.md)
 - [DA-Code](../works/da-code.md)
 - [DSBench](../works/dsbench.md)

@@ -24,9 +24,13 @@
 | ManipBench | 2025 | 推理底层机器人动作，含物体间交互与可变形物体。 | 取自真实机器人数据、织物场景与模拟环境的 12,617 个选择题；33 个 VLM。 | 与真实世界操作任务表现相关联的选择题准确率。 | [→](../works/manipbench.md) |
 | PhysBench | 2025 | 理解物理世界的属性、关系、场景与动力学，作为机器人 agent 的感知底座。 | 4 个领域、19 个子类、8 个能力维度的 10,002 条交错视频-图像-文本；75 个 VLM。 | 选择题准确率；演示向 MOKA 具身 agent 的迁移（静态 VQA，非机器人控制）。 | [→](../works/physbench.md) |
 | CaP-X | 2026 | 通过合成并执行「感知 + 控制原语」的程序来控制机器人操作。 | 187 任务套件内的 7 个核心任务（+30 LIBERO-PRO、+2 BEHAVIOR）；12 个前沿模型跨抽象层级。 | 每个任务、每个抽象层级 100 次试验相对人类专家程序的成功率；配套方法迁移到真实 Franka Panda 与 AgiBot G1。 | [→](../works/cap-x.md) |
+| VLA-Arena | 2025 | 把视觉-语言-动作模型作为通用机器人操作策略来评估，沿任务结构、语言指令与视觉观测三轴分解任务难度，以区分稳健的 grounding 与死记硬背。 | 四个维度（安全、干扰物、外推、长时程）下的 11 个任务套件 / 170 个模拟操作任务，各设三个难度级别（L0–L2），并带语言（W0–W4）与视觉（V0–V4）扰动探针；构建于 RoboSuite、LIBERO 与 VLABench 之上。 | 模拟中的成功率与累计成本；微调限于 L0、在未见的 L1–L2 上测试以衡量泛化。Repository note: 仅限模拟，未报告真实机器人实验。 | [→](../works/vla-arena.md) |
+| RoboGraphBench | 2026 | 把 agentic 基础模型作为长时程具身任务（桌面操作与室内导航）的高层规划器来评估，以任务状态视野——agent 必须追踪、探索并更新的任务相关状态转移的跨度——刻画难度。 | 84 个家居场景上的 588 个 episode（399 个桌面 + 189 个室内导航），每个含一个基线加六种干预条件；RoboGraph 把任务编译为符号场景图（平均 18.4 个节点、14.3 个子目标）；15 个 agentic 模型。 | 统一闭环 harness（最多 100 步；目标谓词 + 停止动作），在语义与视觉两种模式（RoboTwin 2.0、RoboCasa）下运行；成功率与 SSAL，加上状态管理（维护/探索/更新）与恢复检测/grounding 指标。Repository note: 评估高层规划而非底层控制；仅限模拟。 | [→](../works/compiling-and-benchmarking-task-state-horizons-for.md) |
 
 ## Related Works
 
+- [VLA-Arena](../works/vla-arena.md)
+- [RoboGraphBench](../works/compiling-and-benchmarking-task-state-horizons-for.md)
 - [RoCo / RoCoBench](../works/rocobench.md)
 - [VIKI-Bench](../works/viki-bench.md)
 - [REFLECT / RoboFail](../works/robofail.md)

@@ -16,6 +16,7 @@ A repository organized around benchmarks and topic-level literature reviews stil
 - **Holistic LLM-agent surveys.** [A Survey on Large Language Model based Autonomous Agents](../works/llm-autonomous-agents-survey.md) (Wang et al., 2023) surveys LLM-based autonomous agents across construction, application, and evaluation; proposes a four-module construction framework (profiling, memory, planning, action) and reviews evaluation as subjective vs. objective strategies. Its focus is agent construction rather than evaluation, so it is indexed here for completeness.
 - **Verifiability audits of a subfield.** [Autonomous Research Agents: A Survey of AI Scientists and the Verification Gap](../works/ara-survey.md) (2026) codes 35 autonomous-research-agent systems along seven audit dimensions and quantifies the verification gap: 83% of systems release code but only 38% release seeds or execution traces, only 38% report any novelty-verification method, and no LLM-era system in the corpus demonstrates an externally validated in-loop oracle. A reviewer checklist operationalizes the audit for reuse.
 - **Position papers on the shift toward persistent agents.** [From Chatbot to Digital Colleague](../works/from-chatbot-to-digital-colleague.md) (Zhang et al., 2026) argues that LLMs are shifting from conversational generators to integrated systems capable of reasoning, action, memory, and self-improvement — conceptualizing the shift along inference-time deliberation and persistent workstation systems with reusable skills.
+- **Methodology surveys of credit assignment.** [From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](../works/from-reasoning-to-agentic.md) (2026) synthesizes 69 papers on credit-assignment methods spanning reasoning and agentic RL, adding a six-diagnostic framework that maps assumption breaks to identification barriers, estimators, and evaluation controls, plus a reusable "CA-ID Card" for provenance and falsification. See also [Credit Assignment](./credit_assignment.md).
 
 ## Comparison
 
@@ -26,6 +27,7 @@ A repository organized around benchmarks and topic-level literature reviews stil
 | Evaluation and Benchmarking of LLM Agents: A Survey | 2025 | Survey | Objectives-vs-process taxonomy; enterprise challenges | [→](../works/agent-evaluation-benchmarking-survey.md) |
 | From Chatbot to Digital Colleague | 2026 | Position paper | Paradigm shift toward persistent autonomous AI | [→](../works/from-chatbot-to-digital-colleague.md) |
 | Autonomous Research Agents: A Survey of AI Scientists and the Verification Gap | 2026 | Survey | Seven-dimension verifiability audit of 35 AI-scientist systems | [→](../works/ara-survey.md) |
+| From Reasoning to Agentic: Credit Assignment in RL for LLMs | 2026 | Survey | Credit-assignment methods across reasoning and agentic RL; six-diagnostic framework and CA-ID Card | [→](../works/from-reasoning-to-agentic.md) |
 
 ## Open Questions
 
@@ -34,6 +36,7 @@ A repository organized around benchmarks and topic-level literature reviews stil
 
 ## Related Works
 
+- [From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](../works/from-reasoning-to-agentic.md)
 - [A Survey on Large Language Model based Autonomous Agents](../works/llm-autonomous-agents-survey.md) — Holistic survey of LLM-based autonomous agents (construction, application, evaluation).
 - [Survey on Evaluation of LLM-based Agents](../works/agent-evaluation-survey.md) — Comprehensive 5-perspective taxonomy of LLM-agent evaluation.
 - [Evaluation and Benchmarking of LLM Agents: A Survey](../works/agent-evaluation-benchmarking-survey.md) — Two-dimensional (objectives vs. process) taxonomy of LLM-agent evaluation with enterprise focus.

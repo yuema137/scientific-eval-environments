@@ -15,9 +15,11 @@
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Astronomy 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文工件的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
 | gwBenchmarks | 2026 | 以引力波科学实际要求的精度建模引力波源：数值相对论波形代理模型、黑洞轨道动力学、并合遗迹、模板库。 | 8 个任务，底层数据代表 10⁸ 核时以上的计算；12 个 coding agent 受评。 | 外部预定义评估框架配单任务物理指标，对照 ≲10⁻⁴ 的相对误差领域要求。 | [→](../works/gwbenchmarks.md) |
 | ReplicationBench | 2025 | 复现天体物理研究论文的核心贡献：实验设置、推导、数据分析与代码库。 | 111 个复现任务覆盖 20 篇论文（官方仓库），与原作者共同开发，在计算沙箱中运行。 | 逐任务客观评分：对原方法的忠实性与结果的正确性。 | [→](../works/replicationbench.md) |
+| SciVisAgentBench | 2026 | 天文数据的科学可视化与数据分析——其七个应用领域之一——把自然语言意图翻译为对标量/矢量/张量场及时变场的可执行可视化操作。 | 108 个专家精心设计的 SciVis 案例，横跨七个科学领域与 15 类可视化操作，通过 CLI、MCP 服务器与 Python API 在 ParaView、napari 等平台上运行。 | 以结果为中心的多模态管线，结合一个 MLLM judge（报告为 Claude-Opus-4.6；与人类评分 Pearson 0.808）与确定性评估器——图像指标（PSNR、SSIM、LPIPS）、代码检查器，以及基于规则/逐案例的验证器。 | [→](../works/scivisagentbench.md) |
 
 ## Related Works
 
+- [SciVisAgentBench](../works/scivisagentbench.md)
 - [Stargazer](../works/stargazer.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [ResearchClawBench](../works/researchclawbench.md)

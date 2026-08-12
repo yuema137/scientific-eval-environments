@@ -53,28 +53,28 @@ Domain 是**领域轴**：一份工作在哪个科学或工程学科内评估，
 
 | Domain | Works |
 |---|--:|
-| [Physics](./domains/physics.md) | 35 |
-| [Chemistry](./domains/chemistry.md) | 28 |
-| [Biology](./domains/biology.md) | 25 |
-| [Materials Science](./domains/materials_science.md) | 23 |
+| [Physics](./domains/physics.md) | 36 |
+| [Chemistry](./domains/chemistry.md) | 31 |
+| [Biology](./domains/biology.md) | 29 |
+| [Materials Science](./domains/materials_science.md) | 24 |
 | [AI & Machine Learning Research](./domains/ai_ml_research.md) | 21 |
-| [Mathematics](./domains/mathematics.md) | 12 |
-| [Medicine & Health](./domains/medicine_health.md) | 12 |
-| [Neuroscience & Cognitive Science](./domains/neuroscience_cognitive_science.md) | 10 |
-| [Astronomy](./domains/astronomy.md) | 5 |
-| [Earth Science](./domains/earth_science.md) | 5 |
-| [Computer Science](./domains/computer_science.md) | 4 |
+| [Mathematics](./domains/mathematics.md) | 14 |
+| [Medicine & Health](./domains/medicine_health.md) | 15 |
+| [Neuroscience & Cognitive Science](./domains/neuroscience_cognitive_science.md) | 12 |
+| [Astronomy](./domains/astronomy.md) | 6 |
+| [Earth Science](./domains/earth_science.md) | 7 |
+| [Computer Science](./domains/computer_science.md) | 5 |
 | [Environmental Science](./domains/environmental_science.md) | 2 |
 
 **工程**
 
 | Domain | Works |
 |---|--:|
-| [Electrical Engineering](./domains/electrical_engineering.md) | 15 |
-| [Robotics](./domains/robotics.md) | 14 |
-| [Software & Systems Engineering](./domains/software_systems_engineering.md) | 11 |
+| [Electrical Engineering](./domains/electrical_engineering.md) | 16 |
+| [Robotics](./domains/robotics.md) | 16 |
+| [Software & Systems Engineering](./domains/software_systems_engineering.md) | 16 |
 | [Mechanical & Aerospace Engineering](./domains/mechanical_aerospace_engineering.md) | 9 |
-| [Energy Systems](./domains/energy_systems.md) | 3 |
+| [Energy Systems](./domains/energy_systems.md) | 4 |
 | [Civil & Structural Engineering](./domains/civil_structural_engineering.md) | 2 |
 | [Chemical Engineering](./domains/chemical_engineering.md) | 1 |
 
@@ -89,14 +89,14 @@ Domain 是**领域轴**：一份工作在哪个科学或工程学科内评估，
 
 | Activity | 涵盖内容 | Works |
 |---|---|--:|
-| [科学问题求解与推理](./activities/scientific_problem_solving_reasoning.md) | 科学问答、推导、证明、定量与多模态问题求解、诊断推理 | 58 |
-| [科学软件与工作流工程](./activities/scientific_software_workflow_engineering.md) | 科学/工程代码、仓库与流水线工程、HDL 与形式化规约代码 | 46 |
-| [数据分析与统计推断](./activities/data_analysis_statistical_inference.md) | 统计分析与推断、生物信息学/组学分析、数据解读 | 25 |
+| [科学问题求解与推理](./activities/scientific_problem_solving_reasoning.md) | 科学问答、推导、证明、定量与多模态问题求解、诊断推理 | 61 |
+| [科学软件与工作流工程](./activities/scientific_software_workflow_engineering.md) | 科学/工程代码、仓库与流水线工程、HDL 与形式化规约代码 | 49 |
+| [数据分析与统计推断](./activities/data_analysis_statistical_inference.md) | 统计分析与推断、生物信息学/组学分析、数据解读 | 29 |
 | [实验设计与科学发现](./activities/experiment_design_discovery.md) | 实验与观测规划、假设生成、规律发现 | 19 |
 | [模拟与科学计算](./activities/simulation_scientific_computing.md) | 数值模拟、PDE/FEM、MD/DFT、运行与构建科学模拟器 | 17 |
 | [文献检索与证据综合](./activities/literature_evidence_synthesis.md) | 文献检索、系统综述、证据综合、以文献为依托的抽取 | 14 |
-| [建模与预测](./activities/modeling_prediction.md) | 预测与代理建模、性质预测、预报 | 14 |
-| [优化与工程设计](./activities/optimization_engineering_design.md) | 参数与控制器调优、工程/逆向设计、材料与分子设计 | 14 |
+| [建模与预测](./activities/modeling_prediction.md) | 预测与代理建模、性质预测、预报 | 15 |
+| [优化与工程设计](./activities/optimization_engineering_design.md) | 参数与控制器调优、工程/逆向设计、材料与分子设计 | 16 |
 | [研究复现与重复](./activities/research_reproduction_replication.md) | 复现已发表的分析、结果与方法；匹配已报告的结论 | 9 |
 | [端到端研究](./activities/end_to_end_research.md) | 跨越多个主要阶段的多阶段研究生命周期 | 5 |
 | [实验室与仪器控制](./activities/laboratory_instrument_control.md) | 仪器、显微镜与光束线控制、实验室自动化、行为定义的控制代码 | 3 |
@@ -111,7 +111,7 @@ Domain 是**领域轴**：一份工作在哪个科学或工程学科内评估，
 
 RL 工作的界线由论文主要贡献判定：如果它推进了**如何评估 agent**，即在范围内；如果它推进的是**如何训练 agent**，则不在范围内。
 
-"Works" 比 "benchmarks" 更广：集合中收录 benchmark、评估方法学、评估框架、面向评估的 RL 工作、综述与立场论文的卡片，每张卡片都会显式标注类型。目前共有 **238 张卡片**、**7 个 topic 页**、**19 个 domain 页**、**11 个 activity 页**，并在 [`zh/`](./README.md) 下配有中文镜像。
+"Works" 比 "benchmarks" 更广：集合中收录 benchmark、评估方法学、评估框架、面向评估的 RL 工作、综述与立场论文的卡片，每张卡片都会显式标注类型。目前共有 **261 张卡片**、**7 个 topic 页**、**19 个 domain 页**、**11 个 activity 页**，并在 [`zh/`](./README.md) 下配有中文镜像。
 
 ---
 

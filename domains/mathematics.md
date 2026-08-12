@@ -22,9 +22,13 @@ Mathematical reasoning and proof: olympiad and research mathematics, formal math
 | SciCode | 2024 | Write research code for scientist-curated problems; mathematics is among the five main domains its 16 natural-science subfields span. | 80 main problems decomposed into 338 subproblems mixing knowledge recall, reasoning, and code synthesis. | Execution against scientist-annotated gold-standard solutions and test cases. | [→](../works/scicode.md) |
 | HARDMath | 2024 | Apply graduate-level analytical approximation techniques — asymptotic methods — to auto-generated applied-mathematics problems. | 366-problem HARDMath-mini test set plus 40 applied-science word problems; static solving with few-shot chain-of-thought. | Accuracy against numerically validated ground-truth solutions. | [→](../works/hardmath.md) |
 | PDE-Controller | 2025 | Formalize and reason about control of PDE-governed systems (heat and wave equations) under signal-temporal-logic specifications. | Autoformalization, reasoning, and program-synthesis tasks over human-written cases plus 2M synthetic samples. | Task metrics plus utility gain of the resulting PDE control. | [→](../works/pde-controller.md) |
+| SciVisAgentBench | 2026 | Scientific visualization and data analysis of mathematics data — one of its seven application domains — translating natural-language intent into executable visualization operations (e.g., field computation, topology tasks). | 108 expert-crafted SciVis cases across seven science domains and 15 visualization-operation categories, run over platforms such as ParaView and napari via CLIs, MCP servers, and Python APIs. | Multimodal outcome-centric pipeline combining an MLLM judge (reported Claude-Opus-4.6; Pearson 0.808 with human ratings) with deterministic evaluators — image metrics (PSNR, SSIM, LPIPS), code checkers, and rule-based/case-specific verifiers. | [→](../works/scivisagentbench.md) |
+| TCS-Bench | 2026 | Research-level theorem proving over theoretical computer science results (FOCS/STOC/SODA); the proof-generation tasks are mathematical in nature, requiring multi-step formal-style mathematical reasoning. | 300 theorem-proving tasks, each a target statement plus assembled context extracted from FOCS/STOC/SODA papers (2020–2026); the model produces a self-contained proof. | Proofs checked by an automated verification agent (four Gemini 3.1 Flash calls, 3-of-4 majority vote), calibrated against a 100-item human-expert–labeled set at over 90% agreement. | [→](../works/tcs-bench.md) |
 
 ## Related Works
 
+- [SciVisAgentBench](../works/scivisagentbench.md)
+- [TCS-Bench](../works/tcs-bench.md)
 - [Hard2Verify](../works/hard2verify.md)
 - [ProcessBench](../works/processbench.md)
 - [PRMBench](../works/prmbench.md)

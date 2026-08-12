@@ -33,9 +33,11 @@ Materials characterization and computational materials science, spanning physica
 | AutoDFT / VASPBench | 2026 | Autonomously plan, run, and repair density-functional-theory (VASP) calculations. | 34 tasks across 9 DFT calculation types; closed-loop multi-agent execution. | Task-level success (94.1% with GPT-5.2) plus property accuracy vs. databases. | [→](../works/vaspbench.md) |
 | AlchemyBench | 2025 | Plan inorganic materials synthesis: precursors, equipment, procedure, characterization. | End-to-end prediction over 17,000 expert-verified synthesis recipes; static. | Expert-agreement-validated LLM-as-a-Judge over free-form predictions. | [→](../works/alchemybench.md) |
 | Materials Hypothesis Generation | 2025 | Generate materials-discovery hypotheses under explicit goals and constraints. | Hypothesis generation over a dataset curated from recent publications. | A scalable metric emulating a materials scientist's critical assessment. | [→](../works/materials-hypothesis.md) |
+| Science Edge Evaluation (SEE) | 2026 | Evidence-bounded reasoning over real materials-characterization data — SEM/TEM/AFM microscopy, X-ray diffraction patterns, and thermal-analysis curves — rather than concept recall; materials science is one of its three disciplines. | 1,116 expert-curated multimodal questions (1,049 public) across three experimental disciplines (chemistry, biology, materials science) and 17 sub-fields, in multiple-choice and numerical fill-in-the-blank formats; a visual-agent setting adds web search and a code interpreter. | Answers scored against expert ground truth — exact match for multiple choice, expert tolerance for numerical answers — under a strict binary LLM-as-judge protocol (Gemini 3.1 Pro); image-ablation checking confirms each question needs its visual input. | [→](../works/science-edge-evaluation.md) |
 
 ## Related Works
 
+- [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
 - [AFMBench](../works/afmbench.md)
 - [AutoMat](../works/automat.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)

@@ -61,6 +61,7 @@ Finally, a **clinical-diagnosis and interactive biology-research** cluster treat
 | MatQnA | 2025 | Interpret ten materials-characterization methods | MCQ+subjective, multimodal | Accuracy (frontier | [card](../works/matqna.md) |
 | MatSciBench | 2025 | Solve college-level materials-science problems | 1,340 problems (315 image), text+multimodal | Reasoning accuracy | [card](../works/matscibench.md) |
 | MatVQA | 2025 | Reason over microscopy/diffraction imagery | 1,325 questions, 4 structure-property tasks | Shortcut-resistant accuracy | [card](../works/matvqa.md) |
+| MiraMind | 2025 | Mental-health / clinical reasoning across six task families | 13 datasets; appraisal, diagnosis, intervention, QA, abstraction, verification | Per-family outcome metrics plus reasoning-trajectory reliability | [card](../works/miramind.md) |
 | MMCircuitEval | 2025 | Answer circuit/EDA questions across design flow | 3,614 multimodal QA, digital+analog | Accuracy by design stage | [card](../works/mmcircuiteval.md) |
 | MolLangBench | 2025 | Recognize, edit, generate molecular structures | 3 families over strings/images/graphs | Auto/expert-checked accuracy | [card](../works/mollangbench.md) |
 | OpenXRD | 2025 | Answer XRD/crystallography questions | 217 questions, closed/open-book, 74 models | QA accuracy | [card](../works/openxrd.md) |
@@ -83,10 +84,15 @@ Finally, a **clinical-diagnosis and interactive biology-research** cluster treat
 | PhySciBench | 2026 | Answer physical-science deep-research questions | 200 curated, physics+chemistry, 6 categories | Answer correctness | [card](../works/physcibench.md) |
 | PRL-Bench | 2026 | Solve frontier physics-research tasks | 100 tasks from recent PRL papers, 5 subfields | Verifiable score (best <50/100) | [card](../works/prl-bench.md) |
 | SciConvBench | 2026 | Clarify ill-posed computational-science requests | Multi-turn dialogues, 4 domains | Disambiguation/consistency resolution (52.7%) | [card](../works/sciconvbench.md) |
+| Science Edge Evaluation (SEE) | 2026 | Evidence-bounded reasoning over experimental data | 1,116 multimodal MCQ/numeric questions; chemistry, biology, materials | Expert-ground-truth accuracy (best 48.7%, 52.7% with tools) | [card](../works/science-edge-evaluation.md) |
+| TCS-Bench | 2026 | Generate research-level theoretical-CS proofs | 300 theorem-proving tasks from FOCS/STOC/SODA (2020–2026) | Self-contained proof; verifier-agent accuracy (best 68%) | [card](../works/tcs-bench.md) |
 | VCoT-Bench | 2026 | Complete Verus verification chain-of-thought | 1,988 tasks from 150 Verus programs | Proof-block completion accuracy | [card](../works/vcot-bench.md) |
 
 ## Related Works
 
+- [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
+- [TCS-Bench](../works/tcs-bench.md)
+- [MiraMind](../works/miramind.md)
 - [ConceptPsy](../works/conceptpsy.md)
 - [MaScQA](../works/mascqa.md)
 - [TeleQnA](../works/teleqna.md)

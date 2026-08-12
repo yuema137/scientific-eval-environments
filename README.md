@@ -53,28 +53,28 @@ Domains are the **field axis**: the science or engineering discipline a work eva
 
 | Domain | Works |
 |---|--:|
-| [Physics](./domains/physics.md) | 35 |
-| [Chemistry](./domains/chemistry.md) | 28 |
-| [Biology](./domains/biology.md) | 25 |
-| [Materials Science](./domains/materials_science.md) | 23 |
+| [Physics](./domains/physics.md) | 36 |
+| [Chemistry](./domains/chemistry.md) | 31 |
+| [Biology](./domains/biology.md) | 29 |
+| [Materials Science](./domains/materials_science.md) | 24 |
 | [AI & Machine Learning Research](./domains/ai_ml_research.md) | 21 |
-| [Mathematics](./domains/mathematics.md) | 12 |
-| [Medicine & Health](./domains/medicine_health.md) | 12 |
-| [Neuroscience & Cognitive Science](./domains/neuroscience_cognitive_science.md) | 10 |
-| [Astronomy](./domains/astronomy.md) | 5 |
-| [Earth Science](./domains/earth_science.md) | 5 |
-| [Computer Science](./domains/computer_science.md) | 4 |
+| [Mathematics](./domains/mathematics.md) | 14 |
+| [Medicine & Health](./domains/medicine_health.md) | 15 |
+| [Neuroscience & Cognitive Science](./domains/neuroscience_cognitive_science.md) | 12 |
+| [Astronomy](./domains/astronomy.md) | 6 |
+| [Earth Science](./domains/earth_science.md) | 7 |
+| [Computer Science](./domains/computer_science.md) | 5 |
 | [Environmental Science](./domains/environmental_science.md) | 2 |
 
 **Engineering**
 
 | Domain | Works |
 |---|--:|
-| [Electrical Engineering](./domains/electrical_engineering.md) | 15 |
-| [Robotics](./domains/robotics.md) | 14 |
-| [Software & Systems Engineering](./domains/software_systems_engineering.md) | 11 |
+| [Electrical Engineering](./domains/electrical_engineering.md) | 16 |
+| [Robotics](./domains/robotics.md) | 16 |
+| [Software & Systems Engineering](./domains/software_systems_engineering.md) | 16 |
 | [Mechanical & Aerospace Engineering](./domains/mechanical_aerospace_engineering.md) | 9 |
-| [Energy Systems](./domains/energy_systems.md) | 3 |
+| [Energy Systems](./domains/energy_systems.md) | 4 |
 | [Civil & Structural Engineering](./domains/civil_structural_engineering.md) | 2 |
 | [Chemical Engineering](./domains/chemical_engineering.md) | 1 |
 
@@ -88,13 +88,13 @@ Activities are the **task axis**: what the evaluated agent or system actually do
 
 | Activity | What it covers | Works |
 |---|---|--:|
-| [Scientific Problem Solving & Reasoning](./activities/scientific_problem_solving_reasoning.md) | Scientific QA, derivations, proofs, quantitative and multimodal problem solving, diagnostic reasoning | 58 |
-| [Scientific Software & Workflow Engineering](./activities/scientific_software_workflow_engineering.md) | Scientific/engineering code, repository and pipeline engineering, HDL and formal-spec code | 46 |
-| [Data Analysis & Statistical Inference](./activities/data_analysis_statistical_inference.md) | Statistical analysis and inference, bioinformatics/omics analysis, data interpretation | 25 |
+| [Scientific Problem Solving & Reasoning](./activities/scientific_problem_solving_reasoning.md) | Scientific QA, derivations, proofs, quantitative and multimodal problem solving, diagnostic reasoning | 61 |
+| [Scientific Software & Workflow Engineering](./activities/scientific_software_workflow_engineering.md) | Scientific/engineering code, repository and pipeline engineering, HDL and formal-spec code | 49 |
+| [Data Analysis & Statistical Inference](./activities/data_analysis_statistical_inference.md) | Statistical analysis and inference, bioinformatics/omics analysis, data interpretation | 29 |
 | [Experiment Design & Scientific Discovery](./activities/experiment_design_discovery.md) | Experiment and observation planning, hypothesis generation, law discovery | 19 |
 | [Simulation & Scientific Computing](./activities/simulation_scientific_computing.md) | Numerical simulation, PDE/FEM, MD/DFT, running and building scientific simulators | 17 |
-| [Modeling & Prediction](./activities/modeling_prediction.md) | Predictive and surrogate modelling, property prediction, forecasting | 14 |
-| [Optimization & Engineering Design](./activities/optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 14 |
+| [Modeling & Prediction](./activities/modeling_prediction.md) | Predictive and surrogate modelling, property prediction, forecasting | 15 |
+| [Optimization & Engineering Design](./activities/optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 16 |
 | [Literature Search & Evidence Synthesis](./activities/literature_evidence_synthesis.md) | Literature retrieval, systematic review, evidence synthesis, literature-grounded extraction | 14 |
 | [Research Reproduction & Replication](./activities/research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 9 |
 | [End-to-End Research](./activities/end_to_end_research.md) | Multi-stage research lifecycle across several major phases | 5 |
@@ -110,7 +110,7 @@ Activities are the **task axis**: what the evaluated agent or system actually do
 
 The RL cutline is judged by the paper's primary contribution: if it advances *how agents are evaluated*, it belongs here; if it advances *how agents are trained*, it does not.
 
-"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **238 work cards**, **7 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
+"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **261 work cards**, **7 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
 
 ---
 
