@@ -37,7 +37,8 @@ Chemical Engineering — the question set is process systems engineering through
 - Each response is scored by five independent AI judges against a seven-element rubric.
 - The composite score is `Overall = 0.15 x ROUGE-1 + 0.15 x ROUGE-L + 0.20 x Cosine + 0.50 x Element%`, with grade bands Good (>= 0.50), Fair (0.35–0.49), and Poor (< 0.35).
 - Human expert validation is run alongside the automated scoring and released as `Human_Validation_Final.xlsx`.
-- **Reported.** Five models were evaluated: DeepSeek-V3 (`deepseek-chat`), Claude Sonnet 4 (`claude-sonnet-4-20250514`), Gemini 2.5 Flash (`gemini-2.5-flash`), GPT-4o (`gpt-4o-2024-08-06`), and Llama 3.3 70B (`llama-3.3-70b-versatile`, via Groq). DeepSeek scored highest at 78.1% element coverage. Domain difficulty followed a consistent DES > ML > OPT > MOD ordering across models. AI–human agreement was Spearman rs = 0.416 (p < 0.001), and model rankings were stable across alternative scoring schemes (rs = 1.000).
+- Rubric element coverage is scored on a 0–7 scale, and model differences are tested with the Friedman test, reported as significant at χ²(4) = 491.4, p < 0.001.
+- **Reported.** Five models were evaluated: DeepSeek-V3 (`deepseek-chat`), Claude Sonnet 4 (`claude-sonnet-4-20250514`), Gemini 2.5 Flash (`gemini-2.5-flash`), GPT-4o (`gpt-4o-2024-08-06`), and Llama 3.3 70B (`llama-3.3-70b-versatile`, via Groq). Element coverage ranged from 78.1% for DeepSeek down to 60.8% for Llama. Domain difficulty followed a consistent DES > ML > OPT > MOD ordering across models. Three domain experts re-graded answers to validate the judge ensemble: AI–human agreement was Spearman rs = 0.416 (p < 0.001) with ICC = 0.793, and the experts' re-grading exposed a systematic AI leniency bias of +0.85 points on the 0–7 scale. Model rankings were stable across alternative scoring schemes (rs = 1.000), though the paper notes the ordering of middle-tier models was less stable than the broad performance tiering.
 
 ## Typical Duration
 
@@ -53,7 +54,8 @@ The authors present PSE-Bench as the first benchmark for evaluating large langua
 - Open-ended questions with released ground truths and per-question rubrics, rather than multiple choice.
 - Judge ensembling: five independent AI judges per response instead of a single LLM judge.
 - A composite metric that mixes lexical overlap (ROUGE-1, ROUGE-L), embedding similarity, and rubric element coverage, with element coverage carrying half the weight.
-- A human expert validation layer used to check the automated judges rather than to replace them.
+- A human expert validation layer used to check the automated judges rather than to replace them, with the resulting leniency offset reported as an explicit calibration constant instead of left implicit.
+- Non-parametric significance testing (Friedman) plus a sensitivity analysis over alternative scoring schemes, establishing that the reported ranking is not an artifact of the chosen weighting.
 - Full release of questions, ground truths, raw model responses, per-judge evaluations, summary statistics, and human-validation data under an MIT license.
 
 ## Strengths
@@ -67,7 +69,8 @@ The authors present PSE-Bench as the first benchmark for evaluating large langua
 
 - Single-turn, zero-shot, tool-free question answering: no simulator, no code execution, and no multi-step trajectory, so the benchmark measures consultation-style knowledge rather than agentic process-engineering capability.
 - The composite score gives 30% of its weight to ROUGE overlap against a reference answer, which rewards surface similarity to the ground-truth phrasing.
-- Reported AI–human agreement of rs = 0.416 is moderate, which bounds how much confidence the automated scores can carry on their own.
+- Reported AI–human agreement of rs = 0.416 is moderate, which bounds how much confidence the automated scores can carry on their own; the paper states the benchmark separates broad performance tiers more reliably than it separates individual middle-tier models.
+- The AI judges are systematically lenient by +0.85 points on the 0–7 scale, so absolute scores overstate model competence unless that offset is applied.
 - Repository note: at 200 questions across four domains, each domain rests on 50 items, so per-domain conclusions are drawn from a small sample.
 - Repository note: the citation block in the official repository names a different journal and marks the work "Under review," while the published article of record appears in Chemical Engineering Journal Advances, Volume 27 (2026), article 101375.
 
@@ -75,3 +78,4 @@ The authors present PSE-Bench as the first benchmark for evaluating large langua
 
 - [CeProBench](./ceprobench.md) — the other chemical-process-engineering benchmark here, but built as an executable multi-task environment (knowledge graphs, PFD parsing, Aspen Plus optimization) rather than open-ended QA.
 - [Using Large Language Models for Solving Thermodynamic Problems](./llm-thermodynamics.md) — also scores LLMs on chemical-engineering problems, but with human expert graders instead of an AI judge ensemble.
+- [Autonomous Action Execution (AAE) Framework](./aae-framework.md) — also targets LLM reliability in chemical process settings, but through deterministic validation of proposed control actions rather than answer grading.
