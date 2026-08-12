@@ -79,6 +79,18 @@ Finding nothing is a real result — report it rather than forcing members.
 Partition into batches of **4–6 candidates**, dispatch **4–6 subagents concurrently**, in waves if needed.
 Never hand one agent the whole list.
 
+Two batching rules learned the hard way:
+- **Group a suspected research lineage into ONE batch** and tell that reviewer its job is to decide *card
+  granularity*. In the civil run, five papers shared one benchmark that grew from 8 beams to 20 frames to 3D
+  frames; a single reviewer found two of them self-declare they reuse the earlier set and rejected them as
+  duplicates. Split across reviewers, those would have become two spurious cards. That reviewer also
+  corrected the lineage itself — one paper it was handed had no author overlap and was independent.
+- **Do not write per-batch topic guidance you have not verified.** Batches formed by slicing a reordered
+  inventory do not inherit the discovery agents' themes. In the civil run two batch prompts described
+  contents ("geotechnical", "water distribution") the batches did not contain; the reviewers flagged the
+  mismatch and ignored it, but the guidance was noise at best. Either derive the theme from the batch file
+  itself or give none.
+
 Give each subagent `references/deep_review_brief.md` filled in for the domain. Contract:
 
 - Read the **primary source** — original paper, official repo, project page, publisher/OpenReview record.

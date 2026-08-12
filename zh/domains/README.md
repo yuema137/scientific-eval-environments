@@ -34,15 +34,15 @@ Domain 页是**事实性参考页，不是文献综述**——作为入口与 to
 | Science | [Biology](./biology.md) | 29 |
 | Science | [Neuroscience & Cognitive Science](./neuroscience_cognitive_science.md) | 12 |
 | Science | [Medicine & Health](./medicine_health.md) | 15 |
-| Science | [Earth Science](./earth_science.md) | 7 |
-| Science | [Environmental Science](./environmental_science.md) | 3 |
+| Science | [Earth Science](./earth_science.md) | 8 |
+| Science | [Environmental Science](./environmental_science.md) | 5 |
 | Science | [Materials Science](./materials_science.md) | 25 |
-| Science | [Computer Science](./computer_science.md) | 5 |
+| Science | [Computer Science](./computer_science.md) | 6 |
 | Science | [AI & Machine Learning Research](./ai_ml_research.md) | 21 |
-| Engineering | [Mechanical & Aerospace Engineering](./mechanical_aerospace_engineering.md) | 10 |
-| Engineering | [Electrical Engineering](./electrical_engineering.md) | 17 |
-| Engineering | [Energy Systems](./energy_systems.md) | 4 |
+| Engineering | [Mechanical & Aerospace Engineering](./mechanical_aerospace_engineering.md) | 12 |
+| Engineering | [Electrical Engineering](./electrical_engineering.md) | 18 |
+| Engineering | [Energy Systems](./energy_systems.md) | 5 |
 | Engineering | [Chemical Engineering](./chemical_engineering.md) | 12 |
-| Engineering | [Civil & Structural Engineering](./civil_structural_engineering.md) | 3 |
-| Engineering | [Robotics](./robotics.md) | 16 |
-| Engineering | [Software & Systems Engineering](./software_systems_engineering.md) | 16 |
+| Engineering | [Civil & Structural Engineering](./civil_structural_engineering.md) | 30 |
+| Engineering | [Robotics](./robotics.md) | 17 |
+| Engineering | [Software & Systems Engineering](./software_systems_engineering.md) | 17 |

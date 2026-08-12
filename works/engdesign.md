@@ -13,7 +13,6 @@ EngDesign is a benchmark of 101 real-world engineering **design** tasks across n
 ## Activities
 
 - [Optimization & Engineering Design](../activities/optimization_engineering_design.md)
-- [Simulation & Scientific Computing](../activities/simulation_scientific_computing.md)
 
 ## Links
 

@@ -13,7 +13,6 @@ A published dataset and validation protocol in which GPT-4o answers structural-a
 ## Activities
 
 - [Simulation & Scientific Computing](../activities/simulation_scientific_computing.md)
-- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
 
 ## Links
 

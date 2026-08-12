@@ -51,6 +51,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - **Stage-aligned issue-resolution diagnosis.** [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) augments executable patch evaluation with validated ground truths for requirement clarification and implementation planning, enabling GT-aligned diagnosis of full coding trajectories.
 - **Reasoning-trajectory reliability.** [MiraMind](../works/miramind.md) scores mental-health reasoning trajectories along usability, logical structure, and informational contribution, separating a correct final answer from an unreliable evidence-to-judgment path.
 - **Adversarially measured per-action admissibility.** [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md) makes the individual proposed action, not the end task, the unit of judgement: each LLM-proposed control action is checked by graph traversal over the plant's P&ID for tag existence, actuatability, fail-state consistency, and downstream impact. Coverage of that checker is itself measured — 43 crafted invalid proposals over its failure modes, on which 100% recall is reported for the covered categories, plus an N = 50 robustness study spanning runs where 10%–70% of proposals are unsafe and a B0–B3 ladder that credits each context-enrichment stage separately.
+- **Reference operation chains where the artifact resists inspection.** [DrafterBench](../works/drafterbench.md) scores civil-engineering drawing revision by intersection-over-union between the agent's recorded operation chain and a reference chain, using dual functions that log the operation path without modifying files — so a revised PDF never has to be inspected visually. Instruction quality is a controlled variable over its 1,920 tasks: unstructured phrasing, vague values and incomplete information are toggled independently, and results are reported per controller, making a trajectory-score drop attributable to a specific instruction defect.
 
 ## Comparison
 
@@ -95,6 +96,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 | MiraMind | 2025 | Reasoning-trajectory scoring on usability, logical structure, informational contribution (alongside outcome metrics) | Mental-health reasoning | [→](../works/miramind.md) |
 | PEOA | 2024 | Stage-decomposed tool-learning scoring: planning (tool-usage awareness, pass rate, plan accuracy vs. gold plans), tool selection (Recall@K, NDCG@K, COMP@K), tool calling (stipulation consistency, parameter extraction, error handling), response generation (BLEU, ROUGE-L, EM) | Chemical and process engineering problem solving (MathComp, ChemProc) | [→](../works/peoa.md) |
 | Autonomous Action Execution (AAE) Framework | 2026 | Per-proposed-action validation by P&ID graph traversal (tag existence, actuatability, fail-state, downstream impact); validator recall over 43 injected invalid proposals, N = 50 robustness runs, B0–B3 context ladder | Industrial process control (Tennessee Eastman and two further plant scenarios) | [→](../works/aae-framework.md) |
+| DrafterBench | 2025 | Intersection-over-union between the recorded operation chain and a reference chain, layered on two-level scoring (code executability, then target completeness over six subtasks) with a weak-subtask penalty; reported per instruction controller | Civil-engineering technical drawing revision over 46 custom tools | [→](../works/drafterbench.md) |
 
 ## Open Questions
 
@@ -107,6 +109,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 
 ## Related Works
 
+- [DrafterBench](../works/drafterbench.md)
 - [PEOA](../works/peoa.md)
 - [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md)
 - [TempoBench](../works/tempobench.md)
