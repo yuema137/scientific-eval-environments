@@ -2,8 +2,11 @@
 # Facts are extracted from it into topic and card pages; the file itself is not published.
 /initial_doc.md
 
-# Claude Code session data
-.claude/
+# Claude Code session data — local settings stay private, shared skills are tracked.
+# Uses .claude/* (not .claude/) so the negation below can re-include a subdirectory:
+# git cannot re-include anything beneath an excluded directory.
+.claude/*
+!.claude/skills/
 
 # tmp
 /tmp
