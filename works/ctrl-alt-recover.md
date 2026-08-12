@@ -12,7 +12,6 @@ A tutorial paper on using LLM agents as constrained supervisory planners for fau
 
 ## Activities
 
-- [Simulation & Scientific Computing](../activities/simulation_scientific_computing.md)
 - [Optimization & Engineering Design](../activities/optimization_engineering_design.md)
 
 ## Links

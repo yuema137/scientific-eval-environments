@@ -26,6 +26,7 @@ Electrical and electronic engineering.
 | TeleQnA | 2023 | Answer telecommunications-knowledge questions grounded in standards. | 10,000 multiple-choice questions from 3GPP/IEEE standards and research literature. | Multiple-choice accuracy against an active-telecom-professional baseline. | [→](../works/teleqna.md) |
 | ControlAgent / ControlEval | 2024 | Design controllers meeting stability and performance specifications. | 500 control-design tasks (ControlEval) across first/second-order, time-delay, and higher-order systems. | Average and agent success rates against design criteria vs. toolbox+human baselines. | [→](../works/controleval.md) |
 | PDAgent-Bench | 2026 | VLSI physical design / Electronic Design Automation — chip back-end implementation spanning floorplanning, power planning, placement, clock-tree synthesis, routing, static timing analysis, and engineering change orders. | 353 curated task-level problems across five capability dimensions (foundational knowledge, report comprehension, root-cause analysis, static timing analysis, script generation) plus 10 full-flow design projects, using TSMC 28nm / Nangate 45nm and tools including Cadence Innovus, Synopsys ICC2/PrimeTime, and OpenROAD; 11 models. | Task-level pass@1/pass@5 with script solutions checked by execution and conceptual answers scored against three-expert-validated references; workflow-level full-flow runs assessed by timing closure and DRC-violation outcomes on designs such as TinyRISCV, AES-256, and Ethernet MAC. | [→](../works/pdagent-bench.md) |
+| ERI Benchmark | 2026 | Electrical engineering as one of nine covered fields, with six subdomains: circuits, electronics, signals and systems, power systems, electromagnetics, and control systems. | 57,750 instruction–response records generated over a controlled field × subdomain × intent × difficulty cross-product (1,155 cells, 50 pairs per cell), with per-field means reported separately. | Automatic checks for refusals, missing final answers, and machine-parsable constraint violations, beneath rubric scoring by a three-provider judge panel (Claude Haiku 4.5, GPT-4.1 Mini, Mistral Small 3) averaged per item. | [→](../works/eri-benchmark.md) |
 
 ## Related Works
 
@@ -45,3 +46,4 @@ Electrical and electronic engineering.
 - [MMCircuitEval](../works/mmcircuiteval.md)
 - [TeleQnA](../works/teleqna.md)
 - [ControlAgent / ControlEval](../works/controleval.md)
+- [ERI Benchmark](../works/eri-benchmark.md)

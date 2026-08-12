@@ -18,7 +18,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 
 - **Subgoal-based.** Trajectories are annotated with a chain of subgoals; the primary metric is the fraction completed. [AgentBoard](../works/agentboard.md) is the exemplar, pairing subgoal progress rate with an analytical dashboard.
 - **Graded-subtask / dense-reward.** Tasks are decomposed into subtasks that receive graded (not binary) rewards, aggregated under configurable thresholds. [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md) follows this line for long-horizon terminal tasks.
-- **Capability-decomposed.** A complex capability is decomposed into a small number of subprocesses, each scored on isolated tasks. [T-Eval](../works/t-eval.md) applies this to tool use across six subprocesses; [Enconda-bench](../works/enconda-bench.md) applies it to environment configuration across planning / diagnosis / repair / execution.
+- **Capability-decomposed.** A complex capability is decomposed into a small number of subprocesses, each scored on isolated tasks. [T-Eval](../works/t-eval.md) applies this to tool use across six subprocesses; [Enconda-bench](../works/enconda-bench.md) applies it to environment configuration across planning / diagnosis / repair / execution; [PEOA](../works/peoa.md) applies it to chemical and process engineering, scoring the four stages of tool learning — task planning against gold plans, tool selection by Recall@K / NDCG@K / COMP@K against a ground-truth tool set, tool calling by stipulation consistency, parameter-extraction correctness, and error handling, and response generation by BLEU / ROUGE-L / exact match.
 - **Utility-function based.** A joint metric over multiple quality dimensions is applied to whole trajectories. [TRACE](../works/trace.md) uses a hierarchical utility over accuracy, efficiency, evidence grounding, and reasoning quality for deep-research agents; [FinTrace](../works/fintrace.md) uses nine metrics across four dimensions for financial tool use.
 - **Diagnostic overlay.** Frameworks that are not themselves task suites, but layer diagnostic vocabularies and audit protocols on top of existing benchmarks. [AgentAtlas](../works/agentatlas.md) provides a six-way control-decision taxonomy and failure taxonomy applied across 15 agent benchmarks; [Insights Generator](../works/insights-generator.md) is a multi-agent system for corpus-level trace diagnostics.
 - **Deterministic ground-truth generation.** Trajectory evaluation depends on high-quality reference trajectories. [Traxgen](../works/traxgen.md) tackles the reference-generation problem directly by compiling structured workflow specifications and user data into deterministic DAG-based gold trajectories, replacing LLM-driven ground-truth generation with a reproducible, orders-of-magnitude-faster alternative.
@@ -50,6 +50,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - **Reasoning-aligned code evaluation.** [RACE-Bench](../works/race-bench.md) pairs executable patch verification with structured reference reasoning, scoring how well a repository-level code agent's intermediate reasoning aligns with developer-accepted trajectories.
 - **Stage-aligned issue-resolution diagnosis.** [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) augments executable patch evaluation with validated ground truths for requirement clarification and implementation planning, enabling GT-aligned diagnosis of full coding trajectories.
 - **Reasoning-trajectory reliability.** [MiraMind](../works/miramind.md) scores mental-health reasoning trajectories along usability, logical structure, and informational contribution, separating a correct final answer from an unreliable evidence-to-judgment path.
+- **Adversarially measured per-action admissibility.** [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md) makes the individual proposed action, not the end task, the unit of judgement: each LLM-proposed control action is checked by graph traversal over the plant's P&ID for tag existence, actuatability, fail-state consistency, and downstream impact. Coverage of that checker is itself measured — 43 crafted invalid proposals over its failure modes, on which 100% recall is reported for the covered categories, plus an N = 50 robustness study spanning runs where 10%–70% of proposals are unsafe and a B0–B3 ladder that credits each context-enrichment stage separately.
 
 ## Comparison
 
@@ -92,6 +93,8 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 | RACE-Bench | 2026 | Dual-track: patch resolved rate + reasoning-alignment recall / over-prediction vs. developer reference trajectories | Repository-level code agents (feature addition) | [→](../works/race-bench.md) |
 | SWE-RPG | 2026 | Resolved rate + GT-aligned stage failure attribution and per-stage clarification / planning coverage | Repository-level issue resolution (Python / Java) | [→](../works/a-unified-issue-resolution-benchmark-for-requireme.md) |
 | MiraMind | 2025 | Reasoning-trajectory scoring on usability, logical structure, informational contribution (alongside outcome metrics) | Mental-health reasoning | [→](../works/miramind.md) |
+| PEOA | 2024 | Stage-decomposed tool-learning scoring: planning (tool-usage awareness, pass rate, plan accuracy vs. gold plans), tool selection (Recall@K, NDCG@K, COMP@K), tool calling (stipulation consistency, parameter extraction, error handling), response generation (BLEU, ROUGE-L, EM) | Chemical and process engineering problem solving (MathComp, ChemProc) | [→](../works/peoa.md) |
+| Autonomous Action Execution (AAE) Framework | 2026 | Per-proposed-action validation by P&ID graph traversal (tag existence, actuatability, fail-state, downstream impact); validator recall over 43 injected invalid proposals, N = 50 robustness runs, B0–B3 context ladder | Industrial process control (Tennessee Eastman and two further plant scenarios) | [→](../works/aae-framework.md) |
 
 ## Open Questions
 
@@ -104,6 +107,8 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 
 ## Related Works
 
+- [PEOA](../works/peoa.md)
+- [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md)
 - [TempoBench](../works/tempobench.md)
 - [TelemetrySuffBench](../works/telemetrysuffbench.md)
 - [Evaluating Plan Compliance in Autonomous Programming Agents](../works/from-plan-to-action.md)

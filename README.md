@@ -60,9 +60,9 @@ Domains are the **field axis**: the science or engineering discipline a work eva
 | Domain | Works |
 |---|--:|
 | [Physics](./domains/physics.md) | 36 |
-| [Chemistry](./domains/chemistry.md) | 31 |
+| [Chemistry](./domains/chemistry.md) | 32 |
 | [Biology](./domains/biology.md) | 29 |
-| [Materials Science](./domains/materials_science.md) | 24 |
+| [Materials Science](./domains/materials_science.md) | 25 |
 | [AI & Machine Learning Research](./domains/ai_ml_research.md) | 21 |
 | [Mathematics](./domains/mathematics.md) | 14 |
 | [Medicine & Health](./domains/medicine_health.md) | 15 |
@@ -70,19 +70,19 @@ Domains are the **field axis**: the science or engineering discipline a work eva
 | [Astronomy](./domains/astronomy.md) | 6 |
 | [Earth Science](./domains/earth_science.md) | 7 |
 | [Computer Science](./domains/computer_science.md) | 5 |
-| [Environmental Science](./domains/environmental_science.md) | 2 |
+| [Environmental Science](./domains/environmental_science.md) | 3 |
 
 **Engineering**
 
 | Domain | Works |
 |---|--:|
-| [Electrical Engineering](./domains/electrical_engineering.md) | 16 |
+| [Electrical Engineering](./domains/electrical_engineering.md) | 17 |
 | [Robotics](./domains/robotics.md) | 16 |
 | [Software & Systems Engineering](./domains/software_systems_engineering.md) | 16 |
-| [Mechanical & Aerospace Engineering](./domains/mechanical_aerospace_engineering.md) | 9 |
+| [Mechanical & Aerospace Engineering](./domains/mechanical_aerospace_engineering.md) | 10 |
 | [Energy Systems](./domains/energy_systems.md) | 4 |
-| [Civil & Structural Engineering](./domains/civil_structural_engineering.md) | 2 |
-| [Chemical Engineering](./domains/chemical_engineering.md) | 1 |
+| [Civil & Structural Engineering](./domains/civil_structural_engineering.md) | 3 |
+| [Chemical Engineering](./domains/chemical_engineering.md) | 12 |
 
 Narrower fields fold into these canonical domains (bioinformatics → Biology, GIS → Earth Science, psychology → Neuroscience & Cognitive Science, …), and a work may appear in several domains. Web/UI agents, computer use, and pure evaluation methodology are not science or engineering domains and do not appear here.
 
@@ -94,14 +94,14 @@ Activities are the **task axis**: what the evaluated agent or system actually do
 
 | Activity | What it covers | Works |
 |---|---|--:|
-| [Scientific Problem Solving & Reasoning](./activities/scientific_problem_solving_reasoning.md) | Scientific QA, derivations, proofs, quantitative and multimodal problem solving, diagnostic reasoning | 61 |
-| [Scientific Software & Workflow Engineering](./activities/scientific_software_workflow_engineering.md) | Scientific/engineering code, repository and pipeline engineering, HDL and formal-spec code | 49 |
+| [Scientific Problem Solving & Reasoning](./activities/scientific_problem_solving_reasoning.md) | Scientific QA, derivations, proofs, quantitative and multimodal problem solving, diagnostic reasoning | 67 |
+| [Scientific Software & Workflow Engineering](./activities/scientific_software_workflow_engineering.md) | Scientific/engineering code, repository and pipeline engineering, HDL and formal-spec code | 50 |
 | [Data Analysis & Statistical Inference](./activities/data_analysis_statistical_inference.md) | Statistical analysis and inference, bioinformatics/omics analysis, data interpretation | 29 |
 | [Experiment Design & Scientific Discovery](./activities/experiment_design_discovery.md) | Experiment and observation planning, hypothesis generation, law discovery | 19 |
-| [Simulation & Scientific Computing](./activities/simulation_scientific_computing.md) | Numerical simulation, PDE/FEM, MD/DFT, running and building scientific simulators | 17 |
-| [Modeling & Prediction](./activities/modeling_prediction.md) | Predictive and surrogate modelling, property prediction, forecasting | 15 |
-| [Optimization & Engineering Design](./activities/optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 16 |
-| [Literature Search & Evidence Synthesis](./activities/literature_evidence_synthesis.md) | Literature retrieval, systematic review, evidence synthesis, literature-grounded extraction | 14 |
+| [Simulation & Scientific Computing](./activities/simulation_scientific_computing.md) | Numerical simulation, PDE/FEM, MD/DFT, running and building scientific simulators | 20 |
+| [Modeling & Prediction](./activities/modeling_prediction.md) | Predictive and surrogate modelling, property prediction, forecasting | 16 |
+| [Optimization & Engineering Design](./activities/optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 20 |
+| [Literature Search & Evidence Synthesis](./activities/literature_evidence_synthesis.md) | Literature retrieval, systematic review, evidence synthesis, literature-grounded extraction | 15 |
 | [Research Reproduction & Replication](./activities/research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 9 |
 | [End-to-End Research](./activities/end_to_end_research.md) | Multi-stage research lifecycle across several major phases | 5 |
 | [Laboratory & Instrument Control](./activities/laboratory_instrument_control.md) | Instrument, microscope, and beamline control; lab automation; behaviour-defined control code | 3 |
@@ -116,7 +116,7 @@ Activities are the **task axis**: what the evaluated agent or system actually do
 
 The RL cutline is judged by the paper's primary contribution: if it advances *how agents are evaluated*, it belongs here; if it advances *how agents are trained*, it does not.
 
-"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **261 work cards**, **7 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
+"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **272 work cards**, **7 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
 
 ---
 

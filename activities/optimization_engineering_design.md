@@ -18,6 +18,8 @@ A second cluster is **molecular and drug design**, where instructions or targets
 
 A third cluster is **simulation-guided parameter tuning and iterative engineering design under simulator feedback**: [HydroAgent](../works/hydroagent.md) (calibrating an operational hydrologic model to maximize NSE), [SimulCost](../works/simulcost.md) (cost-aware parameter tuning across physics simulators), [Frontier-Eng](../works/frontier-eng.md) (iterative generative design under industrial-grade simulator reward and interaction budgets), and [RE-Bench](../works/re-bench.md) (open-ended ML research-engineering optimization against reference solutions).
 
+A fourth cluster is **chemical-process design and plant-operation decisions**, where the design space is a flowsheet or an operating point rather than a controller or a molecule. [Simona](../works/simona.md) has agents choose unit operations and tune their configuration until the flowsheet converges, and the Parameter dimension of [CeProBench](../works/ceprobench.md) refines operating parameters against yield, purity, and cost objectives inside Aspen Plus. Two works move the decision from design time to run time, where a proposal is admissible only if an external validator clears it: the [fault-tolerant-control tutorial environments](../works/ctrl-alt-recover.md) ask for a recovery mode or a setpoint triple after an injected plant fault, and the [AAE framework](../works/aae-framework.md) grades proposed control actions by traversal of the plant's P&ID topology.
+
 ## Comparison
 
 | Work | Year | Activity instantiation | Task form / environment | Deliverable or success target | Card |
@@ -30,12 +32,16 @@ A third cluster is **simulation-guided parameter tuning and iterative engineerin
 | Speak-to-Structure / TOMG-Bench | 2024 | Natural-language-driven open-domain molecule generation | MolEdit/MolOpt/MolCustom, 5,000 samples per subtask | Instruction-satisfying valid molecule (one-to-many) | [card](../works/tomg-bench.md) |
 | CVDP | 2025 | RTL design, verification, and debugging of Verilog | 783 problems, 13 categories, agentic and non-agentic | Pass@1 on generation (SOTA <=34%) | [card](../works/cvdp.md) |
 | HLS-Eval | 2025 | LLM generates and optimizes synthesizable HLS code | 94 HLS designs, NL-to-code and optimization edits | Parseable/compilable/runnable/synthesizable on Vitis HLS (pass@k) | [card](../works/hls-eval.md) |
+| Autonomous Action Execution (AAE) Framework | 2026 | Propose plant control actions checked against P&ID topology | 5 process-plant scenarios (3 Tennessee Eastman), B0-B3 context ladder, N=50 runs | Structurally admissible action; validator recall on 43 injected proposals | [card](../works/aae-framework.md) |
+| Autonomous Fault-Tolerant Control Tutorial | 2026 | Select recovery mode and adapt setpoints after injected plant faults | Two executable environments (mixing module, CSTR) with typed fault injection | Validator-admissible recovery action; no reference scores reported | [card](../works/ctrl-alt-recover.md) |
+| CeProBench | 2026 | Closed-loop optimization of process operating parameters | 20 Aspen Plus parameter files, 91 adjustable parameters, 65 objectives | Yield/purity/cost, Effective and Comprehensive Score, convergence iterations | [card](../works/ceprobench.md) |
 | EnergyBridge | 2026 | Generate constraint-aware residential demand-response plans | VPP workflow over EnergyPlus models (Tianjin, Berlin) | Authorization rate plus capacity-commitment reliability | [card](../works/energybridge.md) |
 | Frontier-Eng | 2026 | Iterative generative design under simulator feedback | 47 tasks, 5 engineering categories, bounded budget | Continuous reward under hard feasibility constraints | [card](../works/frontier-eng.md) |
 | HydroAgent | 2026 | Agents calibrate operational CREST hydrologic model | 4 held-out gauges (329-40,792 km2), best-of-20 rounds | Nash-Sutcliffe Efficiency vs human-expert reference | [card](../works/hydroagent.md) |
 | PDAgent-Bench | 2026 | VLSI physical-design optimization under constraints | Full-flow implementation plus tasks; Innovus/ICC2/OpenROAD EDA | Timing closure and DRC-clean layout; pass@1/5 | [card](../works/pdagent-bench.md) |
 | PowerAgentBench-SS | 2026 | Agents screen contingencies and propose grid mitigations | IEEE 39-bus DC thermal N-2 search under validation budget | Hidden-evaluator recall, severity regret, residual violation | [card](../works/poweragentbench-ss.md) |
 | SciAgentArena | 2026 | Biomedical research tasks including optimization and design |  | 200 stepwise-verified tasks across five biomedical fields | [card](../works/sciagentarena.md) |
+| Simona | 2026 | Design flowsheet topology and tune unit-operation configurations | 1,000 expert-written process descriptions; simulator over HTTP APIs | Simulation Convergence Rate (80.3%) and design time | [card](../works/simona.md) |
 | SimulCost | 2026 | Cost-aware parameter tuning of physics simulations | 2,947 single-round + 1,931 multi-round tasks, 13 simulators | Tuning quality under simulation-time/resource budget | [card](../works/simulcost.md) |
 | SMDD-Bench | 2026 | Budgeted multi-turn small-molecule drug design | 502 solvable instances, 102 targets, five task types | Solve rate under oracle-call limit (GPT-5.4: 40.2%) | [card](../works/smdd-bench.md) |
 
@@ -57,3 +63,7 @@ A third cluster is **simulation-guided parameter tuning and iterative engineerin
 - [SciAgentArena](../works/sciagentarena.md)
 - [SimulCost](../works/simulcost.md)
 - [SMDD-Bench](../works/smdd-bench.md)
+- [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md)
+- [A Tutorial on Autonomous Fault-Tolerant Control Using Knowledge-Grounded LLM Agents](../works/ctrl-alt-recover.md)
+- [CeProBench](../works/ceprobench.md)
+- [Simona](../works/simona.md)

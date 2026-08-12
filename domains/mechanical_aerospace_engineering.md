@@ -19,6 +19,7 @@ Mechanical and aerospace engineering. Computational fluid dynamics and thermal t
 | MooseBench | 2026 | Generate multiphysics finite-element simulation code (MOOSE) that solves the intended physics, not merely code that runs. | 220 cases with PDE-level mathematical ground truth. | Intent Fidelity Score via deterministic PDE reconstruction; 39–40% of cases stay runnable-but-wrong under execution-only repair. | [→](../works/moosebench.md) |
 | SciConvBench | 2026 | Clarify ill-posed simulation requests; fluid mechanics and solid mechanics are two of its four computational-science domains. | Multi-turn disambiguation and inconsistency-resolution dialogues over a structured task ontology. | Rubric scoring of clarification behavior, conversational grounding, and final-specification fidelity. | [→](../works/sciconvbench.md) |
 | AInsteinBench | 2025 | Resolve maintainer-PR tasks in production scientific repositories; fluid dynamics is among its six codebases. | Repository-level coding-agent tasks in executable environments. | Test-driven verification with expert-reviewed curation. | [→](../works/ainsteinbench.md) |
+| ERI Benchmark | 2026 | Mechanical and aerospace engineering, two of the benchmark's nine covered fields, spanning thermodynamics, fluid mechanics, heat transfer, machine design, dynamics and vibrations, manufacturing and HVAC, plus aerodynamics, flight mechanics, propulsion, aerospace structures, and orbital mechanics. | 57,750 instruction–response records generated over a controlled field × subdomain × intent × difficulty cross-product (1,155 cells, 50 pairs per cell), with per-field means reported separately. | Automatic checks for refusals, missing final answers, and machine-parsable constraint violations, beneath rubric scoring by a three-provider judge panel (Claude Haiku 4.5, GPT-4.1 Mini, Mistral Small 3) averaged per item; aerospace engineering is among the hardest fields for every model scored. | [→](../works/eri-benchmark.md) |
 
 ## Related Works
 
@@ -31,3 +32,4 @@ Mechanical and aerospace engineering. Computational fluid dynamics and thermal t
 - [MooseBench](../works/moosebench.md)
 - [SciConvBench](../works/sciconvbench.md)
 - [AInsteinBench](../works/ainsteinbench.md)
+- [ERI Benchmark](../works/eri-benchmark.md)

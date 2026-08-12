@@ -30,19 +30,19 @@ Domain pages are **factual reference pages, not literature reviews** — co-equa
 | Science | [Physics](./physics.md) | 36 |
 | Science | [Astronomy](./astronomy.md) | 6 |
 | Science | [Mathematics](./mathematics.md) | 14 |
-| Science | [Chemistry](./chemistry.md) | 31 |
+| Science | [Chemistry](./chemistry.md) | 32 |
 | Science | [Biology](./biology.md) | 29 |
 | Science | [Neuroscience & Cognitive Science](./neuroscience_cognitive_science.md) | 12 |
 | Science | [Medicine & Health](./medicine_health.md) | 15 |
 | Science | [Earth Science](./earth_science.md) | 7 |
-| Science | [Environmental Science](./environmental_science.md) | 2 |
-| Science | [Materials Science](./materials_science.md) | 24 |
+| Science | [Environmental Science](./environmental_science.md) | 3 |
+| Science | [Materials Science](./materials_science.md) | 25 |
 | Science | [Computer Science](./computer_science.md) | 5 |
 | Science | [AI & Machine Learning Research](./ai_ml_research.md) | 21 |
-| Engineering | [Mechanical & Aerospace Engineering](./mechanical_aerospace_engineering.md) | 9 |
-| Engineering | [Electrical Engineering](./electrical_engineering.md) | 16 |
+| Engineering | [Mechanical & Aerospace Engineering](./mechanical_aerospace_engineering.md) | 10 |
+| Engineering | [Electrical Engineering](./electrical_engineering.md) | 17 |
 | Engineering | [Energy Systems](./energy_systems.md) | 4 |
-| Engineering | [Chemical Engineering](./chemical_engineering.md) | 1 |
-| Engineering | [Civil & Structural Engineering](./civil_structural_engineering.md) | 2 |
+| Engineering | [Chemical Engineering](./chemical_engineering.md) | 12 |
+| Engineering | [Civil & Structural Engineering](./civil_structural_engineering.md) | 3 |
 | Engineering | [Robotics](./robotics.md) | 16 |
 | Engineering | [Software & Systems Engineering](./software_systems_engineering.md) | 16 |

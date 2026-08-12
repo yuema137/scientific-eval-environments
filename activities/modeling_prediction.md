@@ -28,6 +28,7 @@ A third cluster is **physics-grounded forecasting and model-fitting**, where the
 | MatText | 2024 | Predict crystal properties from text representations | Static regression, 9 representations, up to 70B params, 2M structures | Match geometric GNN baselines; documents geometric blindness | [card](../works/mattext.md) |
 | MLE-bench | 2024 | End-to-end ML engineering to train competitive models | 75 curated Kaggle competitions, agentic, long-horizon | Kaggle medal thresholds; o1-preview bronze on 16.9% | [card](../works/mle-bench.md) |
 | AlchemyBench | 2025 | Predict full materials synthesis recipe and outcomes | Static prediction over 17,000 expert-verified recipes | LLM-as-a-Judge agreement with expert assessment | [card](../works/alchemybench.md) |
+| ChemEBench | 2025 | Predict molecular properties and reaction outcomes | L2 level: SMILES-to-IUPAC, molecule naming, property and reaction prediction | Accuracy on objective items; 14-model leaderboard | [card](../works/chemebench.md) |
 | FGBench | 2025 | Reason about molecular property at functional-group level | 625K problems (245 groups); 7K curated LLM subset, static QA | Regression/classification accuracy; LLMs struggle | [card](../works/fgbench.md) |
 | MLE-Dojo | 2025 | Iteratively build and refine ML models with feedback | 200+ Kaggle challenges, Gym-style interactive, SFT/RL-trainable | Iterative improvement and solution quality across 8 LLMs | [card](../works/mle-dojo.md) |
 | BioXArena | 2026 | Build and train biomedical predictive models | 76 end-to-end tasks, 9 domains, 2-hour single-GPU budget | Hidden-label 0-1 score; best MLEvolve 0.666 | [card](../works/bioxarena.md) |
@@ -55,3 +56,4 @@ A third cluster is **physics-grounded forecasting and model-fitting**, where the
 - [onepot-Bench 0](../works/onepot-bench.md)
 - [RealPDEBench](../works/realpdebench.md)
 - [Stargazer](../works/stargazer.md)
+- [ChemEBench](../works/chemebench.md)
