@@ -10,6 +10,12 @@ This is a reference, not a benchmark implementation — it aims to stay useful t
 
 ---
 
+## A Living Knowledge Base
+
+Scientific Evaluation Environments is continuously maintained rather than periodically released. An automated update agent scans public sources every three days for new work, integrates relevant additions into the knowledge base, and proposes updates through pull requests for human review.
+
+---
+
 ## Start Exploring
 
 - **[Browse by Topic](./topics/README.md)** — explore research themes in scientific-agent and agent-evaluation methodology.
@@ -132,4 +138,4 @@ Two navigational conventions keep the axes in sync: each card's `Topics` block l
 
 ## Contributing
 
-Contributions are welcome. All contributor and maintainer rules — reference validation, page templates, the canonical taxonomies, and the bilingual sync cadence — live in [`AGENT.md`](./AGENT.md) (the constitution) and [`CLAUDE.md`](./CLAUDE.md) (its quick reference), with layer-specific rules in each directory's README. Every page is available in English and Chinese; use the language switcher at the top of any page.
+Contributions are welcome. Automated updates complement, rather than replace, community contributions; missing or newly relevant work can still be proposed manually. All contributor and maintainer rules — reference validation, page templates, the canonical taxonomies, and the bilingual sync cadence — live in [`AGENT.md`](./AGENT.md) (the constitution) and [`CLAUDE.md`](./CLAUDE.md) (its quick reference), with layer-specific rules in each directory's README. Every page is available in English and Chinese; use the language switcher at the top of any page.
