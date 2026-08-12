@@ -20,24 +20,48 @@ import collections
 import glob
 import json
 import os
+import re
 import subprocess
 import sys
 
 TOPIC_DIR, ACT_DIR, DOM_DIR = "topics", "activities", "domains"
 
 
+def _page_title(path):
+    with open(path, encoding="utf-8") as fh:
+        return fh.readline().strip("# \n")
+
+
 def canonical(repo):
-    """Canonical label sets, read from the repository rather than hardcoded."""
-    topics = {f[:-3] for f in os.listdir(os.path.join(repo, TOPIC_DIR))
-              if f.endswith(".md") and f != "README.md"}
-    acts = {f[:-3] for f in os.listdir(os.path.join(repo, ACT_DIR))
-            if f.endswith(".md") and f != "README.md"}
-    doms = {}
-    for f in os.listdir(os.path.join(repo, DOM_DIR)):
-        if f.endswith(".md") and f != "README.md":
-            with open(os.path.join(repo, DOM_DIR, f)) as fh:
-                doms[fh.readline().strip("# \n")] = f[:-3]
-    return topics, acts, doms
+    """Canonical label sets, read from the repository rather than hardcoded.
+
+    Each axis returns {accepted_form -> slug}. Reviewers report labels
+    inconsistently — sometimes the slug (`scientific_agents`), sometimes the page
+    title (`Scientific Agent Benchmarks`), sometimes an abbreviated domain name
+    (`Mechanical & Aerospace` for `Mechanical & Aerospace Engineering`). All are
+    resolved here so the gate flags genuinely unknown labels, not formatting drift.
+    """
+    def axis(d):
+        out = {}
+        for f in os.listdir(os.path.join(repo, d)):
+            if not f.endswith(".md") or f == "README.md":
+                continue
+            slug = f[:-3]
+            title = _page_title(os.path.join(repo, d, f))
+            out[slug] = slug
+            out[title.lower()] = slug
+            # tolerate a dropped trailing "Engineering"/"Science" qualifier
+            short = re.sub(r"\s+(engineering|science)$", "", title.lower())
+            out.setdefault(short, slug)
+        return out
+    return axis(TOPIC_DIR), axis(ACT_DIR), axis(DOM_DIR)
+
+
+def resolve(label, table):
+    """Map a reported label to its canonical slug, or None if unknown."""
+    if label is None:
+        return None
+    return table.get(label) or table.get(str(label).strip().lower())
 
 
 def main():
@@ -103,15 +127,18 @@ def main():
     problems = []
     for s, c in by_slug.items():
         ok = os.path.exists(os.path.join(repo, "works", "%s.md" % s))
-        for t in c.get("topics") or []:
-            if t not in topics:
-                problems.append((s, "topic", t))
-        for x in c.get("activities") or []:
-            if x not in acts:
-                problems.append((s, "activity", x))
-        for d in c.get("domains") or []:
-            if d not in doms:
-                problems.append((s, "domain", d))
+        for axis_name, key, table in (("topic", "topics", topics),
+                                      ("activity", "activities", acts),
+                                      ("domain", "domains", doms)):
+            resolved = []
+            for label in c.get(key) or []:
+                slug = resolve(label, table)
+                if slug is None:
+                    problems.append((s, axis_name, label))
+                else:
+                    resolved.append(slug)
+            # normalize in place so downstream phases consume canonical slugs
+            c[key] = sorted(set(resolved))
         print("  %-52s %s" % (s, "[file]" if ok else "[NO FILE]"))
 
     if dupes:
