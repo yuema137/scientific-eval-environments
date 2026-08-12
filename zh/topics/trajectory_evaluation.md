@@ -51,6 +51,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - **阶段对齐的问题解决诊断。** [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) 在可执行补丁评估之外，补充需求澄清与实现规划的已验证真值，实现对完整编码轨迹的 GT 对齐诊断。
 - **推理轨迹可靠性。** [MiraMind](../works/miramind.md) 沿可用性、逻辑结构与信息贡献为心理健康推理轨迹打分，把正确的最终答案与不可靠的"证据到判断"路径区分开。
 - **以对抗方式检验的逐动作准入判定。** [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md) 把判定单位从最终任务下移到单个被提出的动作：LLM 每提出一个控制动作，都要经由对装置 P&ID 的图遍历，核查位号是否存在、是否可执行、失效状态是否一致以及下游影响如何。验证器自身的覆盖面也一并纳入度量——针对其各类失效模式构造了 43 个无效方案，在所覆盖的类别上报告 100% 召回率；此外还有一项 N = 50 的鲁棒性研究，覆盖不安全方案占比从 10% 到 70% 的各种运行，以及一条 B0–B3 阶梯，为每一级上下文增强单独计分。
+- **当产物本身难以检查时，改用参考操作链。** [DrafterBench](../works/drafterbench.md) 为土木工程图纸修改评分的办法，是计算 agent 记录下来的操作链与参考操作链之间的交并比；配套的 dual function 只记录操作路径而不改动文件，因此修改后的 PDF 根本无需人眼查看。在它的 1,920 个任务里，指令质量是一个受控变量：措辞不规范、取值含糊、信息不全这三种情况可以各自独立开关，结果也按控制变量分别报告，于是轨迹得分的下滑能被归因到某一种具体的指令缺陷上。
 
 ## Comparison
 
@@ -95,6 +96,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | MiraMind | 2025 | 在可用性、逻辑结构、信息贡献上给推理轨迹打分（与结果指标并列） | 心理健康推理 | [→](../works/miramind.md) |
 | PEOA | 2024 | 工具学习的分阶段打分：规划（工具使用意识、通过率、相对金标准方案的计划准确率）、工具选择（Recall@K、NDCG@K、COMP@K）、工具调用（约定一致性、参数抽取、错误处理）、回答生成（BLEU、ROUGE-L、EM） | 化工与过程工程问题求解（MathComp、ChemProc） | [→](../works/peoa.md) |
 | Autonomous Action Execution (AAE) Framework | 2026 | 通过 P&ID 图遍历逐动作验证（位号存在性、可执行性、失效状态、下游影响）；在 43 个注入的无效方案上的验证器召回率、N = 50 次鲁棒性运行、B0–B3 上下文阶梯 | 工业过程控制（Tennessee Eastman 以及另外两个装置场景） | [→](../works/aae-framework.md) |
+| DrafterBench | 2025 | 记录下来的操作链与参考操作链之间的交并比，叠加在两级评分（代码可执行性，再到六个子任务上的目标完成度）之上，并对弱子任务扣分；按各指令控制变量分别报告 | 覆盖 46 个自定义工具的土木工程技术图纸修改 | [→](../works/drafterbench.md) |
 
 ## Open Questions
 
@@ -107,6 +109,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 
 ## Related Works
 
+- [DrafterBench](../works/drafterbench.md)
 - [PEOA](../works/peoa.md)
 - [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md)
 - [TempoBench](../works/tempobench.md)

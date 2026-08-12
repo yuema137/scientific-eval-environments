@@ -16,9 +16,11 @@
 
 第二大类是**分子与药物设计**，其指令或目标往往对应多种有效结构：[TOMG-Bench](../works/tomg-bench.md)（开放域分子编辑、优化与定制化生成）和 [SMDD-Bench](../works/smdd-bench.md)（面向蛋白靶点、带预算约束的多轮小分子药物设计）。[Aviary](../works/aviary.md) 提供了蛋白质工程与分子克隆环境，[SciAgentArena](../works/sciagentarena.md) 则在多个生物医学领域纳入了优化与药物发现类任务。
 
-第三大类是**仿真引导的参数调优，以及在仿真器反馈下的迭代式工程设计**：[HydroAgent](../works/hydroagent.md)（校准业务化水文模型以最大化 NSE）、[SimulCost](../works/simulcost.md)（在多种物理仿真器上进行成本感知的参数调优）、[Frontier-Eng](../works/frontier-eng.md)（在工业级仿真器奖励与交互预算下的迭代式生成式设计）以及 [RE-Bench](../works/re-bench.md)（对照参考解的开放式 ML 研究工程优化）。
+第三大类是**仿真引导的参数调优，以及在仿真器反馈下的迭代式工程设计**：[HydroAgent](../works/hydroagent.md)（校准业务化水文模型以最大化 NSE）、[SimulCost](../works/simulcost.md)（在多种物理仿真器上进行成本感知的参数调优）、[Frontier-Eng](../works/frontier-eng.md)（在工业级仿真器奖励与交互预算下的迭代式生成式设计）、[RE-Bench](../works/re-bench.md)（对照参考解的开放式 ML 研究工程优化），以及 [EngDesign](../works/engdesign.md)（横跨九个工程方向的设计产物，各自交由所属方向的仿真器校核，最多可迭代十轮反馈）。
 
 第四大类是**化工过程设计与装置运行决策**，其设计空间是一张流程图或一个操作点，而非控制器或分子。[Simona](../works/simona.md) 让 agent 挑选单元操作并调整其配置，直到流程图能够收敛；[CeProBench](../works/ceprobench.md) 的 Parameter 维度则在 Aspen Plus 中围绕收率、纯度与成本目标细化操作参数。另有两项工作把决策从设计阶段移到运行阶段，且方案只有经外部验证器放行才算可行：[容错控制教程环境](../works/ctrl-alt-recover.md)要求在注入装置故障后给出一个恢复模式或一组三元设定点，[AAE 框架](../works/aae-framework.md)则通过遍历装置的 P&ID 拓扑来评判所提出的控制动作。
+
+第五大类是**对照规范与求解器的土木与结构构件设计**，交付物是一个必须满足设计标准的构件尺寸或基础尺寸。[PE Civil Bench](../works/pe-civil-bench.md) 对钢筋混凝土梁与柱做截面配筋设计，并把结果与 ETABS 有限元输出做相关性比对；[采用路由式多 agent 的基础设计研究](../works/large-language-model-based-multi-agent-systems-for.md)在给定土层剖面、荷载与安全系数下确定浅基础与桩基础的尺寸；[MASSE](../works/masse.md) 则在一整套咨询工作流内部确定截面特性，并给出结构是否满足要求的结论。
 
 ## Comparison
 
@@ -31,14 +33,18 @@
 | RE-Bench | 2024 | agent 优化 ML 研究工程代码与内核 | 7 个开放式 ML 研发环境，2/8/32 小时预算 | 对照参考解与人类专家的得分 | [卡片](../works/re-bench.md) |
 | Speak-to-Structure / TOMG-Bench | 2024 | 自然语言驱动的开放域分子生成 | MolEdit/MolOpt/MolCustom，每个子任务 5,000 个样本 | 满足指令的有效分子（一对多） | [卡片](../works/tomg-bench.md) |
 | CVDP | 2025 | Verilog 的 RTL 设计、验证与调试 | 783 个问题，13 个类别，含 agentic 与非 agentic | 生成任务的 Pass@1（SOTA <=34%） | [卡片](../works/cvdp.md) |
+| EngDesign | 2025 | 产出由各工程方向自身仿真器校核的设计产物 | 101 项任务 / 473 个可评分条目，9 个方向，最多 10 轮反馈 | 二元通过加 0-100 分（首次尝试 34.38%，十轮后接近 60%） | [卡片](../works/engdesign.md) |
 | HLS-Eval | 2025 | LLM 生成并优化可综合的 HLS 代码 | 94 个 HLS 设计，NL 到代码及优化改写 | 在 Vitis HLS 上可解析/可编译/可运行/可综合（pass@k） | [卡片](../works/hls-eval.md) |
+| MASSE | 2025 | 确定截面特性并验算结构是否满足要求 | 100 道货架体系题目，按角色划分的 rubric 基准，每题 10 次试验 | SDAB rubric 得分（o4-mini 91.4）与满足/不满足的判定 | [卡片](../works/masse.md) |
 | Autonomous Action Execution (AAE) Framework | 2026 | 提出装置控制动作，并对照 P&ID 拓扑加以验证 | 5 个过程装置场景（其中 3 个取自 Tennessee Eastman），B0-B3 上下文阶梯，N=50 次运行 | 结构上可行的动作；在 43 个注入方案上的验证器召回率 | [卡片](../works/aae-framework.md) |
 | Autonomous Fault-Tolerant Control Tutorial | 2026 | 在注入装置故障后选择恢复模式并调整设定点 | 两个可执行环境（混合模块、CSTR），支持按类型注入故障 | 经验证器认可的恢复动作；未报告参考分数 | [卡片](../works/ctrl-alt-recover.md) |
 | CeProBench | 2026 | 过程操作参数的闭环优化 | 20 个 Aspen Plus 参数文件，91 个可调参数，65 个目标 | 收率/纯度/成本、Effective Score 与 Comprehensive Score、收敛迭代次数 | [卡片](../works/ceprobench.md) |
 | EnergyBridge | 2026 | 生成约束感知的居民需求响应方案 | 基于 EnergyPlus 模型的 VPP 工作流（天津、柏林） | 授权率加容量承诺可靠性 | [卡片](../works/energybridge.md) |
 | Frontier-Eng | 2026 | 在仿真器反馈下的迭代式生成式设计 | 47 项任务，5 个工程类别，预算受限 | 在硬可行性约束下的连续奖励 | [卡片](../works/frontier-eng.md) |
 | HydroAgent | 2026 | agent 校准业务化 CREST 水文模型 | 4 个留出水文站（329-40,792 km2），20 轮取最优 | 对照人类专家参考的 Nash-Sutcliffe Efficiency | [卡片](../works/hydroagent.md) |
+| Multi-Agent Systems for Automated Foundation Design | 2026 | 在给定土层、荷载与安全系数下确定浅基础与桩的尺寸 | 27 个算例，7 个类别，路由式与顺序式工作流对比，每个 3 次试验 | 四项准则的 rubric 评分（路由式配 Grok 3：95.00% / 90.63%） | [卡片](../works/large-language-model-based-multi-agent-systems-for.md) |
 | PDAgent-Bench | 2026 | 约束下的 VLSI 物理设计优化 | 全流程实现加任务级问题；Innovus/ICC2/OpenROAD EDA | 时序收敛与 DRC 无违规布局；pass@1/5 | [卡片](../works/pdagent-bench.md) |
+| PE Civil Bench | 2026 | 设计符合设计规范的钢筋混凝土梁与柱 | 33 种梁的配置外加一个柱的扩展；ETABS 真值 | 规范合规，且与有限元结果的一致性达 r >= 0.90 | [卡片](../works/pe-civil-bench.md) |
 | PowerAgentBench-SS | 2026 | agent 筛查故障并提出电网缓解方案 | 验证预算下的 IEEE 39-bus DC 热稳定 N-2 搜索 | 隐藏评估器召回率、严重度后悔值、残余违规 | [卡片](../works/poweragentbench-ss.md) |
 | SciAgentArena | 2026 | 涵盖优化与设计的生物医学研究任务 | 横跨五个生物医学领域、逐步验证的 200 项任务 | 在数据/优化/发现/有效性维度上逐步验证 | [卡片](../works/sciagentarena.md) |
 | Simona | 2026 | 设计流程图拓扑并调整单元操作的配置 | 1,000 段专家撰写的工艺描述；通过 HTTP API 驱动仿真器 | 仿真收敛率（80.3%）与设计耗时 | [卡片](../works/simona.md) |
@@ -67,3 +73,7 @@
 - [A Tutorial on Autonomous Fault-Tolerant Control Using Knowledge-Grounded LLM Agents](../works/ctrl-alt-recover.md)
 - [CeProBench](../works/ceprobench.md)
 - [Simona](../works/simona.md)
+- [EngDesign](../works/engdesign.md)
+- [MASSE](../works/masse.md)
+- [Large Language Model-Based Multi-Agent Systems for Automated Foundation Design](../works/large-language-model-based-multi-agent-systems-for.md)
+- [PE Civil Bench](../works/pe-civil-bench.md)

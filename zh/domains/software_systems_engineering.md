@@ -26,6 +26,7 @@
 | RACE-Bench | 2026 | 仓库级特性新增——在真实开源代码库中实现一项新特性使相关测试通过——联合按补丁正确性与 agent 中间推理同开发者认可轨迹的契合度评估。 | 来自 12 个开源仓库的 528 个真实特性新增实例，每个配一套可执行的补丁验证 harness 与结构化参考推理（issue 理解、文件定位、实现任务、步骤分解）。 | 双轨：基于可执行测试的 Resolved Rate（三个 agent 从 29% 到 70%），加对照开发者认可参考轨迹的推理契合覆盖度。 | [→](../works/race-bench.md) |
 | LoopsBench | 2026 | 持续的多步软件开发（"loop engineering"）——在长 horizon 编码工作上向前推进，同时避免对先前已完成单元的回归。 | 来自真实来源的 112 个任务，横跨 8 种编程语言与 9 个领域，每个是覆盖 5,300+ 个可单独测试开发单元的依赖 DAG，其前置边有源码证据支撑。 | 基于执行的评分，经一个 Docker 支撑、感知流程的运行时：沿就绪前沿释放测试，并将已完成节点保留为回归义务；验证器区分未完成/部分/完整解。最佳配置解出 25.0% 的任务。 | [→](../works/loopsbench.md) |
 | SWE-RPG | 2026 | 仓库级 issue 解决——真实 Python 与 Java 项目中的缺陷修复与特性新增——沿完整轨迹（需求澄清 → 实现规划 → 代码生成 → 提交）诊断，而非仅按通过/失败评判。 | 来自 31 个 Python 与 Java 仓库的 163 个任务（113 个缺陷修复、50 个特性新增），每个配一套可执行的 fail-to-pass/pass-to-pass harness，加针对需求澄清与实现规划的、经验证的中间真值；三个 agent 跨六种 LLM 后端。 | 基于执行的求解率（补丁可应用、全部 fail-to-pass 通过、无 pass-to-pass 回归；平均 31.5%，最佳 49.7%），加 LLM-judge 的阶段归因与按阶段覆盖度，对照人类共识校准（92%/96%）。 | [→](../works/a-unified-issue-resolution-benchmark-for-requireme.md) |
+| EngDesign | 2025 | 操作系统与计算机体系结构设计，交付物是一件真正能用的产物——设计须在给定约束下跑得通，而不是去对上某个参考答案。 | 九个工程方向共 101 项设计任务 / 473 个可评分条目，其中操作系统设计 8 项、计算机体系结构设计 5 项；默认单轮，另有一套依据仿真器反馈最多修改 10 轮的迭代协议。 | 逐任务的评估脚本执行所生成的设计，返回二元通过、0–100 的部分给分与日志；就整个基准而言，最佳模型首次尝试的通过率为 34.38%，十轮迭代后升至接近 60%。 | [→](../works/engdesign.md) |
 
 ## Related Works
 
@@ -45,3 +46,4 @@
 - [SWE-Interact](../works/swe-interact.md)
 - [SWE-Together](../works/swe-together.md)
 - [AInsteinBench](../works/ainsteinbench.md)
+- [EngDesign](../works/engdesign.md)

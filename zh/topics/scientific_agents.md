@@ -181,6 +181,12 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **以收敛作为通过标准，并与专家比耗时。** [Simona](../works/simona.md) 用仿真收敛率（Simulation Convergence Rate, SCR）为 1,000 段专家撰写的工艺描述打分——只有生成的流程图在仿真器中真正收敛，这份设计才算数——并把设计耗时作为并列的另一条评价轴一同报告；人类专家基线为 100% SCR、8,301.91 秒，让受评系统在质量与耗时两方面都有一个可解读的上界参照（所提出的工作流为 80.3%，GPT-4o 为 23.4%）。
 - **相似不等于在领域内成立。** [Can Large Language Models Automate the HAZOP Process?](../works/can-large-language-models-automate-the-hazop-proce.md) 在同一批生成的工作表上，把模型层面的表现与过程安全层面的表现分开衡量：四个多模态模型对照专家编制的 HAZOP 参考，F1 都超过 86%，但它们生成的场景中只有 0.19–0.37 在语义上成立，而且所提出的防护措施明显偏向程序性措施，而非工程化的保护层。
 - **以过程工程师为基准校准的评审团。** [PSE-Bench](../works/pse-bench.md) 用五个相互独立的 LLM 评审，按七要素 rubric 为 200 道开放式过程系统工程题目打分，再请三位领域专家重新评阅同一批答案：二者的一致性为 Spearman rs = 0.416、ICC = 0.793，且 LLM 评审在 0–7 分制上系统性偏松 +0.85 分——论文把这一偏差当作校准常数明确报出，而不是让它隐而不显。
+- **在结构分析里，真值握在求解器手上。** 结构工程方向的一批工作，评的不是 agent 写出的文字，而是它建出的模型，参照物则由 agent 左右不了的软件生成。[Agentic LLMs for Automated Structural Analysis of 3D Frame Systems](../works/agentic-large-language-models-for-automated-struct.md) 只有当生成的 SAP2000 模型*每一项*受监测响应都落在人工搭建参考模型的 1% 以内时，才判该次试验正确——它的分解式流水线在十个不规则框架上平均达到 90%，而 GPT-5.4 与 Gemini-3.1 Pro 在这十个上全是 0%。[Toward Responsible AI in High-Stakes Domains](../works/toward-responsible-ai-in-high-stakes-domains-a-dat.md) 把同一套相对误差检验换到 ETABS 上，并特意保留裸模型作为对照：无辅助的 GPT-4o 相对误差约在 230–270%，而同一个模型经 MCP server 驱动 OpenSeesPy 后低于 1.427%。[Automating Structural Reliability Analysis with a Multi-Agent LLM Framework](../works/automating-structural-reliability-analysis-with-a.md) 干脆把这种安排上升为架构规则——可靠指标与失效概率只由确定性运行器调用经验证的求解器给出，绝不出自语言模型；[AutoBM / BMEval](../works/autobm.md) 则把容差量化下来，要求生成的 OpenSeesPy 模型的一阶自振周期落在专家校验参考值的 0.30 相对误差之内。
+- **把运行间的稳定性当作指标，而不是误差棒。** [A Large Language Model-Empowered Agent for Reliable and Robust Structural Analysis](../works/a-large-language-model-empowered-agent-for-reliabl.md) 的两项测度都建立在"重复"本身之上：可靠性是同一条提示词独立跑 500 次中答对的比例，鲁棒性则是把荷载沿梁逐点移动后所得那组可靠性值上的 (1 + CV)⁻¹。Llama-3.3 70B 在简支梁上守住 93.6% 的可靠性，在组合荷载下的外伸梁上却跌到 10.0% 以下；而生成代码的 agent 可靠性超过 99.0%、鲁棒性超过 99.6%。周边的一批工作也共享这一直觉，只是规模更小——[Lightweight Multi-Agent System for 2D Frame Structural Analysis](../works/a-lightweight-large-language-model-based-multi-age.md) 每个框架跑十次，[Integrating LLMs for Automated Structural Analysis](../works/integrating-large-language-models-for-automated-st.md) 跑五次，[LLM-Based Multi-Agent Systems for Automated Foundation Design](../works/large-language-model-based-multi-agent-systems-for.md) 每个算例跑三次；[TransportBench](../works/transportbench.md) 更是把准确率与稳定性彻底拆开：它最准的模型 Claude 3.5 Sonnet，恰恰也是被要求复核时放弃了 16 个原本答对答案的那一个。
+- **一项以规模发布的工业级土木任务。** [DrafterBench](../works/drafterbench.md) 选取的技术图纸修改，是通过走访十余家北美建筑公司确认的劳动密集型工作；它以 100 多份真实修改文件为素材，围绕 46 个自定义图纸操作工具构建了 1,920 个任务。生成器把十二类修改任务与五个二值指令控制变量（措辞是否结构化、取值是否精确、信息是否完整、对象数量、操作数量）做交叉，指令质量因此成为受控变量，分数下滑也就能归因到某一处具体缺陷；配套的 dual function 只记录操作路径而不触碰文件，于是被计分的产物是轨迹本身，而不是渲染出来的图纸。
+- **把规范符合性的判定结论作为受评产出。** 当答案由法规决定时，有几个 benchmark 评的就是 agent 有没有得出监管者的结论、又是否给出了应有的理由。[SGR-BIM](../works/sgr-bim.md) 在五个 IFC 建筑模型上提出 679 条经专家核验的消防安全查询，按三档准确率评分——结论对了但没能点明起决定作用的变量与边界条件，就拿不到满分；其基于图的系统总分 84.3，而持有完全相同工具集的单 agent 只有 75.7，CAMEL、AutoGen 与 MetaGPT 落在 64.9–73.2，可见弥合差距的并不是泛用的多智能体协作。[AutoBM / BMEval](../works/autobm.md) 把明确的设计校核结论列为 Pass@k_strict 所合取的三道关卡之一；[AEC-Bench](../works/aec-bench.md) 则发现工作中越依赖判断的一端越难——图纸导航的 reward 达到 100.0，提交资料审查最高却只有 23.1。
+- **以专业检测记录作为答案标准。** [BridgeEQA](../works/bridgeeqa.md) 把 200 个真实桥梁场景上的 2,200 道题目扎根于佛蒙特州交通厅的检测报告，状况判定按 NBI 的 0–9 分制评分并允许 ±1 的容差带——因为专家检测员之间的一致程度本就只有这么高——同时引入 Image Citation Relevance，让那些依据无关影像却蒙对评级的 agent 被扣分。[Cognitive Agents for Bridge Inspection Prioritization](../works/cognitive-agents-for-bridge-inspection-prioritizat.md) 对照的是六个年度全国桥梁清单版本中实际观测到的劣化，并把"结果如何定义"本身当作实验变量：目标定得含糊时 agent 近乎随机（AUC 0.471），换成"是否恶化进入 poor 状态"则达到 0.705，而同一设定下一个不透明的梯度提升模型只有 0.521；此外还请一位持证检测员对它写出的 100 段理由做盲评，3 分制下平均 2.77 分。[DefectBench](../works/defectbench.md) 把外墙病害逐级加码——命名缺陷、定位缺陷、分割缺陷——且每一问都以模型自己上一问的回答为条件，从而把误差传播暴露出来而非藏起来。
+- **以执业资格考试作为难度标尺。** [Evaluating AI Chatbots on the FE and PE Structural Exams](../works/evaluating-the-performance-of-artificial-intellige.md) 把 NCEES 的练习题交给 ChatGPT-4 与 Bard，沿用考试本身不给部分分的二值判分，在 FE 与 PE 上分别得到 70.9% / 46.2% 与 39.2% / 41%——FE 大致能过，PE 则差得远。[PE Civil Bench](../works/pe-civil-bench.md) 把同一来源做成公开发布的 150 题语料，覆盖八个子学科，并把增强策略提升为一等因素，用基础提示、向量 RAG 与 agentic RAG 三种方式跑同一批题目。[Civil-Eval](../works/civil-eval.md) 对中国的国家注册考试做了同样的事，并按各科计算题占比赋予权重；[AECBench](../works/aecbench.md) 的 4,800 道题中有一部分取自执业资格考试，同时把全部 23 类任务沿五个认知层级排布，于是单一分数变成一条退化曲线——术语类高于 95%，文档撰写类则低于 60%。
 
 ## Comparison
 
@@ -362,6 +368,33 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | ERI Benchmark | 2026 | 57,750 条生成记录，由 9 个工程领域、55 个子领域、7 类意图、3 个难度层级受控交叉组合而成 | 工程推理与指令遵循（化学工程为九个领域之一） | 底层是自动化输出检查，其上是 rubric 层，由三家厂商的模型组成评审团（Claude Haiku 4.5、GPT-4.1 Mini、Mistral Small 3）；115,962 次评判取 1–5 分均值 | [→](../works/eri-benchmark.md) |
 | PEOA | 2024 | MathComp（8,500+ 组）与 ChemProc（7,000+ 组），取材自学术文献与教科书 | 结合数学建模与数值方法的化工与过程工程问题求解 | 分阶段的工具学习指标（规划，工具选择的 Recall/NDCG/COMP@K，工具调用，BLEU/ROUGE-L/EM），外加一项八维度的人工评测 | [→](../works/peoa.md) |
 | Using Large Language Models for Solving Thermodynamic Problems | 2025 | 22 道由作者自行编写的题目（13 道简单、9 道进阶），每个模型各作答三次 | 化工热力学 | 由受过训练的人类专家按考试方式阅卷，每正确完成一步计 0.5 分；并考察多次作答之间的答案一致性 | [→](../works/llm-thermodynamics.md) |
+| LLM-Empowered Agent for Reliable and Robust Structural Analysis | 2026 | 8 道作者构造的静定梁题目（2 种梁型 × 4 种荷载工况），外加 3 项延伸的泛化任务 | 结构分析：静力平衡下的支座反力 | 同一条提示词独立跑 500 次得出的可靠性，以及按 1 m 间隔移动荷载所得的鲁棒性 = (1 + CV)⁻¹；生成的 OpenSeesPy 代码自动执行 | [→](../works/a-large-language-model-empowered-agent-for-reliabl.md) |
+| Lightweight Multi-Agent System for 2D Frame Structural Analysis | 2025 | 20 个作者设计的二维建筑框架，拓扑抽象自真实建筑，层高剖面则来自采样 | 结构分析：平面框架的有限元建模 | 每题独立跑 10 次中正确生成 OpenSeesPy 程序的比例，并按错误来源（节点/单元/支座/材料）分类 | [→](../works/a-lightweight-large-language-model-based-multi-age.md) |
+| Agentic LLMs for Automated Structural Analysis of 3D Frame Systems | 2026 | 10 个由轴网与层数矩阵设定的不规则三维框架体系 | 结构分析：SAP2000 中的三维建筑框架建模 | 全部受监测结构响应相对人工搭建的 SAP2000 真值模型误差均在 1% 以内，每题跑 10 次 | [→](../works/agentic-large-language-models-for-automated-struct.md) |
+| Integrating LLMs for Automated Structural Analysis | 2025 | 20 道手工设计的二维框架结构分析应用题，附真值简图 | 结构分析：二维框架的变形与内力 | 四个基础模型上三选一取优的正确率，外加一项五次运行的生成稳定性研究；OpenSeesPy 执行与专家撰写指令的消融 | [→](../works/integrating-large-language-models-for-automated-st.md) |
+| MASSE | 2025 | 100 道题目，由不列颠哥伦比亚省真实货架系统项目记录重组而成，配专家校验的真值 | 结构工程工作流：分析、设计、荷载转换与端到端执行 | GPT-5 评审通读完整分析日志，对照专家真值按四套明确的计分 rubric（SAAB / SDAB / LAB / MASEB）打分，并报告 token 用量与耗时 | [→](../works/masse.md) |
+| AutoBM / BMEval | 2026 | 128 个在建筑属性空间中生成、经专家校验的建筑样本，附经验公式给出的参考周期 | 自动建筑建模：由结构规格生成 OpenSeesPy 代码 | 沙箱执行的 pass@k，加上一阶周期相对误差在 0.30 以内以及明确的设计规范符合性结论；Pass@k_strict 把三者合取 | [→](../works/autobm.md) |
+| PE Civil Bench | 2026 | 150 道由执业工程师整理的 FE / PE 型资格考试题目，外加 33 个以 ETABS 为参照的梁设计算例 | 覆盖八个子学科的土木工程；钢筋混凝土构件设计 | 基础提示 / 向量 RAG / agentic RAG 三种方式下的答案正确率；设计赛道与 ETABS 有限元输出做相关性检验（r ≥ 0.90） | [→](../works/pe-civil-bench.md) |
+| DrafterBench | 2025 | 1,920 个任务，归纳自设计与施工企业提供的 100 多份真实修改文件 | 土木工程技术图纸修改 | 两级自动评分（代码可执行性 + 目标完成度），并把操作链与参考链做交并比 | [→](../works/drafterbench.md) |
+| AECBench | 2026 | 4,800 道中文题目，覆盖 23 类任务，由领域工程师编写并取材于执业资格考试 | 建筑、工程与施工知识，横跨五个认知层级 | 客观题计准确率；开放题由 LLM 评审对照专家预设 rubric 打分，并按专家评分重新校准（MAE 2.947 → 约 1.93–2.02） | [→](../works/aecbench.md) |
+| AEC-Bench | 2026 | 196 个任务实例，取自公共部门项目公开可得的施工文档集 | 施工文档工作：详图审查、交叉对照、说明书–图纸一致性核对、提交资料审查 | 任务专用的自动验证器在 Docker 化沙箱中评阅结构化 JSONL 结论，给出分级部分分；不使用 LLM 评审 | [→](../works/aec-bench.md) |
+| SGR-BIM | 2026 | 五个 IFC 建筑模型上的 679 条经专家核验的消防安全合规查询 | BIM 模型上几何密集的建筑规范符合性校核 | 人工评定的三档准确率——未指明起决定作用的变量与边界条件即不给满分——外加匿名 LLM 评判的连贯性 / 相关性 / 可解释性，并经人工审核 | [→](../works/sgr-bim.md) |
+| SoM-1K | 2025 | 1,065 道取自大学教材与力学竞赛的题目，每道附专家撰写的图示文字描述 | 材料力学 | 由专家逐份人工评阅推理有效性与最终答案，取五次采样的多数表决 | [→](../works/som-1k.md) |
+| EngDesign | 2025 | 101 个真实工程设计任务，横跨九个领域，共含 473 个可评分项 | 工程设计，含 13 个结构设计任务 | 领域仿真器（MATLAB、SPICE/Cadence、有限元分析、拓扑优化）返回二值通过/不通过，另加 0–100 的部分分 | [→](../works/engdesign.md) |
+| MMArch | 2026 | 1,212 道题目，由约 10,000 篇同行评审的建筑与土木工程论文构成的素材池中的图表生成 | 建筑与土木工程十个子领域（多模态） | 对照冻结的 ≤10 token 参考答案计准确率，并做单位 / 同义词 / 容差归一化；以人类专家团作为上界参照 | [→](../works/mmarch.md) |
+| Evaluating AI Chatbots on the FE and PE Structural Exams | 2024 | NCEES 官方练习考试中的 79 道 FE 题与 39 道 PE 题 | 土木（FE）与结构（PE）执业资格考试内容 | 对照 NCEES 推荐解答做二值判分，不给部分分也不做曲线调整，按主题领域汇总 | [→](../works/evaluating-the-performance-of-artificial-intellige.md) |
+| Civil-Eval | 2026 | 中国国家注册考试 2024 年 5 月场次的 517 道客观题 | 覆盖 8 个考试科目的土木与交通工程知识 | 忠实于考试规则的选项计分（多选题要求选项集合完全一致），科目权重按难题占比设定 | [→](../works/civil-eval.md) |
+| DefectBench | 2026 | 487 个基准样本，由 12 个建筑缺陷数据集在统一的四类本体下整合而成 | 建筑外墙结构病害：语义感知、空间定位、生成式分割 | 对照专家核验标注的分级指标族（F1 / MAE、mAP50-95、mIoU），采用零样本多轮协议 | [→](../works/defectbench.md) |
+| Cognitive Agents for Bridge Inspection Prioritization | 2026 | FHWA 全国桥梁清单的六个年度版本（2020–2025），筛出 3,389 座康涅狄格州桥梁作为分析样本 | 公路桥梁检测优先级排序 | 对照观测到的持续劣化，在三种结果定义下计算 AUC / 平均精度 / precision@300；另请持证桥梁检测员对 100 段理由做 0–3 分盲评 | [→](../works/cognitive-agents-for-bridge-inspection-prioritizat.md) |
+| Toward Responsible AI in High-Stakes Domains | 2025 | 四个钢筋混凝土建筑框架，每个在四种计算分组下分析 | 钢筋混凝土建筑框架的结构静力分析 | 层间位移角、最大位移、基底剪力与周期相对人工搭建的 ETABS 参考模型的相对误差 | [→](../works/toward-responsible-ai-in-high-stakes-domains-a-dat.md) |
+| TransportBench | 2024 | 140 道题目，取自伊利诺伊大学两门开设多年的交通工程课程 | 交通工程：规划、设计、管理与控制 | 由人类专家同时评阅答案与推理；重复试验的 Mixed Response Rate，以及自查式追问下的答案稳定性 | [→](../works/transportbench.md) |
+| BridgeEQA | 2025 | 2,200 个问答对，抽取自佛蒙特州交通厅在 200 个真实桥梁场景上的检测报告 | 桥梁检测的具身问答 | LLM 评判的答案正确率，NBI 状况评级的精确命中率与 ±1 容差命中率，以及 Image Citation Relevance（与人工标注 Spearman 0.817） | [→](../works/bridgeeqa.md) |
+| LLM-EPANET | 2025 | 69 条精选的自然语言查询，覆盖 Net1、Net3 与 L-Town，分五个复杂度类别 | 供水管网建模（EPANET / EPyT） | 与预先写好并执行过的确定性参考脚本做功能等价判定，边界情形由专家裁定 | [→](../works/llm-epanet.md) |
+| Hydro-SE Bench | 2025 | 4,000 道中文选择题，取自教材、行业标准、法律法规与统计年鉴 | 水科学与水利工程九个子领域 | 温度取 0 时的准确率，由另一个 LLM 抽取最终选项，并按子领域、题型与认知层级分别报告 | [→](../works/hydro-se-bench.md) |
+| LLM-Based Multi-Agent Systems for Automated Foundation Design | 2026 | 27 个作者定义的基础设计算例（15 个浅基础、12 个桩基），分七类 | 岩土工程：浅基础与桩基础设计 | 四项判据、四级评分——计算准确性、思维链推理、复杂场景处理、输出结构——每个算例跑三次 | [→](../works/large-language-model-based-multi-agent-systems-for.md) |
+| CEQuest | 2025 | 164 道题目，由领域专家依据造价估算教材与图纸解读指南编写 | 施工图纸解读与造价估算 | 按答案精确匹配评分，重复五次运行并以均值 ± 标准差报告，同时给出评测耗时与模型规模 | [→](../works/cequest.md) |
+| Automating Structural Reliability Analysis with a Multi-Agent LLM Framework | 2026 | 20 道手工编写的构件级可靠度题目，与微调集不相交 | 结构可靠度分析：可靠指标与失效概率 | β 与 P_f 只由确定性地执行经验证求解器得出，并与蒙特卡洛 / 子集模拟参考解对照；方法类别准确率对照确定性打标规则 | [→](../works/automating-structural-reliability-analysis-with-a.md) |
+| TRIP-Evaluate | 2026 | 837 道单选题（文本 596、图像 198、点云 43），按"角色–任务–知识"分类体系组织 | 交通工程，含一个规划与设计角色 | 固定提示词与解码设置下的单字母准确率，按角色、任务域、能力、难度与模态分别报告 | [→](../works/trip-evaluate.md) |
 
 ## Open Questions
 
@@ -373,6 +406,33 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 
 ## Related Works
 
+- [A Large Language Model-Empowered Agent for Reliable and Robust Structural Analysis](../works/a-large-language-model-empowered-agent-for-reliabl.md)
+- [A Lightweight Large Language Model-Based Multi-Agent System for 2D Frame Structural Analysis](../works/a-lightweight-large-language-model-based-multi-age.md)
+- [Agentic Large Language Models for Automated Structural Analysis of 3D Frame Systems](../works/agentic-large-language-models-for-automated-struct.md)
+- [Integrating Large Language Models for Automated Structural Analysis](../works/integrating-large-language-models-for-automated-st.md)
+- [MASSE](../works/masse.md)
+- [AutoBM / BMEval](../works/autobm.md)
+- [PE Civil Bench](../works/pe-civil-bench.md)
+- [DrafterBench](../works/drafterbench.md)
+- [AECBench](../works/aecbench.md)
+- [AEC-Bench](../works/aec-bench.md)
+- [SGR-BIM](../works/sgr-bim.md)
+- [SoM-1K](../works/som-1k.md)
+- [EngDesign](../works/engdesign.md)
+- [MMArch](../works/mmarch.md)
+- [Evaluating the Performance of Artificial Intelligence Chatbots and Large Language Models in the FE and PE Structural Exams](../works/evaluating-the-performance-of-artificial-intellige.md)
+- [Civil-Eval](../works/civil-eval.md)
+- [DefectBench](../works/defectbench.md)
+- [Cognitive Agents for Bridge Inspection Prioritization](../works/cognitive-agents-for-bridge-inspection-prioritizat.md)
+- [Toward Responsible AI in High-Stakes Domains: A Dataset for Building Static Analysis with LLMs in Structural Engineering](../works/toward-responsible-ai-in-high-stakes-domains-a-dat.md)
+- [TransportBench](../works/transportbench.md)
+- [BridgeEQA](../works/bridgeeqa.md)
+- [LLM-EPANET](../works/llm-epanet.md)
+- [Hydro-SE Bench](../works/hydro-se-bench.md)
+- [Large Language Model-Based Multi-Agent Systems for Automated Foundation Design](../works/large-language-model-based-multi-agent-systems-for.md)
+- [CEQuest](../works/cequest.md)
+- [Automating Structural Reliability Analysis with a Multi-Agent Large Language Model Framework](../works/automating-structural-reliability-analysis-with-a.md)
+- [TRIP-Evaluate](../works/trip-evaluate.md)
 - [CeProBench](../works/ceprobench.md)
 - [Simona](../works/simona.md)
 - [CRAFTS](../works/crafts.md)

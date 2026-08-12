@@ -32,6 +32,7 @@
 | FGBench | 2025 | 在官能团层面推理分子性质 | 625K 个问题（245 个官能团）；7K 精选 LLM 子集，静态 QA | 回归/分类准确率；LLM 表现吃力 | [卡片](../works/fgbench.md) |
 | MLE-Dojo | 2025 | 借助反馈迭代式构建并优化 ML 模型 | 200+ 个 Kaggle 挑战，Gym 风格交互，可用于 SFT/RL 训练 | 8 个 LLM 上的迭代改进与解答质量 | [卡片](../works/mle-dojo.md) |
 | BioXArena | 2026 | 构建并训练生物医学预测模型 | 76 个端到端任务，9 个领域，2 小时单 GPU 预算 | 隐藏标签 0-1 评分；最佳 MLEvolve 0.666 | [卡片](../works/bioxarena.md) |
+| Cognitive Agents for Bridge Inspection Prioritization | 2026 | 依据清册记录预测未来劣化，据此为桥梁排序 | 康涅狄格州 3,365 座桥梁，六个年度 NBI 数据版本，四种方法同台比较 | 以截至 2025 年观测到的持续劣化为准，计算 AUC 与平均精度 | [卡片](../works/cognitive-agents-for-bridge-inspection-prioritizat.md) |
 | DiscoverPhysics | 2026 | 推断并实现反事实世界的物理定律 | 22 个模拟 N-body 世界，迭代式实验提案 | 轨迹 MSE 加上按 rubric 评判的解释；最佳约 50% | [卡片](../works/discoverphysics.md) |
 | DSAgentBench | 2026 | 在数据科学工作流中构建预测模型 | 275 个真实环境任务，含一个建模阶段 | 确定性的模型性能验证 | [卡片](../works/dsagentbench.md) |
 | gwBenchmarks | 2026 | 构建高精度代理模型并拟合残余体性质 | 8 个任务，基于超过 10^8 核时的 NR 级数据 | 通过外部评估器达到约 1e-4 的相对误差；agent 未能达标 | [卡片](../works/gwbenchmarks.md) |
@@ -57,3 +58,4 @@
 - [RealPDEBench](../works/realpdebench.md)
 - [Stargazer](../works/stargazer.md)
 - [ChemEBench](../works/chemebench.md)
+- [Cognitive Agents for Bridge Inspection Prioritization](../works/cognitive-agents-for-bridge-inspection-prioritizat.md)

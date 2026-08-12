@@ -12,13 +12,15 @@
 
 ## Task Patterns
 
-最大的一类是**领域知识问答**，其交付成果是对精心整理的考试或教科书题目给出正确答案。心理学在其中自成一支——[ConceptPsy](../works/conceptpsy.md) 将概念标注到章节，[CPsyExam](../works/cpsyexam.md) 把知识题与案例分析题分开，[PsychCounsel-Bench](../works/psychcounsel-bench.md) 则对标真实的执业认证及格线。工程知识问答见于 [MaScQA](../works/mascqa.md)（材料）、[TeleQnA](../works/teleqna.md)（电信）和 [ElecBench](../works/elecbench.md)（电力调度），而 [HLE](../works/hle.md) 则刻意设定了一个宽泛的、触及知识前沿的高标准。化工与过程工程则另成一脉：从 [Using LLMs for Solving Thermodynamic Problems](../works/llm-thermodynamics.md) 的热力学计算题、[PEOA](../works/peoa.md) 融合工具调用的教科书解题轨迹，到 [ChemEBench](../works/chemebench.md) 按层级铺开的能力覆盖，再到 [PSE-Bench](../works/pse-bench.md) 的开放式过程系统工程问答。[ERI Benchmark](../works/eri-benchmark.md) 则把化学工程列为九个工程领域之一，纳入一套跨领域交叉组合的题目设计。[HAZOP 自动化评估](../works/can-large-language-models-automate-the-hazop-proce.md)属于边界情形——交付物是一份完整的专业工作表而非一个答案，且它把与专家参考的相似度和所写内容在语义上是否成立分开考察。化学知识问答从 [ChemBench](../works/chembench.md) 和 [ChemEval](../works/chemeval.md)，一直延伸到侧重定量计算的 [QCBench](../works/qcbench.md) 和 [ChemIQ](../works/chemiq.md)。
+最大的一类是**领域知识问答**，其交付成果是对精心整理的考试或教科书题目给出正确答案。心理学在其中自成一支——[ConceptPsy](../works/conceptpsy.md) 将概念标注到章节，[CPsyExam](../works/cpsyexam.md) 把知识题与案例分析题分开，[PsychCounsel-Bench](../works/psychcounsel-bench.md) 则对标真实的执业认证及格线。工程知识问答见于 [MaScQA](../works/mascqa.md)（材料）、[TeleQnA](../works/teleqna.md)（电信）和 [ElecBench](../works/elecbench.md)（电力调度），而 [HLE](../works/hle.md) 则刻意设定了一个宽泛的、触及知识前沿的高标准。土木与结构工程也自成一支「执业资格与规范」的脉络：从早期的 [FE 与 PE 结构考试研究](../works/evaluating-the-performance-of-artificial-intellige.md)，到 [PE Civil Bench](../works/pe-civil-bench.md) 公开发布的执业考试语料与 [Civil-Eval](../works/civil-eval.md) 的注册考试题目，再向外扩展到 [AECBench](../works/aecbench.md) 的认知层级阶梯、[Hydro-SE Bench](../works/hydro-se-bench.md) 中规范条文密集的子领域、[TransportBench](../works/transportbench.md) 取自课程的题目、[CEQuest](../works/cequest.md) 所考察的估算判断力，以及 [TRIP-Evaluate](../works/trip-evaluate.md) 按角色组织的题目。化工与过程工程则另成一脉：从 [Using LLMs for Solving Thermodynamic Problems](../works/llm-thermodynamics.md) 的热力学计算题、[PEOA](../works/peoa.md) 融合工具调用的教科书解题轨迹，到 [ChemEBench](../works/chemebench.md) 按层级铺开的能力覆盖，再到 [PSE-Bench](../works/pse-bench.md) 的开放式过程系统工程问答。[ERI Benchmark](../works/eri-benchmark.md) 则把化学工程列为九个工程领域之一，纳入一套跨领域交叉组合的题目设计。[HAZOP 自动化评估](../works/can-large-language-models-automate-the-hazop-proce.md)属于边界情形——交付物是一份完整的专业工作表而非一个答案，且它把与专家参考的相似度和所写内容在语义上是否成立分开考察。化学知识问答从 [ChemBench](../works/chembench.md) 和 [ChemEval](../works/chemeval.md)，一直延伸到侧重定量计算的 [QCBench](../works/qcbench.md) 和 [ChemIQ](../works/chemiq.md)。
 
 第二类是**竞赛、考试及研究级别的定量物理推理**，其交付成果是符号推导，连续评分或部分给分的指标在此至关重要。[PHYBench](../works/phybench.md) 和 [HiPhO](../works/hipho.md) 评判奥赛风格的题目；[UGPhysics](../works/ugphysics.md) 和 [PHYSICS](../works/physics-benchmark.md) 覆盖本科阶段的广度；难度则经由 [CMPhysBench](../works/cmphysbench.md)、[CMT-Benchmark](../works/cmt-benchmark.md)、[TPBench](../works/tpbench.md)、[CritPt](../works/critpt.md) 和 [PRL-Bench](../works/prl-bench.md) 逐级攀升，进入真正研究级、且经过防数据污染处理的挑战。应用数学方面的对应工作包括 [HARDMath](../works/hardmath.md)（渐近分析）和 [PDE-Controller](../works/pde-controller.md)。
 
-第三类是**多模态、以视觉为核心的问题求解**，答案的得出依赖于对示意图、光谱或显微图像的解读。物理示意图驱动了 [SeePhys](../works/seephys.md)；电路与电子工程图像驱动了 [EEE-Bench](../works/eee-bench.md) 和 [MMCircuitEval](../works/mmcircuiteval.md)；材料表征图像则支撑了 [MatCha](../works/matcha.md)、[MatVQA](../works/matvqa.md)、[MatQnA](../works/matqna.md)、[MatSciBench](../works/matscibench.md) 和 [MaCBench](../works/macbench.md)。化学结构解析是一个反复出现的多模态子主题，从 [MolPuzzle](../works/molpuzzle.md) 中分阶段的谱图判读，到 [MolQuest](../works/molquest.md) 中具备实验规划能力的智能体式解析。
+第三类是**多模态、以视觉为核心的问题求解**，答案的得出依赖于对示意图、光谱或显微图像的解读。物理示意图驱动了 [SeePhys](../works/seephys.md)；电路与电子工程图像驱动了 [EEE-Bench](../works/eee-bench.md) 和 [MMCircuitEval](../works/mmcircuiteval.md)；材料表征图像则支撑了 [MatCha](../works/matcha.md)、[MatVQA](../works/matvqa.md)、[MatQnA](../works/matqna.md)、[MatSciBench](../works/matscibench.md) 和 [MaCBench](../works/macbench.md)。化学结构解析是一个反复出现的多模态子主题，从 [MolPuzzle](../works/molpuzzle.md) 中分阶段的谱图判读，到 [MolQuest](../works/molquest.md) 中具备实验规划能力的智能体式解析。结构力学方面则有 [SoM-1K](../works/som-1k.md)——结果表明，由专家撰写的示意图文字描述反而是比示意图本身更可靠的输入——以及 [MMArch](../works/mmarch.md)，其题目要求把散布在同一幅已发表工程图件各处的证据组合起来。
 
 第四类是**化学中的结构、图与反应推理**，其正确性可针对分子本身进行符号化验证：[MolLangBench](../works/mollangbench.md)、[MolecularIQ](../works/moleculariq.md)、[FGBench](../works/fgbench.md)、[AtomWorld](../works/atomworld.md)（晶体几何），以及面向反应与合成的 [ChemCoTBench](../works/chemcotbench.md)、[FukuyamaBench](../works/fukuyamabench.md)、[ChemCensor](../works/chemcensor.md) 和 [ChemCost](../works/chemcost.md)。与之相关的**形式化证明与验证**一支，让推理过程可被内核逐步核验：[Lean4Physics](../works/lean4physics.md)、[FVEval](../works/fveval.md) 和 [VCoT-Bench](../works/vcot-bench.md)。
+
+另有一支要求给出的是**关于既有工程资产或一套文件的工程结论**，而非教科书式的答案。[DefectBench](../works/defectbench.md) 把外立面病害诊断从「说出是什么病害」逐级推进到定位、再到勾画轮廓；[BridgeEQA](../works/bridgeeqa.md) 要求依据多视角检测影像给出 National Bridge Inventory 状况评级，并单独为其援引了哪些图像作佐证打分；[SGR-BIM](../works/sgr-bim.md) 把消防规范条文与 IFC 几何逐环串起来，最终落到一条合规结论；[AEC-Bench](../works/aec-bench.md) 审查真实的施工文件集，查找交叉引用冲突并核对报审资料是否合规；[Cognitive Agents for Bridge Inspection Prioritization](../works/cognitive-agents-for-bridge-inspection-prioritizat.md) 则请一位持证检测工程师在盲评条件下，把 agent 写出的理由与其排序准确率分开评判。
 
 最后，还有一类**临床诊断与交互式生物学研究**，它把交付成果视为在信息不完整条件下得出的诊断或发现：[AgentClinic](../works/agentclinic.md) 和 [SDBench](../works/sdbench.md) 中的序贯诊断，以及 [LAB-Bench](../works/lab-bench.md)、[BAISBench](../works/baisbench.md)、[BioProBench](../works/bioprobench.md)、[BioKGBench](../works/biokgbench.md) 和 [Aviary](../works/aviary.md) 中的生物学研究能力。诸如 [SciCode](../works/scicode.md)、[CFDLLMBench](../works/cfdllmbench.md)、[PhySciBench](../works/physcibench.md)、[SciConvBench](../works/sciconvbench.md)、[BrainBench](../works/brainbench.md)、[OpenXRD](../works/openxrd.md) 和 [onePot-Bench](../works/onepot-bench.md) 等跨领域基准，则让这一活动更加完整。
 
@@ -38,6 +40,7 @@
 | CPsyExam | 2024 | 回答心理学知识题与案例分析题 | 静态问答，4,000 道考试题 | 答案准确率 | [卡片](../works/cpsyexam.md) |
 | EEE-Bench | 2024 | 依据电路图求解多模态电子工程题目 | 2,860 道题，10 个子领域，图文结合 | 求解准确率（19-47%） | [卡片](../works/eee-bench.md) |
 | ElecBench | 2024 | 对电网调度场景进行推理 | 自然语言推理/决策，通用+业务场景 | 六项指标/24 项子指标评分 | [卡片](../works/elecbench.md) |
+| FE/PE Structural Exam Evaluation | 2024 | 回答 NCEES 土木与结构执业资格考试题目 | 79 道 FE + 39 道 PE 模拟题，每次提示一题，不用工具 | 对照 NCEES 解答判定对/错（ChatGPT-4 FE 70.9%、PE 46.2%） | [卡片](../works/evaluating-the-performance-of-artificial-intellige.md) |
 | FVEval | 2024 | 生成 SystemVerilog 断言/测试平台 | 三个子任务，工具验证 | 通过 Jasper 形式化工具验证 | [卡片](../works/fveval.md) |
 | HARDMath | 2024 | 求解应用数学的渐近逼近题目 | 自动生成，HARDMath-mini 366 道 + 40 道应用题 | 与数值标准答案的匹配度 | [卡片](../works/hardmath.md) |
 | LAB-Bench | 2024 | 求解生物学研究实践任务 | 2,400+ 道选择题，8 个类别，可选用工具 | 相较于专家生物学家的准确率 | [卡片](../works/lab-bench.md) |
@@ -45,9 +48,12 @@
 | MolPuzzle | 2024 | 从谱图解析分子结构 | 200 个实例，3 个阶段，多模态 | 结构精确匹配（GPT-4o 1.4%） | [卡片](../works/molpuzzle.md) |
 | PEOA | 2024 | 以融合工具调用的轨迹形式求解化工/过程工程问题 | MathComp（8,500+）与 ChemProc（7,000+）问答对，按 70/15/15 划分 | 规划/工具选择/工具调用的分阶段得分，外加 BLEU/ROUGE-L/EM | [卡片](../works/peoa.md) |
 | SciCode | 2024 | 求解科研级编程科学问题 | 80 个主问题 / 338 个子问题，16 个子领域 | 通过参考测试用例（Claude 4.6%） | [卡片](../works/scicode.md) |
+| TransportBench | 2024 | 求解本科阶段的交通工程题目 | 140 道题（其中 73 道判断题），纯文本，10 个主题领域 | 领域专家评分的准确率（最佳 67.1%）加答案一致性 | [卡片](../works/transportbench.md) |
 | AtomWorld | 2025 | 操作晶态原子结构 | 10 种操作，4 类建模，可验证 | 经验证的结构正确性 | [卡片](../works/atomworld.md) |
 | BAISBench | 2025 | 标注细胞类型并回答发现类问题 | 15 个单细胞数据集 + 193 道选择题 | 相较于人类的标注+发现准确率 | [卡片](../works/baisbench.md) |
 | BioProBench | 2025 | 对生物湿实验方案进行推理 | 523,784 个实例，5 种任务类型，静态 | Accuracy/F1/tau/BLEU 指标 | [卡片](../works/bioprobench.md) |
+| BridgeEQA | 2025 | 依据多视角场景影像回答桥梁检测问题 | 200 个真实桥梁场景上的 2,200 组问答（9,586 张图像） | 答案正确性、NBI 评级 ±1 以内、图像引用相关性 | [卡片](../works/bridgeeqa.md) |
+| CEQuest | 2025 | 识读施工图并进行工程量计算 | 164 道题（101 道选择题、63 道判断题），5 个主题领域 | 精确匹配准确率（GPT-4.1 75.37%） | [卡片](../works/cequest.md) |
 | CFDLLMBench | 2025 | 回答 CFD 知识、编写求解器、运行 OpenFOAM | 三个层级，240 项任务 | 可执行性、数值误差、收敛性 | [卡片](../works/cfdllmbench.md) |
 | ChemCoTBench | 2025 | 以模块化操作链形式求解分子任务 | 1,495 个样本，22 项任务，静态 | 分步推理正确性 | [卡片](../works/chemcotbench.md) |
 | ChemEBench | 2025 | 回答化学工程知识与专业技能类题目 | 3 个递进层级，15 个维度，101 项任务，静态 | 客观题准确率，外加对推理链的 0-5 分 rubric 评分 | [卡片](../works/chemebench.md) |
@@ -58,6 +64,7 @@
 | FGBench | 2025 | 对官能团的性质效应进行推理 | 625K 个问题（7K 基准），245 种官能团 | 回归/分类准确率 | [卡片](../works/fgbench.md) |
 | HiPhO | 2025 | 求解物理奥赛考试题目 | 13 场近期奥赛考试，文字+示意图 | 官方评分标准评分，奖牌门槛 | [卡片](../works/hipho.md) |
 | Humanity's Last Exam | 2025 | 回答学术前沿题目 | 2,500 道专家级选择题/简答题，涵盖众多学科 | 答案准确率 + 校准度 | [卡片](../works/hle.md) |
+| Hydro-SE Bench | 2025 | 回答水科学与水利工程题目 | 4,000 道中文题，9 个子领域，3 个认知层级 | 准确率（商业模型 0.74-0.80，开源权重 0.41-0.68） | [卡片](../works/hydro-se-bench.md) |
 | Lean4Physics / LeanPhysBench | 2025 | 产出形式化的 Lean4 物理证明 | 200 条手工构造的命题，配套 PhysLib | 内核核验的证明（最佳 35%） | [卡片](../works/lean4physics.md) |
 | MatCha | 2025 | 回答材料表征图像类问题 | 1,500 道题，4 个阶段，21 项任务 | 相较于人类专家的准确率 | [卡片](../works/matcha.md) |
 | MatQnA | 2025 | 解读十种材料表征方法 | 选择题+主观题，多模态 | 准确率（前沿约 90%） | [卡片](../works/matqna.md) |
@@ -74,6 +81,7 @@
 | QCBench | 2025 | 求解定量化学计算 | 350 道题，7 个子领域，3 个层级，无需工具 | 分步数值准确率 | [卡片](../works/qcbench.md) |
 | SDBench | 2025 | 通过有预算约束的序贯信息采集进行诊断 | 304 例 NEJM-CPC 病例，守门式查询 | 准确率-成本前沿 | [卡片](../works/sdbench.md) |
 | SeePhys | 2025 | 求解以视觉为核心的物理题目 | 2,000 道题，7 个领域，21 种示意图类型 | 准确率（最佳不足 60%） | [卡片](../works/seephys.md) |
+| SoM-1K | 2025 | 依据题干与示意图求解材料力学题目 | 1,065 道标注题，3 种提示策略，8 个模型 | 专家评判的推理与答案准确率（最佳 56.6%） | [卡片](../works/som-1k.md) |
 | TPBench | 2025 | 求解新颖的理论物理题目 | 57 道题，高能物理/宇宙学，可自动验证 | 经验证的答案准确率 | [卡片](../works/tpbench.md) |
 | UGPhysics | 2025 | 求解本科物理题目 | 5,520 道双语题，13 个科目，7 种答案类型 | MARJ 评判的准确率（最佳 49.8%） | [卡片](../works/ugphysics.md) |
 | Using LLMs for Solving Thermodynamic Problems | 2025 | 计算化工热力学问题的数值答案 | 22 道题（13 道简单 / 9 道进阶），每个模型重复作答 3 次 | 专家按步给分的得分（进阶题最佳 55.19%） | [卡片](../works/llm-thermodynamics.md) |
