@@ -12,7 +12,7 @@
 
 ## Task Patterns
 
-最大的一类是**领域知识问答**，其交付成果是对精心整理的考试或教科书题目给出正确答案。心理学在其中自成一支——[ConceptPsy](../works/conceptpsy.md) 将概念标注到章节，[CPsyExam](../works/cpsyexam.md) 把知识题与案例分析题分开，[PsychCounsel-Bench](../works/psychcounsel-bench.md) 则对标真实的执业认证及格线。工程知识问答见于 [MaScQA](../works/mascqa.md)（材料）、[TeleQnA](../works/teleqna.md)（电信）和 [ElecBench](../works/elecbench.md)（电力调度），而 [HLE](../works/hle.md) 则刻意设定了一个宽泛的、触及知识前沿的高标准。化学与过程工程则另成一脉：从 [Using LLMs for Solving Thermodynamic Problems](../works/llm-thermodynamics.md) 的热力学计算题、[PEOA](../works/peoa.md) 融合工具调用的教科书解题轨迹，到 [ChemEBench](../works/chemebench.md) 按层级铺开的能力覆盖，再到 [PSE-Bench](../works/pse-bench.md) 的开放式过程系统工程问答；[ERI Benchmark](../works/eri-benchmark.md) 则把化学工程作为九个工程领域之一，纳入一套交叉组合的题目设计。[HAZOP 自动化评估](../works/can-large-language-models-automate-the-hazop-proce.md)属于边界情形——交付物是一份完整的专业工作表而非一个答案，且它把与专家参考的相似度和所写内容在语义上是否成立分开考察。化学知识问答从 [ChemBench](../works/chembench.md) 和 [ChemEval](../works/chemeval.md)，一直延伸到侧重定量计算的 [QCBench](../works/qcbench.md) 和 [ChemIQ](../works/chemiq.md)。
+最大的一类是**领域知识问答**，其交付成果是对精心整理的考试或教科书题目给出正确答案。心理学在其中自成一支——[ConceptPsy](../works/conceptpsy.md) 将概念标注到章节，[CPsyExam](../works/cpsyexam.md) 把知识题与案例分析题分开，[PsychCounsel-Bench](../works/psychcounsel-bench.md) 则对标真实的执业认证及格线。工程知识问答见于 [MaScQA](../works/mascqa.md)（材料）、[TeleQnA](../works/teleqna.md)（电信）和 [ElecBench](../works/elecbench.md)（电力调度），而 [HLE](../works/hle.md) 则刻意设定了一个宽泛的、触及知识前沿的高标准。化工与过程工程则另成一脉：从 [Using LLMs for Solving Thermodynamic Problems](../works/llm-thermodynamics.md) 的热力学计算题、[PEOA](../works/peoa.md) 融合工具调用的教科书解题轨迹，到 [ChemEBench](../works/chemebench.md) 按层级铺开的能力覆盖，再到 [PSE-Bench](../works/pse-bench.md) 的开放式过程系统工程问答。[ERI Benchmark](../works/eri-benchmark.md) 则把化学工程列为九个工程领域之一，纳入一套跨领域交叉组合的题目设计。[HAZOP 自动化评估](../works/can-large-language-models-automate-the-hazop-proce.md)属于边界情形——交付物是一份完整的专业工作表而非一个答案，且它把与专家参考的相似度和所写内容在语义上是否成立分开考察。化学知识问答从 [ChemBench](../works/chembench.md) 和 [ChemEval](../works/chemeval.md)，一直延伸到侧重定量计算的 [QCBench](../works/qcbench.md) 和 [ChemIQ](../works/chemiq.md)。
 
 第二类是**竞赛、考试及研究级别的定量物理推理**，其交付成果是符号推导，连续评分或部分给分的指标在此至关重要。[PHYBench](../works/phybench.md) 和 [HiPhO](../works/hipho.md) 评判奥赛风格的题目；[UGPhysics](../works/ugphysics.md) 和 [PHYSICS](../works/physics-benchmark.md) 覆盖本科阶段的广度；难度则经由 [CMPhysBench](../works/cmphysbench.md)、[CMT-Benchmark](../works/cmt-benchmark.md)、[TPBench](../works/tpbench.md)、[CritPt](../works/critpt.md) 和 [PRL-Bench](../works/prl-bench.md) 逐级攀升，进入真正研究级、且经过防数据污染处理的挑战。应用数学方面的对应工作包括 [HARDMath](../works/hardmath.md)（渐近分析）和 [PDE-Controller](../works/pde-controller.md)。
 
@@ -76,12 +76,12 @@
 | SeePhys | 2025 | 求解以视觉为核心的物理题目 | 2,000 道题，7 个领域，21 种示意图类型 | 准确率（最佳不足 60%） | [卡片](../works/seephys.md) |
 | TPBench | 2025 | 求解新颖的理论物理题目 | 57 道题，高能物理/宇宙学，可自动验证 | 经验证的答案准确率 | [卡片](../works/tpbench.md) |
 | UGPhysics | 2025 | 求解本科物理题目 | 5,520 道双语题，13 个科目，7 种答案类型 | MARJ 评判的准确率（最佳 49.8%） | [卡片](../works/ugphysics.md) |
-| Using LLMs for Solving Thermodynamic Problems | 2025 | 计算化工热力学问题的数值答案 | 22 道题（13 道基础 / 9 道进阶），每个模型重复作答 3 次 | 专家按步给分的得分（进阶题最佳 55.19%） | [卡片](../works/llm-thermodynamics.md) |
+| Using LLMs for Solving Thermodynamic Problems | 2025 | 计算化工热力学问题的数值答案 | 22 道题（13 道简单 / 9 道进阶），每个模型重复作答 3 次 | 专家按步给分的得分（进阶题最佳 55.19%） | [卡片](../works/llm-thermodynamics.md) |
 | ChemCensor / CREED | 2026 | 提出合理的逆合成前体 | 单步逆合成，合理性评分 | 化学合理性指标 | [卡片](../works/chemcensor.md) |
 | ChemCost | 2026 | 通过检索基准信息与报价为反应定价 | 1,427 项任务，冻结快照，使用工具 | 误差 25% 以内的准确率（50.6%） | [卡片](../works/chemcost.md) |
 | ERI Benchmark | 2026 | 回答横跨九个工程领域的开放式工程指令 | 57,750 条记录，55 个子领域，7 类意图，3 个难度层级 | 三家厂商模型组成的评审团给出的 1-5 分均值（GPT-5 为 4.48） | [卡片](../works/eri-benchmark.md) |
 | FukuyamaBench | 2026 | 推演基元反应机理路径 | 源自教科书的分步机理任务 | 路径精确匹配（8.3%） | [卡片](../works/fukuyamabench.md) |
-| HAZOP Automation Evaluation | 2026 | 依据一张 P&ID 生成完整的 HAZOP 工作表 | 一张 P&ID，统一提示词，四个多模态 LLM | 与专家参考的相似度（F1 >86%）对照有效场景占比（0.19-0.37） | [卡片](../works/can-large-language-models-automate-the-hazop-proce.md) |
+| HAZOP Automation Evaluation | 2026 | 依据一张 P&ID 生成完整的 HAZOP 工作表 | 一张 P&ID，统一提示词，四个多模态 LLM | 与专家参考的相似度（F1 >86%）对比有效场景占比（0.19-0.37） | [卡片](../works/can-large-language-models-automate-the-hazop-proce.md) |
 | LABBench2 | 2026 | 求解贴近实际的生物学研究任务 | 1,900 项任务，含 PDF/图像/生物信息学文件 | 准确率（较 LAB-Bench 下降 26-46%） | [卡片](../works/labbench2.md) |
 | MolecularIQ | 2026 | 对分子图进行符号化推理 | 可符号验证的任务，静态 | 经验证的正确性 / 指纹 | [卡片](../works/moleculariq.md) |
 | MolQuest | 2026 | 通过多轮实验规划解析结构 | 交互式谱图采集回合 | 结构准确率（约 50%） | [卡片](../works/molquest.md) |

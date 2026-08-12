@@ -22,11 +22,11 @@ CRAFTS 是一套角色分工、经微调的 LLM agent 系统，用于自动构�
 
 ## Summary
 
-CRAFTS（Collaborative Role-Adaptive Fine-Tuning of LLM Agents for Chemical Process Simulation）从自然语言请求与工艺流程图（PFD）证据出发，构建可执行的 IDAES/Pyomo 过程仿真模型。任务被拆解为七个边界清晰的角色，对应化学工程师分阶段推进的工作流；阶段之间由确定性的 IDAES/Pyomo 关卡校验带类型的中间产物。工作在同篇论文提出的 450 案例 IDAES 过程仿真数据集 OpenIDAES-450 上评测，使用工作流成功契约与结构 F1 指标，在冻结的留出划分上进行。
+CRAFTS（Collaborative Role-Adaptive Fine-Tuning of LLM Agents for Chemical Process Simulation）从自然语言请求与工艺流程图（PFD）证据出发，构建可执行的 IDAES/Pyomo 过程仿真模型。它把任务拆解为七个边界清晰的角色，对应化学工程师分阶段推进的工作流；阶段之间由确定性的 IDAES/Pyomo 关卡校验带类型的中间产物。评测在同篇论文提出的 450 案例 IDAES 过程仿真数据集 OpenIDAES-450 上进行，取其中冻结的留出划分，以工作流成功契约与结构 F1 为指标。
 
 ## Tasks
 
-OpenIDAES-450 含 450 条面向用户的化工请求，每条配有可执行的 IDAES 过程模型、中间产物与执行记录。案例涵盖单元操作选型、拓扑构建、物性包指派、规格闭合、初始化、循环流处理、求解器诊断与优化。其中 82 条请求被冻结为留出测试集，所有报告结果均基于该集合；其余 368 条只用于训练与开发，来自同一源模型或同一模板的案例被划入同一侧，重复项已剔除。每个任务都要求由自然语言请求加 PFD 证据构建出可执行的过程模型，管线沿途输出带类型的中间表示——VisualGraphIR、TopologyIR、SpecIR、BuildPlan 与 SolveReport。TODO(reference) — 论文除称这 450 个案例经过精选、可审计之外，未说明其原始出处。
+OpenIDAES-450 含 450 条面向用户的化工请求，每条配有可执行的 IDAES 过程模型、中间产物与执行记录。案例涵盖单元操作选型、拓扑构建、物性包指派、规格闭合、初始化、循环流处理、求解器诊断与优化。其中 82 条请求冻结为留出测试集，所有报告结果均基于该集合；其余 368 条只用于训练与开发，来自同一源模型或同一模板的案例归入同一划分，重复项已剔除。每个任务都要求由自然语言请求加 PFD 证据构建出可执行的过程模型，管线沿途输出带类型的中间表示——VisualGraphIR、TopologyIR、SpecIR、BuildPlan 与 SolveReport。TODO(reference) — 论文除称这 450 个案例经过精选、可审计之外，未说明其原始出处。
 
 ## Domains
 
@@ -34,7 +34,7 @@ OpenIDAES-450 含 450 条面向用户的化工请求，每条配有可执行的 
 
 ## Evaluation
 
-评分由两部分构成。一是工作流成功（Workflow Success, WS）契约：统计通过全部必需阶段的请求占比，这些阶段包括意图解读、拓扑校验、规格闭合、BuildPlan 编译、模型构建、初始化、求解器终止被接受，以及可选的优化。二是对照参考模型计算的三项宏平均 F1 结构指标：单元记录（UC）、物流记录（SC）与有向连接对（CC）。阶段之间的晋级关卡强制检查模式有效性、实体一致性、连通性、端口兼容性、单元可用性、物性包支持、自由度闭合、初始化、求解器终止与物理一致性。在冻结的 82 条请求划分上，CRAFTS 报告 91.5% WS，UC/SC/CC 的 F1 分别为 0.815 / 0.791 / 0.782，高于对既有系统的复现基线（CeProAgents 式 74.4% WS、Sketch2Simulation 式 76.8%、Text-to-Simulation 式 68.3%）、OpenAI Agents SDK 管线（79.3%）以及单模型基线（GPT-5 mini 54.9%、Claude Sonnet 4.6 45.1%、Gemini 3.5 Flash 28.0%）。消融分别去掉角色专属微调（36.6% WS）、化学工程知识（0%）、视觉证据（25.6%）、拓扑与规格的分离（30.5%）以及 Debug 重放（18.3%）。
+评分由两部分构成。一是工作流成功（Workflow Success, WS）契约：统计通过全部必需阶段的请求占比，这些阶段包括意图解读、拓扑校验、规格闭合、BuildPlan 编译、模型构建、初始化、求解器以可接受的状态终止，以及可选的优化。二是对照参考模型计算的三项宏平均 F1 结构指标：单元记录（UC）、物流记录（SC）与有向连接对（CC）。阶段之间的晋级关卡强制检查模式有效性、实体一致性、连通性、端口兼容性、单元可用性、物性包支持、自由度闭合、初始化、求解器终止与物理一致性。在冻结的 82 条请求划分上，CRAFTS 报告 91.5% WS，UC/SC/CC 的 F1 分别为 0.815 / 0.791 / 0.782，高于作者复现的既有系统基线（CeProAgents 式 74.4% WS、Sketch2Simulation 式 76.8%、Text-to-Simulation 式 68.3%）、OpenAI Agents SDK 管线（79.3%）以及单模型基线（GPT-5 mini 54.9%、Claude Sonnet 4.6 45.1%、Gemini 3.5 Flash 28.0%）。消融分别去掉角色专属微调（36.6% WS）、化学工程知识（0%）、视觉证据（25.6%）、拓扑与规格的分离（30.5%）以及 Debug 重放（18.3%）。
 
 ## Typical Duration
 
@@ -47,11 +47,11 @@ TODO(reference) — 论文未报告单任务的 wall-clock 时间、token 预算
 ## Key Design Ideas
 
 - 把过程模型构建拆为七个边界清晰的角色——输入理解、意图、视觉、拓扑与规格五位专家，外加 Debug 与 Optimization——以 LangChain/LangGraph 工作流编排。
-- 只对三个与模式（schema）强相关的角色做 LoRA 微调（Visual Descriptor 基于 Qwen3-VL-8B-Instruct，拓扑与规格 agent 基于 Qwen2.5-Coder-7B-Instruct），其余四个角色保持未微调的本地部署 Qwen，配合注入领域知识的提示词。
+- 只对三个与模式（schema）强相关的角色做 LoRA 微调（Visual Descriptor 基于 Qwen3-VL-8B-Instruct，拓扑与规格 agent 基于 Qwen2.5-Coder-7B-Instruct），其余四个角色仍用本地部署、未经微调的 Qwen，配合注入领域知识的提示词。
 - 在阶段之间插入确定性的 IDAES/Pyomo 晋级关卡，中间产物先通过校验再往下走。
 - 用带类型的中间表示承载工程决策（VisualGraphIR、TopologyIR、SpecIR、BuildPlan、SolveReport），只有语义产物过关之后才挂上构造器、物性包与运行器。
 - 用分阶段的工作流成功契约加上单元/物流/有向连接三项 F1 判分，而非单一的端到端通过与否信号。
-- 冻结一份 82 条请求的留出划分，并把共享同一源模型或模板的案例分到同一侧，以限制泄漏。
+- 冻结一份 82 条请求的留出划分，并把共享同一源模型或模板的案例归入同一划分，以限制泄漏。
 
 ## Strengths
 
@@ -63,7 +63,7 @@ TODO(reference) — 论文未报告单任务的 wall-clock 时间、token 预算
 ## Limitations
 
 - benchmark 只针对单一仿真器：所有任务都面向 IDAES/Pyomo 的方程式模型，结果无法说明 Aspen Plus、HYSYS 这类序贯模块化仿真器上的表现。
-- Repository note: 公开仓库只提供架构预览，并声明源数据、benchmark 记录、模型权重与评测参考将在后续发布，因此截至本卡片撰写时，OpenIDAES-450 无法被独立复用。
+- Repository note: 公开仓库只提供架构预览，并声明源数据、benchmark 记录、模型权重与评测参考暂不放出、留待后续发布，因此截至本卡片撰写时，OpenIDAES-450 无法独立复用。
 - Repository note: 既有系统的基线是作者自行复现的「-style」版本，而非原始发布的系统，这削弱了对比的说服力。
 - Repository note: 未报告任何运行时或 token 成本核算，因此无法评估七角色管线相对单模型基线的代价。
 

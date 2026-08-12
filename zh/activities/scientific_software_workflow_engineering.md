@@ -14,7 +14,7 @@
 
 **HDL/RTL 生成与硬件验证。** 有一批工作聚焦于硬件描述与形式化硬件代码。[RTLLM](../works/rtllm.md) 和 [VerilogEval](../works/verilogeval.md) 根据自然语言生成设计/RTL Verilog，并通过仿真评分；[RTL-Repo](../works/rtl-repo.md) 将其扩展到仓库级的跨文件 Verilog 补全，[VHDL-Eval](../works/vhdl-eval.md) 扩展到 VHDL，[HLS-Eval](../works/hls-eval.md) 扩展到高层次综合。[CVDP](../works/cvdp.md) 将 RTL 生成、调试与验证整合到 783 道题目中。以验证为核心的工作则生成断言与测试平台：[AssertionBench](../works/assertionbench.md) 针对经形式化验证的标准答案生成 SystemVerilog 断言，[FVEval](../works/fveval.md) 将形式化验证拆解为 NL2SVA 与 Design2SVA 子任务，并由 Cadence Jasper 检查。
 
-**PDE/数值求解器与仿真代码生成。** 许多工作要求 agent 编写数值代码或仿真输入文件。[CodePDE](../works/codepde.md)、[PDEAgent-Bench](../works/pdeagent-bench.md) 和 [PDE-Controller](../works/pde-controller.md) 面向 PDE 求解器；[FEM-Bench](../works/fem-bench.md) 和 [FEABench](../works/feabench.md) 覆盖有限元代码；[CFDLLMBench](../works/cfdllmbench.md) 横跨 CFD 知识、Python 求解器与 OpenFOAM 案例；[MooseBench](../works/moosebench.md) 从 MOOSE 输入文件中重建其所编码的 PDE；[SimBench](../works/simbench.md) 则构建 Chrono 数字孪生。[CRAFTS](../works/crafts.md) 把这一思路延伸到化工流程模拟建模：先产出带类型的中间表示，通过确定性的 IDAES/Pyomo 门槛检查后，才据此构建可执行模型。领域仿真工作流的执行体现在 [VASPBench](../works/vaspbench.md)、[MDArena](../works/mdarena.md) 和 [Collider-Bench](../works/collider-bench.md) 中。
+**PDE/数值求解器与仿真代码生成。** 许多工作要求 agent 编写数值代码或仿真输入文件。[CodePDE](../works/codepde.md)、[PDEAgent-Bench](../works/pdeagent-bench.md) 和 [PDE-Controller](../works/pde-controller.md) 面向 PDE 求解器；[FEM-Bench](../works/fem-bench.md) 和 [FEABench](../works/feabench.md) 覆盖有限元代码；[CFDLLMBench](../works/cfdllmbench.md) 横跨 CFD 知识、Python 求解器与 OpenFOAM 案例；[MooseBench](../works/moosebench.md) 从 MOOSE 输入文件中重建其所编码的 PDE；[SimBench](../works/simbench.md) 则构建 Chrono 数字孪生。[CRAFTS](../works/crafts.md) 把这一思路延伸到化工流程仿真建模：先产出带类型的中间表示，通过确定性的 IDAES/Pyomo 关卡校验后，才据此构建可执行模型。领域仿真工作流的执行体现在 [VASPBench](../works/vaspbench.md)、[MDArena](../works/mdarena.md) 和 [Collider-Bench](../works/collider-bench.md) 中。
 
 **科学仓库工程与研究复现。** 这些工作让 agent 在真实代码库和论文上开展工作。[AInsteinBench](../works/ainsteinbench.md) 将 SWE-bench 的维护者 PR 范式移植到六个生产级科学仓库；[SUPER](../works/super.md) 和 [ML-Bench](../works/ml-bench.md) 考察真实研究仓库的搭建与运行。论文复现类工作包括 [PaperBench](../works/paperbench.md)、[EXP-Bench](../works/exp-bench.md)、[PRBench](../works/prbench.md)、[QMP-Bench](../works/qmp-bench.md)、[NatureBench](../works/naturebench.md) 和 [gwBenchmarks](../works/gwbenchmarks.md)。
 
@@ -63,7 +63,7 @@
 | BioAgent Bench | 2026 | 端到端生物信息学流水线 | 精选的 RNA-seq/变异检测/宏基因组；agentic | LLM 评分的流水线进展 + 结果有效性 | [卡片](../works/bioagent-bench.md) |
 | BioXArena | 2026 | 多模态生物医学 ML 模型 | 76 个任务、9 个领域；2 小时单 GPU 环境 | 隐藏标签、具生物学意识的评分（0-1） | [卡片](../works/bioxarena.md) |
 | Collider-Bench | 2026 | LHC 分析复现（仿真流水线） | 10 个 CMS SUSY 任务；容器化公开技术栈 | 直方图相对隐藏参考产额的保真度 | [卡片](../works/collider-bench.md) |
-| CRAFTS | 2026 | 可执行的 IDAES/Pyomo 化工过程模拟模型 | OpenIDAES-450；82 个冻结的留出算例、带类型的中间表示、确定性门槛检查 | Workflow Success 91.5% + 设备/物流/连接的宏平均 F1 | [卡片](../works/crafts.md) |
+| CRAFTS | 2026 | 可执行的 IDAES/Pyomo 化工过程仿真模型 | OpenIDAES-450；82 个冻结的留出算例、带类型的中间表示、确定性关卡校验 | Workflow Success 91.5% + 设备/物流/连接的宏平均 F1 | [卡片](../works/crafts.md) |
 | gwBenchmarks | 2026 | 引力波建模/代理模型代码 | 8 个高精度任务；>10^8 核时数据 | 外部框架在接近 1e-4 误差下的评分 | [卡片](../works/gwbenchmarks.md) |
 | MDArena | 2026 | 分子动力学工作流代码 | 50 个容器化任务、29 个系统、14 种协议 | 严格成功率 + 过程部分得分 | [卡片](../works/mdarena.md) |
 | MooseBench | 2026 | MOOSE 多物理场仿真输入文件 | 220 个带 PDE 级标准答案的案例 | 意图保真度得分（重建 PDE 匹配） | [卡片](../works/moosebench.md) |
