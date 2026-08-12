@@ -162,5 +162,5 @@ three-dimensional transportation understanding.
   engineering, the same design applied to another field.
 - [ERI Benchmark](./eri-benchmark.md) — taxonomy-driven multi-field engineering instruction benchmark, sharing
   the practice of crossing fields, task intents and difficulty tiers.
-- [EngiBench](./engibench.md) — hierarchical engineering benchmark that similarly separates knowledge
-  retrieval from multi-step reasoning.
+- [AECBench](./aecbench.md) — hierarchical engineering benchmark that similarly separates knowledge
+  retrieval from multi-step reasoning, over a five-level cognition framework.

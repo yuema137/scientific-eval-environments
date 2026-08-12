@@ -16,11 +16,11 @@
 
 第二类是**竞赛、考试及研究级别的定量物理推理**，其交付成果是符号推导，连续评分或部分给分的指标在此至关重要。[PHYBench](../works/phybench.md) 和 [HiPhO](../works/hipho.md) 评判奥赛风格的题目；[UGPhysics](../works/ugphysics.md) 和 [PHYSICS](../works/physics-benchmark.md) 覆盖本科阶段的广度；难度则经由 [CMPhysBench](../works/cmphysbench.md)、[CMT-Benchmark](../works/cmt-benchmark.md)、[TPBench](../works/tpbench.md)、[CritPt](../works/critpt.md) 和 [PRL-Bench](../works/prl-bench.md) 逐级攀升，进入真正研究级、且经过防数据污染处理的挑战。应用数学方面的对应工作包括 [HARDMath](../works/hardmath.md)（渐近分析）和 [PDE-Controller](../works/pde-controller.md)。
 
-第三类是**多模态、以视觉为核心的问题求解**，答案的得出依赖于对示意图、光谱或显微图像的解读。物理示意图驱动了 [SeePhys](../works/seephys.md)；电路与电子工程图像驱动了 [EEE-Bench](../works/eee-bench.md) 和 [MMCircuitEval](../works/mmcircuiteval.md)；材料表征图像则支撑了 [MatCha](../works/matcha.md)、[MatVQA](../works/matvqa.md)、[MatQnA](../works/matqna.md)、[MatSciBench](../works/matscibench.md) 和 [MaCBench](../works/macbench.md)。化学结构解析是一个反复出现的多模态子主题，从 [MolPuzzle](../works/molpuzzle.md) 中分阶段的谱图判读，到 [MolQuest](../works/molquest.md) 中具备实验规划能力的智能体式解析。结构力学方面则有 [SoM-1K](../works/som-1k.md)——结果表明，由专家撰写的示意图文字描述反而是比示意图本身更可靠的输入——以及 [MMArch](../works/mmarch.md)，其题目要求把散布在同一幅已发表工程图件各处的证据组合起来。
+第三类是**多模态、以视觉为核心的问题求解**，答案的得出依赖于对示意图、光谱或显微图像的解读。物理示意图驱动了 [SeePhys](../works/seephys.md)；电路与电子工程图像驱动了 [EEE-Bench](../works/eee-bench.md) 和 [MMCircuitEval](../works/mmcircuiteval.md)；材料表征图像则支撑了 [MatCha](../works/matcha.md)、[MatVQA](../works/matvqa.md)、[MatQnA](../works/matqna.md)、[MatSciBench](../works/matscibench.md) 和 [MaCBench](../works/macbench.md)。化学结构解析是一个反复出现的多模态子主题，从 [MolPuzzle](../works/molpuzzle.md) 中分阶段的谱图判读，到 [MolQuest](../works/molquest.md) 中具备实验规划能力的智能体式解析。结构力学方面则有 [SoM-1K](../works/som-1k.md)——结果表明，专家为示意图撰写的文字描述，用作输入反而比示意图本身更可靠——以及 [MMArch](../works/mmarch.md)，其题目要求把散布在同一幅已发表工程图件各处的证据组合起来。
 
 第四类是**化学中的结构、图与反应推理**，其正确性可针对分子本身进行符号化验证：[MolLangBench](../works/mollangbench.md)、[MolecularIQ](../works/moleculariq.md)、[FGBench](../works/fgbench.md)、[AtomWorld](../works/atomworld.md)（晶体几何），以及面向反应与合成的 [ChemCoTBench](../works/chemcotbench.md)、[FukuyamaBench](../works/fukuyamabench.md)、[ChemCensor](../works/chemcensor.md) 和 [ChemCost](../works/chemcost.md)。与之相关的**形式化证明与验证**一支，让推理过程可被内核逐步核验：[Lean4Physics](../works/lean4physics.md)、[FVEval](../works/fveval.md) 和 [VCoT-Bench](../works/vcot-bench.md)。
 
-另有一支要求给出的是**关于既有工程资产或一套文件的工程结论**，而非教科书式的答案。[DefectBench](../works/defectbench.md) 把外立面病害诊断从「说出是什么病害」逐级推进到定位、再到勾画轮廓；[BridgeEQA](../works/bridgeeqa.md) 要求依据多视角检测影像给出 National Bridge Inventory 状况评级，并单独为其援引了哪些图像作佐证打分；[SGR-BIM](../works/sgr-bim.md) 把消防规范条文与 IFC 几何逐环串起来，最终落到一条合规结论；[AEC-Bench](../works/aec-bench.md) 审查真实的施工文件集，查找交叉引用冲突并核对报审资料是否合规；[Cognitive Agents for Bridge Inspection Prioritization](../works/cognitive-agents-for-bridge-inspection-prioritizat.md) 则请一位持证检测工程师在盲评条件下，把 agent 写出的理由与其排序准确率分开评判。
+另有一支要求给出的是**关于既有工程资产或一套文件的工程结论**，而非教科书式的答案。[DefectBench](../works/defectbench.md) 把外立面病害诊断从「说出是什么病害」逐级推进到定位、再到勾画轮廓；[BridgeEQA](../works/bridgeeqa.md) 要求依据多视角检测影像给出 National Bridge Inventory 状况评级，并对它援引了哪些图像作为佐证单独打分；[SGR-BIM](../works/sgr-bim.md) 把消防规范条文与 IFC 几何一环环串联起来，最终落到一条合规结论；[AEC-Bench](../works/aec-bench.md) 审查真实的施工文件集，查找交叉引用冲突并核对报审资料是否合规；[Cognitive Agents for Bridge Inspection Prioritization](../works/cognitive-agents-for-bridge-inspection-prioritizat.md) 则请一位持证检测工程师在盲评条件下，把 agent 写出的理由与其排序准确率分开评判。
 
 最后，还有一类**临床诊断与交互式生物学研究**，它把交付成果视为在信息不完整条件下得出的诊断或发现：[AgentClinic](../works/agentclinic.md) 和 [SDBench](../works/sdbench.md) 中的序贯诊断，以及 [LAB-Bench](../works/lab-bench.md)、[BAISBench](../works/baisbench.md)、[BioProBench](../works/bioprobench.md)、[BioKGBench](../works/biokgbench.md) 和 [Aviary](../works/aviary.md) 中的生物学研究能力。诸如 [SciCode](../works/scicode.md)、[CFDLLMBench](../works/cfdllmbench.md)、[PhySciBench](../works/physcibench.md)、[SciConvBench](../works/sciconvbench.md)、[BrainBench](../works/brainbench.md)、[OpenXRD](../works/openxrd.md) 和 [onePot-Bench](../works/onepot-bench.md) 等跨领域基准，则让这一活动更加完整。
 
@@ -85,21 +85,33 @@
 | TPBench | 2025 | 求解新颖的理论物理题目 | 57 道题，高能物理/宇宙学，可自动验证 | 经验证的答案准确率 | [卡片](../works/tpbench.md) |
 | UGPhysics | 2025 | 求解本科物理题目 | 5,520 道双语题，13 个科目，7 种答案类型 | MARJ 评判的准确率（最佳 49.8%） | [卡片](../works/ugphysics.md) |
 | Using LLMs for Solving Thermodynamic Problems | 2025 | 计算化工热力学问题的数值答案 | 22 道题（13 道简单 / 9 道进阶），每个模型重复作答 3 次 | 专家按步给分的得分（进阶题最佳 55.19%） | [卡片](../works/llm-thermodynamics.md) |
+| AEC-Bench | 2026 | 审查真实的施工文件集并报告工程问题 | 196 个实例，9 个任务族，3 个范围层级；Docker 沙箱配命令行 PDF 工具 | 由验证器评判并给部分分的审查发现（报审资料审查最高 23.1） | [卡片](../works/aec-bench.md) |
+| AECBench | 2026 | 回答跨五个认知层级的建筑工程知识题目 | 4,800 道中文题，23 项任务，从选择题到约 2,000 字的文书 | 准确率加经校准的 LLM-judge rubric 得分 | [卡片](../works/aecbench.md) |
+| Automating Structural Reliability Analysis | 2026 | 建立可靠度问题、规划求解方法并解读 beta 与 P_f | 20 道留出的构件级题目，五 agent 流水线 | 可靠指标与参考值相差不超过 0.1；方法类别准确率 60% | [卡片](../works/automating-structural-reliability-analysis-with-a.md) |
 | ChemCensor / CREED | 2026 | 提出合理的逆合成前体 | 单步逆合成，合理性评分 | 化学合理性指标 | [卡片](../works/chemcensor.md) |
 | ChemCost | 2026 | 通过检索基准信息与报价为反应定价 | 1,427 项任务，冻结快照，使用工具 | 误差 25% 以内的准确率（50.6%） | [卡片](../works/chemcost.md) |
+| Civil-Eval | 2026 | 回答中国土木与交通注册考试题目 | 517 道题（426 道单选、91 道多选），8 个科目 | 按难度加权的平均准确率（CivilGPT 73.0%） | [卡片](../works/civil-eval.md) |
+| Cognitive Agents for Bridge Inspection Prioritization | 2026 | 对照检测标准，为每座桥的检测优先级给出理由 | 3,365 条康涅狄格州桥梁记录，每座桥调用一次 agent | 持证检测工程师对理由的盲评 rubric 得分（均值 2.77/3） | [卡片](../works/cognitive-agents-for-bridge-inspection-prioritizat.md) |
+| DefectBench | 2026 | 依据影像诊断建筑外立面的结构病害 | 487 个样本，每个 5 道题，分属 3 个认知层级，多轮 | 按层级分设的识别、定位与分割指标 | [卡片](../works/defectbench.md) |
 | ERI Benchmark | 2026 | 回答横跨九个工程领域的开放式工程指令 | 57,750 条记录，55 个子领域，7 类意图，3 个难度层级 | 由三家厂商的模型组成评审团，取 1-5 分均值（GPT-5 为 4.48） | [卡片](../works/eri-benchmark.md) |
 | FukuyamaBench | 2026 | 推演基元反应机理路径 | 源自教科书的分步机理任务 | 路径精确匹配（8.3%） | [卡片](../works/fukuyamabench.md) |
 | HAZOP Automation Evaluation | 2026 | 依据一张 P&ID 生成完整的 HAZOP 工作表 | 一张 P&ID，统一提示词，四个多模态 LLM | 与专家参考的相似度（F1 >86%）对比有效场景占比（0.19-0.37） | [卡片](../works/can-large-language-models-automate-the-hazop-proce.md) |
 | LABBench2 | 2026 | 求解贴近实际的生物学研究任务 | 1,900 项任务，含 PDF/图像/生物信息学文件 | 准确率（较 LAB-Bench 下降 26-46%） | [卡片](../works/labbench2.md) |
+| LLM-Empowered Agent for Structural Analysis | 2026 | 计算不同荷载布置下梁的支座反力 | 8 道静定梁题，每种配置运行 500 次 | 重复运行下的可靠性与荷载位置扫掠下的鲁棒性 | [卡片](../works/a-large-language-model-empowered-agent-for-reliabl.md) |
+| MMArch | 2026 | 组合建筑/土木图件中分散各处的视觉证据 | 1,212 道简答题，取自同行评审论文的图件 | 归一化后的精确匹配准确率（最佳约 52%，专家组 94.57%） | [卡片](../works/mmarch.md) |
 | MolecularIQ | 2026 | 对分子图进行符号化推理 | 可符号验证的任务，静态 | 经验证的正确性 / 指纹 | [卡片](../works/moleculariq.md) |
 | MolQuest | 2026 | 通过多轮实验规划解析结构 | 交互式谱图采集回合 | 结构准确率（约 50%） | [卡片](../works/molquest.md) |
+| Multi-Agent Systems for Automated Foundation Design | 2026 | 完成浅基础与桩基础的设计计算 | 27 个测试算例，7 个类别，每个 3 次试验，9 种配置 | 四项准则的 rubric 评分（路由式配 Grok 3：95.00% / 90.63%） | [卡片](../works/large-language-model-based-multi-agent-systems-for.md) |
 | onepot-Bench 0 | 2026 | 化学信息学、拒答、反应结果预测 | 三个部分，含私有实验室数据，静态 | 准确率 / 拒答行为 | [卡片](../works/onepot-bench.md) |
+| PE Civil Bench | 2026 | 求解 FE 与 PE 风格的土木工程执业资格题目 | 150 道题（110 道选择题、40 道开放式数值题），8 个子学科 | 基础、向量 RAG 与 agentic RAG 三种提示条件下的答案正确性 | [卡片](../works/pe-civil-bench.md) |
 | PhySciBench | 2026 | 回答物理科学深度研究问题 | 200 道精选题，物理+化学，6 个类别 | 答案正确性 | [卡片](../works/physcibench.md) |
 | PRL-Bench | 2026 | 求解前沿物理研究任务 | 100 项任务，取自近期 PRL 论文，5 个子领域 | 可验证评分（最佳 <50/100） | [卡片](../works/prl-bench.md) |
 | PSE-Bench | 2026 | 回答开放式的过程系统工程问题 | 200 道题，4 个 PSE 领域，单轮零样本 | 五个评审模型基于 rubric 的综合得分；要素覆盖率 60.8-78.1% | [卡片](../works/pse-bench.md) |
 | SciConvBench | 2026 | 澄清表述不清的计算科学请求 | 多轮对话，4 个领域 | 消歧/一致性求解（52.7%） | [卡片](../works/sciconvbench.md) |
 | Science Edge Evaluation (SEE) | 2026 | 对实验数据进行证据受限的推理 | 1,116 道多模态选择/数值填空题；化学、生物、材料 | 相较于专家标准答案的准确率（最佳 48.7%，用工具 52.7%） | [卡片](../works/science-edge-evaluation.md) |
+| SGR-BIM | 2026 | 在 IFC 模型上回答几何密集的建筑规范合规查询 | 679 条经专家核验的查询，5 个 IFC 模型，4 类问题 | 三档准确率加连贯性/相关性/可解释性（总体 84.3） | [卡片](../works/sgr-bim.md) |
 | TCS-Bench | 2026 | 生成研究级的理论计算机科学证明 | 300 项定理证明任务，取自 FOCS/STOC/SODA（2020–2026） | 自包含证明；verifier-agent 准确率（最佳 68%） | [卡片](../works/tcs-bench.md) |
+| TRIP-Evaluate | 2026 | 回答横跨文本、图像与点云的交通题目 | 837 道单选题，4 类角色，16 个任务领域，226 个知识点 | 按角色、能力、难度与模态统计的准确率（最佳 88.8%） | [卡片](../works/trip-evaluate.md) |
 | VCoT-Bench | 2026 | 完成 Verus 验证的思维链 | 1,988 项任务，源自 150 个 Verus 程序 | 证明块补全准确率 | [卡片](../works/vcot-bench.md) |
 
 ## Related Works
@@ -171,3 +183,21 @@
 - [ERI Benchmark](../works/eri-benchmark.md)
 - [Can Large Language Models Automate the HAZOP Process Without Human Intervention?](../works/can-large-language-models-automate-the-hazop-proce.md)
 - [PSE-Bench](../works/pse-bench.md)
+- [Evaluating the Performance of Artificial Intelligence Chatbots and Large Language Models in the FE and PE Structural Exams](../works/evaluating-the-performance-of-artificial-intellige.md)
+- [TransportBench](../works/transportbench.md)
+- [BridgeEQA](../works/bridgeeqa.md)
+- [CEQuest](../works/cequest.md)
+- [Hydro-SE Bench](../works/hydro-se-bench.md)
+- [SoM-1K](../works/som-1k.md)
+- [AEC-Bench](../works/aec-bench.md)
+- [AECBench](../works/aecbench.md)
+- [Automating Structural Reliability Analysis with a Multi-Agent Large Language Model Framework](../works/automating-structural-reliability-analysis-with-a.md)
+- [Civil-Eval](../works/civil-eval.md)
+- [Cognitive Agents for Bridge Inspection Prioritization](../works/cognitive-agents-for-bridge-inspection-prioritizat.md)
+- [DefectBench](../works/defectbench.md)
+- [A Large Language Model-Empowered Agent for Reliable and Robust Structural Analysis](../works/a-large-language-model-empowered-agent-for-reliabl.md)
+- [MMArch](../works/mmarch.md)
+- [Large Language Model-Based Multi-Agent Systems for Automated Foundation Design](../works/large-language-model-based-multi-agent-systems-for.md)
+- [PE Civil Bench](../works/pe-civil-bench.md)
+- [SGR-BIM](../works/sgr-bim.md)
+- [TRIP-Evaluate](../works/trip-evaluate.md)

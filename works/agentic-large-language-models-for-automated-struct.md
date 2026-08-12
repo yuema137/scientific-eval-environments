@@ -43,7 +43,7 @@ Civil & Structural Engineering. The evaluated objects are 3D building frame syst
 
 ## Typical Duration
 
-Approximately 175 seconds and USD 0.193 per case on average for the proposed framework; approximately 158 s / USD 0.306 for GPT-5.4 and 386 s / USD 0.502 for Gemini-3.1 Pro. A complete SAP2000 script for a 3D frame can exceed one thousand lines, which the paper cites as the reason code translation cannot be handled in a single generation step.
+Approximately 175 s and USD 0.193 per case on average for the proposed framework; approximately 158 s / USD 0.306 for GPT-5.4 and 386 s / USD 0.502 for Gemini-3.1 Pro. A complete SAP2000 script for a 3D frame can exceed one thousand lines, which the paper cites as the reason code translation cannot be handled in a single generation step.
 
 ## Main Contribution
 

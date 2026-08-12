@@ -20,7 +20,7 @@
 
 **ML 研究代码实现与 ML 工程。** 一大批工作把 ML 研究/工程本身作为要编写的代码产物。[MLAgentBench](../works/mlagentbench.md)、[MLE-bench](../works/mle-bench.md)、[MLE-Dojo](../works/mle-dojo.md)、[MLRC-Bench](../works/mlrc-bench.md)、[RE-Bench](../works/re-bench.md) 和 [DevAI](../works/devai.md) 让 agent 训练模型、优化代码，或对照基线与排行榜提出新方法。[ResearchCodeBench](../works/researchcodebench.md) 实现近期论文中的新贡献，[SciCode](../works/scicode.md) 则覆盖由科学家精心编排的、横跨各自然科学子领域的研究编程。
 
-**生物信息学/数据科学流水线与跨领域工作流。** 流水线构建与数据科学编程类工作包括 [GenoTEX](../works/genotex.md)、[BioAgent Bench](../works/bioagent-bench.md)、[MedAgentGym](../works/medagentgym.md)、[BioXArena](../works/bioxarena.md)、[DA-Code](../works/da-code.md)、[ScienceAgentBench](../works/scienceagentbench.md) 和 [MatTools](../works/mattools.md)（pymatgen）。形式化规约代码由 [SysMoBench](../works/sysmobench.md)（TLA+ 模型）代表。更广义的容器化科学计算测评框架有 [Terminal-Bench Science](../works/terminal-bench-science.md) 和结构工程工作台 [StructureClaw](../works/structureclaw.md)。工程文档的产出则由 [DrafterBench](../works/drafterbench.md) 代表：它那条由 46 个函数组成的制图工具链，使被评分的产物是记录下来的操作链，而非最终渲染出的图纸。
+**生物信息学/数据科学流水线与跨领域工作流。** 流水线构建与数据科学编程类工作包括 [GenoTEX](../works/genotex.md)、[BioAgent Bench](../works/bioagent-bench.md)、[MedAgentGym](../works/medagentgym.md)、[BioXArena](../works/bioxarena.md)、[DA-Code](../works/da-code.md)、[ScienceAgentBench](../works/scienceagentbench.md) 和 [MatTools](../works/mattools.md)（pymatgen）。形式化规约代码由 [SysMoBench](../works/sysmobench.md)（TLA+ 模型）代表。更广义的容器化科学计算测评框架有 [Terminal-Bench Science](../works/terminal-bench-science.md) 和结构工程工作台 [StructureClaw](../works/structureclaw.md)。工程文档的产出则由 [DrafterBench](../works/drafterbench.md) 代表：它那条由 46 个函数组成的制图工具链，让最终被评分的产物成了记录下来的操作链，而不是渲染出的图纸。
 
 ## Comparison
 
