@@ -144,6 +144,25 @@ def test_relevance_decisions(monkeypatch):
         assert all(v["decision"] == dec for v in d.values()) and len(d) == 5
 
 
+def test_relevance_scorer_routes_to_configured_model(monkeypatch):
+    # the metadata scorer must call run_worker with the configured relevance_model (Sonnet), not
+    # silently inherit the deep-work model; structured output must still parse.
+    captured = {}
+
+    def w(agent, kind, prompt, cwd, max_turns, schema=None, model=None):
+        captured["agent"], captured["model"] = agent, model
+        cands = json.loads(prompt.split("CANDIDATES:\n", 1)[1])
+        return {"ok": True, "structured_output": {"results": [
+            {"candidate_id": c["candidate_id"], "decision": "uncertain", "confidence": 0.5} for c in cands]}}
+
+    monkeypatch.setattr(relevance, "run_worker", w)
+    import common
+    d = relevance.score(_cands(3), cfg=common.config())
+    assert captured["agent"] == "relevance-scorer"
+    assert captured["model"] == common.config()["claude"]["relevance_model"] == "claude-sonnet-5"
+    assert len(d) == 3
+
+
 def test_relevance_op_failure_is_uncertain_not_reject(monkeypatch):
     monkeypatch.setattr(relevance, "run_worker",
                         lambda *a, **k: {"ok": False, "error": "boom", "structured_output": None})

@@ -73,7 +73,11 @@ retry:
 # strong model; the metadata-only relevance triage (batched, rule-like) uses a fast/cheap model.
 claude:
   model: "claude-opus-4-8"                      # deep work: card writing, axis synthesis, translation, review
-  relevance_model: "claude-haiku-4-5-20251001"  # metadata-only relevance triage — fast/cheap
+  # Phase-1 metadata triage. Haiku over-admitted (deep_review 149; tightened prompt -> 112, still ~3x
+  # the cap) — the "is the evaluation contribution CENTRAL?" judgment is too subtle for Haiku. Sonnet
+  # is the right middle tier: far better at that call than Haiku, far cheaper than Opus, and it only
+  # reads title/abstract/metadata (no full papers — that is Opus Phase-2 work).
+  relevance_model: "claude-sonnet-5"            # metadata-only relevance triage — precision-capable, cheap
   card_worker_max_turns: 40
   axis_worker_max_turns: 40
   translator_max_turns: 30
