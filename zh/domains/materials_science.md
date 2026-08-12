@@ -15,7 +15,7 @@
 | Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Physical Sciences 分组下的材料科学任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Material 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文工件的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
 | Agentic Self-Driving Microscopy Benchmarks | 2026 | 通过 agentic 工作流控制显微镜与材料表征仪器，并检验 benchmark 分数能否泛化到未见任务。 | 53 个 benchmark 测试跑遍 105 种 agent 配置（图拓扑 × 五个 LLM × RAG/上下文参数）；1,949 次运行，附完整轨迹日志。 | 带轨迹日志的 benchmark 测试，比较时延、token、成本与失败模式；用代理模型在未见任务上做预测来检验泛化性。 | [→](../works/agentic-microscopy-benchmarks.md) |
-| SciCode | 2024 | 为科学家整理的问题编写科研代码；其 16 个自然科学子领域分属五大主领域，材料科学是其中之一。 | 80 个主问题分解为 338 个子问题，混合知识回忆、推理与代码合成。 | 对照科学家标注的金标准解与测试用例执行。 | [→](../works/scicode.md) |
+| SciCode | 2024 | 为科学家整理的问题编写科研代码；其 16 个自然科学子领域分属五大主领域，材料科学是其中之一。 | 80 个主问题分解为 338 个子问题，混合知识回忆、推理与代码合成。 | 对照科学家标注的参考解与测试用例执行。 | [→](../works/scicode.md) |
 | SciConvBench | 2026 | 澄清不适定的仿真请求；材料科学是其四个计算科学领域之一。 | 基于结构化任务本体的多轮消歧与矛盾消解对话。 | 按评分标准为澄清行为、对话共识建立与最终规格保真度打分。 | [→](../works/sciconvbench.md) |
 | ChemX | 2025 | 从纳米材料文献——纳米酶、纳米磁性材料——与小分子数据集中抽取结构化数据。 | 10 个人工整理、专家校验的抽取数据集；agent 式文档处理。 | 对照领域专家校验记录的抽取质量。 | [→](../works/chemx.md) |
 | MaCBench | 2024 | 承担材料研究中的视觉工作：认读仪器与实验场景、抽取数据、解读实验结果。 | 三个方面的多模态（图像 + 文本）任务——数据抽取、实验理解、结果解读。 | 经 ChemBench 管线计准确率；抽取近乎完美，空间与跨模态推理受限。 | [→](../works/macbench.md) |
@@ -33,9 +33,11 @@
 | AutoDFT / VASPBench | 2026 | 自主规划、运行并修复密度泛函理论（VASP）计算。 | 横跨 9 种 DFT 计算类型的 34 个任务；闭环多 agent 执行。 | 任务级成功率（GPT-5.2 94.1%）加对照数据库的性质准确率。 | [→](../works/vaspbench.md) |
 | AlchemyBench | 2025 | 规划无机材料合成：前体、设备、流程、表征。 | 对 17,000 条专家核验合成配方的端到端预测；静态。 | 对自由文本预测的、经专家一致性验证的 LLM-as-a-Judge。 | [→](../works/alchemybench.md) |
 | Materials Hypothesis Generation | 2025 | 在明确目标与约束下生成材料发现假说。 | 基于从近期论文策划的数据集的假说生成。 | 一个模拟材料科学家批判性评估的可扩展指标。 | [→](../works/materials-hypothesis.md) |
+| Science Edge Evaluation (SEE) | 2026 | 在真实材料表征数据上做证据受限的推理——SEM/TEM/AFM 显微、X 射线衍射图样与热分析曲线——而非概念背诵；材料科学是其三个学科之一。 | 1,116 道专家整理的多模态题（1,049 道公开），横跨三个实验学科（化学、生物、材料科学）与 17 个子领域，含选择题与数值填空；视觉 agent 设定另加网页搜索与代码解释器。 | 答案对照专家真值评分——选择题精确匹配，数值答案按专家容差——在严格的二元 LLM-as-judge 协议（Gemini 3.1 Pro）下判定；图像消融检查确认每题都需其视觉输入。 | [→](../works/science-edge-evaluation.md) |
 
 ## Related Works
 
+- [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
 - [AFMBench](../works/afmbench.md)
 - [AutoMat](../works/automat.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)

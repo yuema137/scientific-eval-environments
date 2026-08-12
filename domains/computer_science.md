@@ -14,9 +14,11 @@ Computer science as the studied field outside AI/ML research itself — see AI &
 | ResearchClawBench | 2026 | Re-discover the findings of a hidden published paper from a task description, related literature, and raw data — Information is one of its ten domains (40 tasks total). | End-to-end autonomous research tasks, each grounded in a real publication kept hidden during evaluation; the agent produces a final research report. | Reference-Anchored Discovery Score (0–100; 50 = reference-level evidence) against expert-curated multimodal rubrics anchored to the hidden paper's artifacts, judged by GPT-5.1. | [→](../works/researchclawbench.md) |
 | ScholarQuest | 2026 | Search the computer science literature (information retrieval and AI focus) the way researchers actually do: method-oriented, setting-anchored, comparison-based, and scope-controlled queries. | Iterative literature-exploration episodes in open literature environments, with queries constructed from over 1,000 computer science topics across the four research intents. | Recall@100 and Recall@All against ground-truth paper sets, with analyses of search efficiency, intent-level robustness, and failure cases. | [→](../works/scholarquest.md) |
 | CORE-Bench | 2024 | Reproduce published computational results from each paper's own code and data; computer science is one of its three disciplines. | 270 tasks from 90 papers at three difficulty levels, in language-only and vision-language forms. | Accuracy of reproduced results, checked by a fast, parallelizable evaluation harness. | [→](../works/core-bench.md) |
+| TCS-Bench | 2026 | Research-level theoretical computer science proof generation — proving results drawn from top TCS venues (FOCS, STOC, SODA). | 300 theorem-proving tasks, each a target statement plus assembled context extracted from FOCS/STOC/SODA papers (2020–2026); the model produces a self-contained proof. | Proofs checked by an automated verification agent (four Gemini 3.1 Flash calls, 3-of-4 majority vote), calibrated against a 100-item human-expert–labeled set at over 90% agreement. | [→](../works/tcs-bench.md) |
 
 ## Related Works
 
+- [TCS-Bench](../works/tcs-bench.md)
 - [AutoResearchBench](../works/autoresearchbench.md)
 - [ResearchClawBench](../works/researchclawbench.md)
 - [ScholarQuest](../works/scholarquest.md)

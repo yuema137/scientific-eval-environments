@@ -22,9 +22,15 @@
 | AgentClinic | 2024 | 通过序贯对话、不完全信息下的多模态数据采集与工具使用为患者作出诊断。 | 覆盖九个专科与七种语言的模拟临床接诊，配患者、检查与主持 agent。 | 带偏差扰动与以患者为中心指标的诊断准确率；由真实 EHR 与临床阅读者研究支撑。 | [→](../works/agentclinic.md) |
 | MedAgentBench | 2025 | 通过生产级 EHR 接口执行医生撰写的临床任务。 | 100 位真实感患者档案（70 万+ 数据元素）上、10 类共 300 个患者级任务，环境符合 FHIR 标准。 | 对照参考解的程序化成功率检验；最佳模型 69.67%。 | [→](../works/medagentbench.md) |
 | SDBench | 2025 | 通过向守门人迭代索取发现并开具带费用的检查来作出诊断。 | 304 个 NEJM-CPC 病例的序贯接诊；医生队列基线（21 位临床医生，平均准确率 20%）。 | 诊断准确率与就诊、检查费用联合评分。 | [→](../works/sdbench.md) |
+| SciVisAgentBench | 2026 | 对医学科学数据的科学可视化与数据分析——其七个应用领域之一——将自然语言意图转成对体数据与多模态医学数据的可执行可视化操作。 | 108 个专家精制的 SciVis 案例，横跨七个科学领域与 15 类可视化操作，经 CLI、MCP server 与 Python API 在 ParaView、napari 等平台上运行。 | 以结果为中心的多模态流水线：将 MLLM judge（报告为 Claude-Opus-4.6；与人工评分 Pearson 0.808）与确定性评估器结合——图像指标（PSNR、SSIM、LPIPS）、代码检查器与基于规则/按案例的验证器。 | [→](../works/scivisagentbench.md) |
+| Fisher-R1 / P-Bench | 2026 | 在真实医学/生物统计数据集（Vanderbilt Biostatistics 教学材料、R 包数据集）上进行统计有效的假设检验——医学是其三个领域之一——覆盖随机实验与观察性研究。 | 425 个开放式假设检验任务（Easy 203 / Hard 222），横跨经济学、生物与医学；每题只给一个假设与一个数据集，要求选择统计检验、计算 p 值并作出拒绝/不拒绝的结论。卡片未给出各领域计数。 | 标准答案的 p 值、检验统计量与决策取自对规范参考代码一次带日志运行的读数；按 Raw（决策匹配）与 Strict（决策加 p 值接近度在 0.5 个 z-score 单位内）计分，pass@1 与 pass@3。 | [→](../works/fisher-r1.md) |
+| MiraMind | 2025 | 证据受限的心理健康 / 精神科临床推理——诊断、干预选择与精神科问答——其中判断应有的具体程度、确定性与严重度本身也被评估（折并入 Medicine & Health）。 | 13 个数据集上的六个任务族（评估、诊断、干预、多步精神科问答、抽象、验证），涵盖非正式的用户叙述、咨询对话、精神科执业考试式问答与 Cochrane 综述摘要；20 个 LLM。 | 各任务族的结果指标（Micro-F1、Jaccard、专家评分点召回、Macro-F1），加一套 LLM-as-judge 的轨迹评分标准（可用性、逻辑结构、信息贡献），在 100 条人工标注轨迹上验证。 | [→](../works/miramind.md) |
 
 ## Related Works
 
+- [SciVisAgentBench](../works/scivisagentbench.md)
+- [MiraMind](../works/miramind.md)
+- [Fisher-R1 / P-Bench](../works/fisher-r1.md)
 - [MedHELM](../works/medhelm.md)
 - [SciAgentArena](../works/sciagentarena.md)
 - [NatureBench](../works/naturebench.md)

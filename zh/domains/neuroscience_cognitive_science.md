@@ -20,9 +20,13 @@
 | CPsyExam | 2024 | 回答涵盖知识回忆与案例分析的心理学考试题。 | 从 22,000 道题库中精选、学科覆盖均衡的 4,000 道题；静态问答。 | 跨学科与两轴（心理学知识、案例分析）的准确率。 | [→](../works/cpsyexam.md) |
 | ConceptPsy | 2023 | 以覆盖 12 个核心学科的全面概念回答心理学题目。 | 12 个学科、1,383 个人工收集的概念；每题标注到章节；静态问答。 | 总体加章节级（逐概念）准确率，显现逐概念差异。 | [→](../works/conceptpsy.md) |
 | PsychCounsel-Bench | 2025 | 回答专业咨询心理学的认证考试题。 | 约 2,252 道来自美国国家咨询师认证考试的单选题；静态问答。 | 各模型对照该考试约 70% 及格线的准确率。 | [→](../works/psychcounsel-bench.md) |
+| Neuroscience Data-to-Discovery Case Study | 2026 | 自动化一条真实果蝇光遗传学数据到发现流水线的计算阶段——基于视频的身体/关键点追踪、行走行为分类、步态分割，以及各 GAL4 驱动品系相对遗传对照的统计比较。 | 七个有序的单阶段任务外加端到端流水线变体（共九个计算任务），基于约 47 GB 已发布的果蝇行为数据；agent 产出可运行代码，每个 agent–任务对三次试验。 | 阶段级成功标准锚定领域专家规范，对照专家人工标注与可信的旧有科学家编写代码库；统计阶段用 Mann–Whitney U 检验对照遗传对照组。 | [→](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md) |
+| MiraMind | 2025 | 证据受限的心理健康与临床心理学推理——认知模式评估、咨询策略选择与精神科判断——其中解读所应有的具体程度与确定程度本身也在评估之列（归入 Neuroscience & Cognitive Science）。 | 覆盖 13 个数据集的六大任务族（评估、诊断、干预、多步精神科问答、抽象、核验），横跨非正式用户叙述、咨询对话、精神科执照式问答与 Cochrane 综述摘要；20 个 LLM。 | 各任务族的结果指标（Micro-F1、Jaccard、专家评分点召回、Macro-F1），外加在 100 条人工标注轨迹上验证的 LLM-as-judge 轨迹 rubric（可用性、逻辑结构、信息贡献）。 | [→](../works/miramind.md) |
 
 ## Related Works
 
+- [MiraMind](../works/miramind.md)
+- [A Case Study of Evaluating AI Agents on a Neuroscience Data-to-Discovery Pipeline](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md)
 - [ScienceAgentBench](../works/scienceagentbench.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [ResearchClawBench](../works/researchclawbench.md)

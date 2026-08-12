@@ -39,19 +39,27 @@
 | SpatialBench | 2025 | 基于数据快照的空间生物学分析 | 146 个问题，五种技术，七个类别 | 确定性地还原关键生物学结果 | [卡片](../works/spatialbench.md) |
 | BioAgent Bench | 2026 | 端到端的生物信息学流程执行 | RNA-seq/variant-calling/宏基因组学，扰动探针 | LLM 评分的输出产物与步骤推理 | [卡片](../works/bioagent-bench.md) |
 | BrainBench | 2026 | 以指令为条件的 EEG 理解与分析 | 四个子集，17 个数据集，CodeAct/智能体式 | 在各输出维度上有科学依据的报告 | [卡片](../works/brainbench-eeg.md) |
+| DSAgentBench | 2026 | 自动化完整的数据科学分析工作流 | 275 个任务，运行于真实计算机环境（notebook、终端、浏览器、数据库） | 对分析正确性的确定性检查（最佳 56.7%） | [卡片](../works/dsagentbench.md) |
+| Fisher-R1 / P-Bench | 2026 | 选择检验、计算 p 值、得出有效推断 | 425 个假设检验任务；经济学、生物学、医学 | 拒绝/不拒绝匹配加 p 值接近度（Raw/Strict） | [卡片](../works/fisher-r1.md) |
 | GeneBench-Pro | 2026 | 多阶段的统计基因组学分析 | 129 个基于仿真数据生成过程的问题 | 对决策相关数值的二元通过判定（最佳 28.7%） | [卡片](../works/genebench-pro.md) |
 | GeoNatureAgent Benchmark | 2026 | 通过工具调用进行的环境地理空间分析 | 93 个任务，18 个类别，可自托管 API | 预期的工具调用与必含答案（最佳 60.8%） | [卡片](../works/geonatureagent-benchmark.md) |
 | HeurekaBench | 2026 | 针对已发表研究的探索性端到端研究 | 来自 41 项洞见的 50 个开放题 + 50 道 MCQ，单细胞 | 数据驱动的答案，对比已报告的发现进行验证 | [卡片](../works/heurekabench.md) |
 | LongDA | 2026 | 文档密集型的调查数据分析 | 505 个查询，17 项美国调查，约 263k-token 文档 | 通过可执行代码给出数值/列表答案 | [卡片](../works/longda.md) |
 | MaD Physics | 2026 | 预算受限的测量与物理定律推断 | 三个仿真环境，含改变物理规律的变体 | 推断规律以预测系统未来状态 | [卡片](../works/mad-physics.md) |
+| Neuroscience Data-to-Discovery Case Study | 2026 | 果蝇数据的行为分类与统计比较 | 9 任务的果蝇光遗传学流程；约 47 GB 数据 | 各阶段输出对照专家标注（如 Mann–Whitney U） | [卡片](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md) |
 | Rodent-Bench | 2026 | 多模态的啮齿动物行为视频标注 | 长录像（10-35 分钟），多种范式 | 时间分割/分类（逐秒准确率、F1） | [卡片](../works/rodent-bench.md) |
 | scBench | 2026 | 从快照出发的单步 scRNA-seq 分析 | 394 个问题，六个平台，七个类别 | 确定性地还原关键生物学结果（29-53%） | [卡片](../works/scbench.md) |
 | scBench-Long | 2026 | 从接近原始数据出发的长时程单细胞发现 | 21 项评估，不规定方法 | 还原研究结论，确定性评分（25.4%） | [卡片](../works/scbench-long.md) |
 | SciAgentArena | 2026 | 跨尺度的真实生物医学研究 | 约 200 个任务，五个领域，分步验证 | 分步验证的数据分析/发现/有效性 | [卡片](../works/sciagentarena.md) |
+| SciVisAgentBench | 2026 | 面向洞见的科学数据分析与可视化 | 108 个专家案例，七个科学领域；多平台工具 | 以结果为中心的图像指标加确定性验证器 | [卡片](../works/scivisagentbench.md) |
 | Stargazer | 2026 | 迭代式、基于物理的 RV 模型拟合 | 120 个任务（100 个合成 + 20 个真实档案） | 按标准逐项通过的 Keplerian 拟合（Easy 80%，真实 0%） | [卡片](../works/stargazer.md) |
 
 ## Related Works
 
+- [SciVisAgentBench](../works/scivisagentbench.md)
+- [Fisher-R1 / P-Bench](../works/fisher-r1.md)
+- [DSAgentBench](../works/dsagentbench.md)
+- [A Case Study of Evaluating AI Agents on a Neuroscience Data-to-Discovery Pipeline](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md)
 - [BLADE](../works/blade.md)
 - [DA-Code](../works/da-code.md)
 - [DSBench](../works/dsbench.md)

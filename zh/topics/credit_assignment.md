@@ -8,7 +8,7 @@
 
 ## Motivation
 
-长 horizon 与开放式任务产出的 trajectory 中，单一的终态信号——通过还是失败——粒度太粗，无法作为有用信号。两条失败的 trajectory 可以在**哪里**出错上有差异；两条成功的 trajectory 可以在成功是由稳健的中间推理挣来、还是仅由一次幸运的最后一步得到而有差异。Credit assignment 是评估阶段刻意保留这种更细信号的设计承诺。
+长 horizon 与开放式任务产出的 trajectory 中，单一的终态信号——通过还是失败——粒度太粗，难以提供有用的信息。两条失败的 trajectory 可以在**哪里**出错上有差异；两条成功的 trajectory 可以在成功是由稳健的中间推理挣来、还是仅由一次幸运的最后一步得到而有差异。Credit assignment 是评估阶段刻意保留这种更细信号的设计承诺。
 
 Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。Skill hierarchy 问**agent 拥有哪些 subskill**；credit assignment 问**trajectory 的哪一步驱动了结果**。许多 benchmark 同时对两者做出贡献。
 
@@ -31,6 +31,9 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 - **定位、归因、修复。** [SearchAuditor](../works/searchauditor.md) 在 1,243 条专家标注的失败搜索轨迹上端到端地考察审计者——定位关键错误步骤、归因到搜索特有的根因、再对照带评分 rubric 的参考修复打分——最强基线的端到端通过率仅有 26.6%。
 - **深入 skill 内部的 credit。** [SkillSV](../works/skillsv.md) 把 credit assignment 从轨迹步骤移进 agent skill 的内部：在 skill 编译出的单元、依赖与层级结构上做结构感知的 Shapley 估值，并用成对删除与长度中性填充把内容价值与上下文成本区分开。
 - **错误生命周期归因。** [TRAJDEBUG](../works/trajdebug.md) 在 TrajErrBench 的 486 条人工标注失败轨迹上追踪每个错误的解决状态与最终影响，让失败的 credit 落在真正决定失败的那个错误上，而不是落在 agent 事后已恢复的错误上。
+- **从遥测定位故障源。** [TelemetrySuffBench](../works/telemetrysuffbench.md) 用把症状与成因解耦的延迟绑定故障，以及使弃权成为正确答案的完全相同歧义起点对，测试执行遥测是否足以把失败归因到其起源组件。
+- **组件级轨迹归因。** [Long-Horizon Agent Trajectory Attribution](../works/long-horizon-agent-trajectory-attribution.md) 把观测到的 agent 结果归因到负有责任的轨迹组件，并恢复其周围的归因链，配基于似然与留一法的参考基线。
+- **最小必要成因。** [TempoBench](../works/tempobench.md) 在形式化标注的 Mealy 机执行轨迹上，孤立出反事实式的 credit assignment——哪些输入对观测输出是必要的——与前向模拟相区分。
 
 ## Comparison
 
@@ -53,6 +56,9 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 | SearchAuditor | 2026 | 专家标注的关键步骤、搜索特有根因与带评分 rubric 的修复 | 失败搜索轨迹中的关键步骤 | [→](../works/searchauditor.md) |
 | SkillSV | 2026 | 对 skill 编译单元的结构感知 Shapley 价值 | 每个 skill 单元，而非轨迹步骤 | [→](../works/skillsv.md) |
 | TRAJDEBUG | 2026 | 错误生命周期：发生、解决状态、最终影响 | 失败轨迹中的每个错误 | [→](../works/trajdebug.md) |
+| TelemetrySuffBench | 2026 | 在延迟绑定故障下从遥测做起源步骤定位；对歧义起点弃权 | 每个注入的故障源组件 / 事件 | [→](../works/telemetrysuffbench.md) |
+| Long-Horizon Agent Trajectory Attribution | 2026 | 主责组件归因（Hit@1 / MRR）+ 归因链恢复（Recall@K / MAP） | 每个轨迹组件（根因 + 链条） | [→](../works/long-horizon-agent-trajectory-attribution.md) |
+| TempoBench | 2025 | 经反事实归因识别最小必要成因，与前向模拟相对 | 执行轨迹的每个输入条件 | [→](../works/tempobench.md) |
 
 ## Open Questions
 
@@ -62,6 +68,10 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 
 ## Related Works
 
+- [TempoBench](../works/tempobench.md)
+- [TelemetrySuffBench](../works/telemetrysuffbench.md)
+- [From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](../works/from-reasoning-to-agentic.md)
+- [Long-Horizon Agent Trajectory Attribution](../works/long-horizon-agent-trajectory-attribution.md)
 - [AgentBoard](../works/agentboard.md)
 - [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md)
 - [FinTrace](../works/fintrace.md)

@@ -4,7 +4,7 @@
 
 ## Definition
 
-Scientific agent benchmark 是在真实科学研究或实践中提取任务的 AI agent 评估——计算工作流、参数调优、文献 grounding 的问题，或对已发表结果的复现。它们与通用 agent benchmark 的区别在于任务来源（真实科学工作）和正确性标准（对已发表或专家定义结果的匹配）。
+Scientific agent benchmark 是在真实科学研究或实践中提取任务的 AI agent 评估——计算工作流、参数调优、以文献为依托的问题，或对已发表结果的复现。它们与通用 agent benchmark 的区别在于任务来源（真实科学工作）和正确性标准（对已发表或专家定义结果的匹配）。
 
 ## Motivation
 
@@ -16,19 +16,19 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **以出版物 SOTA 锚定难度。** [NatureBench](../works/naturebench.md) 从 Nature-family 论文蒸馏 90 个任务，追问 coding agent 是否能达到已发表 SOTA——揭示了显著缺口：最强 agent 仅在 17.8% 的任务上超越已发表 SOTA（匹敌 47.8%）。
 - **专家验证、基于执行的任务。** [ScienceAgentBench](../works/scienceagentbench.md) 从四个学科的 44 篇同行评审论文中提取 102 个任务，邀请九位领域专家验证，并将每个任务的输出统一为自包含的 Python 程序，按程序、执行结果与成本打分。它坚持在宣称端到端自动化之前先评估单个工作流任务，并报告了偏低的最佳 agent 求解率（独立 32.4%，含专家知识 34.3%）。
 - **端到端研究生命周期。** [AIRS-Bench](../works/airs-bench.md) 提供 20 个 frontier 研究科学任务，不提供 baseline 代码，要求 agent 在语言建模、数学、生物信息学、时间序列预测中从零构造工作流。
-- **跨尺度的真实研究场景。** [SciAgentArena](../works/sciagentarena.md) 在 agent-agnostic 环境中提供约 200 个来自真实世界科学研究场景、带逐步验证的任务，报告 agent 能处理结构化数据分析工作流，但在新颖洞见、自主探索与开放式问题上表现挣扎。
+- **跨尺度的真实研究场景。** [SciAgentArena](../works/sciagentarena.md) 在 agent-agnostic 环境中提供约 200 个来自真实世界科学研究场景、带逐步验证的任务，报告 agent 能处理结构化数据分析工作流，但在新颖洞见、自主探索与开放式问题上表现吃力。
 - **科学环境的 gymnasium。** [Aviary](../works/aviary.md) 提供一个可扩展的 language-agent 环境 gymnasium，其中三个为科学环境（分子克隆、科学文献研究、蛋白质工程）；其环境是可复用的评估面，尽管论文的头号贡献是训练框架而非评估贡献。
 - **Cost-aware 科学仿真。** [SimulCost](../works/simulcost.md) 把 cost-aware 评估扩展到覆盖 13 个仿真器的物理仿真参数调优，显式建模仿真时间与实验资源成本。
 - **医生共同验证的医疗评估。** [MedHELM](../works/medhelm.md) 把 Stanford CRFM 的 HELM 扩展到医疗任务：121 任务、由医生共同验证的分类体系；跨 35 benchmark 聚合；LLM-jury 方法与医生一致性（ICC = 0.47）被显式测量。
 - **生成而非编写的 benchmark。** [HeurekaBench](../works/heurekabench.md) 贡献了一条半自动流水线，从已发表研究及其代码仓库中派生开放式研究问题，并将候选答案与这些研究已报告的发现比对验证。其单细胞实例含 50 道开放题与 50 道选择题，构建自 13 篇论文中的 41 条洞见；最强的现有 agent 在开放题正确性上为 5 分制的 2.34 分。
-- **以模拟为根基的判分有效性。** [GeneBench-Pro](../works/genebench-pro.md) 把 129 个多阶段基因组学与定量生物学问题构建在人工模拟的数据生成过程而非真实数据集之上，从而使失败可归因于科学判断失误，而非归因于若干同样站得住脚的分析选择之一。每个问题内含 3 至 13 个相互依赖的决策点，仅以对决策相关数值的二元通过与否判分；所测得的最佳配置为 28.7%。
+- **基于模拟的判分有效性。** [GeneBench-Pro](../works/genebench-pro.md) 把 129 个多阶段基因组学与定量生物学问题构建在人工模拟的数据生成过程而非真实数据集之上，从而使失败可归因于科学判断失误，而非归因于若干同样站得住脚的分析选择之一。每个问题内含 3 至 13 个相互依赖的决策点，仅以对决策相关数值的二元通过与否判分；所测得的最佳配置为 28.7%。
 - **溯源审计下的已发表分析复现。** [Collider-Bench](../works/collider-bench.md) 要求 agent 仅凭公开论文与开源仿真软件复现 LHC 分析，用连续的直方图保真度对照隐藏参考产额为 10 个 CMS 搜索任务打分，并由 LLM judge 审计执行轨迹；在 364 次受评运行中 6% 的提交被标记为伪造，且平均而言没有 agent 能可靠胜过物理学家在环的解法。
 - **反事实定律发现。** [NewtonBench](../works/newtonbench.md) 让 agent 对模拟物理系统运行实验，以复原 12 条经典物理定律的反事实偏移版本，用 LLM 判定的符号等价性为其 324 个任务打分。
 - **计算材料科学中的主张级复现。** [AutoMat](../works/automat.md) 将 85 条由专家整理的计算材料科学论文主张打包为可运行的 HPC 任务，报告最佳 coding-agent 设定达到 54.1% 成功率，而当工作流必须仅凭论文正文复原时成功率接近零。
 - **对接实时地理空间 API 的结构化工具调用。** [GeoNatureAgent Benchmark](../works/geonatureagent-benchmark.md) 针对一个开放、可自托管、服务于西班牙与葡萄牙三项指标的 API 运行 93 个环境分析任务，以机制性检查（不用 LLM judge）为每个案例打分，并把能力与单案例成本作为正交维度报告；最佳模型达到 60.8% ± 0.8%，而近似值比较类任务对每个模型都是 0%。
 - **已发表 AI 实验的端到端复现。** [EXP-Bench](../works/exp-bench.md) 从 51 篇 NeurIPS 2024 与 ICLR 2024 论文中整理出 461 个任务，要求 agent 设计、实现、执行并得出完整实验结论；最佳 agent 配置仅能以可执行形式完成 0.5% 的实验。
 - **全流程洞见再发现。** [FIRE-Bench](../works/fire-bench.md) 只给 agent 一个来自已发表机器学习研究的高层研究问题，并以对照该研究记录发现的主张级 F1 为其结论打分；最强的受评 agent Claude Code（Sonnet-4）在 30 任务核心集上达到 46.7。
-- **隐藏论文再发现。** [ResearchClawBench](../works/researchclawbench.md) 将 40 个任务各自 grounding 在一篇真实已发表论文上，而该论文在评测期间保持隐藏，由 GPT-5.1 按 0–100 的 RADS 刻度、对照专家整理的加权评分标准为 agent 研究报告打分。
+- **隐藏论文再发现。** [ResearchClawBench](../works/researchclawbench.md) 将 40 个任务各自锚定在一篇真实已发表论文上，而该论文在评测期间保持隐藏，由 GPT-5.1 按 0–100 的 RADS 刻度、对照专家整理的加权评分标准为 agent 研究报告打分。
 - **仿真驱动的模型拟合。** [Stargazer](../works/stargazer.md) 在带有逐准则物理一致性反馈的迭代式径向速度模型拟合上评估 agent；跨三个难度层级与 20 个真实档案系统，没有一个受评前沿 agent 能通过任何一个真实任务。
 - **以论文复现为评估单元。** [PRBench](../works/prbench.md) 要求 agent 端到端复现已发表物理论文——30 个跨 11 个子领域的专家整理任务，其上最佳 agent OpenAI Codex（GPT-5.3-Codex）得分 34%，端到端回调成功率为零。
 - **整体、成本受控的研究套件。** [AstaBench](../works/astabench.md) 聚合 11 个 benchmark、2,400+ 个问题，覆盖文献理解、代码与执行、数据分析、端到端发现，在标准工具下以时间不变的美元成本核算为 57 个 agent 打分。
@@ -137,7 +137,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **仓库级 RTL。** [RTL-Repo](../works/rtl-repo.md) 在 4,000+ 真实 GitHub 样本上考察带完整仓库上下文的多文件 Verilog 补全，按编辑相似度与精确匹配判分。
 - **另一种 HDL。** [VHDL-Eval](../works/vhdl-eval.md) 在 202 个问题上评测 VHDL 生成，发现 Verilog 中心的模型迁移不佳、需 VHDL 专门微调。
 - **综合的 RTL 设计与验证。** [CVDP](../works/cvdp.md)（NVIDIA）横跨 783 问题 / 13 类别，兼有非 agent 与 agent 格式；最先进的模型代码生成 pass@1 不超过 34%。
-- **以形式验证为根基的断言生成。** [AssertionBench](../works/assertionbench.md) 在 100 个 OpenCores 设计上，对照经形式验证的参考衡量 LLM 硬件断言生成。
+- **基于形式验证的断言生成。** [AssertionBench](../works/assertionbench.md) 在 100 个 OpenCores 设计上，对照经形式验证的参考衡量 LLM 硬件断言生成。
 - **形式验证能力。** [FVEval](../works/fveval.md)（NVIDIA）把硬件形式验证分解为三个子任务，用 Cadence Jasper 工具校验所生成断言。
 - **高层综合。** [HLS-Eval](../works/hls-eval.md) 在 94 个设计上评测 LLM 的 HLS 代码生成与优化，在 Vitis HLS 上按可解析/可编译/可运行/可综合判分。
 - **免训练的模拟设计。** [AnalogCoder](../works/analogcoder.md) 是通过 Python 代码生成设计模拟电路的 LLM agent，在精选 benchmark 上解出 20 个电路——比 GPT-4o 多 5 个。
@@ -168,6 +168,15 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **研究想法生成。** [IdeaBench](../works/ideabench.md) 把 LLM 以有影响力论文上下文为依据，用两阶段框架按新颖性与可行性为想法评分。
 - **发散式科学思维。** [LiveIdeaBench](../works/liveideabench.md) 在 1,180 个关键词、22 个领域上评估单关键词想法生成，发现创造力难以由通用智力预测。
 - **AI 开发 agent，由 agent 评判。** [DevAI / Agent-as-a-Judge](../works/devai.md) 提供 55 个 AI 开发任务、365 个层级化需求，由 agent 化评判器评估、可靠性媲美人类。
+- **专家级的神经科学流水线。** [A Case Study of Evaluating AI Agents on a Neuroscience Data-to-Discovery Pipeline](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md) 把一条真实的果蝇光遗传学研究流水线拆解为七个由专家评分的阶段，发现 agent 能解出单个阶段，却做不出正确的端到端发现。
+- **真实环境中的端到端数据科学。** [DSAgentBench](../works/dsagentbench.md) 评估 agent 能否在真实计算机环境（notebook、IDE、终端、浏览器、数据库）中自动化完整的数据科学生命周期，共 275 个任务，每个都配一个确定性评估器。
+- **科学可视化 agent。** [SciVisAgentBench](../works/scivisagentbench.md) 用一套以结果为中心、结合图像指标、代码/规则验证器与经人类验证的 LLM judge 的多模态管线，为横跨七个科学领域的 108 个专家精心设计的 SciVis 案例评分。
+- **研究级的证明生成。** [TCS-Bench](../works/tcs-bench.md) 从 FOCS/STOC/SODA 论文（2020–2026）中组装 300 个定理证明任务，用一个校准到超过 90% 专家一致率的自动验证 agent 判分。
+- **证据受限的实验推理。** [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md) 在化学、生物与材料科学中，对真实实验图表与数据做多模态推断，把证据受限的推理定力与信息获取分离开来。
+- **统计上有效的假设检验。** [Fisher-R1 / P-Bench](../works/fisher-r1.md) 在 425 个扎根于已记录参考代码执行的任务上，评估 agent 是否选对了统计方法、算出了有效的 p 值，并得出正确的拒绝/不拒绝结论。
+- **人类授权的物理能源 agent。** [EnergyBridge](../works/energybridge.md) 为住宅虚拟电厂耦合容量申报、住户授权与物理执行，并从分地区的 EnergyPlus 模型计量结果。
+- **VLSI 物理设计。** [PDAgent-Bench](../works/pdagent-bench.md) 把任务级评估（353 道精选 EDA 题目）与工作流级闭环物理设计流程统一起来，发现模型在概念上有竞争力，但在工具中心、长时程的执行上偏弱。
+- **以可靠性评分的心理健康推理。** [MiraMind](../works/miramind.md) 在六类任务、13 个数据集上评估心理健康推理，不仅为结果打分，也为「从证据到判断」推理轨迹的可靠性打分。
 
 ## Comparison
 
@@ -185,7 +194,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | GeneBench-Pro | 2026 | 人工模拟的数据生成过程 | 基因组学 / 定量生物学 / 转化医学 | 在校准容差下与可复原目标作二元匹配 | [→](../works/genebench-pro.md) |
 | Collider-Bench | 2026 | 源自四项已发表 CMS 超对称搜索（先由专家解出） | 实验粒子物理（LHC recasting） | 对照隐藏参考产额的相对 L²（τ = 0.33 通过阈值）；LLM 溯源 judge | [→](../works/collider-bench.md) |
 | NewtonBench | 2025 | 12 条经典物理定律的 108 个反事实偏移，各置于 3 种模拟系统 | 物理中的交互式科学定律发现 | LLM 判定的符号等价加 RMSLE 数据保真度 | [→](../works/newtonbench.md) |
-| AutoMat | 2026 | 由材料科学专家从近期论文整理的 85 条主张 | 计算材料科学（统计/ML、DFT、MD、DDD） | artifact-grounded LLM 评估 agent 对照隐藏专家复现步骤打 1–5 分；成功为至少 4 分 | [→](../works/automat.md) |
+| AutoMat | 2026 | 由材料科学专家从近期论文整理的 85 条主张 | 计算材料科学（统计/ML、DFT、MD、DDD） | 以产物为依托的 LLM 评估 agent 对照隐藏专家复现步骤打 1–5 分；成功为至少 4 分 | [→](../works/automat.md) |
 | GeoNatureAgent Benchmark | 2026 | 针对可自托管地理空间 API、以领域专家 ground truth 指定的任务 | 环境地理空间分析（西班牙 / 葡萄牙） | 自动化工具调用 / 关键词 / 数值容差检查；无 LLM-as-judge | [→](../works/geonatureagent-benchmark.md) |
 | EXP-Bench | 2025 | 从 51 篇 NeurIPS 2024 / ICLR 2024 论文及其代码提取的 461 个任务 | 端到端 AI 研究实验：设计、实现、执行、结论 | 对设计 / 实现 / 结论的 LLM-judge 评分加容器化执行验证 | [→](../works/exp-bench.md) |
 | FIRE-Bench | 2026 | 30 篇 ICLR、ICML、NeurIPS 2024–2025 实证 LLM 分析论文各一任务，加 10 任务跨域扩展 | 全流程：从高层研究问题到规划 → 编码 → 执行 → 结论 | 固定 gpt-5.2 蕴含 judge 对照真值发现的主张级 precision、recall、F1 | [→](../works/fire-bench.md) |
@@ -329,6 +338,15 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | IdeaBench | 2024 | 以有影响力论文为依据的研究想法生成 | 研究构思 | 两阶段 GPT-4o 排序 + 相对 Insight Score | [→](../works/ideabench.md) |
 | LiveIdeaBench | 2024 | 单关键词构思；1,180 关键词、22 领域、40+ 模型 | 科学想法生成 | LLM 面板按五个创造力维度评分 | [→](../works/liveideabench.md) |
 | DevAI / Agent-as-a-Judge | 2024 | 55 个 AI 开发任务、365 个层级化需求 | 自动化 AI 开发 | 需求级、过程级的 Agent-as-a-Judge 评估 | [→](../works/devai.md) |
+| A Case Study on a Neuroscience Data-to-Discovery Pipeline | 2026 | 真实果蝇光遗传学流水线，分解为 7 个阶段（发布 9 个任务） | 神经科学（果蝇行为分析） | 专家定义的逐阶段判据，对照人类标注与既有代码；统计阶段用 Mann–Whitney U | [→](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md) |
+| DSAgentBench | 2026 | 真实计算机环境中覆盖完整数据科学生命周期的 275 个任务 | 数据科学（整理 → 建模 → 验证） | 对分析正确性、可视化输出与模型性能的确定性逐任务评估器 | [→](../works/dsagentbench.md) |
+| SciVisAgentBench | 2026 | 108 个专家精心设计的科学可视化案例（四维分类法） | 横跨 7 个科学领域的科学可视化 | 以结果为中心的多模态管线：图像指标 + 代码/规则验证器 + 经人类验证的 LLM judge | [→](../works/scivisagentbench.md) |
+| TCS-Bench | 2026 | 取自 FOCS/STOC/SODA 论文（2020–2026）的 300 个定理证明任务 | 理论计算机科学 / 数学（证明生成） | 自动验证 agent（4× Gemini 3.1 Flash，四取三表决）；>90% 专家一致 | [→](../works/tcs-bench.md) |
+| Science Edge Evaluation (SEE) | 2026 | 取自文献与一手实验数据的 1,116 个专家整理多模态问题 | 化学、生物、材料科学 | 对照专家真值的精确匹配 / 容差评分；严格二元 LLM judge | [→](../works/science-edge-evaluation.md) |
+| Fisher-R1 / P-Bench | 2026 | 从专家分析复现的 425 个假设检验任务 | 经济学、生物、医学（统计推断） | 决策与 p 值对照已记录参考代码执行检查（Raw / Strict） | [→](../works/fisher-r1.md) |
+| EnergyBridge | 2026 | 基于分地区 EnergyPlus 模型的住宅 VPP 需求响应工作流 | 能源系统（住户电网灵活性） | 计量的 EnergyPlus 结果：授权率 + ±20% 内的容量承诺可靠性 | [→](../works/energybridge.md) |
+| PDAgent-Bench | 2026 | 取自真实工业 EDA 产物的 353 道精选任务 + 10 个全流程设计 | VLSI 物理设计 / EDA | pass@1/@5，配经执行检查的脚本与专家参考；全流程时序收敛 / DRC 结果 | [→](../works/pdagent-bench.md) |
+| MiraMind | 2025 | 13 个心理健康数据集上的六类任务 | 心理健康 / 精神病学（医学与健康；神经科学与认知科学） | 逐类结果指标加经人类验证的 LLM 判分推理轨迹评分 | [→](../works/miramind.md) |
 
 ## Open Questions
 
@@ -340,6 +358,15 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 
 ## Related Works
 
+- [SciVisAgentBench](../works/scivisagentbench.md)
+- [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
+- [TCS-Bench](../works/tcs-bench.md)
+- [MiraMind](../works/miramind.md)
+- [Fisher-R1 / P-Bench](../works/fisher-r1.md)
+- [DSAgentBench](../works/dsagentbench.md)
+- [PDAgent-Bench](../works/pdagent-bench.md)
+- [EnergyBridge](../works/energybridge.md)
+- [A Case Study of Evaluating AI Agents on a Neuroscience Data-to-Discovery Pipeline](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [NatureBench](../works/naturebench.md)
 - [ScienceAgentBench](../works/scienceagentbench.md)

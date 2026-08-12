@@ -67,14 +67,20 @@
 | MDArena | 2026 | 分子动力学工作流代码 | 50 个容器化任务、29 个系统、14 种协议 | 严格成功率 + 过程部分得分 | [卡片](../works/mdarena.md) |
 | MooseBench | 2026 | MOOSE 多物理场仿真输入文件 | 220 个带 PDE 级标准答案的案例 | 意图保真度得分（重建 PDE 匹配） | [卡片](../works/moosebench.md) |
 | NatureBench | 2026 | 匹配已发表的 SOTA 科学代码 | 来自 Nature 系列论文、六个领域的 90 个任务 | 在信息防火墙下达到/超越已发表 SOTA | [卡片](../works/naturebench.md) |
+| Neuroscience Data-to-Discovery Case Study | 2026 | 用代码搭建一条神经科学数据到发现的流程 | 9 个计算任务（7 个阶段 + 端到端）；兼容 Harbor | 各阶段代码正确性，对照专家标注与遗留代码库 | [卡片](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md) |
+| PDAgent-Bench | 2026 | 为 VLSI 物理设计生成 EDA 工具脚本 | 210 个脚本生成任务 + 闭环流程；Innovus/ICC2/OpenROAD | 经执行验证的脚本（pass@1/5） | [卡片](../works/pdagent-bench.md) |
 | PDEAgent-Bench | 2026 | 面向 FEM 库的 PDE 求解器代码 | 645 个实例、6 个类别；DOLFINx/Firedrake/deal.II | 分阶段的可执行性、精度、效率 | [卡片](../works/pdeagent-bench.md) |
 | PRBench | 2026 | 从论文复现物理研究 | 30 个专家精选任务、11 个子领域；沙箱 | 与出版结果的定量匹配（CSV rubric） | [卡片](../works/prbench.md) |
 | QMP-Bench | 2026 | 量子多体仿真代码 | 来自 21 种期刊的 100 个端到端任务 | 编码正确性 + 物理有效性 | [卡片](../works/qmp-bench.md) |
+| SciVisAgentBench | 2026 | 生成可执行的科学可视化代码 | 108 个案例；ParaView/napari/MD/拓扑，经 CLI/MCP/Python | 图像指标 + 代码检查器 + 基于规则的验证器 | [卡片](../works/scivisagentbench.md) |
 | StructureClaw | 2026 | 结构工程工作流（建模到求解器再到校核） | 150 个场景；配备 OpenSees 的产物工作台 | 模型匹配 + 相对冻结参考的数值一致 | [卡片](../works/structureclaw.md) |
 | Terminal-Bench Science | 2026 | 容器化科学计算工作流 | 5 个领域的 8 个任务（目标 100+）；agentic | pytest 确定性程序化验证 | [卡片](../works/terminal-bench-science.md) |
 
 ## Related Works
 
+- [SciVisAgentBench](../works/scivisagentbench.md)
+- [PDAgent-Bench](../works/pdagent-bench.md)
+- [A Case Study of Evaluating AI Agents on a Neuroscience Data-to-Discovery Pipeline](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md)
 - [ML-Bench](../works/ml-bench.md)
 - [MLAgentBench](../works/mlagentbench.md)
 - [RTLLM](../works/rtllm.md)

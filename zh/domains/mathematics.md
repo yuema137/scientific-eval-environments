@@ -22,9 +22,13 @@
 | SciCode | 2024 | 为科学家整理的问题编写科研代码；其 16 个自然科学子领域分属五大主领域，数学是其中之一。 | 80 个主问题分解为 338 个子问题，混合知识回忆、推理与代码合成。 | 对照科学家标注的金标准解与测试用例执行。 | [→](../works/scicode.md) |
 | HARDMath | 2024 | 在自动生成的应用数学问题上运用研究生水平的解析近似技术——渐近方法。 | 366 题的 HARDMath-mini 测试集加 40 道应用科学应用题；少样本思维链下的静态解题。 | 对照经数值验证的真值解计算准确率。 | [→](../works/hardmath.md) |
 | PDE-Controller | 2025 | 在信号时序逻辑规格下形式化并推理 PDE 支配系统（热方程与波动方程）的控制。 | 人工案例加 200 万合成样本上的自动形式化、推理与程序合成任务。 | 任务指标加所得 PDE 控制的效用增益。 | [→](../works/pde-controller.md) |
+| SciVisAgentBench | 2026 | 数学数据的科学可视化与数据分析——其七个应用领域之一——把自然语言意图翻译为可执行可视化操作（如场计算、拓扑任务）。 | 108 个专家精心设计的 SciVis 案例，横跨七个科学领域与 15 类可视化操作，通过 CLI、MCP 服务器与 Python API 在 ParaView、napari 等平台上运行。 | 以结果为中心的多模态管线，结合一个 MLLM judge（报告为 Claude-Opus-4.6；与人类评分 Pearson 0.808）与确定性评估器——图像指标（PSNR、SSIM、LPIPS）、代码检查器，以及基于规则/逐案例的验证器。 | [→](../works/scivisagentbench.md) |
+| TCS-Bench | 2026 | 对理论计算机科学成果（FOCS/STOC/SODA）做研究级定理证明；证明生成任务本质上属数学，需要多步形式化风格的数学推理。 | 300 个定理证明任务，每个是一条目标命题加从 FOCS/STOC/SODA 论文（2020–2026）中抽取并组装的上下文；模型产出一份自包含证明。 | 证明由一个自动验证 agent 检查（四次 Gemini 3.1 Flash 调用，四取三多数表决），并对照一个 100 项的人类专家标注集校准，一致率超过 90%。 | [→](../works/tcs-bench.md) |
 
 ## Related Works
 
+- [SciVisAgentBench](../works/scivisagentbench.md)
+- [TCS-Bench](../works/tcs-bench.md)
 - [Hard2Verify](../works/hard2verify.md)
 - [ProcessBench](../works/processbench.md)
 - [PRMBench](../works/prmbench.md)

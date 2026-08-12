@@ -45,9 +45,11 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 | MooseBench | 2026 | Generate multiphysics simulation code that solves the intended PDE, not merely code that runs. | 220 MOOSE cases with PDE-level mathematical ground truth. | Intent Fidelity Score via deterministic reconstruction of governing terms, BCs, ICs, coefficients, and time scheme. | [→](../works/moosebench.md) |
 | SciConvBench | 2026 | Turn ill-posed computational-science requests — fluid mechanics, solid mechanics, materials, PDEs — into well-posed specifications through dialogue. | Multi-turn disambiguation and inconsistency-resolution dialogues. | Rubric scoring of clarification behavior, grounding, and final-specification fidelity. | [→](../works/sciconvbench.md) |
 | AInsteinBench | 2025 | Resolve maintainer-PR tasks in production scientific codebases, including numerical relativity and fluid dynamics. | Repository-level coding-agent tasks across six scientific repositories. | Test-driven verification in executable environments. | [→](../works/ainsteinbench.md) |
+| SciVisAgentBench | 2026 | Scientific visualization and data analysis of physics data — one of its seven application domains — turning natural-language intent into executable visualization operations (volume rendering, field computation, insight derivation). | 108 expert-crafted SciVis cases across seven science domains and 15 visualization-operation categories, run over platforms such as ParaView and napari via CLIs, MCP servers, and Python APIs. | Multimodal outcome-centric pipeline combining an MLLM judge (reported Claude-Opus-4.6; Pearson 0.808 with human ratings) with deterministic evaluators — image metrics (PSNR, SSIM, LPIPS), code checkers, and rule-based/case-specific verifiers. | [→](../works/scivisagentbench.md) |
 
 ## Related Works
 
+- [SciVisAgentBench](../works/scivisagentbench.md)
 - [MaD Physics](../works/mad-physics.md)
 - [NewtonBench](../works/newtonbench.md)
 - [PRBench](../works/prbench.md)

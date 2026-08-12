@@ -54,6 +54,13 @@
 - **带时间预算的 AI R&D。** [RE-Bench](../works/re-bench.md) 在 2/8/32 小时预算下就开放式研究工程对照人类专家评估 agent。
 - **AI 研究竞技场。** [MLGym](../works/mlgym.md) 在支持 RL 训练的 Gym 环境中，于 13 个任务上跑从想法到分析的完整研究循环。
 - **AI 开发 agent。** [DevAI / Agent-as-a-Judge](../works/devai.md) 让 agent 对照 365 个层级化需求构建 AI/ML 项目，逐步评估。
+- **难度可分解的机器人操作。** [VLA-Arena](../works/vla-arena.md) 在 170 个操作任务上评估视觉-语言-动作策略，配以正交的难度轴与 L0–L2 分级，含一个专门的 Long Horizon 套件与累积成本指标。
+- **任务状态 horizon。** [RoboGraphBench](../works/compiling-and-benchmarking-task-state-horizons-for.md) 提出「任务状态 horizon」——agent 必须跟踪、维护、探索与更新的任务相关状态的跨度——并编制 588 个具身规划回合，配干预诱发的状态更新与恢复指标。
+- **端到端数据科学工作流。** [DSAgentBench](../works/dsagentbench.md) 把数据科学刻画为在真实计算机环境中执行的长 horizon、多阶段、多工具工作，为 275 个任务各配一个确定性评估器。
+- **浏览与计算交织。** [DrBencher](../works/drbencher.md) 合成需要多跳浏览与多步计算交织的 deep-research 问题，其金标准答案由知识图谱链条提供、可经执行验证。
+- **harness 自我改进。** [Evo-Bench](../works/evo-bench.md) 按模型在有界演化循环中能把自身 agent harness 改进多少来评分，报告下游表现与一条随时验证的轨迹。
+- **多语言大规模重构。** [SWE-Bench ProMax](../works/swe-bench-promax.md) 检验横跨七种编程语言、平均每个实例改动 11.4 个文件与 261.6 行的协调式、保行为变更。
+- **loop engineering。** [LoopsBench](../works/loopsbench.md) 把持续软件开发建模为可分别测试单元上的依赖 DAG，配一个流感知运行时：沿就绪前沿释放测试，并把已完成节点保留为回归义务。
 
 ## Comparison
 
@@ -99,6 +106,13 @@
 | RE-Bench | 2024 | 2/8/32 小时预算下对照人类专家的 best-of-k | 7 个研究工程环境（METR） | [→](../works/re-bench.md) |
 | MLGym | 2025 | 完整研究循环；可 RL 训练的 Gym | 13 个开放式 AI 研究任务（Meta） | [→](../works/mlgym.md) |
 | DevAI / Agent-as-a-Judge | 2024 | 构建 AI/ML 项目；逐步的需求判分 | 55 个 AI 开发任务、365 个需求 | [→](../works/devai.md) |
+| VLA-Arena | 2025 | 11 个套件共 170 个任务；L0–L2 分级含一个 Long Horizon 套件；SR + 累积成本 | 模拟机器人操作（RoboSuite / LIBERO / VLABench） | [→](../works/vla-arena.md) |
+| RoboGraphBench | 2026 | 588 个回合；任务状态 horizon（维护 / 探索 / 更新）；100 步闭环；状态管理 + 恢复指标 | 具身高层规划（RoboTwin 2.0 / RoboCasa 模拟器） | [→](../works/compiling-and-benchmarking-task-state-horizons-for.md) |
+| DSAgentBench | 2026 | 275 个多阶段、多工具数据科学工作流 | 真实计算机环境（notebook / IDE / 终端 / 浏览器 / 数据库） | [→](../works/dsagentbench.md) |
+| DrBencher | 2026 | 多跳浏览 + 多步计算交织；答案优先的 KG 链合成 | 五个领域上的 deep research（web + 领域 API） | [→](../works/drbencher.md) |
+| Evo-Bench | 2026 | 608 个任务；有界 harness 演化循环（20 轮 / 1,000 步 / 48h）；Overall + Anytime Validation Score | Search / Office / General agent harness 自我改进 | [→](../works/evo-bench.md) |
+| SWE-Bench ProMax | 2026 | 170 个重构实例；每任务平均改动 11.4 个文件 / 261.6 行 | 多语言软件仓库（7 种语言）；执行打分 | [→](../works/swe-bench-promax.md) |
+| LoopsBench | 2026 | 112 个任务；对 5,300+ 开发单元的依赖 DAG「loop engineering」；流感知的回归义务 | 软件开发（8 种语言、9 个领域）；Docker 支撑 | [→](../works/loopsbench.md) |
 
 ## Open Questions
 
@@ -109,6 +123,13 @@
 
 ## Related Works
 
+- [VLA-Arena](../works/vla-arena.md)
+- [DrBencher](../works/drbencher.md)
+- [LoopsBench](../works/loopsbench.md)
+- [RoboGraphBench](../works/compiling-and-benchmarking-task-state-horizons-for.md)
+- [SWE-Bench ProMax](../works/swe-bench-promax.md)
+- [DSAgentBench](../works/dsagentbench.md)
+- [Evo-Bench](../works/evo-bench.md)
 - [Agents' Last Exam](../works/agents-last-exam.md)
 - [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)

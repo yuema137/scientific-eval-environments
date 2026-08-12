@@ -32,6 +32,7 @@ A third cluster is **physics-grounded forecasting and model-fitting**, where the
 | MLE-Dojo | 2025 | Iteratively build and refine ML models with feedback | 200+ Kaggle challenges, Gym-style interactive, SFT/RL-trainable | Iterative improvement and solution quality across 8 LLMs | [card](../works/mle-dojo.md) |
 | BioXArena | 2026 | Build and train biomedical predictive models | 76 end-to-end tasks, 9 domains, 2-hour single-GPU budget | Hidden-label 0-1 score; best MLEvolve 0.666 | [card](../works/bioxarena.md) |
 | DiscoverPhysics | 2026 | Infer and implement laws of counterfactual worlds | 22 simulated N-body worlds, iterative experiment proposal | Trajectory MSE plus rubric-judged explanation; best | [card](../works/discoverphysics.md) |
+| DSAgentBench | 2026 | Build predictive models within data-science workflows | 275 real-environment tasks including a modeling stage | Deterministic model-performance verification | [card](../works/dsagentbench.md) |
 | gwBenchmarks | 2026 | Build high-precision surrogates and fit remnant properties | 8 tasks over >10^8 core-hours of NR-grade data | Relative error near 1e-4 via external evaluator; agents fall short | [card](../works/gwbenchmarks.md) |
 | onepot-Bench 0 | 2026 | Predict reaction outcomes and select catalysts | 3-part suite (cheminformatics, refusal, synthesis), private lab data | Prediction against private experimental ground truth | [card](../works/onepot-bench.md) |
 | RealPDEBench | 2026 | Scientific ML models bridging real and simulated physics | 5 real+paired-sim datasets, 3 tasks, 8 metrics, 10 baselines | Data/physics metrics; pretraining improves accuracy | [card](../works/realpdebench.md) |
@@ -39,6 +40,7 @@ A third cluster is **physics-grounded forecasting and model-fitting**, where the
 
 ## Related Works
 
+- [DSAgentBench](../works/dsagentbench.md)
 - [MLAgentBench](../works/mlagentbench.md)
 - [DSBench](../works/dsbench.md)
 - [LLM4Mat-Bench](../works/llm4mat-bench.md)

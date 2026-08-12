@@ -13,11 +13,11 @@
 | ScienceAgentBench | 2024 | 计算化学任务——其 102 个任务中的 20 个——提取自经同行评审的数据驱动发现工作流。 | 每个任务要求生成一个自包含的 Python 程序，复现真实论文中的分析。 | 有效执行加逐任务手写的成功检查器，对照专家标注参考（如指标阈值）；图形输出由 GPT-4o 评判。 | [→](../works/scienceagentbench.md) |
 | NatureBench | 2026 | 达到 Nature 系列 Molecular Design 研究的已发表 SOTA——其 90 个任务中的 11 个——只给目标算法的输入，不给其操作或输出。 | 经评审门控流水线与信息防火墙构建的 code-agent 任务；每任务平均约 3.7 个主指标。 | 在论文自身主指标上的 SOTA 归一化相对差距 g；报告 Match-SOTA（g ≥ 0）与 Surpass-SOTA（g > 0.1）比率，另有 judge 标记捷径运行。 | [→](../works/naturebench.md) |
 | Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Physical Sciences 分组下的化学任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
-| ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Chemistry 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文工件的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
+| ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Chemistry 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文产物的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
 | MDArena | 2026 | 运行真实的分子动力学计算化学工作流：轨迹分析、体系搭建、炼金术式（alchemical）自由能计算与增强采样。 | 源自在研项目的 50 个容器化任务，覆盖 29 个分子体系与 14 种研究方案。 | 以 Strict-Pass@1 为主指标，另以 correctness 与过程奖励指标为部分进展计分。 | [→](../works/mdarena.md) |
 | PhySciBench | 2026 | 在物理与化学各半的题集中回答化学侧的专家 deep-research 问题，针对推理链脆弱、跨步骤知识迁移有限与缺少自我验证。 | 200 道专家整理的问题，物理与化学各半，组织为呼应真实科研工作流的六类任务。 | 基于准确率比较最先进模型与 agent 系统，并在准确率之外报告成本。 | [→](../works/physcibench.md) |
 | MetaSyn | 2026 | 进行忠实于协议的系统综述与 meta 分析；化学是其 422 个专家整理 meta 分析所覆盖的主题之一。 | 多阶段系统综述工作流：在掺入不合格干扰文献的共享 PubMed 文献库中，依据带结构化 PI/ECO 标准的研究问题找出应纳入的研究。 | 对照原综述作者实际纳入的研究集做识别评估，并以分阶段评估定位 meta 分析流程中的失败环节。 | [→](../works/metasyn.md) |
-| SciCode | 2024 | 为科学家整理的问题编写科研代码；其 16 个自然科学子领域分属五大主领域，化学是其中之一。 | 80 个主问题分解为 338 个子问题，混合知识回忆、推理与代码合成。 | 对照科学家标注的金标准解与测试用例执行。 | [→](../works/scicode.md) |
+| SciCode | 2024 | 为科学家整理的问题编写科研代码；其 16 个自然科学子领域分属五大主领域，化学是其中之一。 | 80 个主问题分解为 338 个子问题，混合知识回忆、推理与代码合成。 | 对照科学家标注的参考解与测试用例执行。 | [→](../works/scicode.md) |
 | SMDD-Bench | 2026 | 面向蛋白靶点求解药物化学设计问题——2D 药效团识别、骨架跃迁、先导化合物优化、片段组装。 | 有限 oracle 调用预算下、102 个靶点上 502 个保证有解的多轮任务。 | 保证有解实例上的解出率；最佳前沿模型 40.2%。 | [→](../works/smdd-bench.md) |
 | AInsteinBench | 2025 | 解决生产级科学仓库中的维护者 PR 任务；量子化学与化学信息学在其六个代码库之列。 | 可执行环境中的仓库级 coding agent 任务。 | 经专家评审整理的测试驱动验证。 | [→](../works/ainsteinbench.md) |
 | ChemBench | 2024 | 以人类化学家的专业水平为对照，测量化学知识与推理。 | 2,700 多个策划问答对；不借助工具的静态问答。 | 自动化框架评分，配招募的化学家基线与置信度分析。 | [→](../works/chembench.md) |
@@ -38,9 +38,15 @@
 | ChemCost | 2026 | 给化学反应定价：确定身份、检索报价、选择包装、计算成本。 | 冻结快照（2,261 种化学品、230,775 条供应商报价）上的 1,427 个可评估反应。 | 无 judge 的精确真值，配阶段级诊断；最强 agent 50.6% 落在 25% 相对误差内。 | [→](../works/chemcost.md) |
 | onepot-Bench 0 | 2026 | 预测反应结果与催化剂选择，另测化学信息学素养与拒答行为。 | 私有三组件套件（ChemAbacus、SynthRefusal、SynthBench），基于实验室私有数据。 | 分组件对照私有实验真值评分。 | [→](../works/onepot-bench.md) |
 | MaCBench | 2024 | 承担化学研究中的视觉工作：认读仪器、抽取数据、解读实验结果。 | 三个方面的多模态（图像 + 文本）任务；静态视觉-语言评估。 | 经 ChemBench 管线计准确率；抽取近乎完美，跨模态推断受限。 | [→](../works/macbench.md) |
+| SciVisAgentBench | 2026 | 对化学数据做科学可视化与数据分析——化学是其七个应用领域之一——把自然语言意图转译为可执行的可视化操作，含分子动力学工具链。 | 108 个专家构造的 SciVis 案例，覆盖七个科学领域与 15 类可视化操作，经 CLI、MCP 服务器与 Python API 在 ParaView、napari 等平台上运行。 | 以结果为中心的多模态流水线，结合 MLLM judge（报告为 Claude-Opus-4.6；与人工评分 Pearson 0.808）与确定性评估器——图像指标（PSNR、SSIM、LPIPS）、代码检查器与规则/逐案例验证器。 | [→](../works/scivisagentbench.md) |
+| DrBencher | 2026 | 生物化学领域（归入 Chemistry）的网页浏览与计算交织问题——对化学实体做多跳识别，从 PubChem、ChEMBL、RCSB PDB 等来源检索定量属性，再做领域特定计算。 | 由知识图谱链条答案优先合成的问题，需多跳识别、定量属性检索与多步计算；覆盖五个领域（生物化学、地球物理、金融、安全、历史），生物化学是其一。 | 基于执行：金标准答案由对知识图谱数值执行参数化代码算得，在约 2% 相对容差内评分；两阶段难度级联；人工校验有效率 76%。 | [→](../works/drbencher.md) |
+| Science Edge Evaluation (SEE) | 2026 | 对真实化学实验数据——谱图（IR、NMR、质谱）、X 射线衍射及相关测量——做证据受限的科学推理，而非概念回忆；化学是其三个学科之一。 | 1,116 道专家整理的多模态题目（公开 1,049 道），覆盖三个实验学科（化学、生物、材料科学）与 17 个子领域，采用选择题与数值填空格式；视觉智能体设定另加网页检索与代码解释器。 | 对照专家标准答案评分——选择题精确匹配，数值答案按专家容差——采用严格的二元 LLM-as-judge 协议（Gemini 3.1 Pro）；图像消融检查确认每题都需要其视觉输入。 | [→](../works/science-edge-evaluation.md) |
 
 ## Related Works
 
+- [DrBencher](../works/drbencher.md)
+- [SciVisAgentBench](../works/scivisagentbench.md)
+- [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
 - [ScienceAgentBench](../works/scienceagentbench.md)
 - [NatureBench](../works/naturebench.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)

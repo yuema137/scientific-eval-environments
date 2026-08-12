@@ -31,6 +31,9 @@ Credit assignment is related to but distinct from [Skill Hierarchy](./skill_hier
 - **Localize, attribute, repair.** [SearchAuditor](../works/searchauditor.md) grades auditors end-to-end on 1,243 expert-annotated failed search trajectories — localization of the critical error step, attribution to a search-specific root cause, and repair against reference rubrics — with the strongest baseline passing only 26.6% end-to-end.
 - **Credit inside the skill artifact.** [SkillSV](../works/skillsv.md) moves credit assignment from trajectory steps to the internal units of an agent skill: structure-aware Shapley valuation over a skill's compiled units, dependencies, and hierarchy, with paired deletion and length-neutral padding separating content value from context cost.
 - **Error-lifecycle attribution.** [TRAJDEBUG](../works/trajdebug.md) traces each detected error's resolution status and terminal impact over TrajErrBench's 486 manually annotated failed trajectories, so credit for a failure lands on the error that actually determined it rather than on errors the agent later recovered from.
+- **Fault-origin localization from telemetry.** [TelemetrySuffBench](../works/telemetrysuffbench.md) tests whether execution telemetry is sufficient to attribute a failure to its origin component, using delayed-binding faults that decouple symptom from cause and exact-equal ambiguous origin pairs that make abstention the correct answer.
+- **Component-level trajectory attribution.** [Long-Horizon Agent Trajectory Attribution](../works/long-horizon-agent-trajectory-attribution.md) attributes an observed agent outcome to the responsible trajectory component and recovers the surrounding attribution chain, with likelihood-based and leave-one-out reference baselines.
+- **Minimal necessary cause.** [TempoBench](../works/tempobench.md) isolates counterfactual credit assignment — which inputs were necessary for an observed output — over formally labeled Mealy-machine execution traces, distinct from forward simulation.
 
 ## Comparison
 
@@ -53,6 +56,9 @@ Credit assignment is related to but distinct from [Skill Hierarchy](./skill_hier
 | SearchAuditor | 2026 | Expert-annotated critical step, search-specific root cause, rubric-graded repair | Per critical step within a failed search trajectory | [→](../works/searchauditor.md) |
 | SkillSV | 2026 | Structure-aware Shapley value over a skill's compiled units | Per skill unit, not per trajectory step | [→](../works/skillsv.md) |
 | TRAJDEBUG | 2026 | Error lifecycle: occurrence, resolution status, terminal impact | Per error within a failed trajectory | [→](../works/trajdebug.md) |
+| TelemetrySuffBench | 2026 | Origin-step localization from telemetry with delayed-binding faults; abstention on ambiguous origins | Per injected fault-origin component / event | [→](../works/telemetrysuffbench.md) |
+| Long-Horizon Agent Trajectory Attribution | 2026 | Primary-component attribution (Hit@1 / MRR) + attribution-chain recovery (Recall@K / MAP) | Per trajectory component (root cause + chain) | [→](../works/long-horizon-agent-trajectory-attribution.md) |
+| TempoBench | 2025 | Minimal-necessary-cause identification via counterfactual attribution, vs. forward simulation | Per input condition of an execution trace | [→](../works/tempobench.md) |
 
 ## Open Questions
 
@@ -62,6 +68,10 @@ Credit assignment is related to but distinct from [Skill Hierarchy](./skill_hier
 
 ## Related Works
 
+- [TempoBench](../works/tempobench.md)
+- [TelemetrySuffBench](../works/telemetrysuffbench.md)
+- [From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](../works/from-reasoning-to-agentic.md)
+- [Long-Horizon Agent Trajectory Attribution](../works/long-horizon-agent-trajectory-attribution.md)
 - [AgentBoard](../works/agentboard.md)
 - [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md)
 - [FinTrace](../works/fintrace.md)

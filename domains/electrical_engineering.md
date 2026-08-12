@@ -25,9 +25,11 @@ Electrical and electronic engineering.
 | MMCircuitEval | 2025 | Answer circuit questions across the EDA design flow. | 3,614 multimodal QA pairs across digital and analog circuits and EDA stages. | Accuracy by design stage, circuit type, tested ability, and difficulty. | [→](../works/mmcircuiteval.md) |
 | TeleQnA | 2023 | Answer telecommunications-knowledge questions grounded in standards. | 10,000 multiple-choice questions from 3GPP/IEEE standards and research literature. | Multiple-choice accuracy against an active-telecom-professional baseline. | [→](../works/teleqna.md) |
 | ControlAgent / ControlEval | 2024 | Design controllers meeting stability and performance specifications. | 500 control-design tasks (ControlEval) across first/second-order, time-delay, and higher-order systems. | Average and agent success rates against design criteria vs. toolbox+human baselines. | [→](../works/controleval.md) |
+| PDAgent-Bench | 2026 | VLSI physical design / Electronic Design Automation — chip back-end implementation spanning floorplanning, power planning, placement, clock-tree synthesis, routing, static timing analysis, and engineering change orders. | 353 curated task-level problems across five capability dimensions (foundational knowledge, report comprehension, root-cause analysis, static timing analysis, script generation) plus 10 full-flow design projects, using TSMC 28nm / Nangate 45nm and tools including Cadence Innovus, Synopsys ICC2/PrimeTime, and OpenROAD; 11 models. | Task-level pass@1/pass@5 with script solutions checked by execution and conceptual answers scored against three-expert-validated references; workflow-level full-flow runs assessed by timing closure and DRC-violation outcomes on designs such as TinyRISCV, AES-256, and Ethernet MAC. | [→](../works/pdagent-bench.md) |
 
 ## Related Works
 
+- [PDAgent-Bench](../works/pdagent-bench.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [VerilogEval](../works/verilogeval.md)
 - [RTLLM](../works/rtllm.md)

@@ -30,8 +30,10 @@
 | Speak-to-Structure / TOMG-Bench | 2024 | 自然语言驱动的开放域分子生成 | MolEdit/MolOpt/MolCustom，每个子任务 5,000 个样本 | 满足指令的有效分子（一对多） | [卡片](../works/tomg-bench.md) |
 | CVDP | 2025 | Verilog 的 RTL 设计、验证与调试 | 783 个问题，13 个类别，含 agentic 与非 agentic | 生成任务的 Pass@1（SOTA <=34%） | [卡片](../works/cvdp.md) |
 | HLS-Eval | 2025 | LLM 生成并优化可综合的 HLS 代码 | 94 个 HLS 设计，NL 到代码及优化改写 | 在 Vitis HLS 上可解析/可编译/可运行/可综合（pass@k） | [卡片](../works/hls-eval.md) |
+| EnergyBridge | 2026 | 生成约束感知的居民需求响应方案 | 基于 EnergyPlus 模型的 VPP 工作流（天津、柏林） | 授权率加容量承诺可靠性 | [卡片](../works/energybridge.md) |
 | Frontier-Eng | 2026 | 在仿真器反馈下的迭代式生成式设计 | 47 项任务，5 个工程类别，预算受限 | 在硬可行性约束下的连续奖励 | [卡片](../works/frontier-eng.md) |
 | HydroAgent | 2026 | agent 校准业务化 CREST 水文模型 | 4 个留出水文站（329-40,792 km2），20 轮取最优 | 对照人类专家参考的 Nash-Sutcliffe Efficiency | [卡片](../works/hydroagent.md) |
+| PDAgent-Bench | 2026 | 约束下的 VLSI 物理设计优化 | 全流程实现加任务级问题；Innovus/ICC2/OpenROAD EDA | 时序收敛与 DRC 无违规布局；pass@1/5 | [卡片](../works/pdagent-bench.md) |
 | PowerAgentBench-SS | 2026 | agent 筛查故障并提出电网缓解方案 | 验证预算下的 IEEE 39-bus DC 热稳定 N-2 搜索 | 隐藏评估器召回率、严重度后悔值、残余违规 | [卡片](../works/poweragentbench-ss.md) |
 | SciAgentArena | 2026 | 涵盖优化与设计的生物医学研究任务 | 横跨五个生物医学领域、逐步验证的 200 项任务 | 在数据/优化/发现/有效性维度上逐步验证 | [卡片](../works/sciagentarena.md) |
 | SimulCost | 2026 | 物理仿真的成本感知参数调优 | 2,947 个单轮 + 1,931 个多轮任务，13 个仿真器 | 在仿真时间/资源预算下的调优质量 | [卡片](../works/simulcost.md) |
@@ -39,6 +41,8 @@
 
 ## Related Works
 
+- [PDAgent-Bench](../works/pdagent-bench.md)
+- [EnergyBridge](../works/energybridge.md)
 - [AnalogCoder](../works/analogcoder.md)
 - [AnalogXpert](../works/analogxpert.md)
 - [Aviary](../works/aviary.md)

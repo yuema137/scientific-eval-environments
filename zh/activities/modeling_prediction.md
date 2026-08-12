@@ -24,7 +24,7 @@
 |---|---|---|---|---|---|
 | MLAgentBench | 2023 | 迭代式改进某个 ML 模型的目标指标 | 13 个 ML 实验任务，可读写并执行代码，agentic | 超越起始代码基线；最佳 agent 平均 37.5% | [卡片](../works/mlagentbench.md) |
 | DSBench | 2024 | 从数据文件出发的端到端预测性数据建模 | 540 个任务（74 个建模 + 466 个分析），多模态多表格 | 完成任务；最佳成绩解出 34.12% 的分析题 | [卡片](../works/dsbench.md) |
-| LLM4Mat-Bench | 2024 | 从文本编码的晶体预测材料性质 | 静态回归/分类，约 1.9M 个结构、45 种性质、3 种模态 | 相对 CGCNN 的准确率；微调模型胜过生成式 LLM | [卡片](../works/llm4mat-bench.md) |
+| LLM4Mat-Bench | 2024 | 从文本编码的晶体预测材料性质 | 静态回归/分类 | 1.9M 个结构、45 种性质、3 种模态 | [卡片](../works/llm4mat-bench.md) |
 | MatText | 2024 | 从文本表示预测晶体性质 | 静态回归，9 种表示，参数量最高达 70B，2M 个结构 | 达到几何 GNN 基线水平；揭示几何盲区 | [卡片](../works/mattext.md) |
 | MLE-bench | 2024 | 端到端 ML 工程以训练有竞争力的模型 | 75 个精选 Kaggle 竞赛，agentic，长时程 | Kaggle 奖牌门槛；o1-preview 在 16.9% 上获铜牌 | [卡片](../works/mle-bench.md) |
 | AlchemyBench | 2025 | 预测完整的材料合成配方及结果 | 对 17,000 个专家验证配方的静态预测 | LLM-as-a-Judge 与专家评估的一致性 | [卡片](../works/alchemybench.md) |
@@ -32,6 +32,7 @@
 | MLE-Dojo | 2025 | 借助反馈迭代式构建并优化 ML 模型 | 200+ 个 Kaggle 挑战，Gym 风格交互，可用于 SFT/RL 训练 | 8 个 LLM 上的迭代改进与解答质量 | [卡片](../works/mle-dojo.md) |
 | BioXArena | 2026 | 构建并训练生物医学预测模型 | 76 个端到端任务，9 个领域，2 小时单 GPU 预算 | 隐藏标签 0-1 评分；最佳 MLEvolve 0.666 | [卡片](../works/bioxarena.md) |
 | DiscoverPhysics | 2026 | 推断并实现反事实世界的物理定律 | 22 个模拟 N-body 世界，迭代式实验提案 | 轨迹 MSE 加上按 rubric 评判的解释；最佳约 50% | [卡片](../works/discoverphysics.md) |
+| DSAgentBench | 2026 | 在数据科学工作流中构建预测模型 | 275 个真实环境任务，含一个建模阶段 | 确定性的模型性能验证 | [卡片](../works/dsagentbench.md) |
 | gwBenchmarks | 2026 | 构建高精度代理模型并拟合残余体性质 | 8 个任务，基于超过 10^8 核时的 NR 级数据 | 通过外部评估器达到约 1e-4 的相对误差；agent 未能达标 | [卡片](../works/gwbenchmarks.md) |
 | onepot-Bench 0 | 2026 | 预测反应结果并选择催化剂 | 三部分套件（cheminformatics、拒答、合成），私有实验室数据 | 对照私有实验真实值进行预测 | [卡片](../works/onepot-bench.md) |
 | RealPDEBench | 2026 | 衔接真实与模拟物理的科学 ML 模型 | 5 个真实+配对模拟数据集，3 个任务，8 项指标，10 个基线 | 数据/物理指标；预训练可提升准确率 | [卡片](../works/realpdebench.md) |
@@ -39,6 +40,7 @@
 
 ## Related Works
 
+- [DSAgentBench](../works/dsagentbench.md)
 - [MLAgentBench](../works/mlagentbench.md)
 - [DSBench](../works/dsbench.md)
 - [LLM4Mat-Bench](../works/llm4mat-bench.md)

@@ -54,6 +54,13 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - **Time-budgeted AI R&D.** [RE-Bench](../works/re-bench.md) evaluates agents against human experts on open-ended research engineering under 2/8/32-hour budgets.
 - **An AI-research gym.** [MLGym](../works/mlgym.md) runs the full research loop — idea to analysis — over 13 tasks in a Gym environment supporting RL training.
 - **AI-development agents.** [DevAI / Agent-as-a-Judge](../works/devai.md) has agents build AI/ML projects against 365 hierarchical requirements, evaluated step by step.
+- **Factorized-difficulty robot manipulation.** [VLA-Arena](../works/vla-arena.md) evaluates Vision-Language-Action policies over 170 manipulation tasks with orthogonal difficulty axes and graded levels L0–L2, including a dedicated Long Horizon suite and a cumulative-cost metric.
+- **Task-state horizon.** [RoboGraphBench](../works/compiling-and-benchmarking-task-state-horizons-for.md) introduces the task-state horizon — the span of task-relevant state an agent must track, maintain, explore, and update — and compiles 588 embodied-planning episodes with intervention-induced state updates and recovery metrics.
+- **End-to-end data-science workflows.** [DSAgentBench](../works/dsagentbench.md) frames data science as long-horizon, multi-stage, multi-tool work executed inside real computer environments, pairing each of 275 tasks with a deterministic evaluator.
+- **Interleaved browsing and computation.** [DrBencher](../works/drbencher.md) synthesizes deep-research questions that require multi-hop browsing interleaved with multi-step computation, with execution-verifiable gold answers from knowledge-graph chains.
+- **Harness self-improvement.** [Evo-Bench](../works/evo-bench.md) scores a model on how much it can improve its own agent harness across a bounded evolution loop, reporting downstream performance and an anytime-validation trajectory.
+- **Multilingual large-scale refactoring.** [SWE-Bench ProMax](../works/swe-bench-promax.md) tests coordinated, behavior-preserving changes averaging 11.4 files and 261.6 lines per instance across seven programming languages.
+- **Loop engineering.** [LoopsBench](../works/loopsbench.md) models sustained software development as a dependency DAG over separately testable units, with a flow-aware runtime that releases tests along the ready frontier and retains completed nodes as regression obligations.
 
 ## Comparison
 
@@ -99,6 +106,13 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | RE-Bench | 2024 | Best-of-k under 2/8/32-hour budgets vs. human experts | 7 research-engineering environments (METR) | [→](../works/re-bench.md) |
 | MLGym | 2025 | Full research loop; RL-trainable Gym | 13 open-ended AI-research tasks (Meta) | [→](../works/mlgym.md) |
 | DevAI / Agent-as-a-Judge | 2024 | Build AI/ML projects; step-wise requirement grading | 55 AI-development tasks, 365 requirements | [→](../works/devai.md) |
+| VLA-Arena | 2025 | 170 tasks over 11 suites; graded levels L0–L2 incl. a Long Horizon suite; SR + Cumulative Cost | Simulated robot manipulation (RoboSuite / LIBERO / VLABench) | [→](../works/vla-arena.md) |
+| RoboGraphBench | 2026 | 588 episodes; task-state horizon (maintain / explore / update); 100-step closed loop; state-management + recovery metrics | Embodied high-level planning (RoboTwin 2.0 / RoboCasa simulators) | [→](../works/compiling-and-benchmarking-task-state-horizons-for.md) |
+| DSAgentBench | 2026 | 275 multi-stage, multi-tool data-science workflows | Real computer environments (notebooks / IDEs / terminals / browsers / databases) | [→](../works/dsagentbench.md) |
+| DrBencher | 2026 | Interleaved multi-hop browsing + multi-step computation; answer-first KG-chain synthesis | Deep research over five domains (web + domain APIs) | [→](../works/drbencher.md) |
+| Evo-Bench | 2026 | 608 tasks; bounded harness-evolution loop (20 iters / 1,000 steps / 48h); Overall + Anytime Validation Score | Search / Office / General agent harness self-improvement | [→](../works/evo-bench.md) |
+| SWE-Bench ProMax | 2026 | 170 refactoring instances; avg 11.4 files / 261.6 LOC changed per task | Multilingual software repositories (7 languages); execution-graded | [→](../works/swe-bench-promax.md) |
+| LoopsBench | 2026 | 112 tasks; dependency-DAG "loop engineering" over 5,300+ development units; flow-aware regression obligations | Software development (8 languages, 9 domains); Docker-backed | [→](../works/loopsbench.md) |
 
 ## Open Questions
 
@@ -109,6 +123,13 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 
 ## Related Works
 
+- [VLA-Arena](../works/vla-arena.md)
+- [DrBencher](../works/drbencher.md)
+- [LoopsBench](../works/loopsbench.md)
+- [RoboGraphBench](../works/compiling-and-benchmarking-task-state-horizons-for.md)
+- [SWE-Bench ProMax](../works/swe-bench-promax.md)
+- [DSAgentBench](../works/dsagentbench.md)
+- [Evo-Bench](../works/evo-bench.md)
 - [Agents' Last Exam](../works/agents-last-exam.md)
 - [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
