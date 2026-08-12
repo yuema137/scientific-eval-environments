@@ -56,6 +56,7 @@ Activity rules: **multi-label**, assigned conservatively (typically 1–3, only 
 - **Two-level reference validation.**
   - *Link validation*: title, URL, project, venue, year.
   - *Content validation*: statistics, task counts, metrics, reported numbers, settings — from the **original paper or official project only**, never secondary sources. Unverifiable content becomes `TODO(reference)`.
+  - *Retrieval*: for literature and domain-backfill research, prefer **WebFetch** for public HTTP(S) retrieval. Do not use `curl` or `wget` when WebFetch can retrieve the source. Domain-scoped shell rules are fragile (argument order, redirects, variables), so network access is governed by `WebFetch(domain:…)` allow rules instead; a new publisher domain is approved once, then remembered.
 - **English is canonical.** Chinese mirrors under `zh/` (`zh/works/`, `zh/topics/`, `zh/domains/`, `zh/activities/`) sync after every English batch — not deferred. Every card's `## Activities` block mirrors on the Chinese card under `## 研究活动` with the fixed Chinese activity labels. Translations must be **natural Chinese, not word-for-word** (面包屑-style literalisms are defects); after every sync, re-read the changed zh pages as a Chinese reader and fix stilted phrasing — the naturalness review is part of the sync step.
 - **Objective only.** No "our benchmark" / "our approach" / positioning language anywhere in `works/` or `topics/`.
 - **Link, do not copy.** Prefer cross-references over duplicating content.
