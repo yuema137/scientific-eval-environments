@@ -32,7 +32,7 @@
 | Speak-to-Structure / TOMG-Bench | 2024 | 自然语言驱动的开放域分子生成 | MolEdit/MolOpt/MolCustom，每个子任务 5,000 个样本 | 满足指令的有效分子（一对多） | [卡片](../works/tomg-bench.md) |
 | CVDP | 2025 | Verilog 的 RTL 设计、验证与调试 | 783 个问题，13 个类别，含 agentic 与非 agentic | 生成任务的 Pass@1（SOTA <=34%） | [卡片](../works/cvdp.md) |
 | HLS-Eval | 2025 | LLM 生成并优化可综合的 HLS 代码 | 94 个 HLS 设计，NL 到代码及优化改写 | 在 Vitis HLS 上可解析/可编译/可运行/可综合（pass@k） | [卡片](../works/hls-eval.md) |
-| Autonomous Action Execution (AAE) Framework | 2026 | 提出装置控制动作，并对照 P&ID 拓扑加以校验 | 5 个过程装置场景（其中 3 个取自 Tennessee Eastman），B0-B3 上下文阶梯，N=50 次运行 | 结构上可行的动作；在 43 个注入方案上的验证器召回率 | [卡片](../works/aae-framework.md) |
+| Autonomous Action Execution (AAE) Framework | 2026 | 提出装置控制动作，并对照 P&ID 拓扑加以验证 | 5 个过程装置场景（其中 3 个取自 Tennessee Eastman），B0-B3 上下文阶梯，N=50 次运行 | 结构上可行的动作；在 43 个注入方案上的验证器召回率 | [卡片](../works/aae-framework.md) |
 | Autonomous Fault-Tolerant Control Tutorial | 2026 | 在注入装置故障后选择恢复模式并调整设定点 | 两个可执行环境（混合模块、CSTR），支持按类型注入故障 | 经验证器认可的恢复动作；未报告参考分数 | [卡片](../works/ctrl-alt-recover.md) |
 | CeProBench | 2026 | 过程操作参数的闭环优化 | 20 个 Aspen Plus 参数文件，91 个可调参数，65 个目标 | 收率/纯度/成本、Effective Score 与 Comprehensive Score、收敛迭代次数 | [卡片](../works/ceprobench.md) |
 | EnergyBridge | 2026 | 生成约束感知的居民需求响应方案 | 基于 EnergyPlus 模型的 VPP 工作流（天津、柏林） | 授权率加容量承诺可靠性 | [卡片](../works/energybridge.md) |

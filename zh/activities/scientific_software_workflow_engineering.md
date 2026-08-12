@@ -63,7 +63,7 @@
 | BioAgent Bench | 2026 | 端到端生物信息学流水线 | 精选的 RNA-seq/变异检测/宏基因组；agentic | LLM 评分的流水线进展 + 结果有效性 | [卡片](../works/bioagent-bench.md) |
 | BioXArena | 2026 | 多模态生物医学 ML 模型 | 76 个任务、9 个领域；2 小时单 GPU 环境 | 隐藏标签、具生物学意识的评分（0-1） | [卡片](../works/bioxarena.md) |
 | Collider-Bench | 2026 | LHC 分析复现（仿真流水线） | 10 个 CMS SUSY 任务；容器化公开技术栈 | 直方图相对隐藏参考产额的保真度 | [卡片](../works/collider-bench.md) |
-| CRAFTS | 2026 | 可执行的 IDAES/Pyomo 化工过程仿真模型 | OpenIDAES-450；82 个冻结的留出算例、带类型的中间表示、确定性关卡校验 | Workflow Success 91.5% + 设备/物流/连接的宏平均 F1 | [卡片](../works/crafts.md) |
+| CRAFTS | 2026 | 可执行的 IDAES/Pyomo 化工过程仿真模型 | OpenIDAES-450；82 个冻结的留出算例、带类型的中间表示、确定性关卡校验 | Workflow Success 91.5% + 单元/物流/连接的宏平均 F1 | [卡片](../works/crafts.md) |
 | gwBenchmarks | 2026 | 引力波建模/代理模型代码 | 8 个高精度任务；>10^8 核时数据 | 外部框架在接近 1e-4 误差下的评分 | [卡片](../works/gwbenchmarks.md) |
 | MDArena | 2026 | 分子动力学工作流代码 | 50 个容器化任务、29 个系统、14 种协议 | 严格成功率 + 过程部分得分 | [卡片](../works/mdarena.md) |
 | MooseBench | 2026 | MOOSE 多物理场仿真输入文件 | 220 个带 PDE 级标准答案的案例 | 意图保真度得分（重建 PDE 匹配） | [卡片](../works/moosebench.md) |

@@ -79,7 +79,7 @@
 | Using LLMs for Solving Thermodynamic Problems | 2025 | 计算化工热力学问题的数值答案 | 22 道题（13 道简单 / 9 道进阶），每个模型重复作答 3 次 | 专家按步给分的得分（进阶题最佳 55.19%） | [卡片](../works/llm-thermodynamics.md) |
 | ChemCensor / CREED | 2026 | 提出合理的逆合成前体 | 单步逆合成，合理性评分 | 化学合理性指标 | [卡片](../works/chemcensor.md) |
 | ChemCost | 2026 | 通过检索基准信息与报价为反应定价 | 1,427 项任务，冻结快照，使用工具 | 误差 25% 以内的准确率（50.6%） | [卡片](../works/chemcost.md) |
-| ERI Benchmark | 2026 | 回答横跨九个工程领域的开放式工程指令 | 57,750 条记录，55 个子领域，7 类意图，3 个难度层级 | 三家厂商模型组成的评审团给出的 1-5 分均值（GPT-5 为 4.48） | [卡片](../works/eri-benchmark.md) |
+| ERI Benchmark | 2026 | 回答横跨九个工程领域的开放式工程指令 | 57,750 条记录，55 个子领域，7 类意图，3 个难度层级 | 由三家厂商的模型组成评审团，取 1-5 分均值（GPT-5 为 4.48） | [卡片](../works/eri-benchmark.md) |
 | FukuyamaBench | 2026 | 推演基元反应机理路径 | 源自教科书的分步机理任务 | 路径精确匹配（8.3%） | [卡片](../works/fukuyamabench.md) |
 | HAZOP Automation Evaluation | 2026 | 依据一张 P&ID 生成完整的 HAZOP 工作表 | 一张 P&ID，统一提示词，四个多模态 LLM | 与专家参考的相似度（F1 >86%）对比有效场景占比（0.19-0.37） | [卡片](../works/can-large-language-models-automate-the-hazop-proce.md) |
 | LABBench2 | 2026 | 求解贴近实际的生物学研究任务 | 1,900 项任务，含 PDF/图像/生物信息学文件 | 准确率（较 LAB-Bench 下降 26-46%） | [卡片](../works/labbench2.md) |
@@ -88,7 +88,7 @@
 | onepot-Bench 0 | 2026 | 化学信息学、拒答、反应结果预测 | 三个部分，含私有实验室数据，静态 | 准确率 / 拒答行为 | [卡片](../works/onepot-bench.md) |
 | PhySciBench | 2026 | 回答物理科学深度研究问题 | 200 道精选题，物理+化学，6 个类别 | 答案正确性 | [卡片](../works/physcibench.md) |
 | PRL-Bench | 2026 | 求解前沿物理研究任务 | 100 项任务，取自近期 PRL 论文，5 个子领域 | 可验证评分（最佳 <50/100） | [卡片](../works/prl-bench.md) |
-| PSE-Bench | 2026 | 回答开放式的过程系统工程问题 | 200 道题，4 个 PSE 领域，单轮零样本 | 五位评审基于 rubric 的综合得分；要素覆盖率 60.8-78.1% | [卡片](../works/pse-bench.md) |
+| PSE-Bench | 2026 | 回答开放式的过程系统工程问题 | 200 道题，4 个 PSE 领域，单轮零样本 | 五个评审模型基于 rubric 的综合得分；要素覆盖率 60.8-78.1% | [卡片](../works/pse-bench.md) |
 | SciConvBench | 2026 | 澄清表述不清的计算科学请求 | 多轮对话，4 个领域 | 消歧/一致性求解（52.7%） | [卡片](../works/sciconvbench.md) |
 | Science Edge Evaluation (SEE) | 2026 | 对实验数据进行证据受限的推理 | 1,116 道多模态选择/数值填空题；化学、生物、材料 | 相较于专家标准答案的准确率（最佳 48.7%，用工具 52.7%） | [卡片](../works/science-edge-evaluation.md) |
 | TCS-Bench | 2026 | 生成研究级的理论计算机科学证明 | 300 项定理证明任务，取自 FOCS/STOC/SODA（2020–2026） | 自包含证明；verifier-agent 准确率（最佳 68%） | [卡片](../works/tcs-bench.md) |
