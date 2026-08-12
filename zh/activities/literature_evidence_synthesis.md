@@ -16,7 +16,7 @@
 
 第二类任务考察以证据为依托的问答以及对文献的多跳综合。[Aviary](../works/aviary.md) 贡献了 LitQA2/PaperQA 文献研究环境；[LAB-Bench](../works/lab-bench.md) 及其后续版本 [LABBench2](../works/labbench2.md) 都把文献记忆与推理嵌入到更广泛的生物学能力套件中，其中 LABBench2 通过将答案锚定在 PDF 和图像上，让任务重新贴近真实场景。[MedBrowseComp](../works/medbrowsecomp.md) 把多跳综合推向真实、碎片化的医学来源，考察的正是信息时效性与整合协调的能力；[DeepResearch Bench](../works/deepresearch-bench.md) 则通过其 RACE 和 FACT 框架，评估端到端的深度研究报告生成与引用锚定。[BioKGBench](../works/biokgbench.md) 把文献理解重新表述为可核验的行为——将论断核实与 KGQA 组合起来，用于在生物医学知识图谱中查找事实性错误。
 
-第三类任务是以文献为依托的结构化抽取：把论文转化为结构化记录。[MatViX](../works/matvix.md) 从完整篇幅的材料学文章中抽取成分组成与性质曲线并生成 JSON（评分对象包括图中曲线，而不仅是实体）；[ChemX](../works/chemx.md) 则从涵盖纳米材料与小分子数据集的文档中完成经专家验证的化学信息抽取。[CeProBench](../works/ceprobench.md) 的 Knowledge 维度把同一思路搬到工程文献上：从 70 份技术文档中抽取实体与关系、构建知识图谱，用实体 F1 与边结构指标打分，再用这张图为流程工程场景检索并综合上下文。[MetaSyn](../works/metasyn.md) 处于系统综述 / 元分析这一终点，要求智能体在 PI/ECO 协议下从含有干扰项的语料中筛选出符合条件的研究集合并加以综合。
+第三类任务是以文献为依托的结构化抽取：把论文转化为结构化记录。[MatViX](../works/matvix.md) 从完整篇幅的材料学文章中抽取成分组成与性质曲线并生成 JSON（评分对象包括图中曲线，而不仅是实体）；[ChemX](../works/chemx.md) 则从涵盖纳米材料与小分子数据集的文档中完成经专家验证的化学信息抽取。[CeProBench](../works/ceprobench.md) 的 Knowledge 维度把同一思路搬到工程文献上：从 70 份技术文档中抽取实体与关系、构建知识图谱，用实体 F1 与边结构指标打分，再用这张图为过程工程场景检索并综合上下文。[MetaSyn](../works/metasyn.md) 处于系统综述 / 元分析这一终点，要求智能体在 PI/ECO 协议下从含有干扰项的语料中筛选出符合条件的研究集合并加以综合。
 
 边界情形：Aviary、LAB-Bench、LABBench2 和 AstaBench 都是多能力套件，其中只有文献、问答与抽取相关的组成部分才明确落在本活动范围内（序列、克隆、实验流程以及代码类子任务则不属于）。[MOOSE-Chem](../works/moose-chem.md) 在一个 3,000 篇论文的语料上进行灵感检索，但其目的是重新发现假说而非证据综合，因此它主要归入 Experiment Design & Scientific Discovery。
 

@@ -178,9 +178,9 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **VLSI 物理设计。** [PDAgent-Bench](../works/pdagent-bench.md) 把任务级评估（353 道精选 EDA 题目）与工作流级闭环物理设计流程统一起来，发现模型在概念上有竞争力，但在工具中心、长时程的执行上偏弱。
 - **以可靠性评分的心理健康推理。** [MiraMind](../works/miramind.md) 在六类任务、13 个数据集上评估心理健康推理，不仅为结果打分，也为「从证据到判断」推理轨迹的可靠性打分。
 - **端到端的化工过程开发。** [CeProBench](../works/ceprobench.md) 把过程开发的评估围绕知识、概念、参数三条线索组织起来：六类任务，共 243 道题与 235 项任务，素材取自 70 份技术文档（4,406 个实体 / 4,967 条关系）、113 张源自竞赛的工艺流程图（986 台设备、1,172 条连接）以及 20 个 Aspen Plus 参数文件；其中参数类任务通过在 Aspen Plus 中实际执行候选操作设定来评分，因此决定分数的是热力学可行性，而不是文本相似度。
-- **以收敛作为通过标准，并与专家比耗时。** [Simona](../works/simona.md) 用模拟收敛率（SCR）为 1,000 段专家撰写的工艺描述打分——只有生成的流程图在模拟器中真正收敛，这份设计才算数——并在同一坐标上报告设计耗时；人类专家基线为 100% SCR、8,301.91 秒，让受评系统在质量与耗时两方面都有一个可解读的上界参照（所提出的工作流为 80.3%，GPT-4o 为 23.4%）。
+- **以收敛作为通过标准，并与专家比耗时。** [Simona](../works/simona.md) 用仿真收敛率（Simulation Convergence Rate, SCR）为 1,000 段专家撰写的工艺描述打分——只有生成的流程图在仿真器中真正收敛，这份设计才算数——并把设计耗时作为并列的另一条评价轴一同报告；人类专家基线为 100% SCR、8,301.91 秒，让受评系统在质量与耗时两方面都有一个可解读的上界参照（所提出的工作流为 80.3%，GPT-4o 为 23.4%）。
 - **相似不等于在领域内成立。** [Can Large Language Models Automate the HAZOP Process?](../works/can-large-language-models-automate-the-hazop-proce.md) 在同一批生成的工作表上，把模型层面的表现与过程安全层面的表现分开衡量：四个多模态模型对照专家编制的 HAZOP 参考，F1 都超过 86%，但它们生成的场景中只有 0.19–0.37 在语义上成立，而且所提出的防护措施明显偏向程序性措施，而非工程化的保护层。
-- **以过程工程师为基准校准的评审团。** [PSE-Bench](../works/pse-bench.md) 用五个相互独立的 LLM 评审，按七要素 rubric 为 200 道开放式过程系统工程题目打分，再请三位领域专家重新评阅同一批答案：二者的一致性为 Spearman rs = 0.416、ICC = 0.793，且 LLM 评审在 0–7 分制上系统性偏松 +0.85 分——论文把这一偏差当作校准常数明确报出，而不是任其隐而不宣。
+- **以过程工程师为基准校准的评审团。** [PSE-Bench](../works/pse-bench.md) 用五个相互独立的 LLM 评审，按七要素 rubric 为 200 道开放式过程系统工程题目打分，再请三位领域专家重新评阅同一批答案：二者的一致性为 Spearman rs = 0.416、ICC = 0.793，且 LLM 评审在 0–7 分制上系统性偏松 +0.85 分——论文把这一偏差当作校准常数明确报出，而不是让它隐而不显。
 
 ## Comparison
 
@@ -352,16 +352,16 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | PDAgent-Bench | 2026 | 取自真实工业 EDA 产物的 353 道精选任务 + 10 个全流程设计 | VLSI 物理设计 / EDA | pass@1/@5，配经执行检查的脚本与专家参考；全流程时序收敛 / DRC 结果 | [→](../works/pdagent-bench.md) |
 | MiraMind | 2025 | 13 个心理健康数据集上的六类任务 | 心理健康 / 精神病学（医学与健康；神经科学与认知科学） | 逐类结果指标加经人类验证的 LLM 判分推理轨迹评分 | [→](../works/miramind.md) |
 | CeProBench | 2026 | 6 类任务（243 道题 / 235 项任务），取自 70 份技术文档、113 张源自竞赛的 PFD 与 20 个 Aspen Plus 参数文件 | 化工过程开发：知识、概念（PFD）、参数 | 参数任务在 Aspen Plus 中实际执行；实体 F1 与 MEC/MED、设备与连接准确率、Valid / Correct Rate；以及经评判的 Correctness / Rationality / Clarity / Completeness | [→](../works/ceprobench.md) |
-| Simona | 2026 | 1,000 段由化学工程专家撰写的工艺描述 | 化工过程模拟：从描述到能够收敛的流程图 | 自研模拟器中的模拟收敛率加设计耗时，对照 LLM、多 agent 与人类专家基线 | [→](../works/simona.md) |
-| CRAFTS | 2026 | OpenIDAES-450：450 条需求各配一个可执行的 IDAES 模型，其中 82 条冻结为留出集 | 化工过程模拟（IDAES/Pyomo 面向方程的流程建模） | 置于确定性 IDAES/Pyomo 晋级门槛之后的分阶段 Workflow Success 契约，加上设备、物流与有向连接的宏平均 F1 | [→](../works/crafts.md) |
-| A Tutorial on Autonomous Fault-Tolerant Control | 2026 | 两个公开发布的可执行环境（间歇式混合模块、CSTR），支持按类型注入故障 | 过程装置的故障恢复与监督控制 | 逐方案的符号化校验（状态可达性、执行器存在性）与数字孪生中的仿真校验；未报告模型得分 | [→](../works/ctrl-alt-recover.md) |
+| Simona | 2026 | 1,000 段由化学工程专家撰写的工艺描述 | 化工过程仿真：从描述到能够收敛的流程图 | 自研仿真器中的仿真收敛率，加上设计耗时，对照 LLM、多 agent 与人类专家基线 | [→](../works/simona.md) |
+| CRAFTS | 2026 | OpenIDAES-450：450 条请求各配一个可执行的 IDAES 模型，其中 82 条冻结为留出集 | 化工过程仿真（IDAES/Pyomo 面向方程的流程建模） | Staged Workflow Success 契约，由确定性的 IDAES/Pyomo 晋级关卡把关；另计单元、物流与有向连接的宏平均 F1 | [→](../works/crafts.md) |
+| A Tutorial on Autonomous Fault-Tolerant Control | 2026 | 两个公开发布的可执行环境（间歇式混合模块、CSTR），支持按类型注入故障 | 过程装置的故障恢复与监督控制 | 逐条方案做符号验证（状态可达性、执行器存在性），并在数字孪生中做仿真验证；未报告模型得分 | [→](../works/ctrl-alt-recover.md) |
 | Autonomous Action Execution (AAE) Framework | 2026 | 五个过程装置场景（其中三个取自 Tennessee Eastman Process），外加 43 个人工构造的无效方案 | 工业过程控制与功能安全 | 对每个被提出的动作做确定性 P&ID 图遍历（位号存在性、可执行性、失效状态、下游影响）；错误注入召回率、N = 50 次鲁棒性运行、B0–B3 上下文阶梯 | [→](../works/aae-framework.md) |
-| PSE-Bench | 2026 | 200 道开放式题目，四个过程系统工程领域各 50 道，标准答案与 rubric 均已公开 | 过程系统工程：建模与模拟、优化、面向过程的机器学习、设计 | 五评审集成按七要素 rubric 打分，并合成 ROUGE / 余弦相似度 / 要素覆盖率的综合分；以人类专家校准（rs = 0.416，ICC = 0.793，偏松 +0.85） | [→](../works/pse-bench.md) |
+| PSE-Bench | 2026 | 200 道开放式题目，四个过程系统工程领域各 50 道，标准答案与 rubric 均已公开 | 过程系统工程：建模与仿真、优化、面向过程的机器学习、设计 | 五个 LLM 评审组成的集成按七要素 rubric 打分，综合分由 ROUGE / 余弦相似度 / 要素覆盖率合成；并以人类专家校准（rs = 0.416，ICC = 0.793，偏松 +0.85） | [→](../works/pse-bench.md) |
 | Can Large Language Models Automate the HAZOP Process? | 2026 | 一张带专家参考的 P&ID 与一条统一提示词，四个多模态 LLM 各运行一次 | 过程安全：HAZOP 危险识别 | 对照专家参考计算每份工作表的相似度（F1）与成本，并与场景有效性、防护措施多样性分开评分 | [→](../works/can-large-language-models-automate-the-hazop-proce.md) |
 | ChemEBench | 2025 | 三个递进层级、15 个维度下的 101 项化学工程任务 | 化学工程：基础知识、分子层面任务、专业工程技能 | 客观题按准确率计分；主观题按完整性 / 清晰度给 0–5 分 rubric，并逐步核查推理链；14 个模型横向对比 | [→](../works/chemebench.md) |
 | ERI Benchmark | 2026 | 57,750 条生成记录，由 9 个工程领域、55 个子领域、7 类意图、3 个难度层级受控交叉组合而成 | 工程推理与指令遵循（化学工程为九个领域之一） | 底层是自动化输出检查，其上是 rubric 层，由三家厂商的模型组成评审团（Claude Haiku 4.5、GPT-4.1 Mini、Mistral Small 3）；115,962 次评判取 1–5 分均值 | [→](../works/eri-benchmark.md) |
 | PEOA | 2024 | MathComp（8,500+ 组）与 ChemProc（7,000+ 组），取材自学术文献与教科书 | 结合数学建模与数值方法的化工与过程工程问题求解 | 分阶段的工具学习指标（规划，工具选择的 Recall/NDCG/COMP@K，工具调用，BLEU/ROUGE-L/EM），外加一项八维度的人工评测 | [→](../works/peoa.md) |
-| Using Large Language Models for Solving Thermodynamic Problems | 2025 | 22 道由作者自行编写的题目（13 道基础、9 道进阶），每个模型各作答三次 | 化工热力学 | 由受过训练的人类专家按考试方式阅卷，每正确完成一步计 0.5 分；并考察多次作答之间的答案一致性 | [→](../works/llm-thermodynamics.md) |
+| Using Large Language Models for Solving Thermodynamic Problems | 2025 | 22 道由作者自行编写的题目（13 道简单、9 道进阶），每个模型各作答三次 | 化工热力学 | 由受过训练的人类专家按考试方式阅卷，每正确完成一步计 0.5 分；并考察多次作答之间的答案一致性 | [→](../works/llm-thermodynamics.md) |
 
 ## Open Questions
 
