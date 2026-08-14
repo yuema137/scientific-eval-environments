@@ -46,6 +46,15 @@
 | SciConvBench | 2026 | 通过对话把不适定的计算科学请求——流体力学、固体力学、材料、PDE——变成适定规格。 | 多轮消歧与矛盾消解对话。 | 按评分标准为澄清行为、对话共识建立与最终规格保真度打分。 | [→](../works/sciconvbench.md) |
 | AInsteinBench | 2025 | 解决生产级科学代码库（含数值相对论与流体力学）中的维护者 PR 任务。 | 六个科学仓库上的仓库级 coding agent 任务。 | 可执行环境中的测试驱动验证。 | [→](../works/ainsteinbench.md) |
 | SciVisAgentBench | 2026 | 对物理数据做科学可视化与数据分析——其七个应用领域之一——把自然语言意图转成可执行的可视化操作（体渲染、场计算、洞见提炼）。 | 108 个专家精心制作的 SciVis 案例，横跨七个科学领域与 15 类可视化操作，在 ParaView、napari 等平台上经 CLI、MCP 服务器与 Python API 运行。 | 多模态、以结果为中心的流水线，结合 MLLM 评判（报告为 Claude-Opus-4.6；与人类评分 Pearson 0.808）与确定性验证器——图像指标（PSNR、SSIM、LPIPS）、代码检查器与基于规则/case 专属的验证器。 | [→](../works/scivisagentbench.md) |
+| An LLM-driven framework for cosmological model-building and exploration | 2025 | 在 CLASS Boltzmann 求解器内部实现暗能量场论——Thawing Quintessence 与 Early Dark Energy——再对照观测探索它们的参数空间。 | 在容器化的 CLASS 3.3.0 环境中，每个模型实例走三个顺序阶段（模型实现、计算可观测量、参数探索）；两个标准答案模型外加两次假设生成运行，只评测一种 agent 配置。 | 二元的执行里程碑；Ω_X 与物质功率谱相对标准参考实现的最大相对偏差；以及由 DESI、Planck、Pantheon+ 与 SH0ES 数据算出的似然/BIC、Hubble/M_B 张力与 CMB C_ℓ 自洽性奖励。 | [→](../works/an-llm-driven-framework-for-cosmological-model-bui.md) |
+| First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope | 2026 | 搭建并运行一条匹配滤波引力波搜索流程：由原始应变做 Welch PSD 估计，用 IMRPhenomD 近似波形按 0.97 最小匹配度生成几何模板库，并恢复注入的双黑洞波形。 | 一份书面规格说明被自主执行四次——两个 agent（Claude Code、Codex）× 两档注入强度——在同一硬件上对模拟 Einstein Telescope E1 噪声中的 100 次 BBH 注入运行。 | 实测的流程输出——模板库规模、ρ = 8 以上的探测效率、恢复 SNR 的统计量、墙钟运行时间与峰值内存——与逐项计数的过程行为（重启、静默偏离、未经要求的优化）并列报告。 | [→](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) |
+| SimAgents | 2025 | 从论文正文中还原一项已发表模拟所假定的宇宙学模型——物质、重子与暗能量密度、哈勃参数、σ8 与谱指数——并写成 MP-Gadget 能接受的形式。 | 来自 arXiv、ApJ 与 MNRAS 的 40 余项已发表模拟，逐项人工标注全部相关的参数/取值对；与 chain-of-thought 及 exchange-of-thought 基线对比。 | 对照人工标注计算参数级的精确率、召回率与 micro-F1；另按 Value / Type / Hallucination 的错误分类逐个模拟计数，人工评分与自动评分两种口径都有报告。 | [→](../works/simagents.md) |
+| Enhancing Agentic Autonomous Scientific Discovery with Vision-Language Model Capabilities | 2025 | 在生成的时间序列数据中区分阻尼型与啁啾型谐振子动力学。 | benchmark 的十项任务中有两项是振子动力学问题，每项都把作者生成的数据集与一段自然语言提示配对；对比三个 coding agent 与两个 judge 模型。 | 以系统能否判出正确底层模型的 pass@1 计分；视觉语言绘图 judge 只看产出的图（不给代码），依照由任务提示逐任务生成的 rubric 评分。 | [→](../works/enhancing-agentic-autonomous-scientific-discovery.md) |
+| AI's Capability in Assisting Scientific Research I: Literature Review | 2026 | 为八个课题中属物理的那几个整理文献：脉冲星计时阵对广义相对论偏离的灵敏度、有质量 Yang–Mills 理论，以及激光烧蚀亚波长结构上的碎屑生成。 | 每个课题、每个系统各做一轮文献检索，至多 50 篇论文并归入四个类别；三个 AI 系统对每个课题各一位人类专家，共产出 701 条 AI 参考文献与 194 条人类参考文献。 | 与专家列表的重合只在标题与所归类别都吻合时才计入，相关性由该课题的领域专家判定；每条 AI 参考文献另经 DOI → 链接 → 标题检索的级联核验，判为完全正确 / 元数据不符 / 凭空编造。 | [→](../works/ai-assisting-research-i-literature-review.md) |
+| AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation | 2026 | 为八个课题中属物理的两个——有质量 Yang–Mills 理论与激光烧蚀碎屑预测——撰写一页纸研究计划，写明方法、数据集、工具、时间安排与风险。 | 32 份一页纸计划书（8 份人类撰写，24 份来自三个 LLM），都依据同一份专家提供的任务说明与模板写成；六位评审每人都评了全部 32 份。 | 由四位教师或资深博后评审与两位前沿 LLM 评审做盲评，按 1–5 分 rubric 打分，涵盖表述与结构的清晰度、方法的适切性、资源与工具规划，以及可行性/时间安排/风险意识；每份计划书另做一次「人类还是 AI 撰写」的二元判断。 | [→](../works/ai-assisting-research-ii-project-planning.md) |
+| Imaging-101 | 2026 | 物理计算成像——它明列的六个领域之一——通过完整的重建流程，从间接且带噪的测量中恢复隐藏信号。 | 57 个以论文为依据的任务横跨六个领域，每个都规整为预处理 → 正向物理建模 → 逆问题求解 → 可视化，并在规划、函数级与端到端三条赛道上评测；逐领域任务数为 `TODO(reference)`。 | 端到端重建实际执行，用归一化互相关与 NRMSE 对照各任务 `metrics.json` 中的验收阈值评分；函数级工作由从捕获的参考输入/输出合成的配套 pytest 测试集检查。 | [→](../works/imaging-101.md) |
+| SciVQR | 2026 | 物理中的多模态科学推理，六个顶层计分学科之一，也与数学并列为最难的两个。 | 3,254 道配图的竞赛与考试题目，横跨六个学科、54 个子领域（2,545 道选择题、709 道自由作答；分 easy/medium/hard 三档）；15 个多模态模型零样本受评，并对比用与不用 CoT。各学科的题目数量未公布。 | 按学科报告零样本准确率，另有五维 rubric（忠实性、信息量、冗余、幻觉、步骤缺失）对照专家撰写的解题过程为生成的推理打分。 | [→](../works/scivqr.md) |
+| HiSciBench | 2025 | 面向文献的物理工作：对来自 arXiv 的物理论文做解析、翻译、问答与综述生成。 | 8,735 个实例中物理占 2,306 个——200 个通用科学问答、357 个文献 OCR、357 个翻译、1,025 个单语文献问答、357 个跨语文献问答与 10 个综述选题；物理不贡献数据驱动发现类实例。18 个模型受评。 | 按层级选取指标：问答层用准确率，文献 OCR 用词级准确率，翻译用 BLEU；综述层由 LLM judge 按 1–5 分 rubric 评 Coverage、Structure、Relevance、Synthesis 与 Critical Analysis，另计引文可核验性、元数据准确性、忠实性与时效性。 | [→](../works/hiscibench.md) |
 
 ## Related Works
 
@@ -85,3 +94,12 @@
 - [MooseBench](../works/moosebench.md)
 - [SciConvBench](../works/sciconvbench.md)
 - [AInsteinBench](../works/ainsteinbench.md)
+- [An LLM-driven framework for cosmological model-building and exploration](../works/an-llm-driven-framework-for-cosmological-model-bui.md)
+- [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md)
+- [SimAgents](../works/simagents.md)
+- [Enhancing Agentic Autonomous Scientific Discovery with Vision-Language Model Capabilities](../works/enhancing-agentic-autonomous-scientific-discovery.md)
+- [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)
+- [AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation](../works/ai-assisting-research-ii-project-planning.md)
+- [Imaging-101](../works/imaging-101.md)
+- [SciVQR](../works/scivqr.md)
+- [HiSciBench](../works/hiscibench.md)

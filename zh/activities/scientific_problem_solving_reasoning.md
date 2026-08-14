@@ -12,11 +12,11 @@
 
 ## Task Patterns
 
-最大的一类是**领域知识问答**，其交付成果是对精心整理的考试或教科书题目给出正确答案。心理学在其中自成一支——[ConceptPsy](../works/conceptpsy.md) 将概念标注到章节，[CPsyExam](../works/cpsyexam.md) 把知识题与案例分析题分开，[PsychCounsel-Bench](../works/psychcounsel-bench.md) 则对标真实的执业认证及格线。工程知识问答见于 [MaScQA](../works/mascqa.md)（材料）、[TeleQnA](../works/teleqna.md)（电信）和 [ElecBench](../works/elecbench.md)（电力调度），而 [HLE](../works/hle.md) 则刻意设定了一个宽泛的、触及知识前沿的高标准。土木与结构工程也自成一支「执业资格与规范」的脉络：从早期的 [FE 与 PE 结构考试研究](../works/evaluating-the-performance-of-artificial-intellige.md)，到 [PE Civil Bench](../works/pe-civil-bench.md) 公开发布的执业考试语料与 [Civil-Eval](../works/civil-eval.md) 的注册考试题目，再向外扩展到 [AECBench](../works/aecbench.md) 的认知层级阶梯、[Hydro-SE Bench](../works/hydro-se-bench.md) 中规范条文密集的子领域、[TransportBench](../works/transportbench.md) 取自课程的题目、[CEQuest](../works/cequest.md) 所考察的估算判断力，以及 [TRIP-Evaluate](../works/trip-evaluate.md) 按角色组织的题目。化工与过程工程则另成一脉：从 [Using LLMs for Solving Thermodynamic Problems](../works/llm-thermodynamics.md) 的热力学计算题、[PEOA](../works/peoa.md) 融合工具调用的教科书解题轨迹，到 [ChemEBench](../works/chemebench.md) 按层级铺开的能力覆盖，再到 [PSE-Bench](../works/pse-bench.md) 的开放式过程系统工程问答。[ERI Benchmark](../works/eri-benchmark.md) 则把化学工程列为九个工程领域之一，纳入一套跨领域交叉组合的题目设计。[HAZOP 自动化评估](../works/can-large-language-models-automate-the-hazop-proce.md)属于边界情形——交付物是一份完整的专业工作表而非一个答案，且它把与专家参考的相似度和所写内容在语义上是否成立分开考察。化学知识问答从 [ChemBench](../works/chembench.md) 和 [ChemEval](../works/chemeval.md)，一直延伸到侧重定量计算的 [QCBench](../works/qcbench.md) 和 [ChemIQ](../works/chemiq.md)。
+最大的一类是**领域知识问答**，其交付成果是对精心整理的考试或教科书题目给出正确答案。心理学在其中自成一支——[ConceptPsy](../works/conceptpsy.md) 将概念标注到章节，[CPsyExam](../works/cpsyexam.md) 把知识题与案例分析题分开，[PsychCounsel-Bench](../works/psychcounsel-bench.md) 则对标真实的执业认证及格线。工程知识问答见于 [MaScQA](../works/mascqa.md)（材料）、[TeleQnA](../works/teleqna.md)（电信）和 [ElecBench](../works/elecbench.md)（电力调度），而 [HLE](../works/hle.md) 则刻意设定了一个宽泛的、触及知识前沿的高标准。土木与结构工程也自成一支「执业资格与规范」的脉络：从早期的 [FE 与 PE 结构考试研究](../works/evaluating-the-performance-of-artificial-intellige.md)，到 [PE Civil Bench](../works/pe-civil-bench.md) 公开发布的执业考试语料与 [Civil-Eval](../works/civil-eval.md) 的注册考试题目，再向外扩展到 [AECBench](../works/aecbench.md) 的认知层级阶梯、[Hydro-SE Bench](../works/hydro-se-bench.md) 中规范条文密集的子领域、[TransportBench](../works/transportbench.md) 取自课程的题目、[CEQuest](../works/cequest.md) 所考察的估算判断力，以及 [TRIP-Evaluate](../works/trip-evaluate.md) 按角色组织的题目。化工与过程工程则另成一脉：从 [Using LLMs for Solving Thermodynamic Problems](../works/llm-thermodynamics.md) 的热力学计算题、[PEOA](../works/peoa.md) 融合工具调用的教科书解题轨迹，到 [ChemEBench](../works/chemebench.md) 按层级铺开的能力覆盖，再到 [PSE-Bench](../works/pse-bench.md) 的开放式过程系统工程问答。[ERI Benchmark](../works/eri-benchmark.md) 则把化学工程列为九个工程领域之一，纳入一套跨领域交叉组合的题目设计。[HAZOP 自动化评估](../works/can-large-language-models-automate-the-hazop-proce.md)属于边界情形——交付物是一份完整的专业工作表而非一个答案，且它把与专家参考的相似度和所写内容在语义上是否成立分开考察。化学知识问答从 [ChemBench](../works/chembench.md) 和 [ChemEval](../works/chemeval.md)，一直延伸到侧重定量计算的 [QCBench](../works/qcbench.md) 和 [ChemIQ](../works/chemiq.md)。天文覆盖同样的跨度，而且顶端有一个格外硬的外部锚点：[AstroMLab 1](../works/astromlab-1.md) 从六十年的 *Annual Review* 文章中生成 4,425 道选择题，并在其上给 47 个模型评分；[LLM-IOAA](../works/llm-ioaa.md) 则干脆抛开选择题形式，请前奥赛选手依官方 IOAA 评分标准评阅自由作答的推导，把最强的几个模型放在与每年 200–300 名真人选手同场时的金牌水平上。
 
 第二类是**竞赛、考试及研究级别的定量物理推理**，其交付成果是符号推导，连续评分或部分给分的指标在此至关重要。[PHYBench](../works/phybench.md) 和 [HiPhO](../works/hipho.md) 评判奥赛风格的题目；[UGPhysics](../works/ugphysics.md) 和 [PHYSICS](../works/physics-benchmark.md) 覆盖本科阶段的广度；难度则经由 [CMPhysBench](../works/cmphysbench.md)、[CMT-Benchmark](../works/cmt-benchmark.md)、[TPBench](../works/tpbench.md)、[CritPt](../works/critpt.md) 和 [PRL-Bench](../works/prl-bench.md) 逐级攀升，进入真正研究级、且经过防数据污染处理的挑战。应用数学方面的对应工作包括 [HARDMath](../works/hardmath.md)（渐近分析）和 [PDE-Controller](../works/pde-controller.md)。
 
-第三类是**多模态、以视觉为核心的问题求解**，答案的得出依赖于对示意图、光谱或显微图像的解读。物理示意图驱动了 [SeePhys](../works/seephys.md)；电路与电子工程图像驱动了 [EEE-Bench](../works/eee-bench.md) 和 [MMCircuitEval](../works/mmcircuiteval.md)；材料表征图像则支撑了 [MatCha](../works/matcha.md)、[MatVQA](../works/matvqa.md)、[MatQnA](../works/matqna.md)、[MatSciBench](../works/matscibench.md) 和 [MaCBench](../works/macbench.md)。化学结构解析是一个反复出现的多模态子主题，从 [MolPuzzle](../works/molpuzzle.md) 中分阶段的谱图判读，到 [MolQuest](../works/molquest.md) 中具备实验规划能力的智能体式解析。结构力学方面则有 [SoM-1K](../works/som-1k.md)——结果表明，专家为示意图撰写的文字描述，用作输入反而比示意图本身更可靠——以及 [MMArch](../works/mmarch.md)，其题目要求把散布在同一幅已发表工程图件各处的证据组合起来。
+第三类是**多模态、以视觉为核心的问题求解**，答案的得出依赖于对示意图、光谱或显微图像的解读。物理示意图驱动了 [SeePhys](../works/seephys.md)；电路与电子工程图像驱动了 [EEE-Bench](../works/eee-bench.md) 和 [MMCircuitEval](../works/mmcircuiteval.md)；材料表征图像则支撑了 [MatCha](../works/matcha.md)、[MatVQA](../works/matvqa.md)、[MatQnA](../works/matqna.md)、[MatSciBench](../works/matscibench.md) 和 [MaCBench](../works/macbench.md)。化学结构解析是一个反复出现的多模态子主题，从 [MolPuzzle](../works/molpuzzle.md) 中分阶段的谱图判读，到 [MolQuest](../works/molquest.md) 中具备实验规划能力的智能体式解析。结构力学方面则有 [SoM-1K](../works/som-1k.md)——结果表明，专家为示意图撰写的文字描述，用作输入反而比示意图本身更可靠——以及 [MMArch](../works/mmarch.md)，其题目要求把散布在同一幅已发表工程图件各处的证据组合起来。天文图件自成一个子主题，因为决定答案的信息就落在曲线图、光谱与巡天图像里：[AstroMMBench](../works/astrommbench.md) 从 arXiv astro-ph 论文中挖取图件，并把凡是看文字就能作答的题目筛掉；[DomainCQA / AstroChart](../works/domaincqa.md) 把图表理解与那些需要图中并未呈现的天体物理知识的推断分开；[SciVQR](../works/scivqr.md) 把天文列为六个单独计分的学科之一，同时对照专家撰写的解答为推理过程打分。[AstroAlertBench](../works/astroalertbench.md) 把同一种模态转成一个判断：要求先给出结构化的天体物理论证，才能对一条巡天警报下层级化的结论。
 
 第四类是**化学中的结构、图与反应推理**，其正确性可针对分子本身进行符号化验证：[MolLangBench](../works/mollangbench.md)、[MolecularIQ](../works/moleculariq.md)、[FGBench](../works/fgbench.md)、[AtomWorld](../works/atomworld.md)（晶体几何），以及面向反应与合成的 [ChemCoTBench](../works/chemcotbench.md)、[FukuyamaBench](../works/fukuyamabench.md)、[ChemCensor](../works/chemcensor.md) 和 [ChemCost](../works/chemcost.md)。与之相关的**形式化证明与验证**一支，让推理过程可被内核逐步核验：[Lean4Physics](../works/lean4physics.md)、[FVEval](../works/fveval.md) 和 [VCoT-Bench](../works/vcot-bench.md)。
 
@@ -32,6 +32,7 @@
 | MaScQA | 2023 | 求解材料科学/冶金学考试题目 | 静态问答，650 道 GATE 题目，4 种题型，14 个主题 | 答案准确率（GPT-4 约 62%） | [卡片](../works/mascqa.md) |
 | TeleQnA | 2023 | 回答电信领域知识题目 | 静态选择题，10,000 道题，5 个类别 | 与电信从业者相比的准确率 | [卡片](../works/teleqna.md) |
 | AgentClinic | 2024 | 通过与患者的序贯交互得出诊断 | 模拟诊所，9 个专科，7 种语言，多模态 | 诊断准确率 | [卡片](../works/agentclinic.md) |
+| AstroMLab 1 | 2024 | 回答横跨六个子领域的天文知识问题 | 取自 Annual Review 文章的 4,425 道四选一 MCQ，闭卷 | 47 个模型上的准确率（Claude-3.5-Sonnet 85.0%）另加校准度 | [卡片](../works/astromlab-1.md) |
 | Aviary | 2024 | 求解多步骤的分子生物学/文献研究任务 | 语言智能体环境（SeqQA、LitQA2、蛋白质稳定性） | 相较于专家的任务完成度 | [卡片](../works/aviary.md) |
 | BioKGBench | 2024 | 核验生物医学知识图谱中的论断并发现错误 | SCV+KGQA（2,000+）外加智能体式 KGCheck（225） | 错误检测准确率 | [卡片](../works/biokgbench.md) |
 | BrainBench | 2024 | 判断哪篇神经科学摘要报告的是真实结果 | 二选一强制选择，200 个测试案例 | 相较于专家的预测准确率 | [卡片](../works/brainbench.md) |
@@ -49,6 +50,7 @@
 | PEOA | 2024 | 以融合工具调用的轨迹形式求解化工/过程工程问题 | MathComp（8,500+）与 ChemProc（7,000+）问答对，按 70/15/15 划分 | 规划/工具选择/工具调用的分阶段得分，外加 BLEU/ROUGE-L/EM | [卡片](../works/peoa.md) |
 | SciCode | 2024 | 求解科研级编程科学问题 | 80 个主问题 / 338 个子问题，16 个子领域 | 通过参考测试用例（Claude 4.6%） | [卡片](../works/scicode.md) |
 | TransportBench | 2024 | 求解本科阶段的交通工程题目 | 140 道题（其中 73 道判断题），纯文本，10 个主题领域 | 领域专家评分的准确率（最佳 67.1%）加答案一致性 | [卡片](../works/transportbench.md) |
+| AstroMMBench | 2025 | 解读取自天文论文的图件 | 621 道经专家审核的 MCQ，六个 astro-ph 子领域，25 个 MLLM | 总体与逐子领域的准确率（Ovis2-34B 70.53%） | [卡片](../works/astrommbench.md) |
 | AtomWorld | 2025 | 操作晶态原子结构 | 10 种操作，4 类建模，可验证 | 经验证的结构正确性 | [卡片](../works/atomworld.md) |
 | BAISBench | 2025 | 标注细胞类型并回答发现类问题 | 15 个单细胞数据集 + 193 道选择题 | 相较于人类的标注+发现准确率 | [卡片](../works/baisbench.md) |
 | BioProBench | 2025 | 对生物湿实验方案进行推理 | 523,784 个实例，5 种任务类型，静态 | Accuracy/F1/tau/BLEU 指标 | [卡片](../works/bioprobench.md) |
@@ -61,11 +63,13 @@
 | CMPhysBench | 2025 | 求解研究生级凝聚态计算题目 | 520+ 道题，生成完整解答 | SEED 部分给分评分 | [卡片](../works/cmphysbench.md) |
 | CMT-Benchmark | 2025 | 求解专家级凝聚态理论问题 | 50 道题，涉及符号算符处理 | 相较于标准答案的程序化评分 | [卡片](../works/cmt-benchmark.md) |
 | CritPt | 2025 | 求解研究级物理挑战 | 71 项挑战 / 190 个检查点，11+ 个子领域 | 机器验证的准确率（约 6%） | [卡片](../works/critpt.md) |
+| DomainCQA / AstroChart | 2025 | 把读图与天体物理知识结合起来 | 覆盖 482 张论文图件的 1,690 组问答对；FQA 加上依赖知识的 AQA | 相对误差、精确匹配，以及经验证的 LLM judge 评分 | [卡片](../works/domaincqa.md) |
 | FGBench | 2025 | 对官能团的性质效应进行推理 | 625K 个问题（7K 基准），245 种官能团 | 回归/分类准确率 | [卡片](../works/fgbench.md) |
 | HiPhO | 2025 | 求解物理奥赛考试题目 | 13 场近期奥赛考试，文字+示意图 | 官方评分标准评分，奖牌门槛 | [卡片](../works/hipho.md) |
 | Humanity's Last Exam | 2025 | 回答学术前沿题目 | 2,500 道专家级选择题/简答题，涵盖众多学科 | 答案准确率 + 校准度 | [卡片](../works/hle.md) |
 | Hydro-SE Bench | 2025 | 回答水科学与水利工程题目 | 4,000 道中文题，9 个子领域，3 个认知层级 | 准确率（商业模型 0.74-0.80，开源权重 0.41-0.68） | [卡片](../works/hydro-se-bench.md) |
 | Lean4Physics / LeanPhysBench | 2025 | 产出形式化的 Lean4 物理证明 | 200 条手工构造的命题，配套 PhysLib | 内核核验的证明（最佳 35%） | [卡片](../works/lean4physics.md) |
+| LLM-IOAA | 2025 | 推导天文奥赛理论题的解答 | 取自 2022–2025 年 IOAA 的 49 道理论题，独立双评 | 按官方评分标准给分步分；最强的模型达到金牌水平 | [卡片](../works/llm-ioaa.md) |
 | MatCha | 2025 | 回答材料表征图像类问题 | 1,500 道题，4 个阶段，21 项任务 | 相较于人类专家的准确率 | [卡片](../works/matcha.md) |
 | MatQnA | 2025 | 解读十种材料表征方法 | 选择题+主观题，多模态 | 准确率（前沿约 90%） | [卡片](../works/matqna.md) |
 | MatSciBench | 2025 | 求解大学水平的材料科学题目 | 1,340 道题（315 道含图），文字+多模态 | 推理准确率 | [卡片](../works/matscibench.md) |
@@ -79,6 +83,7 @@
 | PHYSICS | 2025 | 求解大学水平的物理题目 | 1,297 道题，六大核心领域 | 自动化答案验证 | [卡片](../works/physics-benchmark.md) |
 | PsychCounsel-Bench | 2025 | 回答心理咨询执业认证题目 | 2,252 道 NCE 单选题，静态 | 相较于约 70% 及格线的准确率 | [卡片](../works/psychcounsel-bench.md) |
 | QCBench | 2025 | 求解定量化学计算 | 350 道题，7 个子领域，3 个层级，无需工具 | 分步数值准确率 | [卡片](../works/qcbench.md) |
+| ScienceBoard | 2025 | 通过操作软件来解代数与定理证明题目 | 169 个任务的 Ubuntu 虚拟机套件中的 KAlgebra 与 Lean 4 环境 | 由中间 I/O 与虚拟机最终状态判定的二元成功 | [卡片](../works/scienceboard.md) |
 | SDBench | 2025 | 通过有预算约束的序贯信息采集进行诊断 | 304 例 NEJM-CPC 病例，守门式查询 | 准确率-成本前沿 | [卡片](../works/sdbench.md) |
 | SeePhys | 2025 | 求解以视觉为核心的物理题目 | 2,000 道题，7 个领域，21 种示意图类型 | 准确率（最佳不足 60%） | [卡片](../works/seephys.md) |
 | SoM-1K | 2025 | 依据题干与示意图求解材料力学题目 | 1,065 道标注题，3 种提示策略，8 个模型 | 专家评判的推理与答案准确率（最佳 56.6%） | [卡片](../works/som-1k.md) |
@@ -87,6 +92,8 @@
 | Using LLMs for Solving Thermodynamic Problems | 2025 | 计算化工热力学问题的数值答案 | 22 道题（13 道简单 / 9 道进阶），每个模型重复作答 3 次 | 专家按步给分的得分（进阶题最佳 55.19%） | [卡片](../works/llm-thermodynamics.md) |
 | AEC-Bench | 2026 | 审查真实的施工文件集并报告工程问题 | 196 个实例，9 个任务族，3 个范围层级；Docker 沙箱配命令行 PDF 工具 | 由验证器评判并给部分分的审查发现（报审资料审查最高 23.1） | [卡片](../works/aec-bench.md) |
 | AECBench | 2026 | 回答跨五个认知层级的建筑工程知识题目 | 4,800 道中文题，23 项任务，从选择题到约 2,000 字的文书 | 准确率加经校准的 LLM-judge rubric 得分 | [卡片](../works/aecbench.md) |
+| AI Cosplaying as Astrophysicists | 2026 | 在各种 AI 辅助策略下做推导、评审与问题求解 | 3,000 个任务的天体物理题库；五种策略下共 12,960 个回合 | rubric 效用分数，另设独立的灾难性失败通道 | [卡片](../works/ai-cosplaying-as-astrophysicists-a-controlled-synt.md) |
+| AstroAlertBench | 2026 | 为一条巡天警报给出论证并定下天体物理类别 | 1,500 条 ZTF 警报；元数据落地、论证、层级判断 | 端到端五分类准确率，外加自我评估的诚实度测度 | [卡片](../works/astroalertbench.md) |
 | Automating Structural Reliability Analysis | 2026 | 建立可靠度问题、规划求解方法并解读 beta 与 P_f | 20 道留出的构件级题目，五 agent 流水线 | 可靠指标与参考值相差不超过 0.1；方法类别准确率 60% | [卡片](../works/automating-structural-reliability-analysis-with-a.md) |
 | ChemCensor / CREED | 2026 | 提出合理的逆合成前体 | 单步逆合成，合理性评分 | 化学合理性指标 | [卡片](../works/chemcensor.md) |
 | ChemCost | 2026 | 通过检索基准信息与报价为反应定价 | 1,427 项任务，冻结快照，使用工具 | 误差 25% 以内的准确率（50.6%） | [卡片](../works/chemcost.md) |
@@ -109,6 +116,7 @@
 | PSE-Bench | 2026 | 回答开放式的过程系统工程问题 | 200 道题，4 个 PSE 领域，单轮零样本 | 五个评审模型基于 rubric 的综合得分；要素覆盖率 60.8-78.1% | [卡片](../works/pse-bench.md) |
 | SciConvBench | 2026 | 澄清表述不清的计算科学请求 | 多轮对话，4 个领域 | 消歧/一致性求解（52.7%） | [卡片](../works/sciconvbench.md) |
 | Science Edge Evaluation (SEE) | 2026 | 对实验数据进行证据受限的推理 | 1,116 道多模态选择/数值填空题；化学、生物、材料 | 相较于专家标准答案的准确率（最佳 48.7%，用工具 52.7%） | [卡片](../works/science-edge-evaluation.md) |
+| SciVQR | 2026 | 求解必须看图才能作答的科学题目，天文在内 | 3,254 组图-题对，6 个学科，54 个子领域，15 个 MLLM | 零样本准确率，外加五维推理轨迹 rubric | [卡片](../works/scivqr.md) |
 | SGR-BIM | 2026 | 在 IFC 模型上回答几何密集的建筑规范合规查询 | 679 条经专家核验的查询，5 个 IFC 模型，4 类问题 | 三档准确率加连贯性/相关性/可解释性（总体 84.3） | [卡片](../works/sgr-bim.md) |
 | TCS-Bench | 2026 | 生成研究级的理论计算机科学证明 | 300 项定理证明任务，取自 FOCS/STOC/SODA（2020–2026） | 自包含证明；verifier-agent 准确率（最佳 68%） | [卡片](../works/tcs-bench.md) |
 | TRIP-Evaluate | 2026 | 回答横跨文本、图像与点云的交通题目 | 837 道单选题，4 类角色，16 个任务领域，226 个知识点 | 按角色、能力、难度与模态统计的准确率（最佳 88.8%） | [卡片](../works/trip-evaluate.md) |
@@ -201,3 +209,11 @@
 - [PE Civil Bench](../works/pe-civil-bench.md)
 - [SGR-BIM](../works/sgr-bim.md)
 - [TRIP-Evaluate](../works/trip-evaluate.md)
+- [AstroMLab 1](../works/astromlab-1.md)
+- [AstroMMBench](../works/astrommbench.md)
+- [DomainCQA / AstroChart](../works/domaincqa.md)
+- [LLM-IOAA](../works/llm-ioaa.md)
+- [ScienceBoard](../works/scienceboard.md)
+- [AI Cosplaying as Astrophysicists](../works/ai-cosplaying-as-astrophysicists-a-controlled-synt.md)
+- [AstroAlertBench](../works/astroalertbench.md)
+- [SciVQR](../works/scivqr.md)

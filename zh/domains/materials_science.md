@@ -35,6 +35,7 @@
 | Materials Hypothesis Generation | 2025 | 在明确目标与约束下生成材料发现假说。 | 基于从近期论文策划的数据集的假说生成。 | 一个模拟材料科学家批判性评估的可扩展指标。 | [→](../works/materials-hypothesis.md) |
 | Science Edge Evaluation (SEE) | 2026 | 在真实材料表征数据上做证据受限的推理——SEM/TEM/AFM 显微、X 射线衍射图样与热分析曲线——而非概念背诵；材料科学是其三个学科之一。 | 1,116 道专家整理的多模态题（1,049 道公开），横跨三个实验学科（化学、生物、材料科学）与 17 个子领域，含选择题与数值填空；视觉 agent 设定另加网页搜索与代码解释器。 | 答案对照专家真值评分——选择题精确匹配，数值答案按专家容差——在严格的二元 LLM-as-judge 协议（Gemini 3.1 Pro）下判定；图像消融检查确认每题都需其视觉输入。 | [→](../works/science-edge-evaluation.md) |
 | ERI Benchmark | 2026 | 材料工程是其覆盖的九个领域之一，下设六个子领域：材料结构、力学性能、相图、失效分析、高分子与复合材料以及腐蚀。 | 按「领域 × 子领域 × 意图 × 难度」的受控组合生成 57,750 条指令–回答记录（共 1,155 种组合，每种 50 对），各领域的均分单独报告。 | 先由自动检查筛出拒答、缺最终答案与可机器解析的约束违规，再由三家厂商的模型组成评审团（Claude Haiku 4.5、GPT-4.1 Mini、Mistral Small 3）按 rubric 打分并逐题取均值。 | [→](../works/eri-benchmark.md) |
+| Imaging-101 | 2026 | 材料计算成像——与化学合并计为它明列的六个领域之一——通过完整的重建流程，从间接且带噪的测量中恢复隐藏信号。 | 57 个以论文为依据的任务横跨六个领域，每个都规整为预处理 → 正向物理建模 → 逆问题求解 → 可视化，并在规划、函数级与端到端三条赛道上评测；逐领域任务数为 `TODO(reference)`。 | 端到端重建实际执行，用归一化互相关与 NRMSE 对照各任务 `metrics.json` 中的验收阈值评分；函数级工作由从捕获的参考输入/输出合成的配套 pytest 测试集检查。 | [→](../works/imaging-101.md) |
 
 ## Related Works
 
@@ -63,3 +64,4 @@
 - [AlchemyBench](../works/alchemybench.md)
 - [Materials Hypothesis Generation](../works/materials-hypothesis.md)
 - [ERI Benchmark](../works/eri-benchmark.md)
+- [Imaging-101](../works/imaging-101.md)

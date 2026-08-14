@@ -24,6 +24,10 @@
 | PDE-Controller | 2025 | 在信号时序逻辑规格下形式化并推理 PDE 支配系统（热方程与波动方程）的控制。 | 人工案例加 200 万合成样本上的自动形式化、推理与程序合成任务。 | 任务指标加所得 PDE 控制的效用增益。 | [→](../works/pde-controller.md) |
 | SciVisAgentBench | 2026 | 数学数据的科学可视化与数据分析——其七个应用领域之一——把自然语言意图翻译为可执行可视化操作（如场计算、拓扑任务）。 | 108 个专家精心设计的 SciVis 案例，横跨七个科学领域与 15 类可视化操作，通过 CLI、MCP 服务器与 Python API 在 ParaView、napari 等平台上运行。 | 以结果为中心的多模态管线，结合一个 MLLM judge（报告为 Claude-Opus-4.6；与人类评分 Pearson 0.808）与确定性评估器——图像指标（PSNR、SSIM、LPIPS）、代码检查器，以及基于规则/逐案例的验证器。 | [→](../works/scivisagentbench.md) |
 | TCS-Bench | 2026 | 对理论计算机科学成果（FOCS/STOC/SODA）做研究级定理证明；证明生成任务本质上属数学，需要多步形式化风格的数学推理。 | 300 个定理证明任务，每个是一条目标命题加从 FOCS/STOC/SODA 论文（2020–2026）中抽取并组装的上下文；模型产出一份自包含证明。 | 证明由一个自动验证 agent 检查（四次 Gemini 3.1 Flash 调用，四取三多数表决），并对照一个 100 项的人类专家标注集校准，一致率超过 90%。 | [→](../works/tcs-bench.md) |
+| VESTA / DAWN | 2026 | 把统计模型拟合当作一个迭代循环：通过作图、假设函数形式、拟合、查看残差再修正，还原生成样本的那个分布，或生成时间序列的那套动力学。 | 400 个实例的 benchmark 中，DAWN 的 300 个领域中立实例——50 个简单与 100 个困难的分布拟合任务（每个 600–1,500 个数据点），以及 50 个简单与 100 个困难的时间序列任务（每个 600 个观测）；三种视觉语言底座。 | 用恰当评分规则而非精确匹配：分布任务用拟合分布与真实分布之间的 Jensen–Shannon 散度，时间序列用留一交叉验证下的期望对数预测密度（ELPD-LOO）。 | [→](../works/vesta-dawn.md) |
+| ScienceBoard | 2025 | KAlgebra 中的计算机代数与 Lean 4 中的定理证明——它们是承载各领域的六款专业软件中的两款。 | 单台 Ubuntu 虚拟机中 169 个人工整理的计算机使用任务：38 个纯 GUI、33 个纯 CLI、98 个 GUI+CLI 混合；逐软件任务数未公布。 | 通过支持精确匹配、区间判定与数值容差的模板，程序化检查关键中间输入/输出与虚拟机的最终状态；代数属得分最高的领域之一（GPT-5 最高 62.07%）。 | [→](../works/scienceboard.md) |
+| SciVQR | 2026 | 数学中的多模态科学推理，六个顶层计分学科之一，也与物理并列为最难的两个。 | 3,254 道配图的竞赛与考试题目，横跨六个学科、54 个子领域（2,545 道选择题、709 道自由作答；分 easy/medium/hard 三档）；15 个多模态模型零样本受评，并对比用与不用 CoT。各学科的题目数量未公布。 | 按学科报告零样本准确率，另有五维 rubric（忠实性、信息量、冗余、幻觉、步骤缺失）对照专家撰写的解题过程为生成的推理打分。 | [→](../works/scivqr.md) |
+| HiSciBench | 2025 | 面向文献的数学工作：对来自 arXiv 的数学论文做解析、翻译、问答与综述生成。 | 8,735 个实例中数学占 1,655 个——200 个通用科学问答、208 个文献 OCR、208 个翻译、821 个单语文献问答、208 个跨语文献问答与 10 个综述选题；数学不贡献数据驱动发现类实例。18 个模型受评。 | 按层级选取指标：问答层用准确率，文献 OCR 用词级准确率，翻译用 BLEU；综述层由 LLM judge 按 1–5 分 rubric 评 Coverage、Structure、Relevance、Synthesis 与 Critical Analysis，另计引文可核验性、元数据准确性、忠实性与时效性。 | [→](../works/hiscibench.md) |
 
 ## Related Works
 
@@ -41,3 +45,7 @@
 - [SciCode](../works/scicode.md)
 - [HARDMath](../works/hardmath.md)
 - [PDE-Controller](../works/pde-controller.md)
+- [VESTA / DAWN](../works/vesta-dawn.md)
+- [ScienceBoard](../works/scienceboard.md)
+- [SciVQR](../works/scivqr.md)
+- [HiSciBench](../works/hiscibench.md)

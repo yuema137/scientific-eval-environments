@@ -16,9 +16,11 @@
 
 第二类任务考察以证据为依托的问答以及对文献的多跳综合。[Aviary](../works/aviary.md) 贡献了 LitQA2/PaperQA 文献研究环境；[LAB-Bench](../works/lab-bench.md) 及其后续版本 [LABBench2](../works/labbench2.md) 都把文献记忆与推理嵌入到更广泛的生物学能力套件中，其中 LABBench2 通过将答案锚定在 PDF 和图像上，让任务重新贴近真实场景。[MedBrowseComp](../works/medbrowsecomp.md) 把多跳综合推向真实、碎片化的医学来源，考察的正是信息时效性与整合协调的能力；[DeepResearch Bench](../works/deepresearch-bench.md) 则通过其 RACE 和 FACT 框架，评估端到端的深度研究报告生成与引用锚定。[BioKGBench](../works/biokgbench.md) 把文献理解重新表述为可核验的行为——将论断核实与 KGQA 组合起来，用于在生物医学知识图谱中查找事实性错误。
 
-第三类任务是以文献为依托的结构化抽取：把论文转化为结构化记录。[MatViX](../works/matvix.md) 从完整篇幅的材料学文章中抽取成分组成与性质曲线并生成 JSON（评分对象包括图中曲线，而不仅是实体）；[ChemX](../works/chemx.md) 则从涵盖纳米材料与小分子数据集的文档中完成经专家验证的化学信息抽取。[CeProBench](../works/ceprobench.md) 的 Knowledge 维度把同一思路搬到工程文献上：从 70 份技术文档中抽取实体与关系、构建知识图谱，用实体 F1 与边结构指标打分，再用这张图为过程工程场景检索并综合上下文。[MetaSyn](../works/metasyn.md) 处于系统综述 / 元分析这一终点，要求智能体在 PI/ECO 协议下从含有干扰项的语料中筛选出符合条件的研究集合并加以综合。
+第三类任务是以文献为依托的结构化抽取：把论文转化为结构化记录。[MatViX](../works/matvix.md) 从完整篇幅的材料学文章中抽取成分组成与性质曲线并生成 JSON（评分对象包括图中曲线，而不仅是实体）；[ChemX](../works/chemx.md) 则从涵盖纳米材料与小分子数据集的文档中完成经专家验证的化学信息抽取。[CeProBench](../works/ceprobench.md) 的 Knowledge 维度把同一思路搬到工程文献上：从 70 份技术文档中抽取实体与关系、构建知识图谱，用实体 F1 与边结构指标打分，再用这张图为过程工程场景检索并综合上下文。[MetaSyn](../works/metasyn.md) 处于系统综述 / 元分析这一终点，要求智能体在 PI/ECO 协议下从含有干扰项的语料中筛选出符合条件的研究集合并加以综合。[SimAgents](../works/simagents.md) 把抽取的目标从一条记录推进到一件可执行的产物：从宇宙学模拟论文中提取的参数/取值对，还必须满足模拟代码自带手册的约束，因此软件层面非法的抽取与读错的取值是分开计数的。
 
-边界情形：Aviary、LAB-Bench、LABBench2 和 AstaBench 都是多能力套件，其中只有文献、问答与抽取相关的组成部分才明确落在本活动范围内（序列、克隆、实验流程以及代码类子任务则不属于）。[MOOSE-Chem](../works/moose-chem.md) 在一个 3,000 篇论文的语料上进行灵感检索，但其目的是重新发现假说而非证据综合，因此它主要归入 Experiment Design & Scientific Discovery。
+第四类做法把评分锚定在**一线科学家身上，而不是某个自动参照**。[CosmoPaperQA](../works/cosmopaperqa.md) 请宇宙学家依据五篇真实论文写出 105 组问答对，全部 945 条回答先由人工评完，再据此校准 LLM judge；[From Queries to Criteria](../works/from-queries-to-criteria-understanding-how-astrono.md) 的评判标准与 40 题 benchmark 都源自一份为期四周的部署日志——记录的是天文学家实际问了什么——并把自动分数对照真实用户评分做了验证；[AI 辅助文献综述研究](../works/ai-assisting-research-i-literature-review.md) 则把 AI 给出的参考文献列表，与各课题在研研究者亲手整理的列表相比，发现重合率不足 6%，且主要失效落在参考文献的元数据上，而非彻底的凭空捏造。
+
+边界情形：Aviary、LAB-Bench、LABBench2、AstaBench 和 [HiSciBench](../works/hiscibench.md) 都是多能力套件，其中只有文献、问答与抽取相关的组成部分才明确落在本活动范围内（序列、克隆、实验流程以及代码类子任务则不属于）。[MOOSE-Chem](../works/moose-chem.md) 在一个 3,000 篇论文的语料上进行灵感检索，但其目的是重新发现假说而非证据综合，因此它主要归入 Experiment Design & Scientific Discovery。
 
 ## Comparison
 
@@ -31,8 +33,13 @@
 | MOOSE-Chem | 2024 | 检索灵感以重新发现化学假说 | 51 篇标注论文，基于 3,000 篇论文的灵感语料；智能体流水线 | 与标准答案相符的假说 | [卡片](../works/moose-chem.md) |
 | AstaBench | 2025 | 文献理解：论文检索、问答、表格生成 | 2,400+ 题套件中的文献理解基准；受日期限制的工具 | 相对基线的成本受控得分 | [卡片](../works/astabench.md) |
 | ChemX | 2025 | 从文档中抽取结构化化学数据 | 针对 10 个精选数据集的智能体文档抽取 | 相对专家验证真值的结构化记录 | [卡片](../works/chemx.md) |
+| CosmoPaperQA | 2025 | 回答以五篇源论文为依据的宇宙学问题 | 105 组专家撰写的问答对，三个复杂度层级，9 种 RAG 配置 | 由专家就事实准确性做二元评分（最佳配置 91.4%） | [卡片](../works/cosmopaperqa.md) |
 | DeepResearch Bench | 2025 | 开展端到端深度研究并生成带引用的报告 | 100 个专家任务，22 个领域（50 英文/50 中文） | 报告质量（RACE）与引用锚定（FACT） | [卡片](../works/deepresearch-bench.md) |
+| From Queries to Criteria | 2025 | 带引文地回答天文学家真实的文献查询 | 取自 368 条查询的线上部署、由专家撰写的 40 道题 | 对照专家标准答案的 LLM 相关性分数（与用户评分 r = 0.82） | [卡片](../works/from-queries-to-criteria-understanding-how-astrono.md) |
+| HiSciBench | 2025 | 解析科学文献、就其作答并生成综述 | L2–L4：OCR、单语与跨语问答、60 个综述选题 | 准确率、BLEU、rubric 内容分与引文可核验性 | [卡片](../works/hiscibench.md) |
 | MedBrowseComp | 2025 | 从实时来源检索并综合多跳事实 | 1,000+ 道精选问题；深度研究与 computer-use | 给出经协调整合的最新正确答案 | [卡片](../works/medbrowsecomp.md) |
+| SimAgents | 2025 | 从宇宙学论文中抽取模拟配置 | 40 余项已发表模拟，参数/取值对经人工标注 | 参数级 micro-F1（人工评分 98.67%）外加错误分类 | [卡片](../works/simagents.md) |
+| AI-Assisted Literature Review in Astrophysics | 2026 | 为一个研究课题整理参考文献列表并分类 | 8 个专家设计的课题，上限 50 篇论文，设人类专家基线 | 与专家列表的重合率（不足 6%）以及参考文献元数据的保真度 | [卡片](../works/ai-assisting-research-i-literature-review.md) |
 | AutoResearchBench | 2026 | 找到目标论文并收集所有符合条件的论文 | 1,000 条查询：Deep Research（600）+ Wide Research（400） | 定位到目标论文/完整的论文集合 | [卡片](../works/autoresearchbench.md) |
 | CeProBench | 2026 | 从技术文档构建知识图谱并综合工程场景所需的上下文 | 70 份核心技术文档；Knowledge Extract 与 Knowledge Augment 两类任务 | 实体 F1/召回率/准确率，外加 MEC/MED 图结构指标 | [卡片](../works/ceprobench.md) |
 | LABBench2 | 2026 | 在真实产物情境下进行文献/专利/试验问答 | 涵盖 PDF、图像、文件的 1,900 个任务；静态测评框架 | 准确率（比 LAB-Bench 难 26-46%） | [卡片](../works/labbench2.md) |
@@ -57,3 +64,8 @@
 - [ScholarQuest](../works/scholarquest.md)
 - [SciExplore](../works/sciexplore.md)
 - [CeProBench](../works/ceprobench.md)
+- [CosmoPaperQA](../works/cosmopaperqa.md)
+- [From Queries to Criteria](../works/from-queries-to-criteria-understanding-how-astrono.md)
+- [HiSciBench](../works/hiscibench.md)
+- [SimAgents](../works/simagents.md)
+- [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)

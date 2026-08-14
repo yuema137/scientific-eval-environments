@@ -20,7 +20,7 @@
 
 **ML 研究代码实现与 ML 工程。** 一大批工作把 ML 研究/工程本身作为要编写的代码产物。[MLAgentBench](../works/mlagentbench.md)、[MLE-bench](../works/mle-bench.md)、[MLE-Dojo](../works/mle-dojo.md)、[MLRC-Bench](../works/mlrc-bench.md)、[RE-Bench](../works/re-bench.md) 和 [DevAI](../works/devai.md) 让 agent 训练模型、优化代码，或对照基线与排行榜提出新方法。[ResearchCodeBench](../works/researchcodebench.md) 实现近期论文中的新贡献，[SciCode](../works/scicode.md) 则覆盖由科学家精心编排的、横跨各自然科学子领域的研究编程。
 
-**生物信息学/数据科学流水线与跨领域工作流。** 流水线构建与数据科学编程类工作包括 [GenoTEX](../works/genotex.md)、[BioAgent Bench](../works/bioagent-bench.md)、[MedAgentGym](../works/medagentgym.md)、[BioXArena](../works/bioxarena.md)、[DA-Code](../works/da-code.md)、[ScienceAgentBench](../works/scienceagentbench.md) 和 [MatTools](../works/mattools.md)（pymatgen）。形式化规约代码由 [SysMoBench](../works/sysmobench.md)（TLA+ 模型）代表。更广义的容器化科学计算测评框架有 [Terminal-Bench Science](../works/terminal-bench-science.md) 和结构工程工作台 [StructureClaw](../works/structureclaw.md)。工程文档的产出则由 [DrafterBench](../works/drafterbench.md) 代表：它那条由 46 个函数组成的制图工具链，让最终被评分的产物成了记录下来的操作链，而不是渲染出的图纸。
+**生物信息学/数据科学流水线与跨领域工作流。** 流水线构建与数据科学编程类工作包括 [GenoTEX](../works/genotex.md)、[BioAgent Bench](../works/bioagent-bench.md)、[MedAgentGym](../works/medagentgym.md)、[BioXArena](../works/bioxarena.md)、[DA-Code](../works/da-code.md)、[ScienceAgentBench](../works/scienceagentbench.md) 和 [MatTools](../works/mattools.md)（pymatgen）。形式化规约代码由 [SysMoBench](../works/sysmobench.md)（TLA+ 模型）代表。更广义的容器化科学计算测评框架有 [Terminal-Bench Science](../works/terminal-bench-science.md) 和结构工程工作台 [StructureClaw](../works/structureclaw.md)。工程文档的产出则由 [DrafterBench](../works/drafterbench.md) 代表：它那条由 46 个函数组成的制图工具链，让最终被评分的产物成了记录下来的操作链，而不是渲染出的图纸。有两项工作改动的是交互界面本身：[ScienceBoard](../works/scienceboard.md) 在插了探针的 Ubuntu 虚拟机里，通过 GUI 与 CLI 驱动六款专业科学桌面软件；[ALeRCE Text-to-SQL](../works/alerce-text-to-sql.md) 则把产物换成一条针对 25 表天文警报 broker 模式的可执行查询，而 agent 出错的地方是领域语义，不是 SQL 语法。与之相关的一条脉络是面向特定仪器与特定库的分析代码：[gammapyGPT](../works/gammapygpt.md) 瞄准的是一个文档稀薄、仍在活跃开发的伽马射线库，模型先验在此最弱；[AstroVisBench](../works/astrovisbench.md) 把处理代码与那张必须承载科学洞见的图分开；[Imaging-101](../works/imaging-101.md) 则把 57 个以论文为依据的计算成像任务规整成固定的「预处理 / 正向物理 / 逆问题求解 / 可视化」流水线，好让失败能够归因到具体的某一阶段。
 
 ## Comparison
 
@@ -44,13 +44,16 @@
 | SUPER | 2024 | 搭建并运行研究仓库 | 45 个端到端 + 152 个子问题 + 602 个自动问题；agentic | 端到端成功率（最佳 16.3%） | [卡片](../works/super.md) |
 | VHDL-Eval | 2024 | VHDL 代码生成 | 202 道带自校验测试平台的题目；静态 | 测试平台校验的功能正确性 | [卡片](../works/vhdl-eval.md) |
 | AInsteinBench | 2025 | 科学仓库 PR 解决 | 6 个生产级科学仓库中的维护者 PR 任务；agentic | 可执行环境中的测试驱动验证 | [卡片](../works/ainsteinbench.md) |
+| AstroVisBench | 2025 | 源自 notebook 各阶段的天文处理与可视化代码 | 取自 110 份 Astro Data Lab 与 STScI notebook 的 432 + 432 个任务 | 变量召回分数，加上对产出图件的 VLM 错误分级 | [卡片](../works/astrovisbench.md) |
 | CFDLLMBench | 2025 | CFD 知识、Python 求解器、OpenFOAM 案例 | 三个层级（CFDQuery/Code/Foam）共 240 个任务 | 可执行性、数值误差、收敛性 | [卡片](../works/cfdllmbench.md) |
 | CodePDE | 2025 | PDE 求解器代码生成 | 具代表性的 PDE 问题，配以迭代式改进 | 求解器在 PDE 问题上的数值精度 | [卡片](../works/codepde.md) |
+| Cosmological Model-Building with CLASS | 2025 | 为一个 43,000 行的 C 语言 Boltzmann 求解器代码库打补丁 | 容器化的 CLASS 3.3.0；以补丁形式提交，三个阶段任务 | 补丁能编译，并在数值上复现参考可观测量 | [卡片](../works/an-llm-driven-framework-for-cosmological-model-bui.md) |
 | CVDP | 2025 | RTL 设计、调试与验证代码 | 783 个问题、13 个类别；agentic + 非 agentic | pass@1（代码生成最佳 <=34%） | [卡片](../works/cvdp.md) |
 | DrafterBench | 2025 | 通过自定义制图工具链完成技术图纸修改 | 1,920 项任务，12 种修改类型，46 个 PyMuPDF/OpenCV/Reportlab 函数 | 代码可执行性（30 分）加操作链的目标完成度 | [卡片](../works/drafterbench.md) |
 | EXP-Bench | 2025 | 端到端 AI 研究实验代码 | 来自 51 篇论文的 461 个任务，起始代码不完整 | 设计/实现/执行正确性（子任务） | [卡片](../works/exp-bench.md) |
 | FEABench | 2025 | 通过 API 驱动 COMSOL 完成 FEA 求解 | 多物理场自然语言问题；agentic API 迭代 | 可执行的 API 调用 / 计算结果正确 | [卡片](../works/feabench.md) |
 | FEM-Bench | 2025 | FEM 函数与单元测试 | 33 个函数编写任务 + 测试赛道；5 次尝试 | 客观验证 / 联合成功率 | [卡片](../works/fem-bench.md) |
+| gammapyGPT | 2025 | 循环地编写、执行并修复 Gammapy 分析脚本 | 精简环境中的 4 个任务，配数据指针与时限 | 经校验的数值输出，并记录通过时是第几次尝试 | [卡片](../works/gammapygpt.md) |
 | HLS-Eval | 2025 | 高层次综合代码与优化改动 | 94 个设计、两个任务；框架化测评 | 在 Vitis HLS 上解析/编译/运行/综合（pass@k） | [卡片](../works/hls-eval.md) |
 | Integrating LLMs for Automated Structural Analysis | 2025 | 由结构文字题生成 OpenSeesPy 与 OpsVis 脚本 | 20 道题；三取优的模型对比与五次运行的稳定性研究 | 完整可执行且内力正确的代码（GPT-4o 100%） | [卡片](../works/integrating-large-language-models-for-automated-st.md) |
 | Lightweight Multi-Agent System for 2D Frame Analysis | 2025 | 经 JSON 拓扑中间表示生成 OpenSeesPy 框架代码 | 20 道框架题，5 个 agent，每题 10 次试验，另有一个基于工具的校验 agent | 正确生成代码的比例（多数题目超过 80%） | [卡片](../works/a-lightweight-large-language-model-based-multi-age.md) |
@@ -62,8 +65,10 @@
 | PaperBench | 2025 | 从零复现 AI 论文 | 20 篇 ICML 论文、8,316 个 rubric 子任务；agentic | rubric 评分的复现得分（LLM judge） | [卡片](../works/paperbench.md) |
 | PDE-Controller | 2025 | STL 自形式化 + PDE 控制程序 | 热/波系统；人工案例 + 200 万合成 | 推理/自形式化/综合指标；效用增益 | [卡片](../works/pde-controller.md) |
 | ResearchCodeBench | 2025 | 将新颖 ML 论文贡献实现为代码 | 来自 20 篇近期论文的 212 个挑战；静态 | 正确的可执行实现（最佳 37.3%） | [卡片](../works/researchcodebench.md) |
+| ScienceBoard | 2025 | 操作专业的科学桌面软件 | Ubuntu 虚拟机中跨六款软件的 169 个任务；GUI 与 CLI 两条通道 | 由中间 I/O 与虚拟机最终状态判定的二元成功（最佳 24.20%） | [卡片](../works/scienceboard.md) |
 | SysMoBench | 2025 | TLA+ 形式化系统模型 + TLC 配置 | 11 个并发/分布式产物，175-5,360 SLOC | 语法/运行时/一致性/不变量检查（自动化） | [卡片](../works/sysmobench.md) |
 | Agentic LLMs for 3D Frame Structural Analysis | 2026 | 逐层生成、篇幅上千行的 SAP2000 脚本 | 10 个不规则三维框架，每个 10 次试验，带检查点的重新生成 | 可执行脚本，且其算出的响应与参考值相差在 1% 以内 | [卡片](../works/agentic-large-language-models-for-automated-struct.md) |
+| ALeRCE Text-to-SQL | 2026 | 针对警报 broker 模式生成可执行 SQL | 110 组由天文学家撰写的 NL/SQL 对；25 表、304 列 | 按执行后的行与列判 Perfect Match，并分难度层级报告 | [卡片](../works/alerce-text-to-sql.md) |
 | AutoBM / BMEval | 2026 | 约 600 行的 OpenSeesPy 建筑模型程序 | 128 项任务，沙箱执行，16 个模型，5 次扰动评测 | Pass@k，另设周期吻合与合规结论两种变体 | [卡片](../works/autobm.md) |
 | AutoDFT / VASPBench | 2026 | 自主 DFT（VASP）工作流执行 | 34 个任务、9 种计算类型；闭环 agent | 任务级成功 + 性质精度（94.1%） | [卡片](../works/vaspbench.md) |
 | Automating Structural Reliability Analysis | 2026 | 在带类型的数据契约之间传递的可靠度求解代码 | 20 道题；Code Engineer 产出代码，非 LLM 的 Runner 解析结果 | 20 道题全部返回可解析 beta 与 P_f 的可执行代码 | [卡片](../works/automating-structural-reliability-analysis-with-a.md) |
@@ -71,7 +76,9 @@
 | BioXArena | 2026 | 多模态生物医学 ML 模型 | 76 个任务、9 个领域；2 小时单 GPU 环境 | 隐藏标签、具生物学意识的评分（0-1） | [卡片](../works/bioxarena.md) |
 | Collider-Bench | 2026 | LHC 分析复现（仿真流水线） | 10 个 CMS SUSY 任务；容器化公开技术栈 | 直方图相对隐藏参考产额的保真度 | [卡片](../works/collider-bench.md) |
 | CRAFTS | 2026 | 可执行的 IDAES/Pyomo 化工过程仿真模型 | OpenIDAES-450；82 个冻结的留出算例、带类型的中间表示、确定性关卡校验 | Workflow Success 91.5% + 单元/物流/连接的宏平均 F1 | [卡片](../works/crafts.md) |
+| Einstein Telescope Agentic AI Comparison | 2026 | 依据一份书面规格执行七阶段的引力波流程 | 一份 exp.md 规格说明，两个 agent，服务器、数据与库全都相同 | 是否达到规格中的阈值，另加重启与静默偏离的计数 | [卡片](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) |
 | gwBenchmarks | 2026 | 引力波建模/代理模型代码 | 8 个高精度任务；>10^8 核时数据 | 外部框架在接近 1e-4 误差下的评分 | [卡片](../works/gwbenchmarks.md) |
+| Imaging-101 | 2026 | 搭建四阶段的计算成像重建流水线 | 57 个以论文为依据的任务；规划、单元测试与端到端三条赛道 | pytest 模块通过，加上 NCC/NRMSE 阈值（端到端最佳 17/57） | [卡片](../works/imaging-101.md) |
 | LLM-Empowered Agent for Structural Analysis | 2026 | 生成 OpenSeesPy 代码并自动执行与可视化 | 8 道梁题，每题运行 500 次，五个提示词成分的消融 | 可靠性高于 0.990；一旦缺少完整示例便跌至 0.000 | [卡片](../works/a-large-language-model-empowered-agent-for-reliabl.md) |
 | MDArena | 2026 | 分子动力学工作流代码 | 50 个容器化任务、29 个系统、14 种协议 | 严格成功率 + 过程部分得分 | [卡片](../works/mdarena.md) |
 | MooseBench | 2026 | MOOSE 多物理场仿真输入文件 | 220 个带 PDE 级标准答案的案例 | 意图保真度得分（重建 PDE 匹配） | [卡片](../works/moosebench.md) |
@@ -81,6 +88,7 @@
 | PDEAgent-Bench | 2026 | 面向 FEM 库的 PDE 求解器代码 | 645 个实例、6 个类别；DOLFINx/Firedrake/deal.II | 分阶段的可执行性、精度、效率 | [卡片](../works/pdeagent-bench.md) |
 | PRBench | 2026 | 从论文复现物理研究 | 30 个专家精选任务、11 个子领域；沙箱 | 与出版结果的定量匹配（CSV rubric） | [卡片](../works/prbench.md) |
 | QMP-Bench | 2026 | 量子多体仿真代码 | 来自 21 种期刊的 100 个端到端任务 | 编码正确性 + 物理有效性 | [卡片](../works/qmp-bench.md) |
+| Quantifying Reproducibility of Astrophysical Methods | 2026 | 把一条已发表的分析流程重建为可执行的 Python | 同一方法在三种层层嵌套的文本信息层级下；五个模型 | Hierarchy of Scientific Validity 0-3 级，明示阈值为 V >= 2 | [卡片](../works/quantifying-the-reproducibility-of-astrophysical-m.md) |
 | SciVisAgentBench | 2026 | 生成可执行的科学可视化代码 | 108 个案例；ParaView/napari/MD/拓扑，经 CLI/MCP/Python | 图像指标 + 代码检查器 + 基于规则的验证器 | [卡片](../works/scivisagentbench.md) |
 | StructureClaw | 2026 | 结构工程工作流（建模到求解器再到校核） | 150 个场景；配备 OpenSees 的产物工作台 | 模型匹配 + 相对冻结参考的数值一致 | [卡片](../works/structureclaw.md) |
 | Terminal-Bench Science | 2026 | 容器化科学计算工作流 | 5 个领域的 8 个任务（目标 100+）；agentic | pytest 确定性程序化验证 | [卡片](../works/terminal-bench-science.md) |
@@ -145,3 +153,11 @@
 - [AutoBM / BMEval](../works/autobm.md)
 - [Automating Structural Reliability Analysis with a Multi-Agent Large Language Model Framework](../works/automating-structural-reliability-analysis-with-a.md)
 - [A Large Language Model-Empowered Agent for Reliable and Robust Structural Analysis](../works/a-large-language-model-empowered-agent-for-reliabl.md)
+- [AstroVisBench](../works/astrovisbench.md)
+- [An LLM-driven framework for cosmological model-building and exploration](../works/an-llm-driven-framework-for-cosmological-model-bui.md)
+- [gammapyGPT](../works/gammapygpt.md)
+- [ScienceBoard](../works/scienceboard.md)
+- [ALeRCE Text-to-SQL](../works/alerce-text-to-sql.md)
+- [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md)
+- [Imaging-101](../works/imaging-101.md)
+- [Quantifying the Reproducibility of Astrophysical Methods with Large Language Models and Information Theory](../works/quantifying-the-reproducibility-of-astrophysical-m.md)
