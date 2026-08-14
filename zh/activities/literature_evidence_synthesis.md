@@ -16,7 +16,7 @@
 
 第二类任务考察以证据为依托的问答以及对文献的多跳综合。[Aviary](../works/aviary.md) 贡献了 LitQA2/PaperQA 文献研究环境；[LAB-Bench](../works/lab-bench.md) 及其后续版本 [LABBench2](../works/labbench2.md) 都把文献记忆与推理嵌入到更广泛的生物学能力套件中，其中 LABBench2 通过将答案锚定在 PDF 和图像上，让任务重新贴近真实场景。[MedBrowseComp](../works/medbrowsecomp.md) 把多跳综合推向真实、碎片化的医学来源，考察的正是信息时效性与整合协调的能力；[DeepResearch Bench](../works/deepresearch-bench.md) 则通过其 RACE 和 FACT 框架，评估端到端的深度研究报告生成与引用锚定。[BioKGBench](../works/biokgbench.md) 把文献理解重新表述为可核验的行为——将论断核实与 KGQA 组合起来，用于在生物医学知识图谱中查找事实性错误。
 
-第三类任务是以文献为依托的结构化抽取：把论文转化为结构化记录。[MatViX](../works/matvix.md) 从完整篇幅的材料学文章中抽取成分组成与性质曲线并生成 JSON（评分对象包括图中曲线，而不仅是实体）；[ChemX](../works/chemx.md) 则从涵盖纳米材料与小分子数据集的文档中完成经专家验证的化学信息抽取。[CeProBench](../works/ceprobench.md) 的 Knowledge 维度把同一思路搬到工程文献上：从 70 份技术文档中抽取实体与关系、构建知识图谱，用实体 F1 与边结构指标打分，再用这张图为过程工程场景检索并综合上下文。[MetaSyn](../works/metasyn.md) 处于系统综述 / 元分析这一终点，要求智能体在 PI/ECO 协议下从含有干扰项的语料中筛选出符合条件的研究集合并加以综合。[SimAgents](../works/simagents.md) 把抽取的目标从一条记录推进到一件可执行的产物：从宇宙学模拟论文中提取的参数/取值对，还必须满足模拟代码自带手册的约束，因此软件层面非法的抽取与读错的取值是分开计数的。
+第三类任务是以文献为依托的结构化抽取：把论文转化为结构化记录。[MatViX](../works/matvix.md) 从完整篇幅的材料学文章中抽取成分组成与性质曲线并生成 JSON（评分对象包括图中曲线，而不仅是实体）；[ChemX](../works/chemx.md) 则从涵盖纳米材料与小分子数据集的文档中完成经专家验证的化学信息抽取。[CeProBench](../works/ceprobench.md) 的 Knowledge 维度把同一思路搬到工程文献上：从 70 份技术文档中抽取实体与关系、构建知识图谱，用实体 F1 与边结构指标打分，再用这张图为过程工程场景检索并综合上下文。[MetaSyn](../works/metasyn.md) 处于系统综述 / 元分析这一终点，要求智能体在 PI/ECO 协议下从含有干扰项的语料中筛选出符合条件的研究集合并加以综合。[SimAgents](../works/simagents.md) 把抽取的目标从一条记录推进到一件可执行的产物：从宇宙学模拟论文中提取的参数/取值对，还必须满足模拟代码自带手册的约束，因此软件层面非法的抽取与读错的取值是分开计数的。还有一条脉络，把参照标准直接取自一个生产级知识库及其自家的策展员，并且按本体结构、而不是按字符串是否一致来给抽取打分：[FlyAOC](../works/flyaoc.md) 只给 agent 一个基因符号和一份固定的 16,898 篇论文语料，再用语义 recall@k 把它产出的 Gene Ontology、表达与同义词注释对照 7,397 条真实的 FlyBase 策展来打分，本体意义上相近的条目可得部分分；[那项表型策展研究](../works/frontier-llm-based-agents-can-overcome-the-ontolog.md)则把受训生物策展员当年拿到的材料原样交给模型——源 PDF、同一份标注指南、项目所用的各个本体——然后问：它给出的 Entity-Quality 注释是否落在实测的策展员之间的差异区间以内。
 
 第四类做法把评分锚定在**一线科学家身上，而不是某个自动参照**。[CosmoPaperQA](../works/cosmopaperqa.md) 请宇宙学家依据五篇真实论文写出 105 组问答对，全部 945 条回答先由人工评完，再据此校准 LLM judge；[From Queries to Criteria](../works/from-queries-to-criteria-understanding-how-astrono.md) 的评判标准与 40 题 benchmark 都源自一份为期四周的部署日志——记录的是天文学家实际问了什么——并把自动分数对照真实用户评分做了验证；[AI 辅助文献综述研究](../works/ai-assisting-research-i-literature-review.md) 则把 AI 给出的参考文献列表，与每个课题实际在做研究的那位研究者亲手整理的列表相比，发现重合率不足 6%，且主要失效落在参考文献的元数据上，而非彻底的凭空捏造。
 
@@ -40,8 +40,11 @@
 | MedBrowseComp | 2025 | 从实时来源检索并综合多跳事实 | 1,000+ 道精选问题；深度研究与 computer-use | 给出经协调整合的最新正确答案 | [卡片](../works/medbrowsecomp.md) |
 | SimAgents | 2025 | 从宇宙学论文中抽取模拟配置 | 40 余项已发表模拟，参数/取值对经人工标注 | 参数级 micro-F1（人工评分 98.67%）外加错误分类 | [卡片](../works/simagents.md) |
 | AI-Assisted Literature Review in Astrophysics | 2026 | 为一个研究课题整理参考文献列表并分类 | 8 个专家设计的课题，上限 50 篇论文，设人类专家基线 | 与专家列表的重合率（不足 6%）以及参考文献元数据的保真度 | [卡片](../works/ai-assisting-research-i-literature-review.md) |
+| AISE-Bench | 2026 | 在学术知识图谱上做多步 API 检索，并给出有依据的答案 | 1,133 组标注 QA，9 个 AMiner / Google Scholar API，规划步数 2 到 5 步以上 | 引用 precision/recall 与 F1-LM，并列报告计划编辑距离（最佳 F1-LM 0.6104） | [卡片](../works/aise-bench.md) |
 | AutoResearchBench | 2026 | 找到目标论文并收集所有符合条件的论文 | 1,000 条查询：Deep Research（600）+ Wide Research（400） | 定位到目标论文/完整的论文集合 | [卡片](../works/autoresearchbench.md) |
 | CeProBench | 2026 | 从技术文档构建知识图谱并综合工程场景所需的上下文 | 70 份核心技术文档；Knowledge Extract 与 Knowledge Augment 两类任务 | 实体 F1/召回率/准确率，外加 MEC/MED 图结构指标 | [卡片](../works/ceprobench.md) |
+| FlyAOC | 2026 | 在固定的全文文献语料上做端到端本体策展 | 100 个基因、16,898 篇果蝇论文；GO、表达与同义词注释 | 对照 7,397 条 FlyBase 专家策展的语义 recall@k（多智能体 52.8-57.3%） | [卡片](../works/flyaoc.md) |
+| Frontier LLM Agents for Phenotype Ontology Curation | 2026 | 阅读原始论文并产出以本体为依据的 Entity-Quality 注释 | 取自 7 项系统发育研究的 344 个计分性状状态；工作区内备有标注指南与 4 个本体 | 对照 2018 年 Gold Standard 与三位人类策展员的本体语义相似度指标 | [卡片](../works/frontier-llm-based-agents-can-overcome-the-ontolog.md) |
 | LABBench2 | 2026 | 在真实产物情境下进行文献/专利/试验问答 | 涵盖 PDF、图像、文件的 1,900 个任务；静态测评框架 | 准确率（比 LAB-Bench 难 26-46%） | [卡片](../works/labbench2.md) |
 | MetaSyn | 2026 | 筛选符合条件的研究并综合成系统综述 | 422 项专家元分析；含干扰项的 PubMed 语料 | 正确的符合条件研究集合与忠于协议的综合 | [卡片](../works/metasyn.md) |
 | ScholarQuest | 2026 | 按研究意图进行迭代式学术论文检索 | 1,000+ 个 CS 主题，四类意图类别 | Recall@100/@All（最优 | [卡片](../works/scholarquest.md) |
@@ -69,3 +72,6 @@
 - [HiSciBench](../works/hiscibench.md)
 - [SimAgents](../works/simagents.md)
 - [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)
+- [AISE-Bench](../works/aise-bench.md)
+- [FlyAOC](../works/flyaoc.md)
+- [Frontier LLM-based agents can overcome the ontology curation bottleneck for natural phenotypes](../works/frontier-llm-based-agents-can-overcome-the-ontolog.md)

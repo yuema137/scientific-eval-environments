@@ -35,6 +35,7 @@
 | AstroVisBench | 2025 | 源自 notebook 的天文专有数据处理工作流 | 来自 110 份 notebook 的 432 个处理 + 432 个可视化任务 | 变量召回分数，加上由 VLM 评判的图正确性（最佳 15.7% 无差错） | [卡片](../works/astrovisbench.md) |
 | BAISBench | 2025 | 组学驱动的单细胞生物学发现 | 15 个数据集标注 + 193 道发现类 MCQ | 正确的细胞类型与研究结论，对比人类基线 | [卡片](../works/baisbench.md) |
 | BixBench | 2025 | 探索性的计算生物学数据分析 | 50+ 个场景，约 300 个问题，Jupyter 容器 | 开放式答案/选择题的正确率（前沿约 17%） | [卡片](../works/bixbench.md) |
+| CASCADE / SciSkillBench | 2025 | 材料科学与化学数据的检索、分析与处理 | 116 个任务中的 76 个数据类任务，两档说明详细程度，每种配置重复 3 次 | 在容差内自动比对标准答案（GPT-5 下 DeepSolver 总体 93.26%） | [卡片](../works/cascade.md) |
 | EXP-Bench | 2025 | 端到端的 AI 研究实验 | 来自 51 篇论文的 461 个任务，12,737 个子任务 | 设计/实现/执行/分析（完整完成 0.5%） | [卡片](../works/exp-bench.md) |
 | gammapyGPT | 2025 | 借 Gammapy 库做伽马射线观测分析 | 4 个基于真实观测数据的任务，精简过的执行环境 | 观测数量、流量与谱指数的精确匹配或容差匹配 | [卡片](../works/gammapygpt.md) |
 | Gravity-Bench-v1 | 2025 | 预算受限的观测与引力物理推断 | 仿真的二体系统，含 OOD 变体 | 相对参考解刻画隐藏的物理规律 | [卡片](../works/gravity-bench.md) |
@@ -66,6 +67,7 @@
 | SciVisAgentBench | 2026 | 面向洞见的科学数据分析与可视化 | 108 个专家案例，七个科学领域；多平台工具 | 以结果为中心的图像指标加确定性验证器 | [卡片](../works/scivisagentbench.md) |
 | Spec-o3 / SpecVI-Bench | 2026 | 查看巡天光谱以甄别稀有天体候选体 | 5 个任务，LAMOST 测试光谱 1,122 条正样本 / 5,632 条负样本 | 宏平均准确率与正类 F1（Spec-o3-7B 88.7% / 76.5%） | [卡片](../works/spec-o3.md) |
 | Stargazer | 2026 | 迭代式、基于物理的 RV 模型拟合 | 120 个任务（100 个合成 + 20 个真实档案） | 按标准逐项通过的 Keplerian 拟合（Easy 80%，真实 0%） | [卡片](../works/stargazer.md) |
+| TS-Skill | 2026 | 信号层面的时间序列分析：尺度选择、定位、跨区间整合 | 覆盖七种 skill 组合的 3,000 道 QA；25 个按领域设定的合成类别 | 按单 skill 与按组合报告准确率（无工具时 SK3 不高于 0.259 的随机基线） | [卡片](../works/ts-skill.md) |
 | VESTA / DAWN | 2026 | 带残差检视的迭代式分布与时间序列拟合 | 400 个实例，含恒星 IMF 与引力波啁啾切分 | 对照真值的 Jensen–Shannon 散度与 ELPD-LOO | [卡片](../works/vesta-dawn.md) |
 
 ## Related Works
@@ -111,3 +113,5 @@
 - [Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md)
 - [Spec-o3](../works/spec-o3.md)
 - [VESTA / DAWN](../works/vesta-dawn.md)
+- [CASCADE](../works/cascade.md)
+- [TS-Skill](../works/ts-skill.md)

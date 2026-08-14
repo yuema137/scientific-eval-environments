@@ -43,6 +43,10 @@
 | Imaging-101 | 2026 | 生物计算成像——它明列的六个领域之一——通过完整的重建流程，从间接且带噪的测量中恢复隐藏信号。 | 57 个以论文为依据的任务横跨六个领域，每个都规整为预处理 → 正向物理建模 → 逆问题求解 → 可视化，并在规划、函数级与端到端三条赛道上评测；逐领域任务数为 `TODO(reference)`。 | 端到端重建实际执行，用归一化互相关与 NRMSE 对照各任务 `metrics.json` 中的验收阈值评分；函数级工作由从捕获的参考输入/输出合成的配套 pytest 测试集检查。 | [→](../works/imaging-101.md) |
 | SciVQR | 2026 | 生物学中的多模态科学推理，六个顶层计分学科之一。 | 3,254 道配图的竞赛与考试题目，横跨六个学科、54 个子领域（2,545 道选择题、709 道自由作答；分 easy/medium/hard 三档）；15 个多模态模型零样本受评，并对比用与不用 CoT。各学科的题目数量未公布。 | 按学科报告零样本准确率，另有五维 rubric（忠实性、信息量、冗余、幻觉、步骤缺失）对照专家撰写的解题过程为生成的推理打分。 | [→](../works/scivqr.md) |
 | HiSciBench | 2025 | 贯穿各层级的生物学：对 arXiv 生物学论文做文献解析、翻译与问答，外加由模型自行编写并执行 Python 分析代码的数据驱动发现。 | 8,735 个实例中生物学占 2,324 个——200 个通用科学问答、45 个文献 OCR、45 个翻译、1,952 个单语文献问答、45 个跨语文献问答、10 个综述选题与 27 个数据驱动发现任务；18 个模型受评。 | 按层级选取指标：问答层用准确率，文献 OCR 用词级准确率，翻译用 BLEU；综述层由 LLM judge 按 1–5 分 rubric 评 Coverage、Structure、Relevance、Synthesis 与 Critical Analysis，另计引文可核验性、元数据准确性、忠实性与时效性；发现层用基于执行的 Success Rate，生成的程序跑不起来即计零分。 | [→](../works/hiscibench.md) |
+| FlyAOC | 2026 | 端到端地策展果蝇（Drosophila melanogaster）基因注释：只给一个基因符号，agent 自行检索并阅读原始文献，产出以本体为依据的 Gene Ontology 功能条目、表达模式与历史同义词。 | 100 个 benchmark 基因，以开放式策展任务的形式提出，语料是一份固定的 16,898 篇全文论文集（论文称取自 PubMed Central，超过 1.4 亿词）；真值为 7,397 条 FlyBase 专家策展注释，分属三种注释类型。 | 对照 FlyBase 策展记录计算语义 recall@k——GO 与表达条目用 Gene Ontology 有向无环图上的 Wang 相似度（k = 20 与 k = 10），同义词用不区分大小写的精确匹配——以微平均 recall 为主指标。 | [→](../works/flyaoc.md) |
+| Frontier LLM-based agents can overcome the ontology curation bottleneck for natural phenotypes | 2026 | 为脊椎动物比较形态学产出 Entity-Quality 表型注释，把自由文本的性状-状态描述连接到 UBERON、PATO、BSPO 与 GO 本体中的条目。 | Dahdul 等（2018）的生物策展 Gold Standard——取自七项系统发育研究的 203 个性状（463 个性状状态），评分只限第 51–203 个性状（344 个状态）；五个前沿 LLM 作为 agentic 策展员，在一个自足工作区内运行，区内备有源 PDF、人类标注指南、各本体与一个校验脚本。 | 沿用原研究、未加改动的四项基于本体的语义相似度指标（SimJ、NIC、partial precision、partial recall），对照 Gold Standard 打分，并与三位受训人类生物策展员及 Semantic CharaParser 这一 NLP 基线比较。 | [→](../works/frontier-llm-based-agents-can-overcome-the-ontolog.md) |
+| BiomedSQL | 2025 | 围绕神经退行性疾病的 GWAS 汇总统计量、SMR 因果推断结果、等位基因频率与基因–通路关联，回答人类基因组学问题，其间还得自行补上问题从未言明的统计遗传学惯例——全基因组显著性阈值、效应方向。 | 68,000 组 question / SQL 查询 / answer 三元组，落在一个十张表的 BigQuery 数据库上（表的规模从几百行到 72.2M 行不等），由 40 条专家编写的种子查询套模板扩展而来；模型在一个有代表性的 546 题测试集上评分。 | 以 Execution Accuracy 为主指标（查询执行结果须与金标准执行结果完全一致），并列报告 Jaccard 部分得分与语法错误率；对照实测的两位生物医学分析师基线，其 EX 为 90.0%。 | [→](../works/biomedsql.md) |
+| OntoLearner | 2026 | 为生物与生命科学——它的本体集合覆盖的 22 个领域之一——构建本体结构：给术语定类型、恢复类型之间的 is-a 层级、抽取非分类关系。 | 覆盖 22 个领域的 180 个机器可读本体，为三项本体学习任务备好可直接接入流水线的 train/dev/test 切分；共评测 22 个检索模型与 12 个 LLM，设定是单次结构化预测而非 agentic 循环。 | 以归一化的成对与三元组匹配对照金标准本体结构计算 precision、recall 与 F1；卡片中逐领域、逐模型的分数为 `TODO(reference)`，因论文的结果章节无法获取。 | [→](../works/ontolearner.md) |
 
 ## Related Works
 
@@ -79,3 +83,7 @@
 - [Imaging-101](../works/imaging-101.md)
 - [SciVQR](../works/scivqr.md)
 - [HiSciBench](../works/hiscibench.md)
+- [FlyAOC](../works/flyaoc.md)
+- [Frontier LLM-based agents can overcome the ontology curation bottleneck for natural phenotypes](../works/frontier-llm-based-agents-can-overcome-the-ontolog.md)
+- [BiomedSQL](../works/biomedsql.md)
+- [OntoLearner](../works/ontolearner.md)

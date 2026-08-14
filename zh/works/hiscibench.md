@@ -9,6 +9,7 @@ HiSciBench 是一个层级式的多学科 benchmark，含 8,735 个实例，把�
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

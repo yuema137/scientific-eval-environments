@@ -9,6 +9,7 @@ AECBench 是一个面向建筑、工程与施工（AEC）领域的分层中文�
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

@@ -55,6 +55,7 @@
 | Imaging-101 | 2026 | 物理计算成像——它明列的六个领域之一——通过完整的重建流程，从间接且带噪的测量中恢复隐藏信号。 | 57 个以论文为依据的任务横跨六个领域，每个都规整为预处理 → 正向物理建模 → 逆问题求解 → 可视化，并在规划、函数级与端到端三条赛道上评测；逐领域任务数为 `TODO(reference)`。 | 端到端重建实际执行，用归一化互相关与 NRMSE 对照各任务 `metrics.json` 中的验收阈值评分；函数级工作由从捕获的参考输入/输出合成的配套 pytest 测试集检查。 | [→](../works/imaging-101.md) |
 | SciVQR | 2026 | 物理中的多模态科学推理，六个顶层计分学科之一，也与数学并列为最难的两个。 | 3,254 道配图的竞赛与考试题目，横跨六个学科、54 个子领域（2,545 道选择题、709 道自由作答；分 easy/medium/hard 三档）；15 个多模态模型零样本受评，并对比用与不用 CoT。各学科的题目数量未公布。 | 按学科报告零样本准确率，另有五维 rubric（忠实性、信息量、冗余、幻觉、步骤缺失）对照专家撰写的解题过程为生成的推理打分。 | [→](../works/scivqr.md) |
 | HiSciBench | 2025 | 面向文献的物理工作：对来自 arXiv 的物理论文做解析、翻译、问答与综述生成。 | 8,735 个实例中物理占 2,306 个——200 个通用科学问答、357 个文献 OCR、357 个翻译、1,025 个单语文献问答、357 个跨语文献问答与 10 个综述选题；物理不贡献数据驱动发现类实例。18 个模型受评。 | 按层级选取指标：问答层用准确率，文献 OCR 用词级准确率，翻译用 BLEU；综述层由 LLM judge 按 1–5 分 rubric 评 Coverage、Structure、Relevance、Synthesis 与 Critical Analysis，另计引文可核验性、元数据准确性、忠实性与时效性。 | [→](../works/hiscibench.md) |
+| LQCDMaster | 2026 | 从第一性原理计算格点 QCD 可观测量——介子与重子两点函数、非定域 Wilson 线关联函数、带顺序源的介子与重子三点函数，以及 Wilson 环——办法是把一条自然语言研究请求转成可执行的 PyQUDA 测量工作流。 | 70 个 LQCD 计算任务（20 个定域两点函数、10 个非定域两点函数、13 个介子三点函数、15 个重子三点函数、12 个 Wilson 环），每个都配一份专家手写的参考实现，可观测量、系综与运动学设置均与之相同；工作流经 PyQUDA/QUDA GPU 栈执行，作业由 SLURM 提交。 | 在机器精度上与专家参考直接做数值比对，标为 Matched（绝对偏差 ≲ 10⁻¹²）、Convention Mismatch（相差一个全局符号或相位）或 Failure；GPT-5.4 达到 63/70 Matched（90.0%），DeepSeek-V4-Pro 为 56/70（80.0%）。 | [→](../works/lqcdmaster.md) |
 
 ## Related Works
 
@@ -103,3 +104,4 @@
 - [Imaging-101](../works/imaging-101.md)
 - [SciVQR](../works/scivqr.md)
 - [HiSciBench](../works/hiscibench.md)
+- [LQCDMaster](../works/lqcdmaster.md)

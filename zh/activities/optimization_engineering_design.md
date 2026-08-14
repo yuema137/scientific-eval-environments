@@ -42,6 +42,7 @@
 | EnergyBridge | 2026 | 生成约束感知的居民需求响应方案 | 基于 EnergyPlus 模型的 VPP 工作流（天津、柏林） | 授权率加容量承诺可靠性 | [卡片](../works/energybridge.md) |
 | Frontier-Eng | 2026 | 在仿真器反馈下的迭代式生成式设计 | 47 项任务，5 个工程类别，预算受限 | 在硬可行性约束下的连续奖励 | [卡片](../works/frontier-eng.md) |
 | HydroAgent | 2026 | agent 校准业务化 CREST 水文模型 | 4 个留出水文站（329-40,792 km2），20 轮取最优 | 对照人类专家参考的 Nash-Sutcliffe Efficiency | [卡片](../works/hydroagent.md) |
+| MolClaw / MolBench | 2026 | 分子编辑与多轮性质、先导化合物优化 | MolBench-MO（39 道官能团题外加性质目标）与 E2E 先导优化的多轮流程 | 操作准确率、性质变化量与成功率（成功率 100% 时变化量为 1.724） | [卡片](../works/molclaw.md) |
 | Multi-Agent Systems for Automated Foundation Design | 2026 | 在给定土层、荷载与安全系数下确定浅基础与桩的尺寸 | 27 个算例，7 个类别，路由式与顺序式工作流对比，每个 3 次试验 | 四项准则的 rubric 评分（路由式配 Grok 3：95.00% / 90.63%） | [卡片](../works/large-language-model-based-multi-agent-systems-for.md) |
 | PDAgent-Bench | 2026 | 约束下的 VLSI 物理设计优化 | 全流程实现加任务级问题；Innovus/ICC2/OpenROAD EDA | 时序收敛与 DRC 无违规布局；pass@1/5 | [卡片](../works/pdagent-bench.md) |
 | PE Civil Bench | 2026 | 设计符合设计规范的钢筋混凝土梁与柱 | 33 种梁的配置外加一个柱的扩展；ETABS 真值 | 规范合规，且与有限元结果的一致性达 r >= 0.90 | [卡片](../works/pe-civil-bench.md) |
@@ -77,3 +78,4 @@
 - [MASSE](../works/masse.md)
 - [Large Language Model-Based Multi-Agent Systems for Automated Foundation Design](../works/large-language-model-based-multi-agent-systems-for.md)
 - [PE Civil Bench](../works/pe-civil-bench.md)
+- [MolClaw](../works/molclaw.md)

@@ -16,6 +16,7 @@
 - **整体性 LLM-agent 综述。** [A Survey on Large Language Model based Autonomous Agents](../works/llm-autonomous-agents-survey.md)（Wang 等，2023）沿构建、应用、评估三方面综述 LLM-based 自主 agent；提出四模块构建框架（profiling、memory、planning、action），并将评估回顾为 subjective 与 objective 两类策略。其重心是 agent 构建而非评估，此处为完整性索引。
 - **对一个子领域的可验证性审计。** [Autonomous Research Agents: A Survey of AI Scientists and the Verification Gap](../works/ara-survey.md)（2026）沿七个审计维度为 35 个自主研究 agent 系统编码，并量化了验证缺口：83% 的系统公开代码，但只有 38% 公开随机种子或执行轨迹、只有 38% 报告任何新颖性验证方法；在其收录范围内，没有任何 LLM 时代的系统展示过经外部验证的在环 oracle。一份审稿人清单使该审计可被他人复用。
 - **关于持久 agent 转变的立场论文。** [From Chatbot to Digital Colleague](../works/from-chatbot-to-digital-colleague.md)（Zhang 等，2026）主张 LLM 正从对话式生成器转向具备推理、行动、记忆和自改进能力的集成系统——沿"通过推理时计算 / 反思达成的深思推理"与"具备可复用技能与状态管理的持久 workstation 系统"两个维度概念化这一转变。
+- **只聚焦一个评估层面的综述。** [Agent Skill Evaluation and Evolution: Frameworks and Benchmarks](../works/agent-skill-evaluation-survey.md)（2026）把视野收窄到 agent skill 这一层：一方面按各类方法所消耗信号的粒度，把 skill 创建之后的演化范式分成四类；另一方面把以 skill 为中心的 benchmark 分成六类（utility、生成、检索与路由、安全审计、软件工程、真实环境）；两套分类交叉起来，覆盖上的空白便一目了然。另见 [Skill Hierarchy](./skill_hierarchy.md)。
 - **credit assignment 方法学综述。** [From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](../works/from-reasoning-to-agentic.md)（2026）综合了 69 篇 credit-assignment 方法的论文，横跨 reasoning 与 agentic RL，并补充一套六诊断框架，将假设的失效映射到识别障碍、估计量与评估对照，另有一张可复用的 "CA-ID Card" 用于溯源与证伪。另见 [Credit Assignment](./credit_assignment.md)。
 
 ## Comparison
@@ -28,6 +29,7 @@
 | From Chatbot to Digital Colleague | 2026 | Position paper | 向持久自主 AI 的范式转变 | [→](../works/from-chatbot-to-digital-colleague.md) |
 | Autonomous Research Agents: A Survey of AI Scientists and the Verification Gap | 2026 | Survey | 对 35 个 AI-scientist 系统的七维可验证性审计 | [→](../works/ara-survey.md) |
 | From Reasoning to Agentic: Credit Assignment in RL for LLMs | 2026 | Survey | 横跨 reasoning 与 agentic RL 的 credit-assignment 方法；六诊断框架与 CA-ID Card | [→](../works/from-reasoning-to-agentic.md) |
+| Agent Skill Evaluation and Evolution: Frameworks and Benchmarks | 2026 | Survey | 四类 skill 演化范式 × 六类以 skill 为中心的 benchmark | [→](../works/agent-skill-evaluation-survey.md) |
 
 ## Open Questions
 
@@ -36,6 +38,7 @@
 
 ## Related Works
 
+- [Agent Skill Evaluation and Evolution: Frameworks and Benchmarks](../works/agent-skill-evaluation-survey.md) — skill 演化范式与以 skill 为中心的 benchmark 两套分类，以及交叉后暴露的覆盖空白。
 - [From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](../works/from-reasoning-to-agentic.md)
 - [A Survey on Large Language Model based Autonomous Agents](../works/llm-autonomous-agents-survey.md) — LLM-based 自主 agent 的整体性综述（构建、应用、评估）。
 - [Survey on Evaluation of LLM-based Agents](../works/agent-evaluation-survey.md) — LLM-agent 评估的五视角分类综述。

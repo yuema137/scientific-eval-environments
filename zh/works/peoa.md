@@ -10,6 +10,7 @@ PEOA（Process Engineering Operations Assistant）是一套面向化工与过程
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

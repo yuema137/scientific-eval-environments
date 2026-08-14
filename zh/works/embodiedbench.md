@@ -9,6 +9,7 @@ EmbodiedBench 大规模评测作为视觉驱动具身 agent 的多模态 LLM：1
 ## Topics
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

@@ -48,7 +48,7 @@ Questions are grouped by their required skill labels and models are scored withi
 
 Ten models across seven families were evaluated, including closed-source text LLMs and VLMs (GPT-o3-mini, GPT-4o, Claude Sonnet 4.5), open-source models (Qwen2.5-14B-Instruct, Qwen3-32B Thinking, DeepSeek-V3, Qwen2.5-VL-7B), a time-series-native model (ChatTS-14B), a fine-tuned task-specific model (Time-MQA), and one tool-augmented agent (GPT-5.4 with ReAct and time-series tools for trend detection, peak finding, windowing, and statistics).
 
-Reported findings: SK3 is the dominant gap — non-agent models score at or below the random baseline of 0.259 (ChatTS-14B 0.290, Time-MQA 0.205), while the tool-augmented ReAct agent reaches 0.788 on standalone SK3 without closing the gap on compositional questions that also require localization and planning. Claude Sonnet 4.5 leads multiple-choice accuracy at 0.778.
+Reported findings: SK3 is the dominant gap — non-agent models score near or below the random baseline of 0.259 (ChatTS-14B 0.290, Time-MQA 0.205), while the tool-augmented ReAct agent reaches 0.788 on standalone SK3 without closing the gap on compositional questions that also require localization and planning. Claude Sonnet 4.5 leads multiple-choice accuracy at 0.778.
 
 ## Typical Duration
 

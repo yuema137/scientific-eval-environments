@@ -10,6 +10,7 @@ PDAgent-Bench 是一个 benchmark，用于在整个 VLSI 物理设计流程上�
 
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

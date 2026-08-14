@@ -45,6 +45,9 @@
 | Imaging-101 | 2026 | 化学与材料计算成像——它明列的六个领域之一——通过完整的重建流程，从间接且带噪的测量中恢复隐藏信号。 | 57 个以论文为依据的任务横跨六个领域，每个都规整为预处理 → 正向物理建模 → 逆问题求解 → 可视化，并在规划、函数级与端到端三条赛道上评测；逐领域任务数为 `TODO(reference)`。 | 端到端重建实际执行，用归一化互相关与 NRMSE 对照各任务 `metrics.json` 中的验收阈值评分；函数级工作由从捕获的参考输入/输出合成的配套 pytest 测试集检查。 | [→](../works/imaging-101.md) |
 | SciVQR | 2026 | 化学中的多模态科学推理，六个顶层计分学科之一。 | 3,254 道配图的竞赛与考试题目，横跨六个学科、54 个子领域（2,545 道选择题、709 道自由作答；分 easy/medium/hard 三档）；15 个多模态模型零样本受评，并对比用与不用 CoT。各学科的题目数量未公布。 | 按学科报告零样本准确率，另有五维 rubric（忠实性、信息量、冗余、幻觉、步骤缺失）对照专家撰写的解题过程为生成的推理打分。 | [→](../works/scivqr.md) |
 | HiSciBench | 2025 | 贯穿各层级的化学：对化学论文做文献问答，外加由模型自行编写并执行 Python 分析代码的数据驱动发现。 | 8,735 个实例中化学占 1,116 个——200 个通用科学问答、886 个单语文献问答、10 个综述选题与 20 个数据驱动发现任务；18 个模型受评。 | 按层级选取指标：问答层用准确率，文献 OCR 用词级准确率，翻译用 BLEU；综述层由 LLM judge 按 1–5 分 rubric 评 Coverage、Structure、Relevance、Synthesis 与 Critical Analysis，另计引文可核验性、元数据准确性、忠实性与时效性；发现层用基于执行的 Success Rate，生成的程序跑不起来即计零分。 | [→](../works/hiscibench.md) |
+| MolClaw | 2026 | 药物分子的计算化学：基于 RDKit 描述符的性质筛选、结合亲和力比较、分子对接与虚拟筛选、官能团改造，以及朝 QED、LogP 与 LogS 目标做的理化性质优化。 | MolBench 分三层——筛选（50 道性质筛选、37 道结合亲和力、25 道对接）、优化（39 道官能团题，外加一项性质优化子任务，其题量为 `TODO(reference)`），以及三项端到端发现挑战，需要 8 到 50 次以上的连续工具调用；题目取自 CARA/ChEMBL、ACNet 与 ChemCoTBench。 | 性质筛选与结合亲和力比较用 Accuracy，对接筛选用 Hits@3，优化用操作准确率、性质变化量与成功率，端到端一层用任务专属的加权 rubric（rubric 权重与评审身份为 `TODO(reference)`）。 | [→](../works/molclaw.md) |
+| CASCADE | 2025 | SciSkillBench 中的化学研究任务：检索、处理与分析化学数据，并借助专用化学工具包与仿真代码完成计算。 | 116 个材料科学与化学任务——76 个数据类、40 个计算类，再按说明详细程度分为 58 个点明关键函数的 Level 0 任务与 58 个只给出高层目标的 Level 1 任务；每种配置重复三次，共 16,008 次实验运行。 | 以结果为准的自动打分：在预设容差阈值内比对 agent 处理后的输出与标准答案，报告为成功率（GPT-5 下 DeepSolver 为 93.26%，Native 配置为 35.36%）。 | [→](../works/cascade.md) |
+| OntoLearner | 2026 | 为化学——它的本体集合覆盖的 22 个领域之一，官方 hub 上另有一份化学数据集——构建本体结构：给术语定类型、恢复类型之间的 is-a 层级、抽取非分类关系。 | 覆盖 22 个领域的 180 个机器可读本体，为三项本体学习任务备好可直接接入流水线的 train/dev/test 切分；共评测 22 个检索模型与 12 个 LLM，设定是单次结构化预测而非 agentic 循环。 | 以归一化的成对与三元组匹配对照金标准本体结构计算 precision、recall 与 F1；卡片中逐领域、逐模型的分数为 `TODO(reference)`，因论文的结果章节无法获取。 | [→](../works/ontolearner.md) |
 
 ## Related Works
 
@@ -83,3 +86,6 @@
 - [Imaging-101](../works/imaging-101.md)
 - [SciVQR](../works/scivqr.md)
 - [HiSciBench](../works/hiscibench.md)
+- [MolClaw](../works/molclaw.md)
+- [CASCADE](../works/cascade.md)
+- [OntoLearner](../works/ontolearner.md)

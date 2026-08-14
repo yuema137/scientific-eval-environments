@@ -10,6 +10,7 @@ LabRobFail 评测化学自主实验室中的机器人失败分析：20,000+ 条�
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

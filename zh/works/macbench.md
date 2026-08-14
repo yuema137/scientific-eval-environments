@@ -9,6 +9,7 @@ MaCBench 探测多模态（视觉-语言）模型在化学与材料研究中的�
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

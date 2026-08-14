@@ -30,6 +30,7 @@
 |---|---|---|---|---|---|
 | SimBench | 2024 | 面向 Chrono 多物理场模拟器的多轮数字孪生生成 | 102 个任务 / 34 个系统，33+ 个 LLM，3000+ 轮对话 | 在预定义规则下由 LLM 评判打分，并引入人类参与 | [卡片](../works/simbench.md) |
 | Building Static Analysis with LLMs and MCP | 2025 | 通过 Model Context Protocol 服务器配置并运行 OpenSeesPy | 4 个钢筋混凝土框架，16 次分析，纯 GPT 与 GPT+MCP 对照 | 相对 ETABS 参考模型的相对误差（GPT+MCP 低于 1.427%） | [卡片](../works/toward-responsible-ai-in-high-stakes-domains-a-dat.md) |
+| CASCADE / SciSkillBench | 2025 | 为材料与化学任务运行仿真与专用计算工具包 | 116 个任务中的 40 个计算类任务；benchmark 运行时关闭记忆工具 | 在容差内自动比对标准答案（GPT-5 下 DeepSolver 总体 93.26%） | [卡片](../works/cascade.md) |
 | CFDLLMBench | 2025 | 三层 CFD：知识、PDE Python 求解器、OpenFOAM 算例 | 240 个任务（90 道 MCQ、24 个代码、126 个 OpenFOAM 算例） | 可执行性、相对误差、数值收敛性 | [卡片](../works/cfdllmbench.md) |
 | CodePDE | 2025 | 带迭代优化的 LLM 生成 PDE 数值求解器 | 代表性 PDE 问题（数量 TODO） | 在代表性 PDE 问题上的求解器准确性 | [卡片](../works/codepde.md) |
 | Cosmological Model-Building with CLASS | 2025 | 为实现替代性宇宙学而改写 CLASS Boltzmann 求解器 | 容器化的 CLASS 3.3.0，三个顺序阶段，两个目标模型 | 能编译并算出可观测量；相对参考实现的最大相对偏差 | [卡片](../works/an-llm-driven-framework-for-cosmological-model-bui.md) |
@@ -50,7 +51,9 @@
 | CRAFTS | 2026 | 从用户请求与 PFD 出发构建可执行的 IDAES/Pyomo 过程模拟模型 | OpenIDAES-450，82 个冻结的留出算例，确定性的 IDAES/Pyomo 晋级关卡 | Workflow Success 91.5%，外加单元/物流/连接的宏平均 F1 | [卡片](../works/crafts.md) |
 | HydroAgent | 2026 | 率定运行中的 CREST 水文模型，重模拟循环 | 4 个留出的水文站（329-40,792 km2），从 20 轮中取最优 | 相对人类专家参考的 Nash-Sutcliffe 效率系数 | [卡片](../works/hydroagent.md) |
 | LLM-Empowered Agent for Structural Analysis | 2026 | 生成并自动执行 OpenSeesPy 梁模型，配 OpsVis 绘图 | 8 道梁题外加 3 项扩展任务，每项运行 500 次 | 可靠性高于 0.990，鲁棒性高于 0.996 | [卡片](../works/a-large-language-model-empowered-agent-for-reliabl.md) |
+| LQCDMaster | 2026 | 生成并运行 PyQUDA 格点 QCD 测量工作流 | 70 个任务：定域与非定域两点函数、介子与重子三点函数、Wilson 环 | 与专家参考实现在机器精度上一致（63/70 Matched） | [卡片](../works/lqcdmaster.md) |
 | MDArena | 2026 | 真实的分子动力学研究工作流 | 50 个容器化任务，29 个系统，14 种协议 | 严格成功率外加过程级部分得分 | [卡片](../works/mdarena.md) |
+| MolClaw / MolBench | 2026 | 跨 30 多个工具驱动对接、构象采样与分子性质计算 | 分三层；端到端挑战需 8 到 50 次以上的连续工具调用 | 各子任务的 Accuracy 与 Hits@3，外加加权的 E2E rubric（对接命中 0.80 对 0.56） | [卡片](../works/molclaw.md) |
 | MooseBench | 2026 | 带 PDE 真值的 MOOSE 多物理场输入文件生成 | 220 个算例，每个都带有预期的 PDE 契约 | 通过确定性 PDE 重建得到的意图保真度分数 | [卡片](../works/moosebench.md) |
 | PDEAgent-Bench | 2026 | 面向三个 FEM 库的 PDE 求解器代码生成 | 645 个实例，6 个类别，11 个族（DOLFINx/Firedrake/deal.II） | 分阶段的可执行性、准确性、效率检查 | [卡片](../works/pdeagent-bench.md) |
 | Plausible but Wrong | 2026 | 配置并运行 CAMB Boltzmann 求解器计算 | 14 个按复杂度分层的 CAMB 任务；One-Shot 与 Deep Research 两种回路 | 参数准确度乘以数值准确度（带领域文档时为 0.85） | [卡片](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md) |
@@ -95,3 +98,6 @@
 - [An LLM-driven framework for cosmological model-building and exploration](../works/an-llm-driven-framework-for-cosmological-model-bui.md)
 - [SimAgents](../works/simagents.md)
 - [Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md)
+- [CASCADE](../works/cascade.md)
+- [LQCDMaster](../works/lqcdmaster.md)
+- [MolClaw](../works/molclaw.md)

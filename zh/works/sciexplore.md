@@ -9,6 +9,7 @@ SciExplore 是评估自主 agent 科学信息获取能力的 benchmark，覆盖�
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 
