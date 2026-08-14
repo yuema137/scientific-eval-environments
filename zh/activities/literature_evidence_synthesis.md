@@ -18,7 +18,7 @@
 
 第三类任务是以文献为依托的结构化抽取：把论文转化为结构化记录。[MatViX](../works/matvix.md) 从完整篇幅的材料学文章中抽取成分组成与性质曲线并生成 JSON（评分对象包括图中曲线，而不仅是实体）；[ChemX](../works/chemx.md) 则从涵盖纳米材料与小分子数据集的文档中完成经专家验证的化学信息抽取。[CeProBench](../works/ceprobench.md) 的 Knowledge 维度把同一思路搬到工程文献上：从 70 份技术文档中抽取实体与关系、构建知识图谱，用实体 F1 与边结构指标打分，再用这张图为过程工程场景检索并综合上下文。[MetaSyn](../works/metasyn.md) 处于系统综述 / 元分析这一终点，要求智能体在 PI/ECO 协议下从含有干扰项的语料中筛选出符合条件的研究集合并加以综合。[SimAgents](../works/simagents.md) 把抽取的目标从一条记录推进到一件可执行的产物：从宇宙学模拟论文中提取的参数/取值对，还必须满足模拟代码自带手册的约束，因此软件层面非法的抽取与读错的取值是分开计数的。
 
-第四类做法把评分锚定在**一线科学家身上，而不是某个自动参照**。[CosmoPaperQA](../works/cosmopaperqa.md) 请宇宙学家依据五篇真实论文写出 105 组问答对，全部 945 条回答先由人工评完，再据此校准 LLM judge；[From Queries to Criteria](../works/from-queries-to-criteria-understanding-how-astrono.md) 的评判标准与 40 题 benchmark 都源自一份为期四周的部署日志——记录的是天文学家实际问了什么——并把自动分数对照真实用户评分做了验证；[AI 辅助文献综述研究](../works/ai-assisting-research-i-literature-review.md) 则把 AI 给出的参考文献列表，与各课题在研研究者亲手整理的列表相比，发现重合率不足 6%，且主要失效落在参考文献的元数据上，而非彻底的凭空捏造。
+第四类做法把评分锚定在**一线科学家身上，而不是某个自动参照**。[CosmoPaperQA](../works/cosmopaperqa.md) 请宇宙学家依据五篇真实论文写出 105 组问答对，全部 945 条回答先由人工评完，再据此校准 LLM judge；[From Queries to Criteria](../works/from-queries-to-criteria-understanding-how-astrono.md) 的评判标准与 40 题 benchmark 都源自一份为期四周的部署日志——记录的是天文学家实际问了什么——并把自动分数对照真实用户评分做了验证；[AI 辅助文献综述研究](../works/ai-assisting-research-i-literature-review.md) 则把 AI 给出的参考文献列表，与每个课题实际在做研究的那位研究者亲手整理的列表相比，发现重合率不足 6%，且主要失效落在参考文献的元数据上，而非彻底的凭空捏造。
 
 边界情形：Aviary、LAB-Bench、LABBench2、AstaBench 和 [HiSciBench](../works/hiscibench.md) 都是多能力套件，其中只有文献、问答与抽取相关的组成部分才明确落在本活动范围内（序列、克隆、实验流程以及代码类子任务则不属于）。[MOOSE-Chem](../works/moose-chem.md) 在一个 3,000 篇论文的语料上进行灵感检索，但其目的是重新发现假说而非证据综合，因此它主要归入 Experiment Design & Scientific Discovery。
 

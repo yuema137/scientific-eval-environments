@@ -76,7 +76,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - [SDBench](../works/sdbench.md) — 按准确率-成本前沿评分的序贯诊断。
 - [ChemCost](../works/chemcost.md) — 把反应成本计算本身作为被测任务，配无 judge 的精确定价真值。
 - [MASSE](../works/masse.md) — 在端到端结构工程工作流 benchmark 中，把 token 用量与运行时间作为 rubric 的一个计分项。
-- [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) — 逐次自主流程运行都测量运行时间与峰值内存，让速度与资源占用成为两个产出相同科学结果的 agent 之间的一条比较轴。
+- [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) — 每一次自主流程运行都测量运行时间与峰值内存；两个 agent 产出的科学结果相同，速度与资源占用便成了它们之间的一条比较轴。
 
 ## Further Reading
 

@@ -34,12 +34,12 @@ AstroVisBench 瞄准的是多数代码 benchmark 会跳过的一步：模型产�
 
 ## Domains
 
-天文学：工作流是针对 Astro Data Lab 与 STScI 教程语料中的天文巡天与任务数据所做的天文专属数据处理与作图，而正确性判定关心的是图里呈现的科学洞见对不对。次级共同领域是计算机科学 / 软件与系统工程，因为任务形式是在 Python 科学计算环境中生成并执行代码。
+天文学：工作流是针对 Astro Data Lab 与 STScI 教程语料中的天文巡天与空间任务数据所做的天文专属数据处理与作图，而正确性判定关心的是图里呈现的科学洞见对不对。次级共同领域是计算机科学 / 软件与系统工程，因为任务形式是在 Python 科学计算环境中生成并执行代码。
 
 ## Evaluation
 
-- **processing 阶段。** 生成的代码被执行，其结果变量与真值变量通过变量检查分数比对：`VIscore = |V_M ∩ V_G| / |V_G|`，即对真值关键变量的召回率。执行崩溃另行统计为崩溃率。
-- **visualization 阶段。** 视觉语言 judge 把生成的图与参考图对比，归入三种错误类别之一：No Error、Minor Error、Major Error。报告的指标包括未崩溃的可视化运行占比、可视化数量不对的响应所对应的 VisFail 率，以及 CorrectV / MiE / MaE 的分布。
+- **processing 阶段。** 先执行生成的代码，再用变量检查分数把其结果变量与真值变量作比对：`VIscore = |V_M ∩ V_G| / |V_G|`，即对真值关键变量的召回率。执行崩溃另行统计为崩溃率。
+- **visualization 阶段。** 视觉语言 judge 把生成的图与参考图对比，归入三种错误类别之一：No Error、Minor Error、Major Error。报告的指标包括未崩溃的可视化运行占比、针对可视化数量不对的响应统计的 VisFail 率，以及 CorrectV / MiE / MaE 的分布。
 - **judge 校验。** 五位职业天文学家（均持天文学、天体物理或物理学博士学位）标注了 135 组可视化配对（270 张图）。错误类别上的标注者间一致性为 Fleiss' κ = 0.53，在五人共同标注的 30 个任务上两两 Spearman's ρ = 0.69。候选 judge 中，Claude 3.5 Sonnet 与专家标注的相关性最高，ρ = 0.822，因而被选作 judge。
 - **报告。** 共评测八个模型——Gemini 2.5 Pro、Claude 3.7 Sonnet、Claude 4.0 Opus、o3-mini、GPT-4o、QwQ、Qwen-2.5、Llama-4 Maverick。Gemini 2.5 Pro 最强：processing 任务上崩溃率 30.8%、VIscore 0.600，visualization 任务上只有 15.7% 为「No Error」，重大错误则占 28.5%。
 
@@ -61,7 +61,7 @@ AstroVisBench 瞄准的是多数代码 benchmark 会跳过的一步：模型产�
 
 ## Strengths
 
-- 取材于精选的职业天文教程 notebook，工作流因此反映真实的档案与任务数据实践，而非人造练习题。
+- 取材于精选的职业天文教程 notebook，工作流因此反映的是真实的档案数据与空间任务数据的使用实践，而非人造练习题。
 - 可视化 judge 经过与领域专家的实证校准，一致性统计量是报告出来的，而不是断言出来的。
 - 把 processing 与 visualization 分开，隔离出端到端代码 benchmark 会混为一谈的两种失败模式。
 
