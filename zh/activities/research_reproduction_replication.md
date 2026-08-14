@@ -14,7 +14,7 @@
 
 有一批成员针对 **ML/AI 研究论文**进行复现或复制，任务难度从让现有代码库能够跑起来，到完全从零开始的复制不等。[SUPER](../works/super.md) 聚焦于运行真实 ML/NLP 代码库时"配置与执行"这一瓶颈环节，[PaperBench](../works/paperbench.md) 要求依据由论文作者共同参与制定的评分细则，从零复制 ICML 2024 的论文，而 [FIRE-Bench](../works/fire-bench.md) 则要求 agent 仅凭一个研究问题，重新发现已发表的 ML 研究成果。这些工作与 Scientific Software、Data Analysis 高度共现，并普遍依赖 LLM-as-judge 的评分方式。
 
-第二类工作借助开源软件和专用工具链，复现 **physics、astro 和 materials 领域的结论**，与 Simulation、Scientific Software 强烈共现。[ReplicationBench](../works/replicationbench.md) 面向 astrophysics 论文的复制，[PRBench](../works/prbench.md) 从零重新实现 physics 算法以匹配已发表的数值结果，[Collider-Bench](../works/collider-bench.md) 将 LHC 搜索实验重构到一套公开的仿真技术栈中，并以直方图的拟合度打分，而 [AutoMat](../works/automat.md) 则跨 DFT/MD/ML 工作流复现 computational materials science 的结论。
+第二类工作借助开源软件和专用工具链，复现 **physics、astro 和 materials 领域的结论**，与 Simulation、Scientific Software 强烈共现。[ReplicationBench](../works/replicationbench.md) 面向 astrophysics 论文的复制，[PRBench](../works/prbench.md) 从零重新实现 physics 算法以匹配已发表的数值结果，[Collider-Bench](../works/collider-bench.md) 将 LHC 搜索实验重构到一套公开的仿真技术栈中，并以直方图的拟合度打分，而 [AutoMat](../works/automat.md) 则跨 DFT/MD/ML 工作流复现 computational materials science 的结论。[Quantifying the Reproducibility of Astrophysical Methods](../works/quantifying-the-reproducibility-of-astrophysical-m.md) 在同一领域内把问题反了过来：它问的不是 agent 能否复现一项方法，而是在层层嵌套的稿件文本层级上对同一方法反复采样重建，衡量文字本身把有效实现的空间约束到什么程度，并按一套有序的有效性层级为由此得到的可执行流程评分。
 
 第三类工作**基于提供的代码与数据来复现研究结果**，或对标已发表的 SOTA。[CORE-Bench](../works/core-bench.md) 利用论文自身公开发布的代码与数据，在 CS、social science 和 medicine 领域重新运行已发表的研究，而 [NatureBench](../works/naturebench.md) 则超越了单纯的复现，力求在六大领域匹配 Nature 系列论文所发表的 SOTA 水平。
 
@@ -31,6 +31,7 @@
 | FIRE-Bench | 2026 | 从 ML 论文中重新发现已确立的研究成果 | 40 个可执行任务 + 60 篇论文的题库，24 小时/A100 的轻量算力 | 基于参考的重新发现得分（最高 <50 F1） | [卡片](../works/fire-bench.md) |
 | NatureBench | 2026 | 匹配 Nature 系列论文发表的 SOTA | 90 个任务，六大领域，经评审把关的 NatureGym 流水线 | 在信息隔离墙下达到或超越已发表的 SOTA | [卡片](../works/naturebench.md) |
 | PRBench | 2026 | 复现 physics 论文，从零实现算法 | 30 个专家精选任务，11 个子领域，sandbox | 与论文匹配的定量结果（最高 34%） | [卡片](../works/prbench.md) |
+| Quantifying Reproducibility of Astrophysical Methods | 2026 | 仅凭文本重建一项已发表的天体物理方法 | 同一方法在 Title / +Abstract / +Methods 三个层级下；五个模型 | Hierarchy of Scientific Validity 0-3 级，通过阈值为 V >= 2 | [卡片](../works/quantifying-the-reproducibility-of-astrophysical-m.md) |
 
 ## Related Works
 
@@ -43,3 +44,4 @@
 - [FIRE-Bench](../works/fire-bench.md)
 - [NatureBench](../works/naturebench.md)
 - [PRBench](../works/prbench.md)
+- [Quantifying the Reproducibility of Astrophysical Methods with Large Language Models and Information Theory](../works/quantifying-the-reproducibility-of-astrophysical-m.md)

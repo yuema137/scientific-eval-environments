@@ -97,6 +97,10 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | PEOA | 2024 | 工具学习的分阶段打分：规划（工具使用意识、通过率、相对金标准方案的计划准确率）、工具选择（Recall@K、NDCG@K、COMP@K）、工具调用（约定一致性、参数抽取、错误处理）、回答生成（BLEU、ROUGE-L、EM） | 化工与过程工程问题求解（MathComp、ChemProc） | [→](../works/peoa.md) |
 | Autonomous Action Execution (AAE) Framework | 2026 | 通过 P&ID 图遍历逐动作验证（位号存在性、可执行性、失效状态、下游影响）；在 43 个注入的无效方案上的验证器召回率、N = 50 次鲁棒性运行、B0–B3 上下文阶梯 | 工业过程控制（Tennessee Eastman 以及另外两个装置场景） | [→](../works/aae-framework.md) |
 | DrafterBench | 2025 | 记录下来的操作链与参考操作链之间的交并比，叠加在两级评分（代码可执行性，再到六个子任务上的目标完成度）之上，并对弱子任务扣分；按各指令控制变量分别报告 | 覆盖 46 个自定义工具的土木工程技术图纸修改 | [→](../works/drafterbench.md) |
+| AstroVisBench | 2025 | 把同一条工作流分阶段评分：处理阶段用 Variable Inspection Score 衡量它产出的标准答案内存变量，随后由一个依据与五位职业天文学家的相关性（ρ = 0.822）选出的 judge，对最终的图给出 No / Minor / Major 错误判定；崩溃率与 VisFail 率则与这两者分开报告 | 源自教程 notebook 的天文科学计算与可视化 | [→](../works/astrovisbench.md) |
+| Spec-o3 / SpecVI-Bench | 2026 | 六位天文学家在标签准确率之外，依公开的 0–5 分 rubric 就连贯性与物理自洽性为 100 条推理轨迹打分；另在每个巡天的 50 个案例上与 o3 做两两偏好对比；每条轨迹的工具调用上限为 8 次 | 稀有天体的天文光谱甄别（LAMOST、SDSS/DESI） | [→](../works/spec-o3.md) |
+| Plausible but Wrong | 2026 | 由 Execution Success、Parameter Accuracy 与 Numerical Accuracy 上的阈值界定四种互斥的失败模式——代码失败、参数错误、计算错误、正确——从而把静默的数值错误与崩溃分开归类，而不是压成一个通过/不通过 | 天体物理计算工作流（CAMB 求解器调用与档案数据分析） | [→](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md) |
+| First head-to-head comparison of agentic AI on Einstein Telescope data | 2026 | 从 agent 自己的日志中数出的过程行为——重启、对规格说明的静默偏离与显式自我纠正之别、未经要求的优化、token 预算变动、指令理解上的分歧——与相同的科学输出、运行时间和峰值内存并列报告 | 在模拟 Einstein Telescope 数据上执行引力波流程 | [→](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) |
 
 ## Open Questions
 
@@ -109,6 +113,10 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 
 ## Related Works
 
+- [AstroVisBench](../works/astrovisbench.md)
+- [Spec-o3](../works/spec-o3.md)
+- [Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md)
+- [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md)
 - [DrafterBench](../works/drafterbench.md)
 - [PEOA](../works/peoa.md)
 - [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md)
