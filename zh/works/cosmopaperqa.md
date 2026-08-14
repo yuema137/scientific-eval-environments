@@ -23,11 +23,11 @@ CosmoPaperQA 是一份含 105 组问答对的宇宙学问答数据集，题目�
 
 ## Summary
 
-这项工作的出发点是一个观察：现有的天文问答资源大多是合成的——文中以 AstroMLab 1 的 4,425 道 AI 生成选择题和 Astro-QA 的 3,082 道题作为对照——因此它改从真实研究论文中直接提取问题。一支宇宙学专家团队撰写了 105 组问答对，分三个复杂度层级：具体参数的事实检索、需要整合多处证据的综合推理，以及需要深厚领域功力的分析性阐释。九种 RAG 配置在同一份五篇论文的语料上运行，共产生 945 份回答，全部由一位博士级领域专家逐条人工评分。这 945 个人工评分随后用于校准两个 LLM judge；两者复现系统排名的吻合程度足够高（各评估方法之间 Pearson r > 0.99），作者据此提出把 LLM-as-a-Judge 作为专家评分的可规模化替代。
+这项工作的出发点是一个观察：现有的天文问答资源大多是合成的——文中以 AstroMLab 1 的 4,425 道 AI 生成选择题和 Astro-QA 的 3,082 道题作为对照——因此它改从真实研究论文中直接提取问题。一支宇宙学专家团队撰写了 105 组问答对，分三个复杂度层级：具体参数的事实检索、需要整合多处证据的综合推理，以及需要深厚领域造诣的分析性阐释。九种 RAG 配置在同一份五篇论文的语料上运行，共产生 945 份回答，全部由一位博士级领域专家逐条人工评分。这 945 个人工评分随后用于校准两个 LLM judge；两者复现系统排名的吻合程度足够高（各评估方法之间 Pearson r > 0.99），作者据此提出把 LLM-as-a-Judge 作为专家评分的可规模化替代。
 
 ## Tasks
 
-105 组由专家撰写的问答对，取自五篇高引宇宙学论文：Planck 2018 宇宙学参数结果、CAMELS 机器学习模拟套件、一项本地哈勃常数测量、一项「cosmology with one galaxy」分析，以及 Atacama Cosmology Telescope DR6 的约束结果。题目按三个复杂度层级组织——具体参数的事实检索、整合多处证据的综合推理，以及需要深厚领域功力的分析性阐释。受评的九种 RAG 配置为：三个商用助手（OpenAI Assistant，用 GPT-4.1 与 text-embedding-3-large；OpenAIPDF Assistant，同一套技术栈但直接读原始 PDF；VertexAI Assistant，用 Gemini 2.5 Flash 与 text-embedding-005），两种混合的嵌入 / 生成搭配（HybridOAIGem、HybridGemGem），两个学术检索工具（PaperQA2 与经领域适配的 Modified PaperQA2），以及两个非 RAG 基线（不做检索的 Gemini Assistant 和带网页搜索的 Perplexity Assistant）。检索统一采用 top-k = 20，分块为 5,000 token、重叠 250 token，温度 0.01。
+105 组由专家撰写的问答对，取自五篇高引宇宙学论文：Planck 2018 宇宙学参数结果、CAMELS 机器学习模拟套件、一项局域哈勃常数测量、一项「cosmology with one galaxy」分析，以及 Atacama Cosmology Telescope DR6 的约束结果。题目按三个复杂度层级组织——具体参数的事实检索、整合多处证据的综合推理，以及需要深厚领域造诣的分析性阐释。受评的九种 RAG 配置为：三个商用助手（OpenAI Assistant，用 GPT-4.1 与 text-embedding-3-large；OpenAIPDF Assistant，同一套技术栈但直接读原始 PDF；VertexAI Assistant，用 Gemini 2.5 Flash 与 text-embedding-005），两种混合的嵌入 / 生成搭配（HybridOAIGem、HybridGemGem），两个学术检索工具（PaperQA2 与经领域适配的 Modified PaperQA2），以及两个非 RAG 基线（不做检索的 Gemini Assistant 和带网页搜索的 Perplexity Assistant）。检索统一采用 top-k = 20，分块为 5,000 token、重叠 250 token，温度 0.01。
 
 ## Domains
 
@@ -35,7 +35,7 @@ CosmoPaperQA 是一份含 105 组问答对的宇宙学问答数据集，题目�
 
 ## Evaluation
 
-二值评分：回答若事实准确、且抓住了标准答案的核心科学要点，记 1 分；若含有错误或遗漏核心概念，记 0 分；报告时换算到 0–100。全部 945 份回答（9 个系统 × 105 题）由一位具备博士级宇宙学功力的领域专家逐条人工评分。随后用这些人工评分校准两个 LLM judge——OpenAI o3-mini 与 Gemini 2.5 Pro——并让它们评判同一批回答。报告的准确率为：OpenAI Assistant 91.4%、OpenAIPDF Assistant 89.5%、VertexAI Assistant 86.7%、HybridOAIGem 85.7%、HybridGemGem 84.8%、PaperQA2 81.9%、Modified PaperQA2 73.3%、Perplexity Assistant 17.1%、Gemini Assistant（无检索）16.2%。两个 judge 的偏差方向相反——OpenAI judge 比人类专家低 2–8 个百分点，Gemini judge 高 5–15 个百分点——但都保持了排名不变，而排名正是 LLM-as-a-Judge 替代方案的立论依据。
+二值评分：回答若事实准确、且抓住了标准答案的核心科学要点，记 1 分；若含有错误或遗漏核心概念，记 0 分；报告时换算到 0–100。全部 945 份回答（9 个系统 × 105 题）由一位具备博士级宇宙学造诣的领域专家逐条人工评分。随后用这些人工评分校准两个 LLM judge——OpenAI o3-mini 与 Gemini 2.5 Pro——并让它们评判同一批回答。报告的准确率为：OpenAI Assistant 91.4%、OpenAIPDF Assistant 89.5%、VertexAI Assistant 86.7%、HybridOAIGem 85.7%、HybridGemGem 84.8%、PaperQA2 81.9%、Modified PaperQA2 73.3%、Perplexity Assistant 17.1%、Gemini Assistant（无检索）16.2%。两个 judge 的偏差方向相反——OpenAI judge 比人类专家低 2–8 个百分点，Gemini judge 高 5–15 个百分点——但都保持了排名不变，而排名正是 LLM-as-a-Judge 替代方案的立论依据。
 
 ## Typical Duration
 
@@ -56,7 +56,7 @@ N/A — 在固定的五篇论文语料上做单轮问答，没有多步轨迹，
 
 ## Strengths
 
-- 评分真值来自人类专家对每一份回答的完整过一遍，而不是抽样或自动代理指标。
+- 评分真值是人类专家把每一份回答都完整过了一遍，而不是抽样或自动代理指标。
 - judge 校准结果连同其失效模式一并报告，而不是只给一个一致性数字：两个 judge 在绝对分值上都有系统性偏差，作者只主张排名可以迁移。
 - 无检索基线与网页搜索基线只有 16–17%，使得可归因于语料检索的差距异常清晰。
 - 数据集与流水线均已公开（HuggingFace 与 SciRag 仓库），比较结果可复现。

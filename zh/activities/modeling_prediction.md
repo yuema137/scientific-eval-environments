@@ -16,7 +16,7 @@
 
 第二类任务是**以优化模型指标为目标的 ML 工程**，要求 agent 迭代式地构建并训练模型。[MLAgentBench](../works/mlagentbench.md)、[MLE-bench](../works/mle-bench.md) 和 [MLE-Dojo](../works/mle-dojo.md) 把 ML 研究/工程构建成在 Kaggle 风格任务上不断改进指标的交互式循环；[DSBench](../works/dsbench.md) 在分析任务之外还加入了数据建模任务；[BioXArena](../works/bioxarena.md) 则在固定算力预算下，把完整的训练与提交流程应用于生物医学 ML。
 
-第三类任务是**以物理为基础的预测与模型拟合**，其中拟合出的模型本身就是核心产物。[gwBenchmarks](../works/gwbenchmarks.md) 要求给出高精度的波形代理模型和残余体拟合，[RealPDEBench](../works/realpdebench.md) 衡量科学 ML 在物理系统上的仿真到现实差距，[Stargazer](../works/stargazer.md) 为径向速度序列拟合 Keplerian 轨道模型，而 [DiscoverPhysics](../works/discoverphysics.md) 则要求推断并实现反事实模拟世界的物理定律。天文把这一点进一步逼成在几乎简并的候选之间做模型*选择*：[VESTA / DAWN](../works/vesta-dawn.md) 在只有到 log-log 空间才分得开的恒星初始质量函数族上、以及在引力波啁啾上，为「作图—变换—重拟合」这一循环评分；[Mephisto](../works/mephisto.md) 搜索的是候选的 CIGALE 光谱能量分布模型，而不是一张固定的参数网格；[VLM 验证的发现研究](../works/enhancing-agentic-autonomous-scientific-discovery.md) 则把还原出正确的生成模型作为通过判据，同时由一个视觉 judge 去查看拟合出的曲线。
+第三类任务是**以物理为基础的预测与模型拟合**，其中拟合出的模型本身就是核心产物。[gwBenchmarks](../works/gwbenchmarks.md) 要求给出高精度的波形代理模型和残余体拟合，[RealPDEBench](../works/realpdebench.md) 衡量科学 ML 在物理系统上的仿真到现实差距，[Stargazer](../works/stargazer.md) 为径向速度序列拟合 Keplerian 轨道模型，而 [DiscoverPhysics](../works/discoverphysics.md) 则要求推断并实现反事实模拟世界的物理定律。天文则把这一点收紧为在几乎简并的候选之间做模型*选择*：[VESTA / DAWN](../works/vesta-dawn.md) 在只有到 log-log 空间才分得开的恒星初始质量函数族上、以及在引力波啁啾上，为「作图—变换—重拟合」这一循环评分；[Mephisto](../works/mephisto.md) 搜索的是候选的 CIGALE 光谱能量分布模型，而不是一张固定的参数网格；[VLM 验证的发现研究](../works/enhancing-agentic-autonomous-scientific-discovery.md) 则把还原出正确的生成模型作为通过判据，同时由一个视觉 judge 去查看拟合出的曲线。
 
 ## Comparison
 
