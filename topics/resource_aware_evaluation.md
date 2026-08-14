@@ -51,6 +51,7 @@ Two meaningful distinctions structure the space:
 | SDBench | 2025 | Cost of physician visits and diagnostic tests | Scored jointly with accuracy as a frontier | Sequential diagnosis over 304 NEJM-CPC cases with an information gatekeeper | [→](../works/sdbench.md) |
 | ChemCost | 2026 | Supplier quotes and purchasable packs from a frozen pricing snapshot | Cost is the task itself — agents compute reaction cost against exact ground truth | Reaction pricing; 1,427 reactions, 230,775 quotes; noise-injected robustness views | [→](../works/chemcost.md) |
 | MASSE | 2025 | Total token usage and total runtime, emitted by the judge alongside the quality scores | Scored component — Efficiency and Robustness carries 20 of the 100 MASEB points; the same totals drive a cost/runtime trade-off analysis across four backends | Multi-agent structural engineering workflow; 100 expert-validated problems, ten trials each | [→](../works/masse.md) |
+| First head-to-head comparison of agentic AI on Einstein Telescope data | 2026 | Wall-clock runtime and peak memory per pipeline execution; token cost deliberately not measured and listed as a limitation | Reported measure, not a budget — runtime and memory sit beside the scientific outputs, and the speed-versus-auditability trade-off between the two agents is read off them | Two agentic coding systems executing one gravitational-wave pipeline specification on identical hardware; four autonomous runs | [→](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) |
 
 ## Open Questions
 
@@ -75,6 +76,7 @@ Two meaningful distinctions structure the space:
 - [SDBench](../works/sdbench.md) — Sequential diagnosis scored on the accuracy-versus-cost frontier.
 - [ChemCost](../works/chemcost.md) — Reaction-cost computation as the measured task, with judge-free exact pricing ground truth.
 - [MASSE](../works/masse.md) — Token usage and runtime scored as a rubric component of an end-to-end structural engineering workflow benchmark.
+- [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) — Runtime and peak memory measured per autonomous pipeline run, making speed and footprint a comparison axis between two agents that produce the same science.
 
 ## Further Reading
 

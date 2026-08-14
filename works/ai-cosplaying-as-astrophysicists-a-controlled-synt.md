@@ -16,7 +16,6 @@ results.
 ## Activities
 
 - [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
-- [Literature Search & Evidence Synthesis](../activities/literature_evidence_synthesis.md)
 
 ## Links
 

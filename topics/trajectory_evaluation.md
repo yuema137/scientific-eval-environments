@@ -97,6 +97,10 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 | PEOA | 2024 | Stage-decomposed tool-learning scoring: planning (tool-usage awareness, pass rate, plan accuracy vs. gold plans), tool selection (Recall@K, NDCG@K, COMP@K), tool calling (stipulation consistency, parameter extraction, error handling), response generation (BLEU, ROUGE-L, EM) | Chemical and process engineering problem solving (MathComp, ChemProc) | [→](../works/peoa.md) |
 | Autonomous Action Execution (AAE) Framework | 2026 | Per-proposed-action validation by P&ID graph traversal (tag existence, actuatability, fail-state, downstream impact); validator recall over 43 injected invalid proposals, N = 50 robustness runs, B0–B3 context ladder | Industrial process control (Tennessee Eastman and two further plant scenarios) | [→](../works/aae-framework.md) |
 | DrafterBench | 2025 | Intersection-over-union between the recorded operation chain and a reference chain, layered on two-level scoring (code executability, then target completeness over six subtasks) with a weak-subtask penalty; reported per instruction controller | Civil-engineering technical drawing revision over 46 custom tools | [→](../works/drafterbench.md) |
+| AstroVisBench | 2025 | Stage-separated scoring of one workflow: Variable Inspection Score over the ground-truth in-memory variables the processing stage produces, then a No / Minor / Major error verdict on the resulting plot from a judge chosen by correlation (ρ = 0.822) with five professional astronomers, with crash and VisFail rates reported apart from both | Astronomy scientific computing and visualization from tutorial notebooks | [→](../works/astrovisbench.md) |
+| Spec-o3 / SpecVI-Bench | 2026 | Six astronomers score 100 reasoning trajectories on a published 0–5 rubric for coherence and physical consistency, separately from label accuracy, plus a pairwise-preference comparison against o3 on 50 cases per survey; tool calls per trajectory capped at 8 | Astronomical spectroscopic vetting of rare objects (LAMOST, SDSS/DESI) | [→](../works/spec-o3.md) |
+| Plausible but Wrong | 2026 | Four mutually exclusive failure modes defined by thresholds on Execution Success, Parameter Accuracy and Numerical Accuracy — code failure, wrong parameters, wrong computation, correct — so that a silent numerical error is classified apart from a crash rather than collapsed into one pass/fail | Astrophysical computation workflows (CAMB solver calls and archival-data analysis) | [→](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md) |
+| First head-to-head comparison of agentic AI on Einstein Telescope data | 2026 | Process behaviour counted from the agents' own logs — restarts, silent deviations from the specification versus explicit self-corrections, unsolicited optimisations, token-budget changes and instruction-interpretation divergences — reported beside identical scientific outputs, runtime and peak memory | Gravitational-wave pipeline execution on simulated Einstein Telescope data | [→](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) |
 
 ## Open Questions
 
@@ -109,6 +113,10 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 
 ## Related Works
 
+- [AstroVisBench](../works/astrovisbench.md)
+- [Spec-o3](../works/spec-o3.md)
+- [Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md)
+- [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md)
 - [DrafterBench](../works/drafterbench.md)
 - [PEOA](../works/peoa.md)
 - [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md)
