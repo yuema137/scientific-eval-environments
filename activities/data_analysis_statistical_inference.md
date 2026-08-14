@@ -34,7 +34,8 @@ A final cluster addresses **neuroscience and behavioral signal analysis**: [Brai
 | AstaBench | 2025 | Holistic scientific research incl. data analysis | 2,400+ problems across 11 benchmarks | Cost-controlled scoring vs standardized baselines | [card](../works/astabench.md) |
 | AstroVisBench | 2025 | Astronomy-specific data-processing workflows from notebooks | 432 processing + 432 visualization tasks from 110 notebooks | Variable-recall score plus VLM-judged plot correctness (best 15.7% error-free) | [card](../works/astrovisbench.md) |
 | BAISBench | 2025 | Omics-driven single-cell biological discovery | 15 datasets annotation + 193 discovery MCQs | Correct cell types and study conclusions vs human baseline | [card](../works/baisbench.md) |
-| BixBench | 2025 | Exploratory computational-biology data analysis | 50+ scenarios, | 300 questions, Jupyter container | [card](../works/bixbench.md) |
+| BixBench | 2025 | Exploratory computational-biology data analysis | 50+ scenarios, ~300 questions, Jupyter container | Open-answer / multiple-choice accuracy (frontier ~17%) | [card](../works/bixbench.md) |
+| CASCADE / SciSkillBench | 2025 | Retrieval, analysis and processing of materials-science and chemistry data | 76 data-oriented of 116 tasks, two specification levels, 3 repetitions per configuration | Automated tolerance-checked match to ground truth (DeepSolver 93.26% overall with GPT-5) | [card](../works/cascade.md) |
 | EXP-Bench | 2025 | End-to-end AI research experimentation | 461 tasks from 51 papers, 12,737 subtasks | Design/implement/execute/analyze (0.5% full) | [card](../works/exp-bench.md) |
 | gammapyGPT | 2025 | Gamma-ray observation analysis through the Gammapy library | 4 tasks on real observational data, stripped execution environment | Exact or tolerance match on observation counts, flux and spectral index | [card](../works/gammapygpt.md) |
 | Gravity-Bench-v1 | 2025 | Budgeted observation and gravitational-physics inference | Simulated two-body systems, OOD variants | Characterize concealed physics vs reference solutions | [card](../works/gravity-bench.md) |
@@ -66,6 +67,7 @@ A final cluster addresses **neuroscience and behavioral signal analysis**: [Brai
 | SciVisAgentBench | 2026 | Scientific data analysis and visualization for insight | 108 expert cases, seven science domains; multi-platform tools | Outcome-centric image metrics plus deterministic verifiers | [card](../works/scivisagentbench.md) |
 | Spec-o3 / SpecVI-Bench | 2026 | Vetting rare-object candidates by inspecting survey spectra | 5 tasks, 1,122 positive / 5,632 negative LAMOST test spectra | Macro accuracy and positive-class F1 (Spec-o3-7B 88.7% / 76.5%) | [card](../works/spec-o3.md) |
 | Stargazer | 2026 | Iterative physics-grounded RV model fitting | 120 tasks (100 synthetic + 20 real archival) | Per-criterion pass on Keplerian fits (Easy 80%, real 0%) | [card](../works/stargazer.md) |
+| TS-Skill | 2026 | Signal-level time-series analysis: scale selection, localization, cross-interval integration | 3,000 QA items over the seven skill combinations; 25 domain-conditioned synthetic categories | Per-skill and per-combination accuracy (SK3 at or below the 0.259 random baseline without tools) | [card](../works/ts-skill.md) |
 | VESTA / DAWN | 2026 | Iterative distribution and time-series fitting with residual inspection | 400 instances including stellar-IMF and gravitational-wave chirp splits | Jensen-Shannon divergence and ELPD-LOO against ground truth | [card](../works/vesta-dawn.md) |
 
 ## Related Works
@@ -111,3 +113,5 @@ A final cluster addresses **neuroscience and behavioral signal analysis**: [Brai
 - [Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md)
 - [Spec-o3](../works/spec-o3.md)
 - [VESTA / DAWN](../works/vesta-dawn.md)
+- [CASCADE](../works/cascade.md)
+- [TS-Skill](../works/ts-skill.md)

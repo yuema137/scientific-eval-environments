@@ -30,6 +30,7 @@ Credit assignment is related to but distinct from [Skill Hierarchy](./skill_hier
 - **Standardized computer-use judge benchmarking.** [OSReward](../works/osreward.md) scores cross-platform computer-use reward models against multi-stage human-annotated verdicts, identifies systematic leniency bias in state-of-the-art judges, and shows that open 9B/35B judges trained on its OS-Shepherd-100K corpus match frontier commercial judges at 30–60× lower cost.
 - **Localize, attribute, repair.** [SearchAuditor](../works/searchauditor.md) grades auditors end-to-end on 1,243 expert-annotated failed search trajectories — localization of the critical error step, attribution to a search-specific root cause, and repair against reference rubrics — with the strongest baseline passing only 26.6% end-to-end.
 - **Credit inside the skill artifact.** [SkillSV](../works/skillsv.md) moves credit assignment from trajectory steps to the internal units of an agent skill: structure-aware Shapley valuation over a skill's compiled units, dependencies, and hierarchy, with paired deletion and length-neutral padding separating content value from context cost.
+- **Credit at the step of a skill, under a measured estimation budget.** [SkillShapley](../works/skillshapley.md) pushes the same idea one level finer than SkillSV, treating each individual step of a skill as a player in a coalitional game. Its contribution is as much to the estimator as to the attribution: because agentic benchmark rewards are discretized into cliffs and step interactions turn out to be largely additive, the sampler concentrates its budget near informative boundaries, and its approximation error is reported against exact Shapley values rather than assumed.
 - **Error-lifecycle attribution.** [TRAJDEBUG](../works/trajdebug.md) traces each detected error's resolution status and terminal impact over TrajErrBench's 486 manually annotated failed trajectories, so credit for a failure lands on the error that actually determined it rather than on errors the agent later recovered from.
 - **Fault-origin localization from telemetry.** [TelemetrySuffBench](../works/telemetrysuffbench.md) tests whether execution telemetry is sufficient to attribute a failure to its origin component, using delayed-binding faults that decouple symptom from cause and exact-equal ambiguous origin pairs that make abstention the correct answer.
 - **Component-level trajectory attribution.** [Long-Horizon Agent Trajectory Attribution](../works/long-horizon-agent-trajectory-attribution.md) attributes an observed agent outcome to the responsible trajectory component and recovers the surrounding attribution chain, with likelihood-based and leave-one-out reference baselines.
@@ -59,6 +60,7 @@ Credit assignment is related to but distinct from [Skill Hierarchy](./skill_hier
 | TelemetrySuffBench | 2026 | Origin-step localization from telemetry with delayed-binding faults; abstention on ambiguous origins | Per injected fault-origin component / event | [→](../works/telemetrysuffbench.md) |
 | Long-Horizon Agent Trajectory Attribution | 2026 | Primary-component attribution (Hit@1 / MRR) + attribution-chain recovery (Recall@K / MAP) | Per trajectory component (root cause + chain) | [→](../works/long-horizon-agent-trajectory-attribution.md) |
 | TempoBench | 2025 | Minimal-necessary-cause identification via counterfactual attribution, vs. forward simulation | Per input condition of an execution trace | [→](../works/tempobench.md) |
+| SkillShapley | 2026 | Shapley value over coalitions of skill steps, estimated by boundary-adaptive sampling; MAE against exact Shapley values plus removal-validation curves | Per step inside an agent skill, not per trajectory step | [→](../works/skillshapley.md) |
 
 ## Open Questions
 
@@ -68,6 +70,7 @@ Credit assignment is related to but distinct from [Skill Hierarchy](./skill_hier
 
 ## Related Works
 
+- [SkillShapley](../works/skillshapley.md)
 - [TempoBench](../works/tempobench.md)
 - [TelemetrySuffBench](../works/telemetrysuffbench.md)
 - [From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](../works/from-reasoning-to-agentic.md)

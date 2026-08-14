@@ -16,13 +16,13 @@ The set of topics is fixed. Adding a new topic requires updating [`../AGENT.md`]
 
 | # | Topic | File | Related works |
 |---|---|---|---|
-| I | [General Long-Horizon Agent Benchmarks](./long_horizon_evaluation.md) | `long_horizon_evaluation.md` | 47 |
-| II | [Scientific Agent Benchmarks](./scientific_agents.md) | `scientific_agents.md` | 229 |
-| III | [Trajectory Evaluation](./trajectory_evaluation.md) | `trajectory_evaluation.md` | 44 |
-| IV | [Skill Hierarchy](./skill_hierarchy.md) | `skill_hierarchy.md` | 10 |
-| V | [Credit Assignment](./credit_assignment.md) | `credit_assignment.md` | 21 |
-| VI | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 15 |
-| VII | [Survey](./survey.md) | `survey.md` | 6 |
+| I | [General Long-Horizon Agent Benchmarks](./long_horizon_evaluation.md) | `long_horizon_evaluation.md` | 51 |
+| II | [Scientific Agent Benchmarks](./scientific_agents.md) | `scientific_agents.md` | 238 |
+| III | [Trajectory Evaluation](./trajectory_evaluation.md) | `trajectory_evaluation.md` | 51 |
+| IV | [Skill Hierarchy](./skill_hierarchy.md) | `skill_hierarchy.md` | 43 |
+| V | [Credit Assignment](./credit_assignment.md) | `credit_assignment.md` | 22 |
+| VI | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 16 |
+| VII | [Survey](./survey.md) | `survey.md` | 7 |
 
 Skill Hierarchy and Credit Assignment are independent topics.
 

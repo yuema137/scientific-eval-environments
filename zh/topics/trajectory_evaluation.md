@@ -51,6 +51,10 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - **阶段对齐的问题解决诊断。** [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) 在可执行补丁评估之外，补充需求澄清与实现规划的已验证真值，实现对完整编码轨迹的 GT 对齐诊断。
 - **推理轨迹可靠性。** [MiraMind](../works/miramind.md) 沿可用性、逻辑结构与信息贡献为心理健康推理轨迹打分，把正确的最终答案与不可靠的"证据到判断"路径区分开。
 - **以对抗方式检验的逐动作准入判定。** [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md) 把判定单位从最终任务下移到单个被提出的动作：LLM 每提出一个控制动作，都要经由对装置 P&ID 的图遍历，核查位号是否存在、是否可执行、失效状态是否一致以及下游影响如何。验证器自身的覆盖面也一并纳入度量——针对其各类失效模式构造了 43 个无效方案，在所覆盖的类别上报告 100% 召回率；此外还有一项 N = 50 的鲁棒性研究，覆盖不安全方案占比从 10% 到 70% 的各种运行，以及一条 B0–B3 阶梯，为每一级上下文增强单独计分。
+- **从轨迹里读出 skill 起了什么作用。** 当 agent 配上一个可复用的 skill，轨迹就成了这个 skill 的作用唯一显形的地方，一批工作也就相应地在轨迹上下探针。[SkillJuror](../works/skilljuror.md) 统计每条轨迹触及的不同 skill 资源数与有效采纳次数，发现组织方式先动的是这两个量，之后才轮到结果。[Skill Coverage](../works/skill-coverage.md) 把测试充分性的思路移植过来：把 skill 指令编译成带条件作用域的行为约束，再逐条轨迹考察它覆盖了哪些约束、以及观察到的行为是否通过。[SkillCoach](../works/skillcoach.md) 的 rubric 是在一道校验闸门下从真实 rollout 中提炼出来的，对选取、遵循、组合与反思分别评分，并有意把外部验证器排除在 rubric 之外，好让过程与结果可以彼此不一致。[SkillLearnBench](../works/skilllearnbench.md) 在两者之下又加了第三层：生成出来的 skill 产物，与产出它的那条轨迹一并评分。
+- **用生命周期上的多道闸门取代唯一的终态裁决。** [SkillMisevo-Bench](../works/skillmisevo-bench.md) 把轨迹到 skill 这条流水线上的编写、检索与执行分成三道独立的闸门来测量——因为一个终态的攻击成功率数字无法区分「库本身是安全的」与「不安全的产物只是碰巧没被检索到」；在它的全网格中，21 种演化条件全都写出了不安全产物，其中 19 种会把它们检索回来，而只有 15 种会让危害留存到全新的会话里。
+- **把过程纪律本身作为工程工作的一个计分维度。** [RigorBench](../works/rigorbench.md) 从经插桩的执行轨迹中算出七根加权支柱——计划忠实度、验证覆盖率、恢复效率、弃权质量、原子转换完整性、测试断言密度、探索效率——并在同一批运行上单独给结果打分，使过程与结果的关系本身成为研究对象；它固定基础模型，只变 harness。
+- **每个实例都标注了金标准计划。** [AISE-Bench](../works/aise-bench.md) 把全部 1,133 个实例端到端地标注了一遍——查询、计划、实际执行的 API 调用及其经校验的参数、参考答案——于是过程指标有了金标准可依，而不必靠启发式：计划按与标注计划之间的图编辑距离评分，参数准确率则作为一等指标报告；多数被评方法虽然部分完成度很高，恰恰是在这里失分。
 - **当产物本身难以检查时，改用参考操作链。** [DrafterBench](../works/drafterbench.md) 为土木工程图纸修改评分的办法，是计算 agent 记录下来的操作链与参考操作链之间的交并比；配套的 dual function 只记录操作路径而不改动文件，因此修改后的 PDF 根本无需人眼查看。在它的 1,920 个任务里，指令质量是一个受控变量：措辞无结构、取值含糊、信息不全这三种情况可以各自独立开关，结果也按控制变量分别报告，于是轨迹得分的下滑能被归因到某一种具体的指令缺陷上。
 
 ## Comparison
@@ -101,6 +105,13 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | Spec-o3 / SpecVI-Bench | 2026 | 六位天文学家在标签准确率之外，依公开的 0–5 分 rubric 就连贯性与物理自洽性为 100 条推理轨迹打分；另在每个巡天的 50 个案例上与 o3 做两两偏好对比；每条轨迹的工具调用上限为 8 次 | 稀有天体的天文光谱甄别（LAMOST、SDSS/DESI） | [→](../works/spec-o3.md) |
 | Plausible but Wrong | 2026 | 由 Execution Success、Parameter Accuracy 与 Numerical Accuracy 上的阈值界定四种互斥的失败模式——代码失败、参数错误、计算错误、正确——从而把静默的数值错误与崩溃分开归类，而不是压成一个通过/不通过 | 天体物理计算工作流（CAMB 求解器调用与档案数据分析） | [→](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md) |
 | First head-to-head comparison of agentic AI on Einstein Telescope data | 2026 | 从 agent 自己的日志中数出的过程行为——重启、对规格说明的静默偏离与显式自我纠正之别、未经要求的优化、token 预算变动、指令理解上的分歧——与相同的科学输出、运行时间和峰值内存并列报告 | 在模拟 Einstein Telescope 数据上执行引力波流程 | [→](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) |
+| SkillJuror | 2026 | 每条轨迹触及的不同 skill 资源数与有效采纳次数（Progressive Disclosure 下分别由 1.18 → 3.85、1.33 → 3.92），通过验证器的试验数作为滞后的次级信号 | Agent skill 的组织方式；基于 82 个任务的 SkillsBench 研究，共 410 组配对试验 | [→](../works/skilljuror.md) |
+| Skill Coverage | 2026 | 每条轨迹对抽取出的 skill 行为约束的覆盖率，以及已覆盖约束上的 Pass / Fail 判定 | 可复用的 agent skill，作用于 SkillsBench 排行榜轨迹 | [→](../works/skill-coverage.md) |
+| SkillCoach | 2026 | 自演化的、以 skill 为依据的 rubric，覆盖四个维度——skill 选取（对照金标准 skill 集的 F1）、skill 遵循、按先后依赖判定的组合、以及以 skill 为依据的反思——评分与外部验证器分开 | Agent 的 skill 使用；28 个任务族，由 SkillsBench 与 SkillLearnBench 筛得 | [→](../works/skillcoach.md) |
+| SkillLearnBench | 2026 | 三个层次：任务通过率、生成 skill 的质量（功能覆盖、可执行性、安全性）、轨迹质量（要点召回、执行顺序、完整性） | 持续的 skill 学习；15 个子领域中的 20 个依赖 skill 的任务（100 个经校验实例） | [→](../works/skilllearnbench.md) |
+| SkillMisevo-Bench | 2026 | 九项沿生命周期设闸的指标，把在线行为、演化产物的不安全性（内容不安全、不安全泛化、隐蔽性）与重置后的不安全检索及危害延续区分开 | 沙箱 agentic 操作下的持久 skill 库；四种 agent 框架 × 六种演化方法 | [→](../works/skillmisevo-bench.md) |
+| RigorBench | 2026 | 从经插桩的轨迹算出的七根过程纪律支柱，合成加权 RigorScore；结果在同一批运行上单独评分 | AI 编码 agent；五个类别共 100 个任务，各 harness 之间基础模型固定不变 | [→](../works/rigorbench.md) |
+| AISE-Bench | 2026 | 计划与标注计划之间的图编辑距离、参数准确率与执行成功率，与答案的正确性 / 完整性 / 忠实度 / F1-LM 分开报告 | 面向学术知识图谱 API（AMiner、Google Scholar）的学术信息检索 | [→](../works/aise-bench.md) |
 
 ## Open Questions
 
@@ -113,6 +124,13 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 
 ## Related Works
 
+- [SkillJuror](../works/skilljuror.md)
+- [Skill Coverage](../works/skill-coverage.md)
+- [SkillCoach](../works/skillcoach.md)
+- [SkillLearnBench](../works/skilllearnbench.md)
+- [SkillMisevo-Bench](../works/skillmisevo-bench.md)
+- [RigorBench](../works/rigorbench.md)
+- [AISE-Bench](../works/aise-bench.md)
 - [AstroVisBench](../works/astrovisbench.md)
 - [Spec-o3](../works/spec-o3.md)
 - [Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md)

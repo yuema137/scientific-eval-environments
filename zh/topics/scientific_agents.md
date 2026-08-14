@@ -194,6 +194,11 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **把「静默地错得很像样」的结果本身当作被测对象。** [Plausible but Wrong](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md) 把评分拆成执行成功、参数准确度与数值准确度，并把后两者相乘合成，使配置上的功力无法掩盖物理上的错误；四类失败模式也正是由这几项分数上的阈值定义的。剩下的主导失败模式不是崩溃，而是 Mode C——程序跑通了，求解器参数看着也合理，数字却是错的——在没有文档上下文时约占 47% 的运行，四个开放式 Deep Research 任务更是全部静默失败。[First head-to-head comparison of agentic AI on Einstein Telescope data](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) 从过程一侧触及同一忧虑：两个 agent 拿到相同的规格说明、跑在相同的硬件上，最终收敛到相同的探测效率，可其中一个悄悄把目标信噪比下限从 7 改成了 8；重启、静默偏离、显式自我纠正与未经要求的优化，都是从日志里数出来的，而不是靠轶事描述。[Quantifying the Reproducibility of Astrophysical Methods](../works/quantifying-the-reproducibility-of-astrophysical-m.md) 则把同一道缺口定位到源文本上：重建出的流程按四级 Hierarchy of Scientific Validity 评分，一旦给出 Methods 部分，三个前沿模型都能还原显式的框架（V = 2），却没有一个能还原那些让结果得以校准的隐含统计约束（V = 3）。
 - **以天文学家本人为对照的受控实验。** [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) 让科学问题在 32 份格式统一的盲评一页纸计划书中保持固定，再把同一套四方面 rubric 同时交给一个由教师与资深博后组成的四人评审组和两位 LLM 评审：人类给人写的和 AI 写的打分大体相当（3.52 对 3.25–3.74），两位 LLM 评审却都给 AI 撰写的文本多打了大约一整分；而 AI 的优势恰恰集中在人类投入最弱的地方（r ≈ −0.95）。[AI Cosplaying as Astrophysicists](../works/ai-cosplaying-as-astrophysicists-a-controlled-synt.md) 干脆用角色化人设替换真人被试，使每一项指派都能在其他条件全不变的前提下跑遍五种辅助策略，12,960 个回合的评分中还把灾难性失败单列成一条与任务质量分开的通道；平均效用是中性的（+0.0017），灾难性失败率却上升（+0.0112），且集中在推导与推理上——而论文报告的角色互换复现，把这一主结论的正负号翻了过来。
 
+- **把知识结构本身当作产出，而不是当作查询对象。** 有一批工作把本体或知识库变成 agent 被评分的*产出*，而不是它读取的现成资料。[FlyAOC](../works/flyaoc.md) 只给 agent 一个基因符号和一份固定的 16,898 篇果蝇全文论文语料，再拿 FlyBase 策展员实际产出的 7,397 条注释去核对 agent 写出的 Gene Ontology、表达模式与同义词注释——GO 与表达在本体 DAG 上按语义计算 recall@k，本体意义上相近却未完全对上的答案不会被一概判错；另有一个以语料为依据的子集，把可达的上限摆明。[Frontier LLM-based agents can overcome the ontology curation bottleneck](../works/frontier-llm-based-agents-can-overcome-the-ontolog.md) 从另一头逼近同一个问题：原封不动地重放一份 2018 年的生物策展金标准，沿用它原来的指标，并以原来那三位人类策展员为参照带——结果所有被评的 agent 都落在这条带内。[OntoLearner](../works/ontolearner.md) 补上了该领域一直缺的共用基础设施——覆盖 22 个领域的 180 个本体，为术语归类、分类体系发现与非分类关系抽取备好固定切分——只是它的设定是单次结构化预测而非 agent 循环，且 22 个领域中大多数落在本仓库范围之外。
+- **领域 skill 是骨架，benchmark 衡量的是它换来了什么。** [CASCADE](../works/cascade.md) 从网络搜索、文档与反思中不断累积可执行 skill，再用 SciSkillBench 的 116 个材料科学与化学任务来衡量它们，并在同一批任务上把各项演化机制逐一消融、与 Native 基线对照（GPT-5 下 93.26% 对 35.36%）。[MolClaw](../works/molclaw.md) 把 70 个精选 skill 组织成工具级、工作流级与学科级三层，并随附 MolBench——其「筛选 → 优化 → 端到端」的分层是有意设计的，好让消融把随手写个脚本就能解的任务，与非得有结构化工作流才行的任务分开。[LQCDMaster](../works/lqcdmaster.md) 用三个专家标注的格点 QCD skill 加一个确定性的 Wick 缩并工具，并要求生成的每条 PyQUDA 工作流在机器精度上与专家参考实现数值相符——另设 Convention Mismatch 一档，使全局符号差异不被记成错误。三者的 skill 库都是系统架构本身，benchmark 评的则是它产出的科学。
+- **真实的科学数据库，真正起作用的判据却没写出来。** [BiomedSQL](../works/biomedsql.md) 把 68,000 组 question / SQL / answer 三元组落在一个存放神经退行性疾病遗传学与药物审批记录的生产级 BigQuery 库上，题目刻意写成让起决定作用的那道过滤条件——全基因组显著性、效应方向、哪些试验期算作已获批——必须由模型自己补出来；所有配置都比实测的双分析师基线低约 27 分。[AISE-Bench](../works/aise-bench.md) 瞄准的则是学术知识图谱，除答案外还标注了计划与经校验的 API 参数，于是「答案对、路子错」也会显形。
+- **用一棵 rubric 树取代一个笼统的 judge。** [RubricsTree](../works/rubricstree.md) 把开放式的个人健康 agent 评估自顶向下拆成 100 多条医生可以逐条核验的原子布尔叶节点 rubric，再由上下文感知路由器只激活与当前查询相关的那一部分；与专家组的一致性达到 ICC₃ = 0.876、κ = 0.787，而基于原则的基线只有 0.291 与 0.431；同一套 rubric 还被复用为指令、反馈与训练奖励。
+
 ## Comparison
 
 | Benchmark | Year | 任务来源 | 科学范围 | 验证方式 | Card |
@@ -427,6 +432,15 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | Imaging-101 | 2026 | 57 个经专家核验的计算成像任务，每个都以一篇同行评审论文及其开源参考实现为依据 | 六个领域之一是天文成像（EHT 重建、日冕仪系外行星成像、幸运成像、波前探测） | 三条赛道：规划部分由专家逐项二元判定通过与否，函数与模块实现由 pytest 评分，端到端重建则对照各任务 `metrics.json` 中的 NCC / NRMSE 阈值 | [→](../works/imaging-101.md) |
 | An LLM-driven framework for cosmological model-building | 2025 | 两个标准答案宇宙学模型（Thawing Quintessence、Early Dark Energy）外加两种假设生成设置，跑在预装 CLASS 3.3.0 的容器中 | 天文：在 Boltzmann 求解器中实现并探索替代性暗能量模型 | 二元的执行里程碑、算得的可观测量相对标准实现的最大相对偏差，以及对照 DESI、Planck、Pantheon+ 与 SH0ES 数据的似然 / BIC / Hubble 张力 / CMB 自洽性奖励 | [→](../works/an-llm-driven-framework-for-cosmological-model-bui.md) |
 | AI Cosplaying as Astrophysicists | 2026 | 公开发布的 3,000 个天体物理任务库，分六个工作流族；2,592 项指派各在五种辅助策略下运行，共 12,960 个回合 | 天文：日常的天体物理研究工作——写作、信息抽取、代码调试、推导、问题求解、评审 | LLM judge 依各族专属 rubric 评分，输出任务分数、完成情况与一条独立的灾难性失败标记，再合成为带置信区间的效用值；另有一次完整的角色互换复现 | [→](../works/ai-cosplaying-as-astrophysicists-a-controlled-synt.md) |
+| FlyAOC | 2026 | 100 个 benchmark 基因，配一份公开的 16,898 篇果蝇全文论文语料，以 7,397 条 FlyBase 专家策展为真值 | 生物：果蝇遗传学——Gene Ontology 功能条目、表达模式、历史同义词 | GO 与表达用本体 DAG 上的 Wang 相似度算语义 recall@k，同义词用精确匹配 recall@k，均取微平均；同时报告每个基因的美元成本 | [→](../works/flyaoc.md) |
+| Frontier LLM-based agents can overcome the ontology curation bottleneck | 2026 | 原封未动的 Dahdul 等（2018）Gold Standard——取自七项系统发育研究的 203 个性状 / 463 个状态，评分范围为第 51–203 个性状 | 生物：脊椎动物比较形态学，对照 UBERON / PATO / BSPO / GO 的 Entity-Quality 表型注释 | 沿用原来的四项语义相似度指标（SimJ、NIC、partial precision、partial recall），并与 2018 年研究中同样的三位受训人类策展员及同一条 NLP 基线比较 | [→](../works/frontier-llm-based-agents-can-overcome-the-ontolog.md) |
+| OntoLearner | 2026 | 覆盖 22 个领域的 180 个机器可读本体，附带可直接接入流水线的 train / dev / test 切分 | 本体学习；其中的科学部分涉及化学、生物、医学、材料科学与环境科学，另有大量非科学领域 | 以归一化的成对与三元组匹配对照金标准本体结构计 precision、recall 与 F1，覆盖 22 个检索模型与 12 个 LLM | [→](../works/ontolearner.md) |
+| CASCADE / SciSkillBench | 2025 | 116 个精选研究任务，分数据类（76）与计算类（40），并区分 Level 0 与 Level 1 两种说明详细程度 | 材料科学与化学：数据检索、分析与处理；仿真与专用工具包 | 在预设容差内自动比对处理结果与真值；每种配置重复三次计成功率（共 16,008 次运行），并与无演化基线做消融对照 | [→](../works/cascade.md) |
+| MolClaw / MolBench | 2026 | 筛选与优化题目取自 CARA/ChEMBL、ACNet 与 ChemCoTBench，另加三项自行编写的端到端发现挑战 | 化学与医学：分子筛选、分子编辑与性质优化、结构导向的先导化合物优化 | 筛选用 Accuracy 与 Hits@3；优化用操作准确率与性质变化量；端到端一层用任务专属的加权 rubric，对调用顺序、参数一致性与终止条件分别给分 | [→](../works/molclaw.md) |
+| LQCDMaster | 2026 | 70 个格点 QCD 计算任务，每个都配一份专家手写的参考实现，可观测量、系综与运动学设置均与之相同 | 物理：格点 QCD——定域与非定域两点函数、介子与重子三点函数、Wilson 环 | 在机器精度上与专家参考直接做数值比对（绝对偏差 ≲ 10⁻¹²），标为 Matched / Convention Mismatch / Failure，并按可观测量族分别报告 | [→](../works/lqcdmaster.md) |
+| BiomedSQL | 2025 | 由 40 条专家编写的种子查询扩展出的 68,000 组 question / SQL / answer 三元组，落在一个十张表的 BigQuery 库上；在 546 道题的测试集上评分 | 生物与医学：神经退行性疾病遗传学（GWAS、SMR、等位基因频率）与药物靶点、适应证及审批状态 | 对照金标准执行结果计 Execution Accuracy，含 Jaccard 部分得分与语法错误率；应答质量与安全性由 LLM 评判；双分析师人类基线的 EX 为 90.0% | [→](../works/biomedsql.md) |
+| AISE-Bench | 2026 | 1,133 组 QA，端到端标注了查询分类、计划、实际执行的 API 调用、经校验的参数与参考答案；其中 250 组经双人复核 | 面向学术知识图谱的学术信息检索，覆盖各一级学科——论文、作者、发表场所、机构 | 引用的 precision / recall 与格式合规性；计划的图编辑距离、参数准确率与执行成功率；答案的正确性、完整性、忠实度与 F1-LM | [→](../works/aise-bench.md) |
+| RubricsTree | 2026 | 由医生主导、参考约 4,000 条真实用户查询做的人在环中策展；532 条查询的内部元评估集，外加 HealthBench-Hard | 医学与健康：医学解释、健康数据解读、建议与行动规划、症状处理 | 100 多条原子布尔叶节点 rubric 组成分层 DAG，由上下文感知路由器按查询激活；与专家组的一致性为 ICC₃ = 0.876、Cohen's κ = 0.787 | [→](../works/rubricstree.md) |
 
 ## Open Questions
 
@@ -438,6 +452,15 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 
 ## Related Works
 
+- [FlyAOC](../works/flyaoc.md)
+- [Frontier LLM-based agents can overcome the ontology curation bottleneck for natural phenotypes](../works/frontier-llm-based-agents-can-overcome-the-ontolog.md)
+- [OntoLearner](../works/ontolearner.md)
+- [CASCADE](../works/cascade.md)
+- [MolClaw](../works/molclaw.md)
+- [LQCDMaster](../works/lqcdmaster.md)
+- [BiomedSQL](../works/biomedsql.md)
+- [AISE-Bench](../works/aise-bench.md)
+- [RubricsTree](../works/rubricstree.md)
 - [AstroVisBench](../works/astrovisbench.md)
 - [Spec-o3](../works/spec-o3.md)
 - [AstroAlertBench](../works/astroalertbench.md)

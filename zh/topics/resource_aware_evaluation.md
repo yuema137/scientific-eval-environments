@@ -31,6 +31,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - **把经济一致性作为测量对象。** [EcoAgent-Bench](../works/ecoagent-bench.md) 在 304 个任务上为每个动作定价并设定显式的单任务预算，同时把「该升级」与「该省钱」的任务成对分组，使一味花钱或一味省钱的单边策略无法得高分。Tool-API agent 的经济一致性至多 7.3%；预算从低到高扫过一遍，GPT-5.4 的升级率也只从 0% 升到 3%。
 - **给 harness 优化设评估预算。** [HarnessOpt-Bench](../works/harnessopt-bench.md) 给优化器 LLM 一个种子 harness、评估反馈与固定的目标评估预算，在 TEE 审计的循环内运行，以留出测试集上相对种子的归一化增益评分；在 4 个任务、5 个优化器模型、111 次计分运行中，优化器模型之间拉开的差距大于它们借以行动的编码 harness 之间的差距。
 - **把效率写进评分 rubric。** [MASSE](../works/masse.md) 既不给 agent 设预算，也不把成本单列出来报告：它的整体系统 benchmark MASEB 在 100 分里划出 20 分给「效率与鲁棒性」，而负责评阅一整份结构工程分析日志的 GPT-5 评审，会把总 token 用量与总运行时间与四项分数一并写进同一个 JSON 对象——于是一条又准又贵的流水线拿不到满分。论文随附的四个后端之间的成本/运行时权衡分析，读的也正是这同一批测量值。
+- **省下的资源，而非花掉的资源。** [SkillAudit](../works/skillaudit.md) 测的是装上一件产物之后资源的**变化量**：在相同指令与相同输入下配对跑「用 skill」与「不用 skill」两组，得到 Efficiency Gain（执行时间的相对节省）与 Cost Gain（有效输入 token 的相对节省），两者各自截断到 [-1, 1] 后合成 Efficiency-Cost Gain，与效用、安全性一起写进同一份 per-skill 报告。这里不设任何预算，要测的是：采纳这个 skill，是否值回它所占的上下文。
 - **成本–性能前沿式报告。** 另一些工作在 accuracy 之外同时报告 token 或 dollar 成本，用于在 Pareto 前沿上而非单一 accuracy 数字上做比较。这是分析时的资源意识，而非 benchmark 内部的资源意识。
 
 ## Comparison
@@ -52,6 +53,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 | ChemCost | 2026 | 冻结价格快照中的供应商报价与可购包装 | 成本即任务本身——agent 对照精确真值计算反应成本 | 反应定价；1,427 个反应、230,775 条报价；含噪声注入下的鲁棒性评测 | [→](../works/chemcost.md) |
 | MASSE | 2025 | 总 token 用量与总运行时间，由评审与质量分一并给出 | 计分项——「效率与鲁棒性」在 MASEB 的 100 分中占 20 分；同一批数字还支撑了四个后端之间的成本/运行时权衡分析 | 多智能体结构工程工作流；100 道经专家校验的题目，每道跑十次 | [→](../works/masse.md) |
 | First head-to-head comparison of agentic AI on Einstein Telescope data | 2026 | 每次流程执行的墙钟运行时间与峰值内存；token 成本刻意未测，并被列为一项局限 | 只是报告出来的测度，而非预算——运行时间与内存与科学输出并列，两个 agent 之间「快」与「可审计」的取舍就从这里读出来 | 两个 agentic coding 系统在同一硬件上执行同一份引力波流程规格说明；共四次自主运行 | [→](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) |
+| SkillAudit | 2026 | agent 执行时间与有效输入 token，以相对配对的「不用 skill」运行的节省量计（Efficiency Gain、Cost Gain，合成为取值于 [-1, 1] 的 ECG） | 只是报告出来的测度，而非预算——效率-成本增益是 per-skill 报告三个维度之一，另两个是效用（pass-rate 增益）与安全性评分 | 对 226 个真实 skill 包自动生成的逐一审计，覆盖 23 个职业门类；Codex / GPT-5.4 配置下有 643 个有效场景 | [→](../works/skillaudit.md) |
 
 ## Open Questions
 
@@ -77,6 +79,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - [ChemCost](../works/chemcost.md) — 把反应成本计算本身作为被测任务，配无 judge 的精确定价真值。
 - [MASSE](../works/masse.md) — 在端到端结构工程工作流 benchmark 中，把 token 用量与运行时间作为 rubric 的一个计分项。
 - [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) — 每一次自主流程运行都测量运行时间与峰值内存；两个 agent 产出的科学结果相同，速度与资源占用便成了它们之间的一条比较轴。
+- [SkillAudit](../works/skillaudit.md) — 对照配对的「不用 skill」运行测量时间与 token 的节省，逐个 skill 包与效用、安全性一并报告。
 
 ## Further Reading
 

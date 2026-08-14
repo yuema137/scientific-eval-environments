@@ -30,6 +30,7 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 - **Computer-use 评判者的标准化评测。** [OSReward](../works/osreward.md) 以多阶段人工标注的裁决为跨平台 computer-use 奖励模型打分，发现最先进的评判模型存在系统性的宽松偏差（leniency bias），并证明在其 OS-Shepherd-100K 数据上训练的 9B/35B 开源评判者能以约三十到六十分之一的成本达到前沿商业评判者的水平。
 - **定位、归因、修复。** [SearchAuditor](../works/searchauditor.md) 在 1,243 条专家标注的失败搜索轨迹上端到端地考察审计者——定位关键错误步骤、归因到搜索特有的根因、再对照带评分 rubric 的参考修复打分——最强基线的端到端通过率仅有 26.6%。
 - **深入 skill 内部的 credit。** [SkillSV](../works/skillsv.md) 把 credit assignment 从轨迹步骤移进 agent skill 的内部：在 skill 编译出的单元、依赖与层级结构上做结构感知的 Shapley 估值，并用成对删除与长度中性填充把内容价值与上下文成本区分开。
+- **落到 skill 内单步的 credit，且估计所耗的预算本身也一并计量。** [SkillShapley](../works/skillshapley.md) 把 SkillSV 的思路再细一层，将 skill 的每一个单步视为合作博弈中的一名参与者。它对估计量的贡献不亚于对归因本身：agentic benchmark 的奖励本就离散成一级级的台阶，而步骤之间的交互又基本可加，因此采样器把预算集中在信息量最大的分界附近；其近似误差也不是假定的，而是对照精确 Shapley 值实测报告。
 - **错误生命周期归因。** [TRAJDEBUG](../works/trajdebug.md) 在 TrajErrBench 的 486 条人工标注失败轨迹上追踪每个错误的解决状态与最终影响，让失败的 credit 落在真正决定失败的那个错误上，而不是落在 agent 事后已恢复的错误上。
 - **从遥测定位故障源。** [TelemetrySuffBench](../works/telemetrysuffbench.md) 用把症状与成因解耦的延迟绑定故障，以及使弃权成为正确答案的完全相同歧义起点对，测试执行遥测是否足以把失败归因到其起源组件。
 - **组件级轨迹归因。** [Long-Horizon Agent Trajectory Attribution](../works/long-horizon-agent-trajectory-attribution.md) 把观测到的 agent 结果归因到负有责任的轨迹组件，并恢复其周围的归因链，配基于似然与留一法的参考基线。
@@ -59,6 +60,7 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 | TelemetrySuffBench | 2026 | 在延迟绑定故障下从遥测做起源步骤定位；对歧义起点弃权 | 每个注入的故障源组件 / 事件 | [→](../works/telemetrysuffbench.md) |
 | Long-Horizon Agent Trajectory Attribution | 2026 | 主责组件归因（Hit@1 / MRR）+ 归因链恢复（Recall@K / MAP） | 每个轨迹组件（根因 + 链条） | [→](../works/long-horizon-agent-trajectory-attribution.md) |
 | TempoBench | 2025 | 经反事实归因识别最小必要成因，与前向模拟相对 | 执行轨迹的每个输入条件 | [→](../works/tempobench.md) |
+| SkillShapley | 2026 | 在 skill 步骤的联盟上求 Shapley 值，采用分界自适应采样估计；对照精确 Shapley 值报告 MAE，并给出删除验证曲线 | agent skill 内部的每一步，而非轨迹步骤 | [→](../works/skillshapley.md) |
 
 ## Open Questions
 
@@ -68,6 +70,7 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 
 ## Related Works
 
+- [SkillShapley](../works/skillshapley.md)
 - [TempoBench](../works/tempobench.md)
 - [TelemetrySuffBench](../works/telemetrysuffbench.md)
 - [From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](../works/from-reasoning-to-agentic.md)

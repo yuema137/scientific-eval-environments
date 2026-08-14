@@ -9,6 +9,7 @@ ChemEBench 是一个化学工程评测 benchmark，随 ChemELLM 一同提出—�
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

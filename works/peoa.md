@@ -10,6 +10,7 @@ PEOA (Process Engineering Operations Assistant) is a modular LLM-agent framework
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

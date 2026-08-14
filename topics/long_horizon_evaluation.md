@@ -61,6 +61,9 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - **Harness self-improvement.** [Evo-Bench](../works/evo-bench.md) scores a model on how much it can improve its own agent harness across a bounded evolution loop, reporting downstream performance and an anytime-validation trajectory.
 - **Multilingual large-scale refactoring.** [SWE-Bench ProMax](../works/swe-bench-promax.md) tests coordinated, behavior-preserving changes averaging 11.4 files and 261.6 lines per instance across seven programming languages.
 - **Loop engineering.** [LoopsBench](../works/loopsbench.md) models sustained software development as a dependency DAG over separately testable units, with a flow-aware runtime that releases tests along the ready frontier and retains completed nodes as regression obligations.
+- **The horizon as accumulated state rather than elapsed steps.** A line of work stretches the horizon past the episode, so what carries forward is an external artifact rather than a context window. [SkillEvolBench](../works/skillevolbench.md) splits an acquisition phase from a deployment phase in which the skill library is frozen and read-only, and scores held-out tasks along three axes — context shift, adversarial shortcuts, and composition — against both a no-skill and a raw-trajectory control; the undistilled traces frequently beat the skills distilled from them. [PATH-Bench](../works/path-bench.md) manipulates the *order* of that accumulation: sequences of 100 intervening tasks are sampled against an estimated task-relation matrix, and only a recurring probe task is re-executed, so forward transfer, backward transfer and forgetting are read from one longitudinal trace and different paths over an identical task set can reorder agent rankings.
+- **What the horizon carries besides capability.** [SkillMisevo-Bench](../works/skillmisevo-bench.md) applies the same persistent-state design to safety: malicious exposure is dosed on a fixed schedule across an episode, and a final block reloads only the agent-authored `SKILL.md` after a full reset, separating harm committed at the time from harm that survived the session.
+- **Length without an environment.** [Skill²-Bench](../works/skill2-bench.md) isolates one component of long-horizon difficulty — the cost of switching reasoning skills between consecutive dependent steps — in chains of 2 to 10 steps with no tools, no external state, and no recovery, calibrated by a directed pairwise skill-entropy measure fixed against one reference model.
 
 ## Comparison
 
@@ -113,6 +116,10 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | Evo-Bench | 2026 | 608 tasks; bounded harness-evolution loop (20 iters / 1,000 steps / 48h); Overall + Anytime Validation Score | Search / Office / General agent harness self-improvement | [→](../works/evo-bench.md) |
 | SWE-Bench ProMax | 2026 | 170 refactoring instances; avg 11.4 files / 261.6 LOC changed per task | Multilingual software repositories (7 languages); execution-graded | [→](../works/swe-bench-promax.md) |
 | LoopsBench | 2026 | 112 tasks; dependency-DAG "loop engineering" over 5,300+ development units; flow-aware regression obligations | Software development (8 languages, 9 domains); Docker-backed | [→](../works/loopsbench.md) |
+| SkillEvolBench | 2026 | 180 tasks in role-conditioned families sharing a latent procedure; acquisition phase then frozen-library deployment scored on context shift / adversarial shortcuts / composition | Six general agent environments (code, tools, data, documents, information synthesis, communication) across three agent harnesses | [→](../works/skillevolbench.md) |
+| PATH-Bench | 2026 | Sequences of 5 warm-up plus 100 intervening tasks with a recurring probe at 6–12-task intervals; 50 sequences per dataset and condition; forward transfer, backward transfer and forgetting | BigCodeBench program synthesis and WildToolBench multi-turn tool use, over a frozen backbone with eight lifelong-agent memory/skill implementations | [→](../works/path-bench.md) |
+| Skill²-Bench | 2026 | 300 held-out tasks of 2–10 dependent steps, consecutive steps drawn from different domains and sampled at three skill-entropy levels; paired single-skill vs. cross-skill querying | Cross-skill reasoning chains over nine domains; no tools, no external state, no failed-step recovery | [→](../works/skill2-bench.md) |
+| SkillMisevo-Bench | 2026 | 25 episodes of 21 tasks per condition on a fixed malicious/benign schedule, evolution after every three-task block, then a persistence block after a full reset | Sandboxed agentic operations (AgentHazard substrate) across four agent frameworks and six evolution methods on one backbone | [→](../works/skillmisevo-bench.md) |
 
 ## Open Questions
 
@@ -123,6 +130,10 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 
 ## Related Works
 
+- [SkillEvolBench](../works/skillevolbench.md)
+- [PATH-Bench](../works/path-bench.md)
+- [Skill²-Bench](../works/skill2-bench.md)
+- [SkillMisevo-Bench](../works/skillmisevo-bench.md)
 - [VLA-Arena](../works/vla-arena.md)
 - [DrBencher](../works/drbencher.md)
 - [LoopsBench](../works/loopsbench.md)

@@ -10,6 +10,7 @@ Gaia2 是一个面向异步环境中 LLM agent 的 benchmark——在这类环�
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 - [Credit Assignment](../topics/credit_assignment.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

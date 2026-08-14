@@ -9,6 +9,7 @@ DefectBench 是面向建筑外立面结构病害推理的分层 benchmark：把 
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

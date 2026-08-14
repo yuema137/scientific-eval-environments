@@ -61,6 +61,9 @@
 - **harness 自我改进。** [Evo-Bench](../works/evo-bench.md) 按模型在有界演化循环中能把自身 agent harness 改进多少来评分，报告下游表现与一条随时验证的轨迹。
 - **多语言大规模重构。** [SWE-Bench ProMax](../works/swe-bench-promax.md) 检验横跨七种编程语言、平均每个实例改动 11.4 个文件与 261.6 行的协调式、保行为变更。
 - **loop engineering。** [LoopsBench](../works/loopsbench.md) 把持续软件开发建模为可分别测试单元上的依赖 DAG，配一个流感知运行时：沿就绪前沿释放测试，并把已完成节点保留为回归义务。
+- **Horizon 是积累下来的状态，而不是走过的步数。** 有一类工作把 horizon 一直拉到 episode 之外，于是跨过边界传下去的是一件外部产物，而不是一段上下文窗口。[SkillEvolBench](../works/skillevolbench.md) 把获取阶段与部署阶段分开，部署阶段的 skill 库冻结为只读，再沿上下文漂移、对抗性捷径、组合三条轴给留出任务打分，并同时设「无 skill」与「原始轨迹」两组对照；结果是未经蒸馏的原始轨迹常常胜过由它蒸馏出的 skill。[PATH-Bench](../works/path-bench.md) 动的则是这种积累的*先后顺序*：依照估计出的任务关系矩阵采样出 100 个中间任务组成的序列，其间只反复执行同一个探针任务，于是前向迁移、后向迁移与遗忘都能从一条纵向轨迹上读出——同一批任务、换一条路径走，就足以让 agent 的排名重新洗牌。
+- **除了能力，horizon 还会一并带上什么。** [SkillMisevo-Bench](../works/skillmisevo-bench.md) 把同一套持久状态的设计搬到安全上：恶意暴露按固定日程在一个 episode 内分次投放，最后一个区块则在彻底重置后只重新载入 agent 自己写下的 `SKILL.md`，从而把当场造成的危害与熬过整场会话留存下来的危害分开。
+- **只有长度，没有环境。** [Skill²-Bench](../works/skill2-bench.md) 单独抽出长 horizon 难度中的一个成分——在前后依赖的相邻步骤之间切换推理 skill 所付出的代价——放进 2 到 10 步的链条里考察：没有工具、没有外部状态，失败一步也无从补救；难度由一个有向的成对 skill 熵测度校准，该测度以单一参考模型为准固定下来。
 
 ## Comparison
 
@@ -113,6 +116,10 @@
 | Evo-Bench | 2026 | 608 个任务；有界 harness 演化循环（20 轮 / 1,000 步 / 48h）；Overall + Anytime Validation Score | Search / Office / General agent harness 自我改进 | [→](../works/evo-bench.md) |
 | SWE-Bench ProMax | 2026 | 170 个重构实例；每任务平均改动 11.4 个文件 / 261.6 行 | 多语言软件仓库（7 种语言）；执行打分 | [→](../works/swe-bench-promax.md) |
 | LoopsBench | 2026 | 112 个任务；对 5,300+ 开发单元的依赖 DAG「loop engineering」；流感知的回归义务 | 软件开发（8 种语言、9 个领域）；Docker 支撑 | [→](../works/loopsbench.md) |
+| SkillEvolBench | 2026 | 180 个任务，按角色分族、族内共享同一条隐含流程；先获取，再在冻结库上部署，按上下文漂移 / 对抗性捷径 / 组合三项评分 | 六类通用 agent 环境（代码、工具、数据、文档、信息综合、沟通），跨三种 agent harness | [→](../works/skillevolbench.md) |
+| PATH-Bench | 2026 | 每条序列 5 个热身任务加 100 个中间任务，每隔 6–12 个任务重复一次探针；每个数据集与条件各 50 条序列；测前向迁移、后向迁移与遗忘 | BigCodeBench 程序合成与 WildToolBench 多轮工具使用；主干冻结，配八种终身 agent 的记忆 / skill 实现 | [→](../works/path-bench.md) |
+| Skill²-Bench | 2026 | 300 个留出任务，每个 2–10 步且步步依赖，相邻步骤取自不同领域并按三档 skill 熵采样；单 skill 与跨 skill 查询成对比较 | 覆盖九个领域的跨 skill 推理链；无工具、无外部状态、失败步骤不可补救 | [→](../works/skill2-bench.md) |
+| SkillMisevo-Bench | 2026 | 每种条件 25 个 episode、每个 21 个任务，恶意/良性按固定日程排布，每三个任务为一块、每块之后演化一次，最后在彻底重置后加一个持久性区块 | 沙箱内的 agentic 操作（AgentHazard 基座）；四种 agent 框架、六种演化方法，共用一个主干模型 | [→](../works/skillmisevo-bench.md) |
 
 ## Open Questions
 
@@ -123,6 +130,10 @@
 
 ## Related Works
 
+- [SkillEvolBench](../works/skillevolbench.md)
+- [PATH-Bench](../works/path-bench.md)
+- [Skill²-Bench](../works/skill2-bench.md)
+- [SkillMisevo-Bench](../works/skillmisevo-bench.md)
 - [VLA-Arena](../works/vla-arena.md)
 - [DrBencher](../works/drbencher.md)
 - [LoopsBench](../works/loopsbench.md)

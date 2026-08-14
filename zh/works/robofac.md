@@ -9,6 +9,7 @@ RoboFAC 是机器人失败分析与纠正的综合框架：9,440 条错误操作
 ## Topics
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

@@ -27,6 +27,7 @@
 | VLA-Arena | 2025 | 把视觉-语言-动作模型作为通用机器人操作策略来评估，沿任务结构、语言指令与视觉观测三轴分解任务难度，以区分稳健的 grounding 与死记硬背。 | 四个维度（安全、干扰物、外推、长时程）下的 11 个任务套件 / 170 个模拟操作任务，各设三个难度级别（L0–L2），并带语言（W0–W4）与视觉（V0–V4）扰动探针；构建于 RoboSuite、LIBERO 与 VLABench 之上。 | 模拟中的成功率与累计成本；微调限于 L0、在未见的 L1–L2 上测试以衡量泛化。Repository note: 仅限模拟，未报告真实机器人实验。 | [→](../works/vla-arena.md) |
 | RoboGraphBench | 2026 | 把 agentic 基础模型作为长时程具身任务（桌面操作与室内导航）的高层规划器来评估，以任务状态视野——agent 必须追踪、探索并更新的任务相关状态转移的跨度——刻画难度。 | 84 个家居场景上的 588 个 episode（399 个桌面 + 189 个室内导航），每个含一个基线加六种干预条件；RoboGraph 把任务编译为符号场景图（平均 18.4 个节点、14.3 个子目标）；15 个 agentic 模型。 | 统一闭环 harness（最多 100 步；目标谓词 + 停止动作），在语义与视觉两种模式（RoboTwin 2.0、RoboCasa）下运行；成功率与 SSAL，加上状态管理（维护/探索/更新）与恢复检测/grounding 指标。Repository note: 评估高层规划而非底层控制；仅限模拟。 | [→](../works/compiling-and-benchmarking-task-state-horizons-for.md) |
 | EngDesign | 2025 | 把机器人设计与规划写成带明确目标、约束与性能要求的设计题，而非有参考答案的问答题。 | Robotics 方向，取自九个工程方向共 101 项设计任务（473 个可评分条目）中的 10 项；默认单轮生成，另有一套迭代协议，允许最多 10 轮仿真器反馈。 | 模型输出结构化结果，由逐任务的评估脚本调用相应仿真器执行，返回二元通过/不通过、0–100 的部分给分与详细日志。Repository note: 均为仿真验证的设计任务，未评估任何实体机器人平台或控制策略。 | [→](../works/engdesign.md) |
+| ATOM-Bench | 2026 | 执行真机桌面操作，并把它分解为动作原子（取放、重定向、推动、堆叠、倾倒、开合关节物体）与指令原子（颜色、形状、大小、计数、排除、空间关系、目标位置），再把它们重新组合成留出的组合任务。 | 单臂（Franka Panda）与双臂（Agilex Cobot Magic）两条配对赛道上的 30 个原子任务与 24 个留出的组合任务；用 3,000 条人类遥操作演示做原子层面的微调，五个 VLA 策略在每个任务 10 个共享测试种子下共完成 2,700 次实机 rollout。 | 在真实硬件上跑实机 rollout，物体摆放由掩码引导以保证初始状态可复现；除任务成功率外，还有人工标注的逐原子 Process Success Rate，二者聚合为 Atomic Score 与 Compositional Failure Share，把「原子太弱」与「组合失败」区分开。Repository note: 未报告任何仿真结果。 | [→](../works/atom-bench.md) |
 
 ## Related Works
 
@@ -47,3 +48,4 @@
 - [PhysBench](../works/physbench.md)
 - [CaP-X](../works/cap-x.md)
 - [EngDesign](../works/engdesign.md)
+- [ATOM-Bench](../works/atom-bench.md)

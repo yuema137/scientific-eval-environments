@@ -9,6 +9,7 @@ DefectBench is a hierarchical benchmark for structural pathology reasoning on bu
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

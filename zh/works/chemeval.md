@@ -9,6 +9,7 @@ ChemEval 是面向 LLM 的多层级化学评估，围绕化学科研人员的实
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 
