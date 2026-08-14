@@ -51,6 +51,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 | SDBench | 2025 | 就诊与诊断检查的费用 | 与准确率联合评分，构成准确率-成本前沿 | 带信息守门人的 304 个 NEJM-CPC 病例序贯诊断 | [→](../works/sdbench.md) |
 | ChemCost | 2026 | 冻结价格快照中的供应商报价与可购包装 | 成本即任务本身——agent 对照精确真值计算反应成本 | 反应定价；1,427 个反应、230,775 条报价；含噪声注入下的鲁棒性评测 | [→](../works/chemcost.md) |
 | MASSE | 2025 | 总 token 用量与总运行时间，由评审与质量分一并给出 | 计分项——「效率与鲁棒性」在 MASEB 的 100 分中占 20 分；同一批数字还支撑了四个后端之间的成本/运行时权衡分析 | 多智能体结构工程工作流；100 道经专家校验的题目，每道跑十次 | [→](../works/masse.md) |
+| First head-to-head comparison of agentic AI on Einstein Telescope data | 2026 | 每次流程执行的墙钟运行时间与峰值内存；token 成本刻意未测，并被列为一项局限 | 只是报告出来的测度，而非预算——运行时间与内存与科学输出并列，两个 agent 之间「快」与「可审计」的取舍就从这里读出来 | 两个 agentic coding 系统在同一硬件上执行同一份引力波流程规格说明；共四次自主运行 | [→](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) |
 
 ## Open Questions
 
@@ -75,6 +76,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - [SDBench](../works/sdbench.md) — 按准确率-成本前沿评分的序贯诊断。
 - [ChemCost](../works/chemcost.md) — 把反应成本计算本身作为被测任务，配无 judge 的精确定价真值。
 - [MASSE](../works/masse.md) — 在端到端结构工程工作流 benchmark 中，把 token 用量与运行时间作为 rubric 的一个计分项。
+- [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) — 每一次自主流程运行都测量运行时间与峰值内存；两个 agent 产出的科学结果相同，速度与资源占用便成了它们之间的一条比较轴。
 
 ## Further Reading
 

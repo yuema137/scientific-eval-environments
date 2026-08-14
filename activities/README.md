@@ -22,19 +22,19 @@ The set of activities is fixed. Adding, renaming, or removing one requires updat
 
 | Activity | What it covers | Works |
 |---|---|--:|
-| [Literature Search & Evidence Synthesis](./literature_evidence_synthesis.md) | Literature retrieval, study selection, systematic review, evidence synthesis, literature-grounded extraction | 15 |
-| [Scientific Problem Solving & Reasoning](./scientific_problem_solving_reasoning.md) | Scientific QA, derivations, proofs, quantitative and multimodal problem solving, diagnostic reasoning | 85 |
-| [Data Analysis & Statistical Inference](./data_analysis_statistical_inference.md) | Preprocessing, statistical analysis and inference, bioinformatics/omics analysis, data interpretation | 29 |
-| [Modeling & Prediction](./modeling_prediction.md) | Predictive and surrogate modelling, property prediction, forecasting, model-fitting as a central artifact | 17 |
-| [Simulation & Scientific Computing](./simulation_scientific_computing.md) | Numerical simulation, PDE/FEM, MD/DFT, running and building scientific simulators | 29 |
-| [Experiment Design & Scientific Discovery](./experiment_design_discovery.md) | Experiment and observation planning, active measurement, hypothesis generation, law discovery | 19 |
+| [Literature Search & Evidence Synthesis](./literature_evidence_synthesis.md) | Literature retrieval, study selection, systematic review, evidence synthesis, literature-grounded extraction | 20 |
+| [Scientific Problem Solving & Reasoning](./scientific_problem_solving_reasoning.md) | Scientific QA, derivations, proofs, quantitative and multimodal problem solving, diagnostic reasoning | 93 |
+| [Data Analysis & Statistical Inference](./data_analysis_statistical_inference.md) | Preprocessing, statistical analysis and inference, bioinformatics/omics analysis, data interpretation | 41 |
+| [Modeling & Prediction](./modeling_prediction.md) | Predictive and surrogate modelling, property prediction, forecasting, model-fitting as a central artifact | 20 |
+| [Simulation & Scientific Computing](./simulation_scientific_computing.md) | Numerical simulation, PDE/FEM, MD/DFT, running and building scientific simulators | 32 |
+| [Experiment Design & Scientific Discovery](./experiment_design_discovery.md) | Experiment and observation planning, active measurement, hypothesis generation, law discovery | 21 |
 | [Laboratory & Instrument Control](./laboratory_instrument_control.md) | Instrument, microscope, and beamline control; lab automation; behaviour-defined control code | 3 |
 | [Optimization & Engineering Design](./optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 24 |
-| [Scientific Software & Workflow Engineering](./scientific_software_workflow_engineering.md) | Scientific/engineering code generation, repository and pipeline engineering, HDL and formal-spec code | 58 |
-| [Research Reproduction & Replication](./research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 9 |
+| [Scientific Software & Workflow Engineering](./scientific_software_workflow_engineering.md) | Scientific/engineering code generation, repository and pipeline engineering, HDL and formal-spec code | 66 |
+| [Research Reproduction & Replication](./research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 10 |
 | [End-to-End Research](./end_to_end_research.md) | Multi-stage research lifecycle across several major phases, from formulation to reporting | 5 |
 
-Across the corpus, 293 activity memberships are assigned over the applicable work cards.
+Across the corpus, 335 activity memberships are assigned over the applicable work cards.
 
 ## Activities are multi-label
 

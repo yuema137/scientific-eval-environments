@@ -25,6 +25,7 @@
 | SciVisAgentBench | 2026 | 对医学科学数据的科学可视化与数据分析——其七个应用领域之一——将自然语言意图转成对体数据与多模态医学数据的可执行可视化操作。 | 108 个专家精制的 SciVis 案例，横跨七个科学领域与 15 类可视化操作，经 CLI、MCP server 与 Python API 在 ParaView、napari 等平台上运行。 | 以结果为中心的多模态流水线：将 MLLM judge（报告为 Claude-Opus-4.6；与人工评分 Pearson 0.808）与确定性评估器结合——图像指标（PSNR、SSIM、LPIPS）、代码检查器与基于规则/按案例的验证器。 | [→](../works/scivisagentbench.md) |
 | Fisher-R1 / P-Bench | 2026 | 在真实医学/生物统计数据集（Vanderbilt Biostatistics 教学材料、R 包数据集）上进行统计有效的假设检验——医学是其三个领域之一——覆盖随机实验与观察性研究。 | 425 个开放式假设检验任务（Easy 203 / Hard 222），横跨经济学、生物与医学；每题只给一个假设与一个数据集，要求选择统计检验、计算 p 值并作出拒绝/不拒绝的结论。卡片未给出各领域计数。 | 标准答案的 p 值、检验统计量与决策取自对规范参考代码一次带日志运行的读数；按 Raw（决策匹配）与 Strict（决策加 p 值接近度在 0.5 个 z-score 单位内）计分，pass@1 与 pass@3。 | [→](../works/fisher-r1.md) |
 | MiraMind | 2025 | 证据受限的心理健康 / 精神科临床推理——诊断、干预选择与精神科问答——其中判断应有的具体程度、确定性与严重度本身也被评估（折并入 Medicine & Health）。 | 13 个数据集上的六个任务族（评估、诊断、干预、多步精神科问答、抽象、验证），涵盖非正式的用户叙述、咨询对话、精神科执业考试式问答与 Cochrane 综述摘要；20 个 LLM。 | 各任务族的结果指标（Micro-F1、Jaccard、专家评分点召回、Macro-F1），加一套 LLM-as-judge 的轨迹评分标准（可用性、逻辑结构、信息贡献），在 100 条人工标注轨迹上验证。 | [→](../works/miramind.md) |
+| Imaging-101 | 2026 | 医学计算成像——它明列的六个领域之一——通过完整的重建流程，从间接且带噪的测量中恢复隐藏信号。 | 57 个以论文为依据的任务横跨六个领域，每个都规整为预处理 → 正向物理建模 → 逆问题求解 → 可视化，并在规划、函数级与端到端三条赛道上评测；逐领域任务数为 `TODO(reference)`。 | 端到端重建实际执行，用归一化互相关与 NRMSE 对照各任务 `metrics.json` 中的验收阈值评分；函数级工作由从捕获的参考输入/输出合成的配套 pytest 测试集检查。 | [→](../works/imaging-101.md) |
 
 ## Related Works
 
@@ -43,3 +44,4 @@
 - [AgentClinic](../works/agentclinic.md)
 - [MedAgentBench](../works/medagentbench.md)
 - [SDBench](../works/sdbench.md)
+- [Imaging-101](../works/imaging-101.md)

@@ -62,7 +62,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **本科广度的解题评估。** [UGPhysics](../works/ugphysics.md) 覆盖 5,520 道经泄漏筛查的双语问题、13 个科目，由 MARJ 流水线判分；31 个 LLM 中最高 49.8%。
 - **原创题加连续指标。** [PHYBench](../works/phybench.md) 原创 500 道从高中到奥赛的问题，用表达式编辑距离为符号答案评分；Gemini 2.5 Pro 为 36.9%，人类专家为 61.9%。
 - **视觉不可或缺的物理。** [SeePhys](../works/seephys.md) 让 75% 的题目不看图无法作答，横跨 21 类图示、从初中到博士；顶级视觉推理模型准确率不足 60%。
-- **官方奥赛评分。** [HiPhO](../works/hipho.md) 用官方评分方案与奖牌线在 13 套最新高中物理奥赛真题上评判 30 个 (M)LLM；闭源推理 MLLM 获 6–12 金，但大多数模型距满分仍远。
+- **官方奥赛评分。** [HiPhO](../works/hipho.md) 用官方评分方案与奖牌线在 13 套最新高中物理奥赛真题上评判 30 个 (M)LLM；闭源推理 MLLM 获 6–12 金，但大多数模型距满分仍远。[LLM-IOAA](../works/llm-ioaa.md) 把同一套标准搬到天文：五个前沿模型在 2022–2025 年完整的国际天文与天体物理奥赛理论卷与数据分析卷上受评，依官方 IOAA 评分标准打分——全部 285 次模型-题目评定都由前 IOAA 选手与领队评了两遍——Gemini 2.5 Pro（理论卷 85.6%）与 GPT-5 大致排在每年 200–300 名真人选手的前两位。
 - **前沿学术参照点。** [Humanity's Last Exam](../works/hle.md) 由全球领域专家在数十个学科上出 2,500 道位于人类知识前沿的题目——抗检索、可自动判分、并测量校准度。它是通用学术 benchmark 而非 agent benchmark，是研究级科学 benchmark 用来定位自身难度的天花板。
 - **大学课程广度的解题评估。** [PHYSICS](../works/physics-benchmark.md) 整理 1,297 道专家标注的大学水平问题，覆盖物理六大核心领域，配稳健的自动评估系统；受评中最先进的 o3-mini 也只有 59.9%。
 - **按评分标准分解的 AI 论文复现。** [PaperBench](../works/paperbench.md) 让 agent 从零复现 20 篇 ICML 2024 Spotlight 与 Oral 论文，由 LLM judge 对照与作者共同开发的层级式评分标准（共 8,316 个判分节点）打分——judge 本身也被单独评测；最佳 agent 得 21.0%，ML 博士仍然领先。
@@ -187,6 +187,12 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **把规范符合性的判定结论作为受评产出。** 当答案由法规决定时，有几个 benchmark 评的就是 agent 有没有得出监管者的结论、又是否给出了应有的理由。[SGR-BIM](../works/sgr-bim.md) 在五个 IFC 建筑模型上提出 679 条经专家核验的消防安全查询，按三档准确率评分——结论对了但没能点明起决定作用的变量与边界条件，就拿不到满分；其基于图的系统总分 84.3，而持有完全相同工具集的单 agent 只有 75.7，CAMEL、AutoGen 与 MetaGPT 落在 64.9–73.2，可见弥合差距的并不是泛用的多智能体协作。[AutoBM / BMEval](../works/autobm.md) 把明确的设计校核结论列为 Pass@k_strict 所合取的三道关卡之一；[AEC-Bench](../works/aec-bench.md) 则发现工作中越依赖判断的一端越难——图纸导航的 reward 达到 100.0，报审资料审查最高却只有 23.1。
 - **以专业检测记录作为答案标准。** [BridgeEQA](../works/bridgeeqa.md) 把 200 个真实桥梁场景上的 2,200 道题目扎根于佛蒙特州交通厅的检测报告，状况判定按 NBI 的 0–9 分制评分并允许 ±1 的容差带——因为专家检测员之间的一致程度本就只有这么高——同时引入 Image Citation Relevance，让那些依据无关影像却蒙对评级的 agent 被扣分。[Cognitive Agents for Bridge Inspection Prioritization](../works/cognitive-agents-for-bridge-inspection-prioritizat.md) 对照的是六个年度全国桥梁清单版本中实际观测到的劣化，并把「结果如何定义」本身当作实验变量：目标定得含糊时 agent 近乎随机（AUC 0.471），换成「是否恶化进入 poor 状态」则达到 0.705，而同一设定下一个不透明的梯度提升模型只有 0.521；此外还请一位持证检测员对它写出的 100 段理由做盲评，3 分制下平均 2.77 分。[DefectBench](../works/defectbench.md) 把外墙病害逐级加码——命名缺陷、定位缺陷、分割缺陷——且每一问都以模型自己上一问的回答为条件，从而把误差传播暴露出来而非藏起来。
 - **以执业资格考试作为难度标尺。** [Evaluating AI Chatbots on the FE and PE Structural Exams](../works/evaluating-the-performance-of-artificial-intellige.md) 把 NCEES 的练习题交给 ChatGPT-4 与 Bard，沿用考试本身不给部分分的二值判分：ChatGPT-4 在 FE 与 PE 上分别得到 70.9% 与 46.2%，Bard 则是 39.2% 与 41%——FE 大致能过，PE 则差得远。[PE Civil Bench](../works/pe-civil-bench.md) 把同一来源做成公开发布的 150 题语料，覆盖八个子学科，并把增强策略提升为一等因素，用基础提示、向量 RAG 与 agentic RAG 三种方式跑同一批题目。[Civil-Eval](../works/civil-eval.md) 对中国的国家注册考试做了同样的事，并按各科计算题占比赋予权重；[AECBench](../works/aecbench.md) 的 4,800 道题中有一部分取自执业资格考试，同时把全部 23 类任务沿五个认知层级排布，于是单一分数变成一条退化曲线——术语类高于 95%，文档撰写类则低于 60%。
+- **天文原生的科学计算，以职业天文学家为评判尺度。** [AstroVisBench](../works/astrovisbench.md) 把 110 份真实的天文教程 notebook 切成 setup、processing、visualization 三段，处理段按它产出的内存变量评分，图则看它有没有传达出正确的科学洞见——所用的视觉语言 judge 不是想当然指定的，而是依据与五位天文学家标注面板的实测相关性选出（ρ = 0.822，而天文学家彼此之间的 Fleiss' κ 为 0.53）；八个模型中最强的一个，也只有 15.7% 的可视化任务被判为 No Error。[gammapyGPT](../works/gammapygpt.md) 把靶子收窄到一个文档稀薄的仪器分析库，验的是数值分析结果——观测数量、区域显著性、能流、谱指数——而不是代码看上去合不合理，并记下验证是在第几次尝试通过的，从而把一次到位与事后补救区分开来。[Imaging-101](../works/imaging-101.md) 把 57 个以论文为依据的计算成像任务规整成同一条四阶段流水线，在规划、函数级与端到端三条赛道上评分，其天文切片覆盖 Event Horizon Telescope 重建、日冕仪系外行星成像与 Shack–Hartmann 波前探测；端到端最好成绩是 57 中的 17。
+- **及格线由领域早已认可的天文软件划定。** 有一批天文工作不肯把「成功」的定义交给语言模型，而是把它锚在领域一直信任的软件上。[Mephisto](../works/mephisto.md) 只有当 agent 给出某个 χ² < 1.2 × 穷举 3.6 亿点 CIGALE 网格搜索所得 χ² 的 SED 模型时，才算这个星系被解释清楚；同一套 256 星系流程还在七种底座上重跑，并对照相对 API 成本。[An LLM-driven framework for cosmological model-building](../works/an-llm-driven-framework-for-cosmological-model-bui.md) 让 agent 去改容器化的 CLASS 3.3.0，并叠了三层检查——二元的执行里程碑、算得的可观测量相对标准实现的最大相对偏差，再到对照 DESI、Planck、Pantheon+ 与 SH0ES 数据的似然、BIC、Hubble 张力与 CMB 自洽性奖励——因此能编译通过的实现并不自动等于成功的实现。[SimAgents](../works/simagents.md) 把还原出的模拟配置，对照 40 余项已发表宇宙学模拟的人工标注做参数级评分，并把 Type Error（软件层面非法的取值）与 Value Error、幻觉分开计数，好让那些物理上说得通、却根本跑不起来的输出不被埋没。
+- **准确率、推理与诚实度，评在同一个观测判断上。** [AstroAlertBench](../works/astroalertbench.md) 把 1,500 条真实 ZTF 警报按人类审核者看到的样子呈现——broker 元数据加上 science/reference/difference 三联图——并把元数据感知、结构化的天体物理论证，以及伪迹 → 起源 → 子类的层级判断分开评分；再加一条诚实度轴，衡量模型的自我评估跟不跟得上它的正确率，具体通过群体层面的谦逊度、实例层面的校准度，以及第二轮 rollout 重试这一行为学探针来考察；13 个模型中最好的端到端成绩为 60.60 ± 1.26%，而实测的人类集成基线是 30.67%。[Spec-o3 / SpecVI-Bench](../works/spec-o3.md) 则刻意去搭建同一问题中更难的那一半：负样本按 0.8 的分类器概率做拒绝采样，因而正是部署中的分类器真会推到人跟前的那些光谱；测试集保持不均衡，以正类 F1 为头号指标；LAMOST → SDSS/DESI 的划分用来考察巡天迁移；另有六位天文学家在标签准确率之外，依公开的 0–5 分 rubric 为 100 条推理轨迹打分。
+- **先由专家评分，再据此校准 judge。** [CosmoPaperQA](../works/cosmopaperqa.md) 让一位博士级宇宙学家，把九种 RAG 配置在 105 组专家撰写问答对上产生的全部 945 条回答逐条手工评分，并在报告 LLM judge 时一并附上它们的偏差方式——o3-mini 比人类专家低 2–8 分，Gemini 2.5 Pro 高 5–15 分，因此只有排序（Pearson r > 0.99）被认为可以迁移。[From Queries to Criteria](../works/from-queries-to-criteria-understanding-how-astrono.md) 的评判标准来自实践而非 benchmark 设计者的直觉——取自在 STScI 面向天文学家四周部署中的 368 条查询与 11 次访谈——并把公开的 40 题 benchmark 的自动相关性分数，对照部署期间真实的赞/踩评分做了验证，Pearson 相关为 0.82。[AI's Capability in Assisting Scientific Research I](../works/ai-assisting-research-i-literature-review.md) 把八位领域专家与三个 AI 系统摆在同样八个前沿课题上，发现主要失效并不是编造：641 条仅由 AI 给出的参考文献中，33% 元数据完全正确，64% 至少有一个字段出错，3% 属凭空捏造，而人机重合率对每个系统都低于 6%。
+- **把「静默地错得很像样」的结果本身当作被测对象。** [Plausible but Wrong](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md) 把评分拆成执行成功、参数准确度与数值准确度，并把后两者相乘合成，使配置上的功力无法掩盖物理上的错误；四类失败模式也正是由这几项分数上的阈值定义的。剩下的主导失败模式不是崩溃，而是 Mode C——程序跑通了，求解器参数看着也合理，数字却是错的——在没有文档上下文时约占 47% 的运行，四个开放式 Deep Research 任务更是全部静默失败。[First head-to-head comparison of agentic AI on Einstein Telescope data](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) 从过程一侧触及同一忧虑：两个 agent 拿到相同的规格说明、跑在相同的硬件上，最终收敛到相同的探测效率，可其中一个悄悄把目标信噪比下限从 7 改成了 8；重启、静默偏离、显式自我纠正与未经要求的优化，都是从日志里数出来的，而不是靠轶事描述。[Quantifying the Reproducibility of Astrophysical Methods](../works/quantifying-the-reproducibility-of-astrophysical-m.md) 则把同一道缺口定位到源文本上：重建出的流程按四级 Hierarchy of Scientific Validity 评分，一旦给出 Methods 部分，三个前沿模型都能还原显式的框架（V = 2），却没有一个能还原那些让结果得以校准的隐含统计约束（V = 3）。
+- **以天文学家本人为对照的受控实验。** [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) 让科学问题在 32 份格式统一的盲评一页纸计划书中保持固定，再把同一套四方面 rubric 同时交给一个由教师与资深博后组成的四人评审组和两位 LLM 评审：人类给人写的和 AI 写的打分大体相当（3.52 对 3.25–3.74），两位 LLM 评审却都给 AI 撰写的文本多打了大约一整分；而 AI 的优势恰恰集中在人类投入最弱的地方（r ≈ −0.95）。[AI Cosplaying as Astrophysicists](../works/ai-cosplaying-as-astrophysicists-a-controlled-synt.md) 干脆用角色化人设替换真人被试，使每一项指派都能在其他条件全不变的前提下跑遍五种辅助策略，12,960 个回合的评分中还把灾难性失败单列成一条与任务质量分开的通道；平均效用是中性的（+0.0017），灾难性失败率却上升（+0.0112），且集中在推导与推理上——而论文报告的角色互换复现，把这一主结论的正负号翻了过来。
 
 ## Comparison
 
@@ -395,6 +401,32 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | CEQuest | 2025 | 164 道题目，由领域专家依据造价估算教材与图纸解读指南编写 | 施工图纸解读与造价估算 | 按答案精确匹配评分，重复五次运行并以均值 ± 标准差报告，同时给出评测耗时与模型规模 | [→](../works/cequest.md) |
 | Automating Structural Reliability Analysis with a Multi-Agent LLM Framework | 2026 | 20 道手工编写的构件级可靠度题目，与微调集不相交 | 结构可靠度分析：可靠指标与失效概率 | β 与 P_f 只由确定性地执行经验证求解器得出，并与蒙特卡洛 / 子集模拟参考解对照；方法类别准确率对照确定性打标规则 | [→](../works/automating-structural-reliability-analysis-with-a.md) |
 | TRIP-Evaluate | 2026 | 837 道单选题（文本 596、图像 198、点云 43），按「角色–任务–知识」分类体系组织 | 交通工程，含一个规划与设计角色 | 固定提示词与解码设置下的单字母准确率，按角色、任务域、能力、难度与模态分别报告 | [→](../works/trip-evaluate.md) |
+| AstroVisBench | 2025 | 从 110 份 Astro Data Lab 与 STScI 教程 notebook 中抽取的 432 个处理任务与 432 个可视化任务 | 天文：巡天与任务数据的处理，以及传达其科学洞见的可视化 | 对照标准答案内存变量的 Variable Inspection Score，外加一个把图判为 No / Minor / Major 三档错误的视觉语言 judge——该 judge 依据与五位职业天文学家面板的相关性（ρ = 0.822）选出 | [→](../works/astrovisbench.md) |
+| Spec-o3 / SpecVI-Bench | 2026 | 五项稀有天体任务，正样本取自 LAMOST 星表，易混淆负样本经拒绝采样得到（测试集 1,122 / 5,632 条） | 天文：稀有天体的光谱甄别（激变变星、碳星、S 型星、M 型巨星、白矮星） | 在刻意保持不均衡的测试集上计算宏平均准确率与正类 F1，另有留出的 LAMOST → SDSS/DESI 巡天迁移划分，以及六位天文学家依公开的 0–5 分 rubric 为 100 条推理轨迹打分 | [→](../works/spec-o3.md) |
+| AstroAlertBench | 2026 | 取自 ALeRCE stamp-classifier 数据集的 1,500 条真实 ZTF 警报，五类各 300 条保持均衡 | 天文：时域警报审核，覆盖伪源、小行星、超新星、AGN 与变星 | 在元数据落地、结构化论证与层级分类上报告逐阶段与端到端准确率，另加一条比对自我评估与实际正确率的诚实度轴；人类集成基线为 30.67 ± 5.32% | [→](../works/astroalertbench.md) |
+| Plausible but Wrong | 2026 | 取自 CMBAgent 仓库的 14 个 CAMB 计算任务，外加 4 个基于 Union2.1、SPARC、NASA Exoplanet Archive 与 SLACS 数据的研究任务 | 天体物理：Boltzmann 求解器计算、超新星宇宙学、转动曲线、系外行星族群、强引力透镜 | Execution Success Rate、Parameter Accuracy Score 与 Numerical Accuracy Score，后两者以 PAS × NAS 合成；四类失败模式由这几项分数上的阈值界定 | [→](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md) |
+| First head-to-head comparison of agentic AI on Einstein Telescope data | 2026 | 一份七阶段引力波流程规格说明，在同一硬件上自主执行四次（两个 agent × 两轮） | 天文：从模拟 Einstein Telescope 应变中恢复双黑洞信号 | 科学输出（模板库规模、探测效率、恢复的 SNR）与从日志中数出的行为测度——重启、静默偏离、自我纠正、未经要求的优化——并列报告，另附运行时间与峰值内存 | [→](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) |
+| CosmoPaperQA | 2025 | 由宇宙学专家依据五篇高引宇宙学论文撰写的 105 组问答对 | 天文：宇宙学文献问答，分事实、综合与分析三个层级 | 全部 945 条回答（9 种 RAG 配置 × 105 题）由一位博士级宇宙学家逐条二元手工评分，并用于校准两个 LLM judge；二者保持系统排序一致，Pearson r > 0.99 | [→](../works/cosmopaperqa.md) |
+| Enhancing Agentic Autonomous Scientific Discovery with VLM Capabilities | 2025 | 10 个由作者生成的数据驱动发现任务（宇宙学功率谱、分子谱线、振子、SEIR） | 以天文为主的数据驱动模型发现 | 以还原出正确底层模型的 pass@1 计分，回路内的视觉语言绘图 judge 依逐任务生成的 rubric 评图；纯代码为 0.2–0.3，加入 VLM 反馈后为 0.7–0.8 | [→](../works/enhancing-agentic-autonomous-scientific-discovery.md) |
+| Mephisto | 2025 | 256 个经光谱证认的 COSMOS2020 星系，在四维物理参数空间中均匀采样，外加 31 个 JWST 小红点 | 天文：借 CIGALE 由多波段测光解读星系 SED | 产出的模型只要 χ² < 1.2 × 穷举 3.6 亿点 CIGALE 网格搜索所得 χ² 即算通过；同一套流程在七种 LLM 底座上重跑，并对照相对 API 成本 | [→](../works/mephisto.md) |
+| gammapyGPT | 2025 | 四项 Gammapy 分析任务，针对经数据指针访问的真实观测数据定义 | 天文：地基伽马射线分析——观测筛选、反射区显著性与能谱、三维源拟合 | 执行生成的脚本，判据按任务难度分级（整数精确匹配、浮点值落在容差内、端到端跑通），并记录验证是在第几次尝试通过的 | [→](../works/gammapygpt.md) |
+| VESTA / DAWN | 2026 | 400 个生成实例——200 个分布拟合与 200 个时间序列——各含一个 50 实例的天文切分 | 天文：恒星初始质量函数还原与引力波啁啾建模，另有领域中立的层级 | 拟合任务用与真实分布之间的 Jensen–Shannon 散度，时间序列用 ELPD-LOO，给的是分级得分而非通过/不通过 | [→](../works/vesta-dawn.md) |
+| ScienceBoard | 2025 | 在运行六款专业科学软件的真实 Ubuntu 桌面中，169 个人工整理的工作流任务 | 天文由 Celestia 承载，另有生物化学、代数、定理证明、GIS 与科学文档 | 经 HTTP 状态服务器程序化检查中间 I/O 与虚拟机最终状态，给出二元成功判定；总体最好 24.20%（GPT-5），天文属最弱的领域之一 | [→](../works/scienceboard.md) |
+| Quantifying the Reproducibility of Astrophysical Methods | 2026 | 一个天体物理案例研究——海王星外天体的概率化光谱重建——在三种层层嵌套的信息状态（Title / + Abstract / + Methods）下提出 | 天文：从描述它的稿件中还原一项计算方法 | 对每个模型在每种状态下采样的 200 次重建计算 Shannon 熵与 Jensen–Shannon 散度，另由人在回路按四级 Hierarchy of Scientific Validity 为可执行流程评分（明示阈值为 V ≥ 2） | [→](../works/quantifying-the-reproducibility-of-astrophysical-m.md) |
+| AstroMMBench | 2025 | 621 道四选一题目，图件挖自 3,592 份 arXiv 天文 TeX 源码，由 15 位子领域对口的专家评审从 1,800 道候选中筛留 | 天文：横跨六个 astro-ph 子领域的图件解读 | 经 VLMEvalKit 测得的单轮选择题准确率，在 25 个 MLLM 上报告总体与逐子领域成绩；最佳为 Ovis2-34B，70.53% | [→](../works/astrommbench.md) |
+| From Queries to Criteria | 2025 | 从 STScI 为期四周的 `@Ask-astro-ph` 部署所留 368 条查询日志中采样的 40 道题，标准答案由七位天文学家撰写 | 天文：以文献为依据的问答 | 由 LLM 对照专家标准答案生成 0–1 相关性分数，配以针对含糊措辞的认知标记检测和针对引文准确性的蕴含检验；该相关性与真实用户评分的 Pearson 相关为 0.82 | [→](../works/from-queries-to-criteria-understanding-how-astrono.md) |
+| AI's Capability in Assisting Scientific Research I: Literature Review | 2026 | 八个由专家设计的前沿研究课题，每个由一位领域专家检索一轮、每个 AI 系统各检索一轮，上限 50 篇论文 | 天文与天体物理文献检索（八个课题中的六个） | 由专家判定重合，且要求标题与所归类别同时吻合；另以 DOI → 链接 → 标题检索的级联，把 641 条仅由 AI 给出的参考文献判为完全正确、元数据不符或凭空编造 | [→](../works/ai-assisting-research-i-literature-review.md) |
+| AI's Capability in Assisting Scientific Research II: Project Planning | 2026 | 针对同样八个专家设计课题、按同一模板写成的 32 份一页纸计划书（8 份人类，24 份 AI） | 天文与天体物理的研究规划 | 由四位教师或资深博后与两位 LLM 评审按公开的四方面 rubric 做 1–5 分盲评，另附一项判断作者是人类还是 AI 的识别任务 | [→](../works/ai-assisting-research-ii-project-planning.md) |
+| AstroMLab 1 | 2024 | 由 885 篇 *Annual Review of Astronomy and Astrophysics* 文章（1963–2023）生成的 4,425 道四选一题目 | 覆盖六个子领域与五种受测能力的天文知识 | 在 47 个闭源与开放权重模型上报告附 Wilson 得分区间的准确率，并按 astro-ph 语料规模下的推理成本以及置信度-正确率校准做交叉切分 | [→](../works/astromlab-1.md) |
+| LLM-IOAA | 2025 | 取自 2022–2025 年完整国际天文与天体物理奥赛理论卷与数据分析卷的 57 道题 | 天文：奥赛级别的推导与真实观测数据分析 | 依官方 IOAA 评分标准人工评阅并按步给分，全部 285 次评定都由前 IOAA 选手与领队评两遍，分数再映射到真实选手分布与奖牌线上 | [→](../works/llm-ioaa.md) |
+| DomainCQA / AstroChart | 2025 | 覆盖 arXiv 天文论文中 482 张图的 1,690 组问答对，分为 1,509 道基础题与 181 道依赖知识的推断题 | 天文：把图表理解与依赖知识的图件推断分离开来 | 数值答案用按坐标轴量程归一化的相对误差，推导题用精确匹配，开放式回答由 DeepSeek-V3 judge 评判并经人工标注验证（r = 0.816）；另有四位天文研究者作答 10% 的抽样 | [→](../works/domaincqa.md) |
+| ALeRCE Text-to-SQL | 2026 | 从 10 位一线天文学家与 broker 团队处征集的 110 组自然语言/SQL 对，标准查询由专家撰写 | 天文：查询一个 25 表、304 列的在运行 ZTF/Rubin 警报 broker 数据库 | 把预测查询与标准查询都执行一遍、分别比较返回的行与列，据此判 Perfect Match；每条查询运行十次，按 simple / medium / hard 分层，另附逐阶段的 API 成本表 | [→](../works/alerce-text-to-sql.md) |
+| SimAgents | 2025 | 来自 arXiv、ApJ 与 MNRAS 的 40 余项已发表宇宙学模拟，对每个与 MP-Gadget 相关的参数逐一人工标注 | 天文：从已发表论文中还原可执行的模拟配置 | 在人工评分与自动评分两种口径下，对照人工标注计算参数级的精确率、召回率与 micro-F1，并把 Value、Type 与 Hallucination 三类错误逐个模拟分别计数 | [→](../works/simagents.md) |
+| HiSciBench | 2025 | 六个学科、五个递进层级下七类任务共 8,735 个实例，其中天文贡献 597 个 | 天文文献的解析、翻译、问答与综述生成，另有其余五个学科 | 各层级各有其评测方案：准确率、词级 OCR 准确率、BLEU、带引文可核验性指标的 LLM 评审综述 rubric，以及发现层基于执行的成功率 | [→](../works/hiscibench.md) |
+| SciVQR | 2026 | 3,254 道配图题目，取自 15 项竞赛、9 种高考试卷与 6 种大学或研究生考试及教材，并按「离开图就答不出」筛选 | 天文是六个计分学科之一，其下明列六个天文子领域 | 报告用与不用 CoT 提示的零样本准确率，另由 GPT-4o judge 对照专家撰写的解题过程，按五维推理轨迹 rubric 以 10 分制打分 | [→](../works/scivqr.md) |
+| Imaging-101 | 2026 | 57 个经专家核验的计算成像任务，每个都以一篇同行评审论文及其开源参考实现为依据 | 六个领域之一是天文成像（EHT 重建、日冕仪系外行星成像、幸运成像、波前探测） | 三条赛道：规划部分由专家逐项二元判定通过与否，函数与模块实现由 pytest 评分，端到端重建则对照各任务 `metrics.json` 中的 NCC / NRMSE 阈值 | [→](../works/imaging-101.md) |
+| An LLM-driven framework for cosmological model-building | 2025 | 两个标准答案宇宙学模型（Thawing Quintessence、Early Dark Energy）外加两种假设生成设置，跑在预装 CLASS 3.3.0 的容器中 | 天文：在 Boltzmann 求解器中实现并探索替代性暗能量模型 | 二元的执行里程碑、算得的可观测量相对标准实现的最大相对偏差，以及对照 DESI、Planck、Pantheon+ 与 SH0ES 数据的似然 / BIC / Hubble 张力 / CMB 自洽性奖励 | [→](../works/an-llm-driven-framework-for-cosmological-model-bui.md) |
+| AI Cosplaying as Astrophysicists | 2026 | 公开发布的 3,000 个天体物理任务库，分六个工作流族；2,592 项指派各在五种辅助策略下运行，共 12,960 个回合 | 天文：日常的天体物理研究工作——写作、信息抽取、代码调试、推导、问题求解、评审 | LLM judge 依各族专属 rubric 评分，输出任务分数、完成情况与一条独立的灾难性失败标记，再合成为带置信区间的效用值；另有一次完整的角色互换复现 | [→](../works/ai-cosplaying-as-astrophysicists-a-controlled-synt.md) |
 
 ## Open Questions
 
@@ -406,6 +438,32 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 
 ## Related Works
 
+- [AstroVisBench](../works/astrovisbench.md)
+- [Spec-o3](../works/spec-o3.md)
+- [AstroAlertBench](../works/astroalertbench.md)
+- [Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md)
+- [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md)
+- [CosmoPaperQA](../works/cosmopaperqa.md)
+- [Enhancing Agentic Autonomous Scientific Discovery with Vision-Language Model Capabilities](../works/enhancing-agentic-autonomous-scientific-discovery.md)
+- [Mephisto](../works/mephisto.md)
+- [gammapyGPT](../works/gammapygpt.md)
+- [VESTA / DAWN](../works/vesta-dawn.md)
+- [ScienceBoard](../works/scienceboard.md)
+- [Quantifying the Reproducibility of Astrophysical Methods with Large Language Models and Information Theory](../works/quantifying-the-reproducibility-of-astrophysical-m.md)
+- [AstroMMBench](../works/astrommbench.md)
+- [From Queries to Criteria: Understanding How Astronomers Evaluate LLMs](../works/from-queries-to-criteria-understanding-how-astrono.md)
+- [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)
+- [AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation](../works/ai-assisting-research-ii-project-planning.md)
+- [AstroMLab 1](../works/astromlab-1.md)
+- [LLM-IOAA](../works/llm-ioaa.md)
+- [DomainCQA / AstroChart](../works/domaincqa.md)
+- [ALeRCE Text-to-SQL](../works/alerce-text-to-sql.md)
+- [SimAgents](../works/simagents.md)
+- [HiSciBench](../works/hiscibench.md)
+- [SciVQR](../works/scivqr.md)
+- [Imaging-101](../works/imaging-101.md)
+- [An LLM-driven framework for cosmological model-building and exploration](../works/an-llm-driven-framework-for-cosmological-model-bui.md)
+- [AI Cosplaying as Astrophysicists: A Controlled Synthetic-Agent Study of AI-Assisted Astrophysical Research Workflows](../works/ai-cosplaying-as-astrophysicists-a-controlled-synt.md)
 - [A Large Language Model-Empowered Agent for Reliable and Robust Structural Analysis](../works/a-large-language-model-empowered-agent-for-reliabl.md)
 - [A Lightweight Large Language Model-Based Multi-Agent System for 2D Frame Structural Analysis](../works/a-lightweight-large-language-model-based-multi-age.md)
 - [Agentic Large Language Models for Automated Structural Analysis of 3D Frame Systems](../works/agentic-large-language-models-for-automated-struct.md)

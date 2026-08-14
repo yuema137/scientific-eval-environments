@@ -16,7 +16,7 @@ One cluster targets **scientific property prediction** — mapping molecular or 
 
 A second cluster is **ML-engineering to optimize a model metric**, where the agent iteratively builds and trains models. [MLAgentBench](../works/mlagentbench.md), [MLE-bench](../works/mle-bench.md), and [MLE-Dojo](../works/mle-dojo.md) frame ML research/engineering as interactive improve-a-metric loops over Kaggle-style tasks; [DSBench](../works/dsbench.md) adds data-modeling tasks alongside analysis; and [BioXArena](../works/bioxarena.md) applies the full train-and-submit loop to biomedical ML under a fixed compute budget.
 
-A third cluster is **physics-grounded forecasting and model-fitting**, where the fitted model is the central artifact. [gwBenchmarks](../works/gwbenchmarks.md) demands high-precision waveform surrogates and remnant fits, [RealPDEBench](../works/realpdebench.md) measures the sim-to-real gap for scientific ML on physical systems, [Stargazer](../works/stargazer.md) fits Keplerian orbital models to radial-velocity series, and [DiscoverPhysics](../works/discoverphysics.md) requires inferring and implementing the laws of counterfactual simulated worlds.
+A third cluster is **physics-grounded forecasting and model-fitting**, where the fitted model is the central artifact. [gwBenchmarks](../works/gwbenchmarks.md) demands high-precision waveform surrogates and remnant fits, [RealPDEBench](../works/realpdebench.md) measures the sim-to-real gap for scientific ML on physical systems, [Stargazer](../works/stargazer.md) fits Keplerian orbital models to radial-velocity series, and [DiscoverPhysics](../works/discoverphysics.md) requires inferring and implementing the laws of counterfactual simulated worlds. Astronomy sharpens this into model *selection* under near-degenerate alternatives: [VESTA / DAWN](../works/vesta-dawn.md) scores the plot-transform-refit loop on stellar initial-mass-function families that separate only in log-log space and on gravitational-wave chirps, [Mephisto](../works/mephisto.md) searches over candidate CIGALE spectral-energy-distribution models rather than a fixed parameter grid, and [the VLM-verified discovery study](../works/enhancing-agentic-autonomous-scientific-discovery.md) makes recovering the correct generating model the pass criterion while a vision judge inspects the fitted curve.
 
 ## Comparison
 
@@ -30,7 +30,9 @@ A third cluster is **physics-grounded forecasting and model-fitting**, where the
 | AlchemyBench | 2025 | Predict full materials synthesis recipe and outcomes | Static prediction over 17,000 expert-verified recipes | LLM-as-a-Judge agreement with expert assessment | [card](../works/alchemybench.md) |
 | ChemEBench | 2025 | Predict molecular properties and reaction outcomes | L2 level: SMILES-to-IUPAC, molecule naming, property and reaction prediction | Accuracy on objective items; 14-model leaderboard | [card](../works/chemebench.md) |
 | FGBench | 2025 | Reason about molecular property at functional-group level | 625K problems (245 groups); 7K curated LLM subset, static QA | Regression/classification accuracy; LLMs struggle | [card](../works/fgbench.md) |
+| Mephisto | 2025 | Search over physical SED models to fit galaxy photometry | 256 galaxies; five agent roles driving CIGALE, ~36 states per galaxy | Model within 1.2x the exhaustive-grid chi-squared; stellar mass to ~0.3 dex | [card](../works/mephisto.md) |
 | MLE-Dojo | 2025 | Iteratively build and refine ML models with feedback | 200+ Kaggle challenges, Gym-style interactive, SFT/RL-trainable | Iterative improvement and solution quality across 8 LLMs | [card](../works/mle-dojo.md) |
+| VLM-Verified Autonomous Discovery | 2025 | Identify the functional model generating a dataset | 10 tasks; code-only vs text-feedback vs vision-feedback loops | pass@1 on recovering the correct underlying model (best 0.8) | [card](../works/enhancing-agentic-autonomous-scientific-discovery.md) |
 | BioXArena | 2026 | Build and train biomedical predictive models | 76 end-to-end tasks, 9 domains, 2-hour single-GPU budget | Hidden-label 0-1 score; best MLEvolve 0.666 | [card](../works/bioxarena.md) |
 | Cognitive Agents for Bridge Inspection Prioritization | 2026 | Rank bridges by predicted future deterioration from inventory records | 3,365 Connecticut bridges, six annual NBI releases, four competing methods | AUC and average precision vs sustained deterioration observed to 2025 | [card](../works/cognitive-agents-for-bridge-inspection-prioritizat.md) |
 | DiscoverPhysics | 2026 | Infer and implement laws of counterfactual worlds | 22 simulated N-body worlds, iterative experiment proposal | Trajectory MSE plus rubric-judged explanation; best | [card](../works/discoverphysics.md) |
@@ -39,6 +41,7 @@ A third cluster is **physics-grounded forecasting and model-fitting**, where the
 | onepot-Bench 0 | 2026 | Predict reaction outcomes and select catalysts | 3-part suite (cheminformatics, refusal, synthesis), private lab data | Prediction against private experimental ground truth | [card](../works/onepot-bench.md) |
 | RealPDEBench | 2026 | Scientific ML models bridging real and simulated physics | 5 real+paired-sim datasets, 3 tasks, 8 metrics, 10 baselines | Data/physics metrics; pretraining improves accuracy | [card](../works/realpdebench.md) |
 | Stargazer | 2026 | Iteratively fit Keplerian orbital models to RV series | 120 tasks (100 synthetic 3 tiers + 20 real), REPL feedback | Per-criterion pass/fail; Easy 80% to Hard 5.8%, real 0% | [card](../works/stargazer.md) |
+| VESTA / DAWN | 2026 | Hypothesise, fit and revise distribution and time-series models | 400 tasks; toolkit expands during the episode, plots read back visually | Jensen-Shannon divergence on fits and ELPD-LOO on time series | [card](../works/vesta-dawn.md) |
 
 ## Related Works
 
@@ -59,3 +62,6 @@ A third cluster is **physics-grounded forecasting and model-fitting**, where the
 - [Stargazer](../works/stargazer.md)
 - [ChemEBench](../works/chemebench.md)
 - [Cognitive Agents for Bridge Inspection Prioritization](../works/cognitive-agents-for-bridge-inspection-prioritizat.md)
+- [Mephisto](../works/mephisto.md)
+- [Enhancing Agentic Autonomous Scientific Discovery with Vision-Language Model Capabilities](../works/enhancing-agentic-autonomous-scientific-discovery.md)
+- [VESTA / DAWN](../works/vesta-dawn.md)
