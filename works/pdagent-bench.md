@@ -10,6 +10,7 @@ PDAgent-Bench is a benchmark for evaluating LLM/VLM-based agents across the VLSI
 
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

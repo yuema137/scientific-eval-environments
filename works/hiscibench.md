@@ -9,6 +9,7 @@ HiSciBench is a hierarchical multi-disciplinary benchmark of 8,735 instances tha
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

@@ -9,6 +9,7 @@ RoboFAC is a comprehensive framework for robotic failure analysis and correction
 ## Topics
 
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

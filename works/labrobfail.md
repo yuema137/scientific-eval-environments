@@ -10,6 +10,7 @@ LabRobFail benchmarks robotic failure analysis in chemical self-driving laborato
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

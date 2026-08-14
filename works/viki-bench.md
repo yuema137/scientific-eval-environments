@@ -8,7 +8,7 @@ VIKI-Bench is the first hierarchical benchmark for embodied multi-agent cooperat
 
 ## Topics
 
-_No methodology-axis topic — indexed under the [Robotics](../domains/robotics.md) domain (field axis)._
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

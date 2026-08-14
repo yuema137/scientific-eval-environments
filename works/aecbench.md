@@ -9,6 +9,7 @@ AECBench is a hierarchical Chinese-language knowledge benchmark for the architec
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

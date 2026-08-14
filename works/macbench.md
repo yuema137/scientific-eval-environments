@@ -9,6 +9,7 @@ MaCBench probes the limitations of multimodal (vision-language) models for chemi
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

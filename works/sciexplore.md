@@ -9,6 +9,7 @@ SciExplore is a benchmark evaluating autonomous agents on scientific information
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

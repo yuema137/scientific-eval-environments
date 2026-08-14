@@ -9,6 +9,7 @@ ChemEBench is a chemical-engineering evaluation benchmark introduced alongside C
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

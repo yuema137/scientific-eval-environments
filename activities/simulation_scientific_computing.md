@@ -30,6 +30,7 @@ A fifth cluster runs **structural analysis against a civil-engineering solver**,
 |---|---|---|---|---|---|
 | SimBench | 2024 | Multi-turn digital-twin generation for Chrono multi-physics simulator | 102 tasks / 34 systems, 33+ LLMs, 3000+ dialogues | LLM-judge scores under predefined rules with human-in-loop | [card](../works/simbench.md) |
 | Building Static Analysis with LLMs and MCP | 2025 | Configuring and running OpenSeesPy through a Model Context Protocol server | 4 reinforced-concrete frames, 16 analyses, GPT-only vs GPT+MCP control | Relative error vs ETABS reference (GPT+MCP below 1.427%) | [card](../works/toward-responsible-ai-in-high-stakes-domains-a-dat.md) |
+| CASCADE / SciSkillBench | 2025 | Running simulations and specialized computational toolkits for materials and chemistry tasks | 40 computation-oriented of 116 tasks; benchmark runs with memory tools disabled | Automated tolerance-checked match to ground truth (DeepSolver 93.26% overall with GPT-5) | [card](../works/cascade.md) |
 | CFDLLMBench | 2025 | Three-tier CFD: knowledge, PDE Python solvers, OpenFOAM cases | 240 tasks (90 MCQ, 24 code, 126 OpenFOAM cases) | Executability, relative error, numerical convergence | [card](../works/cfdllmbench.md) |
 | CodePDE | 2025 | LLM-generated PDE numerical solvers with iterative refinement | Representative PDE problems (counts TODO) | Solver accuracy on representative PDE problems | [card](../works/codepde.md) |
 | Cosmological Model-Building with CLASS | 2025 | Patching the CLASS Boltzmann solver to implement alternative cosmologies | Containerized CLASS 3.3.0, three sequential stages, two target models | Compiles and computes observables; max fractional deviation vs reference | [card](../works/an-llm-driven-framework-for-cosmological-model-bui.md) |
@@ -50,7 +51,9 @@ A fifth cluster runs **structural analysis against a civil-engineering solver**,
 | CRAFTS | 2026 | Building executable IDAES/Pyomo process-simulation models from requests and PFDs | OpenIDAES-450, 82 frozen held-out cases, deterministic IDAES/Pyomo gates | Workflow Success 91.5% plus unit/stream/connection macro-F1 | [card](../works/crafts.md) |
 | HydroAgent | 2026 | Calibrating operational CREST hydrologic model, re-simulate loop | 4 held-out gauges (329-40,792 km2), best-of-20 rounds | Nash-Sutcliffe Efficiency vs human-expert reference | [card](../works/hydroagent.md) |
 | LLM-Empowered Agent for Structural Analysis | 2026 | Generating and auto-executing OpenSeesPy beam models with OpsVis rendering | 8 beam problems plus 3 extended tasks, 500 runs each | Reliability above 0.990 and robustness above 0.996 | [card](../works/a-large-language-model-empowered-agent-for-reliabl.md) |
+| LQCDMaster | 2026 | Generating and running PyQUDA lattice-QCD measurement workflows | 70 tasks: local and nonlocal 2PTs, meson and baryon 3PTs, Wilson loops | Machine-precision agreement with an expert reference implementation (63/70 Matched) | [card](../works/lqcdmaster.md) |
 | MDArena | 2026 | Realistic molecular-dynamics research workflows | 50 containerized tasks, 29 systems, 14 protocols | Strict success rate plus process-level partial credit | [card](../works/mdarena.md) |
+| MolClaw / MolBench | 2026 | Driving docking, conformational-sampling and molecular-property computations across 30+ tools | Three tiers; end-to-end challenges of 8 to 50+ sequential tool invocations | Accuracy and Hits@3 per subtask plus weighted E2E rubrics (docking hits 0.80 vs 0.56) | [card](../works/molclaw.md) |
 | MooseBench | 2026 | MOOSE multiphysics input-file generation with PDE ground truth | 220 cases, each with intended PDE contract | Intent Fidelity Score via deterministic PDE reconstruction | [card](../works/moosebench.md) |
 | PDEAgent-Bench | 2026 | PDE solver-code generation for three FEM libraries | 645 instances, 6 categories, 11 families (DOLFINx/Firedrake/deal.II) | Staged executability, accuracy, efficiency checks | [card](../works/pdeagent-bench.md) |
 | Plausible but Wrong | 2026 | Configuring and running CAMB Boltzmann-solver computations | 14 complexity-stratified CAMB tasks; One-Shot vs Deep Research loop | Parameter Accuracy times Numerical Accuracy (0.85 with domain docs) | [card](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md) |
@@ -95,3 +98,6 @@ A fifth cluster runs **structural analysis against a civil-engineering solver**,
 - [An LLM-driven framework for cosmological model-building and exploration](../works/an-llm-driven-framework-for-cosmological-model-bui.md)
 - [SimAgents](../works/simagents.md)
 - [Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md)
+- [CASCADE](../works/cascade.md)
+- [LQCDMaster](../works/lqcdmaster.md)
+- [MolClaw](../works/molclaw.md)

@@ -9,6 +9,7 @@ EmbodiedBench evaluates multimodal LLMs as vision-driven embodied agents at scal
 ## Topics
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 

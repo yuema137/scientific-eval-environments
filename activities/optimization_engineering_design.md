@@ -42,6 +42,7 @@ A fifth cluster is **civil and structural component design against codes and sol
 | EnergyBridge | 2026 | Generate constraint-aware residential demand-response plans | VPP workflow over EnergyPlus models (Tianjin, Berlin) | Authorization rate plus capacity-commitment reliability | [card](../works/energybridge.md) |
 | Frontier-Eng | 2026 | Iterative generative design under simulator feedback | 47 tasks, 5 engineering categories, bounded budget | Continuous reward under hard feasibility constraints | [card](../works/frontier-eng.md) |
 | HydroAgent | 2026 | Agents calibrate operational CREST hydrologic model | 4 held-out gauges (329-40,792 km2), best-of-20 rounds | Nash-Sutcliffe Efficiency vs human-expert reference | [card](../works/hydroagent.md) |
+| MolClaw / MolBench | 2026 | Molecular editing and multi-round property and lead optimization | MolBench-MO (39 functional-group items plus property targets) and E2E lead-optimization rounds | Operational accuracy, property delta and success rate (delta 1.724 at 100% success) | [card](../works/molclaw.md) |
 | Multi-Agent Systems for Automated Foundation Design | 2026 | Size shallow footings and piles under given soils, loads and safety factors | 27 cases, 7 categories, router vs sequential workflows, 3 trials each | Four-criterion rubric grade (router with Grok 3: 95.00% / 90.63%) | [card](../works/large-language-model-based-multi-agent-systems-for.md) |
 | PDAgent-Bench | 2026 | VLSI physical-design optimization under constraints | Full-flow implementation plus tasks; Innovus/ICC2/OpenROAD EDA | Timing closure and DRC-clean layout; pass@1/5 | [card](../works/pdagent-bench.md) |
 | PE Civil Bench | 2026 | Design reinforced-concrete beams and columns for design-code compliance | 33 beam configurations plus a column extension; ETABS ground truth | Code compliance with r >= 0.90 agreement against finite-element results | [card](../works/pe-civil-bench.md) |
@@ -77,3 +78,4 @@ A fifth cluster is **civil and structural component design against codes and sol
 - [MASSE](../works/masse.md)
 - [Large Language Model-Based Multi-Agent Systems for Automated Foundation Design](../works/large-language-model-based-multi-agent-systems-for.md)
 - [PE Civil Bench](../works/pe-civil-bench.md)
+- [MolClaw](../works/molclaw.md)

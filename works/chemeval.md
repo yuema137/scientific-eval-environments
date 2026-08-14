@@ -9,6 +9,7 @@ ChemEval is a multi-level chemical evaluation for LLMs built around what chemica
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities
 
