@@ -31,6 +31,9 @@ AI and machine learning as the science under study: reproducing, rediscovering, 
 | IdeaBench | 2024 | Generate novel research ideas grounded in scientific context. | Idea generation from influential-paper titles/abstracts and their references. | Two-stage GPT-4o ranking on novelty/feasibility plus a relative Insight Score. | [→](../works/ideabench.md) |
 | LiveIdeaBench | 2024 | Generate scientific ideas from minimal (single-keyword) context. | 1,180 keywords across 22 domains; 40+ models scored by an LLM panel. | Five creativity dimensions (originality, feasibility, fluency, flexibility, clarity). | [→](../works/liveideabench.md) |
 | DevAI / Agent-as-a-Judge | 2024 | Autonomously develop AI/ML projects meeting hierarchical requirements. | 55 automated-AI-development tasks with 365 hierarchical user requirements. | Requirement-level, process-aware Agent-as-a-Judge evaluation, as reliable as humans. | [→](../works/devai.md) |
+| Replica | 2026 | Reproduce a redacted results figure from a published ML or AI-for-science paper by re-running the experiment behind it. | 310 tasks (242 train / 68 test) auto-generated from 100 papers published 1990–2026; 60 minutes on a one-seventh MIG slice of an H200. | Five-dimension rubric judge generated with the gold plot hidden; two judge draws agree at τ = 0.66, against τ = 0.30 between two human raters. | [→](../works/replica.md) |
+| Beyond Final Scores | 2026 | Improve a correct but deliberately suboptimal ML or systems artifact over a long run. | 36 AutoLab tasks in four families (Model Development 7, System Optimization 15, Puzzle & Challenge 10, CUDA 4); 756 rollouts across seven models. | Automated per-task verifier with scores normalised to [0, 1]; a manual audit found only 1.2% of solutions genuinely novel and 6.3% exploiting evaluation-specific shortcuts. | [→](../works/beyond-final-scores.md) |
+| AutoWorldModel-Bench | 2026 | Autonomously improve a provided world model with no improvement direction specified in advance. | 64 sessions (2 agents × 8 games × 4 base architectures), 6 hours on one H100 per session, 10-minute cap per training run. | Held-out composite of Position L1 and Alive F1 at h ∈ {1, 10, 20}; 33 of 64 sessions reach Δ ≥ +0.10 and 91% of winning edits are substantive rather than hyperparameter tweaks. | [→](../works/autoworldmodel-bench.md) |
 
 ## Related Works
 
@@ -55,3 +58,6 @@ AI and machine learning as the science under study: reproducing, rediscovering, 
 - [IdeaBench](../works/ideabench.md)
 - [LiveIdeaBench](../works/liveideabench.md)
 - [DevAI / Agent-as-a-Judge](../works/devai.md)
+- [Replica](../works/replica.md)
+- [Beyond Final Scores](../works/beyond-final-scores.md)
+- [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)

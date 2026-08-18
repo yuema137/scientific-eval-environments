@@ -120,6 +120,11 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | PATH-Bench | 2026 | Sequences of 5 warm-up plus 100 intervening tasks with a recurring probe at 6–12-task intervals; 50 sequences per dataset and condition; forward transfer, backward transfer and forgetting | BigCodeBench program synthesis and WildToolBench multi-turn tool use, over a frozen backbone with eight lifelong-agent memory/skill implementations | [→](../works/path-bench.md) |
 | Skill²-Bench | 2026 | 300 held-out tasks of 2–10 dependent steps, consecutive steps drawn from different domains and sampled at three skill-entropy levels; paired single-skill vs. cross-skill querying | Cross-skill reasoning chains over nine domains; no tools, no external state, no failed-step recovery | [→](../works/skill2-bench.md) |
 | SkillMisevo-Bench | 2026 | 25 episodes of 21 tasks per condition on a fixed malicious/benign schedule, evolution after every three-task block, then a persistence block after a full reset | Sandboxed agentic operations (AgentHazard substrate) across four agent frameworks and six evolution methods on one backbone | [→](../works/skillmisevo-bench.md) |
+| AutoResearchEval | 2026 | Six research lifecycle stages per task, with all 800 trajectories annotated end to end rather than scored at the finish | Agent harnesses (Claude Code, Codex, Gemini CLI) over research tooling | [→](../works/autoresearcheval.md) |
+| PACE-Bench | 2026 | 20 iterative repair attempts per pair under non-prescriptive diagnostic feedback | Box2D rigid-body simulator at 60 FPS | [→](../works/pace-bench.md) |
+| Beyond Final Scores | 2026 | 2–12 hour wall-clock budget per task with verifier checkpoints throughout; avg@3 against best@3 separates run-to-run reliability from ceiling | AutoLab tasks under a shared Claude Code harness | [→](../works/beyond-final-scores.md) |
+| AutoWorldModel-Bench | 2026 | 6-hour session on one H100 with a 10-minute cap per individual training run, which converts the budget into iteration count | Eight game environments exposing structured entity state | [→](../works/autoworldmodel-bench.md) |
+| R³-Bench | 2026 | One budget shared across a six-problem suite, so effort must be allocated and some problems triaged away | Tool-free completion and a Terminus-2 shell | [→](../works/r3-bench.md) |
 
 ## Open Questions
 
@@ -181,6 +186,11 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - [RE-Bench](../works/re-bench.md)
 - [MLGym](../works/mlgym.md)
 - [DevAI / Agent-as-a-Judge](../works/devai.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
+- [PACE-Bench](../works/pace-bench.md)
+- [Beyond Final Scores](../works/beyond-final-scores.md)
+- [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
+- [R³-Bench](../works/r3-bench.md)
 
 ## Further Reading
 

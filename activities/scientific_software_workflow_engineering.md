@@ -94,6 +94,9 @@ Covers scientific **and** engineering software or workflow artifacts — includi
 | SciVisAgentBench | 2026 | Generate executable scientific-visualization code | 108 cases; ParaView/napari/MD/topology via CLI/MCP/Python | Image metrics + code checkers + rule-based verifiers | [card](../works/scivisagentbench.md) |
 | StructureClaw | 2026 | Structural-engineering workflow (model to solver to checks) | 150 scenarios; artifact workbench w/ OpenSees | Model-match + numerical agreement vs frozen refs | [card](../works/structureclaw.md) |
 | Terminal-Bench Science | 2026 | Containerized scientific-computing workflows | 8 tasks across 5 domains (target 100+); agentic | pytest deterministic programmatic verification | [card](../works/terminal-bench-science.md) |
+| PACE-Bench | 2026 | Iteratively edit a Python program defining structure assembly and control logic | 144 pairs across six physics families, 20 attempts each | A working target design within budget, verified by rigid-body simulation | [card](../works/pace-bench.md) |
+| Beyond Final Scores | 2026 | Improve model, system and CUDA artifacts over multi-hour runs | 36 AutoLab tasks at 2–12 h wall-clock each; 756 rollouts | Normalised verifier score reported as avg@3 and best@3, with deterministic process metrics alongside | [card](../works/beyond-final-scores.md) |
+| AutoWorldModel-Bench | 2026 | Modify a single-file world-model implementation — architecture, loss, hyperparameters or training procedure | 64 sessions, 6 h per session on one H100, 10-minute cap per training run | Held-out test-score lift over the provided base; 91% of winning edits were substantive rather than hyperparameter tweaks | [card](../works/autoworldmodel-bench.md) |
 
 ## Related Works
 
@@ -165,3 +168,6 @@ Covers scientific **and** engineering software or workflow artifacts — includi
 - [Quantifying the Reproducibility of Astrophysical Methods with Large Language Models and Information Theory](../works/quantifying-the-reproducibility-of-astrophysical-m.md)
 - [BiomedSQL](../works/biomedsql.md)
 - [LQCDMaster](../works/lqcdmaster.md)
+- [PACE-Bench](../works/pace-bench.md)
+- [Beyond Final Scores](../works/beyond-final-scores.md)
+- [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)

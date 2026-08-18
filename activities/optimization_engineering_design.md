@@ -51,6 +51,7 @@ A fifth cluster is **civil and structural component design against codes and sol
 | Simona | 2026 | Design flowsheet topology and tune unit-operation configurations | 1,000 expert-written process descriptions; simulator over HTTP APIs | Simulation Convergence Rate (80.3%) and design time | [card](../works/simona.md) |
 | SimulCost | 2026 | Cost-aware parameter tuning of physics simulations | 2,947 single-round + 1,931 multi-round tasks, 13 simulators | Tuning quality under simulation-time/resource budget | [card](../works/simulcost.md) |
 | SMDD-Bench | 2026 | Budgeted multi-turn small-molecule drug design | 502 solvable instances, 102 targets, five task types | Solve rate under oracle-call limit (GPT-5.4: 40.2%) | [card](../works/smdd-bench.md) |
+| PACE-Bench | 2026 | Redesign a mechanism so that it works again after its operating physics changes | 144 source-to-target pairs in Box2D; 20 attempts per pair with non-prescriptive diagnostic feedback | Pass@2 under a constraint-satisfaction fraction; best full-benchmark result 35.9% (Reflexion + Qwen3-14B) | [card](../works/pace-bench.md) |
 
 ## Related Works
 
@@ -79,3 +80,4 @@ A fifth cluster is **civil and structural component design against codes and sol
 - [Large Language Model-Based Multi-Agent Systems for Automated Foundation Design](../works/large-language-model-based-multi-agent-systems-for.md)
 - [PE Civil Bench](../works/pe-civil-bench.md)
 - [MolClaw](../works/molclaw.md)
+- [PACE-Bench](../works/pace-bench.md)

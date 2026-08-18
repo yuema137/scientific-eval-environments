@@ -441,6 +441,12 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 | BiomedSQL | 2025 | 68,000 question / SQL / answer triples expanded from 40 expert-authored seed queries over a ten-table BigQuery store; scored on a 546-question test set | Biology and medicine: neurodegenerative-disease genetics (GWAS, SMR, allele frequencies) and drug targets, indications and approval status | Execution Accuracy against gold execution results, with Jaccard partial credit and syntax-error rate; LLM-judged response quality and safety; two-analyst human baseline at 90.0% EX | [→](../works/biomedsql.md) |
 | AISE-Bench | 2026 | 1,133 QA pairs annotated end to end with query taxonomy, plan, executed API calls, validated parameters and referenced answer; 250 double-reviewed | Scholarly information seeking over academic knowledge graphs across first-level disciplines — papers, authors, venues, organizations | Reference precision / recall and format compliance; planning graph edit distance, parameter accuracy and execution success rate; answer correctness, completeness, faithfulness and F1-LM | [→](../works/aise-bench.md) |
 | RubricsTree | 2026 | Physician-led human-in-the-loop curation informed by roughly 4,000 real user queries; 532-query internal meta-evaluation set plus HealthBench-Hard | Medicine & health: medical explanation, health-data interpretation, advice and action planning, symptom handling | 100+ atomic Boolean leaf rubrics in a hierarchical DAG activated per query by a context-aware router; agreement with an expert panel at ICC₃ = 0.876 and Cohen's κ = 0.787 | [→](../works/rubricstree.md) |
+| Replica | 2026 | 100 ML and AI-for-science papers (1990–2026), one results figure per task irreversibly redacted from the PDF | Reproduction of a published machine-learning or AI-for-science result | Auto-generated five-dimension rubric judge; two judge draws agree at τ = 0.66 against τ = 0.30 between two humans | [→](../works/replica.md) |
+| AutoResearchEval | 2026 | 100 tasks filtered from 5,878 candidates, grounded in published frontier science across seven domains | The full research lifecycle, ideation through self-review | Agent-as-a-judge over complete trajectories and intermediate artifacts, κ = 0.75 at pattern level and 0.83 at taxonomy level against human annotation | [→](../works/autoresearcheval.md) |
+| PACE-Bench | 2026 | 36 hand-built Box2D designs mutated into 144 source-to-target adaptation pairs | Six physics families, from statics and kinematics to control and granular flow | Rigid-body simulation; constraint-satisfaction fraction and task score in [−100, 100], reported as Pass@2 | [→](../works/pace-bench.md) |
+| Apodex Discovery | 2026 | 20 problems selected from 423 candidates identified across a 561-industry survey | Ten industrial and scientific areas, from capsid design to chip verification | Hidden verifiers inside executable environments, plus blind six-dimension process scoring (Spearman ρ = +0.51 with outcome) | [→](../works/apodex-discovery.md) |
+| AutoWorldModel-Bench | 2026 | Eight game environments × four base world-model architectures, 64 sessions | Autonomous world-model research with no improvement direction specified | Held-out composite of Position L1 and Alive F1 at horizons 1/10/20, weighted 0.1/0.2/0.7 | [→](../works/autoworldmodel-bench.md) |
+| Agents Catching Agents | 2026 | Seven cohorts over six public clinical datasets spanning text, imaging and tabular records | Validity of clinical multi-agent committees under shortcut cues | Shortcut-adoption rate against the isolated-condition flip rate; three oversight detectors scored on precision, recall and false-positive rate | [→](../works/agents-catching-agents.md) |
 
 ## Open Questions
 
@@ -690,6 +696,12 @@ Scientific work has features that generic agent benchmarks under-model: intermed
 - [IdeaBench](../works/ideabench.md)
 - [LiveIdeaBench](../works/liveideabench.md)
 - [DevAI / Agent-as-a-Judge](../works/devai.md)
+- [Replica](../works/replica.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
+- [PACE-Bench](../works/pace-bench.md)
+- [Apodex Discovery](../works/apodex-discovery.md)
+- [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
+- [Agents Catching Agents](../works/agents-catching-agents.md)
 
 ## Further Reading
 

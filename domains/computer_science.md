@@ -16,6 +16,7 @@ Computer science as the studied field outside AI/ML research itself — see AI &
 | CORE-Bench | 2024 | Reproduce published computational results from each paper's own code and data; computer science is one of its three disciplines. | 270 tasks from 90 papers at three difficulty levels, in language-only and vision-language forms. | Accuracy of reproduced results, checked by a fast, parallelizable evaluation harness. | [→](../works/core-bench.md) |
 | TCS-Bench | 2026 | Research-level theoretical computer science proof generation — proving results drawn from top TCS venues (FOCS, STOC, SODA). | 300 theorem-proving tasks, each a target statement plus assembled context extracted from FOCS/STOC/SODA papers (2020–2026); the model produces a self-contained proof. | Proofs checked by an automated verification agent (four Gemini 3.1 Flash calls, 3-of-4 majority vote), calibrated against a 100-item human-expert–labeled set at over 90% agreement. | [→](../works/tcs-bench.md) |
 | EngDesign | 2025 | Operating system design and computer architecture design posed as engineering design specifications with stated goals, constraints and performance requirements. | Operating System Design (8) and Computer Architecture Design (5) within 101 design tasks carrying 473 gradable items across nine engineering areas; 12 chat and reasoning models. | Structured model output executed by a per-task evaluation script, returning a binary pass/fail, a 0–100 partial-credit score and a detailed log; 53 of the 101 tasks are licence-free and released separately as EngDesign-Open. | [→](../works/engdesign.md) |
+| R³-Bench | 2026 | Allocate one shared budget across a six-problem competitive-programming suite. | 50 suites of 6 problems drawn from LiveCodeBench Pro, 300 problems in total, run both tool-free and inside a Terminus-2 shell. | Contest score against the same response-curve oracle; equal-allocation replay alone beats the model's own contest performance for 4 of 6 models at moderate pressure. | [→](../works/r3-bench.md) |
 
 ## Related Works
 
@@ -25,3 +26,4 @@ Computer science as the studied field outside AI/ML research itself — see AI &
 - [ScholarQuest](../works/scholarquest.md)
 - [CORE-Bench](../works/core-bench.md)
 - [EngDesign](../works/engdesign.md)
+- [R³-Bench](../works/r3-bench.md)

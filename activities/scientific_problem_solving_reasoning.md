@@ -121,6 +121,7 @@ Finally, a **clinical-diagnosis and interactive biology-research** cluster treat
 | TCS-Bench | 2026 | Generate research-level theoretical-CS proofs | 300 theorem-proving tasks from FOCS/STOC/SODA (2020–2026) | Self-contained proof; verifier-agent accuracy (best 68%) | [card](../works/tcs-bench.md) |
 | TRIP-Evaluate | 2026 | Answer transportation items across text, images and point clouds | 837 single-choice items, 4 roles, 16 task domains, 226 knowledge points | Accuracy by role, capability, difficulty and modality (best 88.8%) | [card](../works/trip-evaluate.md) |
 | VCoT-Bench | 2026 | Complete Verus verification chain-of-thought | 1,988 tasks from 150 Verus programs | Proof-block completion accuracy | [card](../works/vcot-bench.md) |
+| R³-Bench | 2026 | Solve a six-problem suite under one shared budget, deciding how much effort each problem receives | 150 suites over mathematics, competitive programming and abstract reasoning; tool-free and Terminus-2 shell settings | Contest score against an empirical allocation oracle, which is strictly higher in 71 of 72 cells | [card](../works/r3-bench.md) |
 
 ## Related Works
 
@@ -217,3 +218,4 @@ Finally, a **clinical-diagnosis and interactive biology-research** cluster treat
 - [AI Cosplaying as Astrophysicists](../works/ai-cosplaying-as-astrophysicists-a-controlled-synt.md)
 - [AstroAlertBench](../works/astroalertbench.md)
 - [SciVQR](../works/scivqr.md)
+- [R³-Bench](../works/r3-bench.md)

@@ -61,17 +61,17 @@ Domains are the **field axis**: the science or engineering discipline a work eva
 
 | Domain | Works |
 |---|--:|
-| [Physics](./domains/physics.md) | 46 |
+| [Physics](./domains/physics.md) | 47 |
 | [Chemistry](./domains/chemistry.md) | 38 |
-| [Biology](./domains/biology.md) | 37 |
+| [Biology](./domains/biology.md) | 38 |
 | [Materials Science](./domains/materials_science.md) | 28 |
-| [AI & Machine Learning Research](./domains/ai_ml_research.md) | 21 |
-| [Mathematics](./domains/mathematics.md) | 18 |
-| [Medicine & Health](./domains/medicine_health.md) | 20 |
+| [AI & Machine Learning Research](./domains/ai_ml_research.md) | 24 |
+| [Mathematics](./domains/mathematics.md) | 19 |
+| [Medicine & Health](./domains/medicine_health.md) | 22 |
 | [Neuroscience & Cognitive Science](./domains/neuroscience_cognitive_science.md) | 12 |
 | [Astronomy](./domains/astronomy.md) | 34 |
 | [Earth Science](./domains/earth_science.md) | 12 |
-| [Computer Science](./domains/computer_science.md) | 6 |
+| [Computer Science](./domains/computer_science.md) | 7 |
 | [Environmental Science](./domains/environmental_science.md) | 6 |
 
 **Engineering**
@@ -96,16 +96,16 @@ Activities are the **task axis**: what the evaluated agent or system actually do
 
 | Activity | What it covers | Works |
 |---|---|--:|
-| [Scientific Problem Solving & Reasoning](./activities/scientific_problem_solving_reasoning.md) | Scientific QA, derivations, proofs, quantitative and multimodal problem solving, diagnostic reasoning | 93 |
-| [Scientific Software & Workflow Engineering](./activities/scientific_software_workflow_engineering.md) | Scientific/engineering code, repository and pipeline engineering, HDL and formal-spec code | 68 |
+| [Scientific Problem Solving & Reasoning](./activities/scientific_problem_solving_reasoning.md) | Scientific QA, derivations, proofs, quantitative and multimodal problem solving, diagnostic reasoning | 94 |
+| [Scientific Software & Workflow Engineering](./activities/scientific_software_workflow_engineering.md) | Scientific/engineering code, repository and pipeline engineering, HDL and formal-spec code | 71 |
 | [Data Analysis & Statistical Inference](./activities/data_analysis_statistical_inference.md) | Statistical analysis and inference, bioinformatics/omics analysis, data interpretation | 43 |
-| [Experiment Design & Scientific Discovery](./activities/experiment_design_discovery.md) | Experiment and observation planning, hypothesis generation, law discovery | 21 |
+| [Experiment Design & Scientific Discovery](./activities/experiment_design_discovery.md) | Experiment and observation planning, hypothesis generation, law discovery | 22 |
 | [Simulation & Scientific Computing](./activities/simulation_scientific_computing.md) | Numerical simulation, PDE/FEM, MD/DFT, running and building scientific simulators | 35 |
-| [Modeling & Prediction](./activities/modeling_prediction.md) | Predictive and surrogate modelling, property prediction, forecasting | 20 |
-| [Optimization & Engineering Design](./activities/optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 25 |
+| [Modeling & Prediction](./activities/modeling_prediction.md) | Predictive and surrogate modelling, property prediction, forecasting | 21 |
+| [Optimization & Engineering Design](./activities/optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 26 |
 | [Literature Search & Evidence Synthesis](./activities/literature_evidence_synthesis.md) | Literature retrieval, systematic review, evidence synthesis, literature-grounded extraction | 23 |
-| [Research Reproduction & Replication](./activities/research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 10 |
-| [End-to-End Research](./activities/end_to_end_research.md) | Multi-stage research lifecycle across several major phases | 5 |
+| [Research Reproduction & Replication](./activities/research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 11 |
+| [End-to-End Research](./activities/end_to_end_research.md) | Multi-stage research lifecycle across several major phases | 6 |
 | [Laboratory & Instrument Control](./activities/laboratory_instrument_control.md) | Instrument, microscope, and beamline control; lab automation; behaviour-defined control code | 3 |
 
 ---
@@ -118,7 +118,7 @@ Activities are the **task axis**: what the evaluated agent or system actually do
 
 The RL cutline is judged by the paper's primary contribution: if it advances *how agents are evaluated*, it belongs here; if it advances *how agents are trained*, it does not.
 
-"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **354 work cards**, **7 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
+"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **364 work cards**, **7 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
 
 ---
 
