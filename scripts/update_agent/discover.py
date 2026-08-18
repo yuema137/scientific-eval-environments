@@ -18,7 +18,7 @@ from sources import all_sources
 
 # polite inter-request delays (seconds) per source. Each source runs in its OWN thread, so these
 # only rate-limit that one source; the three sources still overlap in wall time.
-_DELAY = {"arxiv": 3.0, "github": 3.0, "openreview": 1.0}
+_DELAY = {"arxiv": 3.0, "github": 3.0, "openreview": 1.0, "huggingface": 1.0}
 
 
 def _since_iso(days):

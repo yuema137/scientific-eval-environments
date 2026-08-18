@@ -9,7 +9,7 @@ never auto-merges.**
 ## Five phases (ordered; a later phase never starts if an earlier one failed)
 
 ```
-Phase 1  Discovery        arXiv + OpenReview + GitHub metadata, every Topic/Domain/Activity + global queries
+Phase 1  Discovery        arXiv + OpenReview + HuggingFace + GitHub metadata, every Topic/Domain/Activity + global queries
 Phase 2  Cards            deep primary-source review; write factual English cards; reject aggressively
 Phase 3  English axes     Topic / Domain / Activity specialists + deterministic integration + count refresh
 Phase 4  Chinese mirror   translate every changed English page (English is canonical)
@@ -24,7 +24,13 @@ finalize job open a PR.
 
 ## Schedule & concurrency
 
-- Runs **once every 3 days** at **00:01 America/Los_Angeles** (native `timezone:` cron; GitHub adjusts for DST).
+- Wakes **daily at 00:17 America/Los_Angeles** (native `timezone:` cron; GitHub adjusts for DST),
+  but the discovery job's due-check only performs a full update when **≥ 72h** have passed since the
+  last successful run (`watermark.min_interval_hours`). The effective cadence is therefore ~3 days,
+  decoupled from the calendar month. Enabled 2026-08-18; before that the `schedule:` block was
+  commented out pending a first legitimate PR, so every earlier run was `workflow_dispatch`.
+- GitHub disables scheduled workflows on repositories with **60 days of no activity**; any push
+  re-arms them. If the cadence silently stops, check this first.
 - `workflow_dispatch` supports manual modes (below). Scheduled runs are always `full`.
 - Concurrency group `daily-knowledge-update`, `cancel-in-progress: false` — a running production
   update is never interrupted by the next trigger.
@@ -41,8 +47,19 @@ finalize job open a PR.
 
 ## Sources & search
 
-Adapters (`sources.py`): `ArxivSource`, `OpenReviewSource`, `GitHubSource` — **metadata only**
-(Phase 1 never downloads papers or clones repos). Add a source = add one `Source` subclass.
+Adapters (`sources.py`): `ArxivOAISource`, `OpenReviewSource`, `HuggingFaceSource`, `GitHubSource`
+— **metadata only** (Phase 1 never downloads papers or clones repos). Add a source = add one
+`Source` subclass.
+
+`HuggingFaceSource` uses one endpoint in two modes: the **curated daily-papers feed**
+(`?date=`, harvested one calendar day at a time across the discovery window and memoized per
+window, so cost is ~one request per day regardless of taxonomy size) unioned with a **term search**
+(`?q=`, date-filtered client-side). Its ids ARE arXiv ids, so records merge with the arXiv record
+for the same work — heavy overlap is expected and dedup collapses it. Its value is the papers the
+date-windowed arXiv harvest ranks past, including work promoted to the feed days after posting:
+the daily harvest deliberately does **not** date-filter, so late-promoted papers survive.
+It is **not** in `validate_discovery`'s mandatory set — the feed is legitimately empty on weekends
+and arXiv remains the primary recency source, so a HuggingFace outage must not block a run.
 Search profiles live in `automation/update_agent/search_profiles/{domains,topics,activities,global}.yaml`
 and are calibrated per axis item; `validators.py profiles` fails if a taxonomy item lacks coverage.
 The canonical taxonomy is read from the repo (topic/domain/activity page titles) — never hard-coded.
@@ -53,11 +70,12 @@ Discovery is high-recall then **progressively discriminative** — noise is remo
 
 ```
 raw hits
-  → deterministic source-aware prefilter   (prefilter.py; arXiv/OR need eval+agent/science signal;
+  → deterministic source-aware prefilter   (prefilter.py; arXiv/OR/HF need eval+agent/science signal;
                                              GitHub needs a benchmark/environment noun + not a
                                              noise repo: awesome-*/skills/templates/MCP/SDK/apps)
   → cross-source merge + existing/pending dedup  (deduplicate.py; repo↔paper via linked arXiv id,
-                                             arXiv↔OR via fuzzy title + shared author — never title-only)
+                                             HF↔arXiv via shared arXiv id,
+                                             arXiv↔OR↔HF via fuzzy title + shared author — never title-only)
   → metadata relevance scorer               (relevance.py + relevance-scorer agent; Claude, metadata
                                              only, batched; deep_review / uncertain / reject_low_relevance;
                                              "a paper evaluating its own method" ≠ "an agent-evaluation
