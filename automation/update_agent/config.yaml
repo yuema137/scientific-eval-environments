@@ -32,7 +32,16 @@ arxiv_oai:
 source_limits:
   arxiv: 60          # max results per arXiv query
   openreview: 40     # max notes per OpenReview query
+  huggingface: 50    # max papers per HuggingFace term search (the daily feed is unbounded per day)
   github: 30         # max repos per GitHub query
+
+# HuggingFace daily-papers harvest. The curated feed is fetched one calendar day at a time over the
+# discovery window and memoized per window, so its cost is ~one request per day in the window
+# regardless of how many taxonomy items are searched. max_days is a local guard against a bad
+# watermark fanning out unboundedly; watermark.max_catchup_days already fails the run before this
+# bound would normally be reached. Empty days (weekends, holidays) are expected, not a failure.
+huggingface:
+  max_days: 14
 
 # Per-source query-matrix scope. GitHub is the low-precision, noisy, and rate-limited source
 # (search is capped at 30 requests/min), so it runs ONLY the broad global + domain queries — not

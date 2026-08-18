@@ -597,3 +597,146 @@ def test_openreview_prefers_odate_over_cdate(monkeypatch):
     monkeypatch.setattr(sources, "http_get", lambda *a, **k: _Resp())
     recs = sources.OpenReviewSource().search("q", "2000-01-01T00:00:00", 10)
     assert recs and recs[0]["date"].startswith("2026"), recs[0]["date"]
+
+
+# ---------------------------------------------------------------- HuggingFace daily-papers source
+
+def _hf_payload(pid="2608.13331", title="Training AI Scientists to Replicate Research",
+                published="2026-08-13T00:00:00.000Z"):
+    return [{"title": title, "publishedAt": published,
+             "paper": {"id": pid, "title": title, "summary": "A replication task space.",
+                       "publishedAt": published, "upvotes": 42,
+                       "authors": [{"name": "Damon Falck"}, {"name": "Anya Sims"}],
+                       "projectPage": "https://example.org/replica"}}]
+
+
+def test_huggingface_is_a_registered_source():
+    import sources
+    assert "huggingface" in sources.all_sources()
+
+
+def test_huggingface_maps_paper_fields(monkeypatch):
+    import sources
+
+    class _Resp:
+        def json(self):
+            return _hf_payload()
+
+    monkeypatch.setattr(sources, "http_get", lambda *a, **k: _Resp())
+    recs = sources.HuggingFaceSource().search("agent benchmark", "2000-01-01T00:00:00", 10)
+    assert len(recs) == 1
+    r = recs[0]
+    assert r["source"] == "huggingface"
+    assert r["id"] == "2608.13331"                      # HF id IS the arXiv id
+    assert r["url"] == "https://arxiv.org/abs/2608.13331"
+    assert r["title"] == "Training AI Scientists to Replicate Research"
+    assert r["abstract_or_description"].startswith("A replication")
+    assert r["authors"] == ["Damon Falck", "Anya Sims"]
+    assert r["date"].startswith("2026-08-13") and r["upvotes"] == 42
+
+
+def test_huggingface_term_search_filters_by_date(monkeypatch):
+    # ?q= has no server-side window, so stale hits must be dropped client-side.
+    import sources
+
+    class _Resp:
+        def json(self):
+            return _hf_payload(pid="2401.00001", published="2024-01-05T00:00:00.000Z")
+
+    monkeypatch.setattr(sources, "http_get", lambda *a, **k: _Resp())
+    assert sources.HuggingFaceSource().search("q", "2026-08-01T00:00:00", 10) == []
+
+
+def test_huggingface_daily_feed_keeps_late_promoted_papers(monkeypatch):
+    # A paper published before the window but promoted to the daily feed inside it must SURVIVE:
+    # surfacing exactly these is why the curated feed is worth harvesting alongside arXiv.
+    import sources
+    calls = []
+
+    class _Resp:
+        def json(self):
+            return _hf_payload(pid="2607.09999", published="2026-07-31T00:00:00.000Z")
+
+    def _get(url, params=None, **k):
+        calls.append(params or {})
+        return _Resp()
+
+    monkeypatch.setattr(sources, "http_get", _get)
+    src = sources.HuggingFaceSource()
+    recs, _ = src._daily_window("2026-08-14T00:00:00")
+    assert [r["id"] for r in recs] == ["2607.09999"]
+    assert all("date" in c for c in calls)             # daily mode, not term mode
+
+
+def test_huggingface_daily_window_is_memoized(monkeypatch):
+    # discovery calls search_many once per taxonomy item; without memoization the same day
+    # requests would be re-issued dozens of times per run.
+    import sources
+    n = {"c": 0}
+
+    class _Resp:
+        def json(self):
+            return _hf_payload()
+
+    def _get(url, params=None, **k):
+        n["c"] += 1
+        return _Resp()
+
+    monkeypatch.setattr(sources, "http_get", _get)
+    src = sources.HuggingFaceSource()
+    src.search_many(["a"], "2026-08-16T00:00:00", 10)
+    first = n["c"]
+    src.search_many(["b"], "2026-08-16T00:00:00", 10)
+    assert n["c"] == first + 1, "second call must issue only the term search"
+
+
+def test_huggingface_tolerates_empty_and_failing_days(monkeypatch):
+    # Weekends return HTTP 200 with []; a single unreachable day must not sink the source.
+    import sources
+
+    class _Empty:
+        def json(self):
+            return []
+
+    def _get(url, params=None, **k):
+        if (params or {}).get("date", "").endswith("1"):
+            raise RuntimeError("transient")
+        return _Empty()
+
+    monkeypatch.setattr(sources, "http_get", _get)
+    recs, _ = sources.HuggingFaceSource()._daily_window("2026-08-14T00:00:00")
+    assert recs == []
+
+
+def test_merge_huggingface_arxiv_same_paper(tmp_path):
+    # The same work reaching us from both sources must collapse to ONE candidate.
+    raw = [
+        {"source": "arxiv", "id": "2608.13331", "url": "https://arxiv.org/abs/2608.13331",
+         "title": "Training AI Scientists to Replicate Research",
+         "abstract_or_description": "x", "authors": ["Damon Falck"]},
+        {"source": "huggingface", "id": "2608.13331", "url": "https://arxiv.org/abs/2608.13331",
+         "title": "Training AI Scientists to Replicate Research",
+         "abstract_or_description": "x", "authors": ["Damon Falck"]},
+    ]
+    cands = _dedup(tmp_path, raw)
+    assert len(cands) == 1
+    assert {r["source"] for r in cands[0]["source_records"]} == {"arxiv", "huggingface"}
+    # arXiv stays the primary record (canonical metadata), HF is the corroborating one
+    assert cands[0]["source_records"][0]["source"] == "arxiv"
+
+
+def test_prefilter_treats_huggingface_as_a_paper_source():
+    # Must NOT fall through to "unknown source kept": the daily feed is all of ML, and passing it
+    # through unfiltered would crowd out the deep-review cap.
+    keep, reason = prefilter.judge({
+        "source": "huggingface", "id": "2608.00001",
+        "title": "A Benchmark for Evaluating Scientific Agents on Chemistry Tasks",
+        "abstract_or_description": "We introduce a benchmark that evaluates LLM agents on "
+                                   "chemistry experiment tasks with an automated verifier."})
+    assert keep and reason != "unknown source kept"
+
+    drop, _ = prefilter.judge({
+        "source": "huggingface", "id": "2608.00002",
+        "title": "Fast Text-to-Image Diffusion with Latent Consistency",
+        "abstract_or_description": "We propose a distillation method for faster image generation."})
+    assert not drop

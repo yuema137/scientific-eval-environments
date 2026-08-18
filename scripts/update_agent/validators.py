@@ -41,6 +41,11 @@ def validate_profiles(repo_root=REPO_ROOT):
 
 # ---------------------------------------------------------------- discovery
 def validate_discovery(run_dir, mandatory=("arxiv", "openreview", "github")):
+    # `huggingface` is deliberately NOT mandatory. It is a supplementary community-curated feed
+    # whose daily endpoint legitimately returns empty on weekends and holidays, and arXiv remains
+    # the primary recency source — so a HuggingFace outage must not block a run that arXiv,
+    # OpenReview and GitHub covered. Its per-source status is still recorded in coverage.json, and
+    # the strict cross-source axis-completeness check below still applies to it.
     errs = []
     cov = read_json("%s/phase1/coverage.json" % run_dir)
     # A source may be `degraded_success` (reachable, mandatory coverage complete, only a supplemental

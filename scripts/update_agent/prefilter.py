@@ -67,7 +67,11 @@ def _combined(text):
 def judge(rec):
     """Return (keep: bool, reason: str)."""
     src = rec.get("source")
-    if src in ("arxiv", "openreview"):
+    # HuggingFace daily-papers records are papers with a title and an abstract, so they take the
+    # same path as arXiv/OpenReview. This matters: the curated feed carries ~30 papers a day across
+    # all of ML, and without the paper filter the whole feed would reach the relevance scorer and
+    # crowd out the deep-review cap.
+    if src in ("arxiv", "openreview", "huggingface"):
         if _combined(_text_paper(rec)):
             return True, "eval+agent/science signal"
         return False, "no evaluation+agent/science evidence"

@@ -44,6 +44,12 @@ def _ids(rec):
             keys.add(("arxiv", a))
     if rec["source"] == "openreview":
         keys.add(("openreview", rec["id"]))
+    if rec["source"] == "huggingface":
+        # HuggingFace daily-papers ids ARE arXiv ids, so the record merges with the arXiv record
+        # for the same work rather than surfacing as a separate candidate.
+        a = normalize_arxiv_id(rec["id"])
+        if a:
+            keys.add(("arxiv", a))
     if rec["source"] == "github":
         m = re.search(r"github\.com/([^/]+)/([^/#?]+)", rec["url"], re.I)
         if m:
@@ -78,7 +84,8 @@ def _title_tokens(t):
 def _fuzzy_same_paper(a, b):
     """Cautious cross-record equivalence for PAPER records (arxiv/openreview): high title
     token-set overlap AND at least one shared author last name. Never merges on title alone."""
-    if a["source"] not in ("arxiv", "openreview") or b["source"] not in ("arxiv", "openreview"):
+    _PAPERS = ("arxiv", "openreview", "huggingface")
+    if a["source"] not in _PAPERS or b["source"] not in _PAPERS:
         return False
     ta, tb = _title_tokens(a.get("title")), _title_tokens(b.get("title"))
     if not ta or not tb:
@@ -132,8 +139,8 @@ def run(run_dir, extra_inventory=None, repo_root=REPO_ROOT, raw_path=None):
     candidates, duplicates, rejected = [], [], []
     for c in clusters:
         recs = c["records"]
-        # choose a primary record: prefer arxiv > openreview > github
-        order = {"arxiv": 0, "openreview": 1, "github": 2}
+        # choose a primary record: prefer arxiv > openreview > huggingface > github
+        order = {"arxiv": 0, "openreview": 1, "huggingface": 2, "github": 3}
         recs_sorted = sorted(recs, key=lambda r: order.get(r["source"], 9))
         primary = recs_sorted[0]
 

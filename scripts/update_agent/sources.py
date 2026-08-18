@@ -233,6 +233,110 @@ class OpenReviewSource(Source):
         return out
 
 
+class HuggingFaceSource(Source):
+    name = "huggingface"
+    ENDPOINT = "https://huggingface.co/api/daily_papers"
+
+    # Verified API contract (live-audited 2026-08). One endpoint, two modes:
+    #   * ?date=YYYY-MM-DD -> the CURATED daily-papers feed for that calendar day. Complete for the
+    #                         day (no relevance cutoff). Days with no feed return HTTP 200 and an
+    #                         EMPTY list — weekends and holidays legitimately do this, so an empty
+    #                         day is not a failure. An out-of-range date returns HTTP 400.
+    #   * ?q=<terms>       -> relevance-ranked full-text search over papers, default 50, honours
+    #                         `limit`. No server-side date window, so we filter by date client-side.
+    # Both modes are used and unioned: the daily feed is the high-signal community-curated channel
+    # this source exists for, while the term search covers taxonomy items whose papers were never
+    # promoted to a daily feed.
+    #
+    # Records carry `paper.id`, which IS the arXiv id — so a HuggingFace record dedups against the
+    # arXiv record for the same work via the ("arxiv", id) identity key (see deduplicate._ids).
+    # Expect heavy overlap with arXiv; that is intended, and dedup collapses it for free.
+    #
+    # The daily-feed harvest depends only on the window, not on the query, so it is memoized per
+    # `since_iso`: discovery calls search_many once per taxonomy item, and without memoization the
+    # same handful of day requests would be re-issued dozens of times.
+    def __init__(self):
+        self._daily_cache = {}
+
+    def _max_days(self):
+        try:
+            return int(config().get("huggingface", {}).get("max_days", 14))
+        except Exception:
+            return 14
+
+    def _daily_window(self, since_iso):
+        """Harvest the curated daily feed for every date in [since, today]. Memoized per window."""
+        if since_iso in self._daily_cache:
+            return self._daily_cache[since_iso], 0
+        since = _parse_iso(since_iso)
+        today = dt.datetime.utcnow().date()
+        start = (since.date() if since else today)
+        span = (today - start).days
+        # Bound the harvest. The watermark's max_catchup_days already fails the run on a larger
+        # backlog; this is a second, local guard so a bad watermark cannot fan out unboundedly.
+        span = max(0, min(span, self._max_days()))
+        out, reqs = {}, 0
+        for i in range(span + 1):
+            day = (today - dt.timedelta(days=span - i)).isoformat()
+            try:
+                r = http_get(self.ENDPOINT, params={"date": day})
+                reqs += 1
+            except Exception as e:
+                # A single unreachable day must not sink the whole source; the term search and the
+                # remaining days still run. Surfaced in the log so a systematic outage is visible.
+                log("  ! huggingface daily feed %s failed: %s" % (day, e))
+                continue
+            for rec in self._records(r.json(), None):
+                out.setdefault(rec["id"], rec)
+        self._daily_cache[since_iso] = list(out.values())
+        return self._daily_cache[since_iso], reqs
+
+    def _records(self, payload, since):
+        out = []
+        for item in (payload or []):
+            p = (item.get("paper") or {}) if isinstance(item, dict) else {}
+            pid = p.get("id") or ""
+            title = p.get("title") or (item.get("title") if isinstance(item, dict) else "") or ""
+            if not pid or not title:
+                continue
+            d = _parse_iso(p.get("publishedAt") or (item.get("publishedAt") if isinstance(item, dict) else ""))
+            if since and d:
+                dd = d.replace(tzinfo=None) if d.tzinfo else d
+                ss = since.replace(tzinfo=None) if since.tzinfo else since
+                if dd < ss:
+                    continue
+            authors = [a.get("name", "") for a in (p.get("authors") or []) if isinstance(a, dict)]
+            out.append({
+                "source": self.name,
+                "id": pid,
+                "url": "https://arxiv.org/abs/%s" % pid,
+                "title": " ".join(str(title).split()),
+                "abstract_or_description": " ".join(str(p.get("summary") or "").split()),
+                "authors": authors,
+                "date": d.isoformat() if d else "",
+                # Community-curation signal, kept for downstream triage. Not used for filtering
+                # here: upvotes accrue over days, so gating on them would penalise fresh papers.
+                "upvotes": p.get("upvotes", 0),
+                "homepage": p.get("projectPage") or "",
+            })
+        return out
+
+    def search(self, query, since_iso, limit):
+        r = http_get(self.ENDPOINT, params={"q": query, "limit": limit})
+        return self._records(r.json(), _parse_iso(since_iso))
+
+    def search_many(self, queries, since_iso, limit):
+        # Daily feed (memoized, window-scoped) unioned with ONE consolidated term search.
+        recs, reqs = self._daily_window(since_iso)
+        out = {r["id"]: r for r in recs}
+        term = " ".join(queries) if queries else ""
+        if term:
+            for r in self.search(term, since_iso, limit):
+                out.setdefault(r["id"], r)
+            reqs += 1
+        return list(out.values()), reqs
+
+
 class GitHubSource(Source):
     name = "github"
     ENDPOINT = "https://api.github.com/search/repositories"
@@ -275,4 +379,5 @@ class GitHubSource(Source):
 def all_sources():
     # arXiv discovery uses OAI-PMH incremental harvesting (ArxivOAISource); the legacy Search-API
     # ArxivSource is retained only as a fallback/reference and is not used in production discovery.
-    return {s.name: s for s in (ArxivOAISource(), OpenReviewSource(), GitHubSource())}
+    return {s.name: s for s in (ArxivOAISource(), OpenReviewSource(),
+                                HuggingFaceSource(), GitHubSource())}

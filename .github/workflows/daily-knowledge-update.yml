@@ -3,16 +3,21 @@ name: Daily Knowledge Update
 # Security: triggers are schedule + manual only. There is NO pull_request/pull_request_target
 # trigger, so untrusted fork input can never run this secret-bearing workflow.
 on:
-  # ┌── PRODUCTION SCHEDULE — TEMPORARILY DISABLED (until a real full run opens a legit PR) ──┐
+  # ┌── PRODUCTION SCHEDULE — ENABLED 2026-08-18 ─────────────────────────────────────────────┐
   # │ Wakes DAILY at 00:17 America/Los_Angeles, but the discovery job's due-check only runs a │
   # │ full update when >= 72h have passed since the last successful run (min_interval_hours in │
   # │ config.yaml). This gives a true ~72h cadence decoupled from the calendar month (avoids   │
   # │ the day-of-month `*/3` drift), and the off-the-hour minute avoids the top-of-hour        │
-  # │ high-load window. TO RE-ENABLE: uncomment the two `schedule:` lines below.               │
+  # │ high-load window.                                                                        │
+  # │                                                                                          │
+  # │ Was commented out at ship time pending "a real full run opens a legit PR". That gate was │
+  # │ met by PR #34 (run of 2026-08-12, merged), but the lines were never uncommented, so the  │
+  # │ cadence never actually existed — every run to that point was workflow_dispatch.          │
+  # │ GitHub disables schedules on repos with no activity for 60 days; pushes re-arm them.     │
   # └────────────────────────────────────────────────────────────────────────────────────────┘
-  # schedule:
-  #   - cron: '17 0 * * *'          # 00:17 daily; the 72h due-check enforces the real cadence
-  #     timezone: 'America/Los_Angeles'
+  schedule:
+    - cron: '17 0 * * *'          # 00:17 daily; the 72h due-check enforces the real cadence
+      timezone: 'America/Los_Angeles'
   workflow_dispatch:
     inputs:
       mode:
