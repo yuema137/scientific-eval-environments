@@ -51,6 +51,7 @@
 | Simona | 2026 | 设计流程图拓扑并调整单元操作的配置 | 1,000 段专家撰写的工艺描述；通过 HTTP API 驱动仿真器 | 仿真收敛率（80.3%）与设计耗时 | [卡片](../works/simona.md) |
 | SimulCost | 2026 | 物理仿真的成本感知参数调优 | 2,947 个单轮 + 1,931 个多轮任务，13 个仿真器 | 在仿真时间/资源预算下的调优质量 | [卡片](../works/simulcost.md) |
 | SMDD-Bench | 2026 | 带预算约束的多轮小分子药物设计 | 502 个可解实例，102 个靶点，五种任务类型 | oracle 调用限制下的求解率（GPT-5.4: 40.2%） | [卡片](../works/smdd-bench.md) |
+| PACE-Bench | 2026 | 在机构的运行物理改变之后重新设计，使其恢复可用 | Box2D 中 144 个源到目标对；每对 20 次尝试，反馈只作诊断不给修改建议 | 约束满足比例下的 Pass@2；全量 benchmark 最好成绩为 35.9%（Reflexion + Qwen3-14B） | [卡片](../works/pace-bench.md) |
 
 ## Related Works
 
@@ -79,3 +80,4 @@
 - [Large Language Model-Based Multi-Agent Systems for Automated Foundation Design](../works/large-language-model-based-multi-agent-systems-for.md)
 - [PE Civil Bench](../works/pe-civil-bench.md)
 - [MolClaw](../works/molclaw.md)
+- [PACE-Bench](../works/pace-bench.md)

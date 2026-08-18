@@ -441,6 +441,12 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | BiomedSQL | 2025 | 由 40 条专家编写的种子查询扩展出的 68,000 组 question / SQL / answer 三元组，落在一个十张表的 BigQuery 库上；在 546 道题的测试集上评分 | 生物与医学：神经退行性疾病遗传学（GWAS、SMR、等位基因频率）与药物靶点、适应证及审批状态 | 对照金标准执行结果计 Execution Accuracy，含 Jaccard 部分得分与语法错误率；应答质量与安全性由 LLM 评判；双分析师人类基线的 EX 为 90.0% | [→](../works/biomedsql.md) |
 | AISE-Bench | 2026 | 1,133 组 QA，端到端标注了查询分类、计划、实际执行的 API 调用、经校验的参数与参考答案；其中 250 组经双人复核 | 面向学术知识图谱的学术信息检索，覆盖各一级学科——论文、作者、发表场所、机构 | 引用的 precision / recall 与格式合规性；计划的图编辑距离、参数准确率与执行成功率；答案的正确性、完整性、忠实度与 F1-LM | [→](../works/aise-bench.md) |
 | RubricsTree | 2026 | 由医生主导、参考约 4,000 条真实用户查询做的人在环中策展；532 条查询的内部元评估集，外加 HealthBench-Hard | 医学与健康：医学解释、健康数据解读、建议与行动规划、症状处理 | 100 多条原子布尔叶节点 rubric 组成分层 DAG，由上下文感知路由器按查询激活；与专家组的一致性为 ICC₃ = 0.876、Cohen's κ = 0.787 | [→](../works/rubricstree.md) |
+| Replica | 2026 | 100 篇 ML 与 AI for science 论文（1990–2026），每个任务从 PDF 中不可逆地抹去一张结果图 | 复现一项已发表的机器学习或 AI for science 结果 | 自动生成的五维 rubric 评判器；两次评判采样之间一致性 τ = 0.66，而两位人类之间只有 τ = 0.30 | [→](../works/replica.md) |
+| AutoResearchEval | 2026 | 从 5,878 个候选中筛出 100 个任务，取材于七个领域的已发表前沿科学 | 完整研究生命周期，从构思到自我复查 | agent-as-a-judge 通读完整轨迹与中间产物，对照人工标注在模式层面 κ = 0.75、分类体系层面 κ = 0.83 | [→](../works/autoresearcheval.md) |
+| PACE-Bench | 2026 | 36 份手工构建的 Box2D 设计，变异出 144 个源到目标的适配对 | 六个物理族，从静力学、运动学到控制与颗粒流 | 刚体仿真；约束满足比例与 [−100, 100] 区间的任务分数，报告为 Pass@2 | [→](../works/pace-bench.md) |
+| Apodex Discovery | 2026 | 覆盖 561 个行业的调研识别出 423 个候选，从中选出 20 个问题 | 十个工业与科学领域，从衣壳设计到芯片验证 | 可执行环境内的隐藏验证器，外加盲评的六维过程打分（与结果的 Spearman ρ = +0.51） | [→](../works/apodex-discovery.md) |
+| AutoWorldModel-Bench | 2026 | 八个游戏环境 × 四种基础世界模型架构，共 64 个会话 | 不指定改进方向的自主世界模型研究 | 留出集上 Position L1 与 Alive F1 在 1/10/20 三个时程上的组合，权重 0.1/0.2/0.7 | [→](../works/autoworldmodel-bench.md) |
+| Agents Catching Agents | 2026 | 六个公开临床数据集上的七个 cohort，覆盖文本、影像与表格记录 | 捷径线索下临床多 agent 委员会的效度 | 捷径采纳率对照孤立条件下的翻转率；三种监督检测器以精确率、召回率与假阳性率计分 | [→](../works/agents-catching-agents.md) |
 
 ## Open Questions
 
@@ -690,6 +696,12 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [IdeaBench](../works/ideabench.md)
 - [LiveIdeaBench](../works/liveideabench.md)
 - [DevAI / Agent-as-a-Judge](../works/devai.md)
+- [Replica](../works/replica.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
+- [PACE-Bench](../works/pace-bench.md)
+- [Apodex Discovery](../works/apodex-discovery.md)
+- [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
+- [Agents Catching Agents](../works/agents-catching-agents.md)
 
 ## Further Reading
 

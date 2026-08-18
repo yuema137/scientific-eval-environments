@@ -30,6 +30,8 @@
 | RubricsTree | 2026 | 面向消费者与临床的个人健康问答——医学解释、对用户健康与可穿戴传感指标的解读、建议与行动规划、症状处理——评判的是临床正确性而非文风。 | 作为任务集为 N/A：它是一套评判框架，由 100 多条原子的、临床可核验的布尔 rubric 组成分层 DAG，策展自约 4,000 条真实用户查询。元评估用四个场景下的 532 条真实查询并施加受控扰动；下游优化效果在 HealthBench-Hard（362 条查询）上衡量。 | 与医生主导的专家组的一致性以 ICC₃（0.876）与 Cohen's κ（0.787）衡量，而基于原则的基线只有 0.291 与 0.431；另有 oracle 扰动测试，检验语境上劣化过的回答是否确实会被扣分。 | [→](../works/rubricstree.md) |
 | BiomedSQL | 2025 | 围绕药物基因靶点、适应证、许可状态与用量回答临床转化问题，其间还得自行补上自然语言问题从未言明的隐含判据——哪个试验期算作已获批、哪个效应方向才是问题要的答案。 | 68,000 组 question / SQL 查询 / answer 三元组，落在一个十张表的 BigQuery 数据库上（表的规模从几百行到 72.2M 行不等），由 40 条专家编写的种子查询套模板扩展而来；模型在一个有代表性的 546 题测试集上评分，该测试集按九类生物医学推理标注。 | 以 Execution Accuracy 为主指标（查询执行结果须与金标准执行结果完全一致），并列报告 Jaccard 部分得分与语法错误率；对照实测的两位生物医学分析师基线，其 EX 为 90.0%。 | [→](../works/biomedsql.md) |
 | OntoLearner | 2026 | 为医学——它的本体集合覆盖的 22 个领域之一，官方 hub 上另有一份医学数据集——构建本体结构：给术语定类型、恢复类型之间的 is-a 层级、抽取非分类关系。 | 覆盖 22 个领域的 180 个机器可读本体，为三项本体学习任务备好可直接接入流水线的 train/dev/test 切分；共评测 22 个检索模型与 12 个 LLM，设定是单次结构化预测而非 agentic 循环。 | 以归一化的成对与三元组匹配对照金标准本体结构计算 precision、recall 与 F1；卡片中逐领域、逐模型的分数为 `TODO(reference)`，因论文的结果章节无法获取。 | [→](../works/ontolearner.md) |
+| Apodex Discovery | 2026 | 药物重定位与再制剂化。 | 一个可执行的生物医学环境为前沿骨干模型提供工具与数据，对照同一骨干模型的闭卷条件。 | 相对闭卷对照的平均归一化预测分：GPT-5.5 高出 2.5 分，GPT-5.6-sol 高出 7.6 分。 | [→](../works/apodex-discovery.md) |
+| Agents Catching Agents | 2026 | 临床决策支持 agent 组成的委员会，会不会采纳那些 benchmark 给分、临床医生却会无视的捷径线索。 | 六个公开数据集上的七个 cohort——MedQA-USMLE、MedMCQA、MIMIC-CXR 报告、NIH ChestX-ray14、MIMIC-CXR-JPG、CheXpert 与 SUPPORT2——采用三 agent 共享黑板。 | 采纳率对照孤立条件下的翻转率（单独面对时 5–16%，两个同伴发声时 38%）；三种监督检测器以精确率、召回率与假阳性率计分。 | [→](../works/agents-catching-agents.md) |
 
 ## Related Works
 
@@ -53,3 +55,5 @@
 - [RubricsTree](../works/rubricstree.md)
 - [BiomedSQL](../works/biomedsql.md)
 - [OntoLearner](../works/ontolearner.md)
+- [Apodex Discovery](../works/apodex-discovery.md)
+- [Agents Catching Agents](../works/agents-catching-agents.md)

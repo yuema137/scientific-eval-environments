@@ -45,6 +45,7 @@
 | MaD Physics | 2026 | 有预算的测量规划与定律推断 | 三个 JAX 模拟器（经典/流体/量子），改动物理的变体 | 在按精度定价的预算下推断定律以预测未来状态 | [卡片](../works/mad-physics.md) |
 | MolQuest | 2026 | 智能体式化学结构解析 | 多轮谱图采集（NMR/MS），迭代精化 | 正确结构；SOTA 约 50% | [卡片](../works/molquest.md) |
 | SciAgentArena | 2026 | 跨尺度的真实世界科学研究 | 约 200 项逐步验证的任务，五个生物医学领域，与 agent 无关 | 完成数据分析/优化/发现/有效性类任务 | [卡片](../works/sciagentarena.md) |
+| Apodex Discovery | 2026 | 在带隐藏验证器的可执行环境中求解真实世界的发现问题 | 覆盖 561 个行业的调研从 423 个候选中选出 20 个问题；环境有状态，自带工具、数据与预算 | 隐藏验证器给出的结果，外加盲评的六维过程分；衣壳设计比已发表的最好水平高出 7% | [卡片](../works/apodex-discovery.md) |
 
 ## Related Works
 
@@ -69,3 +70,4 @@
 - [SciAgentArena](../works/sciagentarena.md)
 - [An LLM-driven framework for cosmological model-building and exploration](../works/an-llm-driven-framework-for-cosmological-model-bui.md)
 - [AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation](../works/ai-assisting-research-ii-project-planning.md)
+- [Apodex Discovery](../works/apodex-discovery.md)

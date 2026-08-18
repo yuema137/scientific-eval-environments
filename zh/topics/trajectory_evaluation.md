@@ -112,6 +112,11 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | SkillMisevo-Bench | 2026 | 九项沿生命周期设闸的指标，把在线行为、演化产物的不安全性（内容不安全、不安全泛化、隐蔽性）与重置后的不安全检索及危害延续区分开 | 沙箱 agentic 操作下的持久 skill 库；四种 agent 框架 × 六种演化方法 | [→](../works/skillmisevo-bench.md) |
 | RigorBench | 2026 | 从经插桩的轨迹算出的七根过程纪律支柱，合成加权 RigorScore；结果在同一批运行上单独评分 | AI 编码 agent；五个类别共 100 个任务，各 harness 之间基础模型固定不变 | [→](../works/rigorbench.md) |
 | AISE-Bench | 2026 | 计划与标注计划之间的图编辑距离、参数准确率与执行成功率，与答案的正确性 / 完整性 / 忠实度 / F1-LM 分开报告 | 面向学术知识图谱 API（AMiner、Google Scholar）的学术信息检索 | [→](../works/aise-bench.md) |
+| Replica | 2026 | 覆盖整条 rollout 的五维 rubric——视觉吻合度、科学论断支撑、实验实现、算力预算使用、科学诚信——同时报告评判器自洽性（τ = 0.66）与人类一致性（τ = 0.19） | AI & ML research | [→](../works/replica.md) |
+| AutoResearchEval | 2026 | 45 种失效模式落在两个正交维度上（六个生命周期阶段外加跨阶段层 × 四根根因支柱），在 800 条完整轨迹上标注，共 12,712 次命中 | 多领域科学 | [→](../works/autoresearcheval.md) |
+| Beyond Final Scores | 2026 | 三组确定性规则化指标——方案构思、执行、反馈控制——全部由验证器结果与记录下来的执行信号算出，不经任何评判器 | AI & ML research | [→](../works/beyond-final-scores.md) |
+| Apodex Discovery | 2026 | 六个过程维度（Tools、Repair、Alternatives、Coherence、Evidence、Scope）在不知结果、隐去求解者身份的条件下打分，另有承重步骤法把关键步骤单独重解 | 十个工业与科学领域的发现任务 | [→](../works/apodex-discovery.md) |
+| Agents Catching Agents | 2026 | 只读记录的评判者对照私下重新询问 agent 的仲裁者，比较二者检出捷径采纳的能力；只有介入式仲裁者能跨模态迁移（精确率 77–88%，假阳性率 13–21%） | Medicine & health | [→](../works/agents-catching-agents.md) |
 
 ## Open Questions
 
@@ -175,6 +180,11 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - [AHA](../works/aha.md)
 - [RoboFAC](../works/robofac.md)
 - [LabRobFail](../works/labrobfail.md)
+- [Replica](../works/replica.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
+- [Beyond Final Scores](../works/beyond-final-scores.md)
+- [Apodex Discovery](../works/apodex-discovery.md)
+- [Agents Catching Agents](../works/agents-catching-agents.md)
 
 ## Further Reading
 
