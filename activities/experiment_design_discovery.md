@@ -45,6 +45,7 @@ A final cluster frames discovery as **sequential information acquisition toward 
 | MaD Physics | 2026 | Budgeted measurement planning and law inference | Three JAX simulators (classical/fluid/quantum), altered-physics variants | Infer law under fidelity-priced budget to predict future state | [card](../works/mad-physics.md) |
 | MolQuest | 2026 | Agentic chemical structure elucidation | Multi-turn spectra acquisition (NMR/MS), iterative refinement | Correct structure; SOTA | [card](../works/molquest.md) |
 | SciAgentArena | 2026 | Real-world scientific research across scales |  | 200 stepwise-verified tasks, five biomedical fields, agent-agnostic | [card](../works/sciagentarena.md) |
+| Apodex Discovery | 2026 | Solve real-world discovery problems inside executable environments with hidden verifiers | 20 problems selected from 423 candidates across a 561-industry survey; stateful environments with tools, data and budgets | Hidden-verifier outcome plus a blind six-dimension process score; capsid design exceeded the published state of the art by 7% | [card](../works/apodex-discovery.md) |
 
 ## Related Works
 
@@ -69,3 +70,4 @@ A final cluster frames discovery as **sequential information acquisition toward 
 - [SciAgentArena](../works/sciagentarena.md)
 - [An LLM-driven framework for cosmological model-building and exploration](../works/an-llm-driven-framework-for-cosmological-model-bui.md)
 - [AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation](../works/ai-assisting-research-ii-project-planning.md)
+- [Apodex Discovery](../works/apodex-discovery.md)

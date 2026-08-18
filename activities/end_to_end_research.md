@@ -25,6 +25,7 @@ What distinguishes these from single-stage tasks is that success depends on chai
 | MLR-Bench | 2025 | Idea generation, proposal, experimentation, paper writing | 201 open-ended ML tasks from NeurIPS/ICLR/ICML; MLR-Agent scaffold | MLR-Judge rubric scores, stepwise and end-to-end | [card](../works/mlr-bench.md) |
 | AIRS-Bench | 2026 | Full research lifecycle, no baseline code, workflows from scratch | 20 frontier tasks across language modeling, math, bioinformatics, time-series | Design and execute end-to-end research workflows | [card](../works/airs-bench.md) |
 | ResearchClawBench | 2026 | Problem formulation, literature review, experimentation, re-discovery from raw data | 40 expert-curated tasks, 10 domains; hidden target paper, related literature, raw data | Reference-Anchored Discovery Score vs weighted multimodal rubrics | [card](../works/researchclawbench.md) |
+| AutoResearchEval | 2026 | Carry a task through ideation, retrieval, execution, analysis, writing and self-review | 100 tasks grounded in published frontier science; 8 harness-model combinations producing 800 trajectories | Process-level failure attribution against ARFT's 45 patterns rather than a performance score | [card](../works/autoresearcheval.md) |
 
 ## Related Works
 
@@ -33,3 +34,4 @@ What distinguishes these from single-stage tasks is that success depends on chai
 - [MLR-Bench](../works/mlr-bench.md)
 - [AIRS-Bench](../works/airs-bench.md)
 - [ResearchClawBench](../works/researchclawbench.md)
+- [AutoResearchEval](../works/autoresearcheval.md)

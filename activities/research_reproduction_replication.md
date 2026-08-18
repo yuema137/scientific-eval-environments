@@ -32,6 +32,7 @@ A third grouping reproduces **study results from provided code and data** or ben
 | NatureBench | 2026 | Match published SOTA of Nature-family publications | 90 tasks, six domains, review-gated NatureGym pipeline | Reach or exceed published SOTA under info firewall | [card](../works/naturebench.md) |
 | PRBench | 2026 | Reproduce physics papers, implementing algorithms from scratch | 30 expert-curated tasks, 11 subfields, sandbox | Quantitative results matching publication (best 34%) | [card](../works/prbench.md) |
 | Quantifying Reproducibility of Astrophysical Methods | 2026 | Reconstruct a published astrophysics method from its text alone | One method at Title / +Abstract / +Methods levels; five models | Hierarchy of Scientific Validity 0-3, with V >= 2 the pass threshold | [card](../works/quantifying-the-reproducibility-of-astrophysical-m.md) |
+| Replica | 2026 | Reproduce a results figure that has been irreversibly redacted from the source paper | 310 auto-generated tasks from 100 papers; 60 min on a one-seventh H200 MIG slice | Rubric-judge score across five dimensions; the post-trained agent beats Opus 4.8 and GPT-5.5 on 73% of in-distribution and 60% of held-out AI-for-science tasks | [card](../works/replica.md) |
 
 ## Related Works
 
@@ -45,3 +46,4 @@ A third grouping reproduces **study results from provided code and data** or ben
 - [NatureBench](../works/naturebench.md)
 - [PRBench](../works/prbench.md)
 - [Quantifying the Reproducibility of Astrophysical Methods with Large Language Models and Information Theory](../works/quantifying-the-reproducibility-of-astrophysical-m.md)
+- [Replica](../works/replica.md)

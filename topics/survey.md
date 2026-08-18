@@ -30,6 +30,8 @@ A repository organized around benchmarks and topic-level literature reviews stil
 | Autonomous Research Agents: A Survey of AI Scientists and the Verification Gap | 2026 | Survey | Seven-dimension verifiability audit of 35 AI-scientist systems | [→](../works/ara-survey.md) |
 | From Reasoning to Agentic: Credit Assignment in RL for LLMs | 2026 | Survey | Credit-assignment methods across reasoning and agentic RL; six-diagnostic framework and CA-ID Card | [→](../works/from-reasoning-to-agentic.md) |
 | Agent Skill Evaluation and Evolution: Frameworks and Benchmarks | 2026 | Survey | Four skill-evolution paradigms × six categories of skill-centric benchmark | [→](../works/agent-skill-evaluation-survey.md) |
+| Position: AI Agents in Scientific Teams Should Be Studied as Human-Agent Systems | 2026 | Position | The human-agent pair as the unit of analysis; team utility as complementarity minus the cost of collaborating | [→](../works/ai-agents-in-scientific-teams.md) |
+| Co-Evolution in Agentic Systems | 2026 | Survey | Three-stage taxonomy of co-evolution, and why static benchmarks miss evaluator exploitation, partner overfitting and diversity collapse | [→](../works/co-evolution-agentic-systems-survey.md) |
 
 ## Open Questions
 
@@ -45,3 +47,5 @@ A repository organized around benchmarks and topic-level literature reviews stil
 - [Evaluation and Benchmarking of LLM Agents: A Survey](../works/agent-evaluation-benchmarking-survey.md) — Two-dimensional (objectives vs. process) taxonomy of LLM-agent evaluation with enterprise focus.
 - [From Chatbot to Digital Colleague](../works/from-chatbot-to-digital-colleague.md) — Position paper on the paradigm shift toward persistent autonomous AI.
 - [Autonomous Research Agents: A Survey of AI Scientists and the Verification Gap](../works/ara-survey.md) — Seven-dimension verifiability audit of autonomous research agents.
+- [Position: AI Agents in Scientific Teams Should Be Studied as Human-Agent Systems](../works/ai-agents-in-scientific-teams.md) — Argues that scientific-agent evaluation should take the human-agent pair as its unit of analysis.
+- [Co-Evolution in Agentic Systems](../works/co-evolution-agentic-systems-survey.md) — Taxonomy of multi-component self-evolution, with a section on why co-evolving systems break static benchmarking.

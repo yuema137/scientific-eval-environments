@@ -112,6 +112,11 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 | SkillMisevo-Bench | 2026 | Nine lifecycle-gated metrics separating online behavior, evolved-artifact unsafety (content unsafety, unsafe generalization, stealthiness), and post-reset unsafe retrieval and carryover | Persistent skill libraries under sandboxed agentic operations; four agent frameworks × six evolution methods | [→](../works/skillmisevo-bench.md) |
 | RigorBench | 2026 | Seven process-discipline pillars computed from the instrumented trajectory and combined into a weighted RigorScore, with outcome scored separately on the same runs | AI coding agents over 100 tasks in five categories, foundation model held fixed across harnesses | [→](../works/rigorbench.md) |
 | AISE-Bench | 2026 | Planning graph edit distance against the annotated plan, parameter accuracy, and execution success rate, reported apart from answer correctness / completeness / faithfulness / F1-LM | Academic information seeking over scholarly knowledge-graph APIs (AMiner, Google Scholar) | [→](../works/aise-bench.md) |
+| Replica | 2026 | Five-dimension rubric over the rollout — visual match, scientific claim support, experimental implementation, compute-budget use and scientific integrity — with judge self-consistency reported (τ = 0.66) alongside human agreement (τ = 0.19) | AI & ML research | [→](../works/replica.md) |
+| AutoResearchEval | 2026 | 45 failure patterns on two orthogonal axes (six lifecycle stages plus a cross-stage layer × four root-cause pillars), annotated over 800 complete trajectories for 12,712 total hits | Multi-domain science | [→](../works/autoresearcheval.md) |
+| Beyond Final Scores | 2026 | Three deterministic rule-based families — Solution Framing, Execution, Feedback Control — computed from verifier outcomes and recorded execution signals rather than from any judge | AI & ML research | [→](../works/beyond-final-scores.md) |
+| Apodex Discovery | 2026 | Six process dimensions (Tools, Repair, Alternatives, Coherence, Evidence, Scope) scored blind to outcome and with solver identity withheld, plus a load-bearing-step method that re-solves critical steps in isolation | Discovery across ten industrial and scientific areas | [→](../works/apodex-discovery.md) |
+| Agents Catching Agents | 2026 | Transcript-reading judge against a referee that privately re-queries the agent; only the interventional referee transfers across modalities (77–88% precision at 13–21% false-positive rate) | Medicine & health | [→](../works/agents-catching-agents.md) |
 
 ## Open Questions
 
@@ -175,6 +180,11 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - [AHA](../works/aha.md)
 - [RoboFAC](../works/robofac.md)
 - [LabRobFail](../works/labrobfail.md)
+- [Replica](../works/replica.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
+- [Beyond Final Scores](../works/beyond-final-scores.md)
+- [Apodex Discovery](../works/apodex-discovery.md)
+- [Agents Catching Agents](../works/agents-catching-agents.md)
 
 ## Further Reading
 

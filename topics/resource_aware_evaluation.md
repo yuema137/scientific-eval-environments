@@ -54,6 +54,8 @@ Two meaningful distinctions structure the space:
 | MASSE | 2025 | Total token usage and total runtime, emitted by the judge alongside the quality scores | Scored component — Efficiency and Robustness carries 20 of the 100 MASEB points; the same totals drive a cost/runtime trade-off analysis across four backends | Multi-agent structural engineering workflow; 100 expert-validated problems, ten trials each | [→](../works/masse.md) |
 | First head-to-head comparison of agentic AI on Einstein Telescope data | 2026 | Wall-clock runtime and peak memory per pipeline execution; token cost deliberately not measured and listed as a limitation | Reported measure, not a budget — runtime and memory sit beside the scientific outputs, and the speed-versus-auditability trade-off between the two agents is read off them | Two agentic coding systems executing one gravitational-wave pipeline specification on identical hardware; four autonomous runs | [→](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) |
 | SkillAudit | 2026 | Agent execution time and effective input tokens, measured as savings against a matched no-skill run (Efficiency Gain, Cost Gain, combined into ECG on [-1, 1]) | Reported measure, not a budget — the efficiency-cost gain is one of three per-skill report dimensions alongside utility (pass-rate gain) and a safety score | Auto-generated per-skill audits over 226 real-world skill packages spanning 23 occupational categories; 643 valid scenarios in the Codex / GPT-5.4 configuration | [→](../works/skillaudit.md) |
+| Beyond Final Scores | 2026 | Wall-clock hours per task and USD inference cost per model | Budget bounds the run; cost is reported alongside the score rather than folded into it | Long-horizon AI R&D over 36 AutoLab tasks | [→](../works/beyond-final-scores.md) |
+| R³-Bench | 2026 | Output tokens (tool-free) or counted tool actions (agentic), calibrated per model as ρ ∈ {0.2, 0.8} of its own unbudgeted baseline | Shared across a six-problem suite, making allocation itself the evaluated skill | Mathematics, competitive programming and abstract reasoning | [→](../works/r3-bench.md) |
 
 ## Open Questions
 
@@ -80,6 +82,8 @@ Two meaningful distinctions structure the space:
 - [MASSE](../works/masse.md) — Token usage and runtime scored as a rubric component of an end-to-end structural engineering workflow benchmark.
 - [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) — Runtime and peak memory measured per autonomous pipeline run, making speed and footprint a comparison axis between two agents that produce the same science.
 - [SkillAudit](../works/skillaudit.md) — Time and token savings measured against a matched no-skill run, reported per skill package alongside utility and safety.
+- [Beyond Final Scores](../works/beyond-final-scores.md) — Per-task wall-clock budgets and per-model inference cost reported next to performance, spanning a roughly 20× cost spread across seven models.
+- [R³-Bench](../works/r3-bench.md) — One budget shared across a six-problem suite, calibrated against each model's own demonstrated single-problem competence.
 
 ## Further Reading
 
