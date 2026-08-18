@@ -32,6 +32,7 @@
 | NatureBench | 2026 | 匹配 Nature 系列论文发表的 SOTA | 90 个任务，六大领域，经评审把关的 NatureGym 流水线 | 在信息隔离墙下达到或超越已发表的 SOTA | [卡片](../works/naturebench.md) |
 | PRBench | 2026 | 复现 physics 论文，从零实现算法 | 30 个专家精选任务，11 个子领域，sandbox | 与论文匹配的定量结果（最高 34%） | [卡片](../works/prbench.md) |
 | Quantifying Reproducibility of Astrophysical Methods | 2026 | 仅凭文本重建一项已发表的天体物理方法 | 同一方法在 Title / +Abstract / +Methods 三个层级下；五个模型 | Hierarchy of Scientific Validity 0-3 级，通过阈值为 V >= 2 | [卡片](../works/quantifying-the-reproducibility-of-astrophysical-m.md) |
+| Replica | 2026 | 复现一张已从源论文中不可逆抹除的结果图 | 从 100 篇论文自动生成 310 个任务；每任务 60 分钟，算力为一张 H200 的七分之一 MIG 切片 | 五维 rubric 评判分；后训练出的 agent 在 73% 的同分布任务与 60% 的留出 AI for science 任务上胜过 Opus 4.8 与 GPT-5.5 | [卡片](../works/replica.md) |
 
 ## Related Works
 
@@ -45,3 +46,4 @@
 - [NatureBench](../works/naturebench.md)
 - [PRBench](../works/prbench.md)
 - [Quantifying the Reproducibility of Astrophysical Methods with Large Language Models and Information Theory](../works/quantifying-the-reproducibility-of-astrophysical-m.md)
+- [Replica](../works/replica.md)

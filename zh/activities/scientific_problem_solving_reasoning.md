@@ -121,6 +121,7 @@
 | TCS-Bench | 2026 | 生成研究级的理论计算机科学证明 | 300 项定理证明任务，取自 FOCS/STOC/SODA（2020–2026） | 自包含证明；verifier-agent 准确率（最佳 68%） | [卡片](../works/tcs-bench.md) |
 | TRIP-Evaluate | 2026 | 回答横跨文本、图像与点云的交通题目 | 837 道单选题，4 类角色，16 个任务领域，226 个知识点 | 按角色、能力、难度与模态统计的准确率（最佳 88.8%） | [卡片](../works/trip-evaluate.md) |
 | VCoT-Bench | 2026 | 完成 Verus 验证的思维链 | 1,988 项任务，源自 150 个 Verus 程序 | 证明块补全准确率 | [卡片](../works/vcot-bench.md) |
+| R³-Bench | 2026 | 在一份共用预算下求解六道题，并决定每道题分到多少算力 | 数学、竞赛编程与抽象推理共 150 组套题；分无工具与 Terminus-2 shell 两种设定 | 比赛得分对照经验分配 oracle，后者在 72 个单元格中的 71 个严格更高 | [卡片](../works/r3-bench.md) |
 
 ## Related Works
 
@@ -217,3 +218,4 @@
 - [AI Cosplaying as Astrophysicists](../works/ai-cosplaying-as-astrophysicists-a-controlled-synt.md)
 - [AstroAlertBench](../works/astroalertbench.md)
 - [SciVQR](../works/scivqr.md)
+- [R³-Bench](../works/r3-bench.md)

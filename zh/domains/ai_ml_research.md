@@ -31,6 +31,9 @@
 | IdeaBench | 2024 | 在科学上下文中生成新颖研究想法。 | 从有影响力论文标题/摘要及其参考文献生成想法。 | 两阶段 GPT-4o 按新颖性/可行性排序加相对 Insight Score。 | [→](../works/ideabench.md) |
 | LiveIdeaBench | 2024 | 从极简（单关键词）上下文生成科学想法。 | 覆盖 22 领域的 1,180 个关键词；40+ 模型由 LLM 面板评分。 | 五个创造力维度（原创性、可行性、流畅性、灵活性、清晰性）。 | [→](../works/liveideabench.md) |
 | DevAI / Agent-as-a-Judge | 2024 | 自主开发满足层级化需求的 AI/ML 项目。 | 55 个自动化 AI 开发任务，配 365 个层级化用户需求。 | 需求级、过程级的 Agent-as-a-Judge 评估，可靠性媲美人类。 | [→](../works/devai.md) |
+| Replica | 2026 | 重跑实验，把一篇已发表 ML 或 AI for science 论文中被抹掉的结果图复现出来。 | 从 1990–2026 年的 100 篇论文自动生成 310 个任务（242 训练 / 68 测试）；每任务 60 分钟，算力为一张 H200 的七分之一 MIG 切片。 | 在看不到原图的条件下生成的五维 rubric 评判器；两次评判采样之间一致性 τ = 0.66，而两位人类评分者之间只有 τ = 0.30。 | [→](../works/replica.md) |
+| Beyond Final Scores | 2026 | 在长时程运行中改进一份正确但刻意做得不够好的 ML 或系统工件。 | 四族共 36 个 AutoLab 任务（模型开发 7、系统优化 15、谜题与挑战 10、CUDA 4）；七个模型共 756 条 rollout。 | 逐任务自动验证器，分数归一化到 [0, 1]；人工审计发现只有 1.2% 的解真正新颖，6.3% 利用了评测特有的捷径。 | [→](../works/beyond-final-scores.md) |
+| AutoWorldModel-Bench | 2026 | 在事先不指定改进方向的前提下，自主改进一个给定的世界模型。 | 64 个会话（2 个 agent × 8 个游戏 × 4 种基础架构），每会话单张 H100 上 6 小时，单次训练限时 10 分钟。 | 留出集上 Position L1 与 Alive F1 在 h ∈ {1, 10, 20} 上的组合；64 个会话中 33 个达到 Δ ≥ +0.10，91% 的胜出改动是实质性修改而非调参。 | [→](../works/autoworldmodel-bench.md) |
 
 ## Related Works
 
@@ -55,3 +58,6 @@
 - [IdeaBench](../works/ideabench.md)
 - [LiveIdeaBench](../works/liveideabench.md)
 - [DevAI / Agent-as-a-Judge](../works/devai.md)
+- [Replica](../works/replica.md)
+- [Beyond Final Scores](../works/beyond-final-scores.md)
+- [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)

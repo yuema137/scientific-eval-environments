@@ -120,6 +120,11 @@
 | PATH-Bench | 2026 | 每条序列 5 个热身任务加 100 个中间任务，每隔 6–12 个任务重复一次探针；每个数据集与条件各 50 条序列；测前向迁移、后向迁移与遗忘 | BigCodeBench 程序合成与 WildToolBench 多轮工具使用；主干冻结，配八种终身 agent 的记忆 / skill 实现 | [→](../works/path-bench.md) |
 | Skill²-Bench | 2026 | 300 个留出任务，每个 2–10 步且步步依赖，相邻步骤取自不同领域并按三档 skill 熵采样；单 skill 与跨 skill 查询成对比较 | 覆盖九个领域的跨 skill 推理链；无工具、无外部状态、失败步骤不可补救 | [→](../works/skill2-bench.md) |
 | SkillMisevo-Bench | 2026 | 每种条件 25 个 episode、每个 21 个任务，恶意/良性按固定日程排布，每三个任务为一块、每块之后演化一次，最后在彻底重置后加一个持久性区块 | 沙箱内的 agentic 操作（AgentHazard 基座）；四种 agent 框架、六种演化方法，共用一个主干模型 | [→](../works/skillmisevo-bench.md) |
+| AutoResearchEval | 2026 | 每个任务走完六个研究生命周期阶段，全部 800 条轨迹从头到尾标注，而不是只在终点打分 | agent harness（Claude Code、Codex、Gemini CLI）与其研究工具链 | [→](../works/autoresearcheval.md) |
+| PACE-Bench | 2026 | 每对 20 次迭代修复，反馈只作诊断不给修改建议 | Box2D 刚体仿真器，60 FPS | [→](../works/pace-bench.md) |
+| Beyond Final Scores | 2026 | 每个任务 2–12 小时墙钟预算，全程有验证器检查点；avg@3 对照 best@3 把跨轮次可靠性与天花板分开 | AutoLab 任务，共用 Claude Code harness | [→](../works/beyond-final-scores.md) |
+| AutoWorldModel-Bench | 2026 | 单张 H100 上 6 小时一个会话，每次单独训练限时 10 分钟，把预算折算成迭代次数 | 八个暴露结构化实体状态的游戏环境 | [→](../works/autoworldmodel-bench.md) |
+| R³-Bench | 2026 | 一份预算由六道题共用，因此必须分配算力，还得舍掉一部分题 | 无工具作答与 Terminus-2 shell | [→](../works/r3-bench.md) |
 
 ## Open Questions
 
@@ -181,6 +186,11 @@
 - [RE-Bench](../works/re-bench.md)
 - [MLGym](../works/mlgym.md)
 - [DevAI / Agent-as-a-Judge](../works/devai.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
+- [PACE-Bench](../works/pace-bench.md)
+- [Beyond Final Scores](../works/beyond-final-scores.md)
+- [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
+- [R³-Bench](../works/r3-bench.md)
 
 ## Further Reading
 

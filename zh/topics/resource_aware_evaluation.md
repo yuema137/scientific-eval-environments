@@ -54,6 +54,8 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 | MASSE | 2025 | 总 token 用量与总运行时间，由评审与质量分一并给出 | 计分项——「效率与鲁棒性」在 MASEB 的 100 分中占 20 分；同一批数字还支撑了四个后端之间的成本/运行时权衡分析 | 多智能体结构工程工作流；100 道经专家校验的题目，每道跑十次 | [→](../works/masse.md) |
 | First head-to-head comparison of agentic AI on Einstein Telescope data | 2026 | 每次流程执行的墙钟运行时间与峰值内存；token 成本刻意未测，并被列为一项局限 | 只是报告出来的测度，而非预算——运行时间与内存与科学输出并列，两个 agent 之间「快」与「可审计」的取舍就从这里读出来 | 两个 agentic coding 系统在同一硬件上执行同一份引力波流程规格说明；共四次自主运行 | [→](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) |
 | SkillAudit | 2026 | agent 执行时间与有效输入 token，以相对配对的「不用 skill」运行的节省量计（Efficiency Gain、Cost Gain，合成为取值于 [-1, 1] 的 ECG） | 只是报告出来的测度，而非预算——效率-成本增益是 per-skill 报告三个维度之一，另两个是效用（pass-rate 增益）与安全性评分 | 对 226 个真实 skill 包自动生成的逐一审计，覆盖 23 个职业门类；Codex / GPT-5.4 配置下有 643 个有效场景 | [→](../works/skillaudit.md) |
+| Beyond Final Scores | 2026 | 每任务的墙钟小时数与逐模型的美元推理开销 | 预算限定运行时长；成本与分数并列报告，而非折算进分数 | 36 个 AutoLab 任务上的长时程 AI 研发 | [→](../works/beyond-final-scores.md) |
+| R³-Bench | 2026 | 输出 token（无工具）或计数的工具动作（agentic），按各模型自身无预算基线校准为 ρ ∈ {0.2, 0.8} | 由六道题共用，分配本身成为被评估的能力 | 数学、竞赛编程与抽象推理 | [→](../works/r3-bench.md) |
 
 ## Open Questions
 
@@ -80,6 +82,8 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - [MASSE](../works/masse.md) — 在端到端结构工程工作流 benchmark 中，把 token 用量与运行时间作为 rubric 的一个计分项。
 - [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) — 每一次自主流程运行都测量运行时间与峰值内存；两个 agent 产出的科学结果相同，速度与资源占用便成了它们之间的一条比较轴。
 - [SkillAudit](../works/skillaudit.md) — 对照配对的「不用 skill」运行测量时间与 token 的节省，逐个 skill 包与效用、安全性一并报告。
+- [Beyond Final Scores](../works/beyond-final-scores.md) — 每任务墙钟预算与逐模型推理开销与性能并列报告，七个模型之间成本相差约 20 倍。
+- [R³-Bench](../works/r3-bench.md) — 一份预算由六道题共用，并校准到各模型自己已展示出的单题水平。
 
 ## Further Reading
 

@@ -30,6 +30,8 @@
 | Autonomous Research Agents: A Survey of AI Scientists and the Verification Gap | 2026 | Survey | 对 35 个 AI-scientist 系统的七维可验证性审计 | [→](../works/ara-survey.md) |
 | From Reasoning to Agentic: Credit Assignment in RL for LLMs | 2026 | Survey | 横跨 reasoning 与 agentic RL 的 credit-assignment 方法；六诊断框架与 CA-ID Card | [→](../works/from-reasoning-to-agentic.md) |
 | Agent Skill Evaluation and Evolution: Frameworks and Benchmarks | 2026 | Survey | 四类 skill 演化范式 × 六类以 skill 为中心的 benchmark | [→](../works/agent-skill-evaluation-survey.md) |
+| Position: AI Agents in Scientific Teams Should Be Studied as Human-Agent Systems | 2026 | Position | 以人—agent 二元组为分析单元；团队效用等于互补性减去协作代价 | [→](../works/ai-agents-in-scientific-teams.md) |
+| Co-Evolution in Agentic Systems | 2026 | Survey | 共同演化的三阶段分类体系，以及静态 benchmark 为何看不见评判器被利用、对同伴过拟合与多样性坍缩 | [→](../works/co-evolution-agentic-systems-survey.md) |
 
 ## Open Questions
 
@@ -45,3 +47,5 @@
 - [Evaluation and Benchmarking of LLM Agents: A Survey](../works/agent-evaluation-benchmarking-survey.md) — LLM-agent 评估的二维（objectives 对 process）分类综述，侧重企业场景。
 - [From Chatbot to Digital Colleague](../works/from-chatbot-to-digital-colleague.md) — 立场论文，主张向持久自主 AI 的范式转变。
 - [Autonomous Research Agents: A Survey of AI Scientists and the Verification Gap](../works/ara-survey.md) — 自主研究 agent 的七维可验证性审计。
+- [Position: AI Agents in Scientific Teams Should Be Studied as Human-Agent Systems](../works/ai-agents-in-scientific-teams.md) — 主张科学 agent 的评估应以人—agent 二元组为分析单元。
+- [Co-Evolution in Agentic Systems](../works/co-evolution-agentic-systems-survey.md) — 多组件自我演化的分类体系，并专节论述共同演化系统为何打破静态 benchmark 的前提。

@@ -94,6 +94,9 @@
 | SciVisAgentBench | 2026 | 生成可执行的科学可视化代码 | 108 个案例；ParaView/napari/MD/拓扑，经 CLI/MCP/Python | 图像指标 + 代码检查器 + 基于规则的验证器 | [卡片](../works/scivisagentbench.md) |
 | StructureClaw | 2026 | 结构工程工作流（建模到求解器再到校核） | 150 个场景；配备 OpenSees 的产物工作台 | 模型匹配 + 相对冻结参考的数值一致 | [卡片](../works/structureclaw.md) |
 | Terminal-Bench Science | 2026 | 容器化科学计算工作流 | 5 个领域的 8 个任务（目标 100+）；agentic | pytest 确定性程序化验证 | [卡片](../works/terminal-bench-science.md) |
+| PACE-Bench | 2026 | 反复改写一段定义结构装配与控制逻辑的 Python 程序 | 六个物理族共 144 对，每对 20 次尝试 | 在预算内做出可用的目标设计，由刚体仿真验证 | [卡片](../works/pace-bench.md) |
+| Beyond Final Scores | 2026 | 在数小时的长时程运行中改进模型、系统与 CUDA 工件 | 36 个 AutoLab 任务，每个 2–12 小时墙钟；共 756 条 rollout | 归一化验证器分数，以 avg@3 与 best@3 报告，并附确定性过程指标 | [卡片](../works/beyond-final-scores.md) |
+| AutoWorldModel-Bench | 2026 | 修改单文件的世界模型实现——架构、损失、超参或训练流程 | 64 个会话，每会话单张 H100 上 6 小时，单次训练限时 10 分钟 | 留出测试分相对给定基础模型的提升；91% 的胜出改动是实质性修改而非调参 | [卡片](../works/autoworldmodel-bench.md) |
 
 ## Related Works
 
@@ -165,3 +168,6 @@
 - [Quantifying the Reproducibility of Astrophysical Methods with Large Language Models and Information Theory](../works/quantifying-the-reproducibility-of-astrophysical-m.md)
 - [BiomedSQL](../works/biomedsql.md)
 - [LQCDMaster](../works/lqcdmaster.md)
+- [PACE-Bench](../works/pace-bench.md)
+- [Beyond Final Scores](../works/beyond-final-scores.md)
+- [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
