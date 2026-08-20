@@ -55,6 +55,39 @@ def _card_slug(c):
     return slug
 
 
+def _arxiv_suffix(c):
+    """A stable per-work disambiguator: the arXiv id with the dot kebab-ed."""
+    for r in c.get("source_records", []):
+        m = re.search(r"(\d{4}\.\d{4,5})", (r.get("url") or ""))
+        if m:
+            return m.group(1).replace(".", "-")
+    return ""
+
+
+def _unique_card_slug(c, taken):
+    """Slug that collides with NOTHING already in works/ nor with another candidate in this batch.
+
+    Two genuinely different works can share a title stem — dedup correctly keeps them apart by
+    identity while `_card_slug` collapses them to one filename. On 2026-08-20 a new work titled
+    "Vero" (arXiv 2608.13522) was written straight over the existing "VeRO / VeRO-Bench" card
+    (arXiv 2602.22480), destroying it. The axis reverse-index gate happened to catch the wreckage,
+    but only because the overwritten card claimed a topic the new one did not — a silent overwrite
+    was equally possible. Never write a new card to an occupied slug.
+    """
+    slug = _card_slug(c)
+    if slug not in taken:
+        taken.add(slug)
+        return slug
+    suffix = _arxiv_suffix(c)
+    cand = "%s-%s" % (slug, suffix) if suffix else "%s-2" % slug
+    n = 2
+    while cand in taken:
+        n += 1
+        cand = "%s-%d" % (slug, n)
+    taken.add(cand)
+    return cand
+
+
 def _git(repo_root, *args):
     return subprocess.run(["git", "-C", repo_root, *args], capture_output=True, text=True)
 
@@ -79,8 +112,16 @@ def phase2(run_dir, repo_root, candidates, cfg, fixture=False):
                             "candidate_count": len(candidates)})
         return False, {"needs_attention": True}
 
+    # Seed the taken-set with every slug already in the repository, so a new card can never be
+    # written over an existing one, and resolve all slugs UP FRONT (workers run in parallel, so a
+    # per-task check would race).
+    works_dir = os.path.join(repo_root, "works")
+    taken = {os.path.splitext(f)[0] for f in os.listdir(works_dir)
+             if f.endswith(".md") and f != "README.md"} if os.path.isdir(works_dir) else set()
+    slug_by_id = {c["candidate_id"]: _unique_card_slug(c, taken) for c in candidates}
+
     def make_task(c):
-        slug = _card_slug(c)
+        slug = slug_by_id[c["candidate_id"]]
         card_path = "works/%s.md" % slug
         src_block = ""
         if fixture and c.get("fixture_source"):
