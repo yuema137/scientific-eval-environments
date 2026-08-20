@@ -762,3 +762,41 @@ def test_placeholder_still_catches_real_template_residue():
     for residue in ("TODO(card)", "FIXME: rewrite this", "FILL_ME", "FILLME",
                     "lorem ipsum dolor", "<placeholder>", "{{ TITLE }}", "**Venue:** TBD"):
         assert validators._has_placeholder(residue), residue
+
+
+# ---------------------------------------------------------------- slug collision safety
+
+def _cand(cid, title, url):
+    return {"candidate_id": cid, "title": title,
+            "source_records": [{"source": "arxiv", "url": url}]}
+
+
+def test_new_card_never_overwrites_an_existing_slug(tmp_path):
+    # REGRESSION: on 2026-08-20 a new work titled "Vero" (2608.13522) was written straight over the
+    # existing "VeRO / VeRO-Bench" card (2602.22480), destroying it. Different works, same slug.
+    import pipeline
+    works = tmp_path / "works"
+    works.mkdir()
+    (works / "vero.md").write_text("# VeRO / VeRO-Bench (2026)\n")
+    taken = {p.stem for p in works.glob("*.md")}
+    slug = pipeline._unique_card_slug(_cand("c1", "Vero", "https://arxiv.org/abs/2608.13522"), taken)
+    assert slug != "vero"
+    assert slug == "vero-2608-13522"       # stable, identifier-derived, not a bare counter
+
+
+def test_two_new_candidates_with_the_same_stem_do_not_collide():
+    import pipeline
+    taken = set()
+    a = pipeline._unique_card_slug(_cand("a", "Atlas: a benchmark", "https://arxiv.org/abs/2601.00001"), taken)
+    b = pipeline._unique_card_slug(_cand("b", "Atlas", "https://arxiv.org/abs/2602.00002"), taken)
+    assert a == "atlas"
+    assert b == "atlas-2602-00002"
+    assert a != b
+
+
+def test_unique_slug_falls_back_when_no_arxiv_id_is_available():
+    import pipeline
+    taken = {"toolbench"}
+    c = {"candidate_id": "x", "title": "ToolBench",
+         "source_records": [{"source": "github", "url": "https://github.com/acme/toolbench"}]}
+    assert pipeline._unique_card_slug(c, taken) == "toolbench-2"
