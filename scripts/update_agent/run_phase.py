@@ -213,8 +213,16 @@ def cmd_english(a):
         sys.exit(0)
     ok3, _ = pipeline.phase3(RUN_DIR, CWD, accepted, cfg)
     _gh_output(accepted=len(accepted), english=("pass" if ok3 else "fail"))
-    _summary("English axes", ["Accepted: %d" % len(accepted),
-                              "English gate: %s" % ("PASS" if ok3 else "FAIL")])
+    lines3 = ["Accepted: %d" % len(accepted),
+              "English gate: %s" % ("PASS" if ok3 else "FAIL")]
+    if not ok3:
+        # Same lesson as the Cards gate: a bare PASS/FAIL sends the reader to a build artifact.
+        st3 = (read_json(os.path.join(RUN_DIR, "state", "english_axes.json")) or {}).get("summary", {})
+        for e in (st3.get("axis_errors") or []):
+            lines3.append("Axis error: %s" % e)
+        for e in (st3.get("card_errors") or []):
+            lines3.append("Card error: %s" % e)
+    _summary("English axes", lines3)
     sys.exit(0 if ok3 else 1)
 
 
