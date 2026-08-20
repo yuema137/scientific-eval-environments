@@ -65,7 +65,7 @@ Domains are the **field axis**: the science or engineering discipline a work eva
 | [Chemistry](./domains/chemistry.md) | 38 |
 | [Biology](./domains/biology.md) | 38 |
 | [Materials Science](./domains/materials_science.md) | 28 |
-| [AI & Machine Learning Research](./domains/ai_ml_research.md) | 24 |
+| [AI & Machine Learning Research](./domains/ai_ml_research.md) | 25 |
 | [Mathematics](./domains/mathematics.md) | 19 |
 | [Medicine & Health](./domains/medicine_health.md) | 22 |
 | [Neuroscience & Cognitive Science](./domains/neuroscience_cognitive_science.md) | 12 |
@@ -105,7 +105,7 @@ Activities are the **task axis**: what the evaluated agent or system actually do
 | [Optimization & Engineering Design](./activities/optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 26 |
 | [Literature Search & Evidence Synthesis](./activities/literature_evidence_synthesis.md) | Literature retrieval, systematic review, evidence synthesis, literature-grounded extraction | 23 |
 | [Research Reproduction & Replication](./activities/research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 11 |
-| [End-to-End Research](./activities/end_to_end_research.md) | Multi-stage research lifecycle across several major phases | 6 |
+| [End-to-End Research](./activities/end_to_end_research.md) | Multi-stage research lifecycle across several major phases | 7 |
 | [Laboratory & Instrument Control](./activities/laboratory_instrument_control.md) | Instrument, microscope, and beamline control; lab automation; behaviour-defined control code | 3 |
 
 ---
@@ -118,7 +118,7 @@ Activities are the **task axis**: what the evaluated agent or system actually do
 
 The RL cutline is judged by the paper's primary contribution: if it advances *how agents are evaluated*, it belongs here; if it advances *how agents are trained*, it does not.
 
-"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **364 work cards**, **7 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
+"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **365 work cards**, **7 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
 
 ---
 
