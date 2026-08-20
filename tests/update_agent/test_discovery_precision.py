@@ -740,3 +740,25 @@ def test_prefilter_treats_huggingface_as_a_paper_source():
         "title": "Fast Text-to-Image Diffusion with Latent Consistency",
         "abstract_or_description": "We propose a distillation method for faster image generation."})
     assert not drop
+
+
+# ---------------------------------------------------------------- placeholder false positives
+
+def test_placeholder_does_not_match_inside_ordinary_words():
+    # REGRESSION: `FILL[_ ]?ME` was case-insensitive with no word boundaries, so it matched
+    # "fillme" inside "Task Fu-fillme-nt". On 2026-08-19 that failed a production run which had
+    # produced 24 valid cards with zero worker failures, because one card named an evaluation
+    # dimension "Task Fulfillment".
+    import validators
+    for prose in ("Process-level evaluation along Task Fulfillment (TF), Calculator Selection (CS)",
+                  "fulfilment of the specification",
+                  "a self-fulfilling prophecy",
+                  "the preprint lists the venue as TBD"):
+        assert not validators._has_placeholder(prose), prose
+
+
+def test_placeholder_still_catches_real_template_residue():
+    import validators
+    for residue in ("TODO(card)", "FIXME: rewrite this", "FILL_ME", "FILLME",
+                    "lorem ipsum dolor", "<placeholder>", "{{ TITLE }}", "**Venue:** TBD"):
+        assert validators._has_placeholder(residue), residue
