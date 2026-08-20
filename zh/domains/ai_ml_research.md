@@ -34,6 +34,7 @@
 | Replica | 2026 | 重跑实验，把一篇已发表 ML 或 AI for science 论文中被抹掉的结果图复现出来。 | 从 1990–2026 年的 100 篇论文自动生成 310 个任务（242 训练 / 68 测试）；每任务 60 分钟，算力为一张 H200 的七分之一 MIG 切片。 | 在看不到原图的条件下生成的五维 rubric 评判器；两次评判采样之间一致性 τ = 0.66，而两位人类评分者之间只有 τ = 0.30。 | [→](../works/replica.md) |
 | Beyond Final Scores | 2026 | 在长时程运行中改进一份正确但刻意做得不够好的 ML 或系统工件。 | 四族共 36 个 AutoLab 任务（模型开发 7、系统优化 15、谜题与挑战 10、CUDA 4）；七个模型共 756 条 rollout。 | 逐任务自动验证器，分数归一化到 [0, 1]；人工审计发现只有 1.2% 的解真正新颖，6.3% 利用了评测特有的捷径。 | [→](../works/beyond-final-scores.md) |
 | AutoWorldModel-Bench | 2026 | 在事先不指定改进方向的前提下，自主改进一个给定的世界模型。 | 64 个会话（2 个 agent × 8 个游戏 × 4 种基础架构），每会话单张 H100 上 6 小时，单次训练限时 10 分钟。 | 留出集上 Position L1 与 Alive F1 在 h ∈ {1, 10, 20} 上的组合；64 个会话中 33 个达到 Δ ≥ +0.10，91% 的胜出改动是实质性修改而非调参。 | [→](../works/autoworldmodel-bench.md) |
+| AI Research Preference Models | 2026 | 判断 AI 研究 agent 提出的哪些候选 ML 方案值得花 GPU 时间真正跑一遍。 | 两个基于冻结预训练模型的偏好模型（一个只读方案与代码；一个先在 5 分钟上限内跑试点实验），接入 AIRA-dojo 的子节点生成环节，覆盖 20 个 AIRS-Bench 任务；每任务单张 H200 跑 24 小时、10 个随机种子，合计 200 GPU 小时。 | AIRS-Bench 归一化分数：未引导 0.684 → 只读式 0.711 → agentic 式 0.729，验证集 oracle 上界为 0.748；在 WinoGrande（94.1%）与 SVAMP（95.7%）上刷新最好水平。 | [→](../works/ai-research-preference-models.md) |
 
 ## Related Works
 
@@ -61,3 +62,4 @@
 - [Replica](../works/replica.md)
 - [Beyond Final Scores](../works/beyond-final-scores.md)
 - [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
+- [AI Research Preference Models](../works/ai-research-preference-models.md)

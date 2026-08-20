@@ -63,7 +63,7 @@ Domain 是**领域轴**：一份工作在哪个科学或工程学科内评估，
 | [Chemistry](./domains/chemistry.md) | 38 |
 | [Biology](./domains/biology.md) | 38 |
 | [Materials Science](./domains/materials_science.md) | 28 |
-| [AI & Machine Learning Research](./domains/ai_ml_research.md) | 24 |
+| [AI & Machine Learning Research](./domains/ai_ml_research.md) | 25 |
 | [Mathematics](./domains/mathematics.md) | 19 |
 | [Medicine & Health](./domains/medicine_health.md) | 22 |
 | [Neuroscience & Cognitive Science](./domains/neuroscience_cognitive_science.md) | 12 |
@@ -104,7 +104,7 @@ Domain 是**领域轴**：一份工作在哪个科学或工程学科内评估，
 | [建模与预测](./activities/modeling_prediction.md) | 预测与代理建模、性质预测、预报 | 21 |
 | [优化与工程设计](./activities/optimization_engineering_design.md) | 参数与控制器调优、工程/逆向设计、材料与分子设计 | 26 |
 | [研究复现与重复](./activities/research_reproduction_replication.md) | 复现已发表的分析、结果与方法；匹配已报告的结论 | 11 |
-| [端到端研究](./activities/end_to_end_research.md) | 跨越多个主要阶段的多阶段研究生命周期 | 6 |
+| [端到端研究](./activities/end_to_end_research.md) | 跨越多个主要阶段的多阶段研究生命周期 | 7 |
 | [实验室与仪器控制](./activities/laboratory_instrument_control.md) | 仪器、显微镜与光束线控制、实验室自动化、行为定义的控制代码 | 3 |
 
 ---
@@ -117,7 +117,7 @@ Domain 是**领域轴**：一份工作在哪个科学或工程学科内评估，
 
 RL 工作的界线由论文主要贡献判定：如果它推进了**如何评估 agent**，即在范围内；如果它推进的是**如何训练 agent**，则不在范围内。
 
-"Works" 比 "benchmarks" 更广：集合中收录 benchmark、评估方法学、评估框架、面向评估的 RL 工作、综述与立场论文的卡片，每张卡片都会显式标注类型。目前共有 **364 张卡片**、**7 个 topic 页**、**19 个 domain 页**、**11 个 activity 页**，并在 [`zh/`](./README.md) 下配有中文镜像。
+"Works" 比 "benchmarks" 更广：集合中收录 benchmark、评估方法学、评估框架、面向评估的 RL 工作、综述与立场论文的卡片，每张卡片都会显式标注类型。目前共有 **365 张卡片**、**7 个 topic 页**、**19 个 domain 页**、**11 个 activity 页**，并在 [`zh/`](./README.md) 下配有中文镜像。
 
 ---
 

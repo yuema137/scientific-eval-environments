@@ -26,6 +26,7 @@
 | AIRS-Bench | 2026 | 完整研究生命周期，无 baseline 代码，工作流从零搭建 | 涵盖 language modeling、数学、bioinformatics、时间序列的 20 个前沿任务 | 设计并执行端到端的研究工作流 | [卡片](../works/airs-bench.md) |
 | ResearchClawBench | 2026 | 问题提出、文献调研、实验、从原始数据中重新发现 | 40 个专家精选任务，10 个领域；隐藏的目标论文、相关文献与原始数据 | 依据加权多模态评分细则给出 Reference-Anchored Discovery Score | [卡片](../works/researchclawbench.md) |
 | AutoResearchEval | 2026 | 把一个任务走完构思、检索、执行、分析、撰写与自我复查 | 100 个取材于已发表前沿科学的任务；8 种 harness–模型组合产出 800 条轨迹 | 对照 ARFT 的 45 种模式做过程级失效归因，而非给出性能分数 | [卡片](../works/autoresearcheval.md) |
+| AI Research Preference Models | 2026 | 通过挑选哪些候选方案值得执行，来引导 AI 研究 agent 的搜索 | 基于冻结预训练模型的偏好模型接入 AIRA-dojo 的树搜索，覆盖 20 个 AIRS-Bench 机器学习研究任务；每任务单张 H200 跑 24 小时 | 归一化分数由 0.684 提升到 0.729，同时只用了不到三分之二的执行预算 | [卡片](../works/ai-research-preference-models.md) |
 
 ## Related Works
 
@@ -35,3 +36,4 @@
 - [AIRS-Bench](../works/airs-bench.md)
 - [ResearchClawBench](../works/researchclawbench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
+- [AI Research Preference Models](../works/ai-research-preference-models.md)

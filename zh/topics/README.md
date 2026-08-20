@@ -21,7 +21,7 @@ Topic 集合是固定的。新增 topic 需要更新 [`../../AGENT.md`](../../AG
 | III | [Trajectory Evaluation](./trajectory_evaluation.md) | `trajectory_evaluation.md` | 56 |
 | IV | [Skill Hierarchy](./skill_hierarchy.md) | `skill_hierarchy.md` | 43 |
 | V | [Credit Assignment](./credit_assignment.md) | `credit_assignment.md` | 22 |
-| VI | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 18 |
+| VI | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 19 |
 | VII | [Survey](./survey.md) | `survey.md` | 9 |
 
 Skill Hierarchy 与 Credit Assignment 是两个独立的 topic。

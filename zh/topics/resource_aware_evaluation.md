@@ -56,6 +56,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 | SkillAudit | 2026 | agent 执行时间与有效输入 token，以相对配对的「不用 skill」运行的节省量计（Efficiency Gain、Cost Gain，合成为取值于 [-1, 1] 的 ECG） | 只是报告出来的测度，而非预算——效率-成本增益是 per-skill 报告三个维度之一，另两个是效用（pass-rate 增益）与安全性评分 | 对 226 个真实 skill 包自动生成的逐一审计，覆盖 23 个职业门类；Codex / GPT-5.4 配置下有 643 个有效场景 | [→](../works/skillaudit.md) |
 | Beyond Final Scores | 2026 | 每任务的墙钟小时数与逐模型的美元推理开销 | 预算限定运行时长；成本与分数并列报告，而非折算进分数 | 36 个 AutoLab 任务上的长时程 AI 研发 | [→](../works/beyond-final-scores.md) |
 | R³-Bench | 2026 | 输出 token（无工具）或计数的工具动作（agentic），按各模型自身无预算基线校准为 ρ ∈ {0.2, 0.8} | 由六道题共用，分配本身成为被评估的能力 | 数学、竞赛编程与抽象推理 | [→](../works/r3-bench.md) |
+| AI Research Preference Models | 2026 | 候选方案执行所耗的 H200 GPU 小时 | 预算固定，贡献在于如何**分配**——用一个冻结的预训练模型预测哪些候选值得真正跑一遍 | AI 研究 agent 在 ML 解空间上的搜索（AIRA-dojo 跑 AIRS-Bench） | [→](../works/ai-research-preference-models.md) |
 
 ## Open Questions
 
@@ -84,6 +85,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - [SkillAudit](../works/skillaudit.md) — 对照配对的「不用 skill」运行测量时间与 token 的节省，逐个 skill 包与效用、安全性一并报告。
 - [Beyond Final Scores](../works/beyond-final-scores.md) — 每任务墙钟预算与逐模型推理开销与性能并列报告，七个模型之间成本相差约 20 倍。
 - [R³-Bench](../works/r3-bench.md) — 一份预算由六道题共用，并校准到各模型自己已展示出的单题水平。
+- [AI Research Preference Models](../works/ai-research-preference-models.md) — 用不到三分之二的执行预算、约 15 小时就达到未引导 agent 24 小时的分数，并同时给出验证集与测试集的 oracle 上界。
 
 ## Further Reading
 

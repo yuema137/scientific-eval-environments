@@ -56,6 +56,7 @@ Two meaningful distinctions structure the space:
 | SkillAudit | 2026 | Agent execution time and effective input tokens, measured as savings against a matched no-skill run (Efficiency Gain, Cost Gain, combined into ECG on [-1, 1]) | Reported measure, not a budget — the efficiency-cost gain is one of three per-skill report dimensions alongside utility (pass-rate gain) and a safety score | Auto-generated per-skill audits over 226 real-world skill packages spanning 23 occupational categories; 643 valid scenarios in the Codex / GPT-5.4 configuration | [→](../works/skillaudit.md) |
 | Beyond Final Scores | 2026 | Wall-clock hours per task and USD inference cost per model | Budget bounds the run; cost is reported alongside the score rather than folded into it | Long-horizon AI R&D over 36 AutoLab tasks | [→](../works/beyond-final-scores.md) |
 | R³-Bench | 2026 | Output tokens (tool-free) or counted tool actions (agentic), calibrated per model as ρ ∈ {0.2, 0.8} of its own unbudgeted baseline | Shared across a six-problem suite, making allocation itself the evaluated skill | Mathematics, competitive programming and abstract reasoning | [→](../works/r3-bench.md) |
+| AI Research Preference Models | 2026 | H200 GPU-hours of candidate execution | The budget is fixed and the contribution is how it is ALLOCATED — a frozen-LM predictor picks which candidates are worth running | AI research agents searching over ML solutions (AIRA-dojo on AIRS-Bench) | [→](../works/ai-research-preference-models.md) |
 
 ## Open Questions
 
@@ -84,6 +85,7 @@ Two meaningful distinctions structure the space:
 - [SkillAudit](../works/skillaudit.md) — Time and token savings measured against a matched no-skill run, reported per skill package alongside utility and safety.
 - [Beyond Final Scores](../works/beyond-final-scores.md) — Per-task wall-clock budgets and per-model inference cost reported next to performance, spanning a roughly 20× cost spread across seven models.
 - [R³-Bench](../works/r3-bench.md) — One budget shared across a six-problem suite, calibrated against each model's own demonstrated single-problem competence.
+- [AI Research Preference Models](../works/ai-research-preference-models.md) — Matches the unguided agent's 24-hour score in ~15 hours on under two-thirds of its execution budget, with validation- and test-oracle ceilings reported alongside.
 
 ## Further Reading
 

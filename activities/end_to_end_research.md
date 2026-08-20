@@ -26,6 +26,7 @@ What distinguishes these from single-stage tasks is that success depends on chai
 | AIRS-Bench | 2026 | Full research lifecycle, no baseline code, workflows from scratch | 20 frontier tasks across language modeling, math, bioinformatics, time-series | Design and execute end-to-end research workflows | [card](../works/airs-bench.md) |
 | ResearchClawBench | 2026 | Problem formulation, literature review, experimentation, re-discovery from raw data | 40 expert-curated tasks, 10 domains; hidden target paper, related literature, raw data | Reference-Anchored Discovery Score vs weighted multimodal rubrics | [card](../works/researchclawbench.md) |
 | AutoResearchEval | 2026 | Carry a task through ideation, retrieval, execution, analysis, writing and self-review | 100 tasks grounded in published frontier science; 8 harness-model combinations producing 800 trajectories | Process-level failure attribution against ARFT's 45 patterns rather than a performance score | [card](../works/autoresearcheval.md) |
+| AI Research Preference Models | 2026 | Steer an AI research agent's search by choosing which candidate solutions get executed | Frozen-LM preference models in AIRA-dojo's tree search over 20 AIRS-Bench ML-research tasks; 24 h per task on one H200 | Normalized score 0.684 -> 0.729 while using under two-thirds of the execution budget | [card](../works/ai-research-preference-models.md) |
 
 ## Related Works
 
@@ -35,3 +36,4 @@ What distinguishes these from single-stage tasks is that success depends on chai
 - [AIRS-Bench](../works/airs-bench.md)
 - [ResearchClawBench](../works/researchclawbench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
+- [AI Research Preference Models](../works/ai-research-preference-models.md)
