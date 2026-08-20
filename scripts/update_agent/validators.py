@@ -14,8 +14,12 @@ from common import taxonomy, search_profiles, read_json, REPO_ROOT
 # Real template residue that must never survive into a finished card. Bare words like TBD/TBA are
 # NOT banned outright: they appear in legitimate prose ("the preprint lists the venue as TBD"). Only
 # an actual unfilled template token, OR a metadata field whose entire value is TBD/TBA, is a defect.
-PLACEHOLDER = re.compile(r"(TODO\(card\)|FIXME|lorem\s+ipsum|<\s*placeholder\s*>|"
-                         r"\{\{\s*[A-Z][A-Z0-9_ ]*\s*\}\}|FILL[_ ]?ME)", re.I)
+# Word boundaries are load-bearing on the bare-word tokens. Without them `FILL[_ ]?ME` matches
+# case-insensitively INSIDE ordinary English: "Task Fu-fillme-nt" -> "fillme". That false positive
+# failed a production run on 2026-08-19 that had produced 24 valid cards with zero worker failures,
+# because one card named its evaluation dimension "Task Fulfillment".
+PLACEHOLDER = re.compile(r"(TODO\(card\)|\bFIXME\b|lorem\s+ipsum|<\s*placeholder\s*>|"
+                         r"\{\{\s*[A-Z][A-Z0-9_ ]*\s*\}\}|\bFILL[_ ]?ME\b)", re.I)
 # a bold field label whose value is ONLY TBD/TBA (e.g. "**Venue:** TBD") -> an unfilled field.
 PLACEHOLDER_FIELD = re.compile(r"\*\*[^*\n]+:\*\*\s*(TBD|TBA)\b[\s.)\]]*$", re.I | re.M)
 

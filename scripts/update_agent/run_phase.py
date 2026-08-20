@@ -186,6 +186,20 @@ def cmd_english(a):
     candidates = read_json(os.path.join(RUN_DIR, "phase1", "candidates.json"))
     ok2, r2 = pipeline.phase2(RUN_DIR, CWD, candidates, cfg)
     if not ok2:
+        # Surface WHY. Without this the job exits 1 with no summary at all, and the only record of
+        # the cause is runtime/state/cards.json inside an artifact — which is how a single
+        # false-positive card error silently discarded a 24-card run on 2026-08-19.
+        st = read_json(os.path.join(RUN_DIR, "state", "cards.json")) or {}
+        s = st.get("summary", {}) or {}
+        lines = ["Cards gate: **FAIL**",
+                 "Candidates: %d" % len(candidates),
+                 "Accepted: %s / Rejected: %s / Operational failures: %s"
+                 % (s.get("accepted", "?"), s.get("rejected", "?"), s.get("op_failures", "?"))]
+        if s.get("reason"):
+            lines.append("Reason: %s" % s["reason"])
+        for e in (s.get("card_errors") or []):
+            lines.append("Card error: %s" % e)
+        _summary("Cards", lines)
         _gh_output(accepted=0, english="fail")
         sys.exit(1)
     accepted = r2["slugs"]
