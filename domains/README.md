@@ -10,6 +10,9 @@ One reference page per canonical science or engineering domain — the **field a
 - **Comparison** — a factual table with **fixed columns, identical on every domain page**:
   `Work | Year | Scientific problem | Task form & scale | Domain verification | Card`.
   *Scientific problem* states what science question the work actually tackles; *Task form & scale* states what the agent concretely does and how many tasks fall in this domain; *Domain verification* states how scientific correctness is checked (numerical error vs. reference, expert labels, execution, physical criteria, LLM judge, …).
+- **Capability Matrix** — a checklist table with **fixed columns, identical on every domain page**:
+  `Work | E2E | Repro | Inter | Code | Net | Real | MM | Exec | Judge | Rubric | Cost | Fail`, in the same row order as the Comparison table.
+  Where the Comparison table says what science a work tests, the matrix says what its evaluation setup covers and leaves out. Marks: `✔` present, `✘` explicitly absent, `◐` partial, `?` not stated in the card or the primary source. Each page reproduces the column definitions verbatim. Being rolled out domain by domain — [`physics.md`](./physics.md) is the reference implementation and currently the only page carrying one.
 - **Related Works** — bare links to the work cards (the mapping list).
 
 Domain pages are **factual reference pages, not literature reviews** — co-equal with topic pages as an entry point, different in kind: the table describes each work in this domain, but methodology synthesis, topic-specific comparison dimensions, and open questions stay in topic pages.
@@ -22,6 +25,8 @@ Domain pages are **factual reference pages, not literature reviews** — co-equa
 - **No catch-all.** Works without a science or engineering domain — web/UI agents, computer use, generic tool use, evaluation methodology, surveys — do not appear here. UI and computer-use environments are not science or engineering domains.
 - The mapping is **one-way, maintained on domain pages only**. Cards are never modified for this axis; a card's `## Domains` prose section is the evidence for assignment, and every table cell must be verifiable from the card.
 - Assignment must be **verifiable** from the card (backed by the paper). Unnamed categories are not force-assigned.
+- **Capability Matrix marks come from the card, then the paper — never from the Comparison table.** A silent source gives `?`, which is a verification backlog, not a `✘`.
+- **Matrix updates are incremental.** A new card adds one row; never re-derive an entire domain's matrix to add a work.
 
 ## Canonical domain taxonomy
 
