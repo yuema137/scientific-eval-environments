@@ -11,7 +11,7 @@
   `Work | 年份 | 科学问题 | 任务形式与规模 | 领域内验证 | Card`。
   *科学问题* 陈述该工作实际处理的科学问题；*任务形式与规模* 陈述 agent 具体做什么、本领域内有多少任务；*领域内验证* 陈述科学正确性如何被检查（对照参考解的数值误差、专家标签、执行、物理判据、LLM judge 等）。
 - **Capability Matrix**——一张清单式表格，**列固定且在所有 domain 页一致**：
-  `Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig`，按 `Cov` + `Rig` 从高到低排序（同分先比 `Rig`，再按 Comparison 表原序）。
+  `Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig`，按 `Cov` 从高到低排序，`Cov` 相同时比 `Rig`（仍相同则保持 Comparison 表原序）；两个分绝不相加来定序。
   Comparison 表说的是一份工作考什么科学，这张表说的是它的评测设置覆盖了什么、以及它报出的数字有多可信——分成**两个独立的分**求和：`Cov`（满分 7）与 `Rig`（满分 13），因为两者方向相反：一个 benchmark 可以什么都考一点却什么都没验扎实。是非列取值 `✔` 具备、`✘` 明确不具备、`◐` 部分具备、`?` 卡片与原始文献均未说明；`Cov` 内部**按稀缺程度排序——做到的工作越少排得越靠前**，几乎人人都满足的性质不设是非列。`Domain` 列的是子领域缩写，其词表**逐页定义**；`Verif` 与 `Scale` 为 `0`–`3` 分级，`Fail` 为 `0`–`4`。两个分都不是质量排名——它们是"*可查证地*做到了多少"的下界，且 `?` 与 `✘` 代价完全相同。各页需逐字重复列定义与这些告诫。目前按 domain 逐个铺开——[`physics.md`](./physics.md) 是参考实现，也是当前唯一带此表的页面。
 - **Related Works**——指向 work 卡片的纯链接（映射列表）。
 
