@@ -62,13 +62,17 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 
 A checklist view of the same works: what each one does and does not put under evaluation. It answers a different question from the Comparison table above — not *what science is being tested* but *what an evaluation setup covers and leaves out*.
 
-**Marks.** `✔` present · `✘` explicitly absent · `◐` partial, optional, or true of only part of the suite · `?` not stated in the card or the primary source. `?` means the source is silent, not that the answer is no; it is a standing verification backlog, never a default. `Domain` and `Fail` are not yes/no columns — see below.
+**Marks.** `✔` present · `✘` explicitly absent · `◐` partial, optional, or true of only part of the suite · `?` not stated in the card or the primary source. `?` means the source is silent, not that the answer is no; it is a standing verification backlog, never a default. `Domain`, `Verif`, `Scale` and `Fail` are not yes/no columns — see below.
 
 **`Domain`** names the physics subfields the work actually evaluates in, taken from the card's `## Domains` prose. This vocabulary is specific to this page — each domain page defines its own, since the subfields of physics and of robotics have nothing to say to each other.
 
 `CLA` classical mechanics & dynamics · `STAT` statistical physics & thermodynamics · `CM` condensed matter · `AMO` atomic, molecular & optical · `QM` quantum mechanics (general) · `QI` quantum information & computing · `HEP` high-energy & particle · `NUC` nuclear · `PLA` plasma · `GR` gravitation, relativity & gravitational waves · `COS` cosmology & astrophysics · `FLU` fluid dynamics · `COMP` computational & numerical physics (PDE, FEM, solvers) · `INSTR` instrumentation & experimental infrastructure · `GEN` curriculum-wide or unspecified, no single subfield
 
-**The yes/no columns are ordered by rarity — the properties fewest works have come first.** The left of the table is where the field is thin; the right is where most works already cluster. A property nearly every work satisfies is not a column at all: *writing and running code* and *deterministic programmatic verification* were both dropped for carrying almost no discriminating signal.
+**Two scores, not one.** The columns split into **coverage** — what the evaluation setup puts under test — and **rigor** — how far you can trust what it reports. They are summed separately because they pull against each other: a benchmark can put everything under test and verify none of it carefully, and a deliberately narrow one can be the most trustworthy thing on the page. Rows are ordered by `Cov` + `Rig`, highest first; ties break on `Rig`, then on Comparison-table order.
+
+### Coverage (`Cov`, max 7)
+
+Yes/no, ordered by rarity — the properties fewest works have come first, so the left of the group is where the field is thin. A property nearly every work satisfies does not earn a column: *writing and running code* was dropped on that ground.
 
 - **Net** — network or live external retrieval permitted; a supplied fixed corpus does not count.
 - **E2E** — end-to-end research: a question or goal only, with no source paper, reference implementation, or step-by-step specification supplied, and the agent drives the whole investigation.
@@ -76,77 +80,78 @@ A checklist view of the same works: what each one does and does not put under ev
 - **MM** — multimodal content is load-bearing, either required as input or scored as an output artifact.
 - **Repro** — grounded in a specific published result the agent must match or recover.
 - **Real** — real experimental or observational data, as opposed to synthetic or simulated (a digital twin is simulated).
-- **Rubric** — an expert-authored rubric or official marking scheme with named criteria or weights; a continuous automatic metric is not a rubric.
-- **Judge** — an LLM judge takes part in scoring.
 - **Inter** — interactive: the agent takes multiple actions against an environment, tool, or simulator and gets feedback that shapes the next one.
 
-**`Fail`** is graded 0–4 rather than yes/no, because "reports a failure analysis" spans everything from a single remark to a controlled experiment:
+### Rigor (`Rig`, max 13)
 
-- `0` — nothing beyond headline scores.
-- `1` — narrative remarks on where models fall short; no classes named.
-- `2` — named error classes or illustrative case studies, but no counts or shares.
-- `3` — a quantified failure account: a taxonomy with per-class counts or shares, or measured breakdowns isolating specific failure conditions.
-- `4` — level 3 plus a controlled experiment or ablation built to test *why* the failures occur.
+- **Human** — a measured human-expert baseline or human reference performance anchors the scale. `◐` where the anchor is a published result or expert reference implementation rather than a measured human run.
+- **Rubric** — an expert-authored rubric or official marking scheme with named criteria or weights; a continuous automatic metric is not a rubric.
+- **Contam** — a deliberate mechanism makes the answer unmemorizable: post-cutoff sourcing, unpublished or newly authored problems, counterfactual alteration, on-demand generation, or screened leakage. Withholding a published paper at evaluation time is `◐` — it does not remove that paper from a pretraining corpus.
+- **Verif** `0`–`3` — how far the score can be trusted without trusting a model. `0` scored only by an LLM judge or rubric, with no validation of that scorer · `1` judge or rubric scoring whose agreement with human experts is measured and reported · `2` deterministic checks alongside judge or rubric scoring · `3` fully deterministic — execution, tests, numerical comparison to a reference, symbolic checking, or a proof kernel, with no judge in the loop. This replaces a plain yes/no *deterministic verification* column, which 85% of works satisfied and which therefore separated nothing; as a ladder it separates a great deal. A separate `Judge` column was dropped as near-redundant with `Verif` < 2.
+- **Scale** `0`–`3` — items evaluated **in this domain**: `0` fewer than 10 · `1` 10–99 · `2` 100–999 · `3` 1,000 or more · `?` the source does not give a per-domain count. This counts items, not effort: 30 paper-reproduction tasks are far more work than 3,000 exam questions, and the column cannot see that.
+- **Fail** `0`–`4` — how deep the failure analysis goes, because "reports a failure analysis" spans everything from a single remark to a controlled experiment. `0` nothing beyond headline scores · `1` narrative remarks on where models fall short, no classes named · `2` named error classes or illustrative case studies, but no counts or shares · `3` a quantified failure account: a taxonomy with per-class counts or shares, or measured breakdowns isolating specific failure conditions · `4` level 3 plus a controlled experiment or ablation built to test *why* the failures occur.
 
-**`Total`** sums the row: each of the nine yes/no columns scores `✔` 1, `◐` 0.5, `✘` 0, `?` 0, and `Fail` contributes its 0–4 grade. `Domain` does not score. The maximum is 13. **Rows are ordered by `Total`, highest first**; ties keep Comparison-table order.
+### Reading the two scores
 
-Two cautions about reading it. A `?` scores the same as a `✘`, so a total is a floor on what a work *demonstrably* evaluates, not a verdict on it — a benchmark whose paper never mentions network access is scored as though it granted none. And a higher total is not better: breadth of coverage is not quality, and a deliberately narrow benchmark sitting near the bottom may be exactly right for what it sets out to measure.
+Yes/no columns score `✔` 1, `◐` 0.5, `✘` 0, `?` 0; graded columns contribute their number, with `?` scoring 0. `Domain` does not score.
+
+Three cautions. A `?` costs exactly what a `✘` costs, so both scores are floors on what a work *demonstrably* does, not verdicts on it. Neither score is a quality ranking: high `Cov` with low `Rig` describes a benchmark that reaches for everything and pins down little, while low `Cov` with high `Rig` describes one that measures a narrow thing carefully — and which of those is the right design depends entirely on the question being asked. And `Cov` is a property of the *evaluation setup*, not of the science: a work can sit at the bottom of this table and still be the most important paper in its subfield.
 
 For multi-domain suites the row describes this domain's slice, as in the Comparison table.
 
-| Work | Domain | Net | E2E | Cost | MM | Repro | Real | Rubric | Judge | Inter | Fail | Total |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | 3 | **11.5** |
-| Imaging-101 | COMP | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | 3 | **10** |
-| Collider-Bench | HEP | ? | ✘ | ✔ | ✘ | ✔ | ◐ | ✘ | ✔ | ✔ | 4 | **8.5** |
-| PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | ✔ | ✔ | 1 | **7.5** |
-| MetaSyn | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | ✔ | ✔ | 3 | **7.5** |
-| NewtonBench | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | 4 | **7** |
-| Gravity-Bench-v1 | GR, CLA | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 | **7** |
-| An LLM-driven framework for cosmological model-building and exploration | COS | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | 3 | **7** |
-| HiSciBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | ✔ | ✘ | 3 | **7** |
-| NatureBench | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | ✔ | ✔ | 2 | **6.5** |
-| First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope | GR | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 | **6.5** |
-| AI's Capability in Assisting Scientific Research I: Literature Review | GR, HEP, INSTR | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ◐ | 4 | **6.5** |
-| PACE-Bench | CLA, FLU | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 | **6.5** |
-| PRBench | HEP, AMO, NUC, PLA, CM | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | ✔ | 2 | **6** |
-| DiscoverPhysics | CLA, GR | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✔ | 2 | **6** |
-| PRL-Bench | COS, CM, HEP, QI, STAT | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ◐ | 3 | **6** |
-| SciConvBench | FLU, COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✔ | 3 | **6** |
-| SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ✔ | ✘ | 3 | **6** |
-| PhysGym | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✔ | 3 | **5.5** |
-| SciVisAgentBench | GEN | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✘ | ✔ | ✔ | 1 | **5.5** |
-| AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation | HEP, INSTR | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | 3 | **5.5** |
-| FEABench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | 3 | **5** |
-| MooseBench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 | **5** |
-| SimAgents | COS | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | 3 | **5** |
-| SeePhys | GEN | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ◐ | ✘ | 3 | **4.5** |
-| Enhancing Agentic Autonomous Scientific Discovery with Vision-Language Model Capabilities | CLA | ? | ◐ | ✘ | ✔ | ✘ | ✘ | ◐ | ◐ | ✔ | 1 | **4.5** |
-| LQCDMaster | HEP, NUC | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 3 | **4.5** |
-| MaD Physics | CLA, FLU, QM | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 1 | **4** |
-| SimulCost | GEN | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 2 | **4** |
-| gwBenchmarks | GR | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 3 | **4** |
-| PHYBench | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 4 | **4** |
-| PDEAgent-Bench | COMP | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 3 | **4** |
-| CMPhysBench | CM | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 3 | **3.5** |
-| QMP-Bench | CM, COMP | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | ✔ | 0 | **3.5** |
-| CritPt | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | 3 | **3.5** |
-| UGPhysics | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 3 | **3.5** |
-| SciCode | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✘ | 3 | **3** |
-| PHYSICS | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 2 | **3** |
-| AInsteinBench | GR, FLU | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 2 | **3** |
-| HiPhO | GEN | ? | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | 0 | **2.5** |
-| CMT-Benchmark | CM, STAT | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 2 | **2** |
-| TPBench | HEP, COS | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 2 | **2** |
-| CodePDE | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 1 | **2** |
-| EnvTrace | INSTR | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 1 | **1.5** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✔ | 0 | **1** |
-| RealPDEBench | FLU | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | 0 | **1** |
-| Lean4Physics | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 0 | **0** |
+| Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| PACE-Bench | CLA, FLU | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✘ | ✔ | 3 | 2 | 4 | **10** |
+| Gravity-Bench-v1 | GR, CLA | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✔ | ✘ | ✔ | 3 | ? | 4 | **9** |
+| Collider-Bench | HEP | ? | ✘ | ✔ | ✘ | ✔ | ◐ | ✔ | **3.5** | ✔ | ✘ | ◐ | 2 | 1 | 4 | **8.5** |
+| Imaging-101 | COMP | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
+| ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
+| PHYBench | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✔ | ✘ | ✔ | 3 | 2 | 4 | **11** |
+| NewtonBench | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✔ | 2 | 2 | 4 | **9** |
+| HiSciBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✔ | ✘ | 2 | 3 | 3 | **9** |
+| AI's Capability in Assisting Scientific Research I: Literature Review | GR, HEP, INSTR | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **2.5** | ✔ | ✘ | ✔ | 2 | 0 | 4 | **8** |
+| NatureBench | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 2 | 1 | 2 | **7** |
+| PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **4.5** | ✘ | ✔ | ✘ | 2 | 2 | 1 | **6** |
+| MooseBench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
+| SeePhys | GEN | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✔ | ✘ | ✘ | 2 | 3 | 3 | **9** |
+| LQCDMaster | HEP, NUC | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✔ | ✘ | ◐ | 3 | 1 | 3 | **8.5** |
+| SimulCost | GEN | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
+| First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope | GR | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✘ | ◐ | 3 | 0 | 4 | **7.5** |
+| SimAgents | COS | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
+| MetaSyn | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✘ | 2 | ? | 3 | **6** |
+| An LLM-driven framework for cosmological model-building and exploration | COS | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
+| UGPhysics | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 2 | 3 | 3 | **9** |
+| PDEAgent-Bench | COMP | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
+| DiscoverPhysics | CLA, GR | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 2 | 1 | 2 | **7** |
+| CritPt | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **0.5** | ✘ | ✘ | ✔ | 3 | 1 | 3 | **8** |
+| PhysGym | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ◐ | 2 | 1 | 3 | **6.5** |
+| CMPhysBench | CM | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
+| PRL-Bench | COS, CM, HEP, QI, STAT | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ◐ | **1** | ✘ | ✔ | ✔ | 0 | 2 | 3 | **7** |
+| PRBench | HEP, AMO, NUC, PLA, CM | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ✘ | ✔ | ✘ | 2 | 1 | 2 | **6** |
+| MaD Physics | CLA, FLU, QM | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 1 | **5** |
+| AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation | HEP, INSTR | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0.5** | ✔ | ✔ | ✔ | 1 | 0 | 3 | **7** |
+| PHYSICS | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0.5** | ✘ | ✘ | ✘ | 2 | 3 | 2 | **7** |
+| gwBenchmarks | GR | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 3 | 0 | 3 | **6.5** |
+| QMP-Bench | CM, COMP | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ◐ | ✔ | ✘ | 2 | 2 | 0 | **5.5** |
+| TPBench | HEP, COS | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 3 | 1 | 2 | **7** |
+| SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
+| CMT-Benchmark | CM, STAT | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 3 | 1 | 2 | **6.5** |
+| SciConvBench | FLU, COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✔ | ◐ | 1 | ? | 3 | **5.5** |
+| AInsteinBench | GR, FLU | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 3 | ? | 2 | **5.5** |
+| SciVisAgentBench | GEN | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
+| SciCode | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✘ | **0** | ✘ | ✘ | ✘ | 3 | ? | 3 | **6** |
+| FEABench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 2 | ? | 3 | **5** |
+| EnvTrace | INSTR | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✔ | ✘ | ✘ | 3 | ? | 1 | **5** |
+| Lean4Physics | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | 2 | 0 | **5** |
+| CodePDE | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 3 | ? | 1 | **4** |
+| Enhancing Agentic Autonomous Scientific Discovery with Vision-Language Model Capabilities | CLA | ? | ◐ | ✘ | ✔ | ✘ | ✘ | ✔ | **2.5** | ✘ | ◐ | ✔ | 0 | 0 | 1 | **2.5** |
+| HiPhO | GEN | ? | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | **0.5** | ✔ | ✔ | ✔ | 0 | 1 | 0 | **4** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
+| RealPDEBench | FLU | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 
 Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
 
-Repository note: `Net` is `?` on 35 of the 47 rows, which is why it leads the table — almost no work here demonstrably grants live retrieval, and most do not say. The full text of eleven of those thirty-five was read for this column and not one states it either way; the column records that silence rather than resolving it by inference. Two further cells remain `?`, both SciCode and Terminal-Bench Science on `Real`.
+Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 of the 47 rows, which is why it leads the coverage group — almost no work here demonstrably grants live retrieval, and most do not say; the full text of eleven of those thirty-five was read for this column and not one states it either way. `Scale` is `?` on 12 rows, every one a multi-domain suite that reports a total task count but no per-domain breakdown. Both columns record that silence rather than resolving it by inference, and in both cases the silence costs the work real score. Two further cells remain `?`: SciCode and Terminal-Bench Science on `Real`.
 ## Related Works
 
 - [SciVisAgentBench](../works/scivisagentbench.md)
