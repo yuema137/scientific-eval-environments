@@ -88,57 +88,61 @@
 - `3` — 定量的失败刻画：带逐类计数或占比的分类体系，或能分离出特定失败条件的实测拆分。
 - `4` — 在第 3 级之上，另有专门设计的对照实验或消融，用来检验失败*为何*发生。
 
+**`Total`** 是该行的总分：九个是非列各按 `✔` 1 分、`◐` 0.5 分、`✘` 0 分、`?` 0 分计，`Fail` 直接计其 0–4 分，`Domain` 不计分，满分 13。**各行按 `Total` 从高到低排序**；同分时保持 Comparison 表原序。
+
+读这一列有两点要留意。`?` 与 `✘` 同样计 0 分，所以总分是"该工作*可查证地*评测了多少"的下界，而不是对它的判决——论文从未提及是否联网的 benchmark，会被当作不联网来计分。另外，总分高并不等于更好：覆盖面广不是质量，一个刻意收窄的 benchmark 排在末尾，可能恰恰正确地服务了它想测的东西。
+
 跨领域套件的行按本领域的切片来写，与上面的 Comparison 表一致。
 
-| Work | Domain | Net | E2E | Cost | MM | Repro | Real | Rubric | Judge | Inter | Fail |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| MaD Physics | CLA, FLU, QM | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 1 |
-| NewtonBench | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | 4 |
-| PRBench | HEP, AMO, NUC, PLA, CM | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | ✔ | 2 |
-| Collider-Bench | HEP | ? | ✘ | ✔ | ✘ | ✔ | ◐ | ✘ | ✔ | ✔ | 4 |
-| SimulCost | GEN | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 2 |
-| NatureBench | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | ✔ | ✔ | 2 |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✔ | 0 |
-| ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | 3 |
-| CMT-Benchmark | CM, STAT | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 2 |
-| CMPhysBench | CM | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 3 |
-| PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | ✔ | ✔ | 1 |
-| MetaSyn | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | ✔ | ✔ | 3 |
-| RealPDEBench | FLU | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | 0 |
-| Gravity-Bench-v1 | GR, CLA | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 |
-| PhysGym | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✔ | 3 |
-| DiscoverPhysics | CLA, GR | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✔ | 2 |
-| FEABench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | 3 |
-| QMP-Bench | CM, COMP | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | ✔ | 0 |
-| gwBenchmarks | GR | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 3 |
-| PRL-Bench | COS, CM, HEP, QI, STAT | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ◐ | 3 |
-| EnvTrace | INSTR | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 1 |
-| CritPt | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | 3 |
-| TPBench | HEP, COS | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 2 |
-| SciCode | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✘ | 3 |
-| Lean4Physics | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 0 |
-| UGPhysics | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 3 |
-| PHYBench | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 4 |
-| SeePhys | GEN | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ◐ | ✘ | 3 |
-| HiPhO | GEN | ? | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | 0 |
-| PHYSICS | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 2 |
-| CodePDE | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 1 |
-| PDEAgent-Bench | COMP | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 3 |
-| MooseBench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 |
-| SciConvBench | FLU, COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✔ | 3 |
-| AInsteinBench | GR, FLU | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 2 |
-| SciVisAgentBench | GEN | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✘ | ✔ | ✔ | 1 |
-| An LLM-driven framework for cosmological model-building and exploration | COS | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | 3 |
-| First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope | GR | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 |
-| SimAgents | COS | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | 3 |
-| Enhancing Agentic Autonomous Scientific Discovery with Vision-Language Model Capabilities | CLA | ? | ◐ | ✘ | ✔ | ✘ | ✘ | ◐ | ◐ | ✔ | 1 |
-| AI's Capability in Assisting Scientific Research I: Literature Review | GR, HEP, INSTR | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ◐ | 4 |
-| AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation | HEP, INSTR | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | 3 |
-| Imaging-101 | COMP | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | 3 |
-| SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ✔ | ✘ | 3 |
-| HiSciBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | ✔ | ✘ | 3 |
-| LQCDMaster | HEP, NUC | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 3 |
-| PACE-Bench | CLA, FLU | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 |
+| Work | Domain | Net | E2E | Cost | MM | Repro | Real | Rubric | Judge | Inter | Fail | Total |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | 3 | **11.5** |
+| Imaging-101 | COMP | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | 3 | **10** |
+| Collider-Bench | HEP | ? | ✘ | ✔ | ✘ | ✔ | ◐ | ✘ | ✔ | ✔ | 4 | **8.5** |
+| PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | ✔ | ✔ | 1 | **7.5** |
+| MetaSyn | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | ✔ | ✔ | 3 | **7.5** |
+| NewtonBench | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | 4 | **7** |
+| Gravity-Bench-v1 | GR, CLA | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 | **7** |
+| An LLM-driven framework for cosmological model-building and exploration | COS | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | 3 | **7** |
+| HiSciBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | ✔ | ✘ | 3 | **7** |
+| NatureBench | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | ✔ | ✔ | 2 | **6.5** |
+| First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope | GR | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 | **6.5** |
+| AI's Capability in Assisting Scientific Research I: Literature Review | GR, HEP, INSTR | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ◐ | 4 | **6.5** |
+| PACE-Bench | CLA, FLU | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 | **6.5** |
+| PRBench | HEP, AMO, NUC, PLA, CM | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | ✔ | 2 | **6** |
+| DiscoverPhysics | CLA, GR | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✔ | 2 | **6** |
+| PRL-Bench | COS, CM, HEP, QI, STAT | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ◐ | 3 | **6** |
+| SciConvBench | FLU, COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✔ | 3 | **6** |
+| SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ✔ | ✘ | 3 | **6** |
+| PhysGym | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✔ | 3 | **5.5** |
+| SciVisAgentBench | GEN | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✘ | ✔ | ✔ | 1 | **5.5** |
+| AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation | HEP, INSTR | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | 3 | **5.5** |
+| FEABench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | 3 | **5** |
+| MooseBench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 | **5** |
+| SimAgents | COS | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | 3 | **5** |
+| SeePhys | GEN | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ◐ | ✘ | 3 | **4.5** |
+| Enhancing Agentic Autonomous Scientific Discovery with Vision-Language Model Capabilities | CLA | ? | ◐ | ✘ | ✔ | ✘ | ✘ | ◐ | ◐ | ✔ | 1 | **4.5** |
+| LQCDMaster | HEP, NUC | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 3 | **4.5** |
+| MaD Physics | CLA, FLU, QM | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 1 | **4** |
+| SimulCost | GEN | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 2 | **4** |
+| gwBenchmarks | GR | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 3 | **4** |
+| PHYBench | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 4 | **4** |
+| PDEAgent-Bench | COMP | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 3 | **4** |
+| CMPhysBench | CM | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 3 | **3.5** |
+| QMP-Bench | CM, COMP | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | ✔ | 0 | **3.5** |
+| CritPt | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | 3 | **3.5** |
+| UGPhysics | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 3 | **3.5** |
+| SciCode | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✘ | 3 | **3** |
+| PHYSICS | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 2 | **3** |
+| AInsteinBench | GR, FLU | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 2 | **3** |
+| HiPhO | GEN | ? | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | 0 | **2.5** |
+| CMT-Benchmark | CM, STAT | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 2 | **2** |
+| TPBench | HEP, COS | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 2 | **2** |
+| CodePDE | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 1 | **2** |
+| EnvTrace | INSTR | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 1 | **1.5** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✔ | 0 | **1** |
+| RealPDEBench | FLU | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | 0 | **1** |
+| Lean4Physics | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 0 | **0** |
 
 Repository note: 有两行不属于其余各列所预设的 agent 场景。RealPDEBench 评的是科学机器学习代理模型而非 agent，其"任务设定"几列描述的是一套离线训练与评测流程。SciVQR 是静态多模态问答，没有 agent、工具调用或环境交互。
 
