@@ -58,6 +58,76 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 | LQCDMaster | 2026 | Compute lattice-QCD observables from first principles — meson and baryon two-point functions, nonlocal Wilson-line correlators, meson and baryon three-point functions with sequential sources, and Wilson loops — by turning a natural-language research request into an executable PyQUDA measurement workflow. | 70 LQCD computing tasks (20 local 2PTs, 10 nonlocal 2PTs, 13 meson 3PTs, 15 baryon 3PTs, 12 Wilson loops), each paired with a hand-written expert reference implementation for the same observable, ensemble and kinematic setup; workflows executed through the PyQUDA/QUDA GPU stack with SLURM job submission. | Direct numerical comparison against the expert reference at machine precision, labelled Matched (absolute deviation ≲ 10⁻¹²), Convention Mismatch (a global sign or phase difference), or Failure; GPT-5.4 reaches 63/70 Matched (90.0%), DeepSeek-V4-Pro 56/70 (80.0%). | [→](../works/lqcdmaster.md) |
 | PACE-Bench | 2026 | Repair a working mechanism design after the physics underneath it is mutated — friction, material strength, gravity or force limits. | 144 source-to-target pairs from 36 base tasks over six physics families at 6 tasks each; 20 attempts per pair with non-prescriptive diagnostic feedback. | Box2D rigid-body simulation; constraint-satisfaction fraction and task score in [−100, 100], reported as Pass@2 — best full-benchmark result 35.9%. | [→](../works/pace-bench.md) |
 
+## Capability Matrix
+
+A checklist view of the same works: what each one does and does not put under evaluation. It answers a different question from the Comparison table above — not *what science is being tested* but *what an evaluation setup covers and leaves out*.
+
+**Marks.** `✔` present · `✘` explicitly absent · `◐` partial, optional, or true of only part of the suite · `?` not stated in the card or the primary source. `?` means the source is silent, not that the answer is no; it is a standing verification backlog, never a default.
+
+**Columns.**
+
+*Task setup* — **E2E** end-to-end research: a question or goal only, with no source paper, reference implementation, or step-by-step specification supplied, and the agent drives the whole investigation · **Repro** grounded in a specific published result the agent must match or recover · **Inter** interactive: the agent takes multiple actions against an environment, tool, or simulator and gets feedback that shapes the next one · **Code** solving requires writing and running code · **Net** network or live external retrieval permitted; a supplied fixed corpus does not count.
+
+*Data & grounding* — **Real** real experimental or observational data, as opposed to synthetic or simulated (a digital twin is simulated) · **MM** multimodal content is load-bearing, either required as input or scored as an output artifact.
+
+*Evaluation* — **Exec** deterministic programmatic verification (execution, tests, numerical comparison to a reference, symbolic checking, proof kernel) · **Judge** an LLM judge takes part in scoring · **Rubric** an expert-authored rubric or official marking scheme with named criteria or weights; a continuous automatic metric is not a rubric · **Cost** budget or resource cost is a scored or priced dimension, not merely a step cap · **Fail** the source reports a scientific failure-mode analysis or error taxonomy beyond headline scores.
+
+For multi-domain suites the row describes this domain's slice, as in the Comparison table.
+
+| Work | E2E | Repro | Inter | Code | Net | Real | MM | Exec | Judge | Rubric | Cost | Fail |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| MaD Physics | ✔ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ◐ |
+| NewtonBench | ✔ | ✘ | ✔ | ◐ | ? | ✘ | ✘ | ✔ | ✔ | ✘ | ✘ | ✔ |
+| PRBench | ✘ | ✔ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✔ | ✔ | ✘ | ✔ |
+| Collider-Bench | ✘ | ✔ | ✔ | ✔ | ? | ◐ | ✘ | ✔ | ✔ | ✘ | ✔ | ✔ |
+| SimulCost | ✘ | ✘ | ✔ | ✘ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ✔ |
+| NatureBench | ◐ | ✔ | ✔ | ✔ | ✘ | ✔ | ✘ | ✔ | ✔ | ✘ | ✘ | ✔ |
+| Terminal-Bench Science | ✘ | ✘ | ✔ | ✔ | ? | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ |
+| ResearchClawBench | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✘ | ✔ | ✔ | ◐ | ✔ |
+| CMT-Benchmark | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
+| CMPhysBench | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ |
+| PhySciBench | ◐ | ✘ | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | ✔ | ◐ | ✔ |
+| MetaSyn | ◐ | ✔ | ✔ | ? | ✘ | ✔ | ✘ | ✔ | ✔ | ✘ | ✘ | ✔ |
+| RealPDEBench | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ |
+| Gravity-Bench-v1 | ✔ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ✔ |
+| PhysGym | ✔ | ✘ | ✔ | ✘ | ? | ✘ | ✘ | ✔ | ◐ | ✘ | ✘ | ◐ |
+| DiscoverPhysics | ✔ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✔ | ✔ | ✘ | ✔ |
+| FEABench | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✔ | ✘ | ✘ | ✔ |
+| QMP-Bench | ✘ | ✔ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ◐ | ✔ | ✘ | ◐ |
+| gwBenchmarks | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
+| PRL-Bench | ◐ | ✘ | ◐ | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | ✔ |
+| EnvTrace | ✘ | ✘ | ✘ | ✔ | ? | ✘ | ✘ | ✔ | ◐ | ✘ | ✘ | ◐ |
+| CritPt | ✘ | ✘ | ◐ | ◐ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
+| TPBench | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
+| SciCode | ✘ | ✘ | ✘ | ✔ | ? | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
+| Lean4Physics | ✘ | ✘ | ✘ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ |
+| UGPhysics | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ |
+| PHYBench | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
+| SeePhys | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✔ | ✔ | ◐ | ✘ | ✘ | ✔ |
+| HiPhO | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ◐ | ✘ | ✔ | ✔ | ✘ | ✘ |
+| PHYSICS | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | ? | ✘ | ✘ | ✔ |
+| CodePDE | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
+| PDEAgent-Bench | ✘ | ✘ | ✘ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ✔ |
+| MooseBench | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
+| SciConvBench | ✘ | ✘ | ✔ | ✘ | ? | ✘ | ✘ | ◐ | ✔ | ✔ | ✘ | ◐ |
+| AInsteinBench | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
+| SciVisAgentBench | ✘ | ✘ | ✔ | ✔ | ? | ✔ | ✔ | ✔ | ✔ | ✘ | ◐ | ◐ |
+| An LLM-driven framework for cosmological model-building and exploration | ◐ | ✔ | ✔ | ✔ | ✘ | ✔ | ✘ | ✔ | ◐ | ✘ | ✘ | ◐ |
+| First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ |
+| SimAgents | ✘ | ✔ | ✘ | ◐ | ? | ✔ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
+| Enhancing Agentic Autonomous Scientific Discovery with Vision-Language Model Capabilities | ◐ | ✘ | ✔ | ✔ | ? | ✘ | ✔ | ✘ | ◐ | ◐ | ✘ | ◐ |
+| AI's Capability in Assisting Scientific Research I: Literature Review | ✘ | ✘ | ◐ | ✘ | ✔ | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ |
+| AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | ◐ |
+| Imaging-101 | ◐ | ✔ | ✔ | ✔ | ? | ✔ | ✔ | ✔ | ✔ | ✔ | ◐ | ✔ |
+| SciVQR | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✔ | ✔ | ✘ | ◐ |
+| HiSciBench | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✔ | ✔ | ✔ | ✘ | ✔ |
+| LQCDMaster | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ◐ | ✔ |
+| PACE-Bench | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ |
+
+Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
+
+Repository note: `Net` is `?` on 35 of the 47 rows. Whether the evaluated agent had live network or literature access is rarely reported: the full text of eleven of those thirty-five was read for this column, and not one states it either way. The column records that silence rather than resolving it by inference. Three further cells remain `?` — SciCode and Terminal-Bench Science on `Real`, MetaSyn on `Code` — where neither the card nor the primary source settles the question.
+
 ## Related Works
 
 - [SciVisAgentBench](../works/scivisagentbench.md)
