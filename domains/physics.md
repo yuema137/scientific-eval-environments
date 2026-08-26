@@ -64,7 +64,7 @@ A checklist view of the same works: what each one does and does not put under ev
 
 **Marks.** `✔` present · `✘` explicitly absent · `◐` partial, optional, or true of only part of the suite · `?` not stated in the card or the primary source. `?` means the source is silent, not that the answer is no; it is a standing verification backlog, never a default. `Domain`, `Verif`, `Scale` and `Fail` are not yes/no columns — see below.
 
-**`Domain`** names the physics subfields the work actually evaluates in, taken from the card's `## Domains` prose. This vocabulary is specific to this page — each domain page defines its own, since the subfields of physics and of robotics have nothing to say to each other.
+**`Domain`** names the physics subfields the work actually evaluates in, taken from the card's `## Domains` prose. This vocabulary is specific to this page — each domain page defines its own, since one domain's subfields have nothing to say to another's.
 
 `CLA` classical mechanics & dynamics · `STAT` statistical physics & thermodynamics · `CM` condensed matter · `AMO` atomic, molecular & optical · `QM` quantum mechanics (general) · `QI` quantum information & computing · `HEP` high-energy & particle · `NUC` nuclear · `PLA` plasma · `GR` gravitation, relativity & gravitational waves · `COS` cosmology & astrophysics · `FLU` fluid dynamics · `COMP` computational & numerical physics (PDE, FEM, solvers) · `INSTR` instrumentation & experimental infrastructure · `GEN` curriculum-wide or unspecified, no single subfield
 

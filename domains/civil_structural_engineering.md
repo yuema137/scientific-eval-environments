@@ -41,6 +41,82 @@ Civil and structural engineering — the analysis, design, verification, constru
 | LLM-EPANET | 2025 | Hydraulic modelling of municipal water distribution networks: pressures, flows, pump energy, network modification and scenario analysis. | 69 natural-language queries over Net1, Net3 and L-Town in five complexity categories (Static, Hydraulics, Quality, Hydraulics Scenario, Iterative), each paired with a hand-written deterministic reference script; seven models compared. | Functional correctness of the returned value against the executed EPyT reference implementation — never text or code similarity — with execution failures, aggregation, indexing and unit errors counted incorrect and near-misses adjudicated by a hydraulic modelling expert; accuracy reported per category, 56–81% overall. | [→](../works/llm-epanet.md) |
 | Hydro-SE Bench | 2025 | Hydro-science and hydraulic engineering knowledge, whose civil core is hydraulic structures and equipment (dams, spillways, gates), geotechnical engineering, industry design standards, and engineering safety and management. | 4,000 Chinese-language questions (roughly 2,700 single-choice and 1,300 multi-choice) across nine subfields, each labelled by cognitive level, drawn from textbooks, industry standards, laws and regulations and statistical yearbooks and reviewed independently by at least three experts; 16 models. | Accuracy reported overall and by subfield, question type and cognitive level, queried zero-shot with chain-of-thought at temperature 0 and the final choice extracted by a separate LLM; commercial models reach 0.74–0.80 and open-source models 0.41–0.68, weakest on industry standards and hydraulic structures. | [→](../works/hydro-se-bench.md) |
 
+## Capability Matrix
+
+A checklist view of the same works: what each one does and does not put under evaluation. It answers a different question from the Comparison table above — not *what science is being tested* but *what an evaluation setup covers and leaves out*.
+
+**Marks.** `✔` present · `✘` explicitly absent · `◐` partial, optional, or true of only part of the suite · `?` not stated in the card or the primary source. `?` means the source is silent, not that the answer is no; it is a standing verification backlog, never a default. `Domain`, `Verif`, `Scale` and `Fail` are not yes/no columns — see below.
+
+**`Domain`** names the civil and structural engineering subfields the work actually evaluates in, taken from the card's `## Domains` prose. This vocabulary is specific to this page — each domain page defines its own, since one domain's subfields have nothing to say to another's.
+
+`STRUC` structural analysis & mechanics of structures · `SDES` structural design & member proportioning · `SEIS` earthquake engineering & structural dynamics · `GEO` geotechnical & foundation engineering · `REL` structural reliability & safety assessment · `CODE` design-code & building-code compliance checking · `BIM` BIM, IFC & digital construction models · `CONST` construction engineering, drawings, specifications & cost estimation · `INSP` inspection, condition assessment & structural pathology · `TRAN` transportation & highway infrastructure engineering · `HYD` hydraulic & water-infrastructure engineering · `GEN` curriculum-wide or unspecified, no single subfield
+
+**Two scores, not one.** The columns split into **coverage** — what the evaluation setup puts under test — and **rigor** — how far you can trust what it reports. They are summed separately because they pull against each other: a benchmark can put everything under test and verify none of it carefully, and a deliberately narrow one can be the most trustworthy thing on the page. Rows are ordered by `Cov`, highest first, and by `Rig` within equal coverage; remaining ties keep Comparison-table order. Coverage leads because it is the axis a reader scans for — *does this benchmark even put my problem under test* — and `Rig` then says how far to trust what it reports.
+
+### Coverage (`Cov`, max 7)
+
+Yes/no, ordered by rarity — the properties fewest works have come first, so the left of the group is where the field is thin. A property nearly every work satisfies does not earn a column: *writing and running code* was dropped on that ground.
+
+- **Net** — network or live external retrieval permitted; a supplied fixed corpus does not count.
+- **E2E** — end-to-end research: a question or goal only, with no source paper, reference implementation, or step-by-step specification supplied, and the agent drives the whole investigation.
+- **Cost** — budget or resource cost is a scored or priced dimension, not merely a step cap.
+- **MM** — multimodal content is load-bearing, either required as input or scored as an output artifact.
+- **Repro** — grounded in a specific published result the agent must match or recover.
+- **Real** — real experimental or observational data, as opposed to synthetic or simulated (a digital twin is simulated).
+- **Inter** — interactive: the agent takes multiple actions against an environment, tool, or simulator and gets feedback that shapes the next one.
+
+### Rigor (`Rig`, max 13)
+
+- **Human** — a measured human-expert baseline or human reference performance anchors the scale. `◐` where the anchor is a published result or expert reference implementation rather than a measured human run.
+- **Rubric** — an expert-authored rubric or official marking scheme with named criteria or weights; a continuous automatic metric is not a rubric.
+- **Contam** — a deliberate mechanism makes the answer unmemorizable: post-cutoff sourcing, unpublished or newly authored problems, counterfactual alteration, on-demand generation, or screened leakage. Withholding a published paper at evaluation time is `◐` — it does not remove that paper from a pretraining corpus.
+- **Verif** `0`–`3` — how far the score can be trusted without trusting a model. `0` scored only by an LLM judge or rubric, with no validation of that scorer · `1` judge or rubric scoring whose agreement with human experts is measured and reported · `2` deterministic checks alongside judge or rubric scoring · `3` fully deterministic — execution, tests, numerical comparison to a reference, symbolic checking, or a proof kernel, with no judge in the loop. This replaces a plain yes/no *deterministic verification* column, which 85% of works satisfied and which therefore separated nothing; as a ladder it separates a great deal. A separate `Judge` column was dropped as near-redundant with `Verif` < 2.
+- **Scale** `0`–`3` — items evaluated **in this domain**: `0` fewer than 10 · `1` 10–99 · `2` 100–999 · `3` 1,000 or more · `?` the source does not give a per-domain count. This counts items, not effort: 30 paper-reproduction tasks are far more work than 3,000 exam questions, and the column cannot see that.
+- **Fail** `0`–`4` — how deep the failure analysis goes, because "reports a failure analysis" spans everything from a single remark to a controlled experiment. `0` nothing beyond headline scores · `1` narrative remarks on where models fall short, no classes named · `2` named error classes or illustrative case studies, but no counts or shares · `3` a quantified failure account: a taxonomy with per-class counts or shares, or measured breakdowns isolating specific failure conditions · `4` level 3 plus a controlled experiment or ablation built to test *why* the failures occur.
+
+### Reading the two scores
+
+Yes/no columns score `✔` 1, `◐` 0.5, `✘` 0, `?` 0; graded columns contribute their number, with `?` scoring 0. `Domain` does not score.
+
+Three cautions. A `?` costs exactly what a `✘` costs, so both scores are floors on what a work *demonstrably* does, not verdicts on it. Neither score is a quality ranking: high `Cov` with low `Rig` describes a benchmark that reaches for everything and pins down little, while low `Cov` with high `Rig` describes one that measures a narrow thing carefully — and which of those is the right design depends entirely on the question being asked. And `Cov` is a property of the *evaluation setup*, not of the science: a work can sit at the bottom of this table and still be the most important paper in its subfield.
+
+For multi-domain suites the row describes this domain's slice, as in the Comparison table.
+| Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| AEC-Bench | CONST | ? | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
+| MASSE | STRUC, SEIS | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ✔ | **3** | ✔ | ✔ | ◐ | 0 | 2 | 4 | **8.5** |
+| BridgeEQA | INSP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | **3** | ◐ | ✘ | ✘ | 2 | 3 | 2 | **7.5** |
+| DefectBench | INSP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **2.5** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
+| SGR-BIM | CODE, BIM | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✘ | ✔ | ✘ | 3 | 2 | 4 | **10** |
+| DrafterBench | CONST | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 4 | **10** |
+| StructureClaw | STRUC, CODE | ? | ✘ | ◐ | ◐ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ✘ | 3 | 2 | 3 | **8.5** |
+| MMArch | STRUC, SEIS, INSP, BIM | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✔ | ✘ | ◐ | 3 | ? | 3 | **7.5** |
+| Large Language Model-Based Multi-Agent Systems for Automated Foundation Design | GEO | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✘ | 0 | 1 | 3 | **5** |
+| Agentic Large Language Models for Automated Structural Analysis of 3D Frame Systems | STRUC | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ✘ | 3 | 1 | 4 | **8.5** |
+| LLM-EPANET | HYD | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ✘ | 3 | 1 | 4 | **8.5** |
+| EngDesign | STRUC, SDES | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✔ | ✘ | 3 | 1 | 3 | **8** |
+| Toward Responsible AI in High-Stakes Domains: A Dataset for Building Static Analysis with LLMs in Structural Engineering | STRUC, SEIS | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ✘ | 3 | 0 | 3 | **6.5** |
+| Cognitive Agents for Bridge Inspection Prioritization | INSP | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✔ | ✘ | 3 | 3 | 4 | **11** |
+| SoM-1K | STRUC | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ◐ | ✘ | 3 | 3 | 4 | **10.5** |
+| A Lightweight Large Language Model-Based Multi-Agent System for 2D Frame Structural Analysis | STRUC | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 1 | 4 | **8** |
+| TRIP-Evaluate | TRAN | ✘ | ✘ | ✘ | ✔ | ✘ | ? | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
+| PE Civil Bench | GEN, SDES | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 2 | 2 | 1 | **5.5** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
+| AutoBM / BMEval | STRUC, SEIS, CODE | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **0.5** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
+| Automating Structural Reliability Analysis with a Multi-Agent Large Language Model Framework | REL, STRUC, GEO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **0.5** | ◐ | ✘ | ✘ | 3 | 1 | 4 | **8.5** |
+| A Large Language Model-Empowered Agent for Reliable and Robust Structural Analysis | STRUC | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **0.5** | ✘ | ✘ | ✘ | 3 | 1 | 4 | **8** |
+| Integrating Large Language Models for Automated Structural Analysis | STRUC | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **0.5** | ✘ | ✘ | ✘ | 3 | 1 | 4 | **8** |
+| CEQuest | CONST | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | **0.5** | ✘ | ✘ | ✘ | 3 | 2 | 2 | **7** |
+| ERI Benchmark | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✔ | 2 | 2 | 3 | **9** |
+| AECBench | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✘ | 2 | 3 | 3 | **9** |
+| Civil-Eval | CONST, STRUC, TRAN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
+| TransportBench | TRAN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
+| Evaluating the Performance of Artificial Intelligence Chatbots and Large Language Models in the FE and PE Structural Exams | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ◐ | ✘ | ✘ | 3 | 2 | 3 | **8.5** |
+| Hydro-SE Bench | HYD, GEO, CODE | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 2 | ? | 3 | **5** |
+Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
+
+Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 of the 47 rows, which is why it leads the coverage group — almost no work here demonstrably grants live retrieval, and most do not say; the full text of eleven of those thirty-five was read for this column and not one states it either way. `Scale` is `?` on 12 rows, every one a multi-domain suite that reports a total task count but no per-domain breakdown. Both columns record that silence rather than resolving it by inference, and in both cases the silence costs the work real score. Two further cells remain `?`: SciCode and Terminal-Bench Science on `Real`.
+
 ## Related Works
 
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
