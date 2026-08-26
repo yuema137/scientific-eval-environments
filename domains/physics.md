@@ -62,72 +62,87 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 
 A checklist view of the same works: what each one does and does not put under evaluation. It answers a different question from the Comparison table above — not *what science is being tested* but *what an evaluation setup covers and leaves out*.
 
-**Marks.** `✔` present · `✘` explicitly absent · `◐` partial, optional, or true of only part of the suite · `?` not stated in the card or the primary source. `?` means the source is silent, not that the answer is no; it is a standing verification backlog, never a default.
+**Marks.** `✔` present · `✘` explicitly absent · `◐` partial, optional, or true of only part of the suite · `?` not stated in the card or the primary source. `?` means the source is silent, not that the answer is no; it is a standing verification backlog, never a default. `Domain` and `Fail` are not yes/no columns — see below.
 
-**Columns.**
+**`Domain`** names the physics subfields the work actually evaluates in, taken from the card's `## Domains` prose. This vocabulary is specific to this page — each domain page defines its own, since the subfields of physics and of robotics have nothing to say to each other.
 
-*Task setup* — **E2E** end-to-end research: a question or goal only, with no source paper, reference implementation, or step-by-step specification supplied, and the agent drives the whole investigation · **Repro** grounded in a specific published result the agent must match or recover · **Inter** interactive: the agent takes multiple actions against an environment, tool, or simulator and gets feedback that shapes the next one · **Code** solving requires writing and running code · **Net** network or live external retrieval permitted; a supplied fixed corpus does not count.
+`CLA` classical mechanics & dynamics · `STAT` statistical physics & thermodynamics · `CM` condensed matter · `AMO` atomic, molecular & optical · `QM` quantum mechanics (general) · `QI` quantum information & computing · `HEP` high-energy & particle · `NUC` nuclear · `PLA` plasma · `GR` gravitation, relativity & gravitational waves · `COS` cosmology & astrophysics · `FLU` fluid dynamics · `COMP` computational & numerical physics (PDE, FEM, solvers) · `INSTR` instrumentation & experimental infrastructure · `GEN` curriculum-wide or unspecified, no single subfield
 
-*Data & grounding* — **Real** real experimental or observational data, as opposed to synthetic or simulated (a digital twin is simulated) · **MM** multimodal content is load-bearing, either required as input or scored as an output artifact.
+**The yes/no columns are ordered by rarity — the properties fewest works have come first.** The left of the table is where the field is thin; the right is where most works already cluster. A property nearly every work satisfies is not a column at all: *writing and running code* and *deterministic programmatic verification* were both dropped for carrying almost no discriminating signal.
 
-*Evaluation* — **Exec** deterministic programmatic verification (execution, tests, numerical comparison to a reference, symbolic checking, proof kernel) · **Judge** an LLM judge takes part in scoring · **Rubric** an expert-authored rubric or official marking scheme with named criteria or weights; a continuous automatic metric is not a rubric · **Cost** budget or resource cost is a scored or priced dimension, not merely a step cap · **Fail** the source reports a scientific failure-mode analysis or error taxonomy beyond headline scores.
+- **Net** — network or live external retrieval permitted; a supplied fixed corpus does not count.
+- **E2E** — end-to-end research: a question or goal only, with no source paper, reference implementation, or step-by-step specification supplied, and the agent drives the whole investigation.
+- **Cost** — budget or resource cost is a scored or priced dimension, not merely a step cap.
+- **MM** — multimodal content is load-bearing, either required as input or scored as an output artifact.
+- **Repro** — grounded in a specific published result the agent must match or recover.
+- **Real** — real experimental or observational data, as opposed to synthetic or simulated (a digital twin is simulated).
+- **Rubric** — an expert-authored rubric or official marking scheme with named criteria or weights; a continuous automatic metric is not a rubric.
+- **Judge** — an LLM judge takes part in scoring.
+- **Inter** — interactive: the agent takes multiple actions against an environment, tool, or simulator and gets feedback that shapes the next one.
+
+**`Fail`** is graded 0–4 rather than yes/no, because "reports a failure analysis" spans everything from a single remark to a controlled experiment:
+
+- `0` — nothing beyond headline scores.
+- `1` — narrative remarks on where models fall short; no classes named.
+- `2` — named error classes or illustrative case studies, but no counts or shares.
+- `3` — a quantified failure account: a taxonomy with per-class counts or shares, or measured breakdowns isolating specific failure conditions.
+- `4` — level 3 plus a controlled experiment or ablation built to test *why* the failures occur.
 
 For multi-domain suites the row describes this domain's slice, as in the Comparison table.
 
-| Work | E2E | Repro | Inter | Code | Net | Real | MM | Exec | Judge | Rubric | Cost | Fail |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| MaD Physics | ✔ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ◐ |
-| NewtonBench | ✔ | ✘ | ✔ | ◐ | ? | ✘ | ✘ | ✔ | ✔ | ✘ | ✘ | ✔ |
-| PRBench | ✘ | ✔ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✔ | ✔ | ✘ | ✔ |
-| Collider-Bench | ✘ | ✔ | ✔ | ✔ | ? | ◐ | ✘ | ✔ | ✔ | ✘ | ✔ | ✔ |
-| SimulCost | ✘ | ✘ | ✔ | ✘ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ✔ |
-| NatureBench | ◐ | ✔ | ✔ | ✔ | ✘ | ✔ | ✘ | ✔ | ✔ | ✘ | ✘ | ✔ |
-| Terminal-Bench Science | ✘ | ✘ | ✔ | ✔ | ? | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ |
-| ResearchClawBench | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✘ | ✔ | ✔ | ◐ | ✔ |
-| CMT-Benchmark | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
-| CMPhysBench | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ |
-| PhySciBench | ◐ | ✘ | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | ✔ | ◐ | ✔ |
-| MetaSyn | ◐ | ✔ | ✔ | ? | ✘ | ✔ | ✘ | ✔ | ✔ | ✘ | ✘ | ✔ |
-| RealPDEBench | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ |
-| Gravity-Bench-v1 | ✔ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ✔ |
-| PhysGym | ✔ | ✘ | ✔ | ✘ | ? | ✘ | ✘ | ✔ | ◐ | ✘ | ✘ | ◐ |
-| DiscoverPhysics | ✔ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✔ | ✔ | ✘ | ✔ |
-| FEABench | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✔ | ✘ | ✘ | ✔ |
-| QMP-Bench | ✘ | ✔ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ◐ | ✔ | ✘ | ◐ |
-| gwBenchmarks | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
-| PRL-Bench | ◐ | ✘ | ◐ | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | ✔ |
-| EnvTrace | ✘ | ✘ | ✘ | ✔ | ? | ✘ | ✘ | ✔ | ◐ | ✘ | ✘ | ◐ |
-| CritPt | ✘ | ✘ | ◐ | ◐ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
-| TPBench | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
-| SciCode | ✘ | ✘ | ✘ | ✔ | ? | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
-| Lean4Physics | ✘ | ✘ | ✘ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ |
-| UGPhysics | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ |
-| PHYBench | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
-| SeePhys | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✔ | ✔ | ◐ | ✘ | ✘ | ✔ |
-| HiPhO | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ◐ | ✘ | ✔ | ✔ | ✘ | ✘ |
-| PHYSICS | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | ? | ✘ | ✘ | ✔ |
-| CodePDE | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
-| PDEAgent-Bench | ✘ | ✘ | ✘ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ✔ |
-| MooseBench | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
-| SciConvBench | ✘ | ✘ | ✔ | ✘ | ? | ✘ | ✘ | ◐ | ✔ | ✔ | ✘ | ◐ |
-| AInsteinBench | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
-| SciVisAgentBench | ✘ | ✘ | ✔ | ✔ | ? | ✔ | ✔ | ✔ | ✔ | ✘ | ◐ | ◐ |
-| An LLM-driven framework for cosmological model-building and exploration | ◐ | ✔ | ✔ | ✔ | ✘ | ✔ | ✘ | ✔ | ◐ | ✘ | ✘ | ◐ |
-| First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ |
-| SimAgents | ✘ | ✔ | ✘ | ◐ | ? | ✔ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ |
-| Enhancing Agentic Autonomous Scientific Discovery with Vision-Language Model Capabilities | ◐ | ✘ | ✔ | ✔ | ? | ✘ | ✔ | ✘ | ◐ | ◐ | ✘ | ◐ |
-| AI's Capability in Assisting Scientific Research I: Literature Review | ✘ | ✘ | ◐ | ✘ | ✔ | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ |
-| AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | ◐ |
-| Imaging-101 | ◐ | ✔ | ✔ | ✔ | ? | ✔ | ✔ | ✔ | ✔ | ✔ | ◐ | ✔ |
-| SciVQR | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✔ | ✔ | ✘ | ◐ |
-| HiSciBench | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✔ | ✔ | ✔ | ✘ | ✔ |
-| LQCDMaster | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ◐ | ✔ |
-| PACE-Bench | ✘ | ✘ | ✔ | ✔ | ? | ✘ | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ |
+| Work | Domain | Net | E2E | Cost | MM | Repro | Real | Rubric | Judge | Inter | Fail |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| MaD Physics | CLA, FLU, QM | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 1 |
+| NewtonBench | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | 4 |
+| PRBench | HEP, AMO, NUC, PLA, CM | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | ✔ | 2 |
+| Collider-Bench | HEP | ? | ✘ | ✔ | ✘ | ✔ | ◐ | ✘ | ✔ | ✔ | 4 |
+| SimulCost | GEN | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 2 |
+| NatureBench | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | ✔ | ✔ | 2 |
+| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✔ | 0 |
+| ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | 3 |
+| CMT-Benchmark | CM, STAT | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 2 |
+| CMPhysBench | CM | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 3 |
+| PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | ✔ | ✔ | 1 |
+| MetaSyn | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | ✔ | ✔ | 3 |
+| RealPDEBench | FLU | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | 0 |
+| Gravity-Bench-v1 | GR, CLA | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 |
+| PhysGym | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✔ | 3 |
+| DiscoverPhysics | CLA, GR | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✔ | 2 |
+| FEABench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | 3 |
+| QMP-Bench | CM, COMP | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | ✔ | 0 |
+| gwBenchmarks | GR | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 3 |
+| PRL-Bench | COS, CM, HEP, QI, STAT | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ◐ | 3 |
+| EnvTrace | INSTR | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 1 |
+| CritPt | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | 3 |
+| TPBench | HEP, COS | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 2 |
+| SciCode | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ✘ | 3 |
+| Lean4Physics | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 0 |
+| UGPhysics | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 3 |
+| PHYBench | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 4 |
+| SeePhys | GEN | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ◐ | ✘ | 3 |
+| HiPhO | GEN | ? | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | 0 |
+| PHYSICS | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | 2 |
+| CodePDE | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 1 |
+| PDEAgent-Bench | COMP | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | 3 |
+| MooseBench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 |
+| SciConvBench | FLU, COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✔ | 3 |
+| AInsteinBench | GR, FLU | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 2 |
+| SciVisAgentBench | GEN | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✘ | ✔ | ✔ | 1 |
+| An LLM-driven framework for cosmological model-building and exploration | COS | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | 3 |
+| First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope | GR | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 |
+| SimAgents | COS | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | 3 |
+| Enhancing Agentic Autonomous Scientific Discovery with Vision-Language Model Capabilities | CLA | ? | ◐ | ✘ | ✔ | ✘ | ✘ | ◐ | ◐ | ✔ | 1 |
+| AI's Capability in Assisting Scientific Research I: Literature Review | GR, HEP, INSTR | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ◐ | 4 |
+| AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation | HEP, INSTR | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | 3 |
+| Imaging-101 | COMP | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | 3 |
+| SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ✔ | ✘ | 3 |
+| HiSciBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | ✔ | ✘ | 3 |
+| LQCDMaster | HEP, NUC | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | 3 |
+| PACE-Bench | CLA, FLU | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | 4 |
 
 Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
 
-Repository note: `Net` is `?` on 35 of the 47 rows. Whether the evaluated agent had live network or literature access is rarely reported: the full text of eleven of those thirty-five was read for this column, and not one states it either way. The column records that silence rather than resolving it by inference. Three further cells remain `?` — SciCode and Terminal-Bench Science on `Real`, MetaSyn on `Code` — where neither the card nor the primary source settles the question.
-
+Repository note: `Net` is `?` on 35 of the 47 rows, which is why it leads the table — almost no work here demonstrably grants live retrieval, and most do not say. The full text of eleven of those thirty-five was read for this column and not one states it either way; the column records that silence rather than resolving it by inference. Two further cells remain `?`, both SciCode and Terminal-Bench Science on `Real`.
 ## Related Works
 
 - [SciVisAgentBench](../works/scivisagentbench.md)
