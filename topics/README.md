@@ -2,9 +2,9 @@
 
 > **English** | [简体中文](../zh/topics/README.md)
 
-Literature-review pages, one per canonical evaluation-research direction.
+Topic pages connect individual work cards into an explanation of an evaluation problem.
 
-Topic pages are the **evaluation-research axis** — one of the repository's three co-equal entry points, alongside the field axis in [`../domains/`](../domains/) and the research-activity axis in [`../activities/`](../activities/). They answer three questions: **what do we evaluate, how do we evaluate it, and how is evaluation used to improve agents?**
+Use this index when your question begins with "how do we know?" You may want to know whether an agent chose a good plan, why a long run failed, whether a judge can be trusted, or how an evaluation result should change training data. A topic page starts from that practical question, shows the mechanism on a concrete case, and then compares the relevant literature.
 
 ```
 Topic  →  Representative works  →  Original papers
@@ -14,7 +14,7 @@ Topic  →  Representative works  →  Original papers
 
 The set of topics is fixed. Adding a new topic requires updating [`../AGENT.md`](../AGENT.md).
 
-Each topic opens with a plain-language `Start Here` section before the formal synthesis. It shows the old evaluation path, the changed step, one concrete trace, and the nearest boundary. See the repository [Explanation Style Guide](../EXPLANATION_STYLE.md).
+Every topic opens with `Start Here`, but the explanation must continue through the rest of the page. `Definition` names the boundary, `Motivation` shows the failure in the old path, `Existing Approaches` explains what each method changes, and `Open Questions` states what the evidence still cannot answer. See the [Explanation Style Guide](../EXPLANATION_STYLE.md).
 
 | # | Topic | File | Related works |
 |---|---|---|---|

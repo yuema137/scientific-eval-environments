@@ -2,7 +2,7 @@
 
 > **English** | [简体中文](../zh/works/README.md)
 
-Factual reference cards for individual pieces of prior work.
+One card per paper or project, written so a reader can see what changed without reading the abstract first.
 
 **"Works"** is broader than "benchmarks." This directory holds a card for every piece of work the repository documents, including:
 
@@ -12,15 +12,15 @@ Factual reference cards for individual pieces of prior work.
 - **RL work on agents** — reinforcement-learning contributions whose focus is *evaluating* agents (reward design for agents, credit-assignment methods, off-policy evaluation of agent trajectories). Pure RL algorithm / training / policy-optimization work remains out of scope; see [`../AGENT.md`](../AGENT.md).
 - **Reference papers** — surveys and position papers, tagged as such on the card.
 
-Each work has **one** Markdown file directly under this directory — no per-category sub-folders. Filenames use kebab-case matching the work's canonical name (e.g., `terminal-bench-science.md`, `medhelm.md`, `trace.md`).
+Each work has **one** Markdown file directly under this directory. There are no category subfolders. A card first identifies the old evaluation or development path, then names the step this work changes, traces how one task reaches a score, and records the strongest boundary supported by the source. Filenames use kebab-case matching the work's canonical name, such as `terminal-bench-science.md`, `medhelm.md`, and `trace.md`.
 
 ## What a card is (and is not)
 
-A card answers: **"What is this work?"**
+A card answers four concrete questions: **What job does this work do? Which step does it change? How is that change evaluated? What does the evidence stop short of proving?**
 
 A card is **not** a literature review. Synthesis, comparisons, and design-space analysis live in [`../topics/`](../topics/).
 
-Keep cards lightweight. If a comparison or analysis is worth writing, it belongs in a topic page.
+Cards stay factual and compact. They explain one work; they do not decide which approach wins across the field. Cross-work comparison belongs in a topic page.
 
 ## Card template
 
