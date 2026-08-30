@@ -404,6 +404,18 @@ def validate(month, manifest=None):
         errors.append("English and Chinese report work sets differ")
     if "——" in zh:
         errors.append("Chinese report contains a prohibited em dash")
+    glance_en = _first_plain_line(en, "Month at a Glance")
+    glance_zh = _first_plain_line(zh, "本月概览")
+    if re.match(r"^\d+ works first appeared this month\.", glance_en):
+        errors.append("English Month at a Glance starts with a retired count-only opener")
+    if re.match(r"^本月共有\s*\d+\s*项工作首次公开。", glance_zh):
+        errors.append("Chinese Month at a Glance starts with a retired count-only opener")
+    topic_en = _section(en, "Selected Topic Developments").strip()
+    topic_zh = _section(zh, "值得展开的 Topic").strip()
+    if topic_en.startswith("Active topics this month:"):
+        errors.append("English Selected Topic Developments uses a retired list-only opener")
+    if topic_zh.startswith("本月最活跃的 Topic 包括："):
+        errors.append("Chinese Selected Topic Developments uses a retired list-only opener")
     for boilerplate in (
         "Together, these works move the discussion from a single headline result toward a more explicit account of the behavior, evidence, or development step being evaluated.",
         "This cluster changes what evaluators can see and act on:",
