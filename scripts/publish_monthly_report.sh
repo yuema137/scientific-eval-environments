@@ -23,6 +23,7 @@ month, path = sys.argv[1:]
 body = """## Summary
 
 - publish the bilingual monthly knowledge report for {month}
+- refresh the existing canonical report files for that month in place rather than creating parallel copies
 - synthesize the month's main literature shifts while retaining a complete card index
 - distinguish works first released that month from older works backfilled into the repository
 - run adversarial editorial review before deterministic validation so structural contradictions are fixed in the generated prose
@@ -30,6 +31,7 @@ body = """## Summary
 ## Validation
 
 - monthly inclusion completeness and release/backfill classification
+- duplicate-work checks across the full monthly archive
 - English/Chinese work-set parity
 - local card, Topic, and Domain links
 - explicit enumeration consistency in narrative sections
