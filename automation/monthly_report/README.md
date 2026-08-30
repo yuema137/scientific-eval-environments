@@ -21,6 +21,8 @@ The assignment rule and the date stamp answer different questions:
 - `First appeared` records when the work itself first became publicly accessible.
 - Matching months produce `New release` / `当月新发布`; all other dates produce `Backfill` / `历史补录`.
 
+The initial archive is bootstrapped separately: existing cards with public first appearances from January 2024 onward are grouped by that first-appearance month. Cards from 2023 or earlier receive no historical monthly report. This exception does not change the rule for future incremental reports.
+
 ## Editorial balance
 
 The narrative is selective, but `Complete Monthly Index` is exhaustive. The writer expands only story lines, Topics, and Domains that carry a real monthly development. Each work receives one primary narrative treatment; cross-links expose other taxonomy membership without repeating its summary.

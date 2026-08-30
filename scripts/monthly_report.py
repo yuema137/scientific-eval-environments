@@ -12,6 +12,7 @@ import re
 import subprocess
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 
@@ -74,9 +75,15 @@ def _main_additions(month):
     return sorted(paths)
 
 
-def build_manifest(month):
+def build_manifest(month, basis="main-addition"):
     works = []
-    for rel in _main_additions(month):
+    if basis == "first-appearance":
+        paths = sorted(str(path.relative_to(ROOT)) for path in (ROOT / "works").glob("*.md")
+                       if path.name != "README.md" and STAMP.search(path.read_text()) and
+                       STAMP.search(path.read_text()).group(1)[:7] == month)
+    else:
+        paths = _main_additions(month)
+    for rel in paths:
         path = ROOT / rel
         if not path.exists():
             continue
@@ -101,6 +108,7 @@ def build_manifest(month):
         })
     manifest = {
         "month": month,
+        "basis": basis,
         "month_label": dt.date(int(month[:4]), int(month[5:]), 1).strftime("%B %Y"),
         "works_count": len(works),
         "new_release_count": sum(w["added_as"] == "New release" for w in works),
@@ -114,8 +122,6 @@ def build_manifest(month):
 
 
 def _worker(agent, prompt, max_turns=35):
-    if not os.environ.get("CLAUDE_CODE_OAUTH_TOKEN"):
-        raise RuntimeError("CLAUDE_CODE_OAUTH_TOKEN is not set")
     system = (AGENTS / (agent + ".md")).read_text()
     cmd = [
         "claude", "-p", prompt, "--output-format", "json", "--max-turns", str(max_turns),
@@ -150,8 +156,8 @@ def _update_indexes():
         path.write_text(text)
 
 
-def generate(month, force=False):
-    manifest, manifest_path = build_manifest(month)
+def generate(month, force=False, basis="main-addition", review=True):
+    manifest, manifest_path = build_manifest(month, basis)
     if not manifest["works"]:
         raise RuntimeError("no cards first reached main during %s" % month)
     en, zh = _report_paths(month)
@@ -169,15 +175,59 @@ def generate(month, force=False):
     _worker("monthly-report-translator", prompt)
     if not zh.exists():
         raise RuntimeError("translator did not create %s" % zh)
-    prompt = ("Review and revise %s in place. Use %s as the factual source. Preserve all links, "
-              "numbers, taxonomy membership, and complete-index rows." %
-              (zh.relative_to(ROOT), en.relative_to(ROOT)))
-    _worker("monthly-report-chinese-reviewer", prompt, max_turns=30)
+    if review:
+        prompt = ("Review and revise %s in place. Use %s as the factual source. Preserve all links, "
+                  "numbers, taxonomy membership, and complete-index rows." %
+                  (zh.relative_to(ROOT), en.relative_to(ROOT)))
+        _worker("monthly-report-chinese-reviewer", prompt, max_turns=8)
+    # Relative links must move up one additional directory from zh/monthly/.
+    zh_text = zh.read_text()
+    for folder in ("works", "topics", "domains", "activities"):
+        zh_text = zh_text.replace("](../%s/" % folder, "](../../%s/" % folder)
+    zh.write_text(zh_text)
     _update_indexes()
     errors = validate(month, manifest)
     if errors:
         raise RuntimeError("monthly report validation failed:\n- " + "\n- ".join(errors))
     return en, zh
+
+
+def bootstrap(start="2024-01", end=None, force=False, workers=4):
+    end = end or _month()
+    months = []
+    year, number = map(int, start.split("-"))
+    while "%04d-%02d" % (year, number) <= end:
+        current = "%04d-%02d" % (year, number)
+        manifest, _ = build_manifest(current, "first-appearance")
+        if manifest["works"]:
+            months.append(current)
+        number += 1
+        if number == 13:
+            year, number = year + 1, 1
+
+    def run_one(report_month):
+        en, zh = _report_paths(report_month)
+        if en.exists() and zh.exists():
+            zh_text = zh.read_text()
+            for folder in ("works", "topics", "domains", "activities"):
+                zh_text = zh_text.replace("](../%s/" % folder, "](../../%s/" % folder)
+            zh.write_text(zh_text)
+            if not validate(report_month, build_manifest(report_month, "first-appearance")[0]):
+                return report_month
+        en.unlink(missing_ok=True) if hasattr(en, "unlink") else None
+        zh.unlink(missing_ok=True) if hasattr(zh, "unlink") else None
+        generate(report_month, force=True, basis="first-appearance", review=False)
+        return report_month
+
+    completed = []
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futures = {pool.submit(run_one, report_month): report_month for report_month in months}
+        for future in as_completed(futures):
+            completed.append(future.result())
+            print("bootstrapped %s (%d/%d)" %
+                  (futures[future], len(completed), len(months)), flush=True)
+    _update_indexes()
+    return sorted(completed)
 
 
 def _table_records(text, chinese=False):
@@ -206,12 +256,14 @@ def _broken_links(path, text):
 
 
 def validate(month, manifest=None):
-    manifest = manifest or build_manifest(month)[0]
     en_path, zh_path = _report_paths(month)
     errors = []
     if not en_path.exists() or not zh_path.exists():
         return ["missing English or Chinese report for %s" % month]
     en, zh = en_path.read_text(), zh_path.read_text()
+    if manifest is None:
+        basis = "first-appearance" if "**Coverage:** First appearances" in en else "main-addition"
+        manifest = build_manifest(month, basis)[0]
     required_en = ("Month at a Glance", "What Changed This Month", "Complete Monthly Index")
     required_zh = ("本月概览", "这个月到底变了什么", "本月完整索引")
     for heading in required_en:
@@ -256,11 +308,18 @@ def validate(month, manifest=None):
 def main():
     parser = argparse.ArgumentParser()
     sub = parser.add_subparsers(dest="command", required=True)
-    for name in ("prepare", "generate", "validate", "validate-all", "index"):
+    for name in ("prepare", "generate", "bootstrap", "validate", "validate-all", "index"):
         command = sub.add_parser(name)
-        if name not in ("index", "validate-all"):
+        if name not in ("index", "validate-all", "bootstrap"):
             command.add_argument("--month")
+            command.add_argument("--basis", choices=("main-addition", "first-appearance"),
+                                 default="main-addition")
         if name == "generate":
+            command.add_argument("--force", action="store_true")
+        if name == "bootstrap":
+            command.add_argument("--start", default="2024-01")
+            command.add_argument("--end")
+            command.add_argument("--workers", type=int, default=4)
             command.add_argument("--force", action="store_true")
     args = parser.parse_args()
     if args.command == "index":
@@ -278,14 +337,18 @@ def main():
             return 1
         print("monthly-report: PASS (%d reports)" % len(months))
         return 0
+    if args.command == "bootstrap":
+        months = bootstrap(args.start, args.end, args.force, args.workers)
+        print("bootstrapped %d monthly reports" % len(months))
+        return 0
     month = _month(args.month)
     if args.command == "prepare":
-        manifest, path = build_manifest(month)
+        manifest, path = build_manifest(month, args.basis)
         print("prepared %s with %d works at %s" %
               (month, manifest["works_count"], path.relative_to(ROOT)))
         return 0
     if args.command == "generate":
-        en, zh = generate(month, args.force)
+        en, zh = generate(month, args.force, args.basis)
         print("generated %s and %s" % (en.relative_to(ROOT), zh.relative_to(ROOT)))
         return 0
     errors = validate(month)

@@ -18,3 +18,5 @@ Independently revise one generated Chinese monthly report while preserving its f
 Use restrained, broadly understandable Northeastern conversational rhythm: short causal turns, direct questions when useful, and concrete emphasis. A technically curious Mandarin reader outside Northeast China must understand it immediately. Do not add jokes, personas, obscure regional vocabulary, or new technical claims.
 
 The English report is canonical for facts. Preserve all numbers, work links, Topic/Domain links, table rows, and uncertainty boundaries. Edit only the requested Chinese report.
+
+After the edit is complete, stop immediately and return a one-line completion result.

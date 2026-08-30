@@ -8,6 +8,8 @@ Monthly reports explain what entered the knowledge base during one calendar mont
 
 A work belongs to the month in which its card first reached `main`. Its card's separate `First appeared` stamp still records when the work itself first became publicly accessible.
 
+The one-time historical archive is the exception: existing cards were backfilled into reports from January 2024 onward according to their public `First appeared` month. No historical reports are created for 2023 or earlier. Future reports return to the main-addition rule below, so a late-discovered older work remains visible as a backfill.
+
 This distinction prevents two errors:
 
 - A newly released work is identified as a **New release** when its first-appearance month matches the report month.
@@ -30,5 +32,36 @@ The prose is selective; the index is exhaustive. A work may have several taxonom
 Reports are listed newest first when the monthly automation publishes them.
 
 <!-- MONTHLY_REPORTS_START -->
-No monthly reports yet.
+- [2026-08](./2026-08.md)
+- [2026-07](./2026-07.md)
+- [2026-06](./2026-06.md)
+- [2026-05](./2026-05.md)
+- [2026-04](./2026-04.md)
+- [2026-03](./2026-03.md)
+- [2026-02](./2026-02.md)
+- [2026-01](./2026-01.md)
+- [2025-12](./2025-12.md)
+- [2025-11](./2025-11.md)
+- [2025-10](./2025-10.md)
+- [2025-09](./2025-09.md)
+- [2025-08](./2025-08.md)
+- [2025-07](./2025-07.md)
+- [2025-06](./2025-06.md)
+- [2025-05](./2025-05.md)
+- [2025-04](./2025-04.md)
+- [2025-03](./2025-03.md)
+- [2025-02](./2025-02.md)
+- [2025-01](./2025-01.md)
+- [2024-12](./2024-12.md)
+- [2024-11](./2024-11.md)
+- [2024-10](./2024-10.md)
+- [2024-09](./2024-09.md)
+- [2024-08](./2024-08.md)
+- [2024-07](./2024-07.md)
+- [2024-06](./2024-06.md)
+- [2024-05](./2024-05.md)
+- [2024-04](./2024-04.md)
+- [2024-03](./2024-03.md)
+- [2024-02](./2024-02.md)
+- [2024-01](./2024-01.md)
 <!-- MONTHLY_REPORTS_END -->
