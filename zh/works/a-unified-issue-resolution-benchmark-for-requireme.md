@@ -8,7 +8,7 @@ SWE-RPG 是一个仓库级 issue 解决 benchmark，把可执行的补丁评估�
 
 ## Topics
 
-
+- [Planning & Decision-Making Evaluation](../topics/planning_decision_evaluation.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
 ## Activities

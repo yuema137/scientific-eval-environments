@@ -136,6 +136,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 
 ## Related Works
 
+- [TravelPlanner](../works/travelplanner.md)
 - [SkillEvolBench](../works/skillevolbench.md)
 - [PATH-Bench](../works/path-bench.md)
 - [Skill²-Bench](../works/skill2-bench.md)

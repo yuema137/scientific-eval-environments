@@ -9,6 +9,7 @@ LoTa-Bench 为具身 agent 的语言任务规划器提供全自动评测：LLM �
 ## Topics
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
+- [Planning & Decision-Making Evaluation](../topics/planning_decision_evaluation.md)
 
 ## Activities
 

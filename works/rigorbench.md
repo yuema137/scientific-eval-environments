@@ -8,6 +8,7 @@ RigorBench is a benchmark that scores autonomous AI coding agents on **engineeri
 
 ## Topics
 
+- [Planning & Decision-Making Evaluation](../topics/planning_decision_evaluation.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 
