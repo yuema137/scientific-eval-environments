@@ -10,11 +10,11 @@ This page is the entry point for those maps and arguments. A reader looking for 
 
 ## Definition
 
-Survey papers and position papers on LLM-agent evaluation and the future direction of agentic systems. Unlike a benchmark, a survey does not add a task suite or a scoring protocol; it organizes the literature and identifies gaps. This topic acts as an index of such references for the rest of the repository.
+This topic collects surveys that organize agent-evaluation research and position papers that argue where the field should go next. They do not necessarily contribute a new task suite or scoring protocol. Their job is to connect scattered terms, compare lines of work, and point out missing evidence.
 
 ## Motivation
 
-A repository organized around benchmarks and topic-level literature reviews still needs a home for meta-level references — surveys that catalog the field, and position papers that argue for direction. Rather than scattering them as footnotes, this topic collects them so that a reader looking for a "start with a survey" entry point can find one, and so that individual topic pages can cite them from one canonical location.
+Readers often need a map before they need another benchmark card. A survey can show that two communities use different names for the same evaluation problem; a position paper can make an open assumption explicit. Keeping these works together gives newcomers an entry point and gives the other topic pages one place to cite field-level arguments. Their synthesis is evidence about the literature, not a new agent-performance result.
 
 ## Existing Approaches
 

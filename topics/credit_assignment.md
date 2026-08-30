@@ -10,13 +10,13 @@ Credit assignment changes the scoring path. The evaluator may award completed su
 
 ## Definition
 
-Credit assignment, in evaluation, is the problem of attributing a trajectory's success or failure to specific steps, subgoals, or intermediate outputs — rather than treating success as an unstructured property of the trajectory as a whole. In benchmarks, credit-assignment machinery shows up as dense intermediate rewards, partial-credit scoring, or per-step scoring that survives when the terminal outcome is a single bit.
+Credit assignment asks which part of a trajectory produced the result. Instead of attaching one pass or fail label to the whole run, an evaluator can score completed subgoals, intermediate outputs, or individual actions. The terminal result may still be one bit, but the retained step-level signal shows where progress happened and where it stopped.
 
 ## Motivation
 
-Long-horizon and open-ended tasks produce trajectories where a single terminal signal — pass or fail — is too coarse to be useful. Two failing trajectories can differ in *where* they went wrong; two successful trajectories can differ in whether the success was earned by sound intermediate reasoning or by a lucky final step. Credit assignment is the design commitment to preserve that finer signal at evaluation time.
+Long and open-ended tasks can fail in many different ways. One agent may choose the right plan and make a unit error near the end; another may choose the wrong plan immediately. A zero gives both runs the same label. The reverse problem also occurs: two successful runs may contain very different amounts of sound reasoning, wasted work, or luck. Credit assignment preserves those differences so developers know what to repair and learners receive a more useful signal.
 
-Credit assignment is related to but distinct from [Skill Hierarchy](./skill_hierarchy.md). Skill hierarchy asks *which subskill an agent has*; credit assignment asks *which step of a trajectory drove the outcome*. Many benchmarks contribute to both.
+This is not the same as [Skill Hierarchy](./skill_hierarchy.md). Skill hierarchy asks which abilities an agent has. Credit assignment asks which event in this run changed the outcome. One benchmark can answer both questions, but the labels and evidence are different.
 
 ## Existing Approaches
 

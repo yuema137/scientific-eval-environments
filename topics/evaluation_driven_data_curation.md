@@ -10,11 +10,11 @@ Here the score closes the loop. A curation policy selects 10,000 examples, the f
 
 ## Definition
 
-Evaluation-driven data curation covers work in which data selection, generation, filtering, weighting, curriculum, or mixture design is explicitly revised using downstream evaluation feedback.
+Evaluation-driven data curation uses downstream results to choose the next training data. The system may select, generate, filter, weight, reorder, or remix examples, but the defining step is the return path: evaluation changes the next data decision.
 
 ## Motivation
 
-Nearly every training paper reports evaluation, but that does not make evaluation part of the development loop. The defining structure here is iterative: a data policy produces training data, the resulting model is evaluated, and that signal changes the next data policy. This cutline prevents the topic from absorbing general data-centric ML.
+Nearly every training paper reports a final score. That alone does not close a loop. Here, a data policy builds a training set, a fixed recipe produces a model, held-out evaluation exposes a weakness, and the policy changes what it selects next. Requiring that feedback path keeps ordinary dataset comparisons and general data-centric ML outside the topic.
 
 ## Existing Approaches
 

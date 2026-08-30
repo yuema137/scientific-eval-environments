@@ -8,15 +8,15 @@
 
 这一页就是这些地图和论点的入口。想先看 agent evaluation 全景，可以从这里进；想深入 credit assignment 或 skill evolution，再顺着 specialized survey 走。它们整理和解释已有 evidence，除非另有 empirical study，否则不能当成新的 task-level performance result。
 
-## Definition
+## 定义
 
-关于 LLM-agent 评估与 agentic 系统未来方向的综述与立场论文。与 benchmark 不同，综述不引入新的任务集或评分协议——它组织文献、指出空缺。此 topic 页作为仓库其他部分对这类参考文献的索引。
+这个 topic 收录两类工作：survey 负责整理 agent evaluation 文献，position paper 负责论证这个领域下一步应该往哪里走。它们不一定提供新 task suite 或 scoring protocol。它们的工作是把分散的概念连起来，比较不同研究线，并指出哪里还缺 evidence。
 
-## Motivation
+## 为什么重要
 
-一个围绕 benchmark 与 topic 级文献综述组织的仓库，仍然需要一个安放**元层次**引用的位置：综述用于给整个领域编目、立场论文用于主张方向。与其把它们零散地当作脚注，不如集中在此 topic，让希望"从综述入门"的读者能找到入口，也让各 topic 页在需要引用时能指向唯一的标准位置。
+读者有时先需要一张地图，而不是再看一张 benchmark card。Survey 可以指出两个 community 其实在用不同名字说同一个 evaluation problem，position paper 可以把一条没说出来的 assumption 摆到桌面上。把这些工作集中起来，新读者有了入口，其他 topic 也有统一的引用位置。但它们整理的是文献 evidence，不是新的 agent performance result。
 
-## Existing Approaches
+## 现有方法
 
 - **通用 LLM-agent 评估综述。** [Survey on Evaluation of LLM-based Agents](../works/agent-evaluation-survey.md)（Yehudai 等，2025）沿 foundational capabilities、domain-specific benchmarks、generalist agents、benchmark core dimensions、evaluation frameworks 五个视角组织评估；指出 cost-efficiency、safety、robustness 与可扩展的评估方法学是当前空缺。[Evaluation and Benchmarking of LLM Agents: A Survey](../works/agent-evaluation-benchmarking-survey.md)（Mohammadi 等，2025）沿二维分类法组织同一领域——evaluation objectives（评估什么）对 evaluation process（如何评估）——并突出面向企业的挑战（role-based access、reliability、compliance）。
 - **整体性 LLM-agent 综述。** [A Survey on Large Language Model based Autonomous Agents](../works/llm-autonomous-agents-survey.md)（Wang 等，2023）沿构建、应用、评估三方面综述 LLM-based 自主 agent；提出四模块构建框架（profiling、memory、planning、action），并将评估回顾为 subjective 与 objective 两类策略。其重心是 agent 构建而非评估，此处为完整性索引。
@@ -25,7 +25,7 @@
 - **只聚焦一个评估层面的综述。** [Agent Skill Evaluation and Evolution: Frameworks and Benchmarks](../works/agent-skill-evaluation-survey.md)（2026）把视野收窄到 agent skill 这一层：一方面按各类方法所消耗信号的粒度，把 skill 创建之后的演化范式分成四类；另一方面把以 skill 为中心的 benchmark 分成六类（utility、生成、检索与路由、安全审计、软件工程、真实环境）；两套分类交叉起来，覆盖上的空白便一目了然。另见 [Skill Hierarchy](./skill_hierarchy.md)。
 - **credit assignment 方法学综述。** [From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](../works/from-reasoning-to-agentic.md)（2026）综合了 69 篇 credit-assignment 方法的论文，横跨 reasoning 与 agentic RL，并补充一套六诊断框架，将假设的失效映射到识别障碍、估计量与评估对照，另有一张可复用的 "CA-ID Card" 用于溯源与证伪。另见 [Credit Assignment](./credit_assignment.md)。
 
-## Comparison
+## 方法对比
 
 | Reference | Year | Type | Focus | Card |
 |---|---|---|---|---|
@@ -39,12 +39,12 @@
 | Position: AI Agents in Scientific Teams Should Be Studied as Human-Agent Systems | 2026 | Position | 以人—agent 二元组为分析单元；团队效用等于互补性减去协作代价 | [→](../works/ai-agents-in-scientific-teams.md) |
 | Co-Evolution in Agentic Systems | 2026 | Survey | 共同演化的三阶段分类体系，以及静态 benchmark 为何看不见评判器被利用、对同伴过拟合与多样性坍缩 | [→](../works/co-evolution-agentic-systems-survey.md) |
 
-## Open Questions
+## 还没解决的问题
 
 - **覆盖节奏。** Agent 评估的推进很快；一篇 2025 年发表的综述已经会错过 2026 年的进展。该领域应以怎样的节奏发布更新版综述？本仓库应以怎样的节奏纳入新的综述？
 - **立场论文作为证据。** 立场论文主张方向，而不确立事实。在跨 topic 综合时，本仓库应如何权衡立场论文与综述、benchmark 论文之间的分量？
 
-## Related Works
+## 相关工作
 
 - [Agent Skill Evaluation and Evolution: Frameworks and Benchmarks](../works/agent-skill-evaluation-survey.md) — skill 演化范式与以 skill 为中心的 benchmark 两套分类，以及交叉后暴露的覆盖空白。
 - [From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](../works/from-reasoning-to-agentic.md)

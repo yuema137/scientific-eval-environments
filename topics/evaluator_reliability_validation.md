@@ -10,11 +10,11 @@ Take 100 expert-labeled trajectories, score them with the judge, then separate f
 
 ## Definition
 
-Evaluator reliability and validation studies whether the mechanism that assigns an agent score is accurate, calibrated, robust, and fit for its downstream use. Evaluators include deterministic verifiers, expert rubrics, reward models, LLM judges, and hybrid systems.
+An evaluator turns an agent run into a score, ranking, or reward. It may be a deterministic verifier, an expert rubric, a reward model, an LLM judge, or a combination of them. This topic tests whether that mechanism gives the right verdict, expresses uncertainty honestly, survives irrelevant changes, and remains suitable for the decision that consumes its output.
 
 ## Motivation
 
-An agent score is only as trustworthy as the evaluator that produces it. Agreement on easy cases does not establish reliable rankings, calibrated rewards, or resistance to position, style, length, and trajectory-distribution shifts. Evaluation therefore needs its own ground truth, uncertainty analysis, and failure tests.
+A score inherits the evaluator's mistakes. A judge can agree with experts on easy examples yet reverse a ranking when answer order changes, reward verbosity, or fail on trajectories unlike its validation set. Before its scores guide a leaderboard or training loop, the evaluator needs its own expert ground truth, calibration checks, and adversarial failure tests.
 
 ## Existing Approaches
 

@@ -8,17 +8,17 @@
 
 Trajectory evaluation 会把路保留下来。对一个五步 tool task，evaluator 可以标出第一个 invalid call、每个 subgoal 是否完成、结论用了多少 evidence，以及浪费了多少 retry。Failure 因此更容易定位。代价是 annotation、compute 和 judge dependence 都会上升；trace 只有在 evaluator 能可靠打分时才有用。
 
-## Definition
+## 定义
 
-Trajectory evaluation 指的是一类评估方法：根据 agent 产生的动作序列与中间状态来打分，而不仅是最终答案。指标可以包括分步正确性、子目标完成度、按能力子过程打分、推理质量、evidence grounding 或过程效率。
+Trajectory evaluation 把 prompt 到结果之间的路保留下来。它不只给最终答案打分，还看 agent 做了哪些 action，中间 state 怎样变化。根据 task 不同，evaluator 可以检查每一步、已完成的 subgoal、evidence use、reasoning quality、tool efficiency，或某一种能力对应的 subprocess。
 
-## Motivation
+## 为什么重要
 
-端到端 success 是一种粗信号。两个都失败——或都成功——的 agent，在**如何**达成结果上可能有重要差异。Trajectory 级指标能揭示这些差异，使我们诊断 agent 的能力在**哪一步**开始崩坏。
+最终 success 只是一个很粗的 label。一个成功的 agent 可能仔细验证过 evidence，另一个可能连猜几次才碰对。一个失败的 agent 可能已经完成四个有效 subgoal，另一个可能从头就没做对任务。Trajectory metric 保留这些差别，才能看出行为从哪里开始坏掉。
 
-Trajectory evaluation 对长 horizon 场景同样至关重要——单一的最终奖励难以定位到底哪一步出了问题。
+这种细节在长任务里最有用，因为一个最终 reward 要覆盖很多互相依赖的 action。代价也更高：trace 需要存储、标注或 judge；如果 step evaluator 不可靠，我们只会得到一份更详细、但仍然错误的诊断。
 
-## Existing Approaches
+## 现有方法
 
 Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务套件；第五条是覆盖在既有 benchmark 之上的诊断框架；第六条直接针对"参考 trajectory 从何而来"这一问题。
 
@@ -63,7 +63,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - **每个实例都标注了金标准计划。** [AISE-Bench](../works/aise-bench.md) 把全部 1,133 个实例端到端地标注了一遍——查询、计划、实际执行的 API 调用及其经校验的参数、参考答案——于是过程指标有了金标准可依，而不必靠启发式：计划按与标注计划之间的图编辑距离评分，参数准确率则作为一等指标报告；多数被评方法虽然部分完成度很高，恰恰是在这里失分。
 - **当产物本身难以检查时，改用参考操作链。** [DrafterBench](../works/drafterbench.md) 为土木工程图纸修改评分的办法，是计算 agent 记录下来的操作链与参考操作链之间的交并比；配套的 dual function 只记录操作路径而不改动文件，因此修改后的 PDF 根本无需人眼查看。在它的 1,920 个任务里，指令质量是一个受控变量：措辞无结构、取值含糊、信息不全这三种情况可以各自独立开关，结果也按控制变量分别报告，于是轨迹得分的下滑能被归因到某一种具体的指令缺陷上。
 
-## Comparison
+## 方法对比
 
 | Work | Year | Trajectory 指标 | Domain | Card |
 |---|---|---|---|---|
@@ -124,7 +124,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | Apodex Discovery | 2026 | 六个过程维度（Tools、Repair、Alternatives、Coherence、Evidence、Scope）在不知结果、隐去求解者身份的条件下打分，另有承重步骤法把关键步骤单独重解 | 十个工业与科学领域的发现任务 | [→](../works/apodex-discovery.md) |
 | Agents Catching Agents | 2026 | 只读记录的评判者对照私下重新询问 agent 的仲裁者，比较二者检出捷径采纳的能力；只有介入式仲裁者能跨模态迁移（精确率 77–88%，假阳性率 13–21%） | Medicine & health | [→](../works/agents-catching-agents.md) |
 
-## Open Questions
+## 还没解决的问题
 
 - **子目标指标对标注者的依赖。** 进展率依赖标注者对任务的分解方式。若 agent 通过另一种可行的分解完成任务，可能被"扣分"却并非表现更差。子目标类指标在不同标注方案下是否稳定？
 - **自动化 trajectory 判分的可靠性。** 效用函数类指标依赖评审者（模型或人类）为 reasoning quality 与 evidence grounding 打分。LLM-judge 对 trajectory 的评审在可靠性上是否能对齐人类评审者？扩展到大规模又如何？
@@ -133,7 +133,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - **覆盖框架 vs. 任务套件。** AgentAtlas 与 Insights Generator 不新增任务，而是解读既有 benchmark。领域是否应标准化此类覆盖，使 trajectory 级信号能在原本不可比的 benchmark 之间可比？
 - **确定性 vs. LLM 生成的 ground truth。** Traxgen 证明从结构化 workflow 规范出发的确定性 ground-truth 生成比基于 LLM 的生成快数万倍且与人工验证参考 100% 对齐。这是否会把未来 trajectory-evaluation 工作的合理 baseline 从"LLM 生成的 gold"移开？
 
-## Related Works
+## 相关工作
 
 - [MobileJudgeBench](../works/mobilejudgebench.md)
 - [SkillJuror](../works/skilljuror.md)
@@ -193,6 +193,6 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - [Apodex Discovery](../works/apodex-discovery.md)
 - [Agents Catching Agents](../works/agents-catching-agents.md)
 
-## Further Reading
+## 延伸阅读
 
 - Yehudai, Eden, Li, Uziel, Zhao, Bar-Haim, Cohan, Shmueli-Scheuer. *Survey on Evaluation of LLM-based Agents*. arXiv 2503.16416, 2025. <https://arxiv.org/abs/2503.16416>

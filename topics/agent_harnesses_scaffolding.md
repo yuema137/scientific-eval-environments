@@ -10,11 +10,11 @@ This topic makes that surrounding software visible. For one coding task, hold th
 
 ## Definition
 
-Agent harnesses and scaffolding are the surrounding control structures that shape how a model plans, uses tools, manages context, verifies work, retries, delegates, and terminates. This topic studies harness effects, component attribution, controlled comparison, and evaluation-driven harness optimization.
+A model rarely works alone. A harness decides when it plans, which tools it can call, what stays in context, when tests run, how failures trigger retries, and when the task stops. This topic asks how those choices change measured capability, which component caused a gain, and whether evaluation can guide the harness toward a better design.
 
 ## Motivation
 
-Observed capability belongs to a model–harness configuration, not automatically to the base model. Without holding tasks and budgets fixed, model comparisons confound planning loops, prompts, tools, permissions, memory, verification, and recovery policies.
+A benchmark observes the whole model–harness configuration. If two systems use different prompts, tools, permissions, memory, verification, or recovery rules, their score gap cannot be assigned to the base models alone. Controlled comparisons therefore keep the task, evaluator, and budget fixed, then change one harness component at a time.
 
 ## Existing Approaches
 

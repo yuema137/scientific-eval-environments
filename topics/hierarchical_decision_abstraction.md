@@ -10,15 +10,15 @@ The same problem appears in scientific agents. `Diagnose the data pipeline` can 
 
 ## Definition
 
-Hierarchical decision abstraction studies how agent behavior should be represented, evaluated, and optimized at multiple semantic and temporal scales: goals, strategies, subgoals, reasoning operations, tool actions, token chunks, primitive actions, and continuous control. The central question is not only whether a decision is good, but what should count as one decision.
+An agent acts at more than one scale. It chooses a goal, a strategy, a subgoal, a reasoning operation, a tool call, and finally tokens or low-level controls. Hierarchical decision abstraction decides where to draw those boundaries and how to represent, score, and improve each level. Its first question is not whether a decision was good, but what span of behavior should count as one decision.
 
 ## Motivation
 
-A flat terminal score over tokens, tool calls, or raw controls entangles strategic choice with execution. In autonomous driving, route selection, a lane-change maneuver, and steering or braking are different decisions at different time scales. The same separation matters for scientific agents: choosing a diagnostic strategy, selecting an experiment, invoking a tool, and generating its code should not become one opaque trajectory.
+A flat terminal score mixes strategy with execution. In autonomous driving, choosing a route, deciding to change lanes, and moving the steering wheel happen at different time scales. A scientific agent has the same structure: it chooses a diagnostic strategy, selects an experiment, invokes a tool, and writes the code that drives it. Compressing all four into one trajectory hides which layer failed.
 
-Exposing these levels makes evaluation diagnostic and improvement modular. A benchmark can distinguish a sound subgoal followed by poor execution from a poor subgoal executed perfectly; training can assign reward to the responsible level; and developers can repair the planner, executor, skill, or controller without retraining the whole system. This topic therefore bridges measurement and evaluation-driven improvement.
+Once the levels are visible, evaluation can distinguish a sound subgoal followed by poor execution from a poor subgoal executed perfectly. Training can send reward to the responsible level, and developers can repair the planner, executor, skill, or controller instead of retraining the whole system. The hierarchy therefore connects diagnosis directly to a modular intervention.
 
-It is distinct from [Skill Hierarchy](./skill_hierarchy.md), which asks what capabilities compose a task, and from [Planning & Decision-Making Evaluation](./planning_decision_evaluation.md), which asks whether a chosen decision is good. Hierarchical decision abstraction asks at what granularity the decision should be represented and scored.
+This differs from [Skill Hierarchy](./skill_hierarchy.md), which asks what abilities a task requires. It also differs from [Planning & Decision-Making Evaluation](./planning_decision_evaluation.md), which asks whether the chosen decision was good. Here the question is the decision's granularity: route, maneuver, control input, or another level.
 
 ## Existing Approaches
 

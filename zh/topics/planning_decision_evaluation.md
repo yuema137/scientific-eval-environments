@@ -8,17 +8,17 @@
 
 比如一次训练的效果变差了。Agent 可以马上改 learning rate，也可以先做一个低成本诊断，区分问题来自数据漂移还是优化失败。两种动作都合法，但预期收益和机会成本不一样。这个 topic 研究怎样给这次选择和后续 replanning 打分。它不负责判断任务够不够长，也不只是事后描述 trajectory。
 
-## Definition
+## 定义
 
-Planning & Decision-Making Evaluation 衡量的是：面对当时已知的状态、目标、约束、可用工具和证据，agent 能否选出合理的动作、动作序列或计划。它涵盖完整计划生成、约束满足、工具与动作选择、依据反馈重新规划、识别不可行任务，以及相对于其他有效方案评价计划质量。
+Planning evaluation 先把决策时可用的信息固定下来，再问 agent 选的下一步或整份 plan 是不是合理。Evaluator 可以检查约束，比较其他可行方案，测 tool selection，验证完整 plan，也可以看 agent 收到 feedback 后会不会 replanning，遇到无解任务能不能承认无解。
 
-## Motivation
+## 为什么重要
 
-端到端成功把规划、执行、工具操作、感知、状态跟踪和恢复揉在一起。一次运行失败，不能直接证明计划本身有问题；同样，一步动作即便局部成功，相对于更好的选择仍可能付出很高的机会成本。规划专项评估把决策本身变成可观察对象：agent 下一步应当做什么，这个选择为什么合理，状态变化后又应如何修改计划？
+端到端成功把 planning、execution、perception、tool use、state tracking 和 recovery 混在了一起。好 plan 可能在执行时失败，差 plan 也可能靠重试撑到成功。就算一步在局部上成功，它也可能错过了价值高得多的另一步。Planning evaluation 要把选择本身分离出来：下一步应该做什么，当时这个选择是不是说得通，新 evidence 出现后又该怎样改。
 
-它不同于 long-horizon evaluation，后者描述任务需要多长的连续交互；也不同于 trajectory evaluation，后者评价已经产生的动作序列。规划任务可以像 [NATURAL PLAN](../works/natural-plan.md) 一样不调用工具、一次回答完成；长 trajectory 也可能因为与规划无关的原因失败；而 trajectory 指标未必判断每一步在当时信息条件下是否明智。
+它不等于任务很长，也不等于给 trajectory 打分。[NATURAL PLAN](../works/natural-plan.md) 不用工具，一次回答就可以测 planning。一条很长的 run 可能因为与 plan 无关的原因失败，trajectory metric 也可能只描述过程，并不判断每一步在当时是不是最好选择。
 
-## Existing Approaches
+## 现有方法
 
 相关文献从受控的计划有效性逐渐走向更现实、面向 agent 的决策：
 
@@ -31,7 +31,7 @@ Planning & Decision-Making Evaluation 衡量的是：面对当时已知的状态
 - **计划与 trajectory 偏好。** [Plan-RewardBench](../works/plan-rewardbench.md) 要求 evaluator 在两条易混淆的工具 trajectory 中选出更优者，其中设有单轮与多轮 planning split。这条路线评价的是计划的 judge，而不是 planner 本身。
 - **科学项目规划。** [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) 固定研究目标，用专家与模型 panel 评价真实物理和天文项目 proposal 中的方法、资源、可行性、时间安排和风险。
 
-## Comparison
+## 方法对比
 
 | Work | 规划对象 | 信息与反馈 | 有效性或质量信号 | 是否隔离执行 | 反事实替代方案 |
 |---|---|---|---|---|---|
@@ -47,7 +47,7 @@ Planning & Decision-Making Evaluation 衡量的是：面对当时已知的状态
 | Plan-RewardBench | 一对工具 trajectory | 完整对话、工具、调用和输出记录 | gold pairwise preference | 评价 judge，不执行环境 | 每对一个易混淆替代项 |
 | AI's Capability in Assisting Scientific Research II | 一页研究 proposal | 固定的专家撰写标题、背景和目标 | 人类与 LLM rubric 分数 | 是 | 每个项目含一份人类与三份模型 proposal |
 
-## Open Questions
+## 还没解决的问题
 
 - **反事实决策质量与 regret。** 合法动作仍可能让全局结果变差。如果无法穷举分支，也没有可信 simulator，如何估计选择 `a_t` 而非最佳备选动作所付出的机会成本 `V(s_t, a_t*) - V(s_t, a_t)`？
 - **决策时的信息边界。** 事后 judge 很容易偷看动作发生后才出现的观察。benchmark 如何严格限定 agent 在时刻 `t` 能看到的信息，同时又合理利用后续结果作为证据？
@@ -57,7 +57,7 @@ Planning & Decision-Making Evaluation 衡量的是：面对当时已知的状态
 - **资源感知的动作选择。** Resource-aware evaluation 问花了多少；planning evaluation 问为什么把资源花在这个动作上，而不是另一个。联合 benchmark 需要估计考虑成本后的决策价值，又不能把成本和任务质量压进一个不透明总分。
 - **长 horizon 中局部合理选择的累计影响。** 一条序列可能每一步都没有明显错误，最后却走向差结果。如何评价局部说得通、但累计战略效果有害的决策，仍是开放问题。
 
-## Related Works
+## 相关工作
 
 - [PG-HAP](../works/pg-hap.md) — 对 high-level reasoning action 做逐步 policy selection。
 - [HiPER](../works/hiper.md) — 把 high-level subgoal planning 与 low-level execution 分开。

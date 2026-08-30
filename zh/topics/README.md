@@ -50,29 +50,29 @@ Skill Hierarchy 与 Credit Assignment 是两个独立的 topic。
 
 > **English** | [简体中文](../zh/topics/<topic_file>.md) · [← All topics](./README.md)
 
-## Definition
+## 定义
 
 对该 topic 的简明定义。一个段落。
 
-## Motivation
+## 为什么重要
 
 该 topic 对科学评估为何重要。它解决什么问题？缺少它会缺失什么？
 
-## Existing Approaches
+## 现有方法
 
 代表性工作，可以按任何最能阐明该 topic 的方式分组或排序。引用
 `../works/` 中的卡片，而不是复述其中的事实细节。
 
-## Comparison
+## 方法对比
 
 使用适配**本** topic 的维度构建比较表或矩阵——不要试图复用其他
 topic 的维度。
 
-## Open Questions
+## 还没解决的问题
 
 当前挑战与未来研究方向。明确标注为前瞻性内容，而非既定事实。
 
-## Related Works
+## 相关工作
 
 - [<Work Name>](../works/<work-card>.md) — 一句话说明收录原因。
 ```
