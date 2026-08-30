@@ -2,6 +2,12 @@
 
 > [English](../../topics/planning_decision_evaluation.md) | **简体中文** · [← 全部 topics](./README.md)
 
+## 先看它解决什么问题
+
+最终结果不能说明 agent 一开始选的 plan 好不好。好 plan 可能因为工具崩溃而失败，差 plan 也可能靠昂贵的重试硬救回来。Planning evaluation 要把「当时掌握这些信息时，为什么选这一步」单独拿出来测。
+
+比如一次训练的效果变差了。Agent 可以马上改 learning rate，也可以先做一个低成本诊断，区分问题来自数据漂移还是优化失败。两种动作都合法，但预期收益和机会成本不一样。这个 topic 研究怎样给这次选择和后续 replanning 打分。它不负责判断任务够不够长，也不只是事后描述 trajectory。
+
 ## Definition
 
 Planning & Decision-Making Evaluation 衡量的是：面对当时已知的状态、目标、约束、可用工具和证据，agent 能否选出合理的动作、动作序列或计划。它涵盖完整计划生成、约束满足、工具与动作选择、依据反馈重新规划、识别不可行任务，以及相对于其他有效方案评价计划质量。

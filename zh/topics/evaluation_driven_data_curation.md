@@ -2,6 +2,12 @@
 
 > [English](../../topics/evaluation_driven_data_curation.md) | **简体中文** · [← 全部 topics](./README.md)
 
+## 先看它解决什么问题
+
+大多数 training paper 先把 data 选好，训练结束以后才做 evaluation。这条流程里，score 只能描述成品 model，不能决定下一轮该换什么 data。
+
+这里把 loop 闭上了。Curation policy 先选 10,000 条样本，固定 recipe 训练一个 model，held-out evaluation 暴露薄弱行为，下一轮 policy 再改 mixture 或 filter。Evaluation 因此成了 data selection 的控制信号。只试几个 dataset、最后报告最高分，还不能自动算进这个 topic；feedback 必须真的改变后续 curation。
+
 ## Definition
 
 这个 topic 收录的是：系统根据 downstream evaluation feedback，明确修改数据选择、生成、过滤、加权、curriculum 或 mixture policy。

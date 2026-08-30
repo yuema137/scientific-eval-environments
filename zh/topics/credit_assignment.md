@@ -2,6 +2,12 @@
 
 > [English](../../topics/credit_assignment.md) | **简体中文** · [← 全部 topics](./README.md)
 
+## 先看它解决什么问题
+
+假设 agent 走了 30 步，最后一步才失败。只给一个 terminal score `0`，前面 29 步就和「第一步就走错」没有区别。拿这种信号做 diagnosis 或 learning，信息太少。
+
+Credit assignment 改的是打分路径。Evaluator 可以给已完成的 subgoal 部分分，标出第一个坏步骤，或者估计哪个 action 真正改变了结果。于是 trace 可以写成：`plan 正确 → data load 正确 → unit conversion 错误 → 最终失败`。这样才能知道 credit 或责任落在哪儿，但前提是 intermediate label 或 counterfactual estimate 本身可信。
+
 ## Definition
 
 在评估语境下，credit assignment 是把一条 trajectory 的成功或失败**归因**到具体步骤、子目标或中间输出的问题——而不是把成功当作 trajectory 整体的一个无结构属性。在 benchmark 中，credit-assignment 机制表现为密集中间奖励、部分得分或分步打分——即使最终结果只是一个二值信号，它们也能保留更细的信号。

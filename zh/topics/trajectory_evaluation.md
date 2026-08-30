@@ -2,6 +2,12 @@
 
 > [English](../../topics/trajectory_evaluation.md) | **简体中文** · [← 全部 topics](./README.md)
 
+## 先看它解决什么问题
+
+两个 agent 可以拿到同一个 final answer，走的路却完全不同。一个用对 evidence，还做了 verification；另一个连续猜了几次，最后碰巧猜中。只看 final answer，这两条 run 完全一样。
+
+Trajectory evaluation 会把路保留下来。对一个五步 tool task，evaluator 可以标出第一个 invalid call、每个 subgoal 是否完成、结论用了多少 evidence，以及浪费了多少 retry。Failure 因此更容易定位。代价是 annotation、compute 和 judge dependence 都会上升；trace 只有在 evaluator 能可靠打分时才有用。
+
 ## Definition
 
 Trajectory evaluation 指的是一类评估方法：根据 agent 产生的动作序列与中间状态来打分，而不仅是最终答案。指标可以包括分步正确性、子目标完成度、按能力子过程打分、推理质量、evidence grounding 或过程效率。

@@ -81,7 +81,7 @@ A thing.
 
 def build_mini_repo(root, cards):
     """cards: list of dicts {slug,title,topics,activities,zh(bool),links}."""
-    for sub in ("works", "topics", "activities", "domains", "zh/works"):
+    for sub in ("works", "topics", "activities", "domains", "zh/works", "zh/topics"):
         os.makedirs(os.path.join(root, sub), exist_ok=True)
     with open(os.path.join(root, "works", "README.md"), "w") as f:
         f.write(TEMPLATE)
@@ -93,7 +93,10 @@ def build_mini_repo(root, cards):
         rel = "\n".join("- [%s](../works/%s.md)" % (c["title"], c["slug"])
                         for c in cards if t in c.get("topics", []))
         open(os.path.join(root, "topics", "%s.md" % t), "w").write(
-            "# %s\n\n## Related Works\n\n%s\n" % (t, rel))
+            "# %s\n\n## Start Here\n\nA concrete explanation.\n\n## Related Works\n\n%s\n" %
+            (t, rel))
+        open(os.path.join(root, "zh", "topics", "%s.md" % t), "w").write(
+            "# %s\n\n## 先看它解决什么问题\n\n一段具体说明。\n" % t)
     for a in acts:
         rel = "\n".join("- [%s](../works/%s.md)" % (c["title"], c["slug"])
                         for c in cards if a in c.get("activities", []))

@@ -2,6 +2,12 @@
 
 > **English** | [简体中文](../zh/topics/scientific_agents.md) · [← All topics](./README.md)
 
+## Start Here
+
+A scientific agent is not tested only on whether its prose sounds knowledgeable. It may need to reproduce a result, run a simulator, tune parameters, inspect evidence, or produce code whose numbers satisfy a domain standard. The evaluator must therefore connect agent output to scientific artifacts and checks.
+
+For one computational task, give the agent a paper-derived question and starter environment, run its code in a container, compare the resulting quantity with the accepted value, and record cost and failure stage. This is stronger than asking another model whether the answer looks scientific. It still covers only the workflow and validity checks represented by that task; benchmark success is not a general claim of scientific competence.
+
 ## Definition
 
 Scientific agent benchmarks evaluate AI agents on tasks drawn from scientific research and practice — computational workflows, parameter tuning, literature-grounded problems, or replication of published results. What distinguishes them from general-purpose agent benchmarks is the source of tasks (real scientific work) and the standard for correctness (matching published or expert-defined outcomes).

@@ -8,9 +8,9 @@ An open knowledge base on **evaluation for scientific and engineering AI agents*
 
 **Evaluation is not only a way to measure AI systems; it is a feedback mechanism for building them.** The repository follows the full loop: measure, diagnose, intervene, and re-evaluate — across plans, trajectories, skills, harnesses, data, and post-training.
 
-Each piece of work has a concise, factual reference card. Cards are organized along three independent axes: **topics** (the evaluation methodology), **domains** (the scientific field), and **activities** (what the evaluated agent actually does). Start from whichever question you arrive with, follow the links to representative works, and go on to the original papers.
+Each piece of work has a concise, factual reference card. Cards are organized along three independent axes: **topics** (the evaluation question), **domains** (the scientific field), and **activities** (what the evaluated agent actually does). Topic pages begin with the practical problem, trace one concrete example, and then move into the formal literature map. Start from the question you have, follow the links to representative works, and continue to the primary sources.
 
-This is a reference, not a benchmark implementation — it aims to stay useful to anyone working on scientific evaluation, whatever tools they build.
+This is a reference, not a benchmark implementation. Its prose follows the repository's [Explanation Style Guide](./EXPLANATION_STYLE.md): expose actors and changed steps, use a real trace when it clarifies the mechanism, and state what each result does not establish.
 
 ---
 
@@ -22,10 +22,10 @@ Scientific Evaluation Environments is continuously maintained rather than period
 
 ## Start Exploring
 
-- **[Browse by Topic](./topics/README.md)** — explore what evaluation measures, how it works, and how it drives improvement.
-- **[Browse by Domain](./domains/README.md)** — explore evaluation work within a scientific or engineering field.
-- **[Browse by Research Activity](./activities/README.md)** — explore works by what the evaluated agent or system actually does.
-- **[Browse All Works](./works/README.md)** — the complete collection of indexed work cards.
+- **[Browse by Topic](./topics/README.md)** — start from an evaluation problem, see how one example changes, then compare the literature.
+- **[Browse by Domain](./domains/README.md)** — find evaluation work within a scientific or engineering field.
+- **[Browse by Research Activity](./activities/README.md)** — find works by the task the evaluated agent or system performs.
+- **[Browse All Works](./works/README.md)** — open the complete collection of factual work cards.
 
 The three axes are co-equal entry points over the same cards:
 

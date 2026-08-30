@@ -250,9 +250,11 @@ def cmd_review(a):
     okc, ec = validators.validate_cards(CWD, slugs)
     oka, ea = validators.validate_axes(CWD)
     okb, eb = validators.validate_bilingual(CWD, slugs)
-    okf = ok5 and okc and oka and okb
+    okt, et = validators.validate_topic_explanations(CWD)
+    okf = ok5 and okc and oka and okb and okt
     phase_state.write_phase_result(RUN_DIR, "final_validation", "pass" if okf else "fail",
-                                   {"cards": ec[:10], "axes": ea[:10], "bilingual": eb[:10]})
+                                   {"cards": ec[:10], "axes": ea[:10], "bilingual": eb[:10],
+                                    "topic_explanations": et[:10]})
     _summary("Chinese review + final validation",
              ["Reviewed: %d" % r5.get("reviewed", 0), "Edited: %d" % r5.get("edited", 0),
               "Final validation: %s" % ("PASS" if okf else "FAIL")])

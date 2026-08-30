@@ -6,9 +6,9 @@
 
 **Evaluation 不只用于测量 AI 系统，也是构建系统时的反馈机制。** 本仓库覆盖完整闭环：测量、诊断、干预、再次评估，并追踪 planning、trajectory、skill、harness、data 和 post-training 的变化。
 
-每份工作都有一张简明、事实性的参考卡片。卡片沿三条相互独立的轴组织：**topic**（评估方法学）、**domain**（科学领域）与 **activity**（受评 agent 实际做什么）。你可以从手头的问题出发，顺着链接找到代表性工作，再进一步阅读原始论文。
+每份工作都有一张简明的事实卡片。卡片按三条互不从属的轴组织：**topic** 看它要解决哪个评估问题，**domain** 看任务落在哪个科学领域，**activity** 看受评 agent 到底做什么。Topic 页会先讲实际问题，让一个具体例子走一遍，再梳理相关文献。你可以从手头的问题出发，顺着链接找到代表性工作，最后回到原始资料。
 
-本仓库是一份参考资料，而**不是** benchmark 实现——目标是无论读者构建什么工具，都能从中获得有价值的参考。
+本仓库是参考资料，不是 benchmark 实现。文档遵循[解释写作规范](./EXPLANATION_STYLE.md)：把 actor 和改变的步骤写出来；需要时让一条真实 trace 走完整个过程；最后说明结论没有证明什么。
 
 ---
 
@@ -20,10 +20,10 @@
 
 ## 从这里开始
 
-- **[按 Topic 浏览](./topics/README.md)**——探索 evaluation 测什么、怎么做，以及怎样推动改进。
-- **[按 Domain 浏览](./domains/README.md)**——探索某个科学或工程领域内的评估工作。
-- **[按 Research Activity 浏览](./activities/README.md)**——依据受评 agent 或系统实际做什么来探索工作。
-- **[浏览全部 Works](./works/README.md)**——已收录的完整卡片集合。
+- **[按 Topic 浏览](./topics/README.md)**：从一个评估问题出发，先看具体例子怎样变化，再比较相关文献。
+- **[按 Domain 浏览](./domains/README.md)**：查某个科学或工程领域内有哪些评估工作。
+- **[按 Research Activity 浏览](./activities/README.md)**：按受评 agent 或系统实际执行的任务查找工作。
+- **[浏览全部 Works](./works/README.md)**：查看已收录的全部工作卡片。
 
 三条轴是覆盖同一批卡片的平级入口：
 
@@ -33,7 +33,7 @@ Domain    →  该领域中的评估工作  →  原始论文   （任务位于�
 Activity  →  执行该任务的工作    →  原始论文   （agent 做什么）
 ```
 
-一份工作可以同时归入多个 topic、domain 与 activity——每一条都是看待同一份工作的不同视角，而非互斥的归类。
+一份工作可以同时归入多个 topic、domain 与 activity。它们是看同一份工作的不同角度，不是互斥分类。
 
 ---
 

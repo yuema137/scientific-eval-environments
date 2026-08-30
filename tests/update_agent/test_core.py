@@ -147,6 +147,11 @@ def test_profiles_cover_full_taxonomy():
     assert ok, errs
 
 
+def test_topic_explanations_cover_full_taxonomy():
+    ok, errs = validators.validate_topic_explanations()
+    assert ok, errs
+
+
 # ------------------------------------------------------------ axis validators (fixtures)
 def test_axes_valid_mapping(tmp_path):
     root = build_mini_repo(str(tmp_path), [
@@ -155,6 +160,16 @@ def test_axes_valid_mapping(tmp_path):
     ])
     ok, errs = validators.validate_axes(root)
     assert ok, errs
+
+
+def test_topic_explanations_detect_missing_entry(tmp_path):
+    root = build_mini_repo(str(tmp_path), [
+        {"slug": "a", "title": "A", "topics": ["trajectory_evaluation"]},
+    ])
+    tp = os.path.join(root, "zh", "topics", "trajectory_evaluation.md")
+    open(tp, "w").write("# trajectory_evaluation\n")
+    ok, errs = validators.validate_topic_explanations(root)
+    assert not ok and any("先看它解决什么问题" in e for e in errs)
 
 
 def test_axes_missing_reverse_mapping(tmp_path):

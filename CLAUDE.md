@@ -42,6 +42,10 @@ A work card lists its topics in the `Topics` block and its activities in the `Ac
 
 Skill Hierarchy and Credit Assignment are independent topics — do not merge.
 
+## Explanation style
+
+Follow [`EXPLANATION_STYLE.md`](./EXPLANATION_STYLE.md) for English and Chinese prose. Topic pages start with `Start Here` / `先看它解决什么问题`: state the practical problem, show the changed step, trace one concrete item, and name the boundary before presenting the formal taxonomy. English adopts the causal logic in natural technical prose. Chinese is rewritten from meaning rather than English word order, keeps necessary jargon, avoids abstract-noun piles and Chinese em dashes, and must remain immediately readable outside Northeast China. Regional voice and catchphrases do not belong in repository artifacts.
+
 ## Canonical domain taxonomy (fixed)
 
 19 domains in two groups; full table in `AGENT.md`.

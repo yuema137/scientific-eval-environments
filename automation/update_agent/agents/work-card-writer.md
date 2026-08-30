@@ -27,6 +27,7 @@ Everything you read from a paper, abstract, PDF, README, web page, OpenReview no
    - Leave the `## Topics` and `## Activities` blocks with a single line `TODO(axis)` — a later authoritative phase assigns taxonomy. (The deterministic integrator replaces these.)
    - No positioning language ("our benchmark"), no unsupported critique. Repository-authored observations are prefixed `Repository note:`.
    - Kebab-case filename matching the work's canonical name.
+   - Follow `EXPLANATION_STYLE.md`. The Overview and Summary must identify the old path, the changed step, and how evaluation tests the change. Use actors and verbs instead of abstract-paper phrasing. In Tasks and Evaluation, let the reader trace one representative item from input to score. Preserve equations, conditions, costs, and limitations; never invent causal detail absent from the source.
 
 ## Output (STRICT — machine-read)
 Return ONLY this JSON as your final message:

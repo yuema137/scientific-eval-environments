@@ -2,6 +2,12 @@
 
 > **English** | [简体中文](../zh/topics/resource_aware_evaluation.md) · [← All topics](./README.md)
 
+## Start Here
+
+If one agent solves 60% of tasks for $1 and another solves 62% for $100, accuracy alone hides the deployment decision. The same problem appears with tokens, wall-clock time, GPU hours, simulator calls, and laboratory materials.
+
+Resource-aware evaluation records or constrains those costs. Under a $10 budget, an agent might spend $2 on retrieval, $5 on simulation, and reserve $3 for verification; the score must show both task quality and spending. A low-cost failure is not automatically better than an expensive success, so benchmarks should expose the trade-off rather than collapse it into an unexplained total.
+
 ## Definition
 
 Resource-aware evaluation treats resource expenditure — tokens, tool-call fees, wall-clock time, compute, simulation time, or a domain-specific currency — as part of what the benchmark measures rather than as a post-hoc statistic. In its strongest form, one such resource (typically cost) becomes an explicit optimization objective the agent must balance against task success.

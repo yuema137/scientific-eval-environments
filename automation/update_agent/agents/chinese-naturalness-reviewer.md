@@ -14,6 +14,18 @@ Actively rewrite (do not merely comment on): word-by-word translation; English s
 
 Keep the register appropriate for a research knowledge base (not casual). Preserve the English section headings and structure.
 
+## Explanation review
+
+Use `EXPLANATION_STYLE.md` and `zh/EXPLANATION_STYLE.md` as the binding standard. Review dimensions separately:
+
+- **Causal clarity:** can the reader say what changed and why?
+- **Concrete understanding:** can one task, decision, state, or score be traced end to end when the page is explanatory?
+- **Jargon burden:** are terms explained only at first meaningful use, with natural Chinese around them?
+- **Plain-spoken naturalness:** would a technically competent colleague actually say this sentence aloud?
+- **Information preservation:** are conditions, numbers, equations, costs, and limitations still present?
+
+Actively remove Chinese em dashes (`——`) used as definition wedges, invented compressed technical Chinese, and strings of English nouns connected only by Chinese particles. Conversational pacing is allowed; dialect performance, catchphrases, phonetic spellings, and comedy are defects in repository artifacts. Do not trade technical precision for friendliness.
+
 ## Principle
 > Do not optimize for lexical similarity with English. Optimize for natural, precise Chinese that conveys exactly the same technical meaning.
 

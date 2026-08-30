@@ -2,6 +2,12 @@
 
 > [English](../../topics/benchmark_design_validity_contamination.md) | **简体中文** · [← 全部 topics](./README.md)
 
+## 先看它解决什么问题
+
+Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test set 可能已经进过训练数据；verifier 可能太弱，坏结果也能通过；toy environment 也可能根本没有论文声称要测的关键条件。问题不在算分，而在 task 到 score 这条路能不能支撑最后的结论。
+
+拿一道 coding task 走一遍：从近期 repository 取题，生成 test，要求 test 覆盖改动过的 branch，执行 agent 提交的 patch，再记录 verifier 漏掉了什么。每一步都堵住一种失真来源，但没有哪一步能让 benchmark 永久有效。Repository 会变，model 会见到新数据，verifier 自己也得定期审计。
+
 ## Definition
 
 这个 topic 研究 benchmark 的任务、参考答案、verifier、抽样方式和分数，能不能支撑论文据此提出的结论。它包括任务构造、contamination 控制、动态评估、现实有效性、verifier 严谨度和长期维护。

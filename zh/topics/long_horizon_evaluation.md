@@ -2,6 +2,12 @@
 
 > [English](../../topics/long_horizon_evaluation.md) | **简体中文** · [← 全部 topics](./README.md)
 
+## 先看它解决什么问题
+
+Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 decision 的工作。前面的错误会改变后面的 state，tool 会返回新 evidence，agent 还得记住自己已经做过什么。One-shot benchmark 看不见这种累积。
+
+拿 repository task 来说：先读 issue，再找 code，改两个 file，跑 test，定位 failure，最后修改 patch。它之所以是 long-horizon，不是因为超过某个硬性的 step count，而是每一步都依赖前面留下的 state。长任务能暴露 planning 与 recovery，也会把更多 failure cause 混在一起，所以通常还得配 trajectory diagnostic。
+
 ## Definition
 
 长 horizon agent 评估覆盖这样一类 benchmark：其任务需要多次顺序决策、多轮工具调用或多轮交互才能判定完成。"长"并非固定的步数——它指失败可能沿步骤累积、中间状态起作用、单一的最终奖励难以给出足够的诊断信号。

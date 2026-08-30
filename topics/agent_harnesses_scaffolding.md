@@ -2,6 +2,12 @@
 
 > **English** | [简体中文](../zh/topics/agent_harnesses_scaffolding.md) · [← All topics](./README.md)
 
+## Start Here
+
+Give the same model to two agent systems and they can behave like different models. One harness may plan before editing, run tests after every change, and retry after failure; another may send one prompt and stop. If we compare only the final scores, we may credit the base model for behavior supplied by the surrounding software.
+
+This topic makes that surrounding software visible. For one coding task, hold the repository, budget, and evaluator fixed, then change only the planning or verification loop. If success rises after a test-and-repair step is added, the gain belongs to the model–harness configuration. The comparison still does not prove the same component will help every model or task.
+
 ## Definition
 
 Agent harnesses and scaffolding are the surrounding control structures that shape how a model plans, uses tools, manages context, verifies work, retries, delegates, and terminates. This topic studies harness effects, component attribution, controlled comparison, and evaluation-driven harness optimization.

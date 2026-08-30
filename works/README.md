@@ -35,6 +35,8 @@ Copy this structure verbatim. Do not add sections. Do not remove sections (leave
 
 One or two sentences describing what the work is.
 
+The reader should be able to answer: what did the old path do, which step does this work change, and how does its evaluation test that change? Follow [`../EXPLANATION_STYLE.md`](../EXPLANATION_STYLE.md); do not paste or lightly paraphrase the abstract.
+
 ## Topics
 
 - [<Topic Name>](../topics/<topic_file>.md)
@@ -53,7 +55,7 @@ One or two sentences describing what the work is.
 
 ## Summary
 
-Two to four sentences describing the work's overall design and goals.
+Two to four sentences tracing the core mechanism from input or state to intervention and score. Name the actor and changed step. End with the most important boundary when it is not already covered by `Limitations`.
 
 ## Tasks
 
@@ -68,7 +70,7 @@ Scientific or application domains covered.
 
 How answers/trajectories are scored (deterministic verifiers, expert rubrics,
 LLM judges, execution-based checks, etc.). `N/A` with a note for surveys and
-position papers.
+position papers. A reader should be able to trace one representative item from output to score.
 
 ## Typical Duration
 

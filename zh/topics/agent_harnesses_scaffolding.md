@@ -2,6 +2,12 @@
 
 > [English](../../topics/agent_harnesses_scaffolding.md) | **简体中文** · [← 全部 topics](./README.md)
 
+## 先看它解决什么问题
+
+同一个模型放进两套 agent 系统里，表现可能像两个模型。一套 harness 会先规划再改代码，每改一次就跑测试，失败后还能重试；另一套可能只发一个 prompt，跑完就停。如果只比最终分数，我们很容易把外围软件提供的能力算到 base model 头上。
+
+这个 topic 就是把外围控制逻辑单独拿出来看。以一个 coding task 为例，repository、budget 和 evaluator 都不变，只替换 planning loop 或 verification loop。加上 test-and-repair 以后成功率提高，提升属于 model–harness configuration。这个结果仍不能证明同一组件换个 model 或 task 也一定有效。
+
 ## Definition
 
 Harness 和 scaffold 是围绕模型运行的控制结构，决定模型怎样规划、调用工具、管理上下文、验证结果、重试、委派和停止。这个 topic 研究 harness effect、组件归因、受控比较，以及用 evaluation feedback 优化 harness。
