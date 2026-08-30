@@ -20,6 +20,8 @@ Its purpose is to organize existing knowledge about:
 
 The repository must remain **objective**. It must **not** contain discussion about any future benchmark the maintainers are working on. It should stand as a useful, standalone reference for anyone working on scientific evaluation.
 
+Monthly editorial synthesis lives under `monthly/YYYY-MM.md`, with an exact Chinese counterpart under `zh/monthly/`. A report covers cards first added to `main` during that calendar month. The card's `First appeared` date remains the authority for when the work became public and determines whether the report labels it a new release or a backfill. Narrative sections may select only meaningful story lines and active Topics/Domains; the final monthly index must include every in-scope card exactly once. English and Chinese use the same concrete causal logic. By explicit maintainer policy, Chinese monthly reports additionally use restrained, broadly understandable Dongbei-explainer rhythm without dialect performance, jokes, obscure vocabulary, or altered technical claims.
+
 ---
 
 ## Repository Organization

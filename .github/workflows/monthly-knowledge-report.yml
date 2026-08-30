@@ -1,0 +1,66 @@
+name: Monthly Knowledge Report
+
+on:
+  schedule:
+    - cron: '17 6 1 * *'
+      timezone: 'America/Los_Angeles'
+  workflow_dispatch:
+    inputs:
+      month:
+        description: 'Report month in YYYY-MM; blank means the previous calendar month'
+        required: false
+        type: string
+
+concurrency:
+  group: monthly-knowledge-report
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: npm install -g @anthropic-ai/claude-code
+      - name: Resolve report month
+        id: report-month
+        env:
+          REQUESTED_MONTH: ${{ github.event.inputs.month }}
+        run: |
+          if [ -n "$REQUESTED_MONTH" ]; then
+            MONTH="$REQUESTED_MONTH"
+          else
+            MONTH="$(TZ=America/Los_Angeles date -d 'last month' +%Y-%m)"
+          fi
+          echo "month=$MONTH" >> "$GITHUB_OUTPUT"
+      - name: Generate bilingual report
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          git checkout -B "auto/monthly-report-${{ steps.report-month.outputs.month }}" origin/main
+          python3 scripts/monthly_report.py generate --month "${{ steps.report-month.outputs.month }}"
+      - name: Deterministic validation
+        run: |
+          python3 scripts/monthly_report.py validate --month "${{ steps.report-month.outputs.month }}"
+          python3 scripts/update_agent/validators.py first-appearance
+          python3 scripts/update_counts.py --check
+      - name: Open report PR for human review
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/publish_monthly_report.sh "${{ steps.report-month.outputs.month }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: monthly-report-manifest
+          path: runtime/monthly-report/
+          if-no-files-found: warn

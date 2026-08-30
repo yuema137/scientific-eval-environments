@@ -31,6 +31,7 @@
 - **[按 Research Activity 浏览](./activities/README.md)**：按受评 agent 或系统实际执行的任务查找工作。
 - **[浏览全部 Works](./works/README.md)**：查看已收录的全部工作卡片。
 - **[按首次公开时间浏览](./WORKS_BY_DATE.md)**：按首次公开日期从新到旧查看全部 works。
+- **[阅读月度报告](./monthly/README.md)**：查看每个月知识库新增了什么，以及这些工作放在一起带来了什么新认识。
 
 先看你手里带着什么问题，再选入口：
 
