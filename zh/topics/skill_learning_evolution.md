@@ -38,6 +38,7 @@ Agent 在 acquisition 阶段完成任务，不表示它学到了可复用 skill�
 
 ## Related Works
 
+- [Beyond 'Aha!'](../works/beyond-aha.md)
 - [SkillEvolBench](../works/skillevolbench.md)
 - [SkillLearnBench](../works/skilllearnbench.md)
 - [SkillCoach](../works/skillcoach.md)

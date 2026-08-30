@@ -38,6 +38,7 @@ Task success during acquisition does not show that a reusable skill was learned.
 
 ## Related Works
 
+- [Beyond 'Aha!'](../works/beyond-aha.md)
 - [SkillEvolBench](../works/skillevolbench.md)
 - [SkillLearnBench](../works/skilllearnbench.md)
 - [SkillCoach](../works/skillcoach.md)

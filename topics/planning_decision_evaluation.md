@@ -53,6 +53,9 @@ The literature progresses from controlled plan validity toward realistic, agent-
 
 ## Related Works
 
+- [PG-HAP](../works/pg-hap.md) — stepwise policy over high-level reasoning actions.
+- [HiPER](../works/hiper.md) — high-level subgoal planning separated from low-level execution.
+- [PTA-GRPO](../works/pta-grpo.md) — compact plan guidance optimized alongside detailed reasoning.
 - [PlanBench](../works/planbench.md) — formal plan generation, optimality, validation, and replanning.
 - [NATURAL PLAN](../works/natural-plan.md) — natural-language constraint planning with tool information supplied in context.
 - [TravelPlanner](../works/travelplanner.md) — tool-using real-world planning under heterogeneous constraints.

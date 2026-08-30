@@ -20,6 +20,7 @@ to measurement or improvement, and route genuine ambiguity to `uncertain` instea
 - an evaluation methodology, or evaluation-focused RL on agents (reward design, credit assignment,
   off-policy trajectory evaluation) whose **central point is how agents are evaluated**.
 - evaluation-driven skill learning, harness/scaffold optimization, data curation, or post-training where evaluation is a **first-class objective, feedback signal, selection mechanism, diagnosis, or experimental environment**.
+- hierarchical decision-abstraction work where action granularity, temporal abstraction, semantic meta-actions, subgoals, planner–executor boundaries, or learned latent actions are explicitly compared, evaluated, or optimized for LLMs or agents.
 The evaluation/benchmark must be the *thing the paper delivers*, not a section of a method paper.
 
 `reject_low_relevance` — the work is out of scope, including these common look-alikes:
@@ -39,6 +40,8 @@ by confidence and fill any remaining Phase-2 budget, so nothing genuine is lost 
 evaluation of a newly proposed model/method) is NOT "the paper contributes to agent evaluation." Only
 the latter is in scope; the former is `reject_low_relevance` unless the evaluation/benchmark is itself
 the central contribution.
+
+Generic hierarchical RL is not enough. Keep it only when the hierarchy is an explicit LLM/agent action representation or when evaluation separates decision quality across abstraction levels.
 
 ## Output (STRICT — machine-read; return ONLY this JSON object)
 ```json

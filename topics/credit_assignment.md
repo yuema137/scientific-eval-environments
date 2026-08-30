@@ -70,6 +70,9 @@ Credit assignment is related to but distinct from [Skill Hierarchy](./skill_hier
 
 ## Related Works
 
+- [MA-RLHF](../works/ma-rlhf.md)
+- [MetaAct-RL](../works/metaact-rl.md)
+- [HiPER](../works/hiper.md)
 - [SkillShapley](../works/skillshapley.md)
 - [TempoBench](../works/tempobench.md)
 - [TelemetrySuffBench](../works/telemetrysuffbench.md)
