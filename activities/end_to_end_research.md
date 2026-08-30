@@ -27,6 +27,8 @@ What distinguishes these from single-stage tasks is that success depends on chai
 | ResearchClawBench | 2026 | Problem formulation, literature review, experimentation, re-discovery from raw data | 40 expert-curated tasks, 10 domains; hidden target paper, related literature, raw data | Reference-Anchored Discovery Score vs weighted multimodal rubrics | [card](../works/researchclawbench.md) |
 | AutoResearchEval | 2026 | Carry a task through ideation, retrieval, execution, analysis, writing and self-review | 100 tasks grounded in published frontier science; 8 harness-model combinations producing 800 trajectories | Process-level failure attribution against ARFT's 45 patterns rather than a performance score | [card](../works/autoresearcheval.md) |
 | AI Research Preference Models | 2026 | Steer an AI research agent's search by choosing which candidate solutions get executed | Frozen-LM preference models in AIRA-dojo's tree search over 20 AIRS-Bench ML-research tasks; 24 h per task on one H200 | Normalized score 0.684 -> 0.729 while using under two-thirds of the execution budget | [card](../works/ai-research-preference-models.md) |
+| Curation-Bench | 2026 | Iteratively research and revise a training-data selection policy from downstream evaluation | Fixed VLM, training recipe and evaluator; executable policy edited for up to 10 rounds | A data policy that improves downstream quality under a controlled data budget | [card](../works/curation-bench.md) |
+| PostTrainBench | 2026 | Autonomously choose data, training method, compute allocation and experiments to post-train a base LLM | Seven targets; four base models; one H100 for 10 hours per task | Highest held-out benchmark score from the submitted trained model | [card](../works/posttrainbench.md) |
 
 ## Related Works
 
@@ -37,3 +39,5 @@ What distinguishes these from single-stage tasks is that success depends on chai
 - [ResearchClawBench](../works/researchclawbench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [AI Research Preference Models](../works/ai-research-preference-models.md)
+- [Curation-Bench](../works/curation-bench.md)
+- [PostTrainBench](../works/posttrainbench.md)

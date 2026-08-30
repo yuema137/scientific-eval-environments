@@ -8,6 +8,7 @@ ResearchCodeBench benchmarks LLMs on implementing novel machine-learning researc
 
 ## Topics
 
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
 ## Activities

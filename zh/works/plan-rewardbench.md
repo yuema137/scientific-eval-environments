@@ -9,6 +9,7 @@ Plan-RewardBench 是一个 benchmark，衡量 reward model 与 LLM judge 在工�
 ## Topics
 
 - [Planning & Decision-Making Evaluation](../topics/planning_decision_evaluation.md)
+- [Evaluator Reliability & Validation](../topics/evaluator_reliability_validation.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
 ## Activities

@@ -80,6 +80,7 @@ Neither yields what a planner would need to choose between plans: a per-action, 
 
 ## Related Works
 
+- [PostTrainBench](../works/posttrainbench.md)
 - [CostBench](../works/costbench.md) — Cost-optimal planning under dynamic tool-use conditions.
 - [SimulCost](../works/simulcost.md) — Cost-aware physics-simulation parameter tuning across 13 simulators.
 - [CATP-LLM / OpenCATP](../works/catp-llm.md) — OpenCATP, a dataset for cost-aware tool planning (11,100 samples).

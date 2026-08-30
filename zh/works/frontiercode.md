@@ -8,6 +8,7 @@ FrontierCode 是 Cognition 推出的业界 benchmark，自称首个测量「可�
 
 ## Topics
 
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
 ## Activities

@@ -8,6 +8,7 @@ MedBrowseComp benchmarks medical deep research and computer use: more than 1,000
 
 ## Topics
 
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
 ## Activities

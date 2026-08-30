@@ -8,6 +8,7 @@ GATE（Graph-based Adaptive Tool Evolution Across Diverse Tasks）是一个动�
 
 ## Topics
 
+- [Skill Learning & Evolution](../topics/skill_learning_evolution.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 
 ## Activities

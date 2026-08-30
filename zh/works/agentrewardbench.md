@@ -8,6 +8,7 @@ AgentRewardBench 是一个 benchmark，用于衡量自动评估器——LLM judg
 
 ## Topics
 
+- [Evaluator Reliability & Validation](../topics/evaluator_reliability_validation.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
 ## Activities

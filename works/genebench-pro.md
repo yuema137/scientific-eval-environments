@@ -8,6 +8,7 @@ GeneBench-Pro is a benchmark for AI agents performing realistic multistage stati
 
 ## Topics
 
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
 ## Activities

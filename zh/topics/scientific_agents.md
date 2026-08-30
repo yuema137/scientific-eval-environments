@@ -458,6 +458,8 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 
 ## Related Works
 
+- [Curation-Bench](../works/curation-bench.md)
+- [PostTrainBench](../works/posttrainbench.md)
 - [FlyAOC](../works/flyaoc.md)
 - [Frontier LLM-based agents can overcome the ontology curation bottleneck for natural phenotypes](../works/frontier-llm-based-agents-can-overcome-the-ontolog.md)
 - [OntoLearner](../works/ontolearner.md)

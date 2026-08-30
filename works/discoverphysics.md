@@ -8,6 +8,7 @@ DiscoverPhysics is an agentic benchmark for out-of-the-box scientific thinking: 
 
 ## Topics
 
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
 ## Activities

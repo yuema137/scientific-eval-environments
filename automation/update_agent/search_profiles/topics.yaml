@@ -36,6 +36,36 @@ Resource-aware Evaluation:
   - resource-aware agent benchmark
   - token budget agent evaluation
   - compute-efficient agent benchmark
+Evaluator Reliability & Validation:
+  - LLM judge reliability agent benchmark
+  - evaluator validation agent trajectories human labels
+  - reward model judge benchmark agents
+  - verifier reliability agent evaluation
+Benchmark Design, Validity & Contamination:
+  - agent benchmark contamination validity
+  - dynamic benchmark construction LLM agent
+  - contamination-resistant scientific agent benchmark
+  - benchmark verifier rigor ecological validity
+Skill Learning & Evolution:
+  - agent skill learning benchmark
+  - skill evolution agent evaluation
+  - reusable skill transfer benchmark agent
+  - evaluation feedback skill acquisition
+Agent Harnesses & Scaffolding:
+  - agent harness benchmark scaffold evaluation
+  - harness effect language model agent
+  - autonomous agent harness optimization
+  - scaffold ablation agent benchmark
+Evaluation-Driven Data Curation:
+  - agent automated data curation benchmark evaluation feedback
+  - downstream evaluation driven data selection
+  - agent data policy optimization benchmark
+  - evaluation guided training data curation
+Evaluation-Driven Post-Training:
+  - agent autonomous post-training benchmark
+  - evaluation driven fine-tuning agent
+  - agent RL post-training evaluation loop
+  - automated AI R&D post-training benchmark
 Survey:
   - survey LLM agent evaluation
   - position paper agent benchmark

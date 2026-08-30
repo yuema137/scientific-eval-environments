@@ -1,0 +1,42 @@
+# Evaluation-Driven Post-Training
+
+> **English** | [简体中文](../zh/topics/evaluation_driven_post_training.md) · [← All topics](./README.md)
+
+## Definition
+
+Evaluation-driven post-training studies systems in which evaluation is a first-class objective, feedback signal, selection mechanism, or experimental environment for improving a model or agent through fine-tuning, reinforcement learning, preference learning, or related adaptation.
+
+## Motivation
+
+Evaluation can guide development rather than merely score its endpoint. The relevant unit is the closed loop: evaluate, diagnose, intervene, and re-evaluate. Ordinary training papers that merely report benchmark numbers remain outside this topic; evaluation must actively determine what is selected, optimized, or attempted next.
+
+## Existing Approaches
+
+- **Autonomous post-training R&D.** [PostTrainBench](../works/posttrainbench.md) gives CLI agents a base model, evaluator, and fixed GPU-time budget, then scores the submitted model.
+- **Data-policy optimization.** [Curation-Bench](../works/curation-bench.md) narrows intervention to data selection under a fixed model and recipe.
+- **Evaluation-derived supervision.** [SkillCoach](../works/skillcoach.md) turns a validated process rubric into a trajectory filter for supervised fine-tuning.
+- **Judge utility as training reward.** [MobileJudgeBench](../works/mobilejudgebench.md) tests whether offline judge metrics predict downstream on-policy reward usefulness.
+
+## Comparison
+
+| Work | Improved object | Allowed intervention | Evaluation role | Guard against gaming |
+|---|---|---|---|---|
+| PostTrainBench | Base language model | Data, SFT, adapters, RL, hyperparameters | Repeated feedback and final objective | Rules, held-out evaluator, contamination audit |
+| Curation-Bench | Data policy and trained VLM | Selection policy | Per-iteration downstream feedback | Fixed model, recipe, and suite |
+| SkillCoach | Agent model via SFT | Trajectory selection | Process-quality filter | Validation-gated rubric evolution |
+| MobileJudgeBench | Mobile agent via RL | Reward evaluator choice | Judge as on-policy reward | Human-grounded judge benchmark |
+
+## Open Questions
+
+- When does repeated evaluator access produce learning, benchmark overfitting, or reward hacking?
+- How should evaluation calls, compute, data, and wall-clock time be budgeted jointly?
+- Which diagnostic signals lead to useful interventions rather than local score chasing?
+- How can improvements be tested on held-out tasks without denying agents enough feedback to learn?
+- What provenance and auditing are needed when agents autonomously source data and modify training code?
+
+## Related Works
+
+- [PostTrainBench](../works/posttrainbench.md)
+- [Curation-Bench](../works/curation-bench.md)
+- [SkillCoach](../works/skillcoach.md)
+- [MobileJudgeBench](../works/mobilejudgebench.md)

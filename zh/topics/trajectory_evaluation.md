@@ -129,6 +129,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 
 ## Related Works
 
+- [MobileJudgeBench](../works/mobilejudgebench.md)
 - [SkillJuror](../works/skilljuror.md)
 - [Skill Coverage](../works/skill-coverage.md)
 - [SkillCoach](../works/skillcoach.md)

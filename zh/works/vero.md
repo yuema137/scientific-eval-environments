@@ -8,6 +8,7 @@ VeRO（Versioning, Rewards, and Observations）是一个外层 harness，用于 
 
 ## Topics
 
+- [Agent Harnesses & Scaffolding](../topics/agent_harnesses_scaffolding.md)
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
 ## Activities

@@ -14,7 +14,7 @@ There are **three co-equal aggregation axes** over the works layer: topics (meth
 
 "Works" is broader than "benchmarks" — the layer holds cards for benchmarks, methodologies, evaluation frameworks, surveys, position papers, and evaluation-focused RL contributions on agents. Non-benchmark works fill inapplicable sections with `N/A` and a short note.
 
-**Navigation flows Topic → Work → Paper, Domain → Work → Paper, and Activity → Work → Paper.** Topics (methodology axis), domains (field axis), and activities (task axis) are three co-equal primary entry points; cards are references linked from all three.
+**Navigation flows Topic → Work → Paper, Domain → Work → Paper, and Activity → Work → Paper.** Topics (evaluation-research axis), domains (field axis), and activities (task axis) are three co-equal primary entry points; cards are references linked from all three.
 
 **Topics and activities are not mutually exclusive.** A work may belong to multiple topics and multiple activities — each is a different perspective, not a unique category. Cross-membership is the intended pattern, not an exception.
 
@@ -31,7 +31,13 @@ A work card lists its topics in the `Topics` block and its activities in the `Ac
 | V | Skill Hierarchy | `skill_hierarchy.md` |
 | VI | Credit Assignment | `credit_assignment.md` |
 | VII | Resource-aware Evaluation | `resource_aware_evaluation.md` |
-| VIII | Survey | `survey.md` |
+| VIII | Evaluator Reliability & Validation | `evaluator_reliability_validation.md` |
+| IX | Benchmark Design, Validity & Contamination | `benchmark_design_validity_contamination.md` |
+| X | Skill Learning & Evolution | `skill_learning_evolution.md` |
+| XI | Agent Harnesses & Scaffolding | `agent_harnesses_scaffolding.md` |
+| XII | Evaluation-Driven Data Curation | `evaluation_driven_data_curation.md` |
+| XIII | Evaluation-Driven Post-Training | `evaluation_driven_post_training.md` |
+| XIV | Survey | `survey.md` |
 
 Skill Hierarchy and Credit Assignment are independent topics — do not merge.
 
@@ -68,7 +74,7 @@ Activity rules: **multi-label**, assigned conservatively (typically 1–3, only 
 
 ## Scope
 
-Evaluation-focused RL work on agents is **in scope** (reward design for agents, credit-assignment methods, off-policy evaluation of agent trajectories). Pure RL algorithm / training / policy optimization is **out of scope**. Judge by the paper's primary contribution: does it advance *how agents are evaluated* or *how agents are trained*?
+Evaluation-driven improvement is **in scope** when evaluation is a first-class objective, feedback signal, selection mechanism, diagnosis, or experimental environment — including skill learning, harness optimization, data curation, and post-training. Pure training or optimization that merely reports benchmark results remains **out of scope**. Judge whether evaluation actively controls the development loop, not whether a paper happens to contain an evaluation section.
 
 ## Automated daily updater
 

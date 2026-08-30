@@ -8,6 +8,7 @@ Harness-Bench 是一个诊断性 benchmark，用于测量配置级的 *harness �
 
 ## Topics
 
+- [Agent Harnesses & Scaffolding](../topics/agent_harnesses_scaffolding.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
 ## Activities

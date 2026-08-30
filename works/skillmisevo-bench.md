@@ -8,6 +8,7 @@ SkillMisevo-Bench is a frozen benchmark, paired with the lifecycle-aware harness
 
 ## Topics
 
+- [Skill Learning & Evolution](../topics/skill_learning_evolution.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 

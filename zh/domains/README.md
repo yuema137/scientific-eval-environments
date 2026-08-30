@@ -43,7 +43,7 @@ Domain 页是**事实性参考页，不是文献综述**——作为入口与 to
 | Science | [Environmental Science](./environmental_science.md) | 6 |
 | Science | [Materials Science](./materials_science.md) | 28 |
 | Science | [Computer Science](./computer_science.md) | 7 |
-| Science | [AI & Machine Learning Research](./ai_ml_research.md) | 25 |
+| Science | [AI & Machine Learning Research](./ai_ml_research.md) | 27 |
 | Engineering | [Mechanical & Aerospace Engineering](./mechanical_aerospace_engineering.md) | 12 |
 | Engineering | [Electrical Engineering](./electrical_engineering.md) | 18 |
 | Engineering | [Energy Systems](./energy_systems.md) | 5 |

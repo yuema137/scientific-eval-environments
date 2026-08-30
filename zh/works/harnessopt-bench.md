@@ -8,6 +8,7 @@ HarnessOpt-Bench 是度量前沿 LLM 自动化 harness 优化能力的 benchmark
 
 ## Topics
 
+- [Agent Harnesses & Scaffolding](../topics/agent_harnesses_scaffolding.md)
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
 ## Activities

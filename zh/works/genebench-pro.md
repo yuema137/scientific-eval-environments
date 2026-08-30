@@ -8,6 +8,7 @@ GeneBench-Pro 是一个面向 AI agent 的 benchmark，考察其在基因组学�
 
 ## Topics
 
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
 ## Activities

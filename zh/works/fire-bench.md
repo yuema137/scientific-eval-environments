@@ -8,6 +8,7 @@ FIRE-Bench（Full-cycle Insight Rediscovery Evaluation）是一个 benchmark，�
 
 ## Topics
 
+- [Evaluator Reliability & Validation](../topics/evaluator_reliability_validation.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
 ## Activities

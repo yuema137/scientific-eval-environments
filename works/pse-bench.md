@@ -8,6 +8,7 @@ PSE-Bench is a benchmark of 200 open-ended questions spanning four core domains 
 
 ## Topics
 
+- [Evaluator Reliability & Validation](../topics/evaluator_reliability_validation.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
 ## Activities

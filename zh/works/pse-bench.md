@@ -8,6 +8,7 @@ PSE-Bench 是一个含 200 道开放式题目的 benchmark，覆盖过程系统�
 
 ## Topics
 
+- [Evaluator Reliability & Validation](../topics/evaluator_reliability_validation.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
 ## Activities

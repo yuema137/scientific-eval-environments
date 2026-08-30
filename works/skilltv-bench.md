@@ -8,6 +8,7 @@ SkillTV-Bench is a benchmark for skill-aware trajectory verification: it evaluat
 
 ## Topics
 
+- [Evaluator Reliability & Validation](../topics/evaluator_reliability_validation.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 

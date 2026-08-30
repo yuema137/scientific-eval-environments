@@ -4,7 +4,7 @@ You are the long-term maintainer of this repository.
 
 This repository is **NOT** a benchmark implementation.
 
-It is an **open knowledge base documenting scientific evaluation environments** — the design space of how AI agents are evaluated on scientific and long-horizon tasks.
+It is an **open knowledge base documenting evaluation for scientific and engineering AI agents** — how evaluation is designed, what it reveals, and how it drives system improvement.
 
 Its purpose is to organize existing knowledge about:
 
@@ -15,6 +15,7 @@ Its purpose is to organize existing knowledge about:
 - resource-aware evaluation
 - scientific workflows
 - evaluation-focused RL work on agents
+- evaluation-driven skill learning, harness optimization, data curation, and post-training
 - benchmark design
 
 The repository must remain **objective**. It must **not** contain discussion about any future benchmark the maintainers are working on. It should stand as a useful, standalone reference for anyone working on scientific evaluation.
@@ -23,9 +24,9 @@ The repository must remain **objective**. It must **not** contain discussion abo
 
 ## Repository Organization
 
-The repository has **four knowledge layers**: works (facts about individual projects), plus **three co-equal aggregation axes** over them — topics (the **methodology axis**), domains (the **field axis**), and activities (the **research-activity / task axis**). No axis is subordinate to the others.
+The repository has **four knowledge layers**: works (facts about individual projects), plus **three co-equal aggregation axes** over them — topics (the **evaluation-research axis**), domains (the **field axis**), and activities (the **research-activity / task axis**). No axis is subordinate to the others.
 
-- **Topic** — the evaluation or research *theme* a work relates to (why / how we evaluate).
+- **Topic** — a research theme around the design, interpretation, or use of evaluation (what / how we evaluate, and how evaluation drives improvement).
 - **Domain** — the scientific or engineering *field* a work is grounded in (where the task lives).
 - **Activity** — the substantive scientific or research *task* the evaluated agent or system performs (what the agent does).
 
@@ -92,7 +93,13 @@ Each topic summarizes one important evaluation direction and acts as a **literat
 | V | Skill Hierarchy | `skill_hierarchy.md` |
 | VI | Credit Assignment | `credit_assignment.md` |
 | VII | Resource-aware Evaluation | `resource_aware_evaluation.md` |
-| VIII | Survey | `survey.md` |
+| VIII | Evaluator Reliability & Validation | `evaluator_reliability_validation.md` |
+| IX | Benchmark Design, Validity & Contamination | `benchmark_design_validity_contamination.md` |
+| X | Skill Learning & Evolution | `skill_learning_evolution.md` |
+| XI | Agent Harnesses & Scaffolding | `agent_harnesses_scaffolding.md` |
+| XII | Evaluation-Driven Data Curation | `evaluation_driven_data_curation.md` |
+| XIII | Evaluation-Driven Post-Training | `evaluation_driven_post_training.md` |
+| XIV | Survey | `survey.md` |
 
 Skill Hierarchy and Credit Assignment are **two independent topics**. Do not merge them.
 
@@ -101,7 +108,7 @@ Adding a new canonical topic is a structural decision that requires updating thi
 **Filename convention within the taxonomy:**
 
 - Evaluation-direction topics use the `_evaluation.md` suffix (`trajectory_evaluation.md`, `resource_aware_evaluation.md`, `long_horizon_evaluation.md`).
-- Broader topics use natural names (`scientific_agents.md`, `skill_hierarchy.md`, `credit_assignment.md`, `survey.md`).
+- Broader topics use natural names (`scientific_agents.md`, `skill_hierarchy.md`, `agent_harnesses_scaffolding.md`, `survey.md`).
 
 **Topic page template:**
 
@@ -237,7 +244,7 @@ AgentBoard             → trajectory_evaluation, skill_hierarchy
 
 **Activities work the same way.** A work's activity memberships are expressed twice, redundantly on purpose: in the card's `Activities` metadata block, and in each activity page's `Related Works` section. The one difference from topics is that activities admit an explicit `N/A` state for works that evaluate no scientific/research task.
 
-**Topic, domain, and activity pages are the three co-equal primary entry points.** A reader who arrives with a methodology question starts from `topics/`; a reader who arrives with a field in mind starts from `domains/`; a reader who arrives asking what the agent actually does starts from `activities/`. All follow links into `works/` and from there to the original papers:
+**Topic, domain, and activity pages are the three co-equal primary entry points.** A reader who arrives with a question about what evaluation measures, how it works, or how it drives improvement starts from `topics/`; a reader who arrives with a field in mind starts from `domains/`; a reader who arrives asking what the agent actually does starts from `activities/`. All follow links into `works/` and from there to the original papers:
 
 ```
 Topic     →  Representative works              →  Original papers
@@ -360,17 +367,19 @@ and propose additions. Its mechanics live in [`automation/update_agent/README.md
 - Trajectory evaluation
 - Resource-aware evaluation
 - Benchmark design
-- **Evaluation-focused RL work on agents** — reward design for agents, credit-assignment methods, off-policy evaluation of agent trajectories, and similar contributions whose focus is *evaluating* agents.
+- Evaluation reliability, validity, and contamination
+- **Evaluation-driven agent improvement** — skill learning, harness/scaffold optimization, data curation, post-training, and related work in which evaluation is a first-class objective, feedback signal, selection mechanism, or experimental environment.
+- **Evaluation-focused RL work on agents** — reward design, credit assignment, off-policy trajectory evaluation, and judge validation.
 
 **Out of scope (for now):**
 
-- Pure RL algorithm development
-- Policy optimization and training procedures
-- Agent implementation
+- Pure RL algorithm development with no evaluation-centered contribution
+- Training, data, or optimization work that merely reports benchmark numbers rather than using evaluation as an active development signal
+- Agent implementations with no evaluation-centered contribution
 - Multi-agent systems
 - Memory systems
 
-The distinction between in-scope and out-of-scope RL work is the paper's primary contribution: if it advances *how agents are evaluated*, it belongs here; if it advances *how agents are trained*, it does not.
+The inclusion cutline is whether evaluation is structurally central. Improvement work is in scope when evaluation determines the objective, feedback, selection, diagnosis, or experimental loop. A method remains out of scope when evaluation is only a conventional results section after the method was designed.
 
 ---
 
@@ -379,6 +388,6 @@ The distinction between in-scope and out-of-scope RL work is the paper's primary
 The final repository should read like a well-organized technical handbook.
 
 - Work cards provide **factual documentation**.
-- Topic pages provide **synthesis** along the methodology axis; domain pages provide **field-oriented reference** along the domain axis; activity pages provide **task-oriented reference** along the research-activity axis. The three are co-equal entry points.
+- Topic pages provide **synthesis** across what is evaluated, how evaluation is performed, and how evaluation drives improvement; domain pages provide **field-oriented reference**; activity pages provide **task-oriented reference**. The three are co-equal entry points.
 
 Together they should give any reader a clear understanding of the current scientific evaluation landscape.

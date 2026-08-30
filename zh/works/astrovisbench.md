@@ -8,6 +8,7 @@ AstroVisBench 是面向天文学科学计算与可视化的代码 benchmark：�
 
 ## Topics
 
+- [Evaluator Reliability & Validation](../topics/evaluator_reliability_validation.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 

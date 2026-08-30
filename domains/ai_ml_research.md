@@ -10,6 +10,8 @@ AI and machine learning as the science under study: reproducing, rediscovering, 
 
 | Work | Year | Scientific problem | Task form & scale | Domain verification | Card |
 |---|---|---|---|---|---|
+| Curation-Bench | 2026 | Automate research on vision-language instruction-tuning data selection by iteratively designing and revising executable curation policies. | Open-ended agent research loop with a fixed base model, training recipe and evaluator; up to 10 policy iterations. | Downstream evaluation of the model trained on each selected subset, compared with published selection baselines and data budgets. | [→](../works/curation-bench.md) |
+| PostTrainBench | 2026 | Autonomously post-train base LLMs for seven reasoning, tool-use, knowledge, health and coding targets. | Four base models × seven benchmark targets; one H100 and 10 hours per task, through four CLI scaffolds. | Held-out target benchmark score, aggregated across base models and targets, plus trace/data/script contamination audits. | [→](../works/posttrainbench.md) |
 | EXP-Bench | 2025 | Conduct complete research experiments from influential AI publications — formulate hypotheses, design and implement procedures, execute, and conclude — across computer vision, NLP, and reinforcement learning. | 461 tasks from 51 NeurIPS 2024 and ICLR 2024 papers, decomposed into 12,737 individually gradable subtasks, each with a research question and incomplete starter code. | LLM judges for design, implementation (vs. ground-truth git diffs), and conclusion, plus a containerized execution validator; All·E✓ requires all four (best reported: 0.5%). | [→](../works/exp-bench.md) |
 | FIRE-Bench | 2026 | Rediscover established, verifiable findings from recent high-impact ML research — empirical studies of LLM behavior, plus a CV and neural-network-analysis extension — given only the high-level research question. | 40 fully executed tasks built from per-paper research-problem trees (root question → subproblems → leaf experiments); all compute-light (≤24 h on one 80GB A100). | Claim-level precision/recall/F1 by semantic entailment between atomic claims of the agent's conclusion and the ground-truth findings; judge validated at F1 0.89 against humans. | [→](../works/fire-bench.md) |
 | AIRS-Bench | 2026 | Frontier research-science tasks in language modeling and time-series forecasting (alongside mathematics and bioinformatics), covering the full research lifecycle with no baseline code. | 20 tasks; the agent submits held-out test-split predictions as a CSV. | Execution-based, outcome-only scoring by task-specific evaluators; SOTA-normalized score with a 'march of nines' transform near the ceiling. | [→](../works/airs-bench.md) |
@@ -79,7 +81,9 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | MLR-Bench | GEN | ✔ | ✔ | ◐ | ✔ | ✘ | ✔ | ✔ | **5.5** | ✘ | ✔ | ✘ | 1 | 2 | 3 | **7** |
+| PostTrainBench | MLE | ✔ | ✔ | ✔ | ✘ | ✘ | ✔ | ✔ | **5** | ✘ | ◐ | ✘ | 2 | 1 | 4 | **7.5** |
 | AIRS-Bench | LM, TS | ✔ | ✔ | ✘ | ✘ | ✔ | ✔ | ✔ | **5** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
+| Curation-Bench | CV, MLE | ? | ✔ | ✔ | ✔ | ✘ | ✔ | ✔ | **5** | ✘ | ✘ | ✘ | 3 | 0 | 4 | **7** |
 | PaperBench | GEN | ✔ | ✘ | ◐ | ◐ | ✔ | ✔ | ✔ | **5** | ✔ | ✔ | ◐ | 1 | 1 | 3 | **7.5** |
 | AI Research Preference Models | GEN | ? | ✔ | ✔ | ✘ | ✔ | ✔ | ✔ | **5** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
 | Replica | GEN | ? | ✘ | ✔ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ◐ | 1 | 2 | 2 | **7** |
@@ -109,6 +113,8 @@ Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 o
 
 ## Related Works
 
+- [Curation-Bench](../works/curation-bench.md)
+- [PostTrainBench](../works/posttrainbench.md)
 - [EXP-Bench](../works/exp-bench.md)
 - [FIRE-Bench](../works/fire-bench.md)
 - [AIRS-Bench](../works/airs-bench.md)

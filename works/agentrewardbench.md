@@ -8,6 +8,7 @@ AgentRewardBench is a benchmark that measures how well automatic evaluators — 
 
 ## Topics
 
+- [Evaluator Reliability & Validation](../topics/evaluator_reliability_validation.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
 ## Activities

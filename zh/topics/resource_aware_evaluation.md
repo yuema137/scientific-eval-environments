@@ -80,6 +80,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 
 ## Related Works
 
+- [PostTrainBench](../works/posttrainbench.md)
 - [CostBench](../works/costbench.md) — 动态 tool-use 条件下的成本最优规划。
 - [SimulCost](../works/simulcost.md) — 覆盖 13 个仿真器的 cost-aware 物理仿真参数调优。
 - [CATP-LLM / OpenCATP](../works/catp-llm.md) — OpenCATP，面向 cost-aware 工具规划的数据集（11,100 样本）。

@@ -8,6 +8,7 @@ AstroVisBench is a code benchmark for scientific computing and visualization in 
 
 ## Topics
 
+- [Evaluator Reliability & Validation](../topics/evaluator_reliability_validation.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 

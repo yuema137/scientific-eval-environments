@@ -8,6 +8,7 @@ onepot-Bench 0 是一套私有的、面向实验室现实的化学 benchmark 套
 
 ## Topics
 
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
 ## Activities

@@ -8,6 +8,7 @@ SkillLearnBench 是面向持续 skill 学习方法的基准——这类方法从
 
 ## Topics
 
+- [Skill Learning & Evolution](../topics/skill_learning_evolution.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
