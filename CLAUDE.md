@@ -44,11 +44,15 @@ Skill Hierarchy and Credit Assignment are independent topics — do not merge.
 
 ## Explanation style
 
-Follow [`EXPLANATION_STYLE.md`](./EXPLANATION_STYLE.md) for English and Chinese prose. Topic pages start with `Start Here` / `先看它解决什么问题`: state the practical problem, show the changed step, trace one concrete item, and name the boundary before presenting the formal taxonomy. English adopts the causal logic in natural technical prose. Chinese is rewritten from meaning rather than English word order, keeps necessary jargon, avoids abstract-noun piles and Chinese em dashes, and must remain immediately readable outside Northeast China. Regional voice and catchphrases do not belong in repository artifacts.
+Follow [`EXPLANATION_STYLE.md`](./EXPLANATION_STYLE.md) for English and Chinese prose. Topic pages start with `Start Here` / `先看它解决什么问题`: state the practical problem, show the changed step, trace one concrete item, and name the boundary before presenting the formal taxonomy. English adopts the causal logic in natural technical prose. Chinese is rewritten from meaning rather than English word order, keeps necessary jargon, avoids abstract-noun piles and Chinese em dashes, and must remain immediately readable outside Northeast China. Regional voice and catchphrases do not belong in repository artifacts, except for the explicit restrained Dongbei-explainer policy for Chinese monthly reports; even there, clarity outranks dialect and performance language remains prohibited.
 
 ## First-appearance dates
 
 Every work card and Chinese mirror carries the same visible `YYYY-MM-DD` first-appearance stamp and provenance URL. Treat first appearance narrowly as the earliest date when the work itself became publicly accessible, regardless of whether it was published: check preprint/submission records, official project/data/software releases, publisher or proceedings records, DOI metadata, and official repositories, then use the earliest verifiable qualifying date. Do not replace it with a revision, acceptance, venue, later publication, or page-modification date. Keep venue and publication facts in `Links`. Use and label the card's first Git addition date only when no public date can be verified. Regenerate [`WORKS_BY_DATE.md`](./WORKS_BY_DATE.md) with `python3 scripts/backfill_first_appeared.py`.
+
+## Monthly reports
+
+Monthly reports live under `monthly/YYYY-MM.md` with exact Chinese counterparts under `zh/monthly/`. The report month is determined by when a card first reached `main`; the card's `First appeared` date determines whether it is a new release or a backfill. Narrative sections are selective, while the final monthly index is exhaustive. English and Chinese share the same causal explanation structure. Chinese additionally follows the restrained, broadly understandable Dongbei-explainer contract in `automation/monthly_report/agents/`.
 
 ## Canonical domain taxonomy (fixed)
 

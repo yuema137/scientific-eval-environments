@@ -54,6 +54,7 @@ jobs:
         run: |
           python scripts/update_agent/validators.py profiles
           python scripts/update_agent/validators.py axes
+          python scripts/monthly_report.py validate-all
           python scripts/update_counts.py --check
 
   # ----------------------------------------------------------------- Claude auth smoke (Test Layer C)
