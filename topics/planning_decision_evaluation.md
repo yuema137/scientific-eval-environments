@@ -2,6 +2,12 @@
 
 > **English** | [简体中文](../zh/topics/planning_decision_evaluation.md) · [← All topics](./README.md)
 
+## Start Here
+
+Final success does not tell us whether an agent chose a good plan. A good plan can fail because a tool crashes; a poor plan can succeed after expensive retries. Planning evaluation isolates the choice made with the information available at that moment.
+
+Suppose a training run degrades. The agent can immediately change the learning rate, or first compare data drift with optimization failure using a cheap diagnostic. Both actions are legal, but they have different expected value and opportunity cost. This topic asks how to score that choice and later replanning. It does not ask how long the task is or merely describe the trajectory after the fact.
+
 ## Definition
 
 Planning and decision-making evaluation measures whether an agent selects a sound action, action sequence, or plan from the state, goal, constraints, available tools, and evidence known at the time of choice. It includes complete-plan generation, constraint satisfaction, tool and action selection, feedback-conditioned replanning, infeasibility recognition, and evaluation of plan quality against valid alternatives.

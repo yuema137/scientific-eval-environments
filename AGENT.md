@@ -113,6 +113,7 @@ Adding a new canonical topic is a structural decision that requires updating thi
 
 **Topic page template:**
 
+- **Start Here** — explain the practical problem before the taxonomy: what happened before, where it failed, which evaluation step changes, one concrete trace, and the nearest boundary. The Chinese mirror uses `先看它解决什么问题`.
 - **Definition** — concise definition of the topic.
 - **Motivation** — why this topic matters.
 - **Existing Approaches** — representative work.
@@ -121,6 +122,8 @@ Adding a new canonical topic is a structural decision that requires updating thi
 - **Related Works** — links to work cards in `works/`.
 
 There is **no global comparison matrix**. Each topic owns its own comparison dimensions.
+
+All explanatory prose follows [`EXPLANATION_STYLE.md`](./EXPLANATION_STYLE.md). The required logic is causal, not ornamental: name the actor, show the old path and changed step, trace one real object when useful, and preserve limitations and costs. English uses this structure in natural technical English. Chinese uses the same structure in natural spoken-readable Chinese without dialect performance.
 
 ### Layer 3 — Domains
 
@@ -337,6 +340,8 @@ Translation rules:
 - technical terminology may remain in English where appropriate
 
 **Natural translation, not word-for-word.** Chinese pages must read as if originally written in Chinese. Literal renderings of English idioms and metaphors are defects — e.g., a "breadcrumb" link is a 返回链接, not 面包屑. When a sentence structure works in English but reads awkwardly in Chinese, restructure the sentence; fidelity is to the meaning, never to the word order.
+
+**Explain, do not transpose.** Translation is not complete when every English sentence has a Chinese counterpart. The Chinese page must preserve the causal path: who acts, what changed, how one task or score moves through the mechanism, and where the result stops. Necessary English jargon may remain, but the Chinese around it must sound like something a technical peer would naturally say. Do not use Chinese em dashes (`——`) to insert definitions or long asides; split the sentence. Do not add dialect catchphrases, phonetic spellings, comedy, or a regional decoding burden.
 
 ---
 

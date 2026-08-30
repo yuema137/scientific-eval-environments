@@ -2,6 +2,12 @@
 
 > **English** | [简体中文](../zh/topics/evaluation_driven_post_training.md) · [← All topics](./README.md)
 
+## Start Here
+
+Evaluation is often treated as the last page of a training run: train first, score once, publish the table. This topic studies the opposite arrangement. The evaluator sits inside development and helps choose the next data, reward, fine-tuning method, or model update.
+
+For example, an agent fine-tunes a base model, runs a held-out suite, sees that function calling improved while medical reasoning regressed, and changes the next training mixture. That is an evaluation-driven loop. It also creates a risk: repeated access can turn improvement into benchmark overfitting or reward hacking, so held-out tests and contamination audits remain part of the method.
+
 ## Definition
 
 Evaluation-driven post-training studies systems in which evaluation is a first-class objective, feedback signal, selection mechanism, or experimental environment for improving a model or agent through fine-tuning, reinforcement learning, preference learning, or related adaptation.

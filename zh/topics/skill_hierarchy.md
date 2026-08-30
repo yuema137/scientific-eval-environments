@@ -2,6 +2,12 @@
 
 > [English](../../topics/skill_hierarchy.md) | **简体中文** · [← 全部 topics](./README.md)
 
+## 先看它解决什么问题
+
+两个 agent 总分一样，原因可能完全相反。一个 planning 很强，却不会正确用 tool；另一个能 retrieve 到信息，却从不 verify。单一 leaderboard score 看不出哪个更适合具体工作。
+
+Skill hierarchy 会把 capability profile 拆开。比如 tool-use task 分别测 instruction following、planning、retrieval、execution 和 review，最后得到 `planning 90% / retrieval 40% / execution 85%`，retrieval bottleneck 就露出来了。这张图说明 agent 有哪些能力，不说明某一条 trajectory 为什么失败；后一个问题属于 credit assignment。
+
 ## Definition
 
 Skill hierarchy 指把复杂的 agent 能力分解为一组更窄的能力或 subskill 的结构化集合，并配以对每个 subskill 分别打分的评估协议。这类 benchmark 共享一个设计承诺：单一聚合分数把太多东西混在一起——要理解 agent 能做什么、不能做什么，评估必须探查能力树的多个层次。

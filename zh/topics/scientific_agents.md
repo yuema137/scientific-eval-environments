@@ -2,6 +2,12 @@
 
 > [English](../../topics/scientific_agents.md) | **简体中文** · [← 全部 topics](./README.md)
 
+## 先看它解决什么问题
+
+Scientific agent 不能只看文字像不像专家。它可能要复现一个结果、运行 simulator、调 parameter、检查 evidence，或者写出一段 code，而且最终数字还得达到领域标准。Evaluator 因此必须把 agent output 接到真实 scientific artifact 与 check 上。
+
+拿一个 computational task 走一遍：给 agent 一个从 paper 取出的 question 和 starter environment，在 container 里执行它的 code，把结果与 accepted value 比较，同时记录 cost 和 failure stage。这比再找一个 model 判断答案「像不像科学」更扎实。但它只覆盖这道 task 所代表的 workflow 与 validity check，不能自动推出 agent 具备通用 scientific competence。
+
 ## Definition
 
 Scientific agent benchmark 是在真实科学研究或实践中提取任务的 AI agent 评估——计算工作流、参数调优、以文献为依托的问题，或对已发表结果的复现。它们与通用 agent benchmark 的区别在于任务来源（真实科学工作）和正确性标准（对已发表或专家定义结果的匹配）。

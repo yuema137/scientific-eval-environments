@@ -14,6 +14,8 @@ Topic  →  代表性 works  →  原始论文
 
 Topic 集合是固定的。新增 topic 需要更新 [`../../AGENT.md`](../../AGENT.md)。
 
+每个 topic 都先用 `先看它解决什么问题` 带读者进门，再进入正式 synthesis。入口会说明原来的 evaluation path、现在改了哪一步，让一个具体 trace 走一遍，并交代最近的边界。完整规则见[解释写作规范](../EXPLANATION_STYLE.md)。
+
 | # | Topic | 文件 | 收录 works |
 |---|---|---|---|
 | I | [General Long-Horizon Agent Benchmarks](./long_horizon_evaluation.md) | `long_horizon_evaluation.md` | 59 |

@@ -2,6 +2,12 @@
 
 > [English](../../topics/skill_learning_evolution.md) | **简体中文** · [← 全部 topics](./README.md)
 
+## 先看它解决什么问题
+
+Agent 看过 solution 以后做对一次，不代表它学会了 reusable skill。它可能只是把原 trajectory 重放了一遍。真正的 test 是：拿走原 trace，再改 context、task wording 或 skill composition，剩下的东西还能不能用。
+
+一条 evaluation loop 可以先让 agent 解 example，再写成 skill file，把文件冻结，最后放到 held-out task 上。然后比较 frozen skill、raw-trajectory reuse 和 no-memory baseline。如果换任务还能迁移，artifact 才可能抓住了 reusable procedure；如果只会做 near-duplicate，它只是压缩了经验，没有学到通用方法。
+
 ## Definition
 
 这个 topic 研究 agent 能否把经验、trajectory、示范或 evaluator feedback 变成可复用的程序性 skill，并检验任务、上下文或组合方式改变后，这些 skill 是否仍然有效。

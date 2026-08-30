@@ -6,6 +6,8 @@ work cards, integrates them into every canonical axis, mirrors and independently
 Chinese translation, validates everything, and **opens a pull request for human review — it
 never auto-merges.**
 
+English writing, Chinese translation, and Chinese naturalness review all follow [`../../EXPLANATION_STYLE.md`](../../EXPLANATION_STYLE.md). The pipeline preserves causal structure, concrete traces, and boundaries instead of treating translation as sentence-by-sentence word substitution.
+
 ## Five phases (ordered; a later phase never starts if an earlier one failed)
 
 ```

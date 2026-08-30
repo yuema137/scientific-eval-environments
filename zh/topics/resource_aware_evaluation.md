@@ -2,6 +2,12 @@
 
 > [English](../../topics/resource_aware_evaluation.md) | **简体中文** · [← 全部 topics](./README.md)
 
+## 先看它解决什么问题
+
+一个 agent 花 1 美元做对 60%，另一个花 100 美元做对 62%。只看 accuracy，真正的 deployment decision 就被藏起来了。Token、wall-clock time、GPU hour、simulator call 和实验材料都有同样的问题。
+
+Resource-aware evaluation 会记录或限制这些成本。比如总 budget 是 10 美元，agent 用 2 美元 retrieval、5 美元 simulation，再留 3 美元 verification；score 要同时展示 task quality 和 spending。便宜的失败不自动比昂贵的成功好，所以 benchmark 应该把 trade-off 摊开，别悄悄压成一个解释不清的 total。
+
 ## Definition
 
 Resource-aware evaluation 把资源消耗——token、tool-call 费用、wall-clock 时间、计算资源、仿真时间或某种领域特定的成本单位——纳入 benchmark 所衡量的范围，而不仅作为事后统计。在其最强的形式下，某种资源（通常是成本）被作为 agent 必须与任务成功一起权衡的显式优化目标。

@@ -2,6 +2,12 @@
 
 > [English](../../topics/evaluator_reliability_validation.md) | **简体中文** · [← 全部 topics](./README.md)
 
+## 先看它解决什么问题
+
+Evaluator 也是一套 measurement system，不是 oracle。LLM judge 给一条 trajectory 打了 8/10，下一步真正该问的是：它和 expert 是否一致？能不能把更好的 run 排在前面？换个 wording 或 candidate order，结果会不会变？
+
+可以拿 100 条 expert-labeled trajectory，让 judge 全部打一次分，再分别看 false pass、false failure，并交换展示顺序重测。这是在用 judge 排 agent 或提供 reward 之前，先评价 judge 自己。即便这批数据上一致性很高，也不能保证 agent 改变行为、开始钻 judge 空子以后仍然可靠。
+
 ## Definition
 
 这个 topic 研究给 agent 打分的 evaluator 是否准确、校准良好、经得住分布变化，而且真的适合后续用途。Evaluator 不只包括 LLM judge，也包括确定性 verifier、专家 rubric、reward model 和混合系统。

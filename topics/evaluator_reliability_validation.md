@@ -2,6 +2,12 @@
 
 > **English** | [简体中文](../zh/topics/evaluator_reliability_validation.md) · [← All topics](./README.md)
 
+## Start Here
+
+An evaluator is another measurement system, not an oracle. If an LLM judge gives a trajectory 8/10, the important next question is whether that score agrees with experts, ranks better runs above worse ones, and stays stable when wording or candidate order changes.
+
+Take 100 expert-labeled trajectories, score them with the judge, then separate false passes from false failures and test a swapped presentation order. This evaluates the evaluator before using it to rank agents or supply rewards. High agreement on this set still does not guarantee reliability after the agent changes its behavior to exploit the judge.
+
 ## Definition
 
 Evaluator reliability and validation studies whether the mechanism that assigns an agent score is accurate, calibrated, robust, and fit for its downstream use. Evaluators include deterministic verifiers, expert rubrics, reward models, LLM judges, and hybrid systems.

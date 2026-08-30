@@ -2,6 +2,12 @@
 
 > **English** | [简体中文](../zh/topics/trajectory_evaluation.md) · [← All topics](./README.md)
 
+## Start Here
+
+Two agents can reach the same answer by very different routes. One uses relevant evidence and verifies the result; another makes several unsupported guesses and gets lucky. Final-answer scoring treats them as equal.
+
+Trajectory evaluation keeps the route. For a five-step tool task, an evaluator can mark the first invalid call, whether each subgoal completed, how much evidence supported the conclusion, and how many retries were wasted. That makes failure easier to locate. It also adds cost and judge dependence: a detailed trace is useful only if the evaluator can score it reliably.
+
 ## Definition
 
 Trajectory evaluation refers to evaluation methods that score an agent based on the sequence of actions and intermediate states it produces, not only its final answer. Metrics may include per-step correctness, subgoal completion, per-capability subprocess scoring, reasoning quality, evidence grounding, or process efficiency.

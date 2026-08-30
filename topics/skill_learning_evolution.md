@@ -2,6 +2,12 @@
 
 > **English** | [简体中文](../zh/topics/skill_learning_evolution.md) · [← All topics](./README.md)
 
+## Start Here
+
+Completing one task after reading its solution does not show that an agent learned a reusable skill. It may simply replay the trajectory. The test is what remains when the original trace is removed and the context, task wording, or required composition changes.
+
+One evaluation loop can let the agent solve examples, write a skill file, freeze that file, and deploy it on held-out tasks. Compare the frozen skill with raw-trajectory reuse and with no memory. If it transfers, the artifact captured something reusable; if it works only on near-duplicates, it compressed experience without learning a general procedure.
+
 ## Definition
 
 Skill learning and evolution studies whether agents can turn experience, trajectories, demonstrations, or evaluator feedback into reusable procedural artifacts and whether those artifacts transfer when tasks, contexts, or compositions change.

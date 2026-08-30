@@ -14,6 +14,8 @@ Topic  →  Representative works  →  Original papers
 
 The set of topics is fixed. Adding a new topic requires updating [`../AGENT.md`](../AGENT.md).
 
+Each topic opens with a plain-language `Start Here` section before the formal synthesis. It shows the old evaluation path, the changed step, one concrete trace, and the nearest boundary. See the repository [Explanation Style Guide](../EXPLANATION_STYLE.md).
+
 | # | Topic | File | Related works |
 |---|---|---|---|
 | I | [General Long-Horizon Agent Benchmarks](./long_horizon_evaluation.md) | `long_horizon_evaluation.md` | 59 |

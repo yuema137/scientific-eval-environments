@@ -2,6 +2,12 @@
 
 > **English** | [简体中文](../zh/topics/benchmark_design_validity_contamination.md) · [← All topics](./README.md)
 
+## Start Here
+
+A benchmark can return a precise number and still measure the wrong thing. The test set may already be in training data, a weak verifier may accept broken output, or a toy environment may omit the condition named in the paper's claim. The problem is not arithmetic; it is whether the path from task to score supports the conclusion.
+
+Trace one coding item: choose a recent repository, generate tests, require those tests to cover the changed branches, run the submitted patch, and record what the verifier misses. Each step closes one failure route. None makes the benchmark permanently valid; repositories age, models see new data, and verifiers need their own audits.
+
 ## Definition
 
 This topic studies whether benchmark tasks, reference answers, verifiers, sampling procedures, and reported scores support the claims made from them. It covers task construction, contamination resistance, dynamic evaluation, ecological validity, verifier rigor, and benchmark maintenance.

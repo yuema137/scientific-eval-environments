@@ -2,6 +2,12 @@
 
 > **English** | [简体中文](../zh/topics/evaluation_driven_data_curation.md) · [← All topics](./README.md)
 
+## Start Here
+
+Most training papers choose data first and report evaluation at the end. In that workflow, the score describes the finished model but does not decide what data should come next.
+
+Here the score closes the loop. A curation policy selects 10,000 examples, the fixed recipe trains a model, held-out evaluation exposes weak behavior, and the next policy changes the mixture or filters. Evaluation is therefore a control signal for data selection. A paper that merely tries several datasets and reports the best result is not automatically in this topic; the feedback must actually change the curation process.
+
 ## Definition
 
 Evaluation-driven data curation covers work in which data selection, generation, filtering, weighting, curriculum, or mixture design is explicitly revised using downstream evaluation feedback.

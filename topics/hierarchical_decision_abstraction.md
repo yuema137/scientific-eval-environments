@@ -2,6 +2,12 @@
 
 > **English** | [简体中文](../zh/topics/hierarchical_decision_abstraction.md) · [← All topics](./README.md)
 
+## Start Here
+
+One agent trajectory can be described at several useful scales. An autonomous car chooses a route, decides to change lanes, and then emits steering, throttle, and brake controls. Calling all of these simply “actions” hides which decision failed.
+
+The same problem appears in scientific agents. `Diagnose the data pipeline` can be a high-level action that expands into reading logs, checking distributions, and running one discriminating test. If the diagnosis was sensible but the script used the wrong column, repair the executor; if every command ran correctly but the diagnosis was poor, repair the planner. The hierarchy improves diagnosis only when each level has a clear interface and a defensible score.
+
 ## Definition
 
 Hierarchical decision abstraction studies how agent behavior should be represented, evaluated, and optimized at multiple semantic and temporal scales: goals, strategies, subgoals, reasoning operations, tool actions, token chunks, primitive actions, and continuous control. The central question is not only whether a decision is good, but what should count as one decision.

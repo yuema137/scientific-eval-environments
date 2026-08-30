@@ -2,6 +2,12 @@
 
 > **English** | [简体中文](../zh/topics/survey.md) · [← All topics](./README.md)
 
+## Start Here
+
+Not every useful contribution ships a benchmark. A survey can tell a reader which evaluation questions already have task suites, which terms different communities use for the same mechanism, and where evidence is still thin. A position paper can make a claim about where evaluation should go next.
+
+This page is the entry point for those maps and arguments. A reader looking for agent-evaluation overviews can start here, then follow a specialized survey into credit assignment or skill evolution. These works organize or argue from existing evidence; they should not be read as new task-level performance results unless they also report an empirical study.
+
 ## Definition
 
 Survey papers and position papers on LLM-agent evaluation and the future direction of agentic systems. Unlike a benchmark, a survey does not add a task suite or a scoring protocol; it organizes the literature and identifies gaps. This topic acts as an index of such references for the rest of the repository.

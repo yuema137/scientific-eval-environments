@@ -2,6 +2,12 @@
 
 > **English** | [简体中文](../zh/topics/long_horizon_evaluation.md) · [← All topics](./README.md)
 
+## Start Here
+
+A model can answer one question correctly and still fail when the job requires 50 dependent decisions. Earlier mistakes change later state, tools return new evidence, and the agent must remember what has already happened. A one-shot benchmark does not expose that accumulation.
+
+Consider a repository task: inspect the issue, locate code, edit two files, run tests, diagnose a failure, and revise the patch. The task is long-horizon because each later step depends on the state left by earlier ones, not because it crosses an arbitrary step-count threshold. Longer tasks reveal planning and recovery, but they also mix more failure causes, so trajectory diagnostics are usually needed alongside final success.
+
 ## Definition
 
 Long-horizon agent evaluation covers benchmarks whose tasks require many sequential decisions, tool calls, or interaction turns before the task can be judged complete. "Long" is not a fixed step count; it is the property that failures accumulate across steps, that intermediate state matters, and that a single terminal reward gives too little diagnostic signal.

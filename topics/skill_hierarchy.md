@@ -2,6 +2,12 @@
 
 > **English** | [简体中文](../zh/topics/skill_hierarchy.md) · [← All topics](./README.md)
 
+## Start Here
+
+Two agents can earn the same total score for opposite reasons. One may plan well but misuse tools; another may retrieve the right information but fail to verify its answer. A single leaderboard number cannot show which one is suitable for a particular job.
+
+A skill hierarchy splits the capability profile. For a tool-use task, score instruction following, planning, retrieval, execution, and review separately. The result might be `planning 90%, retrieval 40%, execution 85%`, which points to a retrieval bottleneck. This is a map of capabilities, not a claim that those capabilities caused a specific trajectory failure; that second question belongs to credit assignment.
+
 ## Definition
 
 Skill hierarchy refers to the decomposition of a complex agent capability into a structured set of narrower capabilities or subskills, together with evaluation protocols that score each subskill separately. Benchmarks in this space share the design commitment that a single aggregate score conflates too much: to understand what an agent can and cannot do, evaluation must probe multiple levels of the capability tree.

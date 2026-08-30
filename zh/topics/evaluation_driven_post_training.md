@@ -2,6 +2,12 @@
 
 > [English](../../topics/evaluation_driven_post_training.md) | **简体中文** · [← 全部 topics](./README.md)
 
+## 先看它解决什么问题
+
+Evaluation 经常被放在 training 最后：先训练，最后测一次，发一张表。这个 topic 看的是相反的安排。Evaluator 被放进 development loop，用结果决定下一轮该换 data、reward、fine-tuning method，还是 model update。
+
+比如 agent 先 fine-tune 一个 base model，再跑 held-out suite。结果显示 function calling 提高了，medical reasoning 却退步了，于是下一轮改 training mixture。这才是 evaluation-driven loop。代价也很直接：反复看 evaluator 可能把改进变成 benchmark overfitting 或 reward hacking，所以 held-out test 与 contamination audit 也是方法的一部分。
+
 ## Definition
 
 这个 topic 研究 evaluation 如何作为一等 objective、feedback signal、selection mechanism 或实验环境，通过 fine-tuning、RL、preference learning 等方式改进模型或 agent。

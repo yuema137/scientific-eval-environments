@@ -2,6 +2,12 @@
 
 > [English](../../topics/hierarchical_decision_abstraction.md) | **简体中文** · [← 全部 Topics](./README.md)
 
+## 先看它解决什么问题
+
+同一条 agent trajectory 可以按几种有用的尺度来描述。自动驾驶系统先选 route，再决定是否 change lane，最后才输出 steering、throttle 和 brake control。把这些全都只叫 action，就看不出究竟是哪一层错了。
+
+科研 agent 也一样。`Diagnose the data pipeline` 可以是一条 high-level action，下面再展开成读 log、查 distribution、跑一个能区分假设的 test。如果 diagnosis 本身合理，只是 script 用错了 column，就修 executor；如果 command 都跑对了，diagnosis 却一开始就选错了，就修 planner。Hierarchy 只有在每层 interface 清楚、score 也站得住脚时，才能真的帮助 diagnosis。
+
 ## 定义
 
 Hierarchical decision abstraction 研究一个 agent 的行为应该怎样分层表示、评价和优化。层级可以包括目标、策略、子目标、推理动作、工具调用、token chunk、primitive action 和连续控制。它追问的不只是「这个 decision 好不好」，还包括「多大的一段行为应该算一个 decision」。

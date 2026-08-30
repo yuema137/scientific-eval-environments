@@ -2,6 +2,12 @@
 
 > **English** | [简体中文](../zh/topics/credit_assignment.md) · [← All topics](./README.md)
 
+## Start Here
+
+Suppose an agent takes 30 steps and fails on the last one. A terminal score of zero treats the first 29 steps exactly like a run that failed immediately. That is too little information for diagnosis or learning.
+
+Credit assignment changes the scoring path. The evaluator may award completed subgoals, label the first bad step, or estimate which action changed the outcome. A trace can then read `plan correct → data loaded correctly → wrong unit conversion → failed result`. This identifies where credit or blame belongs, but only if the intermediate labels or counterfactual estimates are trustworthy.
+
 ## Definition
 
 Credit assignment, in evaluation, is the problem of attributing a trajectory's success or failure to specific steps, subgoals, or intermediate outputs — rather than treating success as an unstructured property of the trajectory as a whole. In benchmarks, credit-assignment machinery shows up as dense intermediate rewards, partial-credit scoring, or per-step scoring that survives when the terminal outcome is a single bit.

@@ -2,6 +2,12 @@
 
 > [English](../../topics/survey.md) | **简体中文** · [← 全部 topics](./README.md)
 
+## 先看它解决什么问题
+
+有价值的工作不一定都会发布 benchmark。Survey 可以告诉读者：哪些 evaluation question 已经有 task suite，不同 community 是否在用不同名字说同一件事，以及证据最薄的地方在哪儿。Position paper 则会明确主张下一步应该往哪里走。
+
+这一页就是这些地图和论点的入口。想先看 agent evaluation 全景，可以从这里进；想深入 credit assignment 或 skill evolution，再顺着 specialized survey 走。它们整理和解释已有 evidence，除非另有 empirical study，否则不能当成新的 task-level performance result。
+
 ## Definition
 
 关于 LLM-agent 评估与 agentic 系统未来方向的综述与立场论文。与 benchmark 不同，综述不引入新的任务集或评分协议——它组织文献、指出空缺。此 topic 页作为仓库其他部分对这类参考文献的索引。

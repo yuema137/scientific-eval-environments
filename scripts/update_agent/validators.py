@@ -194,6 +194,30 @@ def validate_bilingual(repo_root, slugs):
     return (not errs, errs)
 
 
+# ---------------------------------------------------------------- topic explanations
+def validate_topic_explanations(repo_root=REPO_ROOT):
+    """Require a readable entry section on every canonical topic and its mirror."""
+    errs = []
+    tax = taxonomy(repo_root)
+    for topic_file in tax.get("topics", {}).values():
+        paths = (
+            (os.path.join(repo_root, "topics", "%s.md" % topic_file), "Start Here"),
+            (os.path.join(repo_root, "zh", "topics", "%s.md" % topic_file),
+             "先看它解决什么问题"),
+        )
+        for path, heading in paths:
+            rel = os.path.relpath(path, repo_root)
+            if not os.path.exists(path):
+                errs.append("%s: topic page missing" % rel)
+                continue
+            txt = open(path).read()
+            n = len(re.findall(r"^##\s+" + re.escape(heading) + r"\s*$", txt, re.M))
+            if n != 1:
+                errs.append("%s: heading '## %s' appears %d times (want 1)" %
+                            (rel, heading, n))
+    return (not errs, errs)
+
+
 # ---------------------------------------------------------------- CLI
 def _report(name, ok, errs):
     print("%s: %s" % (name, "PASS" if ok else "FAIL"))
@@ -204,7 +228,8 @@ def _report(name, ok, errs):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("check", choices=["profiles", "discovery", "cards", "axes", "bilingual"])
+    ap.add_argument("check", choices=["profiles", "discovery", "cards", "axes", "bilingual",
+                                      "topic-explanations"])
     ap.add_argument("--repo-root", default=REPO_ROOT)
     ap.add_argument("--run-dir")
     ap.add_argument("--slugs", default="")
@@ -220,6 +245,8 @@ def main():
         ok, e = validate_axes(a.repo_root)
     elif a.check == "bilingual":
         ok, e = validate_bilingual(a.repo_root, slugs)
+    elif a.check == "topic-explanations":
+        ok, e = validate_topic_explanations(a.repo_root)
     sys.exit(_report(a.check, ok, e))
 
 
