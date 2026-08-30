@@ -144,15 +144,125 @@ def _report_paths(month):
     return ROOT / "monthly" / (month + ".md"), ROOT / "zh" / "monthly" / (month + ".md")
 
 
+def _coverage_basis(path):
+    text = path.read_text()
+    if "> **Coverage:** First appearances during " in text:
+        return "first-appearance"
+    return "main-addition"
+
+
+def _primary_topics(works, limit=2):
+    counts = {}
+    first_seen = {}
+    for work_index, work in enumerate(works):
+        for topic_index, topic in enumerate(work["topics"]):
+            counts[topic["name"]] = counts.get(topic["name"], 0) + 1
+            first_seen.setdefault(topic["name"], (work_index, topic_index))
+    ranked = sorted(counts, key=lambda name: (-counts[name], first_seen[name]))
+    return ranked[:limit]
+
+
+def _first_plain_line(text, heading):
+    block = _section(text, heading)
+    for raw in block.splitlines():
+        line = raw.strip()
+        if not line:
+            continue
+        if line.startswith(("#", "-", "|", ">")):
+            continue
+        return line
+    return ""
+
+
+def _first_sentence(text):
+    match = re.match(r"(.+?[.!?。！？])(?:\s|$)", text.strip(), re.S)
+    return match.group(1).strip() if match else text.strip()
+
+
+def _archive_summary(month):
+    en_path, zh_path = _report_paths(month)
+    basis = _coverage_basis(en_path)
+    manifest = build_manifest(month, basis)[0]
+    en_reason = _first_sentence(_first_plain_line(en_path.read_text(), "Month at a Glance"))
+    zh_reason = _first_sentence(_first_plain_line(zh_path.read_text(), "本月概览"))
+    return {
+        "month": month,
+        "basis": basis,
+        "works_count": manifest["works_count"],
+        "new_release_count": manifest["new_release_count"],
+        "backfill_count": manifest["backfill_count"],
+        "primary_topics": _primary_topics(manifest["works"]),
+        "en_reason": en_reason,
+        "zh_reason": zh_reason,
+    }
+
+
 def _update_indexes():
     months = sorted((p.stem for p in (ROOT / "monthly").glob("????-??.md")), reverse=True)
-    en_rows = ["- [%s](./%s.md)" % (m, m) for m in months] or ["No monthly reports yet."]
-    zh_rows = ["- [%s](./%s.md)" % (m, m) for m in months] or ["目前还没有月报。"]
-    for path, rows in ((ROOT / "monthly" / "README.md", en_rows),
-                       (ROOT / "zh" / "monthly" / "README.md", zh_rows)):
+    summaries = [_archive_summary(month) for month in months]
+    if summaries:
+        total_works = sum(item["works_count"] for item in summaries)
+        busiest = max(summaries, key=lambda item: item["works_count"])
+        top_topics = _primary_topics(
+            [{"topics": [{"name": name} for name in item["primary_topics"]]} for item in summaries for _ in range(1)]
+        )
+        en_overview = [
+            "- `%d` reports currently cover `%d` works from `%s` through `%s`." %
+            (len(summaries), total_works, summaries[-1]["month"], summaries[0]["month"]),
+            "- The busiest report so far is [%s](./%s.md) with `%d` works." %
+            (busiest["month"], busiest["month"], busiest["works_count"]),
+            "- The archive is most consistently concentrated around `%s`." %
+            (", ".join(top_topics) if top_topics else "cross-cutting benchmark work"),
+        ]
+        zh_overview = [
+            "- 现在一共有 `%d` 份月报，覆盖 `%d` 项工作，时间从 `%s` 到 `%s`。" %
+            (len(summaries), total_works, summaries[-1]["month"], summaries[0]["month"]),
+            "- 目前最密的一期是 [%s](./%s.md)，单月收了 `%d` 项工作。" %
+            (busiest["month"], busiest["month"], busiest["works_count"]),
+            "- 整个档案里最常反复出现的主线，主要还是 `%s`。" %
+            ("、".join(top_topics) if top_topics else "跨方向 benchmark"),
+        ]
+        en_rows = [
+            "| Month | Works | Primary topics | Why revisit it |",
+            "|---|---:|---|---|",
+        ]
+        zh_rows = [
+            "| 月份 | 工作数 | 主要 Topic | 这期值不值得回看 |",
+            "|---|---:|---|---|",
+        ]
+        for item in summaries:
+            en_rows.append(
+                "| [%s](./%s.md) | %d | %s | %s |" % (
+                    item["month"], item["month"], item["works_count"],
+                    ", ".join(item["primary_topics"]) or "—",
+                    item["en_reason"].replace("|", "\\|") or "—",
+                )
+            )
+            zh_rows.append(
+                "| [%s](./%s.md) | %d | %s | %s |" % (
+                    item["month"], item["month"], item["works_count"],
+                    "、".join(item["primary_topics"]) or "—",
+                    item["zh_reason"].replace("|", "\\|") or "—",
+                )
+            )
+    else:
+        en_overview = ["No monthly reports yet."]
+        zh_overview = ["目前还没有月报。"]
+        en_rows = ["No monthly reports yet."]
+        zh_rows = ["目前还没有月报。"]
+    for path, overview, rows in ((ROOT / "monthly" / "README.md", en_overview, en_rows),
+                                 (ROOT / "zh" / "monthly" / "README.md", zh_overview, zh_rows)):
         text = path.read_text()
-        text = re.sub(r"(?s)(<!-- MONTHLY_REPORTS_START -->).*?(<!-- MONTHLY_REPORTS_END -->)",
-                      r"\1\n" + "\n".join(rows) + r"\n\2", text)
+        text = re.sub(
+            r"(?s)(<!-- MONTHLY_ARCHIVE_OVERVIEW_START -->).*?(<!-- MONTHLY_ARCHIVE_OVERVIEW_END -->)",
+            lambda match: match.group(1) + "\n" + "\n".join(overview) + "\n" + match.group(2),
+            text,
+        )
+        text = re.sub(
+            r"(?s)(<!-- MONTHLY_REPORTS_START -->).*?(<!-- MONTHLY_REPORTS_END -->)",
+            lambda match: match.group(1) + "\n" + "\n".join(rows) + "\n" + match.group(2),
+            text,
+        )
         path.write_text(text)
 
 
