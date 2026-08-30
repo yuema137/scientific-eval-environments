@@ -43,6 +43,7 @@ Topic 是**方法学轴**：agent 如何被评估。每个页面都是一篇带�
 |---|---|
 | [General Long-Horizon Agent Benchmarks](./topics/long_horizon_evaluation.md) | 任务需经过许多次连续决策、工具调用或交互回合的 benchmark——失败会逐步累积，中间状态至关重要。 |
 | [Scientific Agent Benchmarks](./topics/scientific_agents.md) | 让 agent 完成取自真实科研与实践的任务，以已发表或专家给定的结果为对照评判。 |
+| [Planning & Decision-Making Evaluation](./topics/planning_decision_evaluation.md) | 面对当前状态、目标、约束、工具和证据，agent 能否选出合理的计划或下一步，并在收到反馈后妥善调整。 |
 | [Trajectory Evaluation](./topics/trajectory_evaluation.md) | 对整条动作与中间状态序列打分的方法，而不仅看最终答案。 |
 | [Skill Hierarchy](./topics/skill_hierarchy.md) | 把一项复杂能力拆解为更细的子技能，并分别打分。 |
 | [Credit Assignment](./topics/credit_assignment.md) | 把一条 trajectory 的成败归因到具体步骤或子目标——稠密奖励、部分给分、逐步打分。 |
@@ -117,7 +118,7 @@ Domain 是**领域轴**：一份工作在哪个科学或工程学科内评估，
 
 RL 工作的界线由论文主要贡献判定：如果它推进了**如何评估 agent**，即在范围内；如果它推进的是**如何训练 agent**，则不在范围内。
 
-"Works" 比 "benchmarks" 更广：集合中收录 benchmark、评估方法学、评估框架、面向评估的 RL 工作、综述与立场论文的卡片，每张卡片都会显式标注类型。目前共有 **366 张卡片**、**7 个 topic 页**、**19 个 domain 页**、**11 个 activity 页**，并在 [`zh/`](./README.md) 下配有中文镜像。
+"Works" 比 "benchmarks" 更广：集合中收录 benchmark、评估方法学、评估框架、面向评估的 RL 工作、综述与立场论文的卡片，每张卡片都会显式标注类型。目前共有 **370 张卡片**、**8 个 topic 页**、**19 个 domain 页**、**11 个 activity 页**，并在 [`zh/`](./README.md) 下配有中文镜像。
 
 ---
 

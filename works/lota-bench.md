@@ -9,6 +9,7 @@ LoTa-Bench benchmarks language-oriented task planners for embodied agents with f
 ## Topics
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
+- [Planning & Decision-Making Evaluation](../topics/planning_decision_evaluation.md)
 
 ## Activities
 

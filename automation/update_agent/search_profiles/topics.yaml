@@ -10,6 +10,11 @@ Scientific Agent Benchmarks:
   - AI scientist benchmark
   - science agent evaluation environment
   - autonomous research agent benchmark
+Planning & Decision-Making Evaluation:
+  - LLM agent planning benchmark
+  - planning decision-making agent evaluation
+  - tool-use planning diagnostic benchmark
+  - replanning sequential decision evaluation
 Trajectory Evaluation:
   - agent trajectory evaluation
   - process-level agent evaluation

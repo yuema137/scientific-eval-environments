@@ -26,11 +26,12 @@ A work card lists its topics in the `Topics` block and its activities in the `Ac
 |---|---|---|
 | I | General Long-Horizon Agent Benchmarks | `long_horizon_evaluation.md` |
 | II | Scientific Agent Benchmarks | `scientific_agents.md` |
-| III | Trajectory Evaluation | `trajectory_evaluation.md` |
-| IV | Skill Hierarchy | `skill_hierarchy.md` |
-| V | Credit Assignment | `credit_assignment.md` |
-| VI | Resource-aware Evaluation | `resource_aware_evaluation.md` |
-| VII | Survey | `survey.md` |
+| III | Planning & Decision-Making Evaluation | `planning_decision_evaluation.md` |
+| IV | Trajectory Evaluation | `trajectory_evaluation.md` |
+| V | Skill Hierarchy | `skill_hierarchy.md` |
+| VI | Credit Assignment | `credit_assignment.md` |
+| VII | Resource-aware Evaluation | `resource_aware_evaluation.md` |
+| VIII | Survey | `survey.md` |
 
 Skill Hierarchy and Credit Assignment are independent topics — do not merge.
 

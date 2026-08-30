@@ -9,6 +9,7 @@ AISE-Bench is a full-cycle annotated benchmark for academic information seeking 
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Planning & Decision-Making Evaluation](../topics/planning_decision_evaluation.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
 ## Activities

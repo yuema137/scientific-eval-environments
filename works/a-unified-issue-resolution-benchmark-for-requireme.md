@@ -8,7 +8,7 @@ SWE-RPG is a repository-level issue-resolution benchmark that pairs executable p
 
 ## Topics
 
-
+- [Planning & Decision-Making Evaluation](../topics/planning_decision_evaluation.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
 ## Activities

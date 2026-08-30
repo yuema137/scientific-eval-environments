@@ -9,6 +9,7 @@
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Planning & Decision-Making Evaluation](../topics/planning_decision_evaluation.md)
 
 ## Activities
 

@@ -9,6 +9,7 @@ Embodied Agent Interface (EAI) benchmarks LLMs for embodied decision making by d
 ## Topics
 
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
+- [Planning & Decision-Making Evaluation](../topics/planning_decision_evaluation.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
 ## Activities
