@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/autobm.md)
 
+> **First appeared:** 2026-02-06 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2602.07083)
+
 ## Overview
 
 AutoBM defines the task of generating executable, physically consistent OpenSeesPy building-model code from a

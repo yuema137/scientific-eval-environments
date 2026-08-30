@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ctrl-alt-recover.md)
 
+> **First appeared:** 2026-06-30 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.31635)
+
 ## Overview
 
 A tutorial paper on using LLM agents as constrained supervisory planners for fault recovery in process plants, released with two openly available executable Python environments — a modular mixing module and a continuous stirred-tank reactor — that expose configurable faults and pluggable interfaces for custom recovery and validation methods.

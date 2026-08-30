@@ -2,6 +2,8 @@
 
 > [English](../../works/replicationbench.md) | **简体中文**
 
+> **首次公开：** 2025-10-28 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2510.24591)
+
 ## Overview
 
 ReplicationBench 是追问「AI agent 能否复现天体物理研究论文」的评估框架：每篇论文被拆成若干任务，要求 agent 复现其核心贡献——实验设置、推导、数据分析与代码库——且每个任务都与论文原作者共同开发。

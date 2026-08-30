@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/verilogeval.md)
 
+> **First appeared:** 2023-09-14 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2309.07544)
+
 ## Overview
 
 VerilogEval is the canonical benchmark for evaluating LLMs on Verilog code generation: 156 problems from the HDLBits instructional website, with functional correctness checked automatically by simulating generated RTL against golden solutions.

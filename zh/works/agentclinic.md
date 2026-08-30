@@ -2,6 +2,8 @@
 
 > [English](../../works/agentclinic.md) | **简体中文**
 
+> **首次公开：** 2024-05-13 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2405.07960)
+
 ## Overview
 
 AgentClinic 是模拟临床环境中评估 AI 的多模态 agent benchmark：医生 agent 须通过连续的医患交互、不完全信息下的多模态数据采集与工具使用得出诊断——覆盖九个医学专科与七种语言。

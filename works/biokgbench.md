@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/biokgbench.md)
 
+> **First appeared:** 2024-06-29 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2407.00466)
+
 ## Overview
 
 BioKGBench is a knowledge-graph checking benchmark for biomedical AI agents: two atomic tasks — scientific claim verification (SCV) and knowledge-graph question answering (KGQA) — compose into the agentic KGCheck task, in which an agent uses KGQA and domain-based retrieval-augmented generation to identify factual errors in large-scale biomedical knowledge graphs.

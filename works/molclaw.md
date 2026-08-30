@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/molclaw.md)
 
+> **First appeared:** 2026-04-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.21937)
+
 ## Overview
 
 MolClaw is an autonomous agent for drug-molecule evaluation, screening, and optimization built on a three-tier hierarchical skill architecture, released together with **MolBench**, a benchmark of molecular screening, molecular optimization, and end-to-end discovery challenges spanning 8 to 50+ sequential tool calls.

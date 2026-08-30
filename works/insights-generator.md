@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/insights-generator.md)
 
+> **First appeared:** 2026-05-20 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.21347)
+
 ## Overview
 
 Insights Generator is a multi-agent system for corpus-level trace diagnostics for LLM agents. It answers diagnostic questions by proposing and testing hypotheses across a corpus of execution traces to produce an evidence-backed insights report — automating what would otherwise be manual trace inspection.

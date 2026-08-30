@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/drafterbench.md)
 
+> **First appeared:** 2025-07-15 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2507.11527)
+
 ## Overview
 
 DrafterBench is an open-source benchmark for LLM agents on technical-drawing revision in civil engineering: 1,920 tasks built from twelve revision task types and 46 custom drawing-manipulation tools, scored by reading the recorded operation chain rather than the rendered drawing.

@@ -2,6 +2,8 @@
 
 > [English](../../works/natural-plan.md) | **简体中文**
 
+> **首次公开：** 2024-06-06 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2406.04520)
+
 ## Overview
 
 NATURAL PLAN 是一套包含 3,600 个实例的自然语言规划 benchmark，覆盖旅行安排、会面规划与日程协调；评估时，模型所需的工具信息会全部随 prompt 提供。

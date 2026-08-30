@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/pdagent-bench.md)
 
+> **First appeared:** 2026-06-15 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.17253)
+
 ## Overview
 
 PDAgent-Bench is a benchmark for evaluating LLM/VLM-based agents across the VLSI physical design stack, combining task-level assessment (conceptual and tool-centric problems) with workflow-level closed-loop execution in realistic Electronic Design Automation (EDA) environments.

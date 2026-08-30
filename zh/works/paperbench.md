@@ -2,6 +2,8 @@
 
 > [English](../../works/paperbench.md) | **简体中文**
 
+> **首次公开：** 2025-04-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2504.01848)
+
 ## Overview
 
 PaperBench 评估 AI agent 能否复现最前沿的 AI 研究：agent 需从零复现 20 篇 ICML 2024 Spotlight 与 Oral 论文——理解贡献、搭建代码库、执行实验——并对照与论文作者共同开发的层级式评分标准判分，可判分节点共 8,316 个。

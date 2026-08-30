@@ -2,6 +2,8 @@
 
 > [English](../../works/formalrewardbench.md) | **简体中文**
 
+> **首次公开：** 2026-05-11 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2605.10141)
+
 ## Overview
 
 FormalRewardBench 是一个评估 reward model 能否在正确与错误的 Lean 4 证明之间做出正确偏好的 benchmark。它包含 250 个 preference pair，每一对将一个经形式化验证的正确证明与由五种专家设计的错误注入策略之一生成的错误变体配对。

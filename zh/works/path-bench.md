@@ -2,6 +2,8 @@
 
 > [English](../../works/path-bench.md) | **简体中文**
 
+> **首次公开：** 2026-08-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.01149)
+
 ## Overview
 
 PATH-Bench 是面向终身 LLM agent 的路径依赖评估 benchmark：它构造迁移关系已知的受控任务序列，度量累积经验的*顺序与内容*——无论存成可检索的记忆还是可复用的 skill——如何改变一个骨干冻结的 agent 迁移什么、保留什么、遗忘什么。

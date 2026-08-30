@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/embodiedeval.md)
 
+> **First appeared:** 2025-01-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2501.11858)
+
 ## Overview
 
 EmbodiedEval evaluates multimodal LLMs as embodied agents in an interactive 3D simulation framework: 328 distinct tasks within 125 varied 3D scenes, spanning navigation, object interaction, social interaction, attribute question answering, and spatial question answering.

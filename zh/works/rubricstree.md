@@ -2,6 +2,8 @@
 
 > [English](../../works/rubricstree.md) | **简体中文**
 
+> **首次公开：** 2026-06-16 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.18203)
+
 ## Overview
 
 RubricsTree 是面向开放式个人健康 agent 的评估框架。它不再依赖单一的整体式 LLM judge，而是改用一套由专家策划的分层 rubric 分类法——100 余条原子化、临床上可核验的布尔型 rubric——并通过一个感知上下文的自适应路由器，为每条查询只激活相关的那部分 rubric。

@@ -2,6 +2,8 @@
 
 > [English](../../works/ml-bench.md) | **简体中文**
 
+> **首次公开：** 2023-11-16 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2311.09835)
+
 ## Overview
 
 ML-Bench 在仓库级代码上评测 LLM 与 agent 的机器学习任务：18 个 GitHub 仓库上的 9,641 个样例，分为 ML-LLM-Bench（在仓库上下文中据任务描述生成代码）与 ML-Agent-Bench（在 Linux 沙箱中自主端到端执行任务）。

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/envtrace.md)
 
+> **First appeared:** 2025-11-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2511.09964)
+
 ## Overview
 
 EnvTrace is a simulation-based evaluation methodology for LLM-generated instrument-control code: instead of static unit tests, it executes candidate code against a digital twin of a synchrotron beamline and scores semantic equivalence by aligning execution traces.

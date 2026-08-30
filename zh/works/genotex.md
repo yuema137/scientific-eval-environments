@@ -2,6 +2,8 @@
 
 > [English](../../works/genotex.md) | **简体中文**
 
+> **首次公开：** 2024-06-21 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2406.15341)
+
 ## Overview
 
 GenoTEX 是自动化基因表达数据分析的 LLM agent benchmark：agent 按照计算基因组学的标准流程完成基因-性状关联问题的数据集选择、预处理与统计分析，评估对照生物信息学家的专家整理标注进行。

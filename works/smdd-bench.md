@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/smdd-bench.md)
 
+> **First appeared:** 2026-05-20 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.21740)
+
 ## Overview
 
 SMDD-Bench asks whether LLMs can solve real-world small-molecule drug design tasks: 502 guaranteed-solvable instances over 102 unique protein targets in five task types — 2D pharmacophore identification, interaction point discovery, scaffold hopping, lead optimization, and fragment assembly — as a multi-turn, long-horizon agentic benchmark.

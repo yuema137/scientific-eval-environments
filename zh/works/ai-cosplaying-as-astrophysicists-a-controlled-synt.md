@@ -2,6 +2,8 @@
 
 > [English](../../works/ai-cosplaying-as-astrophysicists-a-controlled-synt.md) | **简体中文**
 
+> **首次公开：** 2026-03-30 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2603.29039)
+
 ## Overview
 
 一项受控评估研究：由 LLM 扮演的天体物理研究者在五种不同的 AI 辅助策略下完成日常天体物理科研任务，产出 12,960 个按量表评分的 episode，用以衡量辅助在哪些地方有帮助、在哪些地方没有影响、又在哪些地方抬高了「自信而错误」的结果比例。

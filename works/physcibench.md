@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/physcibench.md)
 
+> **First appeared:** 2026-06-17 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.18648)
+
 ## Overview
 
 PhySciBench is a benchmark of 200 expert-curated deep-research questions in the physical sciences, balanced between physics and chemistry across six task categories reflecting real scientific workflows. The accompanying DelveAgent framework is agent-construction work adjacent to this repository's evaluation focus.

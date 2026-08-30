@@ -2,6 +2,8 @@
 
 > [English](../../works/matqna.md) | **简体中文**
 
+> **首次公开：** 2025-09-14 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2509.11335)
+
 ## Overview
 
 MatQnA 是面向多模态 LLM 的材料表征与分析 benchmark 数据集，覆盖十种主流表征方法——XPS、XRD、SEM、TEM 等——最先进的模型（GPT-4.1、Claude 4、Gemini 2.5、Doubao Vision Pro）在客观题上已接近 90%。

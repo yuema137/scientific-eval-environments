@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/autoresearcheval.md)
 
+> **First appeared:** 2026-08-14 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.14905)
+
 ## Overview
 
 AutoResearchEval is a diagnostic evaluation of end-to-end autonomous research agents over 100 tasks grounded in published frontier science, spanning the full research lifecycle from ideation to review. Rather than ranking systems by a final score, it annotates 800 complete trajectories at the process level and organises the results into ARFT, a taxonomy of 45 empirically grounded failure patterns.

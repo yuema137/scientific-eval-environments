@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/agent-evaluation-survey.md)
 
+> **First appeared:** 2025-03-20 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2503.16416)
+
 ## Overview
 
 *Survey on Evaluation of LLM-based Agents* is a comprehensive survey that organizes evaluation methods for LLM-based agents across five perspectives, and explicitly identifies gaps. It is included here as a reference paper, not a benchmark contribution.

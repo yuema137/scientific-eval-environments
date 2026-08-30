@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/super.md)
 
+> **First appeared:** 2024-09-11 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2409.07440)
+
 ## Overview
 
 SUPER evaluates agents on setting up and executing tasks from research repositories: 45 end-to-end problems with expert solutions, 152 sub-problems targeting specific challenges, and 602 automatically generated problems from real ML/NLP GitHub repos — where the best model (GPT-4o) solves only 16.3% end to end.

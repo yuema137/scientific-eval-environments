@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/exp-bench.md)
 
+> **First appeared:** 2025-05-30 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.24785)
+
 ## Overview
 
 EXP-Bench is a benchmark that evaluates AI agents on conducting complete research experiments from influential AI publications: formulating hypotheses, designing and implementing experimental procedures, executing them, and analyzing results. It curates 461 tasks from 51 NeurIPS 2024 and ICLR 2024 papers through a semi-autonomous extraction pipeline.

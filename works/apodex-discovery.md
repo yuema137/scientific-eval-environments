@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/apodex-discovery.md)
 
+> **First appeared:** 2026-08-11 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.11341)
+
 ## Overview
 
 Apodex Discovery is a set of executable "reality-based" environments and an accompanying process-scoring rubric for evaluating AI systems on real-world discovery problems. Twenty problems were selected from a two-month survey of 561 industries, each realised as a stateful environment with tools, data and a hidden verifier, and solver trajectories are scored on six process dimensions blind to the outcome.

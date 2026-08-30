@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ai-agents-in-scientific-teams.md)
 
+> **First appeared:** 2026-08-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.14667)
+
 ## Overview
 
 A position paper arguing that research on "AI Scientists" has concentrated on autonomous capability and thereby overlooked the social reality of scientific teamwork. It proposes that the unit of analysis should be the human-agent pair rather than the agent, assembles evidence that ignoring human-agent dynamics carries near-term risks, and sketches a decision-theoretic frame for measuring human-AI synergy.

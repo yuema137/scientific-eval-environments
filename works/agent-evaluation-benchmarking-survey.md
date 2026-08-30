@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/agent-evaluation-benchmarking-survey.md)
 
+> **First appeared:** 2025-07-29 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2507.21504)
+
 ## Overview
 
 *Evaluation and Benchmarking of LLM Agents: A Survey* is a survey of the LLM-agent evaluation field that introduces a two-dimensional taxonomy organizing existing work by evaluation objectives (what to evaluate) and evaluation process (how to evaluate), and highlights enterprise-specific evaluation challenges. It is included here as a reference paper, not a benchmark contribution.

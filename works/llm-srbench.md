@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/llm-srbench.md)
 
+> **First appeared:** 2025-04-14 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2504.10415)
+
 ## Overview
 
 LLM-SRBench is a benchmark of 239 challenging problems for scientific equation discovery with LLMs, designed to prevent trivial memorization: LSR-Transform recasts common physical models into less common mathematical representations, and LSR-Synth introduces synthetic, discovery-driven problems requiring data-driven reasoning.

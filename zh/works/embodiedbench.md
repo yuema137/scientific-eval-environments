@@ -2,6 +2,8 @@
 
 > [English](../../works/embodiedbench.md) | **简体中文**
 
+> **首次公开：** 2025-02-13 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2502.09560)
+
 ## Overview
 
 EmbodiedBench 大规模评测作为视觉驱动具身 agent 的多模态 LLM：1,128 个测试任务横跨四个环境，从高层家居语义任务到导航、操作等原子动作任务，组织为六个能力子集——最强模型 GPT-4o 平均也只得 28.9%。

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/a-lightweight-large-language-model-based-multi-age.md)
 
+> **First appeared:** 2025-10-06 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.05414)
+
 ## Overview
 
 A benchmark of twenty 2D building-frame structural-analysis problems, each evaluated over ten independent trials, together with a five-agent Llama-3.3 70B pipeline that converts a textual frame description into executable OpenSeesPy finite-element code.

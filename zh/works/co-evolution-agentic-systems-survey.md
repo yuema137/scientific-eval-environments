@@ -2,6 +2,8 @@
 
 > [English](../../works/co-evolution-agentic-systems-survey.md) | **简体中文**
 
+> **首次公开：** 2026-08-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.10299)
+
 ## Overview
 
 一篇关于 agentic 系统中共同演化的综述——所谓共同演化，是自我演化的多组件形态，多个 agent 与它们所处的环境彼此施加适应压力。文章用一个递进的三阶段分类体系梳理文献，追踪系统如何一步步卸掉人为设计的约束，并专辟一节论述为什么评估这类系统比评估固定 agent 更难。

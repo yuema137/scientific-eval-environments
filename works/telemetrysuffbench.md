@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/telemetrysuffbench.md)
 
+> **First appeared:** 2026-08-08 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.07899)
+
 ## Overview
 
 A controlled benchmark that tests whether agent execution telemetry is *sufficient* to diagnose where a failure originated, separating three capabilities — failure detection, fault-origin localization, and safe abstention under insufficient evidence — over synthetic multi-component agent traces.

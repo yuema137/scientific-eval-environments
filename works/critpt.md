@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/critpt.md)
 
+> **First appeared:** 2025-09-30 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2509.26574)
+
 ## Overview
 
 CritPt (Complex Research using Integrated Thinking – Physics Test, pronounced "critical point") is a benchmark of 71 composite, unpublished research-level physics challenges, decomposed into 190 simpler checkpoint tasks, newly created by more than 50 active physics researchers across 11+ subfields.

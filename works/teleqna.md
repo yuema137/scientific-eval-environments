@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/teleqna.md)
 
+> **First appeared:** 2023-10-23 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2310.15051)
+
 ## Overview
 
 TeleQnA is the first benchmark dataset for assessing the telecommunications knowledge of large language models: 10,000 multiple-choice questions drawn from standards (3GPP, IEEE) and research articles, on which LLMs can rival active telecom professionals in general knowledge but struggle with complex standards questions.

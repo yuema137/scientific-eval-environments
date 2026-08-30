@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/miramind.md)
 
+> **First appeared:** 2025-12-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2512.09636)
+
 ## Overview
 
 MiraMind is a benchmark for evaluating large language models on mental-health reasoning, scoring not only task outcomes but also the reliability of the explicit reasoning trajectories that connect limited, subjective evidence to clinical judgments.

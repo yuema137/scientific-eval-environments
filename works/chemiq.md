@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/chemiq.md)
 
+> **First appeared:** 2025-05-12 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.07735)
+
 ## Overview
 
 ChemIQ assesses the chemical intelligence of LLMs with 816 short-answer questions on core organic chemistry — including NMR structure elucidation — answered directly without tools: reasoning models solve 50–57% in their highest reasoning modes, while non-reasoning models manage only 3–7%.

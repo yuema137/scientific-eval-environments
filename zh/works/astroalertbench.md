@@ -2,6 +2,8 @@
 
 > [English](../../works/astroalertbench.md) | **简体中文**
 
+> **首次公开：** 2026-05-07 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2605.05573)
+
 ## Overview
 
 AstroAlertBench 是一个面向天文警报审查的多模态 benchmark：模型需要把 Zwicky Transient Facility (ZTF) 的真实警报判入五个类别，过程分为元数据理解、科学推理、层级分类三个阶段；此外还设有一条明确的「诚实性」轴，用于衡量模型的自我评估是否与其实际正确率相符。

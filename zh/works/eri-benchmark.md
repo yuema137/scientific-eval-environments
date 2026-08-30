@@ -2,6 +2,8 @@
 
 > [English](../../works/eri-benchmark.md) | **简体中文**
 
+> **首次公开：** 2026-02-16 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2603.02239)
+
 ## Overview
 
 Engineering Reasoning and Instruction（ERI）benchmark 是一套由分类体系驱动的指令数据集：按九个工程领域（含 55 个子领域，化学工程在列）、七种任务意图与三个难度层级做受控笛卡尔积，共 57,750 条指令–回答记录，随附校验脚本与一套用于给 LLM 和 agent 打分的评估框架。

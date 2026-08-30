@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/medagentbench.md)
 
+> **First appeared:** 2025-01-24 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2501.14654)
+
 ## Overview
 
 MedAgentBench is a realistic virtual EHR environment to benchmark medical LLM agents: 300 patient-specific, clinically derived tasks from 10 categories written by human physicians, over realistic profiles of 100 patients with more than 700,000 data elements, in a FHIR-compliant interactive environment.

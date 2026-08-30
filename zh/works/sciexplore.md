@@ -2,6 +2,8 @@
 
 > [English](../../works/sciexplore.md) | **简体中文**
 
+> **首次公开：** 2026-07-23 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2607.20926)
+
 ## Overview
 
 SciExplore 是评估自主 agent 科学信息获取能力的 benchmark，覆盖从数据库导航到跨源信息整合，含四类渐进任务、103 个专家整理的任务，横跨十余个科学学科。

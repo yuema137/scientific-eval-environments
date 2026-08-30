@@ -2,6 +2,8 @@
 
 > [English](../../works/skillevolbench.md) | **简体中文**
 
+> **首次公开：** 2026-05-22 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2605.24117)
+
 ## Overview
 
 SkillEvolBench 是一套诊断性基准，针对的是从「经验复用」迈向「skill 形成」的那一步：LLM agent 能否把自己的情节式轨迹蒸馏成可复用的程序性 skill，并且在 skill 库被冻结、任务发生变化之后依然管用。

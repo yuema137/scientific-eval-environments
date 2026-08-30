@@ -2,6 +2,8 @@
 
 > [English](../../works/cfdllmbench.md) | **简体中文**
 
+> **首次公开：** 2025-09-19 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2509.20374)
+
 ## Overview
 
 CFDLLMBench 是评估大语言模型计算流体力学（CFD）能力的三层 benchmark 套件，难度逐级递进：从研究生水平的 CFD 知识（CFDQuery），到生成 Python 求解器所需的数值与物理推理（CFDCodeBench），再到端到端的 OpenFOAM 算例配置与执行（FoamBench）。

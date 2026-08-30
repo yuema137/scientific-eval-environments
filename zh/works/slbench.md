@@ -2,6 +2,8 @@
 
 > [English](../../works/slbench.md) | **简体中文**
 
+> **首次公开：** 2026-07-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2607.09016)
+
 ## Overview
 
 SLBench 是一套 86 个用例的可执行基准，考察 LLM agent 能否理清一个 agent skill 内部各条指令之间的逻辑关系——前置条件、约束、回退，以及配套框架 SkillLogic 编目的另外五种关系类型。

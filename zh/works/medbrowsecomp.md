@@ -2,6 +2,8 @@
 
 > [English](../../works/medbrowsecomp.md) | **简体中文**
 
+> **首次公开：** 2025-05-20 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2505.14963)
+
 ## Overview
 
 MedBrowseComp 评测医学 deep research 与 computer use：1,000 余道由医生整理的问题，要求 agent 从实时的领域知识库——临床试验、一手研究、监管文件与费用数据——检索并综合多跳医学事实。

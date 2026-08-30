@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/llm4mat-bench.md)
 
+> **First appeared:** 2024-10-31 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2411.00177)
+
 ## Overview
 
 LLM4Mat-Bench benchmarks large language models for materials property prediction: about 1.9M crystal structures from 10 data sources with 45 properties, encoded in three text modalities (composition, CIF, crystal text description), evaluating both generative chat LLMs and fine-tuned language models — with the finding that task-specific models still dominate generative LLMs.

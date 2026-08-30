@@ -2,6 +2,8 @@
 
 > [English](../../works/skilllearnbench.md) | **简体中文**
 
+> **首次公开：** 2026-04-22 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2604.20087)
+
 ## Overview
 
 SkillLearnBench 是面向持续 skill 学习方法的基准——这类方法从 agent 自身的执行经验中自动生成 agent skill——它不只看任务解没解出来，还给生成出来的 skill 本身的质量打分。

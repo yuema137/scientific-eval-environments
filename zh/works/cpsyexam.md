@@ -2,6 +2,8 @@
 
 > [English](../../works/cpsyexam.md) | **简体中文**
 
+> **首次公开：** 2024-05-16 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2405.10212)
+
 ## Overview
 
 CPsyExam 是用考试题评测 LLM 心理学知识的中文 benchmark：从 22,000 道题的题库中精选出 4,000 道构成 benchmark，沿两条轴组织——心理学知识与案例分析。

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/travelplanner.md)
 
+> **First appeared:** 2024-02-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2402.01622)
+
 ## Overview
 
 TravelPlanner is a real-world planning benchmark with 1,225 curated travel intents, a closed sandbox containing nearly four million records, and tools for constructing multi-day itineraries under environment, commonsense, and user constraints.
@@ -17,6 +19,7 @@ N/A — general travel planning; no scientific or research activity is directly 
 
 ## Links
 
+- **Preprint:** <https://arxiv.org/abs/2402.01622>
 - **Paper:** <https://proceedings.mlr.press/v235/xie24j.html>
 - **Code:** <https://github.com/OSU-NLP-Group/TravelPlanner>
 - **Venue:** ICML 2024

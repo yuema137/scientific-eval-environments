@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/molquest.md)
 
+> **First appeared:** 2026-03-26 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2603.25253)
+
 ## Overview
 
 MolQuest recasts chemical structure elucidation as an agentic task: a multi-turn interactive setting in which models must proactively plan experimental steps, integrate heterogeneous spectral sources such as NMR and MS, and iteratively refine structural hypotheses — state-of-the-art models reach only about 50% accuracy.

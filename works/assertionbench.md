@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/assertionbench.md)
 
+> **First appeared:** 2024-06-26 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2406.18627)
+
 ## Overview
 
 AssertionBench evaluates large language models on hardware assertion generation: 100 curated Verilog designs from OpenCores paired with formally verified assertions (from the GoldMine and HARM tools), measuring whether LLMs can infer functionally correct assertions for digital hardware.

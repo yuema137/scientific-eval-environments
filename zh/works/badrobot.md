@@ -2,6 +2,8 @@
 
 > [English](../../works/badrobot.md) | **简体中文**
 
+> **首次公开：** 2024-07-16 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2407.20242)
+
 ## Overview
 
 BadRobot 在物理世界越狱具身 LLM agent：一套利用 LLM-机器人栈三类弱点的攻击范式，配 277 条恶意物理动作查询（六个危害类别）的 benchmark，针对 Code as Policies、ProgPrompt、VoxPoser 等框架——平均操纵成功率 68.57%，并在真实 UR3e 与 myCobot 机器人上演示。

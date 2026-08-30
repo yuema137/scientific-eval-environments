@@ -2,6 +2,8 @@
 
 > [English](../../works/discoverphysics.md) | **简体中文**
 
+> **首次公开：** 2026-05-25 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2605.26087)
+
 ## Overview
 
 DiscoverPhysics 是考察「跳出框架的科学思维」的 agentic benchmark：agent 要发现一个物理刻意偏离现实的模拟世界的运动定律——屏蔽引力、隐藏粒子种类、修改的力定律——方式是提出多轮实验并分析原始轨迹数据。

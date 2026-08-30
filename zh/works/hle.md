@@ -2,6 +2,8 @@
 
 > [English](../../works/hle.md) | **简体中文**
 
+> **首次公开：** 2025-01-24 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2501.14249)
+
 ## Overview
 
 Humanity's Last Exam（HLE）是位于人类知识前沿的多模态 benchmark，定位为同类封闭式学术评测的「最后一份考卷」：2,500 道题目横跨数十个学科——数学、人文与自然科学——由全球领域专家共同出题。它是通用学术 benchmark 而非 agent benchmark（见 Limitations 中的 repository note）。

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/evo-bench.md)
 
+> **First appeared:** 2026-08-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.09096)
+
 ## Overview
 
 Evo-Bench is a benchmark that evaluates a language model's intrinsic ability to autonomously improve its own agent harness — the editable scaffolding that governs how the model reasons and interacts with tools — across Search, Office, and General agent domains.

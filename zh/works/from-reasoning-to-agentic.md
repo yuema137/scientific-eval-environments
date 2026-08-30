@@ -2,6 +2,8 @@
 
 > [English](../../works/from-reasoning-to-agentic.md) | **简体中文**
 
+> **首次公开：** 2026-04-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2604.09459)
+
 ## Overview
 
 一篇综述，梳理了大语言模型强化学习中的信用分配（credit assignment, CA）方法，横跨推理 RL 与 agentic RL，并给出一个诊断框架，把假设失效映射到辨识障碍、估计量与评估控制。

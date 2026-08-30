@@ -2,6 +2,8 @@
 
 > [English](../../works/osworld.md) | **简体中文**
 
+> **首次公开：** 2024-04-11 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2404.07972)
+
 ## Overview
 
 OSWorld 是一个面向多模态 agent 的可扩展真实计算机环境，支持跨 Ubuntu、Windows 与 macOS 的任务设置、基于执行的评估与交互式学习。它提供 369 个真实计算机任务，涵盖 web 与桌面应用、操作系统文件 I/O 与多应用工作流。

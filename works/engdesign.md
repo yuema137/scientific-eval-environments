@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/engdesign.md)
 
+> **First appeared:** 2025-07-01 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2509.16204)
+
 ## Overview
 
 EngDesign is a benchmark of 101 real-world engineering **design** tasks across nine engineering areas in which an LLM must produce a functional design artifact that is then verified by domain simulators rather than checked against a reference answer.

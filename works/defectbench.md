@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/defectbench.md)
 
+> **First appeared:** 2026-03-20 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2603.20148)
+
 ## Overview
 
 DefectBench is a hierarchical benchmark for structural pathology reasoning on building facades: 12 heterogeneous defect datasets are harmonized into a single annotated corpus under one four-class ontology, and large multimodal models are scored across three escalating cognitive levels — semantic perception, spatial localization, and generative geometry segmentation.

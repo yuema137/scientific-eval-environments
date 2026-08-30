@@ -2,6 +2,8 @@
 
 > [English](../../works/ontolearner.md) | **简体中文**
 
+> **首次公开：** 2026-07-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2607.01977)
+
 ## Overview
 
 OntoLearner 是一个模块化的 Python 库，同时也是一套 benchmark，用来做基于大语言模型的本体学习：它发布了覆盖 22 个领域的 180 个机器可读本体，为三项本体学习任务配好可直接接入流水线的 train/dev/test 划分，并借这套基础设施评测 22 个检索模型与 12 个 LLM 构建结构化知识模型的能力。

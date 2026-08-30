@@ -2,6 +2,8 @@
 
 > [English](../../works/astrommbench.md) | **简体中文**
 
+> **首次公开：** 2025-09-29 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2510.00063)
+
 ## Overview
 
 AstroMMBench 是一个多模态天文 benchmark：621 道经专家审核的选择题，题面配的是取自天文论文的插图，覆盖六个天体物理子领域，用于评测 25 个多模态大语言模型对天体图像的理解。

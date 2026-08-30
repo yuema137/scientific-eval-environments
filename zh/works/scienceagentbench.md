@@ -2,6 +2,8 @@
 
 > [English](../../works/scienceagentbench.md) | **简体中文**
 
+> **首次公开：** 2024-10-07 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2410.05080)
+
 ## Overview
 
 ScienceAgentBench 是一个评估 language agent 在数据驱动科学发现工作流中单个任务的 benchmark。它从四个学科的 44 篇同行评审论文中提取 102 个任务，将每个任务的目标输出统一为一个自包含的 Python 程序，并对生成的程序、执行结果与成本进行评分。

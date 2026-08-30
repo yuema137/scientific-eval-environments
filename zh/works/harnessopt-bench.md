@@ -2,6 +2,8 @@
 
 > [English](../../works/harnessopt-bench.md) | **简体中文**
 
+> **首次公开：** 2026-08-06 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.06301)
+
 ## Overview
 
 HarnessOpt-Bench 是度量前沿 LLM 自动化 harness 优化能力的 benchmark——在可信执行环境内、固定的目标评估预算下，迭代改进围绕 LLM 的提示词、工具、控制流与编排代码。

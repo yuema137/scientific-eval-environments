@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/elecbench.md)
 
+> **First appeared:** 2024-07-07 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2407.05365)
+
 ## Overview
 
 ElecBench is a power-dispatch evaluation benchmark for large language models: eight LLMs assessed across general-knowledge and professional-business power scenarios on six core metrics — factuality, logicality, stability, security, fairness, and expressiveness — subdivided into 24 sub-metrics.

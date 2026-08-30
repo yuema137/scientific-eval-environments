@@ -2,6 +2,8 @@
 
 > [English](../../works/quantifying-the-reproducibility-of-astrophysical-m.md) | **简体中文**
 
+> **首次公开：** 2026-05-11 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2605.11154)
+
 ## Overview
 
 一套信息论的评估方法：把 LLM 对某篇已发表天体物理方法的重建视为从算法空间上的一个分布中采样，用 Shannon 熵与 Jensen–Shannon 散度衡量论文文本把合法实现的空间约束得有多紧，并按四级的 Hierarchy of Scientific Validity 为前沿模型产出的可执行流水线打分。

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/controleval.md)
 
+> **First appeared:** 2024-10-17 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2410.19811)
+
 ## Overview
 
 ControlEval is a benchmark of 500 control-system design tasks with varied design goals, released with ControlAgent — a multi-agent LLM system (central, task-specific, and Python-computation agents) that automates control design by iteratively tuning controller parameters and beats both LLM baselines and traditional toolbox-plus-human baselines.

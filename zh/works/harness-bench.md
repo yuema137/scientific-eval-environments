@@ -2,6 +2,8 @@
 
 > [English](../../works/harness-bench.md) | **简体中文**
 
+> **首次公开：** 2026-05-27 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2605.27922)
+
 ## Overview
 
 Harness-Bench 是一个诊断性 benchmark，用于测量配置级的 *harness 效应*——即包裹在模型外的系统层（上下文管理、工具、状态、权限、tracing、恢复）如何改变 agent 性能。它在固定外部任务条件的同时变换模型外围的 harness，在 106 个沙箱化离线任务上为 5,194 条执行轨迹打分。

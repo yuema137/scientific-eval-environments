@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/aise-bench.md)
 
+> **First appeared:** 2026-06-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.20498)
+
 ## Overview
 
 AISE-Bench is a full-cycle annotated benchmark for academic information seeking over scholarly knowledge graphs: 1,133 QA pairs shipped with query taxonomies, complete API execution trajectories, validated parameters, and source-grounded answers with reference links, scored on process and outcome together.

@@ -2,6 +2,8 @@
 
 > [English](../../works/realpdebench.md) | **简体中文**
 
+> **首次公开：** 2026-01-05 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2601.01829)
+
 ## Overview
 
 RealPDEBench 是把真实世界测量数据与配对数值模拟整合在一起的科学机器学习 benchmark——论文称其为此类中的首个——包含五个数据集、三类任务、八项指标与十个基线。其评估对象是科学 ML 模型而非 LLM agent（见 Limitations 中的 repository note）。

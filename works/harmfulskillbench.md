@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/harmfulskillbench.md)
 
+> **First appeared:** 2026-04-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.15415)
+
 ## Overview
 
 HarmfulSkillBench is a 200-skill benchmark measuring how far a pre-installed agent skill lowers an LLM's refusal of harmful tasks, released alongside a measurement study of 98,440 skills across two public agent-skill registries.

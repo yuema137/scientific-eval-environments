@@ -252,3 +252,17 @@ def test_bilingual_membership_mismatch(tmp_path):
         "N/A — evaluation methodology."))
     ok, errs = validators.validate_bilingual(root, ["a"])
     assert not ok and any("membership differs" in e for e in errs)
+
+
+def test_bilingual_first_appearance_mismatch(tmp_path):
+    root = build_mini_repo(str(tmp_path), [{"slug": "a", "title": "A"}])
+    zt = os.path.join(root, "zh", "works", "a.md")
+    text = open(zt).read().replace("2025-01-02", "2025-01-03")
+    open(zt, "w").write(text)
+    ok, errs = validators.validate_bilingual(root, ["a"])
+    assert not ok and any("first-appearance date or provenance URL differs" in e for e in errs)
+
+
+def test_first_appearance_covers_full_repository():
+    ok, errs = validators.validate_first_appearance()
+    assert ok, errs

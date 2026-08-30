@@ -2,6 +2,8 @@
 
 > [English](../../works/fem-bench.md) | **简体中文**
 
+> **首次公开：** 2025-12-23 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2512.20732)
+
 ## Overview
 
 FEM-Bench 是面向代码生成 LLM 的计算力学结构化科学推理 benchmark：FEM-Bench 2025 收录与研究生第一门计算力学课程对齐、入门但不平凡的任务——函数编写赛道 33 个任务——配客观验证与成对的单元测试编写评估。

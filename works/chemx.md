@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/chemx.md)
 
+> **First appeared:** 2025-10-01 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.00795)
+
 ## Overview
 
 ChemX benchmarks agentic systems on automated scientific information extraction in chemistry: 10 manually curated, domain-expert-validated datasets on nanomaterials and small molecules, against which document-extraction agents such as ChatGPT Agent and chemistry-specific pipelines are compared.

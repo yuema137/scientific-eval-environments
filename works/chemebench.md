@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/chemebench.md)
 
+> **First appeared:** 2025-06-20 · **Source:** [Official paper record](https://dmto.dicp.ac.cn/dnl12eng/2025-37.pdf)
+
 ## Overview
 
 ChemEBench is a chemical-engineering evaluation benchmark introduced alongside ChemELLM, a 70-billion-parameter domain-specific language model built on Spark-70B by the Dalian Institute of Chemical Physics and iFLYTEK. It organizes evaluation into three progressive levels covering 15 dimensions and 101 distinct chemical-engineering tasks, from foundational domain knowledge through professional engineering skills such as equipment selection, separation, heat transfer, process safety, and process economics.

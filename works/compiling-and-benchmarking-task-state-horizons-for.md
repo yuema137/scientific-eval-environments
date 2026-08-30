@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/compiling-and-benchmarking-task-state-horizons-for.md)
 
+> **First appeared:** 2026-08-08 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.08036)
+
 ## Overview
 
 A benchmark and task compiler (RoboGraph) that evaluates agentic foundation models as high-level planners for long-horizon embodied tasks, characterizing difficulty by the *task-state horizon* (TSH) — the span of task-relevant state transitions an agent must track, maintain, explore, and update over a trajectory.

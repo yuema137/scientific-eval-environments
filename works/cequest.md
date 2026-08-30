@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/cequest.md)
 
+> **First appeared:** 2025-08-22 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2508.16081)
+
 ## Overview
 
 CEQuest is a 164-question benchmark on construction drawing interpretation and construction estimation, written by domain experts from construction estimating textbooks and drawing-interpretation guides, and used to compare five LLMs on accuracy, evaluation time, and model size.

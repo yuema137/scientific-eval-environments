@@ -2,6 +2,8 @@
 
 > [English](../../works/osreward.md) | **简体中文**
 
+> **首次公开：** 2026-07-30 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2607.28609)
+
 ## Overview
 
 OSReward 是评估跨平台 computer-use 奖励模型——对 computer-using agent 轨迹做评判的视觉语言评判者——的标准化 benchmark，随之发布带推理标注的轨迹评判语料 OS-Shepherd-100K 与训练好的 OS-Shepherd 奖励模型（9B 与 35B）。

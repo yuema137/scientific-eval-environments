@@ -2,6 +2,8 @@
 
 > [English](../../works/pdagent-bench.md) | **简体中文**
 
+> **首次公开：** 2026-06-15 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.17253)
+
 ## Overview
 
 PDAgent-Bench 是一个 benchmark，用于在整个 VLSI 物理设计流程上评估基于 LLM/VLM 的 agent，它把任务级评估（概念题与工具中心题）与在真实电子设计自动化（EDA）环境中的工作流级闭环执行结合起来。

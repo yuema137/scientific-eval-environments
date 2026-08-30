@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/hydro-se-bench.md)
 
+> **First appeared:** 2025-12-03 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2512.03672)
+
 ## Overview
 
 Hydro-SE Bench is a Chinese-language multiple-choice benchmark of 4,000 questions covering nine subfields of hydro-science and hydraulic engineering, built to measure how much practical water-engineering knowledge — including hydraulic structures, geotechnical engineering, and industry design standards — general-purpose LLMs actually hold.

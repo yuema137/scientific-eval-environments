@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/molpuzzle.md)
 
+> **First appeared:** 2024-07-03 · **Source:** [Official repository initial commit](https://github.com/KehanGuo2/MolPuzzle/commit/11e5f4c4c12f3a150291f58f52a8c595ededb6da)
+
 ## Overview
 
 MolPuzzle is a multimodal benchmark for molecular structure elucidation posed as a puzzle in three stages — molecule understanding, spectrum interpretation, and molecule construction — over 200 elucidation instances with 23,678 collected examples; GPT-4o exactly matches the ground-truth structure only 1.4% of the time, far below humans.

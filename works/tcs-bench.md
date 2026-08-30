@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/tcs-bench.md)
 
+> **First appeared:** 2026-08-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.09538)
+
 ## Overview
 
 TCS-Bench is a benchmark for evaluating large language models on research-level Theoretical Computer Science (TCS) proof generation, where each task asks a model to produce a self-contained proof of a target result drawn from papers published at top TCS venues.

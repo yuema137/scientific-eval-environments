@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/alerce-text-to-sql.md)
 
+> **First appeared:** 2026-06-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.18108)
+
 ## Overview
 
 A natural-language-to-SQL system for the ALeRCE astronomical alert-broker database, released together with an evaluation set of 110 natural-language/SQL pairs written by astronomers with expert-authored gold queries, on which thirteen LLMs are compared under a perfect-match execution metric.

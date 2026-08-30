@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/prmbench.md)
 
+> **First appeared:** 2025-01-06 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2501.03124)
+
 ## Overview
 
 PRMBench is a benchmark that assesses the fine-grained error-detection capabilities of process-level reward models (PRMs) on multi-step reasoning chains. It comprises 6,216 problems carrying 83,456 step-level labels, spread across nine error sub-categories grouped under simplicity, soundness, and sensitivity.
@@ -16,6 +18,7 @@ N/A — evaluation methodology; no scientific or research activity is directly e
 
 ## Links
 
+- **Preprint:** <https://arxiv.org/abs/2501.03124>
 - **Paper:** <https://aclanthology.org/2025.acl-long.1230/>
 - **Project:** <https://prmbench.github.io/>
 - **Code:** <https://github.com/ssmisya/PRMBench>

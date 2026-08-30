@@ -2,6 +2,8 @@
 
 > [English](../../works/controleval.md) | **简体中文**
 
+> **首次公开：** 2024-10-17 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2410.19811)
+
 ## Overview
 
 ControlEval 是含 500 个、目标各异的控制系统设计任务的 benchmark，随 ControlAgent 一同发布——一个多 agent LLM 系统（中央、任务专用与 Python 计算 agent），通过迭代整定控制器参数自动完成控制设计，并胜过 LLM 基线与传统「工具箱+人工」基线。

@@ -2,6 +2,8 @@
 
 > [English](../../works/gammapygpt.md) | **简体中文**
 
+> **首次公开：** 2025-09-30 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2509.26110)
+
 ## Overview
 
 一个能在受控执行环境中为地基伽马射线天文学编写、执行并验证 Gammapy 分析代码的 agent，并配有一套伽马射线分析任务的 benchmark，其数值输出会与预期值核对。

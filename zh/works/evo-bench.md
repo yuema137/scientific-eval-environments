@@ -2,6 +2,8 @@
 
 > [English](../../works/evo-bench.md) | **简体中文**
 
+> **首次公开：** 2026-08-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.09096)
+
 ## Overview
 
 Evo-Bench 是一个 benchmark，评估语言模型自主改进自身 agent harness 的内在能力——harness 即那套可编辑的脚手架，管控着模型如何推理、如何与工具交互——覆盖 Search、Office 与 General 三类 agent 领域。

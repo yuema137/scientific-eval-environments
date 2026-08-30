@@ -2,6 +2,8 @@
 
 > [English](../../works/cascade.md) | **简体中文**
 
+> **首次公开：** 2025-12-29 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2512.23880)
+
 ## Overview
 
 CASCADE 是一个自我演化的 agentic 框架：agent 借助持续学习与自我反思两项 meta-skill，为科学工作获取并积累可执行的 skill；随框架发布的 SciSkillBench 含 116 个材料科学与化学任务，用来衡量积累下来的 skill 究竟值多少。

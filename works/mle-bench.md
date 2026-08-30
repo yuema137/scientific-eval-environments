@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mle-bench.md)
 
+> **First appeared:** 2024-10-09 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2410.07095)
+
 ## Overview
 
 MLE-bench evaluates machine-learning agents on machine-learning engineering: 75 ML-engineering competitions curated from Kaggle, where agents train models, prepare datasets, and run experiments to produce submissions graded against real Kaggle leaderboards — with OpenAI's o1-preview (AIDE scaffolding) reaching at least bronze-medal level on 16.9% of competitions.

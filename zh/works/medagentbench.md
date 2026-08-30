@@ -2,6 +2,8 @@
 
 > [English](../../works/medagentbench.md) | **简体中文**
 
+> **首次公开：** 2025-01-24 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2501.14654)
+
 ## Overview
 
 MedAgentBench 是评测医疗 LLM agent 的真实感虚拟 EHR 环境：300 个由人类医生撰写、面向具体患者的临床任务（10 个类别），运行在 100 位患者、逾 70 万数据元素的真实感档案之上，环境符合 FHIR 标准且可交互。

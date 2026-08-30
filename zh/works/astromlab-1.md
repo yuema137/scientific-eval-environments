@@ -2,6 +2,8 @@
 
 > [English](../../works/astromlab-1.md) | **简体中文**
 
+> **首次公开：** 2024-07-15 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2407.11194)
+
 ## Overview
 
 AstroMLab 1 提出了首个天文学专用的 LLM 评测数据集——从《Annual Review of Astronomy and Astrophysics》生成的 4,425 道选择题——并以此为 47 个闭源与开放权重模型的天文学知识打分，同时附上成本效率与置信度校准分析。

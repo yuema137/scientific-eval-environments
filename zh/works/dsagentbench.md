@@ -2,6 +2,8 @@
 
 > [English](../../works/dsagentbench.md) | **简体中文**
 
+> **首次公开：** 2026-08-11 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.10366)
+
 ## Overview
 
 DSAgentBench 是一个 benchmark，评估 agent 能否在真实计算机环境中自动化完整的端到端数据科学工作流，需要协同使用 notebook、IDE、终端、浏览器与数据库等工具。

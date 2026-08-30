@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/gwbenchmarks.md)
 
+> **First appeared:** 2026-05-11 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.11269)
+
 ## Overview
 
 gwBenchmarks stress-tests LLM coding agents on high-precision gravitational-wave astronomy: a suite of eight tasks — building waveform surrogates from numerical-relativity simulations, modeling black-hole orbital dynamics, fitting merger-remnant properties, constructing template banks — whose underlying data collectively represent over 10⁸ core-hours of compute and whose domain requirements demand ≲10⁻⁴ relative error.

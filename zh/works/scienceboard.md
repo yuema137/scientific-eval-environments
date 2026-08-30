@@ -2,6 +2,8 @@
 
 > [English](../../works/scienceboard.md) | **简体中文**
 
+> **首次公开：** 2025-05-26 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2505.19897)
+
 ## Overview
 
 ScienceBoard 是一个计算机使用型 agent benchmark：它把多模态 agent 放进一台运行专业科研软件的真实 Ubuntu 桌面，用 169 个人工整理的工作流任务打分。任务横跨六个科学领域，天文一支由 Celestia 星空模拟软件承担。

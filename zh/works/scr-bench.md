@@ -2,6 +2,8 @@
 
 > [English](../../works/scr-bench.md) | **简体中文**
 
+> **首次公开：** 2026-06-13 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.15242)
+
 ## Overview
 
 SCR-Bench 是面向 Skill Composition Risk（skill 组合风险）的沙箱化 benchmark：它沿组合 skill 的*激活路径*为 agent 行为打分，而不是孤立地评估单个 skill，并且记录下游的状态变化而非文字表述的意图。

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/kellybench.md)
 
+> **First appeared:** 2026-04-30 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.27865)
+
 ## Overview
 
 KellyBench is an environment for evaluating long-horizon sequential decision-making in non-stationary markets: agents live through a sequential simulation of the 2023–24 English Premier League season and must maximize long-term bankroll growth in sports-betting markets.

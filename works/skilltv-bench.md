@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/skilltv-bench.md)
 
+> **First appeared:** 2026-08-06 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.05573)
+
 ## Overview
 
 SkillTV-Bench is a benchmark for skill-aware trajectory verification: it evaluates how well LLM-as-a-Judge and Agent-as-a-Judge methods verify agent executions that use skills. It comprises 681 real agent trajectories from 50 tasks across eleven domains, and is accompanied by SkillTV-Evolve, which externalizes verification knowledge as a reusable JudgeSkill.

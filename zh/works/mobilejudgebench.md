@@ -2,6 +2,8 @@
 
 > [English](../../works/mobilejudgebench.md) | **简体中文**
 
+> **首次公开：** 2026-08-11 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.11434)
+
 ## Overview
 
 MobileJudgeBench 用 931 条人工标注的 mobile-agent trajectory 检验自动 evaluator。这些数据来自六个 benchmark、四种 agent model、289 个任务和 68 个 app。

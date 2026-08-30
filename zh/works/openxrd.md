@@ -2,6 +2,8 @@
 
 > [English](../../works/openxrd.md) | **简体中文**
 
+> **首次公开：** 2025-07-12 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2507.09155)
+
 ## Overview
 
 OpenXRD 是面向 LLM 与多模态 LLM 的 X 射线衍射问答 benchmark 框架：217 个专家策划的晶体学问题，在 74 个最先进模型上以闭卷与开卷两种条件评测，发现专家审校的上下文对中等规模模型帮助最大。

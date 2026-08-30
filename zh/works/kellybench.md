@@ -2,6 +2,8 @@
 
 > [English](../../works/kellybench.md) | **简体中文**
 
+> **首次公开：** 2026-04-30 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2604.27865)
+
 ## Overview
 
 KellyBench 是评估非平稳市场中长 horizon 序贯决策的环境：agent 置身于 2023–24 赛季英超联赛的逐轮推进模拟中，要在体育博彩市场上最大化长期本金增长。

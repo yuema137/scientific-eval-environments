@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/feabench.md)
 
+> **First appeared:** 2025-04-08 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2504.06260)
+
 ## Overview
 
 FEABench evaluates whether LLMs and LLM agents can simulate physics, mathematics, and engineering problems end to end using finite element analysis (FEA): reasoning over a natural-language problem description and operating COMSOL Multiphysics® through its API to compute the answer.

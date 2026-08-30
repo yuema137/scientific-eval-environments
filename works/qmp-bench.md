@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/qmp-bench.md)
 
+> **First appeared:** 2026-03-31 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.00149)
+
 ## Overview
 
 QMP-Bench is a benchmark of 100 research-level, end-to-end quantum many-body simulation tasks extracted from 21 high-impact journals. The accompanying PhysVEC multi-agent framework is agent-construction work adjacent to this repository's evaluation focus (see the repository note under Limitations).

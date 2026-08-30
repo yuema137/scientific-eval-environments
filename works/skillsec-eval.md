@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/skillsec-eval.md)
 
+> **First appeared:** 2026-07-15 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.13987)
+
 ## Overview
 
 SkillSec-Eval is a lifecycle-aware evaluation framework for reusable agent skills: it decomposes the skill lifecycle into five stages with distinct trust boundaries — repository admission, semantic retrieval, planner selection, runtime execution, and skill evolution — and evaluates attacks and defenses separately at each stage over a repository of 327 real-world skills.

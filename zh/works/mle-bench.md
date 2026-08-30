@@ -2,6 +2,8 @@
 
 > [English](../../works/mle-bench.md) | **简体中文**
 
+> **首次公开：** 2024-10-09 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2410.07095)
+
 ## Overview
 
 MLE-bench 在机器学习工程上评测机器学习 agent：从 Kaggle 精选的 75 个 ML 工程竞赛，agent 须训练模型、准备数据、运行实验并产出提交，对照真实 Kaggle 排行榜评分——OpenAI 的 o1-preview（AIDE 脚手架）在 16.9% 的竞赛上达到至少铜牌水平。

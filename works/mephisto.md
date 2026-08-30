@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mephisto.md)
 
+> **First appeared:** 2025-10-09 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.08354)
+
 ## Overview
 
 Mephisto is a multi-agent LLM framework that drives the CIGALE spectral-energy-distribution (SED) code to infer the physical properties of galaxies from multi-band photometry, iteratively refining physical models via tree search and a self-play-accumulated knowledge base. Alongside the system, the authors construct a 256-galaxy task set with an external quantitative pass criterion and run all seven LLM backbones over it, releasing code, catalogs and the knowledge base on Zenodo.

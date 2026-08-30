@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/flyaoc.md)
 
+> **First appeared:** 2026-02-09 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2602.09163)
+
 ## Overview
 
 FlyAOC is a benchmark for end-to-end agentic ontology curation: given only a gene symbol, an agent must search and read a corpus of 16,898 full-text Drosophila papers and emit ontology-grounded structured annotations, scored against 7,397 expert curations drawn from FlyBase. (The arXiv abstract of the same version also refers to the benchmark as "FlyBench"; the paper title, the released code, and the repository name all use FlyAOC.)

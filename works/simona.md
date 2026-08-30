@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/simona.md)
 
+> **First appeared:** 2026-01-11 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2601.06776)
+
 ## Overview
 
 Simona is a dataset of 1,000 expert-written chemical process descriptions, introduced as the evaluation set for a multi-agent LLM workflow that converts natural-language process descriptions into executable, converging process-simulation flowsheets. Systems are scored by Simulation Convergence Rate and design time against LLM, multi-agent, and human-expert baselines.

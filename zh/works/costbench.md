@@ -2,6 +2,8 @@
 
 > [English](../../works/costbench.md) | **简体中文**
 
+> **首次公开：** 2025-11-04 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2511.02734)
+
 ## Overview
 
 CostBench 评估 LLM tool-use agent 是否能够以**成本最优（cost-optimal）**为目标进行规划，并在环境阻断最便宜路径时做出适应。成本在这里不是事后统计，而是 agent 被要求优化的对象。

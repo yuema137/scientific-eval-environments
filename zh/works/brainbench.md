@@ -2,6 +2,8 @@
 
 > [English](../../works/brainbench.md) | **简体中文**
 
+> **首次公开：** 2024-03-04 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2403.03230)
+
 ## Overview
 
 BrainBench 是面向神经科学的前瞻式 benchmark，出自论文《Large language models surpass human experts in predicting neuroscience results》：给定一篇 Journal of Neuroscience 的原始摘要与一篇改动了结果但保持连贯的版本，模型须辨认哪一篇报告的是真实结果。这是静态二选一任务，不是 agent benchmark（见 Limitations 中的 repository note）。

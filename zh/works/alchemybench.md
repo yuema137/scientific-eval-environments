@@ -2,6 +2,8 @@
 
 > [English](../../works/alchemybench.md) | **简体中文**
 
+> **首次公开：** 2025-02-23 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2502.16457)
+
 ## Overview
 
 AlchemyBench 是 LLM 驱动材料合成的端到端 benchmark，建立在 17,000 条经专家核验的开放文献合成配方之上：模型预测原料与设备、生成合成流程、预测表征结果，由专家水准的 LLM-as-a-Judge 框架判分。

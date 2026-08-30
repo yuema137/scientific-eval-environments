@@ -2,6 +2,8 @@
 
 > [English](../../works/ideabench.md) | **简体中文**
 
+> **首次公开：** 2024-10-31 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2411.02429)
+
 ## Overview
 
 IdeaBench 为研究想法生成评测 LLM：把 LLM 设定为特定领域的研究者、以人类研究者所用的同样上下文——有影响力论文的标题与摘要及其参考文献——为其提供依据，并用结合 GPT-4o 排序与相对「Insight Score」的两阶段框架评估所生成的想法。

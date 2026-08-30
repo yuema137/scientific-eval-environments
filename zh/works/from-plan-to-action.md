@@ -2,6 +2,8 @@
 
 > [English](../../works/from-plan-to-action.md) | **简体中文**
 
+> **首次公开：** 2026-04-13 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2604.12147)
+
 ## Overview
 
 一项关于编程 agent *计划遵从性*的系统实证分析：被要求遵循任务专属计划的编码 agent 是否真的照做，以及偏离与任务成功之间有何关系。研究分析了四个 LLM、两个 SWE-bench 套件、八种计划变体下的 SWE-agent 轨迹，并提出量化 agent 轨迹对所指示计划忠实程度的指标。论文最初以 "From Plan to Action: How Well Do Agents Follow the Plan?" 发布，后更名为 "Evaluating Plan Compliance in Autonomous Programming Agents"。

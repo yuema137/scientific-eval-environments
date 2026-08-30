@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/frontiercode.md)
 
+> **First appeared:** 2026-06-08 · **Source:** [Official announcement](https://cognition.com/blog/frontier-code)
+
 ## Overview
 
 FrontierCode is an industry benchmark from Cognition presented as the first to measure mergeability — would the maintainer actually merge this pull request? — on realistic open-source programming tasks built by 20+ experienced developers spending more than 40 hours per task. No accompanying paper has been released (see the repository note under Limitations).

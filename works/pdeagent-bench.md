@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/pdeagent-bench.md)
 
+> **First appeared:** 2026-05-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.09636)
+
 ## Overview
 
 PDEAgent-Bench is a multi-metric, multi-library benchmark for PDE solver generation: 645 instances across 6 mathematical categories and 11 PDE families, targeting the common finite-element libraries DOLFINx, Firedrake, and deal.II, with a staged evaluation in which generated solvers must sequentially pass executability, numerical accuracy, and computational efficiency checks.

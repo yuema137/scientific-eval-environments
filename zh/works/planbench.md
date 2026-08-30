@@ -2,6 +2,8 @@
 
 > [English](../../works/planbench.md) | **简体中文**
 
+> **首次公开：** 2022-06-21 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2206.10498)
+
 ## Overview
 
 PlanBench 是一套可扩展的规划 benchmark，用于检验大语言模型能否在形式化规划领域中生成并验证计划、推断状态变化、应对突发事件重新规划，以及分辨有效与无效的动作序列。

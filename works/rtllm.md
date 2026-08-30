@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/rtllm.md)
 
+> **First appeared:** 2023-08-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2308.05345)
+
 ## Overview
 
 RTLLM is an open-source benchmark for generating design RTL from natural-language instructions: 29 hand-crafted designs (expanded to 50 in v2.0) graded on three progressive goals — syntax, functionality, and design quality — paired with a "self-planning" prompting method that boosts GPT-3.5.

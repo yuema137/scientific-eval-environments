@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/embodied-agent-interface.md)
 
+> **First appeared:** 2024-10-09 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2410.07166)
+
 ## Overview
 
 Embodied Agent Interface (EAI) benchmarks LLMs for embodied decision making by decomposing the problem into four modules — goal interpretation, subgoal decomposition, action sequencing, and transition modeling — and scoring each against simulator states in VirtualHome and BEHAVIOR with a fine-grained error taxonomy.

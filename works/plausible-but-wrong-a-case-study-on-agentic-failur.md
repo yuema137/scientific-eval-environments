@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/plausible-but-wrong-a-case-study-on-agentic-failur.md)
 
+> **First appeared:** 2026-04-28 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.25345)
+
 ## Overview
 
 An evaluation study of the CMBAgent multi-agent system across two workflow paradigms and eighteen astrophysical tasks, contributing an automated scoring protocol (execution, parameter accuracy, numerical accuracy) and a four-mode failure taxonomy whose central finding is silent incorrect computation — syntactically valid code that returns plausible but wrong physics with no error signal.

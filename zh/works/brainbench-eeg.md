@@ -2,6 +2,8 @@
 
 > [English](../../works/brainbench-eeg.md) | **简体中文**
 
+> **首次公开：** 2026-08-04 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.04156)
+
 ## Overview
 
 BrainBench (EEG) 评测 LLM 的综合 EEG 理解：指令条件下的分析，覆盖四个子集——基础分析、睡眠评估、神经认知评估、生理整合——共 17 个数据集，系统须分析 EEG 记录并产出有科学依据的报告。

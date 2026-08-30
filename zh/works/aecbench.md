@@ -2,6 +2,8 @@
 
 > [English](../../works/aecbench.md) | **简体中文**
 
+> **首次公开：** 2025-09-23 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2509.18776)
+
 ## Overview
 
 AECBench 是一个面向建筑、工程与施工（AEC）领域的分层中文知识 benchmark：4,800 道由工程师命制的题目，按五级认知框架组织为 23 项任务，开放式作答由 LLM judge 依专家评分细则打分，并配有一道校准步骤来修正实测到的 judge 偏差。

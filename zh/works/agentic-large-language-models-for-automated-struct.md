@@ -2,6 +2,8 @@
 
 > [English](../../works/agentic-large-language-models-for-automated-struct.md) | **简体中文**
 
+> **首次公开：** 2026-06-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.06525)
+
 ## Overview
 
 一个含十个不规则三维建筑框架体系的 benchmark：agent 须依据自然语言描述产出可执行的 SAP2000 脚本，只有当每一项受监测的结构响应都落在人工搭建的 ground-truth SAP2000 模型 1% 以内，才算通过。

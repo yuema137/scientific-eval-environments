@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/bioprobench.md)
 
+> **First appeared:** 2025-05-11 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.07889)
+
 ## Overview
 
 BioProBench is a corpus and benchmark for biological protocol reasoning: 22,413 human-written protocols (BioProCorpus) expanded into 523,784 task instances across five task types — protocol QA, step ordering, error correction, protocol generation, and protocol reasoning.

@@ -2,6 +2,8 @@
 
 > [English](../../works/gate.md) | **简体中文**
 
+> **首次公开：** 2025-02-20 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2502.14848)
+
 ## Overview
 
 GATE（Graph-based Adaptive Tool Evolution Across Diverse Tasks）是一个动态构造并演化"可复用工具的层级图"的框架，供 LLM 在跨任务场景下使用。本卡片为覆盖完整性而纳入，但请注意：**该论文的实际主题是面向 LLM 的 tool-making，而不是 agent 的 skill-hierarchy 评估**——维护者初始列表把它归为 Skill Hierarchy 是名称匹配上的表面误分类，非论文实际内容。
@@ -17,6 +19,7 @@ N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
 
 ## Links
 
+- **Preprint:** <https://arxiv.org/abs/2502.14848>
 - **Paper:** <https://aclanthology.org/2026.acl-long.87/>
 - **Venue:** ACL 2026
 

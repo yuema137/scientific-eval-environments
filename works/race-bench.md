@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/race-bench.md)
 
+> **First appeared:** 2026-03-27 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2603.26337)
+
 ## Overview
 
 RACE-Bench is a reasoning-augmented benchmark for evaluating repository-level code agents on real-world feature-addition tasks, pairing executable patch verification with structured intermediate reference reasoning so that agents are assessed not only on final test correctness but on how their reasoning aligns with developer-accepted trajectories.

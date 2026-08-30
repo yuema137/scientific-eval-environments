@@ -2,6 +2,8 @@
 
 > [English](../../works/frontiercode.md) | **简体中文**
 
+> **首次公开：** 2026-06-08 · **来源：** [官方公告](https://cognition.com/blog/frontier-code)
+
 ## Overview
 
 FrontierCode 是 Cognition 推出的业界 benchmark，自称首个测量「可合并性」（mergeability）的评测——维护者真的会合并这个 PR 吗？——任务由 20 余位资深开发者构建，每个任务投入超过 40 小时。目前没有配套论文（见 Limitations 中的 repository note）。

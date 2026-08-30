@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mascqa.md)
 
+> **First appeared:** 2023-08-17 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2308.09115)
+
 ## Overview
 
 MaScQA is a question-answering dataset for probing the materials-science knowledge of large language models: 650 challenging questions drawn from India's GATE engineering exams, classified into four types, where GPT-4 reaches about 62% accuracy and most errors are conceptual rather than computational.

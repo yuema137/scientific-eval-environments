@@ -2,6 +2,8 @@
 
 > [English](../../works/lqcdmaster.md) | **简体中文**
 
+> **首次公开：** 2026-07-16 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2607.15001)
+
 ## Overview
 
 LQCDMaster 是一个 skill 引导的格点量子色动力学计算 agent，随之发布一个含 70 个任务的格点 QCD 测量代码 benchmark：每一份生成的 PyQUDA 工作流都要与专家手写的参考实现在机器精度上做直接数值比对来验收。

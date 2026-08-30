@@ -2,6 +2,8 @@
 
 > [English](../../works/mlr-bench.md) | **简体中文**
 
+> **首次公开：** 2025-05-26 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2505.19955)
+
 ## Overview
 
 MLR-Bench 在开放式机器学习研究上评测 AI agent：201 个取自 NeurIPS、ICLR、ICML workshop 的研究任务，覆盖想法生成、方案拟定、实验与论文写作，由 MLR-Judge——一个结合 LLM 评审与评分标准的自动框架——评分。

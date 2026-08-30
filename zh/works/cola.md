@@ -2,6 +2,8 @@
 
 > [English](../../works/cola.md) | **简体中文**
 
+> **首次公开：** 2025-03-27 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2503.21383)
+
 ## 概览
 
 CoLA 为 LLM 学出一个紧凑 latent action space，使 policy 的 decision representation 不再由 token vocabulary 直接决定。
@@ -17,6 +19,7 @@ N/A — 通用 LLM 与 agent adaptation 方法，没有直接评价科学或研�
 
 ## Links
 
+- **Preprint:** <https://arxiv.org/abs/2503.21383>
 - **Paper:** <https://proceedings.mlr.press/v267/jia25e.html>
 - **Model:** <https://huggingface.co/LAMDA-RL/Llama-3.1-CoLA-10B>
 - **Venue:** ICML 2025

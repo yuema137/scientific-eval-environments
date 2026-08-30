@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/llm-autonomous-agents-survey.md)
 
+> **First appeared:** 2023-08-22 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2308.11432)
+
 ## Overview
 
 *A Survey on Large Language Model based Autonomous Agents* is a comprehensive survey of LLM-based autonomous agents that proposes a unified agent-construction framework, catalogs applications across social science, natural science, and engineering, and reviews the evaluation strategies used for such agents. It is included here as a reference paper, not a benchmark contribution; its primary subject is agent construction rather than evaluation (see the repository note under Limitations).

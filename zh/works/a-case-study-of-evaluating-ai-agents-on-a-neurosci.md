@@ -2,6 +2,8 @@
 
 > [English](../../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md) | **简体中文**
 
+> **首次公开：** 2026-06-05 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.07718)
+
 ## Overview
 
 一项实证案例研究，在一条真实的果蝇光遗传学「数据到发现」流程上评估通用编码 agent，考察它们能否自动化科学家平日手工搭建的软件工程环节，评估标准以领域专家的做法为依据。

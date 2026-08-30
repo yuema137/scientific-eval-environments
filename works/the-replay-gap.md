@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/the-replay-gap.md)
 
+> **First appeared:** 2026-08-08 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.08239)
+
 ## Overview
 
 An evaluation-methodology study showing that the standard way of scoring per-step model routing/switching in multi-step LLM agents — replaying a logged trajectory and substituting another model's recorded outputs — measures a counterfactual world that does not occur, and proposing branching (counterfactual) rollouts with matched same-model control forks as the sound alternative.

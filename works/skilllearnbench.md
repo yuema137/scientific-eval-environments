@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/skilllearnbench.md)
 
+> **First appeared:** 2026-04-22 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.20087)
+
 ## Overview
 
 SkillLearnBench is a benchmark for continual skill-learning methods — approaches that generate agent skills automatically from an agent's own execution experience — scoring not only whether the task is solved but the quality of the generated skill itself.

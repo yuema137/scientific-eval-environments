@@ -2,6 +2,8 @@
 
 > [English](../../works/ugphysics.md) | **简体中文**
 
+> **首次公开：** 2025-02-01 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2502.00334)
+
 ## Overview
 
 UGPhysics 是本科物理推理的综合 benchmark：5,520 道中英双语问题，覆盖 13 个科目、七种答案类型与四种物理推理技能，全部经过严格的数据泄漏筛查，并由 MARJ（Model-Assistant Rule-based Judgment）流水线判分。

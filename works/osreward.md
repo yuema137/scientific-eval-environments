@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/osreward.md)
 
+> **First appeared:** 2026-07-30 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.28609)
+
 ## Overview
 
 OSReward is a standardized benchmark for evaluating cross-platform computer-use reward models — vision-language judges of computer-using agent trajectories — released together with the OS-Shepherd-100K corpus of reasoning-annotated trajectory judgments and trained OS-Shepherd reward models (9B and 35B).

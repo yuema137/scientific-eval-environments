@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ai-research-preference-models.md)
 
+> **First appeared:** 2026-08-14 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.13940)
+
 ## Overview
 
 AI Research Preference Models (RPMs) predict which of an AI research agent's candidate solutions are worth the GPU time to execute, so a fixed execution budget can be spent on the candidates most likely to pay off. Two variants are built from frozen pretrained language models with no task-specific training — one that reasons over plans and code alone, and one that first runs small pilot experiments — and both are integrated into the AIRA-dojo search agent and measured on AIRS-Bench.

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/crafts.md)
 
+> **First appeared:** 2026-08-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.01369)
+
 ## Overview
 
 CRAFTS is a role-decomposed, fine-tuned LLM-agent system for automated construction of executable chemical-process simulation models, introduced together with OpenIDAES-450, a 450-case IDAES process-simulation dataset with a held-out evaluation split and structured validation contracts.

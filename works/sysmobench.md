@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/sysmobench.md)
 
+> **First appeared:** 2025-09-27 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2509.23130)
+
 ## Overview
 
 SysMoBench is a benchmark that evaluates AI's ability to write formal models of large, complex computer systems in TLA+. It covers eleven concurrent and distributed system artifacts and scores generated models with four automatically checked metrics rather than human or LLM judgement.

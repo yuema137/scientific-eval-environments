@@ -2,6 +2,8 @@
 
 > [English](../../works/rigorbench.md) | **简体中文**
 
+> **首次公开：** 2026-06-21 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.22678)
+
 ## Overview
 
 RigorBench 给自主 AI 编码 agent 打分，评的不只是结果对不对，而是**工程过程纪律**——解是怎么得到的。它把过程纪律拆成七根分别计分的支柱，从完整的执行 trajectory 上算出各支柱得分，再聚合为综合的 RigorScore。

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/domaincqa.md)
 
+> **First appeared:** 2025-03-25 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2503.19498)
+
 ## Overview
 
 DomainCQA is a methodology for building knowledge-intensive chart question-answering benchmarks in a scientific domain, instantiated as **AstroChart** — 1,690 QA pairs over 482 charts taken from astronomy papers — and used to evaluate 21 multimodal large language models against a human baseline.

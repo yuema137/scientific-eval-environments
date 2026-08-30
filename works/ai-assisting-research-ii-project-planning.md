@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ai-assisting-research-ii-project-planning.md)
 
+> **First appeared:** 2026-07-28 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.25881)
+
 ## Overview
 
 A blind comparison of human-written and LLM-written research project proposals for eight real physics, astrophysics and cosmology projects, scored by four human reviewers and two frontier LLM reviewers against a shared four-aspect rubric, which also measures whether reviewers can tell the two apart and how strongly LLM judges favour LLM-written text.

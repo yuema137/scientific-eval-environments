@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/autoworldmodel-bench.md)
 
+> **First appeared:** 2026-07-20 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.11216)
+
 ## Overview
 
 AutoWorldModel-Bench is a closed-loop benchmark in which a frontier coding agent is handed a working world model and a fixed compute budget and asked to make it better, with no improvement direction specified in advance. Eight game environments share a unified structured-state representation that strips out perception, isolating dynamics modeling and keeping each training run short enough for many iterations inside a session.

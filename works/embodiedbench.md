@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/embodiedbench.md)
 
+> **First appeared:** 2025-02-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2502.09560)
+
 ## Overview
 
 EmbodiedBench evaluates multimodal LLMs as vision-driven embodied agents at scale: 1,128 testing tasks across four environments, from high-level household semantics down to atomic navigation and manipulation actions, organized into six capability subsets — the best model, GPT-4o, scores only 28.9% on average.

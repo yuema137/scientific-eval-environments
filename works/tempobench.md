@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/tempobench.md)
 
+> **First appeared:** 2025-10-31 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.27544)
+
 ## Overview
 
 A formally verifiable temporal benchmark that isolates *counterfactual causal attribution* over execution trajectories, testing whether LLMs can identify which inputs were necessary for an observed output rather than merely simulating a system forward.

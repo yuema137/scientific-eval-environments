@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/scicode.md)
 
+> **First appeared:** 2024-07-18 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2407.13168)
+
 ## Overview
 
 SciCode is a research coding benchmark curated by scientists: 80 challenging main problems decomposed into 338 subproblems, built with input from scientists and AI researchers in 16 natural-science subfields spanning mathematics, physics, chemistry, biology, and materials science.

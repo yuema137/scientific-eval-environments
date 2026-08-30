@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/rodent-bench.md)
 
+> **First appeared:** 2026-02-20 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2602.18540)
+
 ## Overview
 
 Rodent-Bench evaluates multimodal LLMs on annotating rodent behavior video across neuroscience paradigms — social interactions, grooming, scratching, and freezing — over long recordings (10–35 minutes), finding that no current model performs well enough to serve as an annotation assistant.

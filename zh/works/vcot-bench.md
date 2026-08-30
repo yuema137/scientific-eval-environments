@@ -2,6 +2,8 @@
 
 > [English](../../works/vcot-bench.md) | **简体中文**
 
+> **首次公开：** 2026-03-18 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2603.18334)
+
 ## Overview
 
 VCoT-Bench 是一个 benchmark，用于评估 LLM 是否理解 Rust 程序验证背后的验证思维链（Verification Chain-of-Thought，VCoT），而不只是其通过或失败的结果。它包含 1,988 个 VCoT 补全任务，源自 150 个已验证的 Verus 程序，并沿三个正交维度分层：移除比例、证明类型与证明位置。

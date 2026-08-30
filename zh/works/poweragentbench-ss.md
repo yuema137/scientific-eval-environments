@@ -2,6 +2,8 @@
 
 > [English](../../works/poweragentbench-ss.md) | **简体中文**
 
+> **首次公开：** 2026-06-17 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.18789)
+
 ## Overview
 
 PowerAgentBench-SS 评测电力系统稳态研究中的 agentic AI：agent 获得公开算例数据、动作约束、工具 API 与验证预算，须检视电网算例、调用仿真器、筛选预想故障、提出满足约束的缓解措施并留下可审计的证据链——而一个隐藏评估器会重算物理有效性并为提交的报告打分。

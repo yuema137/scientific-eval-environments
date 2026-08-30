@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/agentprocessbench.md)
 
+> **First appeared:** 2026-03-15 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2603.14465)
+
 ## Overview
 
 AgentProcessBench is a benchmark for evaluating the step-level effectiveness of a tool-using agent's intermediate actions in realistic, multi-turn trajectories. It comprises 1,000 trajectories sampled from five policy models across four tool-use benchmarks, with 8,509 human-labeled step annotations under a ternary +1 / 0 / −1 scheme at 89.1% inter-annotator agreement.

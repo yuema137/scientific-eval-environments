@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/harness-bench.md)
 
+> **First appeared:** 2026-05-27 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.27922)
+
 ## Overview
 
 Harness-Bench is a diagnostic benchmark for measuring configuration-level *harness effects* — how the system layer surrounding a model (context management, tools, state, permissions, tracing, recovery) changes agent performance. It fixes external task conditions while varying the harness around each model backend, scoring 5,194 execution trajectories over 106 sandboxed offline tasks.

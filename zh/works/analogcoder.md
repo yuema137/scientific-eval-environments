@@ -2,6 +2,8 @@
 
 > [English](../../works/analogcoder.md) | **简体中文**
 
+> **首次公开：** 2024-05-23 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2405.14918)
+
 ## Overview
 
 AnalogCoder 是首个通过 Python 代码生成来设计模拟电路的免训练 LLM agent，采用反馈增强的自纠正流程与可复用的电路工具库；在一个精选的模拟电路设计任务 benchmark 上，它成功设计出 20 个电路——比标准 GPT-4o 多 5 个。

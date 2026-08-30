@@ -2,6 +2,8 @@
 
 > [English](../../works/code2bench.md) | **简体中文**
 
+> **首次公开：** 2025-08-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2508.07180)
+
 ## Overview
 
 CODE2BENCH 是动态 benchmark 构造框架。它从近期真实 code repository 中取材，为 Python 和 Java 生成任务，并要求测试达到 100% branch coverage 才能入库。

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/llm-ioaa.md)
 
+> **First appeared:** 2025-10-06 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.05016)
+
 ## Overview
 
 LLM-IOAA is a systematic evaluation of frontier large language models on the complete theory and data-analysis exams of the International Olympiad on Astronomy & Astrophysics (IOAA), graded by former IOAA contestants and team leaders against the official marking schemes and scored against real contestant distributions.

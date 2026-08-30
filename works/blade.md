@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/blade.md)
 
+> **First appeared:** 2024-08-19 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2408.09667)
+
 ## Overview
 
 BLADE benchmarks language-model agents for data-driven science: 12 datasets paired with research questions drawn from scientific literature, with ground truth from independent analyses by expert data scientists, evaluating whether agents can integrate domain knowledge, statistics, and data understanding in open-ended analysis.

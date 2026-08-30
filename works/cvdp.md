@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/cvdp.md)
 
+> **First appeared:** 2025-06-17 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2506.14074)
+
 ## Overview
 
 CVDP (Comprehensive Verilog Design Problems) is NVIDIA's next-generation benchmark for evaluating LLMs and agents on RTL design and verification: 783 problems across 13 task categories — RTL generation, verification, debugging, specification alignment, and technical Q&A — in both non-agentic and agentic formats, on which state-of-the-art models achieve no more than 34% pass@1 on code generation.

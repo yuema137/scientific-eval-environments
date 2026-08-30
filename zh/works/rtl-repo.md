@@ -2,6 +2,8 @@
 
 > [English](../../works/rtl-repo.md) | **简体中文**
 
+> **首次公开：** 2024-05-27 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2405.17378)
+
 ## Overview
 
 RTL-Repo 在大规模 RTL 设计项目上评测 LLM：4,000 多个从公开 GitHub 仓库抽取的 Verilog 样本，每个都提供其所在仓库的完整上下文，考察多文件、仓库级的 Verilog 代码补全。

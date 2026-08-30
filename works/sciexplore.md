@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/sciexplore.md)
 
+> **First appeared:** 2026-07-23 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.20926)
+
 ## Overview
 
 SciExplore is a benchmark evaluating autonomous agents on scientific information seeking, from database navigation to cross-source information integration. It comprises 103 expert-curated tasks in four progressive task types across more than ten scientific disciplines.

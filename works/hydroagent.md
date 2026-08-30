@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/hydroagent.md)
 
+> **First appeared:** 2026-05-18 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.17792)
+
 ## Overview
 
 HydroAgent benchmarks nine frontier LLM agents on calibrating the operational CREST distributed hydrologic model — used by the U.S. National Weather Service for flash-flood forecasting — over four held-out gauges spanning 329–40,792 km², scored by Nash–Sutcliffe Efficiency against a human-expert reference. The paper's paired RL-trained agent is a method contribution (see the repository note under Limitations).

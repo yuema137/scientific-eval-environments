@@ -2,6 +2,8 @@
 
 > [English](../../works/pde-controller.md) | **简体中文**
 
+> **首次公开：** 2025-02-03 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2502.00963)
+
 ## Overview
 
 PDE-Controller 把 LLM 引入 PDE 控制的自动形式化与推理：把非正式的自然语言指令转化为形式规格（信号时序逻辑 STL），再通过推理与规划提升热方程与波动方程系统的控制效用。其数据集——人工撰写案例加 200 万合成样本——与评估指标构成本卡片记录的 benchmark 部分。

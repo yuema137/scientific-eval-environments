@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/cuarewardbench.md)
 
+> **First appeared:** 2025-10-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.18596)
+
 ## Overview
 
 CUARewardBench is a benchmark that treats outcome reward models (ORM) and process reward models (PRM) as the judged subjects, testing whether vision-language models can reproduce expert verdicts on computer-using agent trajectories. It pairs 272 trajectory-success annotations with 346 step-correctness annotations over OSWorld rollouts from seven policy models spanning 25.9–50.8% success rates.

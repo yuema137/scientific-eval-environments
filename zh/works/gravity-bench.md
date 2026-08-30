@@ -2,6 +2,8 @@
 
 > [English](../../works/gravity-bench.md) | **简体中文**
 
+> **首次公开：** 2025-01-30 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2501.18411)
+
 ## Overview
 
 Gravity-Bench-v1 是引力物理发现的 agentic benchmark：agent 观测一个模拟二体引力系统，在实验预算内规划采集哪些数据，再通过数据分析揭示被隐藏的物理——包括无法靠背诵教科书知识回答的、分布外的修改物理。

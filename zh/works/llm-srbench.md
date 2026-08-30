@@ -2,6 +2,8 @@
 
 > [English](../../works/llm-srbench.md) | **简体中文**
 
+> **首次公开：** 2025-04-14 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2504.10415)
+
 ## Overview
 
 LLM-SRBench 是用 LLM 做科学方程发现的 benchmark，含 239 个高难度问题，专为防止简单记忆而设计：LSR-Transform 把常见物理模型改写为少见的数学表征以考察记忆之外的推理，LSR-Synth 引入需要数据驱动推理的合成发现型问题。

@@ -2,6 +2,8 @@
 
 > [English](../../works/integrating-large-language-models-for-automated-st.md) | **简体中文**
 
+> **首次公开：** 2025-04-13 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2504.09754)
+
 ## Overview
 
 一个手工编制的 benchmark，含二十道二维框架的结构分析应用题（structural analysis word problems, SAWP）并附 ground-truth 解；作者用它在一个以 OpenSeesPy 为后端的框架内对比四个 LLM，并测量其中最强者在多次运行间的稳定性。

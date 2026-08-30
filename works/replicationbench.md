@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/replicationbench.md)
 
+> **First appeared:** 2025-10-28 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.24591)
+
 ## Overview
 
 ReplicationBench is an evaluation framework asking whether AI agents can replicate astrophysics research papers: each paper is split into tasks requiring agents to replicate its core contributions — experimental setup, derivations, data analysis, and codebase — with every task co-developed with the original paper authors.

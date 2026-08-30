@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/hiper.md)
 
+> **First appeared:** 2026-02-18 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2602.16165)
+
 ## Overview
 
 HiPER factorizes an interactive LLM-agent policy into a high-level subgoal planner and a low-level executor, then assigns reinforcement-learning credit at both levels.

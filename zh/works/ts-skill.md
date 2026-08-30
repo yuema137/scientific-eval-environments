@@ -2,6 +2,8 @@
 
 > [English](../../works/ts-skill.md) | **简体中文**
 
+> **首次公开：** 2026-05-23 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2605.24703)
+
 ## Overview
 
 TS-Skill 是一个受控的时间序列问答 benchmark，把分析能力分解为三种可组合的信号级 skill——时间尺度选择、时间定位、跨区间整合——并给出逐 skill 的能力画像，而不是一个笼统的 TSQA 总分。

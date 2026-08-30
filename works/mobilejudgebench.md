@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mobilejudgebench.md)
 
+> **First appeared:** 2026-08-11 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.11434)
+
 ## Overview
 
 MobileJudgeBench evaluates automatic judges for mobile-agent trajectories against 931 human-labeled trajectories spanning six benchmarks, four agent models, 289 tasks, and 68 apps.

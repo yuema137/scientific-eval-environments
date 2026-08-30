@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/scr-bench.md)
 
+> **First appeared:** 2026-06-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.15242)
+
 ## Overview
 
 SCR-Bench is a sandboxed benchmark for Skill Composition Risk: it scores agent behavior along *activated paths* of composed skills rather than on skills evaluated in isolation, recording downstream state changes instead of textual intent.

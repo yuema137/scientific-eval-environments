@@ -2,6 +2,8 @@
 
 > [English](../../works/drafterbench.md) | **简体中文**
 
+> **首次公开：** 2025-07-15 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2507.11527)
+
 ## Overview
 
 DrafterBench 是一个开源 benchmark，考察 LLM agent 做土木工程施工图修改：以十二类修改任务和 46 个自制图纸操作工具构建出 1,920 道题，判分读的是记录下来的操作链，而不是渲染出来的图纸。

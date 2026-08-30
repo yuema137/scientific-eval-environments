@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/lqcdmaster.md)
 
+> **First appeared:** 2026-07-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.15001)
+
 ## Overview
 
 LQCDMaster is a skill-guided lattice-QCD computing agent released together with a 70-task benchmark of lattice-QCD measurement code, in which each generated PyQUDA workflow is checked by direct numerical comparison against an expert-written reference implementation at machine precision.

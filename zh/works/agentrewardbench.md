@@ -2,6 +2,8 @@
 
 > [English](../../works/agentrewardbench.md) | **简体中文**
 
+> **首次公开：** 2025-04-11 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2504.08942)
+
 ## Overview
 
 AgentRewardBench 是一个 benchmark，用于衡量自动评估器——LLM judge 以及 web agent benchmark 自带的规则式评分器——在多大程度上复现专家对 agent trajectory 的判断。它包含 1,302 条 trajectory，取自 5 个 web benchmark 和 4 个 agent LLM，每条都由专家标注者就成功、副作用和重复行为进行审阅。

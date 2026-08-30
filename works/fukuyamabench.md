@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/fukuyamabench.md)
 
+> **First appeared:** 2026-07-14 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.12771)
+
 ## Overview
 
 FukuyamaBench is a difficult benchmark for hierarchical reaction-mechanism reasoning, derived from Fukuyama's Advanced Organic Reaction Mechanism book; it is released by a training-focused paper on mechanistic reasoning, whose fine-tuned Qwen3-30B-A3B reaches 8.3% exact pathway match on Set A, surpassing the specialized FlowER model (5.1%).

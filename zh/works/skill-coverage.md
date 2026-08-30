@@ -2,6 +2,8 @@
 
 > [English](../../works/skill-coverage.md) | **简体中文**
 
+> **首次公开：** 2026-06-09 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.20659)
+
 ## Overview
 
 Skill Coverage 是面向可复用 agent skill 的、基于轨迹的测试充分性指标：它把 skill 的自然语言指令编译成半结构化的行为约束，再逐条核对：agent 轨迹有没有覆盖到该约束，覆盖时观察到的行为又是通过还是失败。

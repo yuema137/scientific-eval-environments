@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/hardmath.md)
 
+> **First appeared:** 2024-10-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2410.09988)
+
 ## Overview
 
 HARDMath is a benchmark dataset for challenging problems in applied mathematics — the analytical approximation techniques of a graduate asymptotics course — with auto-generated problems whose solutions are validated against numerical ground truths, plus 40 word problems in applied-science contexts; its HARDMath-mini test set holds 366 problems.

@@ -2,6 +2,8 @@
 
 > [English](../../works/hiper.md) | **简体中文**
 
+> **首次公开：** 2026-02-18 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2602.16165)
+
 ## 概览
 
 HiPER 把 interactive LLM-agent policy 分成提出 subgoal 的高层 planner 与执行环境 action 的低层 executor，并在两层分别分配 RL credit。

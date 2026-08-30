@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/evaluating-the-performance-of-artificial-intellige.md)
 
+> **First appeared:** 2023-03-31 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2303.18149)
+
 ## Overview
 
 An early evaluation study that administers NCEES Fundamentals of Engineering (FE) and Principles and Practice of Engineering (PE, structural discipline) practice-exam questions to ChatGPT-4 and Google Bard, grading each answer against the official NCEES solutions and reporting per-topic and overall pass-equivalent scores.

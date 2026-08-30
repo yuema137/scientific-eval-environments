@@ -2,6 +2,8 @@
 
 > [English](../../works/stargazer.md) | **简体中文**
 
+> **首次公开：** 2026-04-17 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2604.15664)
+
 ## Overview
 
 Stargazer 是一个可扩展的 benchmark 环境，用于在径向速度（RV）时间序列上评估 AI agent 的动态、迭代、物理约束的模型拟合（model-fitting）任务。它包含 120 个任务——100 个按三个难度层级由模拟器生成，外加 20 个匿名化的真实档案系统——并在每次提交后返回内置的逐判据反馈。

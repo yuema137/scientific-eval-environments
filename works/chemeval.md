@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/chemeval.md)
 
+> **First appeared:** 2024-09-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2409.13989)
+
 ## Overview
 
 ChemEval is a multi-level chemical evaluation for LLMs built around what chemical research professionals actually need: 4 progressive levels in chemistry, assessing 12 dimensions across 42 distinct tasks drawn from open-source data and expert-crafted material.

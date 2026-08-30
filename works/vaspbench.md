@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/vaspbench.md)
 
+> **First appeared:** 2026-05-25 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.26179)
+
 ## Overview
 
 VASPBench is a purpose-built benchmark for autonomous density-functional-theory calculations, spanning 34 tasks across 9 DFT calculation types; it is released with AutoDFT, a closed-loop multi-agent framework that plans, runs, and repairs VASP calculations and reaches 94.1% task-level success with GPT-5.2.

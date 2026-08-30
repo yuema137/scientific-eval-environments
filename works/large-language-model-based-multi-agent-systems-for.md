@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/large-language-model-based-multi-agent-systems-for.md)
 
+> **First appeared:** 2025-06-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2506.13811)
+
 ## Overview
 
 A 27-case foundation-design evaluation protocol for geotechnical engineering — shallow footings and piles — paired with a four-criterion grading rubric and used to compare nine configurations of standalone LLMs, sequential agentic workflows, and a router-driven multi-agent system that classifies an incoming design problem and dispatches it to a specialist agent.

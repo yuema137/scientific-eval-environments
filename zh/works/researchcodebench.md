@@ -2,6 +2,8 @@
 
 > [English](../../works/researchcodebench.md) | **简体中文**
 
+> **首次公开：** 2025-06-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2506.02314)
+
 ## Overview
 
 ResearchCodeBench 评测 LLM 实现新颖机器学习研究代码的能力：212 个编码挑战，要求把 2024–2025 年顶尖研究论文的前沿贡献翻译成可执行代码——即便最强模型（Gemini-2.5-Pro）也只正确实现 37.3%。

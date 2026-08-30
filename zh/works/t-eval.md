@@ -2,6 +2,8 @@
 
 > [English](../../works/t-eval.md) | **简体中文**
 
+> **首次公开：** 2023-12-21 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2312.14033)
+
 ## Overview
 
 T-Eval 是一个细粒度的 tool-use benchmark，把 tool-use 评估拆解为 6 个能力子过程分别打分，而不是简化为一个端到端的成功率。

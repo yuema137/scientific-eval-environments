@@ -2,6 +2,8 @@
 
 > [English](../../works/skilltv-bench.md) | **简体中文**
 
+> **首次公开：** 2026-08-06 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.05573)
+
 ## Overview
 
 SkillTV-Bench 是面向 skill-aware 轨迹验证的 benchmark：评估 LLM-as-a-Judge 与 Agent-as-a-Judge 方法对使用 skill 的 agent 执行的验证能力。它包含来自 50 个任务、11 个领域的 681 条真实 agent 轨迹，并配套 SkillTV-Evolve——把验证知识外化为可复用的 JudgeSkill。

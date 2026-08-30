@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/psychcounsel-bench.md)
 
+> **First appeared:** 2025-10-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.01611)
+
 ## Overview
 
 PsychCounsel-Bench evaluates the psychology intelligence of LLMs on professional-certification questions: approximately 2,252 single-choice questions from the U.S. National Counselor Certification Exam, where advanced models clear the ~70% passing threshold while smaller open-source models fall well short.

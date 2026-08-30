@@ -2,6 +2,8 @@
 
 > [English](../../works/mlgym.md) | **简体中文**
 
+> **首次公开：** 2025-02-20 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2502.14499)
+
 ## Overview
 
 MLGym 是首个面向 AI 研究任务的 Gym 环境——支持对「训练 agent」做强化学习研究——配套 MLGym-Bench，一个含 13 个横跨计算机视觉、NLP、强化学习与博弈论的开放式 AI 研究任务的 benchmark。

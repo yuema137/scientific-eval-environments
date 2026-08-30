@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/replica.md)
 
+> **First appeared:** 2026-08-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.13331)
+
 ## Overview
 
 Replica is a task space for paper replication in which an agent is given a research paper with one results figure irreversibly redacted and must reproduce that figure from the rest of the paper. Alongside it the authors release an auto-generated rubric-based judge calibrated against human raters, and use both to post-train Faraday, a 27B "AI Scientist" agent that calls coding agents as tools.

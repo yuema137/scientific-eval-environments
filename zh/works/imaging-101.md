@@ -2,6 +2,8 @@
 
 > [English](../../works/imaging-101.md) | **简体中文**
 
+> **首次公开：** 2026-07-12 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2607.10789)
+
 ## Overview
 
 Imaging-101 是一个计算成像 benchmark，含 57 个经专家验证的任务，横跨六个科学领域；每个任务都以一篇同行评审论文及其开源参考实现为依托，用来评估 LLM coding agent 能否搭出完整的重建管线。

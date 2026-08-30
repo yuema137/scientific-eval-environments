@@ -2,6 +2,8 @@
 
 > [English](../../works/automating-structural-reliability-analysis-with-a.md) | **简体中文**
 
+> **首次公开：** 2026-07-18 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2607.16580)
+
 ## Overview
 
 一个由五个 agent 组成的 LLM 框架，把构件级结构可靠度分析从自然语言题面一路做到给出可靠指标与失效概率并加以解读；随论文发布的还有一套留出的 20 题可靠度 benchmark，其参考解由经过验证的求解器给出，方法类别标签则由一条公开的确定性判据生成。

@@ -2,6 +2,8 @@
 
 > [English](../../works/ai-research-preference-models.md) | **简体中文**
 
+> **首次公开：** 2026-08-14 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.13940)
+
 ## Overview
 
 AI Research Preference Models（RPM）预测 AI 研究 agent 提出的哪些候选方案值得花 GPU 时间跑一遍，好把固定的执行预算花在最可能有回报的候选上。两个变体都建立在冻结的预训练语言模型之上、不做任何任务特定训练——一个只对方案与代码作推理，另一个会先跑小规模试点实验——并双双接入 AIRA-dojo 搜索 agent，在 AIRS-Bench 上测量。

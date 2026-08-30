@@ -2,6 +2,8 @@
 
 > [English](../../works/mdarena.md) | **简体中文**
 
+> **首次公开：** 2026-07-31 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.02642)
+
 ## Overview
 
 MDArena 是评估 coding agent 在真实分子动力学（MD）工作流上表现的 benchmark，包含 50 个容器化任务，来源于进行中的研究项目，覆盖 29 个分子体系与 14 种研究方案。

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/matvqa.md)
 
+> **First appeared:** 2025-05-23 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.18319)
+
 ## Overview
 
 MatVQA challenges multimodal LLMs on visual-scientific reasoning in materials science: 1,325 questions across four structure-property-performance reasoning tasks over real materials imagery (microscopy, diffraction patterns), with textual shortcuts iteratively removed so the answer requires actually looking at the image.

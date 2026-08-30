@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/slbench.md)
 
+> **First appeared:** 2026-07-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.09016)
+
 ## Overview
 
 SLBench is an 86-case executable benchmark testing whether LLM agents resolve the logical relations that hold among the instructions inside an agent skill — preconditions, constraints, fallbacks and five further relation types catalogued by its companion framework SkillLogic.

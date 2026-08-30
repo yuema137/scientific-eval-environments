@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mlr-bench.md)
 
+> **First appeared:** 2025-05-26 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.19955)
+
 ## Overview
 
 MLR-Bench evaluates AI agents on open-ended machine-learning research: 201 research tasks sourced from NeurIPS, ICLR, and ICML workshops, spanning idea generation, proposal formulation, experimentation, and paper writing, graded by MLR-Judge — an automated framework combining LLM reviewers with review rubrics.

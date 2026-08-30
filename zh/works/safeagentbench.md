@@ -2,6 +2,8 @@
 
 > [English](../../works/safeagentbench.md) | **简体中文**
 
+> **首次公开：** 2024-12-17 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2412.13178)
+
 ## Overview
 
 SafeAgentBench 评测具身 LLM agent 是否会安全地规划：750 个可执行任务，覆盖 10 类潜在危险与 3 种任务类型，运行在 SafeAgentEnv——一个带底层控制器、支持 17 个高层动作的通用具身环境——里，最有安全意识的基线也只拒绝 10% 的详细危险任务。

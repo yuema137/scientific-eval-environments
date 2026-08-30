@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/pde-controller.md)
 
+> **First appeared:** 2025-02-03 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2502.00963)
+
 ## Overview
 
 PDE-Controller brings LLMs to autoformalization and reasoning for PDE control: informal natural-language instructions are transformed into formal specifications (signal temporal logic), followed by reasoning and planning steps that improve the utility of PDE control for systems governed by heat and wave equations. Its datasets — human-written cases plus 2 million synthetic samples — and evaluation metrics constitute the benchmark component documented here.

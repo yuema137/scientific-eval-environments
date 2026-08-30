@@ -2,6 +2,8 @@
 
 > [English](../../works/pdeagent-bench.md) | **简体中文**
 
+> **首次公开：** 2026-05-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2605.09636)
+
 ## Overview
 
 PDEAgent-Bench 是多指标、多库的 PDE 求解器生成 benchmark：645 个实例横跨 6 个数学类别与 11 个 PDE 族，面向常用有限元库 DOLFINx、Firedrake 与 deal.II，采用分级评估——生成的求解器须依次通过可执行性、数值精度与计算效率检查。

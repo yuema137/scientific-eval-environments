@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ontolearner.md)
 
+> **First appeared:** 2026-07-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.01977)
+
 ## Overview
 
 OntoLearner is a modular Python library and benchmark for ontology learning with large language models: it releases 180 machine-readable ontologies spanning 22 domains with pipeline-ready train/dev/test splits for three ontology-learning tasks, and uses that infrastructure to evaluate 22 retrieval models and 12 LLMs on constructing structured knowledge models.

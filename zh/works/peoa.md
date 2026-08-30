@@ -2,6 +2,8 @@
 
 > [English](../../works/peoa.md) | **简体中文**
 
+> **首次公开：** 2024-08-23 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2408.14494)
+
 ## Overview
 
 PEOA（Process Engineering Operations Assistant）是一套面向化工与过程工程问题求解的模块化 LLM agent 框架，随框架一同发布的还有两个自建 benchmark 数据集——MathComp 与 ChemProc——以及一套分阶段的工具学习评测协议，用于将该框架与闭源 LLM 对比。

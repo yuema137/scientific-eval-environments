@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/manipbench.md)
 
+> **First appeared:** 2025-05-14 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.09698)
+
 ## Overview
 
 ManipBench benchmarks vision-language models on low-level robot manipulation reasoning — deciding precise robot movements, including object-object interaction and deformable-object manipulation — across 33 representative VLMs from 10 model families, with performance strongly correlated to real-world manipulation outcomes.

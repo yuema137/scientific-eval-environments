@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/viki-bench.md)
 
+> **First appeared:** 2025-06-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2506.09049)
+
 ## Overview
 
 VIKI-Bench is the first hierarchical benchmark for embodied multi-agent cooperation, structured in three levels — agent activation, task planning, and trajectory perception — over diverse robot embodiments with multi-view visual observations; it is paired with VIKI-R, a VLM fine-tuning method using chain-of-thought demonstrations and reinforcement learning.

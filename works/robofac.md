@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/robofac.md)
 
+> **First appeared:** 2025-05-18 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.12224)
+
 ## Overview
 
 RoboFAC is a comprehensive framework for robotic failure analysis and correction: 9,440 erroneous manipulation trajectories and 78,623 QA pairs across 53 scenes in both simulation and real-world environments, with systematically categorized failure types, a benchmark over eight QA dimensions, and a specialized RoboFAC-7B model that beats GPT-4o on failure analysis by 34.1%.

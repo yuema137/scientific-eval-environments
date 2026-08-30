@@ -2,6 +2,8 @@
 
 > [English](../../works/frontier-llm-based-agents-can-overcome-the-ontolog.md) | **简体中文**
 
+> **首次公开：** 2026-05-27 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2605.28965)
+
 ## Overview
 
 一项在既有生物策展金标准上做的受控再评估：五个前沿 LLM 各自作为一名「agentic 策展员」在自足的工作区中运行，产出 Entity-Quality 表型标注，并对照与 2018 年原研究相同的金标准、相同的三位受训人类策展员以及相同的 NLP 基线打分。

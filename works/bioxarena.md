@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/bioxarena.md)
 
+> **First appeared:** 2026-05-15 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.15766)
+
 ## Overview
 
 BioXArena benchmarks LLM agents on multi-modal biomedical machine-learning tasks: 76 end-to-end tasks across 9 domains — sequence modeling, single-cell analysis, structural biology, network biology, chemical biology, perturbation dynamics, phenotype-disease modeling, biomedical imaging, and text-integrated learning — run in a standardized 2-hour single-GPU environment.

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/can-large-language-models-automate-the-hazop-proce.md)
 
+> **First appeared:** 2025-11-03 · **Source:** [Official publication record](https://doi.org/10.1016/j.ssci.2025.107039)
+
 ## Overview
 
 A comparative evaluation of four multimodal large language models on the Hazard and Operability (HAZOP) study, in which each model generates a complete HAZOP worksheet from the same piping and instrumentation diagram (P&ID) under a standardized prompt and is scored against an expert-prepared reference worksheet. The paper's stated contribution is a structured framework for evaluating LLMs on HAZOP rather than a HAZOP automation system.

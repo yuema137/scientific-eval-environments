@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/llm-thermodynamics.md)
 
+> **First appeared:** 2025-01-27 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2502.05195)
+
 ## Overview
 
 A benchmark study that evaluates five large language models on 22 chemical-engineering thermodynamics problems, with answers graded by trained human experts in the manner of academic exam grading.

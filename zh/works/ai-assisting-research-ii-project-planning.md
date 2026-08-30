@@ -2,6 +2,8 @@
 
 > [English](../../works/ai-assisting-research-ii-project-planning.md) | **简体中文**
 
+> **首次公开：** 2026-07-28 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2607.25881)
+
 ## Overview
 
 围绕八个真实的物理、天体物理与宇宙学项目，把人类撰写与 LLM 撰写的研究项目计划书做盲评对照：四位人类评审和两个前沿 LLM 评审依同一套四维评分细则打分，同时测量评审能否分辨两者出自谁手，以及 LLM 评判者偏向 LLM 文本的程度有多强。

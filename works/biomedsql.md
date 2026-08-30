@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/biomedsql.md)
 
+> **First appeared:** 2025-05-23 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.20321)
+
 ## Overview
 
 BiomedSQL is a text-to-SQL benchmark over a harmonized biomedical knowledge base of gene–disease associations, omics causal-inference results, and drug approval records, in which answering a question correctly requires the model to supply implicit domain criteria — genome-wide significance thresholds, effect directionality, trial-phase filters — that the natural-language question never states.

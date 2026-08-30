@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/natural-plan.md)
 
+> **First appeared:** 2024-06-06 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2406.04520)
+
 ## Overview
 
 NATURAL PLAN is a 3,600-instance benchmark that evaluates natural-language planning across trip planning, meeting planning, and calendar scheduling while providing all required tool-derived information directly in the prompt.

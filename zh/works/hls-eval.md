@@ -2,6 +2,8 @@
 
 > [English](../../works/hls-eval.md) | **简体中文**
 
+> **首次公开：** 2025-04-16 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2504.12268)
+
 ## Overview
 
 HLS-Eval 是评测 LLM 高层综合（HLS）设计任务的 benchmark 与框架：94 个配自然语言描述与测试台的独特设计，覆盖两类任务——从自然语言生成 HLS 代码，以及做 HLS 专有的编辑以优化性能与硬件效率——在 Vitis HLS 上按可解析性、可编译性、可运行性、可综合性判分。

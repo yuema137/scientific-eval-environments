@@ -2,6 +2,8 @@
 
 > [English](../../works/telemetrysuffbench.md) | **简体中文**
 
+> **首次公开：** 2026-08-08 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.07899)
+
 ## Overview
 
 一个受控 benchmark，测试 agent 执行遥测是否*足以*诊断失败的起源；它在合成的多组件 agent 轨迹上，把三种能力区分开来——失败检测、故障源定位，以及在证据不足时安全弃权。

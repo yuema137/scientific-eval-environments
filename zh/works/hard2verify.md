@@ -2,6 +2,8 @@
 
 > [English](../../works/hard2verify.md) | **简体中文**
 
+> **首次公开：** 2025-10-15 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2510.13744)
+
 ## Overview
 
 Hard2Verify 是一个 benchmark，用于评估 step-level verifier 为最新开放式 Olympiad 数学题的 frontier 模型证明逐步打分的能力。它包含针对 80 道竞赛题的 200 份模型生成解答中的 1,860 个专家标注步骤，由超过 500 小时的人力投入产生。

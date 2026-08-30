@@ -2,6 +2,8 @@
 
 > [English](../../works/trajdebug.md) | **简体中文**
 
+> **首次公开：** 2026-08-06 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.06346)
+
 ## Overview
 
 TRAJDEBUG 是在长 horizon agent 轨迹中识别关键失败的错误生命周期追踪框架，随之发布 TrajErrBench——486 条人工标注的失败轨迹，取自 Tau2Bench 与 SWE-Bench Pro。

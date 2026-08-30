@@ -2,6 +2,8 @@
 
 > [English](../../works/telbench.md) | **简体中文**
 
+> **首次公开：** 2026-06-01 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.02060)
+
 ## Overview
 
 TELBench 是一个针对 deep-research agent trajectory 的 span 级错误定位 benchmark，考察模型能否在正常探索、失败检索、试探性假设与无害噪声之中挑出有害的 error span。它包含 1,000 个经核验的 trajectory 实例（600 个 easy / 400 个 hard），取自由 2,790 条真实 agent 运行构成的语料，每条被切分为带二元 error / non-error 标签的有序语义 span。

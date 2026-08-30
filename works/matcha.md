@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/matcha.md)
 
+> **First appeared:** 2025-09-11 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2509.09307)
+
 ## Overview
 
 MatCha is a multimodal benchmark on materials characterization: 1,500 questions across four key stages of materials research comprising 21 distinct tasks over real characterization imaging data, revealing a significant performance gap between multimodal LLMs and human experts.

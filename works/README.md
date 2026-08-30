@@ -31,6 +31,8 @@ Copy this structure verbatim. Do not add sections. Do not remove sections (leave
 
 > **English** | [简体中文](../zh/works/<card-file>.md)
 
+> **First appeared:** YYYY-MM-DD · **Source:** [arXiv initial submission](<source URL>)
+
 ## Overview
 
 One or two sentences describing what the work is.
@@ -101,6 +103,7 @@ made by this repository (not the authors) must be marked `Repository note:`.
 ## Card rules
 
 - **Language switcher.** Every page carries a switcher line directly under the H1: `> **English** | [简体中文](../zh/works/<card>.md)` on English pages, and `> [English](../../works/<card>.md) | **简体中文**` on the Chinese mirror. A new card ships with the switcher on both sides in the same batch.
+- **First-appearance stamp.** Every card carries one visible `First appeared` line directly below the language switcher, mirrored with the same date and provenance URL in Chinese. `First appeared` means the earliest day on which the work itself was publicly accessible, whether as a preprint, public submission, project or dataset release, software release, or publication. Check the work's public records rather than assuming that its venue year is its first-appearance year. Prefer an exact initial-submission or release record from arXiv, Hugging Face, OpenReview, an official publisher or proceedings page, a DOI registry, an official project or dataset page, or the work's official repository. If several qualifying records exist, use the earliest. Revisions, acceptances, conference dates, formal publication dates that follow an earlier public version, and page-modification dates do not replace the earlier date. Record venue and publication details separately under `Links`. Only after no public date can be verified may the Git date that first added the card be used, labeled `Repository addition`. Keep the source link so the decision remains auditable. [`../WORKS_BY_DATE.md`](../WORKS_BY_DATE.md) is generated from these stamps.
 - **`Topics` is a metadata block, not decoration.** It is the internal index that keeps topic pages in sync. Every topic listed here must have a corresponding entry in that topic page's `Related Works` section, and vice versa. Only draw from the canonical topic taxonomy defined in [`../AGENT.md`](../AGENT.md).
 - **`Activities` is mandatory canonical metadata.** Every card carries exactly one `## Activities` block, placed directly after `## Topics`. It lists one or more canonical activities from the fixed taxonomy in [`../AGENT.md`](../AGENT.md) / [`../activities/README.md`](../activities/README.md) — or, for works that evaluate no scientific/research task (surveys, pure methodology, general-purpose or safety/resource-awareness benchmarks), a single explicit `N/A — <reason>` line and no links. Activities are **multi-label** but assigned conservatively (typically one to three, only when the activity is a meaningful evaluated component of the task — judged from the card's content, never from title keywords). The mapping is **two-way**: every activity linked here must list this work in that activity page's `Related Works`, and vice versa. No free-form activity labels.
 - **No positioning.** Do not include "Gap to Our Work", "Comparison with Our Framework", or any section that frames a work against a maintainer's own project.

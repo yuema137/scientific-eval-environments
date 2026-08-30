@@ -2,6 +2,8 @@
 
 > [English](../../works/race-bench.md) | **简体中文**
 
+> **首次公开：** 2026-03-27 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2603.26337)
+
 ## Overview
 
 RACE-Bench 是一个推理增强的 benchmark，用于评估仓库级代码 agent 在真实特性新增任务上的表现；它将可执行的补丁验证与结构化的中间参考推理配对，从而不仅按最终测试正确性考察 agent，还考察其推理与开发者认可轨迹的契合程度。

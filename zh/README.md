@@ -30,6 +30,7 @@
 - **[按 Domain 浏览](./domains/README.md)**：查某个科学或工程领域内有哪些评估工作。
 - **[按 Research Activity 浏览](./activities/README.md)**：按受评 agent 或系统实际执行的任务查找工作。
 - **[浏览全部 Works](./works/README.md)**：查看已收录的全部工作卡片。
+- **[按首次公开时间浏览](./WORKS_BY_DATE.md)**：按首次公开日期从新到旧查看全部 works。
 
 先看你手里带着什么问题，再选入口：
 

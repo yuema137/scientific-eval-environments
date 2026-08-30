@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mmcircuiteval.md)
 
+> **First appeared:** 2025-07-20 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2507.19525)
+
 ## Overview
 
 MMCircuitEval is the first multimodal circuit-focused benchmark for evaluating LLMs: 3,614 curated question–answer pairs spanning digital and analog circuits across critical EDA stages — from general knowledge and specifications to front-end and back-end design — drawn from textbooks, question banks, datasheets, and real-world documentation.

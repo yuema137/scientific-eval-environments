@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/swe-bench-promax.md)
 
+> **First appeared:** 2026-08-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.09802)
+
 ## Overview
 
 SWE-Bench ProMax is an expert-curated, multilingual code-refactoring benchmark of 170 real-commit instances across seven programming languages, designed to test coding agents on coordinated, behavior-preserving changes that span many files.

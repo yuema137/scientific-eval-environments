@@ -2,6 +2,8 @@
 
 > [English](../../works/posttrainbench.md) | **简体中文**
 
+> **首次公开：** 2026-03-09 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2603.08640)
+
 ## Overview
 
 PostTrainBench 测试 CLI agent 能否在单张 H100、十小时预算内自主 post-train 小型 base language model，并提高 held-out benchmark 分数。

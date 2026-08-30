@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/rtl-repo.md)
 
+> **First appeared:** 2024-05-27 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2405.17378)
+
 ## Overview
 
 RTL-Repo benchmarks LLMs on large-scale RTL design projects: more than 4,000 Verilog samples extracted from public GitHub repositories, each providing the full context of its corresponding repository, testing multi-file repository-scale Verilog code completion.

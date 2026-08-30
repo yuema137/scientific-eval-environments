@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/hard2verify.md)
 
+> **First appeared:** 2025-10-15 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.13744)
+
 ## Overview
 
 Hard2Verify is a benchmark that scores step-level verifiers on their ability to grade the individual steps of frontier-model proofs to recent, open-ended Olympiad mathematics problems. It comprises 1,860 expert-labeled steps across 200 model-generated solutions to 80 competition problems, produced with over 500 hours of human labor.

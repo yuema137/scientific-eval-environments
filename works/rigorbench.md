@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/rigorbench.md)
 
+> **First appeared:** 2026-06-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.22678)
+
 ## Overview
 
 RigorBench is a benchmark that scores autonomous AI coding agents on **engineering process discipline** — how a solution was reached — rather than on outcome correctness alone. It decomposes process discipline into seven separately scored pillars, computes them from the full execution trajectory, and aggregates them into a composite RigorScore.

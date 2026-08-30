@@ -2,6 +2,8 @@
 
 > [English](../../works/genebench-pro.md) | **简体中文**
 
+> **首次公开：** 2026-06-30 · **来源：** [官方发布](https://openai.com/index/introducing-genebench-pro/)
+
 ## Overview
 
 GeneBench-Pro 是一个面向 AI agent 的 benchmark，考察其在基因组学、定量生物学与转化医学中执行真实多阶段统计分析的能力。其 129 个问题构建于人工模拟的数据生成过程（DGP）而非真实数据集之上，从而使一个错误答案可归因于科学判断失误，而非归因于若干同样站得住脚的分析选择之一。

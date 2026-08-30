@@ -2,6 +2,8 @@
 
 > [English](../../works/moosebench.md) | **简体中文**
 
+> **首次公开：** 2026-05-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2605.09360)
+
 ## Overview
 
 MooseBench 是带 PDE 级真值的 220 例多物理场 benchmark，随一篇标题即结论的论文发布：「你的模拟能跑，但解的是错的物理」。配套的 Intent Fidelity Score（IFS）从 LLM 生成的 MOOSE 输入文件中确定性地重构其编码的 PDE，与预期契约比对。

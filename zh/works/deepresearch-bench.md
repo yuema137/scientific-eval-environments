@@ -2,6 +2,8 @@
 
 > [English](../../works/deepresearch-bench.md) | **简体中文**
 
+> **首次公开：** 2025-06-13 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2506.11763)
+
 ## Overview
 
 DeepResearch Bench 是面向 Deep Research Agent（DRA）的 benchmark，由 22 个主题领域下的 100 个博士级研究任务构成，并配套两个评估框架：评价报告生成质量的 RACE，以及评价引用可靠性与检索有效性的 FACT。

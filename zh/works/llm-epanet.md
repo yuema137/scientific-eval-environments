@@ -2,6 +2,8 @@
 
 > [English](../../works/llm-epanet.md) | **简体中文**
 
+> **首次公开：** 2025-03-20 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2503.16191)
+
 ## Overview
 
 LLM-EPANET 是一条检索增强的多 agent 管线，把关于供水管网的自然语言问题转换成可执行的 EPANET 仿真代码；随之发布的还有一个含 69 条查询的精选 benchmark，每条查询的 ground truth 都是一份手写的确定性参考脚本。

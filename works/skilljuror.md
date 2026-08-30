@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/skilljuror.md)
 
+> **First appeared:** 2026-06-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.11543)
+
 ## Overview
 
 SkillJuror is an evaluation framework that isolates *how an agent Skill is organized* from *what it says*, comparing a Progressive Disclosure layout (a concise root file pointing to supporting resources on demand) against a normalized flat baseline while holding task knowledge fixed.

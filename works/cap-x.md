@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/cap-x.md)
 
+> **First appeared:** 2026-03-23 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2603.22435)
+
 ## Overview
 
 CaP-X benchmarks and improves coding agents for robot manipulation: agents control robots by synthesizing and executing programs that compose perception and control primitives, evaluated in CaP-Bench across levels of abstraction, interaction, and perceptual grounding — 12 frontier models show performance that improves with human-crafted abstractions and degrades as those priors are removed.

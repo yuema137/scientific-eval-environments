@@ -2,6 +2,8 @@
 
 > [English](../../works/scholarquest.md) | **简体中文**
 
+> **首次公开：** 2026-06-18 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.20235)
+
 ## Overview
 
 ScholarQuest 是面向开放文献环境中 agent 式学术论文检索的大规模、分类法引导的 benchmark，由 1,000 余个计算机科学主题与四类代表性研究意图构建。

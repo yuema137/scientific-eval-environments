@@ -2,6 +2,8 @@
 
 > [English](../../works/bagen.md) | **简体中文**
 
+> **首次公开：** 2026-05-29 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.00198)
+
 ## Overview
 
 BAGEN 是一个评估 benchmark，用于测试 LLM agent 是否具备预算意识（budget-aware）——即能否在执行过程中估计自身还剩多少资源预算、以及任务是否仍可完成——从而把预算当作主动的控制信号，而非事后统计的成本指标。它在四个环境中评估五个 frontier agent，并把预算意识形式化为渐进式区间估计（progressive interval estimation）：agent 在每一回合都需预测其剩余预算的上界与下界。

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/quantifying-the-reproducibility-of-astrophysical-m.md)
 
+> **First appeared:** 2026-05-11 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.11154)
+
 ## Overview
 
 An information-theoretic evaluation methodology that treats LLM reconstructions of a published astrophysics method as samples from a distribution over algorithms, measuring with Shannon entropy and Jensen–Shannon divergence how strongly a manuscript's text constrains the space of valid implementations, and scoring the executable pipelines that frontier models produce against a four-level Hierarchy of Scientific Validity.

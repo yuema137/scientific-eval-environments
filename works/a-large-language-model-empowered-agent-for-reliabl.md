@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/a-large-language-model-empowered-agent-for-reliabl.md)
 
+> **First appeared:** 2025-06-27 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2507.02938)
+
 ## Overview
 
 An eight-problem beam structural-analysis benchmark paired with two explicitly defined measures — reliability (fraction of correct outputs over repeated identical runs) and robustness (stability of that reliability as load position and boundary conditions vary) — used first to characterize a bare LLM and then an OpenSeesPy code-generating agent on the same problems.

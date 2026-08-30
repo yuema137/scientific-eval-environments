@@ -2,6 +2,8 @@
 
 > [English](../../works/travelplanner.md) | **简体中文**
 
+> **首次公开：** 2024-02-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2402.01622)
+
 ## Overview
 
 TravelPlanner 是现实旅行规划 benchmark，包含 1,225 条精心设计的旅行意图、近四百万条记录组成的封闭 sandbox，以及用于在环境、常识和用户约束下制定多日行程的工具。
@@ -17,6 +19,7 @@ N/A — 通用旅行规划，未直接评估科学或研究活动。
 
 ## Links
 
+- **Preprint:** <https://arxiv.org/abs/2402.01622>
 - **Paper:** <https://proceedings.mlr.press/v235/xie24j.html>
 - **Code:** <https://github.com/OSU-NLP-Group/TravelPlanner>
 - **Venue:** ICML 2024

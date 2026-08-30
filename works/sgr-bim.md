@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/sgr-bim.md)
 
+> **First appeared:** 2026-06-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.12065)
+
 ## Overview
 
 SGR-BIM is a graph-driven multi-agent framework for checking geometry-intensive building-code provisions against IFC building models, released together with a purpose-built evaluation set of 679 expert-verified fire-safety compliance queries over five IFC models and a four-dimension scoring rubric, on which five agent baselines — including CAMEL, MetaGPT and AutoGen — are compared under identical tool access and inference settings.

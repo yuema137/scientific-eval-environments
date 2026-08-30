@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mollangbench.md)
 
+> **First appeared:** 2025-05-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.15054)
+
 ## Overview
 
 MolLangBench benchmarks language-prompted molecular structure recognition, editing, and generation across linear strings, molecular images, and molecular graphs: recognition tasks are auto-constructed with cheminformatics tools, editing and generation tasks are expert-annotated, and the strongest model (GPT-5) still drops to 43.0% on generation.

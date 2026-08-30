@@ -2,6 +2,8 @@
 
 > [English](../../works/hardmath.md) | **简体中文**
 
+> **首次公开：** 2024-10-13 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2410.09988)
+
 ## Overview
 
 HARDMath 是应用数学难题的 benchmark 数据集——研究生渐近分析课程中的解析近似技术——问题自动生成、解对照数值真值验证，另有 40 道应用科学情境的应用题；其 HARDMath-mini 测试集含 366 题。

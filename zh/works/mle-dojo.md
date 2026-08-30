@@ -2,6 +2,8 @@
 
 > [English](../../works/mle-dojo.md) | **简体中文**
 
+> **首次公开：** 2025-05-12 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2505.07782)
+
 ## Overview
 
 MLE-Dojo 是训练、评估并改进自主 LLM agent 做机器学习工程的 Gym 式交互环境：200+ 个真实 Kaggle 挑战，配结构化反馈循环，覆盖数据处理、架构搜索、超参调优与代码调试，在八个前沿 LLM 上评估。

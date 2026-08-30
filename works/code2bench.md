@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/code2bench.md)
 
+> **First appeared:** 2025-08-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2508.07180)
+
 ## Overview
 
 CODE2BENCH is a dynamic benchmark-construction framework that mines recent real-world code repositories and generates Python and Java tasks under a 100% branch-coverage quality gate.

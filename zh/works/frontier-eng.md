@@ -2,6 +2,8 @@
 
 > [English](../../works/frontier-eng.md) | **简体中文**
 
+> **首次公开：** 2026-04-14 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2604.12290)
+
 ## Overview
 
 Frontier-Eng 是面向"自我进化 agent"的真实工程任务 benchmark，把评估构造成**迭代式生成优化**：agent 提出候选方案，工业级仿真器在硬性可行性约束下返回连续奖励，agent 在固定交互预算内修订。

@@ -2,6 +2,8 @@
 
 > [English](../../works/pta-grpo.md) | **简体中文**
 
+> **首次公开：** 2025-10-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2510.01833)
+
 ## 概览
 
 PTA-GRPO 从 chain-of-thought trace 中提炼简短 high-level guidance，再用 RL 同时优化 plan quality 与细粒度 reasoning。

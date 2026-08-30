@@ -2,6 +2,8 @@
 
 > [English](../../works/tpbench.md) | **简体中文**
 
+> **首次公开：** 2025-02-19 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2502.15815)
+
 ## Overview
 
 TPBench（Theoretical Physics Benchmark）是关于 AI 理论物理推理能力的数据集与研究：57 道从本科到研究级的全新问题，覆盖高能理论与宇宙学，答案可自动验证，且不出自任何公开题库。

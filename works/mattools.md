@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mattools.md)
 
+> **First appeared:** 2025-05-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.10852)
+
 ## Overview
 
 MatTools benchmarks large language models on materials-science tools: 69,225 QA pairs testing understanding of the pymatgen codebase plus a real-world suite of 49 tasks (138 subtasks) requiring the model to generate and execute functional Python code to answer materials-property questions.

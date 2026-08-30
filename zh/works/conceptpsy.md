@@ -2,6 +2,8 @@
 
 > [English](../../works/conceptpsy.md) | **简体中文**
 
+> **首次公开：** 2023-11-16 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2311.09861)
+
 ## Overview
 
 ConceptPsy 是为「概念全面性」而建的心理学 benchmark 套件：12 个核心学科、1,383 个人工收集的概念，每道题都标注到章节，使得逐概念的表现——而非只有一个总分——得以显现。

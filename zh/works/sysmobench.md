@@ -2,6 +2,8 @@
 
 > [English](../../works/sysmobench.md) | **简体中文**
 
+> **首次公开：** 2025-09-27 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2509.23130)
+
 ## Overview
 
 SysMoBench 是一个 benchmark，评估 AI 用 TLA+ 为大型复杂计算机系统编写形式化模型的能力。它覆盖 11 个并发与分布式系统构件，并用四个可自动检查的指标为生成的模型打分，而不依赖人工或 LLM 判断。

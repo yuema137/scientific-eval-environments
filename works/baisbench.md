@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/baisbench.md)
 
+> **First appeared:** 2025-05-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.08341)
+
 ## Overview
 
 BAISBench benchmarks AI scientists on omics-data-driven biological discovery through two tasks: cell type annotation across 15 expert-labeled single-cell datasets, and scientific discovery via 193 multiple-choice questions derived from the biological conclusions of 41 published single-cell studies — with a human baseline from six graduate-level bioinformaticians.

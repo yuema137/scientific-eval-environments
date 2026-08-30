@@ -2,6 +2,8 @@
 
 > [English](../../works/skillaudit.md) | **简体中文**
 
+> **首次公开：** 2026-06-21 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.22613)
+
 ## Overview
 
 SkillAudit 是一套端到端的评估框架：输入任意一个 agent skill 包，自动产出一份涵盖效用、效率/成本与安全的多维部署报告——任务不再取自固定套件，而是由 skill 工件本身生成。

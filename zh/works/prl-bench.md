@@ -2,6 +2,8 @@
 
 > [English](../../works/prl-bench.md) | **简体中文**
 
+> **首次公开：** 2026-04-16 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2604.15411)
+
 ## Overview
 
 PRL-Bench（Physics Research by LLMs）是前沿物理研究能力的 benchmark，构建自 2025 年 8 月以来 Physical Review Letters 最新刊期的 100 篇精选论文并经领域专家验证，任务特征是面向探索的问题构造、长 horizon 工作流与客观可验证性。

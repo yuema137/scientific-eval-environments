@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/matp.md)
 
+> **First appeared:** 2025-12-29 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2512.23511)
+
 ## Overview
 
 MATP (Multi-step Automatic Theorem Proving) is an evaluation framework that verifies LLM-generated reasoning by translating each natural-language step into First-Order Logic and adjudicating it with an automated theorem prover. It is applied to a benchmark of 10,830 reasoning instances produced by 10 LLMs on tasks drawn from PrOntoQA-OOD, ProofWriter, and FOLIO.

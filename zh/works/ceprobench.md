@@ -2,6 +2,8 @@
 
 > [English](../../works/ceprobench.md) | **简体中文**
 
+> **首次公开：** 2026-03-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2603.01654)
+
 ## Overview
 
 CeProBench 是一个化工过程开发 benchmark，随 CeProAgents 一同提出——后者是一套面向化工过程开发自动化的分层多智能体系统。它按化学工程的三大支柱——知识、概念、参数——组织评估，设六类任务，涵盖从文档到知识图谱的抽取、工艺流程图（PFD）的解析与设计，以及 Aspen Plus 参数优化。

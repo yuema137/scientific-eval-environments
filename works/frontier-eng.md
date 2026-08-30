@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/frontier-eng.md)
 
+> **First appeared:** 2026-04-14 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.12290)
+
 ## Overview
 
 Frontier-Eng is a benchmark for self-evolving agents on real-world engineering tasks, framed as **iterative generative optimization**: an agent proposes a candidate design, an industrial-grade simulator returns continuous reward under hard feasibility constraints, and the agent revises within a fixed interaction budget.

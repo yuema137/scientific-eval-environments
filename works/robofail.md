@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/robofail.md)
 
+> **First appeared:** 2023-06-27 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2306.15724)
+
 ## Overview
 
 REFLECT queries an LLM for robot failure explanation over a hierarchical summary of multisensory robot experiences, and its explanations guide a language-based planner to correct the failure; the paired RoboFail dataset provides tasks and failure scenarios for evaluating this failure-reasoning loop in simulation and the real world.

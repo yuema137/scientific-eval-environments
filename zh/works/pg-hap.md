@@ -2,6 +2,8 @@
 
 > [English](../../works/pg-hap.md) | **简体中文**
 
+> **首次公开：** 2026-04-24 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2604.22748)
+
 ## 概览
 
 PG-HAP 训练一个轻量 policy，逐步选择 high-level reasoning action，同时让 executor LLM 完全保持冻结。
@@ -18,6 +20,7 @@ N/A — 通用数学与 commonsense reasoning 方法，没有直接评价科学�
 
 ## Links
 
+- **Preprint:** <https://arxiv.org/abs/2604.22748>
 - **Paper:** <https://aclanthology.org/2026.findings-acl.2024/>
 - **Code:** <https://github.com/john1226966735/PG-HAP>
 - **Venue:** Findings of ACL 2026

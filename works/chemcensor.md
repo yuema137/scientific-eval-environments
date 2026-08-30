@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/chemcensor.md)
 
+> **First appeared:** 2026-02-03 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2602.03554)
+
 ## Overview
 
 ChemCensor is an evaluation methodology for single-step retrosynthesis that replaces exact-match Top-K against a single ground truth with a chemical-plausibility metric; the same validator generates CREED, a dataset of millions of validated reaction records for LLM training.

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/skillaudit.md)
 
+> **First appeared:** 2026-06-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.22613)
+
 ## Overview
 
 SkillAudit is an end-to-end evaluation framework that takes an arbitrary agent skill package as input and automatically produces a multi-dimensional deployment report covering utility, efficiency/cost, and safety — replacing fixed task suites with tasks constructed from the skill artifact itself.

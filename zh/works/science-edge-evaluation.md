@@ -2,6 +2,8 @@
 
 > [English](../../works/science-edge-evaluation.md) | **简体中文**
 
+> **首次公开：** 2026-08-07 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.06931)
+
 ## Overview
 
 Science Edge Evaluation（SEE）是一个多模态 benchmark，题目由专家整理，锚定化学、生物与材料科学的同行评审文献与实验实践；旨在检验多模态大语言模型能否从真实实验室科学数据中做出有依据、受证据边界约束的推断。

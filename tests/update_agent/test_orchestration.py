@@ -16,6 +16,8 @@ CARD = """# {title}
 
 > **English** | [简体中文](../zh/works/{slug}.md)
 
+> **First appeared:** 2025-01-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/0000.00000)
+
 ## Overview
 {title} is a fixture benchmark used by the orchestration test.
 
@@ -106,6 +108,7 @@ def _stub_worker(agent, kind, prompt, cwd, max_turns, schema=None, model=None):
             tblock = _block(t, "Topics")
             ablock = _block(t, "Activities")
             zt = ("# FusionBench Fixture\n\n> [English](../../works/%s) | **简体中文**\n\n"
+                  "> **首次公开：** 2025-01-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/0000.00000)\n\n"
                   "## Topics\n%s\n\n## Activities\n%s\n" %
                   (os.path.basename(en), tblock, ablock))
             os.makedirs(os.path.dirname(os.path.join(cwd, zh)), exist_ok=True)

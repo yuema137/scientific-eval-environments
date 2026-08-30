@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/searchauditor.md)
 
+> **First appeared:** 2026-08-05 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.05212)
+
 ## Overview
 
 SearchAuditor is a multi-perspective auditing framework that localizes, attributes, and repairs failures in long-horizon search agents, released with SearchAuditBench — 1,243 expert-annotated failed trajectories collected from eight open-weight models on five deep-search benchmarks.

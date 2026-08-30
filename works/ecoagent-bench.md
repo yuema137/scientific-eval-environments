@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ecoagent-bench.md)
 
+> **First appeared:** 2026-08-06 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.05519)
+
 ## Overview
 
 EcoAgent-Bench is a benchmark for economic decision-making in budget-constrained LLM agents: every task specifies priced actions and an explicit budget, and agents are scored on whether their decisions are economically sound rather than merely task-completing.

@@ -2,6 +2,8 @@
 
 > [English](../../works/qmp-bench.md) | **简体中文**
 
+> **首次公开：** 2026-03-31 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2604.00149)
+
 ## Overview
 
 QMP-Bench 是含 100 个研究级、端到端量子多体模拟任务的 benchmark，任务提取自 21 种高影响力期刊。配套的 PhysVEC 多 agent 框架属于 agent 构建工作，与本仓库的评估重心相邻（见 Limitations 中的 repository note）。

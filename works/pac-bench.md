@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/pac-bench.md)
 
+> **First appeared:** 2025-06-30 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2506.23725)
+
 ## Overview
 
 PAC Bench asks whether foundation models understand the prerequisites for executing manipulation policies — object Properties, Affordances, and Constraints: over 30,000 annotations spanning 673 real-world images (115 object classes), 100 real humanoid-view scenarios, and 120 simulated constraint scenarios across four tasks.

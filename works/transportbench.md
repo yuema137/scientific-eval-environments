@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/transportbench.md)
 
+> **First appeared:** 2024-08-15 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2408.08302)
+
 ## Overview
 
 TransportBench is a dataset of 140 undergraduate transportation-engineering problems drawn from two University of Illinois civil-engineering courses, used with human-expert grading to measure the accuracy, answer consistency and reasoning behaviour of seven commercial and open-weight LLMs.

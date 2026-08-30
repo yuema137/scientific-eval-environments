@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/agentlens.md)
 
+> **First appeared:** 2026-07-07 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.06624)
+
 ## Overview
 
 AgentLens is a production-assessed benchmark for interactive code agents that evaluates whole interaction trajectories rather than final pass/fail outcomes, pairing formal verification with LLM-written trajectory reviews and side-by-side comparisons. It releases an initial fold of 16 Java coding scenarios, each run under a relaxed default user and a mildly adversarial toxic user for 32 trajectories per evaluated agent.

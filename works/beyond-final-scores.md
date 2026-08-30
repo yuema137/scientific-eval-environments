@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/beyond-final-scores.md)
 
+> **First appeared:** 2026-08-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.13417)
+
 ## Overview
 
 A systematic evaluation of seven frontier models on 36 long-horizon AI research and development tasks, built around the argument that final scores reveal neither where progress is gained or lost nor whether accumulated experience improves later decisions. It contributes a framework of deterministic rule-based process metrics over within-run behaviour, plus controlled counterfactual comparisons that isolate experience reuse within and across tasks.

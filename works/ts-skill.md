@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ts-skill.md)
 
+> **First appeared:** 2026-05-23 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.24703)
+
 ## Overview
 
 TS-Skill is a controlled benchmark for time-series question answering that decomposes analytical competence into three composable signal-level skills — temporal scale selection, temporal localization, and cross-interval integration — and reports a per-skill profile instead of a single aggregate TSQA score.

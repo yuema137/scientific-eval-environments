@@ -2,6 +2,8 @@
 
 > [English](../../works/long-horizon-agent-trajectory-attribution.md) | **简体中文**
 
+> **首次公开：** 2026-08-07 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.06909)
+
 ## Overview
 
 一个用于 *trajectory attribution*（轨迹归因）的 benchmark 与细粒度标注框架——即识别长 horizon LLM-agent 轨迹中的哪个组件（用户指令、工具调用、观测、记忆等）对某一观察到的结果（如任务对齐动作、不安全动作或安全拒答）负主要责任。

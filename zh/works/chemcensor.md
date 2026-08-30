@@ -2,6 +2,8 @@
 
 > [English](../../works/chemcensor.md) | **简体中文**
 
+> **首次公开：** 2026-02-03 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2602.03554)
+
 ## Overview
 
 ChemCensor 是单步逆合成的评估方法学：用化学合理性指标取代「对照单一真值的 Top-K 精确匹配」；同一套验证器还生成了 CREED——数百万条经验证的反应记录，用于 LLM 训练。

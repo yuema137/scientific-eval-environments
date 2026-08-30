@@ -2,6 +2,8 @@
 
 > [English](../../works/bioprobench.md) | **简体中文**
 
+> **首次公开：** 2025-05-11 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2505.07889)
+
 ## Overview
 
 BioProBench 是生物实验协议推理的语料与 benchmark：22,413 份人工撰写的协议（BioProCorpus）扩展为 523,784 个任务实例，覆盖五类任务——协议问答、步骤排序、错误纠正、协议生成与协议推理。

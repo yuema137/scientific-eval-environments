@@ -2,6 +2,8 @@
 
 > [English](../../works/cuarewardbench.md) | **简体中文**
 
+> **首次公开：** 2025-10-21 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2510.18596)
+
 ## Overview
 
 CUARewardBench 是一个把 outcome reward model（ORM）与 process reward model（PRM）本身作为被评判对象的 benchmark，用于检验 vision-language model 能否复现专家对 computer-using agent trajectory 的判定。它在来自七个 policy model、成功率跨越 25.9–50.8% 的 OSWorld rollout 上，配套了 272 条 trajectory 成功标注与 346 条 step 正确性标注。

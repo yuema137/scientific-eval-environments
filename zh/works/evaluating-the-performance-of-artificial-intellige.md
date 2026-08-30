@@ -2,6 +2,8 @@
 
 > [English](../../works/evaluating-the-performance-of-artificial-intellige.md) | **简体中文**
 
+> **首次公开：** 2023-03-31 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2303.18149)
+
 ## Overview
 
 一项早期评估研究：把 NCEES 的 Fundamentals of Engineering（FE）与 Principles and Practice of Engineering（PE，结构专业）模拟试题逐题交给 ChatGPT-4 和 Google Bard 作答，对照 NCEES 官方参考解答判分，并报告分主题与总体的等效通过成绩。

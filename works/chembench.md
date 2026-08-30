@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/chembench.md)
 
+> **First appeared:** 2024-04-01 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2404.01475)
+
 ## Overview
 
 ChemBench asks whether large language models are "superhuman chemists": an automated evaluation framework with more than 2,700 curated question–answer pairs comparing leading open- and closed-source LLMs against the expertise of human chemists — the best models outperformed the best human chemists in the study on average.

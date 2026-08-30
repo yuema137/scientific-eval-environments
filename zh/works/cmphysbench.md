@@ -2,6 +2,8 @@
 
 > [English](../../works/cmphysbench.md) | **简体中文**
 
+> **首次公开：** 2025-08-25 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2508.18124)
+
 ## Overview
 
 CMPhysBench 是凝聚态物理领域的 benchmark，含 520 余道精心整理的研究生水平计算题，用 Scalable Expression Edit Distance（SEED）——一种对解答表达式的细粒度、非二元部分得分——进行评分。

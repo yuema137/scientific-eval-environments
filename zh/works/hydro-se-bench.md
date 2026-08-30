@@ -2,6 +2,8 @@
 
 > [English](../../works/hydro-se-bench.md) | **简体中文**
 
+> **首次公开：** 2025-12-03 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2512.03672)
+
 ## Overview
 
 Hydro-SE Bench 是一个中文选择题 benchmark，含 4,000 道题，覆盖水科学与水利工程的九个子领域，用以衡量通用 LLM 究竟掌握了多少实用的水利工程知识——包括水工建筑物、岩土工程与行业设计标准。

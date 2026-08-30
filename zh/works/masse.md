@@ -2,6 +2,8 @@
 
 > [English](../../works/masse.md) | **简体中文**
 
+> **首次公开：** 2025-10-13 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2510.11004)
+
 ## Overview
 
 MASSE 是一套面向结构工程、无需训练的多 agent LLM 系统，随之发布的还有一个含 100 道结构工程题的数据集，题目均配专家核验的 ground truth，另有四项按评分细则打分的 benchmark（SAAB、SDAB、LAB、MASEB），分别覆盖结构分析、结构设计、荷载转换与端到端工作流执行。

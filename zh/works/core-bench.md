@@ -2,6 +2,8 @@
 
 > [English](../../works/core-bench.md) | **简体中文**
 
+> **首次公开：** 2024-09-17 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2409.11363)
+
 ## Overview
 
 CORE-Bench（Computational Reproducibility Agent Benchmark）测量 AI agent 能否用论文自带的代码与数据重现已发表研究的结果：270 个任务，基于计算机科学、社会科学与医学三个学科的 90 篇论文，分三档难度。

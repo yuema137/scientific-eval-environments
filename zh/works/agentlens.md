@@ -2,6 +2,8 @@
 
 > [English](../../works/agentlens.md) | **简体中文**
 
+> **首次公开：** 2026-07-07 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2607.06624)
+
 ## Overview
 
 AgentLens 是一个面向 interactive code agent 的 production-assessed benchmark，它评估整条交互 trajectory 而非最终的 pass/fail 结果，将形式化验证（formal verification）与 LLM 撰写的 trajectory review 以及 side-by-side 对比相结合。它发布了一个包含 16 个 Java 编码场景的初始 fold，每个场景在一个宽松的 default 用户与一个略带对抗性的 toxic 用户下各运行一次，为每个受评 agent 产生 32 条 trajectory。

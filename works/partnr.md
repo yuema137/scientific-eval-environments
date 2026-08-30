@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/partnr.md)
 
+> **First appeared:** 2024-10-31 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2411.00081)
+
 ## Overview
 
 PARTNR benchmarks planning and reasoning in embodied multi-agent tasks — human-robot collaboration in household activities — at unmatched scale: 100,000 natural-language tasks spanning 60 houses and 5,819 unique objects in Habitat 3.0, with LLM planners analyzed across planning, perception, and skill execution.

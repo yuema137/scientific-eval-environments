@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/medbrowsecomp.md)
 
+> **First appeared:** 2025-05-20 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.14963)
+
 ## Overview
 
 MedBrowseComp benchmarks medical deep research and computer use: more than 1,000 human-curated questions requiring agents to retrieve and synthesize multi-hop medical facts from live, domain-specific knowledge bases — clinical trials, primary studies, regulatory documents, and cost data.

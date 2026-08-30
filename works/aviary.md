@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/aviary.md)
 
+> **First appeared:** 2024-12-30 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2412.21154)
+
 ## Overview
 
 Aviary is an extensible gymnasium for language agents that formalizes agents as policies solving language-grounded partially observable Markov decision processes. It implements five environments, three of them scientific — DNA construct manipulation (molecular cloning), scientific literature research, and protein engineering — providing reusable multi-step scientific task environments. It is documented here for these scientific evaluation environments; the paper's training-framework contribution is agent-construction work adjacent to this repository's scope (see the repository note under Limitations).

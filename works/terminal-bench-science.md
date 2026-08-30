@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/terminal-bench-science.md)
 
+> **First appeared:** 2026-01-25 · **Source:** [Official repository creation](https://github.com/harbor-framework/terminal-bench-science)
+
 ## Overview
 
 Terminal-Bench Science extends the Terminal-Bench framework to natural-science domains, evaluating AI agents on containerized scientific-computing workflows with deterministic programmatic verification.

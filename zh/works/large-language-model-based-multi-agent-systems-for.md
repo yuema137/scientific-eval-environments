@@ -2,6 +2,8 @@
 
 > [English](../../works/large-language-model-based-multi-agent-systems-for.md) | **简体中文**
 
+> **首次公开：** 2025-06-13 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2506.13811)
+
 ## Overview
 
 一套面向岩土工程地基基础设计的 27 算例评测方案——涵盖浅基础与桩基——配一份四准则评分细则，用来比较九种配置：单体 LLM、顺序式 agentic 工作流，以及一个由路由器驱动的多 agent 系统，它先对送入的设计问题分类，再分派给对应的专家 agent。

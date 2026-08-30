@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/curation-bench.md)
 
+> **First appeared:** 2026-06-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.04261)
+
 ## Overview
 
 Curation-Bench evaluates whether generalist coding agents can improve training-data curation policies through an iterative train–evaluate–revise loop with the model, training recipe, and evaluation suite held fixed.

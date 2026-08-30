@@ -2,6 +2,8 @@
 
 > [English](../../works/smdd-bench.md) | **简体中文**
 
+> **首次公开：** 2026-05-20 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2605.21740)
+
 ## Overview
 
 SMDD-Bench 追问 LLM 能否解决真实世界的小分子药物设计任务：502 个保证有解的实例、102 个不同蛋白靶点、五类任务——2D 药效团识别、相互作用位点发现、骨架跃迁、先导化合物优化与片段组装——以多轮、长 horizon 的 agentic benchmark 呈现。

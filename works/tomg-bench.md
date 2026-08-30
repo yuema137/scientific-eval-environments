@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/tomg-bench.md)
 
+> **First appeared:** 2024-12-19 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2412.14642)
+
 ## Overview
 
 Speak-to-Structure (S²-Bench, introduced as TOMG-Bench) evaluates LLMs on open-domain natural-language-driven molecule generation: three tasks — molecule editing (MolEdit), molecule optimization (MolOpt), and customized generation (MolCustom) — where instructions admit many valid molecules and answers are checked for validity against the instruction rather than one reference.

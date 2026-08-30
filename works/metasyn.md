@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/metasyn.md)
 
+> **First appeared:** 2026-06-15 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.17041)
+
 ## Overview
 
 MetaSyn is a benchmark for LLM agents on systematic review and meta-analysis, built from 422 expert-curated meta-analyses sourced from more than 34,000 Nature Portfolio articles, with research questions, structured eligibility criteria, the originally included studies, and a shared PubMed-anchored corpus.

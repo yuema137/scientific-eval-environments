@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/aec-bench.md)
 
+> **First appeared:** 2026-03-31 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2603.29199)
+
 ## Overview
 
 AEC-Bench is a multimodal agentic benchmark over real construction document sets: 196 task instances across nine task families and three scope levels, executed by agents in sandboxed Docker environments through the Harbor harness and graded by task-specific automatic verifiers on structured findings.

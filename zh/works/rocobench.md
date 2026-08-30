@@ -2,6 +2,8 @@
 
 > [English](../../works/rocobench.md) | **简体中文**
 
+> **首次公开：** 2023-07-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2307.04738)
+
 ## Overview
 
 RoCoBench 是一个 6 任务的多机器人协作 benchmark，其中每台机器人都由 LLM 驱动：机器人之间用自然语言对话商量任务策略，生成子任务计划与任务空间路径点，并借环境反馈迭代改进——随 RoCo 协作方法一同发布。

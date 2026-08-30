@@ -2,6 +2,8 @@
 
 > [English](../../works/searchauditor.md) | **简体中文**
 
+> **首次公开：** 2026-08-05 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.05212)
+
 ## Overview
 
 SearchAuditor 是对长 horizon 搜索 agent 的失败做定位、归因与修复的多视角审计框架，随之发布 SearchAuditBench——1,243 条专家标注的失败轨迹，采集自八个开源权重模型在五个 deep-search benchmark 上的运行。

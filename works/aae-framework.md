@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/aae-framework.md)
 
+> **First appeared:** 2026-06-22 · **Source:** [Official publication record](https://doi.org/10.1007/s43684-026-00136-1)
+
 ## Overview
 
 The AAE framework is a four-layer multi-agent architecture for safely admitting LLM reasoning into industrial process control, in which the LLM is confined to an observation-only Monitor layer and every proposed action is checked by a deterministic validator that traverses the plant's P&ID topology; it is assessed with a graduated baseline ladder, an error-injection study over crafted proposals, and a repeated-run robustness study across five process-plant scenarios.

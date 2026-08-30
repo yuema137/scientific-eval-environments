@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/autoresearchbench.md)
 
+> **First appeared:** 2026-04-28 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.25256)
+
 ## Overview
 
 AutoResearchBench is a benchmark for autonomous scientific literature discovery, evaluating AI agents on tracking down a specific target paper through progressive multi-step probing (Deep Research) and on comprehensively collecting all papers satisfying given conditions (Wide Research).

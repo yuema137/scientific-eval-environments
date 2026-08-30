@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/plan-rewardbench.md)
 
+> **First appeared:** 2026-04-09 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.08178)
+
 ## Overview
 
 Plan-RewardBench is a benchmark that measures how well reward models and LLM judges identify the preferred agent trajectory in tool-integrated scenarios. It contains 1,171 pairwise trajectory-preference instances spanning seven evaluation splits and four scenario families.

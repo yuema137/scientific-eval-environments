@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/hle.md)
 
+> **First appeared:** 2025-01-24 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2501.14249)
+
 ## Overview
 
 Humanity's Last Exam (HLE) is a multi-modal benchmark at the frontier of human knowledge, designed as the final closed-ended academic benchmark of its kind: 2,500 questions across dozens of subjects — mathematics, humanities, and the natural sciences — developed globally by subject-matter experts. It is a general academic benchmark rather than an agent benchmark (see the repository note under Limitations).

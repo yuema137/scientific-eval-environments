@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/from-plan-to-action.md)
 
+> **First appeared:** 2026-04-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.12147)
+
 ## Overview
 
 A systematic empirical analysis of *plan compliance* in programming agents: whether coding agents that are instructed to follow a task-specific plan actually follow it, and how deviations relate to task success. The study analyzes SWE-agent trajectories across four LLMs and two SWE-bench suites under eight plan variations, and introduces metrics that quantify how faithfully an agent's trajectory adheres to the instructed plan. The paper was first posted as "From Plan to Action: How Well Do Agents Follow the Plan?" and later retitled "Evaluating Plan Compliance in Autonomous Programming Agents."

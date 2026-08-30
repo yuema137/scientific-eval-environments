@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/rocobench.md)
 
+> **First appeared:** 2023-07-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2307.04738)
+
 ## Overview
 
 RoCoBench is a 6-task benchmark for multi-robot collaboration in which each robot is driven by an LLM: the robots discuss task strategy in natural-language dialog, generate sub-task plans and task-space waypoint paths, and improve them iteratively from environment feedback — released with the RoCo collaboration method.

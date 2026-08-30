@@ -2,6 +2,8 @@
 
 > [English](../../works/skill2-bench.md) | **简体中文**
 
+> **首次公开：** 2026-08-05 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.05139)
+
 ## Overview
 
 Skill²-Bench 是一个由*跨 skill 长程任务*组成的 benchmark——这类多步问题的相邻步骤需要不同的推理 skill，且后一步依赖前一步的答案——难度由 **skill 熵** 校准——这是一个有向的成对度量，衡量从一个 skill 切换到另一个 skill 有多难。它与 Skill-Entropy RL 一同提出，后者是把同一度量复用为奖励信号的训练方法。

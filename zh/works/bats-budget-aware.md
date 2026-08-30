@@ -2,6 +2,8 @@
 
 > [English](../../works/bats-budget-aware.md) | **简体中文**
 
+> **首次公开：** 2025-11-21 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2511.17006)
+
 ## Overview
 
 一项研究：当工具增强型 agent 在明确的工具调用预算下做 scaling 时会发生什么。出发点是一个反常现象——单纯把预算调高并不管用，因为 agent 根本不知道自己还剩多少。工作贡献了一套把 token 与工具消耗折算到同一尺度的统一计价指标、一个把剩余预算显式告诉 agent 的轻量插件 Budget Tracker，以及一个据此调整规划与验证策略的框架 BATS。

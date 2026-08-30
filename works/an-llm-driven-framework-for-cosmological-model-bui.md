@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/an-llm-driven-framework-for-cosmological-model-bui.md)
 
+> **First appeared:** 2025-10-07 · **Source:** [Public archive record](https://doi.org/10.5281/zenodo.18372109)
+
 ## Overview
 
 A multi-stage evaluation framework that measures whether an LLM-driven coding agent can autonomously propose, implement and explore alternative cosmological models by modifying the CLASS Boltzmann-solver codebase inside a containerized environment. Agent submissions are scored automatically against binary execution milestones, numerical agreement with ground-truth reference implementations, and cosmological likelihood/tension rewards computed from real survey data.

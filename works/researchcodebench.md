@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/researchcodebench.md)
 
+> **First appeared:** 2025-06-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2506.02314)
+
 ## Overview
 
 ResearchCodeBench benchmarks LLMs on implementing novel machine-learning research code: 212 coding challenges that require translating cutting-edge contributions from top 2024–2025 research papers into executable code — where even the best model (Gemini-2.5-Pro) correctly implements only 37.3%.

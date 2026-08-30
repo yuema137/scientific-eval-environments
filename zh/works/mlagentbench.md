@@ -2,6 +2,8 @@
 
 > [English](../../works/mlagentbench.md) | **简体中文**
 
+> **首次公开：** 2023-10-05 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2310.03302)
+
 ## Overview
 
 MLAgentBench 在机器学习实验上评测语言 agent：一套 13 个任务——从提升 CIFAR-10 准确率到 BabyLM 等近期研究问题——agent 读写文件、执行代码、检查输出并迭代以超过起始代码基线，最强 agent（Claude 3 Opus）平均成功率 37.5%。

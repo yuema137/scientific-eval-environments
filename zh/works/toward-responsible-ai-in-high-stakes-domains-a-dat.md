@@ -2,6 +2,8 @@
 
 > [English](../../works/toward-responsible-ai-in-high-stakes-domains-a-dat.md) | **简体中文**
 
+> **首次公开：** 2025-10-24 · **来源：** [官方出版记录](https://doi.org/10.3390/data10110169)
+
 ## Overview
 
 一份已正式发表的数据集与验证方案：GPT-4o 对钢筋混凝土框架的结构分析问题作答两遍——一遍是纯语言模型裸答，一遍是作为工具型 agent 通过 Model Context Protocol (MCP) 服务器驱动 OpenSeesPy——两组答案都以相对误差对照人工搭建的 ETABS 参考模型计分。

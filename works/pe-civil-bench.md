@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/pe-civil-bench.md)
 
+> **First appeared:** 2026-03-26 · **Source:** [Official repository creation](https://github.com/komal-blkmmb/Benchmarking_agentic-design_and_evaluation)
+
 ## Overview
 
 PE Civil Bench is an open benchmark of 150 professional-licensure-style civil engineering problems, modelled

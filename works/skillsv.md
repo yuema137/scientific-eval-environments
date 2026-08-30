@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/skillsv.md)
 
+> **First appeared:** 2026-08-05 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.04562)
+
 ## Overview
 
 SkillSV (structure-aware Shapley valuation of agent skills) is an attribution framework that assigns credit to the internal units of an agent skill — compiling a skill into units, dependencies, and hierarchy so that only valid counterfactual skills are evaluated.

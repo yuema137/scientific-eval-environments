@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/masse.md)
 
+> **First appeared:** 2025-10-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.11004)
+
 ## Overview
 
 MASSE is a training-free multi-agent LLM system for structural engineering that ships alongside a released

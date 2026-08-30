@@ -2,6 +2,8 @@
 
 > [English](../../works/metaact-rl.md) | **简体中文**
 
+> **首次公开：** 2026-01-07 · **来源：** [公开会议记录](https://doi.org/10.48448/ctt6-ms79)
+
 ## 概览
 
 MetaAct-RL 把语言模型推理写成一串语义 meta-action 的选择与执行，例如 forward reasoning、critique 和 refinement。

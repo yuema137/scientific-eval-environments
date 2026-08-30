@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/astroalertbench.md)
 
+> **First appeared:** 2026-05-07 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.05573)
+
 ## Overview
 
 AstroAlertBench is a multimodal benchmark for astronomical alert review: models classify real Zwicky Transient Facility (ZTF) alerts into five categories along a three-stage chain of metadata grounding, scientific reasoning and hierarchical classification, with an explicit "honesty" axis measuring whether a model's self-assessment tracks its actual correctness.

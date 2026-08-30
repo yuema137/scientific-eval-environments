@@ -2,6 +2,8 @@
 
 > [English](../../works/vla-arena.md) | **简体中文**
 
+> **首次公开：** 2025-12-27 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2512.22539)
+
 ## Overview
 
 VLA-Arena 是一个开源 benchmark 与工具链，用于评估视觉-语言-动作（VLA）模型作为通用机器人操作策略的表现，采用一套结构化的任务设计框架，沿三个正交轴调节难度。

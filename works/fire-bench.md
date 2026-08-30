@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/fire-bench.md)
 
+> **First appeared:** 2026-02-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2602.02905)
+
 ## Overview
 
 FIRE-Bench (Full-cycle Insight Rediscovery Evaluation) is a benchmark that asks agents to rediscover established, verifiable findings from recent, high-impact machine learning research, given only a high-level research question from the published study. It comprises 40 fully executed tasks together with 60 additional papers released for community evaluation.

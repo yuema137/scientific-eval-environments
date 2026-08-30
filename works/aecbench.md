@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/aecbench.md)
 
+> **First appeared:** 2025-09-23 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2509.18776)
+
 ## Overview
 
 AECBench is a hierarchical Chinese-language knowledge benchmark for the architecture, engineering and construction field: 4,800 engineer-authored questions across 23 tasks organized by a five-level cognition framework, with open-ended answers scored by an LLM judge against expert rubrics and a calibration step that corrects measured judge bias.
