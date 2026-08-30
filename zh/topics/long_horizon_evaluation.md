@@ -125,6 +125,7 @@
 | Beyond Final Scores | 2026 | 每个任务 2–12 小时墙钟预算，全程有验证器检查点；avg@3 对照 best@3 把跨轮次可靠性与天花板分开 | AutoLab 任务，共用 Claude Code harness | [→](../works/beyond-final-scores.md) |
 | AutoWorldModel-Bench | 2026 | 单张 H100 上 6 小时一个会话，每次单独训练限时 10 分钟，把预算折算成迭代次数 | 八个暴露结构化实体状态的游戏环境 | [→](../works/autoworldmodel-bench.md) |
 | R³-Bench | 2026 | 一份预算由六道题共用，因此必须分配算力，还得舍掉一部分题 | 无工具作答与 Terminus-2 shell | [→](../works/r3-bench.md) |
+| BATS / Budget Tracker | 2025 | 以工具调用预算为 scaling 轴（每种工具 10/30/50/100）；不给 agent 预算意识，性能很快见顶 | 真实网页浏览环境下的搜索 agent，另有零售对话与 SWE-bench Verified | [→](../works/bats-budget-aware.md) |
 
 ## Open Questions
 
@@ -191,6 +192,7 @@
 - [Beyond Final Scores](../works/beyond-final-scores.md)
 - [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
 - [R³-Bench](../works/r3-bench.md)
+- [BATS / Budget Tracker](../works/bats-budget-aware.md)
 
 ## Further Reading
 

@@ -125,6 +125,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | Beyond Final Scores | 2026 | 2–12 hour wall-clock budget per task with verifier checkpoints throughout; avg@3 against best@3 separates run-to-run reliability from ceiling | AutoLab tasks under a shared Claude Code harness | [→](../works/beyond-final-scores.md) |
 | AutoWorldModel-Bench | 2026 | 6-hour session on one H100 with a 10-minute cap per individual training run, which converts the budget into iteration count | Eight game environments exposing structured entity state | [→](../works/autoworldmodel-bench.md) |
 | R³-Bench | 2026 | One budget shared across a six-problem suite, so effort must be allocated and some problems triaged away | Tool-free completion and a Terminus-2 shell | [→](../works/r3-bench.md) |
+| BATS / Budget Tracker | 2025 | Tool-call budget as the scaling axis (10/30/50/100 per tool); performance plateaus without budget awareness | Web-search agents over live browsing, plus retail dialogue and SWE-bench Verified | [→](../works/bats-budget-aware.md) |
 
 ## Open Questions
 
@@ -191,6 +192,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - [Beyond Final Scores](../works/beyond-final-scores.md)
 - [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
 - [R³-Bench](../works/r3-bench.md)
+- [BATS / Budget Tracker](../works/bats-budget-aware.md)
 
 ## Further Reading
 

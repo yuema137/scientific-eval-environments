@@ -32,7 +32,17 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - **给 harness 优化设评估预算。** [HarnessOpt-Bench](../works/harnessopt-bench.md) 给优化器 LLM 一个种子 harness、评估反馈与固定的目标评估预算，在 TEE 审计的循环内运行，以留出测试集上相对种子的归一化增益评分；在 4 个任务、5 个优化器模型、111 次计分运行中，优化器模型之间拉开的差距大于它们借以行动的编码 harness 之间的差距。
 - **把效率写进评分 rubric。** [MASSE](../works/masse.md) 既不给 agent 设预算，也不把成本单列出来报告：它的整体系统 benchmark MASEB 在 100 分里划出 20 分给「效率与鲁棒性」，而负责评阅一整份结构工程分析日志的 GPT-5 评审，会把总 token 用量与总运行时间与四项分数一并写进同一个 JSON 对象——于是一条又准又贵的流水线拿不到满分。论文随附的四个后端之间的成本/运行时权衡分析，读的也正是这同一批测量值。
 - **省下的资源，而非花掉的资源。** [SkillAudit](../works/skillaudit.md) 测的是装上一件产物之后资源的**变化量**：在相同指令与相同输入下配对跑「用 skill」与「不用 skill」两组，得到 Efficiency Gain（执行时间的相对节省）与 Cost Gain（有效输入 token 的相对节省），两者各自截断到 [-1, 1] 后合成 Efficiency-Cost Gain，与效用、安全性一起写进同一份 per-skill 报告。这里不设任何预算，要测的是：采纳这个 skill，是否值回它所占的上下文。
+- **把 token 与工具调用折算到同一种计价。** [BATS / Budget Tracker](../works/bats-budget-aware.md) 给出 `C_unified = c_token + Σ cᵢ·Pᵢ`，把工具调用按每次 0.001 美元与 token 成本并列计价——正是有了单一货币，成本—性能的 **scaling 曲线**才画得出来，而不必在名义上相等的工具预算下比准确率。它的发现是：只把预算调高、却不告诉 agent 还剩多少，并没有用；仅仅注入已用/剩余的计数，就能以十分之一的预算追平 ReAct 基线的准确率，总成本还低 31.3%。
 - **成本–性能前沿式报告。** 另一些工作在 accuracy 之外同时报告 token 或 dollar 成本，用于在 Pareto 前沿上而非单一 accuracy 数字上做比较。这是分析时的资源意识，而非 benchmark 内部的资源意识。
+
+### 一处缺口：预算是给定的，不是预测出来的
+
+上面每一种做法，都是把预算作为**agent 必须遵守的约束**交下去，事后再看它花了多少。几乎没有谁要求 agent 或 harness 在动作执行**之前**估计它会花多少。库内有两项工作最接近，但值得区分开：
+
+- [BAGEN](../works/bagen.md) 要求 agent 每一轮预测**剩余**预算的上下界并标记不可行——预测的是总量，且按步计分。
+- [AI Research Preference Models](../works/ai-research-preference-models.md) 在付出代价之前预测哪些**候选方案**值得执行，但它预测的是相对优劣而非资源数量，而且只作用在一个搜索脚手架内部，并非可复用的接口。
+
+两者都没有给出规划器在方案之间做取舍时真正需要的东西：一个以动作为单位、以任务特征为条件的分布，覆盖 token、墙钟、GPU 时间、内存与费用，并带有校准过的不确定性。参见下方的 Open Questions。
 
 ## Comparison
 
@@ -57,6 +67,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 | Beyond Final Scores | 2026 | 每任务的墙钟小时数与逐模型的美元推理开销 | 预算限定运行时长；成本与分数并列报告，而非折算进分数 | 36 个 AutoLab 任务上的长时程 AI 研发 | [→](../works/beyond-final-scores.md) |
 | R³-Bench | 2026 | 输出 token（无工具）或计数的工具动作（agentic），按各模型自身无预算基线校准为 ρ ∈ {0.2, 0.8} | 由六道题共用，分配本身成为被评估的能力 | 数学、竞赛编程与抽象推理 | [→](../works/r3-bench.md) |
 | AI Research Preference Models | 2026 | 候选方案执行所耗的 H200 GPU 小时 | 预算固定，贡献在于如何**分配**——用一个冻结的预训练模型预测哪些候选值得真正跑一遍 | AI 研究 agent 在 ML 解空间上的搜索（AIRA-dojo 跑 AIRS-Bench） | [→](../works/ai-research-preference-models.md) |
+| BATS / Budget Tracker | 2025 | 统一计价：token 开销加上按每次 0.001 美元固定计价的工具调用 | 预算是硬约束，但每一轮都让 agent **看得见**；scaling 曲线在统一计价下绘制 | 网页搜索 agent（BrowseComp、BrowseComp-ZH、HLE-Search），另有 τ²-bench 与 SWE-bench Verified | [→](../works/bats-budget-aware.md) |
 
 ## Open Questions
 
@@ -64,6 +75,8 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - **静态 vs. 动态的鲁棒性。** CostBench 报告了显著的静态–动态下降。这一差距是当前模型的属性，还是仅是特定扰动分布的属性？领域是否应就一套标准扰动分布达成共识？
 - **报告 vs. 优化。** 将资源作为一等目标的 benchmark 强制 agent 在预算下规划；仅报告资源使用的 benchmark 则没有。是否应显式区分这两类，以避免它们的数字被无声地拿去横向比较？
 - **Token 成本 vs. tool-use 成本。** 聚合排行榜是否应仅报告 token（可移植、模型可比）还是也报告 tool-use 资源（在科学上有意义但依赖领域）？
+- **预测出来的成本 vs. 花掉的成本。** 本页所有工作都是在动作**选定之后**再去限制或测量资源消耗。没有谁暴露出一个以动作为单位、以任务特征为条件的事前成本预测——即 `C(动作, 任务特征) → 分布`，覆盖 token、墙钟、GPU 时间、显存峰值与费用，并附带不确定性估计。这一点之所以要紧，是因为 agent 工作流方差大且带条件结构：一次失败会牵出「诊断—重试」链，因此实际期望成本是 `C₀ + P(失败)·C_重试 + …`，而不是把计划中的各步简单相加；而在预算下做取舍的规划器需要的是尾部分位数（p90），不是均值。由此引出三个问题。成本预测器究竟是一件**评估**工具，还是 agent 的一个组件——它到底该不该进入这条轴？这样的预测器是否应当按自身的校准度（分动作类别的预测值对实际值）单独计分，而不只看它带来的下游任务分数？以及，benchmark 是否应当在消耗量之外一并报告**预测误差**，好把「碰巧没超预算」的 agent 与「知道每件事要花多少因而没超」的 agent 区分开？
+- **谁的估计算数。** 如果资源估计出自规划器自己的自然语言（「这大概要二十分钟」），它既没有依据也无从计分。把提出动作的执行者、为动作定价的估计器、以及在预算下放行或驳回的策略三者分开，就能各自独立地衡量——但本页目前没有任何 benchmark 把这三种角色分开评估。
 
 ## Related Works
 
@@ -86,7 +99,22 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - [Beyond Final Scores](../works/beyond-final-scores.md) — 每任务墙钟预算与逐模型推理开销与性能并列报告，七个模型之间成本相差约 20 倍。
 - [R³-Bench](../works/r3-bench.md) — 一份预算由六道题共用，并校准到各模型自己已展示出的单题水平。
 - [AI Research Preference Models](../works/ai-research-preference-models.md) — 用不到三分之二的执行预算、约 15 小时就达到未引导 agent 24 小时的分数，并同时给出验证集与测试集的 oracle 上界。
+- [BATS / Budget Tracker](../works/bats-budget-aware.md) — 把 token 与工具调用折算进同一种计价；仅仅把剩余预算告诉 agent，就能用十分之一的预算追平 ReAct 基线的准确率。
 
 ## Further Reading
 
 - Yehudai, Eden, Li, Uziel, Zhao, Bar-Haim, Cohan, Shmueli-Scheuer. *Survey on Evaluation of LLM-based Agents*. arXiv 2503.16416, 2025. 指出 cost-efficiency 是当前 agent 评估中覆盖不足的维度。<https://arxiv.org/abs/2503.16416>
+
+**「预测成本」这一问题的既有谱系。** 上面的 Open Questions，实际上是把一个在 AI 中源流很长的问题，重新放到使用工具的 LLM agent 上重述了一遍。以下文献仅供定位，均非 LLM-agent 评估工作，也都不做成卡片。
+
+- Russell, Wefald. *Principles of Metareasoning*. Artificial Intelligence 49(1–3):361–395, 1991（更早见于 KR 1989, 400–411）。把「思考」本身当作一个有成本的动作，并把计算的价值定义为它带来的期望改进减去其成本——这正是「一次工具调用或一次实验值不值得做」这一问法的形式化祖先。DOI 10.1016/0004-3702(91)90015-C
+- Zilberstein. *Operational Rationality through Compilation of Anytime Algorithms*. AI Magazine 16(2):79–80, 1995。概述了 resource-bounded reasoning 这条线：每个组件携带一份**conditional performance profile**——它的输出质量随输入条件与所分配时间而变——再由运行时监控器据此在组合系统各部分之间分配资源。这是「以动作为单位、随条件变化的成本/质量 profile」在经典文献中最接近的术语。DOI 10.1609/aimag.v16i2.1136
+- Klein, Falkner, Bartels, Hennig, Hutter. *Fast Bayesian Optimization of Machine Learning Hyperparameters on Large Datasets*（FABOLAS）。arXiv 1605.07079, 2016；AISTATS 2017。在目标函数之外另学一个显式的成本模型，并按「单位预测成本所换来的信息增益」挑下一次评估——同样是「先预测、再取舍」的结构，只不过发生在超参优化里。<https://arxiv.org/abs/1605.07079>
+- Lee, Perrone, Archambeau, Seeger. *Cost-aware Bayesian Optimization*. arXiv 2003.10870, 2020。在评估代价各不相同且本身被建模的前提下，于固定预算内做成本感知的采集。<https://arxiv.org/abs/2003.10870>
+
+「在期望 GPU 小时 ≤ B₁、费用 ≤ B₂ 的约束下最大化任务质量」这一提法，标准名称是 **constrained Markov decision process**；若把剩余预算显式放进状态，也常被称作 budgeted MDP。
+
+**预算感知的 agent 方法（不做卡片——它们是方法，不是评估）。** 与本轴相邻、让 agent 行为随预算变化但未贡献评估工具的近期工作：
+
+- Li, Deng, Li, Li. *Spend Less, Reason Better: Budget-Aware Value Tree Search for LLM Agents*（BAVT）。arXiv 2603.12634, 2026。以预算为条件的节点选择，随资源耗尽从探索式转为贪心式，并用一个残差价值预测器刻画步级进展。<https://arxiv.org/abs/2603.12634>
+- Yang, Luo, Liu, Lou, Chen. *BAMAS: Structuring Budget-Aware Multi-Agent Systems*. arXiv 2511.21572, 2025。先用整数线性规划在成本各异的 LLM 之间做选择，再学习协作拓扑；报告在性能相当的前提下最多降低 86% 成本。<https://arxiv.org/abs/2511.21572>

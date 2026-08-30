@@ -32,7 +32,17 @@ Two meaningful distinctions structure the space:
 - **Evaluation budget on harness optimization.** [HarnessOpt-Bench](../works/harnessopt-bench.md) gives optimizer LLMs a seed harness, evaluation feedback, and a fixed budget of target evaluations inside a TEE-audited loop, scoring normalized gain over the seed on a held-out partition; across 4 tasks, 5 optimizer models, and 111 scored runs, the optimizer model separates more than the coding harness it acts through.
 - **Efficiency written into the rubric.** [MASSE](../works/masse.md) neither budgets the agent nor reports cost separately: its holistic system benchmark MASEB allots 20 of 100 points to Efficiency and Robustness, and the GPT-5 judge that grades a complete structural-engineering analysis log emits total token usage and total runtime in the same JSON object as the four scores, so an accurate but expensive pipeline cannot reach full marks. The paper's accompanying cost/runtime trade-off analysis across four backends then reads off the same measurements.
 - **Resource saved, rather than resource spent.** [SkillAudit](../works/skillaudit.md) measures the resource *delta* an installed artifact produces: matched with-skill and no-skill runs on identical instructions and inputs yield an Efficiency Gain (relative saving in execution time) and a Cost Gain (relative saving in effective input tokens), each clipped to [-1, 1] and combined into an Efficiency-Cost Gain reported beside utility and safety in the same per-skill report. Nothing is budgeted; what is measured is whether adopting the skill pays for the context it occupies.
+- **One currency for tokens and tool calls.** [BATS / Budget Tracker](../works/bats-budget-aware.md) formalizes `C_unified = c_token + Σ cᵢ·Pᵢ`, pricing tool invocations at a flat $0.001 alongside token cost, which is what allows cost-performance *scaling curves* to be drawn instead of accuracies compared at nominally equal tool budgets. Its finding is that raising a budget without telling the agent how much remains does not help: injecting used/remaining counts alone matches a ReAct baseline's accuracy at one-tenth its budget, for 31.3% lower cost.
 - **Cost-performance frontier reporting.** Other work reports accuracy alongside token or dollar cost so that agents can be compared on a Pareto frontier rather than a single accuracy number. This is analysis-time resource-awareness rather than benchmark-time resource-awareness.
+
+### A gap: budgets are given, not predicted
+
+Every approach above supplies the budget as a *constraint the agent must respect* and then measures what it spent. Almost none asks the agent, or the harness, to estimate **in advance** what a proposed action will cost. Two carded works come closest and are worth distinguishing:
+
+- [BAGEN](../works/bagen.md) makes the agent predict upper and lower bounds on its *remaining* budget each turn and flag infeasibility — prediction over the aggregate, scored per step.
+- [AI Research Preference Models](../works/ai-research-preference-models.md) predicts which *candidate solutions* are worth executing before paying for them, but predicts relative worth rather than a resource quantity, and does so inside one search scaffold rather than as a reusable interface.
+
+Neither yields what a planner would need to choose between plans: a per-action, task-conditioned distribution over tokens, wall-clock, GPU time, memory and dollars, with calibrated uncertainty. See the Open Questions below.
 
 ## Comparison
 
@@ -57,6 +67,7 @@ Two meaningful distinctions structure the space:
 | Beyond Final Scores | 2026 | Wall-clock hours per task and USD inference cost per model | Budget bounds the run; cost is reported alongside the score rather than folded into it | Long-horizon AI R&D over 36 AutoLab tasks | [→](../works/beyond-final-scores.md) |
 | R³-Bench | 2026 | Output tokens (tool-free) or counted tool actions (agentic), calibrated per model as ρ ∈ {0.2, 0.8} of its own unbudgeted baseline | Shared across a six-problem suite, making allocation itself the evaluated skill | Mathematics, competitive programming and abstract reasoning | [→](../works/r3-bench.md) |
 | AI Research Preference Models | 2026 | H200 GPU-hours of candidate execution | The budget is fixed and the contribution is how it is ALLOCATED — a frozen-LM predictor picks which candidates are worth running | AI research agents searching over ML solutions (AIRA-dojo on AIRS-Bench) | [→](../works/ai-research-preference-models.md) |
+| BATS / Budget Tracker | 2025 | Unified currency: token cost + tool invocations priced at a flat $0.001 each | Budget is a hard constraint made VISIBLE to the agent each turn; scaling curves are drawn in the unified currency | Web-search agents (BrowseComp, BrowseComp-ZH, HLE-Search), plus τ²-bench and SWE-bench Verified | [→](../works/bats-budget-aware.md) |
 
 ## Open Questions
 
@@ -64,6 +75,8 @@ Two meaningful distinctions structure the space:
 - **Static vs. dynamic robustness.** CostBench reports a substantial static-to-dynamic drop. Is such a gap a property of current models or of the specific perturbation distributions used? Should the field settle on standard perturbations?
 - **Reporting vs. optimizing.** Benchmarks that make a resource first-class force the agent to plan under budget; benchmarks that only report resource use do not. Should the two classes be labeled distinctly so their numbers are not silently compared?
 - **Token vs. tool-use cost.** Should aggregate leaderboards report only tokens (portable, model-comparable) or also tool-use resources (scientifically meaningful but domain-specific)?
+- **Predicted cost versus spent cost.** Every work on this page budgets or measures resource use *after* an action is chosen. None exposes a per-action, task-conditioned prediction of what an action will cost before it runs — `C(action, task features) → distribution` over tokens, wall-clock, GPU time, peak memory and dollars, with an uncertainty estimate. This matters because agent workflows have high variance and conditional structure: a run that fails triggers a diagnose-and-retry chain, so expected cost is `C₀ + P(fail)·C_retry + …` rather than a sum over planned steps, and a planner choosing under a budget needs a tail quantile (p90) rather than a mean. Three questions follow. Is a cost predictor an *evaluation* instrument or an agent component — that is, does it belong on this axis at all? Should such a predictor be scored on its own calibration (predicted versus actual, per action class) rather than only on the downstream task score it enables? And should benchmarks report **prediction error** alongside consumption, so that an agent which stays under budget by luck is distinguishable from one that stays under budget by knowing what things cost?
+- **Whose estimate counts.** Where a resource estimate is produced by the planner's own prose ("this should take about twenty minutes"), it is ungrounded and unscored. Separating the actor that proposes an action, the estimator that prices it, and the policy that admits or rejects it under budget would make each independently measurable — but no benchmark on this page currently evaluates those three roles apart.
 
 ## Related Works
 
@@ -86,7 +99,22 @@ Two meaningful distinctions structure the space:
 - [Beyond Final Scores](../works/beyond-final-scores.md) — Per-task wall-clock budgets and per-model inference cost reported next to performance, spanning a roughly 20× cost spread across seven models.
 - [R³-Bench](../works/r3-bench.md) — One budget shared across a six-problem suite, calibrated against each model's own demonstrated single-problem competence.
 - [AI Research Preference Models](../works/ai-research-preference-models.md) — Matches the unguided agent's 24-hour score in ~15 hours on under two-thirds of its execution budget, with validation- and test-oracle ceilings reported alongside.
+- [BATS / Budget Tracker](../works/bats-budget-aware.md) — Prices tokens and tool calls in one currency; injecting remaining budget alone matches a ReAct baseline's accuracy at one-tenth the budget.
 
 ## Further Reading
 
 - Yehudai, Eden, Li, Uziel, Zhao, Bar-Haim, Cohan, Shmueli-Scheuer. *Survey on Evaluation of LLM-based Agents*. arXiv 2503.16416, 2025. Identifies cost-efficiency as an under-covered dimension in current agent evaluation. <https://arxiv.org/abs/2503.16416>
+
+**Prior lineage for the predicted-cost question.** The Open Questions above restate, for tool-using LLM agents, a problem with a long history in AI. These references are recorded for orientation; none is an LLM-agent evaluation and none is carded.
+
+- Russell, Wefald. *Principles of Metareasoning*. Artificial Intelligence 49(1–3):361–395, 1991 (earlier at KR 1989, 400–411). Treats deliberation itself as an action with a cost, and defines the value of computation as its expected improvement minus that cost — the formal ancestor of asking whether a tool call or an experiment is worth running. DOI 10.1016/0004-3702(91)90015-C
+- Zilberstein. *Operational Rationality through Compilation of Anytime Algorithms*. AI Magazine 16(2):79–80, 1995. Summarizes the resource-bounded-reasoning line in which a component carries a **conditional performance profile** — its output quality as a function of input conditions and allotted time — which a runtime monitor then uses to allocate resources across a composed system. This is the closest classical term for a per-action, condition-dependent cost/quality profile. DOI 10.1609/aimag.v16i2.1136
+- Klein, Falkner, Bartels, Hennig, Hutter. *Fast Bayesian Optimization of Machine Learning Hyperparameters on Large Datasets* (FABOLAS). arXiv 1605.07079, 2016; AISTATS 2017. Learns an explicit cost model alongside the objective and selects the next evaluation by information gain per unit predicted cost — the same predict-then-choose structure, in hyperparameter optimization. <https://arxiv.org/abs/1605.07079>
+- Lee, Perrone, Archambeau, Seeger. *Cost-aware Bayesian Optimization*. arXiv 2003.10870, 2020. Cost-aware acquisition under a fixed budget where evaluation costs vary and are themselves modeled. <https://arxiv.org/abs/2003.10870>
+
+The constrained formulation ("maximize task quality subject to expected GPU-hours ≤ B₁ and dollars ≤ B₂") is standard as a **constrained Markov decision process**; where the remaining budget is carried explicitly in the state it is often called a budgeted MDP.
+
+**Budget-aware agent methods (not carded — methods, not evaluations).** Adjacent recent work that conditions agent behaviour on a budget without contributing an evaluation instrument:
+
+- Li, Deng, Li, Li. *Spend Less, Reason Better: Budget-Aware Value Tree Search for LLM Agents* (BAVT). arXiv 2603.12634, 2026. Budget-conditioned node selection that shifts from exploratory to greedy as resources deplete, with a residual value predictor for step-level progress. <https://arxiv.org/abs/2603.12634>
+- Yang, Luo, Liu, Lou, Chen. *BAMAS: Structuring Budget-Aware Multi-Agent Systems*. arXiv 2511.21572, 2025. Integer-linear-programming selection among LLMs of differing cost, then a learned collaboration topology; reports comparable performance at up to 86% lower cost. <https://arxiv.org/abs/2511.21572>
