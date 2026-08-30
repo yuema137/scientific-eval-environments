@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       month:
-        description: 'Report month in YYYY-MM; blank means the previous calendar month'
+        description: 'Report month in YYYY-MM; blank means the previous calendar month; existing reports for that month are refreshed in place'
         required: false
         type: string
 
@@ -48,11 +48,11 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
           git checkout -B "auto/monthly-report-${{ steps.report-month.outputs.month }}" origin/main
-          python3 scripts/monthly_report.py generate --month "${{ steps.report-month.outputs.month }}"
+          python3 scripts/monthly_report.py generate --month "${{ steps.report-month.outputs.month }}" --force
       - name: Deterministic validation
         run: |
           python3 scripts/monthly_report.py validate --month "${{ steps.report-month.outputs.month }}"
-          python3 scripts/update_agent/validators.py first-appearance
+          python3 scripts/monthly_report.py validate-all
           python3 scripts/update_counts.py --check
       - name: Open report PR for human review
         env:

@@ -286,6 +286,12 @@ def generate(month, force=False, basis="main-addition", review=True):
     if not zh.exists():
         raise RuntimeError("translator did not create %s" % zh)
     if review:
+        prompt = ("Adversarially review and revise %s and %s in place. Use %s and the linked English "
+                  "cards as the factual source of truth. Fix structural contradictions, unsupported "
+                  "category counts, cross-section inconsistency, weak topic framing, and narrative "
+                  "overreach while preserving all complete-index rows and release/backfill labels." %
+                  (en.relative_to(ROOT), zh.relative_to(ROOT), manifest_path.relative_to(ROOT)))
+        _worker("monthly-report-adversarial-reviewer", prompt, max_turns=10)
         prompt = ("Review and revise %s in place. Use %s as the factual source. Preserve all links, "
                   "numbers, taxonomy membership, and complete-index rows." %
                   (zh.relative_to(ROOT), en.relative_to(ROOT)))
@@ -365,6 +371,66 @@ def _broken_links(path, text):
     return broken
 
 
+_EN_NUMBER_WORDS = {
+    "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
+}
+_EN_ORDINAL_WORDS = {
+    "first": 1, "second": 2, "third": 3, "fourth": 4, "fifth": 5, "sixth": 6,
+}
+_ZH_NUMBER_WORDS = {
+    "一": 1, "二": 2, "三": 3, "四": 4, "五": 5, "六": 6, "两": 2,
+}
+_ZH_ORDINAL_WORDS = {
+    "第一": 1, "第二": 2, "第三": 3, "第四": 4, "第五": 5, "第六": 6,
+}
+
+
+def _parse_count(raw, chinese=False):
+    raw = raw.strip().lower()
+    if raw.isdigit():
+        return int(raw)
+    return (_ZH_NUMBER_WORDS if chinese else _EN_NUMBER_WORDS).get(raw)
+
+
+def _parse_ordinal(raw, chinese=False):
+    raw = raw.strip().lower()
+    return (_ZH_ORDINAL_WORDS if chinese else _EN_ORDINAL_WORDS).get(raw)
+
+
+def _enumeration_issues(text, chinese=False):
+    issues = []
+    for heading, block in re.findall(r"^###\s+(.+?)\s*\n(.*?)(?=^###\s|\Z)", text, re.S | re.M):
+        if chinese:
+            count_pattern = re.compile(
+                r"(?:分成|分作|拆成|有|至少有|可以分成|能分成)\s*"
+                r"([一二三四五六两\d]+)\s*(?:种|类|条)\s*(?:很清楚的|明显的|主要的|不同的|清楚的)?"
+                r"(?:路数|路线|主线|类型|分法|方向|变化|问题|线)?"
+            )
+            ordinal_pattern = re.compile(r"(第[一二三四五六\d]+)\s*(?:种|类|条)?")
+        else:
+            count_pattern = re.compile(
+                r"\b(?:breaks?\s+into|splits?\s+into|divides?\s+into|has|contains|offers|organizes?\s+into)\s+"
+                r"(one|two|three|four|five|six|\d+)\s+"
+                r"(?:(?:clear|distinct|main|major|different|primary|key)\s+)?"
+                r"(?:kinds|types|lines|patterns|families|groups|ways|shifts|changes)\b",
+                re.I,
+            )
+            ordinal_pattern = re.compile(r"\b(first|second|third|fourth|fifth|sixth)\b", re.I)
+        for match in count_pattern.finditer(block):
+            promised = _parse_count(match.group(1), chinese=chinese)
+            if not promised or promised < 2:
+                continue
+            ordinals = {
+                _parse_ordinal(ordinal, chinese=chinese)
+                for ordinal in ordinal_pattern.findall(block[match.end():])
+            }
+            ordinals.discard(None)
+            if len(ordinals) < promised:
+                issues.append("%s section promises %d-part structure but only marks %d ordinal parts" %
+                              (heading.strip(), promised, len(ordinals)))
+    return issues
+
+
 def validate(month, manifest=None):
     en_path, zh_path = _report_paths(month)
     errors = []
@@ -432,6 +498,10 @@ def validate(month, manifest=None):
     for word in prohibited:
         if word in zh:
             errors.append("Chinese report contains prohibited dialect performance: %s" % word)
+    for issue in _enumeration_issues(en, chinese=False):
+        errors.append("English enumeration mismatch: %s" % issue)
+    for issue in _enumeration_issues(zh, chinese=True):
+        errors.append("Chinese enumeration mismatch: %s" % issue)
     for path, text in ((en_path, en), (zh_path, zh)):
         broken = _broken_links(path, text)
         if broken:
@@ -463,9 +533,19 @@ def main():
     if args.command == "validate-all":
         months = sorted(p.stem for p in (ROOT / "monthly").glob("????-??.md"))
         all_errors = []
+        seen = {}
         for report_month in months:
             all_errors.extend("%s: %s" % (report_month, error)
                               for error in validate(report_month))
+            en_path, _ = _report_paths(report_month)
+            rows, _ = _table_records(en_path.read_text())
+            for slug in rows:
+                previous = seen.get(slug)
+                if previous is not None:
+                    all_errors.append("%s: work %s also appears in %s" %
+                                      (report_month, slug, previous))
+                else:
+                    seen[slug] = report_month
         if all_errors:
             print("monthly-report: FAIL\n" + "\n".join("- " + e for e in all_errors))
             return 1
