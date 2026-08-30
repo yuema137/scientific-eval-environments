@@ -10,8 +10,9 @@ first-parent history of main
   -> manifest with First appeared, status, Topics, Domains, and card evidence
   -> canonical English synthesis
   -> Chinese translation with restrained Dongbei-explainer logic
+  -> adversarial review-and-improve pass on the bilingual pair
   -> independent Chinese naturalness review
-  -> deterministic completeness/link/parity validation
+  -> deterministic completeness/link/parity/structure validation
   -> review-only PR
 ```
 
@@ -28,6 +29,8 @@ The initial archive is bootstrapped separately: existing cards with public first
 The narrative is selective, but `Complete Monthly Index` is exhaustive. The writer expands only story lines, Topics, and Domains that carry a real monthly development. Each work receives one primary narrative treatment; cross-links expose other taxonomy membership without repeating its summary.
 
 English and Chinese use the same explanatory logic: identify the older path, show which step changed, connect the evidence to the insight, and state the boundary. Only Chinese uses restrained, broadly understandable Northeastern conversational rhythm. Dialect performance, obscure vocabulary, jokes, and persona imitation are prohibited.
+
+The adversarial reviewer exists because monthly reports fail in ways a style prompt alone will not catch: counted structures that never reach the promised third item, category boundaries that drift mid-paragraph, conclusions that outrun the cited cards, or a topic section that sounds plausible but never cashes out its own framing. The reviewer is expected to cut or rewrite those claims, not merely comment on them.
 
 ## Commands
 
