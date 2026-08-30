@@ -8,6 +8,7 @@ Robotouille 是面向 LLM agent 的异步规划 benchmark：长程烹饪任务�
 
 ## Topics
 
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
 ## Activities

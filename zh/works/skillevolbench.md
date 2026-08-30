@@ -8,6 +8,7 @@ SkillEvolBench 是一套诊断性基准，针对的是从「经验复用」迈�
 
 ## Topics
 
+- [Skill Learning & Evolution](../topics/skill_learning_evolution.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 

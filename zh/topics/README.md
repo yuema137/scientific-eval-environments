@@ -2,9 +2,9 @@
 
 > [English](../../topics/README.md) | **简体中文**
 
-文献综述页面，每页对应一个规范化（canonical）的评估方向。
+文献综述页面，每页对应一个规范化的 evaluation-research 方向。
 
-Topic 页是**方法学轴**——仓库三个平级入口之一，另两个是 [`../domains/`](../domains/) 中的领域轴与 [`../activities/`](../activities/) 中的研究活动轴。对某种评估方法学感兴趣的读者应从这里开始，沿链接进入 [`../works/`](../works/)，再到原始论文：
+Topic 页是**evaluation research 轴**，与 domain 和 activity 平级。它回答三个问题：测什么、怎么测，以及怎样用 evaluation 改进 agent。
 
 ```
 Topic  →  代表性 works  →  原始论文
@@ -17,13 +17,19 @@ Topic 集合是固定的。新增 topic 需要更新 [`../../AGENT.md`](../../AG
 | # | Topic | 文件 | 收录 works |
 |---|---|---|---|
 | I | [General Long-Horizon Agent Benchmarks](./long_horizon_evaluation.md) | `long_horizon_evaluation.md` | 58 |
-| II | [Scientific Agent Benchmarks](./scientific_agents.md) | `scientific_agents.md` | 244 |
+| II | [Scientific Agent Benchmarks](./scientific_agents.md) | `scientific_agents.md` | 246 |
 | III | [Planning & Decision-Making Evaluation](./planning_decision_evaluation.md) | `planning_decision_evaluation.md` | 11 |
-| IV | [Trajectory Evaluation](./trajectory_evaluation.md) | `trajectory_evaluation.md` | 56 |
+| IV | [Trajectory Evaluation](./trajectory_evaluation.md) | `trajectory_evaluation.md` | 57 |
 | V | [Skill Hierarchy](./skill_hierarchy.md) | `skill_hierarchy.md` | 43 |
 | VI | [Credit Assignment](./credit_assignment.md) | `credit_assignment.md` | 22 |
-| VII | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 20 |
-| VIII | [Survey](./survey.md) | `survey.md` | 9 |
+| VII | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 21 |
+| VIII | [Evaluator Reliability & Validation](./evaluator_reliability_validation.md) | `evaluator_reliability_validation.md` | 8 |
+| IX | [Benchmark Design, Validity & Contamination](./benchmark_design_validity_contamination.md) | `benchmark_design_validity_contamination.md` | 11 |
+| X | [Skill Learning & Evolution](./skill_learning_evolution.md) | `skill_learning_evolution.md` | 5 |
+| XI | [Agent Harnesses & Scaffolding](./agent_harnesses_scaffolding.md) | `agent_harnesses_scaffolding.md` | 7 |
+| XII | [Evaluation-Driven Data Curation](./evaluation_driven_data_curation.md) | `evaluation_driven_data_curation.md` | 3 |
+| XIII | [Evaluation-Driven Post-Training](./evaluation_driven_post_training.md) | `evaluation_driven_post_training.md` | 4 |
+| XIV | [Survey](./survey.md) | `survey.md` | 9 |
 
 Skill Hierarchy 与 Credit Assignment 是两个独立的 topic。
 
@@ -31,8 +37,8 @@ Skill Hierarchy 与 Credit Assignment 是两个独立的 topic。
 
 ## 命名规范
 
-- **评估方向类 topic** 使用 `_evaluation.md` 后缀：`trajectory_evaluation.md`、`resource_aware_evaluation.md`、`long_horizon_evaluation.md`。
-- **更广义的 topic** 使用自然名称：`scientific_agents.md`、`skill_hierarchy.md`、`credit_assignment.md`、`survey.md`。
+- **评估方向类 topic** 在名称自然时使用 `_evaluation.md` 后缀，例如 `trajectory_evaluation.md` 与 `resource_aware_evaluation.md`。
+- **更广的研究主题** 使用自然名称，例如 `skill_learning_evolution.md`、`agent_harnesses_scaffolding.md` 与 `survey.md`。
 
 ## Topic 页模板
 

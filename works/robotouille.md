@@ -8,6 +8,7 @@ Robotouille is an asynchronous planning benchmark for LLM agents: long-horizon c
 
 ## Topics
 
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
 ## Activities

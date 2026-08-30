@@ -4,7 +4,9 @@
 
 > **English** | [简体中文](./zh/README.md)
 
-An open knowledge base on **how AI agents are evaluated on scientific and long-horizon tasks**. It documents the design space — benchmarks, evaluation methodologies, evaluation frameworks, trajectory and resource-aware evaluation, scientific workflows, and evaluation-focused RL work on agents.
+An open knowledge base on **evaluation for scientific and engineering AI agents**: what is measured, how evaluation is designed and interpreted, and how evaluation drives system improvement.
+
+**Evaluation is not only a way to measure AI systems; it is a feedback mechanism for building them.** The repository follows the full loop: measure, diagnose, intervene, and re-evaluate — across plans, trajectories, skills, harnesses, data, and post-training.
 
 Each piece of work has a concise, factual reference card. Cards are organized along three independent axes: **topics** (the evaluation methodology), **domains** (the scientific field), and **activities** (what the evaluated agent actually does). Start from whichever question you arrive with, follow the links to representative works, and go on to the original papers.
 
@@ -20,7 +22,7 @@ Scientific Evaluation Environments is continuously maintained rather than period
 
 ## Start Exploring
 
-- **[Browse by Topic](./topics/README.md)** — explore research themes in scientific-agent and agent-evaluation methodology.
+- **[Browse by Topic](./topics/README.md)** — explore what evaluation measures, how it works, and how it drives improvement.
 - **[Browse by Domain](./domains/README.md)** — explore evaluation work within a scientific or engineering field.
 - **[Browse by Research Activity](./activities/README.md)** — explore works by what the evaluated agent or system actually does.
 - **[Browse All Works](./works/README.md)** — the complete collection of indexed work cards.
@@ -28,7 +30,7 @@ Scientific Evaluation Environments is continuously maintained rather than period
 The three axes are co-equal entry points over the same cards:
 
 ```
-Topic     →  Representative works            →  Original papers   (why / how we evaluate)
+Topic     →  Representative works            →  Original papers   (what / how / how evaluation is used)
 Domain    →  Works evaluated in that domain  →  Original papers   (where the task lives)
 Activity  →  Works performing that task      →  Original papers   (what the agent does)
 ```
@@ -39,7 +41,7 @@ A work may appear under several topics, domains, and activities — each is a di
 
 ## Browse by Topic
 
-Topics are the **methodology axis**: how agents are evaluated. Each page is a literature review with its own comparison table. See [`topics/`](./topics/README.md) for the full index.
+Topics are the **evaluation-research axis**. They cover capabilities and behavior being measured, evaluation design and interpretation, and evaluation-driven improvement. Each page is a literature review with its own comparison table. See [`topics/`](./topics/README.md) for the full index.
 
 | Topic | What you'll find |
 |---|---|
@@ -50,6 +52,12 @@ Topics are the **methodology axis**: how agents are evaluated. Each page is a li
 | [Skill Hierarchy](./topics/skill_hierarchy.md) | Decomposing a complex capability into narrower subskills, each scored separately. |
 | [Credit Assignment](./topics/credit_assignment.md) | Attributing a trajectory's success or failure to specific steps or subgoals — dense rewards, partial credit, per-step scoring. |
 | [Resource-aware Evaluation](./topics/resource_aware_evaluation.md) | Treating tokens, fees, wall-clock time, or compute as part of what the benchmark measures — sometimes as an explicit objective. |
+| [Evaluator Reliability & Validation](./topics/evaluator_reliability_validation.md) | Validating judges, reward models, rubrics, and verifiers against human or deterministic ground truth and downstream use. |
+| [Benchmark Design, Validity & Contamination](./topics/benchmark_design_validity_contamination.md) | Task construction, verifier rigor, contamination resistance, dynamic evaluation, and ecological validity. |
+| [Skill Learning & Evolution](./topics/skill_learning_evolution.md) | Turning experience and evaluation feedback into reusable skills, then testing transfer and failure modes. |
+| [Agent Harnesses & Scaffolding](./topics/agent_harnesses_scaffolding.md) | Measuring, attributing, and optimizing the control structures surrounding a model. |
+| [Evaluation-Driven Data Curation](./topics/evaluation_driven_data_curation.md) | Revising selection, generation, filtering, or mixture policies from downstream evaluation feedback. |
+| [Evaluation-Driven Post-Training](./topics/evaluation_driven_post_training.md) | Using evaluation as an objective, feedback signal, or experimental environment for model and agent improvement. |
 | [Survey](./topics/survey.md) | Surveys and position papers on agent evaluation — an index of references rather than a task suite. |
 
 ---
@@ -66,7 +74,7 @@ Domains are the **field axis**: the science or engineering discipline a work eva
 | [Chemistry](./domains/chemistry.md) | 38 |
 | [Biology](./domains/biology.md) | 38 |
 | [Materials Science](./domains/materials_science.md) | 28 |
-| [AI & Machine Learning Research](./domains/ai_ml_research.md) | 25 |
+| [AI & Machine Learning Research](./domains/ai_ml_research.md) | 27 |
 | [Mathematics](./domains/mathematics.md) | 19 |
 | [Medicine & Health](./domains/medicine_health.md) | 22 |
 | [Neuroscience & Cognitive Science](./domains/neuroscience_cognitive_science.md) | 12 |
@@ -106,20 +114,20 @@ Activities are the **task axis**: what the evaluated agent or system actually do
 | [Optimization & Engineering Design](./activities/optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 26 |
 | [Literature Search & Evidence Synthesis](./activities/literature_evidence_synthesis.md) | Literature retrieval, systematic review, evidence synthesis, literature-grounded extraction | 23 |
 | [Research Reproduction & Replication](./activities/research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 11 |
-| [End-to-End Research](./activities/end_to_end_research.md) | Multi-stage research lifecycle across several major phases | 7 |
+| [End-to-End Research](./activities/end_to_end_research.md) | Multi-stage research lifecycle across several major phases | 9 |
 | [Laboratory & Instrument Control](./activities/laboratory_instrument_control.md) | Instrument, microscope, and beamline control; lab automation; behaviour-defined control code | 3 |
 
 ---
 
 ## Scope
 
-**In scope:** scientific evaluation environments, the benchmark landscape, evaluation methodology, evaluation frameworks, scientific workflows, trajectory evaluation, resource-aware evaluation, benchmark design, and evaluation-focused RL work on agents (reward design, credit-assignment methods, off-policy evaluation of agent trajectories).
+**In scope:** evaluation for scientific and engineering agents, including benchmarks, methodologies, diagnostics, evaluator validation, benchmark validity, scientific workflows, and evaluation-driven skill learning, harness optimization, data curation, and post-training.
 
-**Out of scope (for now):** pure RL algorithm development, policy optimization and training procedures, agent implementation, multi-agent systems, memory systems.
+**Out of scope (for now):** pure training, optimization, data, or agent-implementation work when evaluation is only a conventional results section; generic multi-agent or memory systems without an evaluation-centered contribution.
 
-The RL cutline is judged by the paper's primary contribution: if it advances *how agents are evaluated*, it belongs here; if it advances *how agents are trained*, it does not.
+The cutline is whether evaluation is structurally central. Improvement work belongs when evaluation determines the objective, feedback, selection, diagnosis, or experimental loop; merely reporting benchmark scores is not enough.
 
-"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **370 work cards**, **8 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
+"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **374 work cards**, **14 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
 
 ---
 
@@ -130,7 +138,7 @@ The knowledge base has **four layers**: the works layer, plus three co-equal agg
 | Directory | Role |
 |---|---|
 | [`works/`](./works/README.md) | One factual reference card per work. Flat, kebab-case, one Markdown file each. |
-| [`topics/`](./topics/README.md) | Literature-review pages — the methodology axis. Each topic owns its own comparison table; there is no global matrix. |
+| [`topics/`](./topics/README.md) | Literature-review pages — the evaluation-research axis spanning measurement, diagnosis, and improvement. Each topic owns its own comparison table. |
 | [`domains/`](./domains/README.md) | Field-axis reference pages, one per canonical science or engineering domain, with a fixed-column comparison table. |
 | [`activities/`](./activities/README.md) | Task-axis reference pages, one per canonical research activity, with Definition, Scope, task patterns, and a comparison table. |
 | [`zh/`](./zh/README.md) | Chinese mirror of every page, synced after each English batch. |

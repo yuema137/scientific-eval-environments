@@ -8,6 +8,7 @@ SkillLearnBench is a benchmark for continual skill-learning methods — approach
 
 ## Topics
 
+- [Skill Learning & Evolution](../topics/skill_learning_evolution.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 

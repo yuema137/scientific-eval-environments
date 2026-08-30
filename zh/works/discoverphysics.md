@@ -8,6 +8,7 @@ DiscoverPhysics 是考察「跳出框架的科学思维」的 agentic benchmark�
 
 ## Topics
 
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
 ## Activities

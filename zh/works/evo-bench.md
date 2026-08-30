@@ -8,6 +8,7 @@ Evo-Bench 是一个 benchmark，评估语言模型自主改进自身 agent harne
 
 ## Topics
 
+- [Agent Harnesses & Scaffolding](../topics/agent_harnesses_scaffolding.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
 ## Activities

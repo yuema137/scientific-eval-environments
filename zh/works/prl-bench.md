@@ -8,6 +8,7 @@ PRL-Bench（Physics Research by LLMs）是前沿物理研究能力的 benchmark�
 
 ## Topics
 
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
 ## Activities

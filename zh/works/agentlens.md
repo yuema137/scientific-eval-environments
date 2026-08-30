@@ -8,6 +8,7 @@ AgentLens 是一个面向 interactive code agent 的 production-assessed benchma
 
 ## Topics
 
+- [Evaluator Reliability & Validation](../topics/evaluator_reliability_validation.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
 ## Activities

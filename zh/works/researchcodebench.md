@@ -8,6 +8,7 @@ ResearchCodeBench 评测 LLM 实现新颖机器学习研究代码的能力：212
 
 ## Topics
 
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
 ## Activities

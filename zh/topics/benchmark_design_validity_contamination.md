@@ -1,0 +1,51 @@
+# Benchmark Design, Validity & Contamination
+
+> [English](../../topics/benchmark_design_validity_contamination.md) | **简体中文** · [← 全部 topics](./README.md)
+
+## Definition
+
+这个 topic 研究 benchmark 的任务、参考答案、verifier、抽样方式和分数，能不能支撑论文据此提出的结论。它包括任务构造、contamination 控制、动态评估、现实有效性、verifier 严谨度和长期维护。
+
+## Motivation
+
+分数算得再精确，如果题目已经被记住、测试太弱、参考答案不完整，或者环境缺少被测能力所需的关键条件，结论仍然不成立。因此，benchmark 是否有效本身就是研究问题，不只是维护工作。
+
+## Existing Approaches
+
+- **动态、近期来源。** [CODE2BENCH](../works/code2bench.md)、[PRL-Bench](../works/prl-bench.md) 和 [MedBrowseComp](../works/medbrowsecomp.md) 从近期 repository、论文或实时来源刷新题目。
+- **私有或新写答案。** [CritPt](../works/critpt.md)、[OnePot-Bench](../works/onepot-bench.md) 和 [GeneBench-Pro](../works/genebench-pro.md) 使用未发表、私有或留出的材料。
+- **程序生成与反事实构造。** [DiscoverPhysics](../works/discoverphysics.md) 按需生成物理世界，[Robotouille](../works/robotouille.md) 则程序化生成具身任务。
+- **Verifier 严谨度。** CODE2BENCH 要求 property-based tests 达到 branch-coverage gate；[FrontierCode](../works/frontiercode.md) 同时做执行检查与 contamination 检测。
+- **近期研究实现。** [ResearchCodeBench](../works/researchcodebench.md) 从近期研究贡献构造实现任务，并单独发布 contamination-safe 子集。
+
+## Comparison
+
+| Work | 任务来源 | 有效性措施 | Verification | 刷新方式 |
+|---|---|---|---|---|
+| CODE2BENCH | 近期 Python 与 Java repository | 动态取材、依赖分类、测试质量 gate | Property-based tests，100% branch coverage | 可重复运行的构造 pipeline |
+| PRL-Bench | 新发表的物理论文 | 持续移动的时间边界 | 参考结果约束的评估 | 随期刊更新 |
+| CritPt | 未发表的专家问题 | 答案不进入训练语料 | 专家与参考答案检查 | 新的专家题批次 |
+| DiscoverPhysics | 自动生成的物理世界 | 按需生成反事实规律 | Simulator ground truth | 每个实例更新 |
+| ResearchCodeBench | 近期 ML 论文 | contamination-safe 论文子集 | 可执行代码测试 | 新论文批次 |
+
+## Open Questions
+
+- Contamination audit 怎样从“没搜到重合”进一步支持“确实不存在”？
+- 要声称功能正确，test adequacy 需要达到什么证据标准？
+- Benchmark 更新时怎样保留跨时间比较能力？
+- Synthetic control 在什么情况下会损失科学和工程场景所需的现实有效性？
+- Reference、rubric 和 judge 的不确定性应如何进入最终分数？
+
+## Related Works
+
+- [CODE2BENCH](../works/code2bench.md)
+- [PRL-Bench](../works/prl-bench.md)
+- [MedBrowseComp](../works/medbrowsecomp.md)
+- [CritPt](../works/critpt.md)
+- [OnePot-Bench](../works/onepot-bench.md)
+- [GeneBench-Pro](../works/genebench-pro.md)
+- [DiscoverPhysics](../works/discoverphysics.md)
+- [Robotouille](../works/robotouille.md)
+- [FrontierCode](../works/frontiercode.md)
+- [ResearchCodeBench](../works/researchcodebench.md)
+- [PostTrainBench](../works/posttrainbench.md)

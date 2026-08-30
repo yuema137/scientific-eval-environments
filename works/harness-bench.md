@@ -8,6 +8,7 @@ Harness-Bench is a diagnostic benchmark for measuring configuration-level *harne
 
 ## Topics
 
+- [Agent Harnesses & Scaffolding](../topics/agent_harnesses_scaffolding.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 
 ## Activities

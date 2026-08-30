@@ -2,9 +2,9 @@
 
 > **English** | [简体中文](../zh/topics/README.md)
 
-Literature-review pages, one per canonical evaluation direction.
+Literature-review pages, one per canonical evaluation-research direction.
 
-Topic pages are the **methodology axis** — one of the repository's three co-equal entry points, alongside the field axis in [`../domains/`](../domains/) and the research-activity axis in [`../activities/`](../activities/). A reader interested in an evaluation methodology should start here and follow links into [`../works/`](../works/), then to the original papers:
+Topic pages are the **evaluation-research axis** — one of the repository's three co-equal entry points, alongside the field axis in [`../domains/`](../domains/) and the research-activity axis in [`../activities/`](../activities/). They answer three questions: **what do we evaluate, how do we evaluate it, and how is evaluation used to improve agents?**
 
 ```
 Topic  →  Representative works  →  Original papers
@@ -17,13 +17,19 @@ The set of topics is fixed. Adding a new topic requires updating [`../AGENT.md`]
 | # | Topic | File | Related works |
 |---|---|---|---|
 | I | [General Long-Horizon Agent Benchmarks](./long_horizon_evaluation.md) | `long_horizon_evaluation.md` | 58 |
-| II | [Scientific Agent Benchmarks](./scientific_agents.md) | `scientific_agents.md` | 244 |
+| II | [Scientific Agent Benchmarks](./scientific_agents.md) | `scientific_agents.md` | 246 |
 | III | [Planning & Decision-Making Evaluation](./planning_decision_evaluation.md) | `planning_decision_evaluation.md` | 11 |
-| IV | [Trajectory Evaluation](./trajectory_evaluation.md) | `trajectory_evaluation.md` | 56 |
+| IV | [Trajectory Evaluation](./trajectory_evaluation.md) | `trajectory_evaluation.md` | 57 |
 | V | [Skill Hierarchy](./skill_hierarchy.md) | `skill_hierarchy.md` | 43 |
 | VI | [Credit Assignment](./credit_assignment.md) | `credit_assignment.md` | 22 |
-| VII | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 20 |
-| VIII | [Survey](./survey.md) | `survey.md` | 9 |
+| VII | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 21 |
+| VIII | [Evaluator Reliability & Validation](./evaluator_reliability_validation.md) | `evaluator_reliability_validation.md` | 8 |
+| IX | [Benchmark Design, Validity & Contamination](./benchmark_design_validity_contamination.md) | `benchmark_design_validity_contamination.md` | 11 |
+| X | [Skill Learning & Evolution](./skill_learning_evolution.md) | `skill_learning_evolution.md` | 5 |
+| XI | [Agent Harnesses & Scaffolding](./agent_harnesses_scaffolding.md) | `agent_harnesses_scaffolding.md` | 7 |
+| XII | [Evaluation-Driven Data Curation](./evaluation_driven_data_curation.md) | `evaluation_driven_data_curation.md` | 3 |
+| XIII | [Evaluation-Driven Post-Training](./evaluation_driven_post_training.md) | `evaluation_driven_post_training.md` | 4 |
+| XIV | [Survey](./survey.md) | `survey.md` | 9 |
 
 Skill Hierarchy and Credit Assignment are independent topics.
 
@@ -31,8 +37,8 @@ Skill Hierarchy and Credit Assignment are independent topics.
 
 ## Filename conventions
 
-- **Evaluation-direction topics** use the `_evaluation.md` suffix: `trajectory_evaluation.md`, `resource_aware_evaluation.md`, `long_horizon_evaluation.md`.
-- **Broader topics** keep natural names: `scientific_agents.md`, `skill_hierarchy.md`, `credit_assignment.md`, `survey.md`.
+- **Evaluation-direction topics** may use the `_evaluation.md` suffix where it reads naturally: `trajectory_evaluation.md`, `resource_aware_evaluation.md`, `long_horizon_evaluation.md`.
+- **Broader research themes** use natural names: `scientific_agents.md`, `skill_learning_evolution.md`, `agent_harnesses_scaffolding.md`, `survey.md`.
 
 ## Topic page template
 

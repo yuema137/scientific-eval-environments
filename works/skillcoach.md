@@ -8,6 +8,9 @@ SkillCoach is a self-evolving rubric framework for process-level evaluation of a
 
 ## Topics
 
+- [Skill Learning & Evolution](../topics/skill_learning_evolution.md)
+- [Evaluation-Driven Data Curation](../topics/evaluation_driven_data_curation.md)
+- [Evaluation-Driven Post-Training](../topics/evaluation_driven_post_training.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 

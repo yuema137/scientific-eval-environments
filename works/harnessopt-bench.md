@@ -8,6 +8,7 @@ HarnessOpt-Bench is a benchmark measuring how well frontier LLMs perform automat
 
 ## Topics
 
+- [Agent Harnesses & Scaffolding](../topics/agent_harnesses_scaffolding.md)
 - [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
 
 ## Activities

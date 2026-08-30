@@ -8,7 +8,7 @@ Evo-Bench is a benchmark that evaluates a language model's intrinsic ability to 
 
 ## Topics
 
-
+- [Agent Harnesses & Scaffolding](../topics/agent_harnesses_scaffolding.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 
 ## Activities

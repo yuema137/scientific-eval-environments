@@ -21,6 +21,10 @@ def _gh(name, desc="", topics=None):
 def test_prefilter_arxiv_positive():
     assert prefilter.judge(_arx("AgentBench: A Benchmark for Evaluating LLM Agents"))[0] is True
     assert prefilter.judge(_arx("Scientific Agent Benchmark for Physics Reasoning"))[0] is True
+    assert prefilter.judge(_arx(
+        "Can Generalist Agents Automate Data Curation?",
+        "Agents iteratively revise data policies using downstream evaluation feedback."
+    ))[0] is True
 
 
 def test_prefilter_arxiv_negative():

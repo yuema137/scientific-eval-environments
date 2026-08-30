@@ -8,6 +8,7 @@ onepot-Bench 0 is a proprietary, lab-aware chemistry benchmark suite in three pa
 
 ## Topics
 
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
 ## Activities

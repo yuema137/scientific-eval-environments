@@ -8,6 +8,7 @@ SkillMisevo-Bench 是一个冻结的 benchmark，配套生命周期感知的 har
 
 ## Topics
 
+- [Skill Learning & Evolution](../topics/skill_learning_evolution.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 

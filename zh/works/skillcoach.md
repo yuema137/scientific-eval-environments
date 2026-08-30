@@ -8,6 +8,9 @@ SkillCoach 是面向 agent skill 使用的过程级评估框架，其 rubric 会
 
 ## Topics
 
+- [Skill Learning & Evolution](../topics/skill_learning_evolution.md)
+- [Evaluation-Driven Data Curation](../topics/evaluation_driven_data_curation.md)
+- [Evaluation-Driven Post-Training](../topics/evaluation_driven_post_training.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [Skill Hierarchy](../topics/skill_hierarchy.md)
 

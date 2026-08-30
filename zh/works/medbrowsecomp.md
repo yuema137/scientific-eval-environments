@@ -8,6 +8,7 @@ MedBrowseComp 评测医学 deep research 与 computer use：1,000 余道由医�
 
 ## Topics
 
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 
 ## Activities

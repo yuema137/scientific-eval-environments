@@ -129,6 +129,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 
 ## Related Works
 
+- [MobileJudgeBench](../works/mobilejudgebench.md)
 - [SkillJuror](../works/skilljuror.md)
 - [Skill Coverage](../works/skill-coverage.md)
 - [SkillCoach](../works/skillcoach.md)
