@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/sciconvbench.md)
 
+> **First appeared:** 2026-05-18 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.18630)
+
 ## Overview
 
 SciConvBench benchmarks LLMs on multi-turn clarification for task formulation in computational science: given an ill-posed simulation request in fluid mechanics, solid mechanics, materials science, or PDEs, the model must elicit missing information (disambiguation) and detect internally contradictory requirements (inconsistency resolution) through dialogue before any computation happens.

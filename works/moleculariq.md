@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/moleculariq.md)
 
+> **First appeared:** 2026-01-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2601.15279)
+
 ## Overview
 
 MolecularIQ is a molecular structure reasoning benchmark restricted exclusively to symbolically verifiable tasks: every answer can be checked against the molecular graph itself, eliminating the literature labels, surrogate labels, and multiple-choice formats that let leakage and bias into most chemistry benchmarks.

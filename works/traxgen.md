@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/traxgen.md)
 
+> **First appeared:** 2025-05-17 · **Source:** [Initial PyPI release](https://pypi.org/project/traxgen/0.1.0/)
+
 ## Overview
 
 Traxgen is a deterministic ground-truth trajectory generation toolkit for AI-agent evaluation. It compiles structured workflow specifications and user profiles into fully specified reference trajectories via a directed acyclic graph (DAG), removing the LLM from the ground-truth generation loop. The paper also releases a companion benchmark of 675 task instances used to evaluate LLM planning against Traxgen-generated references.

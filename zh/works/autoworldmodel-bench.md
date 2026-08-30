@@ -2,6 +2,8 @@
 
 > [English](../../works/autoworldmodel-bench.md) | **简体中文**
 
+> **首次公开：** 2026-07-20 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.11216)
+
 ## Overview
 
 AutoWorldModel-Bench 是一个闭环 benchmark：交给前沿编码 agent 一个能用的世界模型和一份固定算力预算，让它把模型改好，而改进方向事先并不指定。八个游戏环境共用一套结构化状态表示，把感知整个剥离出去，从而单独隔离出动力学建模，也让每次训练短到足以在一个会话内反复迭代。

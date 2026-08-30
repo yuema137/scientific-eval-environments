@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/scienceboard.md)
 
+> **First appeared:** 2025-05-26 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.19897)
+
 ## Overview
 
 ScienceBoard is a computer-use agent benchmark that places multimodal agents inside a real Ubuntu desktop

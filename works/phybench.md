@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/phybench.md)
 
+> **First appeared:** 2025-04-22 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2504.16074)
+
 ## Overview
 
 PHYBench is a benchmark of 500 original physics problems, ranging from high school to Physics Olympiad difficulty, scored with the Expression Edit Distance (EED) Score — a continuous metric over mathematical expressions that the paper reports improves sample efficiency by 204% over binary scoring.

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ugphysics.md)
 
+> **First appeared:** 2025-02-01 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2502.00334)
+
 ## Overview
 
 UGPhysics is a comprehensive benchmark for undergraduate physics reasoning: 5,520 problems in both English and Chinese, covering 13 subjects with seven answer types and four distinct physics reasoning skills, all rigorously screened for data leakage, and judged by the MARJ (Model-Assistant Rule-based Judgment) pipeline.

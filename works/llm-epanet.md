@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/llm-epanet.md)
 
+> **First appeared:** 2025-03-20 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2503.16191)
+
 ## Overview
 
 LLM-EPANET is a retrieval-augmented, multi-agent pipeline that turns natural-language questions about a water

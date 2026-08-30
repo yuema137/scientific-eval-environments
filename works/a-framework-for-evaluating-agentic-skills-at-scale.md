@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/a-framework-for-evaluating-agentic-skills-at-scale.md)
 
+> **First appeared:** 2026-06-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.17819)
+
 ## Overview
 
 An evaluation methodology that lets a skill author turn a skill into realistic executable tasks with scoring rubrics, applied at scale to roughly 500 real-world agent skills and 1,000 generated tasks across 19 agent–model configurations.

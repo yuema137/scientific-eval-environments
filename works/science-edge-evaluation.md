@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/science-edge-evaluation.md)
 
+> **First appeared:** 2026-08-07 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.06931)
+
 ## Overview
 
 Science Edge Evaluation (SEE) is a multimodal benchmark of expert-curated questions grounded in peer-reviewed literature and experimental practice in chemistry, biology, and materials science, designed to test whether multimodal large language models can make justified, evidence-bounded inferences from real laboratory-science data.

@@ -2,6 +2,8 @@
 
 > [English](../../works/sciagentarena.md) | **简体中文**
 
+> **首次公开：** 2026-06-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.12736)
+
 ## Overview
 
 SciAgentArena 是一个系统性 benchmark，用于在跨尺度的真实世界科学研究场景中评估 AI agent。它在一个交互式、agent-agnostic 的环境中提供约 200 个带逐步验证的任务。

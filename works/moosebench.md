@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/moosebench.md)
 
+> **First appeared:** 2026-05-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.09360)
+
 ## Overview
 
 MooseBench is a 220-case multiphysics benchmark with PDE-level ground truth, released with a paper whose title states its finding: "Your Simulation Runs but Solves the Wrong Physics." The paired Intent Fidelity Score (IFS) deterministically reconstructs the PDE encoded by LLM-generated MOOSE input files and compares it to the intended contract.

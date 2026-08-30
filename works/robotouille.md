@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/robotouille.md)
 
+> **First appeared:** 2025-02-06 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2502.05227)
+
 ## Overview
 
 Robotouille is an asynchronous planning benchmark for LLM agents: long-horizon cooking tasks where progress requires managing overlapping actions and interruptions — ReAct with GPT-4o achieves 47% on synchronous tasks but only 11% on asynchronous ones.

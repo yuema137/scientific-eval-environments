@@ -2,6 +2,8 @@
 
 > [English](../../works/phybench.md) | **简体中文**
 
+> **首次公开：** 2025-04-22 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2504.16074)
+
 ## Overview
 
 PHYBench 是含 500 道原创物理问题的 benchmark，难度从高中到物理奥赛，用 Expression Edit Distance（EED）分数——一种作用于数学表达式的连续指标——评分；论文报告该指标比二元计分把样本效率提升 204%。

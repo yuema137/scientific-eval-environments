@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/cola.md)
 
+> **First appeared:** 2025-03-27 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2503.21383)
+
 ## Overview
 
 CoLA learns a compact latent action space for controlling an LLM, separating the policy's decision representation from the model's token vocabulary.
@@ -17,6 +19,7 @@ N/A — general LLM and agent adaptation methodology; no scientific or research 
 
 ## Links
 
+- **Preprint:** <https://arxiv.org/abs/2503.21383>
 - **Paper:** <https://proceedings.mlr.press/v267/jia25e.html>
 - **Model:** <https://huggingface.co/LAMDA-RL/Llama-3.1-CoLA-10B>
 - **Venue:** ICML 2025

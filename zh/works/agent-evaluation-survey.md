@@ -2,6 +2,8 @@
 
 > [English](../../works/agent-evaluation-survey.md) | **简体中文**
 
+> **首次公开：** 2025-03-20 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2503.16416)
+
 ## Overview
 
 *Survey on Evaluation of LLM-based Agents* 是一篇覆盖广泛的综述，沿五个视角组织 LLM-agent 评估方法，并明确指出当前的空缺。此处以**参考论文**（非 benchmark 贡献）纳入。

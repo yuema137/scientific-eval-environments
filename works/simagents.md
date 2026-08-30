@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/simagents.md)
 
+> **First appeared:** 2025-07-11 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2507.08958)
+
 ## Overview
 
 SimAgents is a multi-agent LLM system that reads cosmological simulation papers and reconstructs the simulation's configuration parameters in a form the simulation software will accept, released together with a manually annotated evaluation dataset of more than 40 published simulations and a parameter-level scoring protocol against single-agent baselines.

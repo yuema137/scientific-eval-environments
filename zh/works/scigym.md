@@ -2,6 +2,8 @@
 
 > [English](../../works/scigym.md) | **简体中文**
 
+> **首次公开：** 2025-07-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2507.02083)
+
 ## Overview
 
 SciGym 用一个系统生物学干实验（dry lab）来测量语言模型的科学能力：agent 在以 SBML（Systems Biology Markup Language）编码的生物系统上迭代地设计实验、分析模拟数据，并对照隐藏的真值系统提交机制假设。

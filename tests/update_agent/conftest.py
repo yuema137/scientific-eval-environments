@@ -35,6 +35,8 @@ def make_card(title, slug, topics=None, activities=None, links="- **Paper:** <ht
 
 > **English** | [简体中文](../zh/works/{slug}.md)
 
+> **First appeared:** 2025-01-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2401.00001)
+
 ## Overview
 One line.
 
@@ -107,7 +109,7 @@ def build_mini_repo(root, cards):
             make_card(c["title"], c["slug"], c.get("topics"), c.get("activities"),
                       c.get("links", "- **Paper:** <https://arxiv.org/abs/2401.00001>")))
         if c.get("zh", True):
-            zt = "# %s (2025)\n\n> [English](../../works/%s.md) | **简体中文**\n\n## Topics\n%s\n\n## Activities\n%s\n" % (
+            zt = "# %s (2025)\n\n> [English](../../works/%s.md) | **简体中文**\n\n> **首次公开：** 2025-01-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2401.00001)\n\n## Topics\n%s\n\n## Activities\n%s\n" % (
                 c["title"], c["slug"],
                 "\n".join("- [%s](../topics/%s.md)" % (t, t) for t in c.get("topics", [])),
                 "\n".join("- [%s](../activities/%s.md)" % (a, a) for a in c.get("activities", []))

@@ -2,6 +2,8 @@
 
 > [English](../../works/analogxpert.md) | **简体中文**
 
+> **首次公开：** 2024-12-17 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2412.19824)
+
 ## Overview
 
 AnalogXpert 是把电路设计专长注入大语言模型、自动完成模拟拓扑综合的 LLM agent：以 SPICE 代码表示拓扑，通过链式思维与上下文学习把设计分解为模块选择与模块连接，在含 30 个真实与 2,000 个合成案例的 benchmark 上达到 40% / 23% 的成功率，而 GPT-4o 仅 3%。

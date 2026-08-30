@@ -2,6 +2,8 @@
 
 > [English](../../works/ai-assisting-research-i-literature-review.md) | **简体中文**
 
+> **首次公开：** 2026-07-28 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2607.25672)
+
 ## Overview
 
 一项对照实验，把 AI 辅助的文献综述与人类专家的文献综述放在物理、天体物理与宇宙学的八个真实前沿项目上正面比较：既测量 AI 选出的参考文献与专家所选的重合程度，也在 701 条 AI 生成的参考文献上量化编造率与元数据错配率。

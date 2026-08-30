@@ -2,6 +2,8 @@
 
 > [English](../../works/rtllm.md) | **简体中文**
 
+> **首次公开：** 2023-08-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2308.05345)
+
 ## Overview
 
 RTLLM 是从自然语言指令生成设计级 RTL 的开源 benchmark：29 个手工设计（v2.0 扩展到 50 个），按语法、功能、设计质量三个递进目标判分，并配套一个提升 GPT-3.5 的「self-planning」提示方法。

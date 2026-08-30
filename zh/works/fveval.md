@@ -2,6 +2,8 @@
 
 > [English](../../works/fveval.md) | **简体中文**
 
+> **首次公开：** 2024-10-15 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2410.23299)
+
 ## Overview
 
 FVEval 是 NVIDIA 面向数字硬件形式验证、理解语言模型能力的 benchmark，含三个子任务——从自然语言生成 SystemVerilog 断言、从测试台/设计生成断言、以及设计级验证推理——用 Cadence Jasper 形式工具校验。

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/astromlab-1.md)
 
+> **First appeared:** 2024-07-15 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2407.11194)
+
 ## Overview
 
 AstroMLab 1 introduces the first astronomy-specific LLM benchmarking dataset — 4,425 multiple-choice questions generated from the *Annual Review of Astronomy and Astrophysics* — and uses it to score 47 proprietary and open-weights models on astronomical knowledge, with accompanying cost-efficiency and confidence-calibration analyses.

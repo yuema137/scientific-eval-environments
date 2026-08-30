@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/bats-budget-aware.md)
 
+> **First appeared:** 2025-11-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2511.17006)
+
 ## Overview
 
 A study of what happens when tool-augmented agents are scaled under explicit tool-call budgets, motivated by the finding that simply raising the budget does not help because agents have no awareness of it. It contributes a unified cost metric that prices token and tool consumption on one scale, a lightweight Budget Tracker plug-in that makes the remaining budget visible to the agent, and BATS, a framework that adapts planning and verification to the budget that remains.

@@ -2,6 +2,8 @@
 
 > [English](../../works/cosmopaperqa.md) | **简体中文**
 
+> **首次公开：** 2025-07-09 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2507.07155)
+
 ## Overview
 
 CosmoPaperQA 是一份含 105 组问答对的宇宙学问答数据集，题目取自五篇高引宇宙学论文。它用来评测九种检索增强生成（RAG）agent 配置，以专家人工评分为对照，并据此校准一个 LLM-as-a-Judge 评分器，让它充当人工评估的替代。

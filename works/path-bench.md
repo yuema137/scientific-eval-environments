@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/path-bench.md)
 
+> **First appeared:** 2026-08-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.01149)
+
 ## Overview
 
 PATH-Bench is a benchmark for path-dependent evaluation of lifelong LLM agents: it constructs controlled sequences of tasks with known transfer relationships and measures how the *order and content* of accumulated experience — stored as retrieved memories or as reusable skills — changes what a frozen-backbone agent transfers, retains, and forgets.

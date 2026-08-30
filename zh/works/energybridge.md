@@ -2,6 +2,8 @@
 
 > [English](../../works/energybridge.md) | **简体中文**
 
+> **首次公开：** 2026-08-09 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.08691)
+
 ## Overview
 
 EnergyBridge 是一个面向住宅虚拟电厂（VPP）的 benchmark 与 agent 框架，把容量申报、住户授权与物理执行耦合在一起，并将分地区的 EnergyPlus 建筑能耗环境与一个基于 LLM 的用户参与模拟器（User Participation Simulator）配对。

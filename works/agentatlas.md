@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/agentatlas.md)
 
+> **First appeared:** 2026-05-19 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.20530)
+
 ## Overview
 
 AgentAtlas is a diagnostic vocabulary and audit protocol for LLM agents, applied on top of 15 existing agent benchmarks. It reframes evaluation from outcome-only leaderboards toward per-control-decision quality and per-trajectory quality, with a six-way control-decision taxonomy and a failure taxonomy.

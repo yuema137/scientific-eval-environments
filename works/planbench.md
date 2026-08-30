@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/planbench.md)
 
+> **First appeared:** 2022-06-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2206.10498)
+
 ## Overview
 
 PlanBench is an extensible benchmark for testing whether large language models can generate and verify plans, reason about state changes, replan after unexpected events, and distinguish valid from invalid action sequences in formal planning domains.

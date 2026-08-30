@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ceprobench.md)
 
+> **First appeared:** 2026-03-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2603.01654)
+
 ## Overview
 
 CeProBench is a chemical-process-development benchmark introduced alongside CeProAgents, a hierarchical multi-agent system for automated chemical process development. The benchmark organizes evaluation around three pillars of chemical engineering — knowledge, concept, and parameter — with six task classes spanning document-to-knowledge-graph extraction, process flow diagram (PFD) parsing and design, and Aspen Plus parameter optimization.

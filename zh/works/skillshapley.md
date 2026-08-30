@@ -2,6 +2,8 @@
 
 > [English](../../works/skillshapley.md) | **简体中文**
 
+> **首次公开：** 2026-08-13 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.13173)
+
 ## Overview
 
 SkillShapley 是面向 agent skill 的步骤级归因框架：把 skill 内部每一步的贡献建模为 Shapley 值，并用一套针对离散化 benchmark 奖励设计的边界自适应采样方案来估计这些值。

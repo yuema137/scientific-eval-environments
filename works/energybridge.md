@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/energybridge.md)
 
+> **First appeared:** 2026-08-09 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.08691)
+
 ## Overview
 
 EnergyBridge is a benchmark and agent framework for residential virtual power plants (VPPs) that couples capacity reporting, household authorization, and physical execution, pairing region-specific EnergyPlus building-energy environments with an LLM-based User Participation Simulator.

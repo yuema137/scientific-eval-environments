@@ -2,6 +2,8 @@
 
 > [English](../../works/ecoagent-bench.md) | **简体中文**
 
+> **首次公开：** 2026-08-06 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.05519)
+
 ## Overview
 
 EcoAgent-Bench 是面向预算受限 LLM agent 经济决策的 benchmark：每个任务都指定带定价的动作与显式预算，评分对象是决策是否经济合理，而不仅是任务是否完成。

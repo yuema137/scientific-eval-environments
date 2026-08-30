@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/structureclaw.md)
 
+> **First appeared:** 2026-07-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.14896)
+
 ## Overview
 
 StructureClaw pairs a traceable LLM-agent workbench for structural engineering with an executable benchmark of 150 controlled scenarios spanning standard workflows, interactive robustness, and multimodal structural-model reconstruction, verified by strict structural-model matching and numerical agreement with frozen reference solver responses.

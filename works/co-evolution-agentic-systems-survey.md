@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/co-evolution-agentic-systems-survey.md)
 
+> **First appeared:** 2026-08-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.10299)
+
 ## Overview
 
 A survey of co-evolution in agentic systems — the multi-component form of self-evolution in which several agents and their environment exert adaptive pressure on one another. It organises the literature under a progressive three-stage taxonomy tracing how a system sheds human-engineered constraints, and devotes a section to why evaluating such systems is harder than evaluating a fixed agent.

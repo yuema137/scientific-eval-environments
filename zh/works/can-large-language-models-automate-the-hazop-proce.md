@@ -2,6 +2,8 @@
 
 > [English](../../works/can-large-language-models-automate-the-hazop-proce.md) | **简体中文**
 
+> **首次公开：** 2025-11-03 · **来源：** [官方出版记录](https://doi.org/10.1016/j.ssci.2025.107039)
+
 ## Overview
 
 一项对四个多模态大语言模型在危险与可操作性分析（HAZOP）上的对比评估：每个模型都在统一的提示词下，从同一张管道仪表流程图（P&ID）生成一份完整的 HAZOP 工作表，再对照专家编制的参考工作表打分。论文自陈的贡献是一套评估 LLM 做 HAZOP 的结构化框架，而不是一个 HAZOP 自动化系统。

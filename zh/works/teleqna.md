@@ -2,6 +2,8 @@
 
 > [English](../../works/teleqna.md) | **简体中文**
 
+> **首次公开：** 2023-10-23 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2310.15051)
+
 ## Overview
 
 TeleQnA 是评估大语言模型电信知识的首个 benchmark 数据集：10,000 道选择题，取自标准（3GPP、IEEE）与研究文献；LLM 在通用知识上可与在职电信专业人士比肩，却在复杂的标准类问题上吃力。

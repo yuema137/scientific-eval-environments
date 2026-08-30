@@ -2,6 +2,8 @@
 
 > [English](../../works/mmcircuiteval.md) | **简体中文**
 
+> **首次公开：** 2025-07-20 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2507.19525)
+
 ## Overview
 
 MMCircuitEval 是评测 LLM 的首个以电路为中心的多模态 benchmark：3,614 个精选问答对，横跨数字与模拟电路、覆盖关键 EDA 阶段——从通用知识与规格到前端与后端设计——取自教科书、题库、数据手册与真实文档。

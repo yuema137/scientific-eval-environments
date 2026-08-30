@@ -2,6 +2,8 @@
 
 > [English](../../works/robotouille.md) | **简体中文**
 
+> **首次公开：** 2025-02-06 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2502.05227)
+
 ## Overview
 
 Robotouille 是面向 LLM agent 的异步规划 benchmark：长程烹饪任务要求同时照管相互重叠的动作并应对打断——ReAct（GPT-4o）在同步任务上做到 47%，在异步任务上只剩 11%。

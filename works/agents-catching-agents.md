@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/agents-catching-agents.md)
 
+> **First appeared:** 2026-08-04 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.03744)
+
 ## Overview
 
 A study of whether committees of language-model agents deliberating on a shared workspace can be gamed by shortcuts — cues a benchmark rewards but a clinician would ignore. Across seven cohorts on six public clinical datasets it finds that agents largely resist such cues in isolation but adopt them when peers assert them, and it evaluates three oversight agents on whether they can tell shortcut adoption from honest agreement.

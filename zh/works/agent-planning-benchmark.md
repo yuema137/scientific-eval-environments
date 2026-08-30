@@ -2,6 +2,8 @@
 
 > [English](../../works/agent-planning-benchmark.md) | **简体中文**
 
+> **首次公开：** 2026-06-03 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.04874)
+
 ## Overview
 
 Agent Planning Benchmark（APB）是一套规划专项诊断 benchmark，包含横跨 22 个领域、五种设置的 4,209 个多模态实例，把完整计划生成与基于反馈的下一步规划分开，并测试 agent 面对工具或任务缺陷时的稳健性。

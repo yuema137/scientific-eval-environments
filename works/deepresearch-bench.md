@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/deepresearch-bench.md)
 
+> **First appeared:** 2025-06-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2506.11763)
+
 ## Overview
 
 DeepResearch Bench is a benchmark for Deep Research Agents (DRAs) built from 100 PhD-level research tasks across 22 topic domains, paired with two evaluation frameworks: RACE for report-generation quality and FACT for citation grounding and retrieval effectiveness.

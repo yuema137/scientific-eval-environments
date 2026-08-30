@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/drbencher.md)
 
+> **First appeared:** 2026-04-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.09251)
+
 ## Overview
 
 DrBencher is a synthetic benchmark generator that produces questions requiring interleaved web browsing and multi-step computation, synthesizing answer-first from knowledge-graph chains so that gold answers are verifiable by executing parameterized code over knowledge-graph values.

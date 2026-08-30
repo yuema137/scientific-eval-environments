@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/automating-structural-reliability-analysis-with-a.md)
 
+> **First appeared:** 2026-07-18 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.16580)
+
 ## Overview
 
 A five-agent LLM framework that carries component-level structural reliability analysis from a natural-language problem statement to an interpreted reliability index and failure probability, released with a held-out 20-problem reliability benchmark whose reference solutions come from validated solvers and whose method-category labels come from a published deterministic criterion.

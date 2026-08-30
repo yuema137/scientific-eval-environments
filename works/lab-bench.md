@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/lab-bench.md)
 
+> **First appeared:** 2024-07-14 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2407.10362)
+
 ## Overview
 
 LAB-Bench (Language Agent Biology Benchmark) measures capabilities of language models for biology research: over 2,400 multiple-choice questions across eight categories — literature recall and reasoning (LitQA2), figure and table interpretation (FigQA, TableQA), database access (DbQA, SuppQA), protocol planning (ProtocolQA), and DNA/protein sequence manipulation (SeqQA, CloningScenarios) — with human expert biologist baselines.

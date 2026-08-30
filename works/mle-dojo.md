@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mle-dojo.md)
 
+> **First appeared:** 2025-05-12 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.07782)
+
 ## Overview
 
 MLE-Dojo is a Gym-style interactive environment for training, evaluating, and improving autonomous LLM agents on machine-learning engineering: 200+ real-world Kaggle challenges with structured feedback loops covering data processing, architecture search, hyperparameter tuning, and code debugging, evaluated across eight frontier LLMs.

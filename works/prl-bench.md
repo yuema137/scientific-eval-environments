@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/prl-bench.md)
 
+> **First appeared:** 2026-04-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.15411)
+
 ## Overview
 
 PRL-Bench (Physics Research by LLMs) is a benchmark for frontier physics research capability, constructed from 100 curated papers from the latest issues of Physical Review Letters since August 2025 and validated by domain experts, with tasks characterized by exploration-oriented formulation, long-horizon workflows, and objective verifiability.

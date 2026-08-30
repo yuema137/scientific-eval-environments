@@ -2,6 +2,8 @@
 
 > [English](../../works/compiling-and-benchmarking-task-state-horizons-for.md) | **简体中文**
 
+> **首次公开：** 2026-08-08 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.08036)
+
 ## Overview
 
 一个 benchmark 与任务编译器（RoboGraph），评估 agentic 基础模型作为长 horizon 具身任务的高层规划器，并以 *task-state horizon*（TSH，任务状态视界）刻画难度——即 agent 在一条轨迹上必须跟踪、维护、探索并更新的、与任务相关的状态转移的跨度。

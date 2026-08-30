@@ -2,6 +2,8 @@
 
 > [English](../../works/feabench.md) | **简体中文**
 
+> **首次公开：** 2025-04-08 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2504.06260)
+
 ## Overview
 
 FEABench 评估 LLM 与 LLM agent 能否用有限元分析（FEA）端到端地求解物理、数学与工程问题：对自然语言问题描述进行推理，并通过 API 操作 COMSOL Multiphysics® 计算出答案。

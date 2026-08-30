@@ -2,6 +2,8 @@
 
 > [English](../../works/molclaw.md) | **简体中文**
 
+> **首次公开：** 2026-04-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2604.21937)
+
 ## Overview
 
 MolClaw 是面向药物分子评估、筛选与优化的自主 agent，建立在三层的分层 skill 架构之上，并随之发布 **MolBench**——一个覆盖分子筛选、分子优化与端到端发现挑战的 benchmark，任务跨度为 8 到 50 次以上的顺序工具调用。

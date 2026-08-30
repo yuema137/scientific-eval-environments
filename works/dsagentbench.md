@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/dsagentbench.md)
 
+> **First appeared:** 2026-08-11 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.10366)
+
 ## Overview
 
 DSAgentBench is a benchmark that evaluates whether agents can automate complete end-to-end data-science workflows inside real computer environments, requiring coordinated use of tools such as notebooks, IDEs, terminals, browsers, and databases.

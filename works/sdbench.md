@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/sdbench.md)
 
+> **First appeared:** 2025-06-27 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2506.22405)
+
 ## Overview
 
 SDBench (the Sequential Diagnosis Benchmark) recasts 304 diagnostically challenging NEJM clinicopathological conference cases as interactive encounters: the agent starts from a short case abstract and must iteratively request findings from a gatekeeper model that reveals information only when explicitly queried, scored on diagnostic accuracy and the cost of visits and tests ordered. The accompanying MAI-DxO orchestrator is agent-construction work (see the repository note under Limitations).

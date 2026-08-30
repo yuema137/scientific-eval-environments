@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/cmphysbench.md)
 
+> **First appeared:** 2025-08-25 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2508.18124)
+
 ## Overview
 
 CMPhysBench is a benchmark of more than 520 meticulously curated graduate-level calculation problems in condensed matter physics, scored with Scalable Expression Edit Distance (SEED), a fine-grained non-binary partial-credit measure over solution expressions.

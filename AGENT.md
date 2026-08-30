@@ -36,6 +36,7 @@ Directory: `works/`
 
 - **Flat directory.** Every documented work lives directly under `works/` as a single Markdown file — no per-category sub-folders. Each work appears in exactly one place.
 - **Filenames** use kebab-case matching the work's canonical name: `agentboard.md`, `t-eval.md`, `long-horizon-terminal-bench.md`.
+- Every card has a visible, sourced **First appeared** stamp below its language switcher. This is the earliest date on which the work itself was publicly accessible, independent of peer review or formal publication. Check initial preprint/submission records, official project/data/software releases, publisher or proceedings records, DOI metadata, and the official repository; use the earliest verifiable qualifying date. Ignore revisions, acceptance or conference dates, later formal publication, and page modifications when an earlier public version exists. Keep venue/publication details in `Links`. Fall back to the card's first Git addition date only after no public date can be verified, and label that fallback. English and Chinese dates and provenance URLs must match.
 - Cards are **factual references**. They answer *"What is this work?"* — not *"How does it compare to everything else?"* Synthesis belongs in topic pages, not cards.
 - Cards must be **lightweight**. Do not let a card grow into a literature review.
 
@@ -43,6 +44,7 @@ Directory: `works/`
 
 **Card template:**
 
+- First appeared *(dated, linked provenance line below the language switcher; not an `##` section)*
 - Overview
 - **Topics** *(metadata block — bulleted list of topic pages this work belongs to)*
 - **Activities** *(metadata block — bulleted list of activity pages, or an explicit `N/A — <reason>`)*
@@ -68,6 +70,8 @@ The `Topics` block is not just navigation for readers — it is the **internal i
 - Any other section that positions a work against a maintainer's own project
 
 **Template stability.** Once the card template is established, avoid changing its structure. Consistency across cards is more valuable than optimizing individual pages. New evaluation dimensions should extend **topic pages**, not card fields. The `Activities` block was a deliberate, one-time schema extension adding a core navigation axis (mirroring `Topics`); it does not license further casual additions. Activities are controlled navigation metadata drawn from a fixed taxonomy — not a place for topic-specific evaluation dimensions.
+
+**Chronological index.** After adding or changing a card stamp, run `python3 scripts/backfill_first_appeared.py --index-only` and commit both `WORKS_BY_DATE.md` mirrors. The generated order is newest first, with title as the deterministic same-day tie-breaker.
 
 **Repository Notes discipline.** Any observation that is not stated by the paper or official project must be prefixed `Repository note:`. Repository Notes must be conservative:
 

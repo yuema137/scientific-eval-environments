@@ -2,6 +2,8 @@
 
 > [English](../../works/pac-bench.md) | **简体中文**
 
+> **首次公开：** 2025-06-30 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2506.23725)
+
 ## Overview
 
 PAC Bench 追问基础模型是否理解执行操作策略的前提——物体的属性（Properties）、affordance 与约束（Constraints）：30,000+ 条标注，覆盖 673 张真实图像（115 个物体类别）、100 个真实人形机器人第一视角场景与四类任务下的 120 个模拟约束场景。

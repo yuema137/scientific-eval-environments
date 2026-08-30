@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/scivqr.md)
 
+> **First appeared:** 2026-05-11 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.10187)
+
 ## Overview
 
 SciVQR is a multimodal scientific-reasoning benchmark of 3,254 image-paired questions spanning 6 subjects and 54 subfields — mathematics, physics, chemistry, geography, astronomy and biology — in which astronomy is a first-class, separately scored subject with its own subfield breakdown.

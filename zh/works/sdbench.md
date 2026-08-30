@@ -2,6 +2,8 @@
 
 > [English](../../works/sdbench.md) | **简体中文**
 
+> **首次公开：** 2025-06-27 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2506.22405)
+
 ## Overview
 
 SDBench（Sequential Diagnosis Benchmark）把 304 个高难度 NEJM 临床病理讨论会（CPC）病例改造成交互式接诊：agent 从简短的病例摘要出发，须向一个「守门人」模型逐条索取检查发现——信息只有被明确问到才会给出——评分同时看诊断准确率与就诊和检查的花费。配套的 MAI-DxO 编排器属于 agent 构建工作（见 Limitations 中的 repository note）。

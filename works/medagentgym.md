@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/medagentgym.md)
 
+> **First appeared:** 2025-06-04 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2506.04405)
+
 ## Overview
 
 MedAgentGym is a scalable agentic environment for code-centric reasoning in biomedical data science: 72,413 task instances across 129 categories derived from 12 authentic real-world biomedical scenarios, each encapsulated in an executable sandbox with interactive feedback and verifiable ground truth.

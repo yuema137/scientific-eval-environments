@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/paperbench.md)
 
+> **First appeared:** 2025-04-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2504.01848)
+
 ## Overview
 
 PaperBench evaluates whether AI agents can replicate state-of-the-art AI research: agents must replicate 20 ICML 2024 Spotlight and Oral papers from scratch — understanding the contributions, developing a codebase, and executing experiments — graded against author-co-developed hierarchical rubrics totaling 8,316 individually gradable tasks.

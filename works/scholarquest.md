@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/scholarquest.md)
 
+> **First appeared:** 2026-06-18 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.20235)
+
 ## Overview
 
 ScholarQuest is a large-scale, taxonomy-guided benchmark for agentic academic paper search in open literature environments, constructed from over 1,000 computer science topics and four representative research intents.

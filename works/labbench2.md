@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/labbench2.md)
 
+> **First appeared:** 2026-02-04 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.09554)
+
 ## Overview
 
 LABBench2 is an improved benchmark for AI systems performing biology research: nearly 1,900 tasks that reprise the LAB-Bench capability categories in more realistic contexts — answering from PDFs, images, and bioinformatics files — producing model-specific accuracy drops of 26–46% across subtasks relative to LAB-Bench.

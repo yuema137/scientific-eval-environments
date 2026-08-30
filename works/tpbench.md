@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/tpbench.md)
 
+> **First appeared:** 2025-02-19 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2502.15815)
+
 ## Overview
 
 TPBench (Theoretical Physics Benchmark) is a dataset and study of AI reasoning in theoretical physics: 57 novel problems ranging from undergraduate to research level in high-energy theory and cosmology, built to be auto-verifiable and absent from public problem collections.

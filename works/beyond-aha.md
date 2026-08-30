@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/beyond-aha.md)
 
+> **First appeared:** 2025-05-15 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.10554)
+
 ## Overview
 
 Beyond 'Aha!' explicitly aligns deduction, induction, and abduction as reusable meta-abilities before domain-specific reinforcement learning, rather than relying on outcome RL to elicit them incidentally.
@@ -18,6 +20,7 @@ N/A — evaluates general reasoning transfer across benchmark tasks rather than 
 
 ## Links
 
+- **Preprint:** <https://arxiv.org/abs/2505.10554>
 - **Paper:** <https://aclanthology.org/2026.findings-acl.1981/>
 - **Venue:** Findings of ACL 2026
 

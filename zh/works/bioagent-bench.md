@@ -2,6 +2,8 @@
 
 > [English](../../works/bioagent-bench.md) | **简体中文**
 
+> **首次公开：** 2026-01-29 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2601.21800)
+
 ## Overview
 
 BioAgent Bench 是生物信息学的 AI agent 评估套件：人工整理的端到端任务——RNA-seq、变异检测、宏基因组——agent 须以多步流水线完成并产出具体的输出产物，鲁棒性用受控扰动检验。

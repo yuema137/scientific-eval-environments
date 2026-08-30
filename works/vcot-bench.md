@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/vcot-bench.md)
 
+> **First appeared:** 2026-03-18 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2603.18334)
+
 ## Overview
 
 VCoT-Bench is a benchmark that evaluates whether LLMs understand the Verification Chain-of-Thought (VCoT) behind Rust program verification rather than only its pass or fail outcome. It comprises 1,988 VCoT completion tasks derived from 150 verified Verus programs and stratified along three orthogonal dimensions: removal ratio, proof type, and proof location.

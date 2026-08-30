@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/fem-bench.md)
 
+> **First appeared:** 2025-12-23 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2512.20732)
+
 ## Overview
 
 FEM-Bench is a structured scientific-reasoning benchmark for code-generating LLMs in computational mechanics: FEM-Bench 2025 comprises introductory but nontrivial tasks aligned with a first graduate course — 33 tasks in the function-writing track — with objective verification and paired unit-test-writing evaluation.

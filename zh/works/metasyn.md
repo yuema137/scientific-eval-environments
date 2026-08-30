@@ -2,6 +2,8 @@
 
 > [English](../../works/metasyn.md) | **简体中文**
 
+> **首次公开：** 2026-06-15 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.17041)
+
 ## Overview
 
 MetaSyn 是面向系统综述与 meta 分析的 LLM agent benchmark，基于从 34,000 余篇 Nature Portfolio 文章中整理出的 422 项专家 meta 分析构建，提供研究问题、结构化的入选标准、原综述作者纳入的研究，以及锚定 PubMed 的共享语料。

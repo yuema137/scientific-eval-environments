@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/cosmopaperqa.md)
 
+> **First appeared:** 2025-07-09 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2507.07155)
+
 ## Overview
 
 CosmoPaperQA is a 105-pair cosmology question-answering dataset built from five highly cited cosmology papers, used to evaluate nine retrieval-augmented-generation (RAG) agent configurations against expert human grading and to calibrate an LLM-as-a-Judge grader as a proxy for that human evaluation.

@@ -2,6 +2,8 @@
 
 > [English](../../works/trace.md) | **简体中文**
 
+> **首次公开：** 2026-02-05 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2602.21230)
+
 ## Overview
 
 TRACE (Trajectory-Aware Comprehensive Evaluation) 是面向 deep research agent 的评估框架：通过 hierarchical utility function 对整条推理 trajectory 打分，并通过测量"成功所需最少引导"来量化 agent 的潜在能力。论文同时发布 DeepResearch-Bench，一个可控复杂度的配套 benchmark。

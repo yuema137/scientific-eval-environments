@@ -2,6 +2,8 @@
 
 > [English](../../works/plausible-but-wrong-a-case-study-on-agentic-failur.md) | **简体中文**
 
+> **首次公开：** 2026-04-28 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2604.25345)
+
 ## Overview
 
 一项针对 CMBAgent 多 agent 系统的评估研究，横跨两种工作流范式与十八项天体物理任务，贡献了一套自动化评分协议（执行、参数准确性、数值准确性）和一个四模式失败分类法；其核心发现是「静默的错误计算」——代码语法合法，却在没有任何错误信号的情况下返回看似合理实则错误的物理结果。

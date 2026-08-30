@@ -2,6 +2,8 @@
 
 > [English](../../works/lab-bench.md) | **简体中文**
 
+> **首次公开：** 2024-07-14 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2407.10362)
+
 ## Overview
 
 LAB-Bench（Language Agent Biology Benchmark）测量语言模型面向生物学研究的能力：2,400 余道选择题，横跨八个类别——文献回忆与推理（LitQA2）、图表解读（FigQA、TableQA）、数据库访问（DbQA、SuppQA）、协议规划（ProtocolQA）与 DNA/蛋白质序列操作（SeqQA、CloningScenarios）——配人类专家生物学研究者基线。

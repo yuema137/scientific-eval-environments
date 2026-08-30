@@ -2,6 +2,8 @@
 
 > [English](../../works/lota-bench.md) | **简体中文**
 
+> **首次公开：** 2024-02-13 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2402.08178)
+
 ## Overview
 
 LoTa-Bench 为具身 agent 的语言任务规划器提供全自动评测：LLM 生成的计划在模拟器中执行，按目标达成度判分，覆盖两组数据集-模拟器组合——AI2-THOR 上的 ALFRED 与 VirtualHome 上扩展的 Watch-And-Help。

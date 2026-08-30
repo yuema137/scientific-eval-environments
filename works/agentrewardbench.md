@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/agentrewardbench.md)
 
+> **First appeared:** 2025-04-11 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2504.08942)
+
 ## Overview
 
 AgentRewardBench is a benchmark that measures how well automatic evaluators — LLM judges and the rule-based scorers shipped with web agent benchmarks — reproduce expert judgements of agent trajectories. It contains 1,302 trajectories drawn from 5 web benchmarks and 4 agent LLMs, each reviewed by an expert annotator for success, side effects, and repetition.

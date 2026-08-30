@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/skillshapley.md)
 
+> **First appeared:** 2026-08-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.13173)
+
 ## Overview
 
 SkillShapley is a step-level attribution framework for agent skills: it models the contribution of each step inside a skill as a Shapley value and estimates those values under a boundary-adaptive sampling scheme designed for discretized benchmark rewards.

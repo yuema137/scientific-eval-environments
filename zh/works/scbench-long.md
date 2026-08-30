@@ -2,6 +2,8 @@
 
 > [English](../../works/scbench-long.md) | **简体中文**
 
+> **首次公开：** 2026-06-25 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.26563)
+
 ## Overview
 
 scBench-Long 是长 horizon 单细胞生物学的可验证 benchmark：21 项评估要求 agent 在不预设方法的前提下，从原始或近原始数据复原科学结论，涵盖黑色素瘤 CD8 T 细胞反应性、RNA+ATAC 调控推断、人-猴嵌合体发育、KRAS 驱动的肺肿瘤衰老与致死性 COVID-19 肺部病理。

@@ -2,6 +2,8 @@
 
 > [English](../../works/swe-together.md) | **简体中文**
 
+> **首次公开：** 2026-06-29 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.29957)
+
 ## Overview
 
 SWE-Together 是从真实用户-agent 会话重建的多轮编码 benchmark：从 11,260 条录制会话中整理出 109 个仓库级任务，通过一个保持原始用户意图的反应式 LLM 用户模拟器，在不同 agent 之间回放。

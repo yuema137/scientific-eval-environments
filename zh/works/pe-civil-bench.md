@@ -2,6 +2,8 @@
 
 > [English](../../works/pe-civil-bench.md) | **简体中文**
 
+> **首次公开：** 2026-03-26 · **来源：** [官方代码库创建](https://github.com/komal-blkmmb/Benchmarking_agentic-design_and_evaluation)
+
 ## Overview
 
 PE Civil Bench 是一个开放 benchmark，收录 150 道执业资格考试风格的土木工程题目，题型仿照 NCEES 的 Fundamentals of Engineering 与 Professional Engineering Civil 两项考试。它在十三个前沿及开放权重 LLM 上横向对比三种做法——基础 prompt、向量检索增强生成（vector RAG）与 agentic RAG——并配套一条 agent 化的钢筋混凝土构件设计管线，其输出对照有限元分析验证。

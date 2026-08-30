@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/gammapygpt.md)
 
+> **First appeared:** 2025-09-30 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2509.26110)
+
 ## Overview
 
 An agent that writes, executes and validates Gammapy analysis code for ground-based gamma-ray astronomy inside a controlled execution environment, together with an accompanying benchmarking suite of gamma-ray analysis tasks whose numerical outputs are checked against expected values.

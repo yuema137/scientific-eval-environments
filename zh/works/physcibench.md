@@ -2,6 +2,8 @@
 
 > [English](../../works/physcibench.md) | **简体中文**
 
+> **首次公开：** 2026-06-17 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.18648)
+
 ## Overview
 
 PhySciBench 是物理科学领域的 deep-research benchmark：200 道专家整理的问题，物理与化学各半，分六个反映真实科学工作流的任务类别。配套的 DelveAgent 框架属于 agent 构建工作，与本仓库的评估重心相邻。

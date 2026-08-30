@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/brainbench-eeg.md)
 
+> **First appeared:** 2026-08-04 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.04156)
+
 ## Overview
 
 BrainBench (EEG) benchmarks LLMs on comprehensive EEG understanding: instruction-conditioned analysis across four subsets — Foundational Analysis, Sleep Assessment, Neurocognitive Assessment, and Physiological Integration — over 17 datasets, where a system must analyze EEG recordings and produce a scientifically grounded report.

@@ -2,6 +2,8 @@
 
 > [English](../../works/skilljuror.md) | **简体中文**
 
+> **首次公开：** 2026-06-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.11543)
+
 ## Overview
 
 SkillJuror 是一套评估框架，把*一个 agent skill 如何组织*与*它说了什么*分离开来：在任务知识保持不变的前提下，比较 Progressive Disclosure 布局（一个精简的根文件，按需指向各项支撑资源）与归一化的扁平基线。

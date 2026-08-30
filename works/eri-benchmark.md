@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/eri-benchmark.md)
 
+> **First appeared:** 2026-02-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2603.02239)
+
 ## Overview
 
 The Engineering Reasoning and Instruction (ERI) benchmark is a taxonomy-driven instruction dataset of 57,750 instruction–response records built as a controlled cross-product of nine engineering fields (55 subdomains, chemical engineering among them), seven task intents, and three difficulty tiers, released with validation scripts and an evaluation harness for scoring LLMs and agents.

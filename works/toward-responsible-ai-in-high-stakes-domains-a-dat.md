@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/toward-responsible-ai-in-high-stakes-domains-a-dat.md)
 
+> **First appeared:** 2025-10-24 · **Source:** [Official publication record](https://doi.org/10.3390/data10110169)
+
 ## Overview
 
 A published dataset and validation protocol in which GPT-4o answers structural-analysis prompts for reinforced-concrete frames twice — once as a bare language model and once as a tool-using agent that drives OpenSeesPy through a Model Context Protocol (MCP) server — with both sets of answers scored as relative error against manually built ETABS reference models.

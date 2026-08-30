@@ -2,6 +2,8 @@
 
 > [English](../../works/hydroagent.md) | **简体中文**
 
+> **首次公开：** 2026-05-18 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2605.17792)
+
 ## Overview
 
 HydroAgent 评测九个前沿 LLM agent 对业务化 CREST 分布式水文模型——美国国家气象局用于山洪预报——的参数率定能力，在流域面积 329–40,792 km² 的四个留出测站上以 Nash–Sutcliffe 效率（NSE）对照人类专家参照打分。论文配套的 RL 训练 agent 属于方法贡献（见 Limitations 中的 repository note）。

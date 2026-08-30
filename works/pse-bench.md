@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/pse-bench.md)
 
+> **First appeared:** 2026-04-04 · **Source:** [Official repository creation](https://github.com/sombsuk/PSE-Bench)
+
 ## Overview
 
 PSE-Bench is a benchmark of 200 open-ended questions spanning four core domains of process systems engineering, paired with a multi-judge evaluation framework in which five independent LLM judges score each response against a seven-element rubric.

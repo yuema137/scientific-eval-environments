@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/fveval.md)
 
+> **First appeared:** 2024-10-15 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2410.23299)
+
 ## Overview
 
 FVEval is an NVIDIA benchmark for understanding language-model capabilities in formal verification of digital hardware, across three sub-tasks — generating SystemVerilog assertions from natural language, generating them from a testbench/design, and design-level verification reasoning — validated with the Cadence Jasper formal tool.

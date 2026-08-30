@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/trip-evaluate.md)
 
+> **First appeared:** 2026-04-29 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.00907)
+
 ## Overview
 
 TRIP-Evaluate is an open multimodal benchmark of 837 single-choice items for evaluating large language and

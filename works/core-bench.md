@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/core-bench.md)
 
+> **First appeared:** 2024-09-17 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2409.11363)
+
 ## Overview
 
 CORE-Bench (Computational Reproducibility Agent Benchmark) measures whether AI agents can reproduce the results of published studies from the provided code and data: 270 tasks based on 90 scientific papers across computer science, social science, and medicine, at three difficulty levels.

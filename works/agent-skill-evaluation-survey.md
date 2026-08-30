@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/agent-skill-evaluation-survey.md)
 
+> **First appeared:** 2026-06-09 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.11435)
+
 ## Overview
 
 A survey of how agent skills are evaluated and evolved once they exist, organising the literature into four skill-evolution paradigms and six categories of skill-centric benchmark, and identifying structural gaps in benchmark coverage.

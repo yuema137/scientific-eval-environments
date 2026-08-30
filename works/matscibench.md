@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/matscibench.md)
 
+> **First appeared:** 2025-10-14 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.12171)
+
 ## Overview
 
 MatSciBench benchmarks the reasoning ability of large language models in materials science: 1,340 college-level problems spanning the essential subdisciplines, with detailed reference solutions for 946 and images for 315 — DeepSeek-R1 tops text-only questions at 75.22% while GPT-5 leads image questions at 53.02%.

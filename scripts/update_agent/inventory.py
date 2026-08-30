@@ -28,7 +28,7 @@ def card_identity(path):
         "title": title,
         "title_norm": normalize_title(title),
         "arxiv": sorted(set(normalize_arxiv_id(m) for m in
-                            re.findall(r"arxiv\.org/(?:abs|pdf)/(\d{4}\.\d{4,5})", text, re.I))),
+                            re.findall(r"arxiv\.org/(?:abs|pdf|html)/(\d{4}\.\d{4,5})", text, re.I))),
         "openreview": sorted(set(re.findall(r"openreview\.net/forum\?id=([\w\-]+)", text, re.I))),
         "doi": sorted(set(m.lower() for m in re.findall(r"\b(10\.\d{4,9}/[^\s>)\]]+)", text))),
         "github": sorted(set(g for g in (_norm_github(u) for u in

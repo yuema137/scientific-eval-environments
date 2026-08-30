@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/skillcoach.md)
 
+> **First appeared:** 2026-07-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.01874)
+
 ## Overview
 
 SkillCoach is a self-evolving rubric framework for process-level evaluation of agentic skill-use: it derives skill-grounded rubrics from real rollouts and scores trajectories along four dimensions — skill selection, skill following, skill composition, and skill-grounded reflection — while keeping the external verifier as a separate outcome signal.

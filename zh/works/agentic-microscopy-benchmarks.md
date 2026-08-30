@@ -2,6 +2,8 @@
 
 > [English](../../works/agentic-microscopy-benchmarks.md) | **简体中文**
 
+> **首次公开：** 2026-08-05 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.05266)
+
 ## Overview
 
 一项来自业界（Carl Zeiss Research Microscopy Solutions）的研究，为 agentic 自主（self-driving）显微术配套了 benchmark 与轨迹日志框架，并给出一个元发现：53 个 benchmark 测试、105 种 agent 配置足以支撑资格验证（qualification）、回归测试与诊断——但预测不了在未见任务上的表现。

@@ -2,6 +2,8 @@
 
 > [English](../../works/heurekabench.md) | **简体中文**
 
+> **首次公开：** 2026-01-04 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2601.01678)
+
 ## Overview
 
 HeurekaBench 是一个用于「造 benchmark」的框架——它生成面向实验数据集的探索性开放研究问题，而本身不是一个固定的 benchmark。每个问题都 grounding 在一篇已发表的科学研究及其代码仓库上，由一条半自动流水线产出，其候选答案须经与该研究已报告的发现比对验证。

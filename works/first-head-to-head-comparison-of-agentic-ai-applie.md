@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/first-head-to-head-comparison-of-agentic-ai-applie.md)
 
+> **First appeared:** 2026-05-27 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.28916)
+
 ## Overview
 
 A controlled head-to-head evaluation in which two commercial agentic coding systems, Claude Code and Codex, are given an identical written specification and identical hardware and asked to execute an end-to-end gravitational-wave analysis pipeline on simulated Einstein Telescope data without human intervention, with both the scientific outputs and the agents' process behaviour recorded and compared.

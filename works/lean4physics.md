@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/lean4physics.md)
 
+> **First appeared:** 2025-10-30 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.26094)
+
 ## Overview
 
 Lean4Physics (Lean4PHYS) is a reasoning framework for college-level physics in Lean4, contributing LeanPhysBench — 200 hand-crafted, peer-reviewed formal physics statements derived from university textbooks and competition problems — together with PhysLib, a community-driven repository of unit systems and theorems for formal physics reasoning. The paper presents it as the first physics benchmark in Lean4.

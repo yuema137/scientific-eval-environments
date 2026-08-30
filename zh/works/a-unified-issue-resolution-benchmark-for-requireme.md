@@ -2,6 +2,8 @@
 
 > [English](../../works/a-unified-issue-resolution-benchmark-for-requireme.md) | **简体中文**
 
+> **首次公开：** 2026-08-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.09072)
+
 ## Overview
 
 SWE-RPG 是一个仓库级 issue 解决 benchmark，把可执行的补丁评估与「需求澄清」（Requirement Clarification）和「实现规划」（Implementation Planning）的经验证真值参考配对，从而支持对完整 coding-agent 轨迹做阶段对齐的诊断，而不只是通过/失败式打分。

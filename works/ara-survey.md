@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ara-survey.md)
 
+> **First appeared:** 2026-06-29 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.05179)
+
 ## Overview
 
 A survey of autonomous research agents ('AI scientists') centered on the verification gap: the distance between systems' ability to complete research tasks and the field's ability to verify their claims. From 125 screened candidates, 35 works are included, 26 with full-text coding across seven audit dimensions.

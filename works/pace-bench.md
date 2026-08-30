@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/pace-bench.md)
 
+> **First appeared:** 2026-08-14 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.14441)
+
 ## Overview
 
 PACE-Bench (Physics Adaptation via Code Evolution) evaluates self-evolving agents on recovery after the world changes underneath them. Each of its 144 tasks pairs a source physics environment with a mutated target environment sharing the same goal and interface, where a code-driven design that succeeds in the source fails in the target and the agent must iteratively repair it using diagnostic sandbox feedback within a bounded attempt budget.

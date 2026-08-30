@@ -2,6 +2,8 @@
 
 > [English](../../works/onepot-bench.md) | **简体中文**
 
+> **首次公开：** 2026-08-03 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.02595)
+
 ## Overview
 
 onepot-Bench 0 是一套私有的、面向实验室现实的化学 benchmark 套件，分三部分：ChemAbacus（不借助工具的化学信息学素养与数值推理）、SynthRefusal（在良性、管制与设计毒品类目标上刻画安全与拒答行为）、SynthBench（用作者实验室产生的私有实验数据评估反应结果预测与催化剂选择）。

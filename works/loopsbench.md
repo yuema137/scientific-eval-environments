@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/loopsbench.md)
 
+> **First appeared:** 2026-07-31 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.00267)
+
 ## Overview
 
 LoopsBench is a long-horizon benchmark for evaluating coding agents on "loop engineering" — sustained, multi-step software development — where each task is a dependency DAG over separately testable development units with source-evidenced prerequisite edges.

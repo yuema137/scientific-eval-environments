@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/gravity-bench.md)
 
+> **First appeared:** 2025-01-30 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2501.18411)
+
 ## Overview
 
 Gravity-Bench-v1 is an agentic benchmark on gravitational-physics discovery: the agent observes a simulated two-body gravitational system, plans data collection within an experimental budget, and analyzes the data to uncover concealed physics — including out-of-distribution modified physics that cannot be answered from memorized textbook knowledge.

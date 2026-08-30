@@ -2,6 +2,8 @@
 
 > [English](../../works/backroombench.md) | **简体中文**
 
+> **首次公开：** 2026-07-29 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2607.27484)
+
 ## Overview
 
 BACKROOMBench 是建立在 BACKTRACE 评估框架之上的可验证测试床，用来度量 skill 增强的语言 agent *自述*的 skill 使用，与该 skill 对其答案的因果影响是否一致——后者由*干预实验测得*。

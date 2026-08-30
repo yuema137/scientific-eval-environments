@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/openxrd.md)
 
+> **First appeared:** 2025-07-12 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2507.09155)
+
 ## Overview
 
 OpenXRD is a benchmark framework for LLM and multimodal-LLM X-ray diffraction question answering: 217 expert-curated crystallography questions evaluated across 74 state-of-the-art models under closed-book and open-book conditions, finding that expert-reviewed context helps mid-sized models most.

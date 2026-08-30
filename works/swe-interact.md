@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/swe-interact.md)
 
+> **First appeared:** 2026-06-29 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.30573)
+
 ## Overview
 
 SWE-Interact is a testbed for evaluating coding agents on multi-turn, interactive, user-driven software-engineering tasks: a user simulator reveals requirements progressively and gives feedback, testing whether agents can discover intent, adapt to changes, and build on prior work.

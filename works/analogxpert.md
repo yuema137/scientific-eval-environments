@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/analogxpert.md)
 
+> **First appeared:** 2024-12-17 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2412.19824)
+
 ## Overview
 
 AnalogXpert is an LLM agent for automating analog topology synthesis by incorporating circuit-design expertise: it represents topologies as SPICE code, decomposes design into block selection and block connection via chain-of-thought and in-context learning, and is evaluated on a benchmark of 30 real and 2,000 synthetic cases, reaching 40% / 23% success versus GPT-4o's 3%.

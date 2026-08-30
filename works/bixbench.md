@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/bixbench.md)
 
+> **First appeared:** 2025-02-28 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2503.00096)
+
 ## Overview
 
 BixBench is a benchmark for LLM-based agents in computational biology: over 50 real-world scenarios of practical biological data analysis with nearly 300 associated open-answer questions, in which agents explore datasets and perform long, multi-step analytical trajectories inside a containerized Jupyter environment.

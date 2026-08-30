@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/skillmisevo-bench.md)
 
+> **First appeared:** 2026-08-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.12851)
+
 ## Overview
 
 SkillMisevo-Bench is a frozen benchmark, paired with the lifecycle-aware harness SkillMisevo-Gym, for measuring *skill misevolution*: the failure in which a self-improving LLM agent distils an unsafe success into its persistent skill library, so that the unsafe procedure is retrieved and re-executed long after the triggering input is gone.

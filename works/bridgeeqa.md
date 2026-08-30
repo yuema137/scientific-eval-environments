@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/bridgeeqa.md)
 
+> **First appeared:** 2025-11-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2511.12676)
+
 ## Overview
 
 BridgeEQA is an embodied question-answering benchmark for bridge inspection: 2,200 open-vocabulary

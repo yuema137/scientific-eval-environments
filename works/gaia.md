@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/gaia.md)
 
+> **First appeared:** 2023-11-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2311.12983)
+
 ## Overview
 
 GAIA is a benchmark for General AI Assistants posing real-world questions that require reasoning, multi-modality handling, web browsing, and general tool-use proficiency. The questions are conceptually simple and unambiguous for humans yet hard for frontier models.

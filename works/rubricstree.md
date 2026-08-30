@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/rubricstree.md)
 
+> **First appeared:** 2026-06-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.18203)
+
 ## Overview
 
 RubricsTree is an evaluation framework for open-ended personal health agents that replaces a monolithic LLM judge with an expert-curated hierarchical taxonomy of over 100 atomic, clinically verifiable Boolean rubrics, activating only the relevant rubric subset per query through a context-aware adaptive router.

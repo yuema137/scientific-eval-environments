@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/scienceagentbench.md)
 
+> **First appeared:** 2024-10-07 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2410.05080)
+
 ## Overview
 
 ScienceAgentBench is a benchmark for evaluating language agents on individual tasks within data-driven scientific-discovery workflows. It extracts 102 tasks from 44 peer-reviewed publications across four disciplines, unifies every task's target output to a self-contained Python program, and scores generated programs, execution results, and costs.

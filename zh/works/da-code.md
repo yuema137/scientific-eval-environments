@@ -2,6 +2,8 @@
 
 > [English](../../works/da-code.md) | **简体中文**
 
+> **首次公开：** 2024-10-09 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2410.07331)
+
 ## Overview
 
 DA-Code 是面向 agent 的数据科学代码生成 benchmark：在可控、可执行的沙箱环境中做复杂的数据整理、分析与代码生成任务，即便当前最强 LLM 也只达到 30.5% 的准确率。

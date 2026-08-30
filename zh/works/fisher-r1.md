@@ -2,6 +2,8 @@
 
 > [English](../../works/fisher-r1.md) | **简体中文**
 
+> **首次公开：** 2026-08-07 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.07437)
+
 ## Overview
 
 一个由 425 道贴近真实的假设检验任务组成的 benchmark（P-Bench），以及一个训练来做统计上有效之假设检验的开放权重 LLM agent（Fisher-R1）；评估 agent 是否选对了合适的统计方法、算出正确的 p 值，并得出有效的拒绝/不拒绝结论。

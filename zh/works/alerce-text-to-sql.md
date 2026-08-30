@@ -2,6 +2,8 @@
 
 > [English](../../works/alerce-text-to-sql.md) | **简体中文**
 
+> **首次公开：** 2026-06-16 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.18108)
+
 ## Overview
 
 一套面向 ALeRCE 天文警报 broker 数据库的自然语言转 SQL 系统，随文发布了一个含 110 组自然语言/SQL 对的评测集——问题由天文学家提出，目标查询由专家撰写——并在其上以完全匹配的执行式指标比较了十三个 LLM。

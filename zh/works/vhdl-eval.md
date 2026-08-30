@@ -2,6 +2,8 @@
 
 > [English](../../works/vhdl-eval.md) | **简体中文**
 
+> **首次公开：** 2024-06-06 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2406.04379)
+
 ## Overview
 
 VHDL-Eval 是评测 LLM 生成 VHDL 代码的框架：202 个问题，由 Verilog 评测问题翻译为 VHDL 并汇总公开 VHDL 问题而成，在零样本、上下文学习与参数高效微调三种设定下评估。

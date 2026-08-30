@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/liveideabench.md)
 
+> **First appeared:** 2024-12-23 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2412.17596)
+
 ## Overview
 
 LiveIdeaBench evaluates LLMs' divergent-thinking capabilities for scientific idea generation with minimal context: over 40 leading models generate ideas from single-keyword prompts across 1,180 keywords spanning 22 scientific domains, scored by an LLM panel on five dimensions — originality, feasibility, fluency, flexibility, and clarity.

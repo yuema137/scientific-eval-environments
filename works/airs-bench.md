@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/airs-bench.md)
 
+> **First appeared:** 2026-02-06 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2602.06855)
+
 ## Overview
 
 AIRS-Bench (AI Research Science Benchmark) is a suite of 20 frontier research-science tasks for LLM agents, covering the full research lifecycle across language modeling, mathematics, bioinformatics, and time-series forecasting — with no baseline code provided.

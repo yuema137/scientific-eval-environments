@@ -2,6 +2,8 @@
 
 > [English](../../works/molpuzzle.md) | **简体中文**
 
+> **首次公开：** 2024-07-03 · **来源：** [官方代码库首次提交](https://github.com/KehanGuo2/MolPuzzle/commit/11e5f4c4c12f3a150291f58f52a8c595ededb6da)
+
 ## Overview
 
 MolPuzzle 把分子结构解析做成三阶段的多模态「拼图」——分子理解、谱图解读、分子构建——共 200 个解析实例、23,678 条数据样例；GPT-4o 的最终结构与真值精确匹配率仅 1.4%，远低于人类。

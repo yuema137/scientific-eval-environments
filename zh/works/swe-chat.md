@@ -2,6 +2,8 @@
 
 > [English](../../works/swe-chat.md) | **简体中文**
 
+> **首次公开：** 2026-04-22 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2604.20779)
+
 ## Overview
 
 SWE-chat 是一个大规模、持续增长的真实人类–coding agent 交互数据集，采集自真实环境（in the wild）中的开源开发者，把完整的会话转录（prompt、tool call、agent 回复）与行级的人类 vs. agent 代码作者归属配对。它是数据集与观察性分析贡献，而非任务套件式 benchmark。

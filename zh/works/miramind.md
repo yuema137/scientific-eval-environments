@@ -2,6 +2,8 @@
 
 > [English](../../works/miramind.md) | **简体中文**
 
+> **首次公开：** 2025-12-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2512.09636)
+
 ## Overview
 
 MiraMind 是一个评估大语言模型心理健康推理的 benchmark，它不仅为任务结果评分，还评估把有限、主观的证据连向临床判断的显式推理轨迹的可靠性。

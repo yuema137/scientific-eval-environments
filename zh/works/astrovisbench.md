@@ -2,6 +2,8 @@
 
 > [English](../../works/astrovisbench.md) | **简体中文**
 
+> **首次公开：** 2025-05-26 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2505.20538)
+
 ## Overview
 
 AstroVisBench 是面向天文学科学计算与可视化的代码 benchmark：模型要先实现一套天文专属的数据处理工作流，再画出能传达预期科学洞见的图。可视化由一条 VLM-as-a-judge 流水线打分，这条流水线以五位职业天文学家的标注为对照做过校验。

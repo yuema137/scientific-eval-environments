@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/posttrainbench.md)
 
+> **First appeared:** 2026-03-09 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2603.08640)
+
 ## Overview
 
 PostTrainBench evaluates whether CLI agents can autonomously post-train small base language models to improve held-out benchmark scores under a single-H100, ten-hour budget.

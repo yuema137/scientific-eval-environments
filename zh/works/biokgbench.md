@@ -2,6 +2,8 @@
 
 > [English](../../works/biokgbench.md) | **简体中文**
 
+> **首次公开：** 2024-06-29 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2407.00466)
+
 ## Overview
 
 BioKGBench 是面向生物医学 AI agent 的知识图谱核查 benchmark：两项原子任务——科学主张验证（SCV）与知识图谱问答（KGQA）——组合成 agentic 的 KGCheck 任务，agent 借助 KGQA 与领域 RAG 找出大规模生物医学知识图谱中的事实错误。

@@ -2,6 +2,8 @@
 
 > [English](../../works/physgym.md) | **简体中文**
 
+> **首次公开：** 2025-07-21 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2507.15550)
+
 ## Overview
 
 PhysGym 是面向 LLM agent 交互式物理发现的 benchmark 套件与模拟平台：agent 主动探查模拟环境、在约束下逐步采集数据、并就底层物理定律提出假设——其特色是对提供给 agent 的先验知识做精细控制。

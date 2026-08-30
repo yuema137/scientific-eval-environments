@@ -2,6 +2,8 @@
 
 > [English](../../works/fukuyamabench.md) | **简体中文**
 
+> **首次公开：** 2026-07-14 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2607.12771)
+
 ## Overview
 
 FukuyamaBench 是层级化反应机理推理的高难度 benchmark，题目取自 Fukuyama 的《Advanced Organic Reaction Mechanism》一书；它由一篇以训练为主的机理推理论文发布，该文微调的 Qwen3-30B-A3B 在 Set A 上达到 8.3% 的完整路径精确匹配，超过专用模型 FlowER 的 5.1%。

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/swe-chat.md)
 
+> **First appeared:** 2026-04-22 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.20779)
+
 ## Overview
 
 SWE-chat is a large-scale, continually growing dataset of real human–coding-agent interactions collected from open-source developers in the wild, pairing complete session transcripts (prompts, tool calls, agent responses) with line-level human-vs.-agent code authorship attribution. It is a dataset and observational-analysis contribution, not a task-suite benchmark.

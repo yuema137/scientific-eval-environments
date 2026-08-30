@@ -2,6 +2,8 @@
 
 > [English](../../works/devai.md) | **简体中文**
 
+> **首次公开：** 2024-10-14 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2410.10934)
+
 ## Overview
 
 DevAI 是含 55 个真实感自动化 AI 开发任务、365 个层级化用户需求的 benchmark，随 Agent-as-a-Judge 一同发布——一种「用 agent 评估 agent」的评估方法，提供逐步反馈，在可靠性上媲美人类评估、并远胜 LLM-as-a-Judge。

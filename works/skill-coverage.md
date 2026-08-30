@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/skill-coverage.md)
 
+> **First appeared:** 2026-06-09 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.20659)
+
 ## Overview
 
 Skill Coverage is a trajectory-based test-adequacy metric for reusable agent skills: it compiles a skill's natural-language instructions into semi-structured behavior constraints and checks, per constraint, whether an agent trajectory covered it and whether the observed behavior passed or failed.

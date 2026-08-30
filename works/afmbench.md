@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/afmbench.md)
 
+> **First appeared:** 2025-10-14 · **Source:** [Official publication page](https://www.nature.com/articles/s41467-025-64105-7)
+
 ## Overview
 
 AFMBench is an evaluation suite of 100 expertly curated tasks that requires LLM agents to operate a real atomic force microscope rather than a simulator, spanning the workflow from experimental design through results analysis. It is documented here for AFMBench, the paper's *evaluation* contribution; the accompanying AILA framework is agent-implementation work adjacent to this repository's evaluation focus (see the repository note under Limitations).

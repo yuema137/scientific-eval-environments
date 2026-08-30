@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/dsbench.md)
 
+> **First appeared:** 2024-09-12 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2409.07703)
+
 ## Overview
 
 DSBench asks how far data-science agents are from becoming data-science experts: 540 tasks — 466 data-analysis and 74 data-modeling — with long contexts, multimodal backgrounds, and multi-table data sourced from competition platforms and Kaggle, where the best agent solves only 34.12% of analysis tasks.

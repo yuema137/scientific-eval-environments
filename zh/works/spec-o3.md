@@ -2,6 +2,8 @@
 
 > [English](../../works/spec-o3.md) | **简体中文**
 
+> **首次公开：** 2026-01-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2601.06498)
+
 ## Overview
 
 Spec-o3 是一个带工具的视觉语言 agent，通过自动化的光谱检视来核验稀有天体候选体。除 agent 之外，论文还给出 SpecVI-Bench：一个基于 LAMOST 光谱、包含五项稀有天体识别任务的标准化 benchmark，测试集刻意保持类别不均衡，并配有外部 baseline、跨巡天泛化划分，以及一份公开的专家评分量表，用于给 agent 的推理轨迹打分。

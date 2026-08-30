@@ -2,6 +2,8 @@
 
 > [English](../../works/a-large-language-model-empowered-agent-for-reliabl.md) | **简体中文**
 
+> **首次公开：** 2025-06-27 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2507.02938)
+
 ## Overview
 
 一个含八道梁结构分析题的 benchmark，配两项定义明确的指标——可靠性（同一题重复运行中输出正确的比例）与鲁棒性（荷载位置与边界条件变化时，可靠性保持稳定的程度）。作者先用它刻画一个裸 LLM，再在同一组题目上刻画一个生成 OpenSeesPy 代码的 agent。

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/who-and-when-pro.md)
 
+> **First appeared:** 2026-07-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.09996)
+
 ## Overview
 
 Who&When Pro is a benchmark that measures how well LLMs attribute a failed agent trajectory to the agent, the step, and the error mode responsible for it. It contains 12,326 failed trajectories whose labels are fixed by construction: every trace replays the prefix of a successful rollout exactly, then substitutes a single injected error.

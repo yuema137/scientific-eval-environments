@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/discoverphysics.md)
 
+> **First appeared:** 2026-05-25 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.26087)
+
 ## Overview
 
 DiscoverPhysics is an agentic benchmark for out-of-the-box scientific thinking: the agent must discover the laws of motion of a simulated world whose physics deliberately deviates from our own — screened gravity, hidden particle species, modified force laws — by proposing rounds of experiments and analyzing raw trajectory data.

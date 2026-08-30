@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/from-queries-to-criteria-understanding-how-astrono.md)
 
+> **First appeared:** 2025-07-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2507.15715)
+
 ## Overview
 
 An empirical study of how domain experts actually judge an LLM system in situ: 368 real queries and 11 interviews from a four-week deployment of an astronomy literature RAG bot are inductively coded into a query taxonomy and five evaluation criteria, which are then used to build and release a 40-item expert-authored astronomy benchmark with an automatic scoring protocol validated against user ratings.

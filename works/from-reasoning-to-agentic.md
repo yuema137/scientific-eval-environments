@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/from-reasoning-to-agentic.md)
 
+> **First appeared:** 2026-04-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.09459)
+
 ## Overview
 
 A survey synthesizing credit-assignment (CA) methods in reinforcement learning for large language models, spanning reasoning RL and agentic RL, with a diagnostic framework mapping assumption breaks to identification barriers, estimators, and evaluation controls.

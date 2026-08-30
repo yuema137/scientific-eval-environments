@@ -2,6 +2,8 @@
 
 > [English](../../works/pace-bench.md) | **简体中文**
 
+> **首次公开：** 2026-08-14 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.14441)
+
 ## Overview
 
 PACE-Bench（Physics Adaptation via Code Evolution）考察自演化 agent 在世界从脚下变掉之后能否恢复。它的 144 个任务各自把一个源物理环境与一个变异后的目标环境配成一对，两者目标与接口相同；在源环境中成功的代码化设计到了目标环境中会失败，agent 必须在有限的尝试预算内，借助沙箱的诊断反馈把它逐步修好。

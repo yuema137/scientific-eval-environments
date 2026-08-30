@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mdarena.md)
 
+> **First appeared:** 2026-07-31 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.02642)
+
 ## Overview
 
 MDArena is a benchmark that evaluates coding agents on realistic molecular dynamics (MD) workflows. It comprises 50 containerized tasks sourced from active research projects, spanning 29 molecular systems and 14 research protocols.

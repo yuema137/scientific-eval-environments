@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/atomworld.md)
 
+> **First appeared:** 2025-10-06 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.04704)
+
 ## Overview
 
 AtomWorld is a benchmark for evaluating the spatial reasoning of large language models on crystalline materials: models perform ten fundamental atomic-structure actions across four widely used modelling categories, with verifiable checks — and struggle badly on operations involving complex spatial relations (below 12% success for rotations).

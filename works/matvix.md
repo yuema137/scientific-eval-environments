@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/matvix.md)
 
+> **First appeared:** 2024-10-27 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2410.20494)
+
 ## Overview
 
 MatViX benchmarks multimodal information extraction from visually rich materials articles: 324 full-length research articles paired with 1,688 complex structured JSON files curated by domain experts, where vision-language models must extract compositions and property curves from text, tables, and figures in a zero-shot setting.

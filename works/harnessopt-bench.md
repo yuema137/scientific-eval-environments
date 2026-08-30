@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/harnessopt-bench.md)
 
+> **First appeared:** 2026-08-06 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.06301)
+
 ## Overview
 
 HarnessOpt-Bench is a benchmark measuring how well frontier LLMs perform automated harness optimization — iteratively improving the prompts, tools, control flow, and orchestration code surrounding LLMs — under a fixed target-evaluation budget inside a trusted execution environment.

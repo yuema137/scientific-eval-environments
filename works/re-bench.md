@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/re-bench.md)
 
+> **First appeared:** 2024-11-22 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2411.15114)
+
 ## Overview
 
 RE-Bench (Research Engineering Benchmark, v1) evaluates the frontier AI R&D capabilities of language-model agents against human experts: 7 open-ended ML research-engineering environments with reference solutions, plus data from 71 eight-hour attempts by 61 human experts — with agents outscoring humans 4x at a 2-hour budget but humans winning 2x by 32 hours.

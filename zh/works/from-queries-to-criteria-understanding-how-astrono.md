@@ -2,6 +2,8 @@
 
 > [English](../../works/from-queries-to-criteria-understanding-how-astrono.md) | **简体中文**
 
+> **首次公开：** 2025-07-21 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2507.15715)
+
 ## Overview
 
 一项实证研究，考察领域专家在真实工作现场究竟如何评判一个 LLM 系统：作者把一个天文文献 RAG 机器人四周部署期内的 368 条真实提问与 11 次访谈作归纳编码，提炼出一套提问类型学与五条评价准则，再据此构建并公开了一个 40 道题、由专家撰写答案的天文 benchmark，其自动打分协议已对照用户评分完成校验。

@@ -2,6 +2,8 @@
 
 > [English](../../works/simulcost.md) | **简体中文**
 
+> **首次公开：** 2026-03-11 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2603.20253)
+
 ## Overview
 
 SimulCost 是面向 LLM agent 在物理仿真参数调优上的 cost-aware benchmark。它显式纳入 tool-use 成本——仿真时间与实验资源——超越"仅计 token 成本"的资源感知评估视角。

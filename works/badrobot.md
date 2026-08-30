@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/badrobot.md)
 
+> **First appeared:** 2024-07-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2407.20242)
+
 ## Overview
 
 BadRobot jailbreaks embodied LLM agents in the physical world: an attack paradigm exploiting three vulnerabilities of LLM-robot stacks, evaluated with a companion benchmark of 277 malicious physical-action queries across six harm categories against frameworks like Code as Policies, ProgPrompt, and VoxPoser — reaching an average manipulate success rate of 68.57%, with demonstrations on real UR3e and myCobot robots.

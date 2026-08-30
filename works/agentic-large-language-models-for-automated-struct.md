@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/agentic-large-language-models-for-automated-struct.md)
 
+> **First appeared:** 2026-06-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.06525)
+
 ## Overview
 
 A benchmark of ten irregular 3D building-frame systems in which an agent must produce an executable SAP2000 script from a natural-language description, scored by whether every monitored structural response falls within 1% of a manually built ground-truth SAP2000 model.

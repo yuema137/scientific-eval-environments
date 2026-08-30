@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/scbench-long.md)
 
+> **First appeared:** 2026-06-25 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.26563)
+
 ## Overview
 
 scBench-Long is a verifiable benchmark of long-horizon single-cell biology: 21 evaluations in which agents must recover scientific conclusions from raw or near-raw data without prescribed methods, spanning melanoma CD8 T-cell reactivity, RNA+ATAC regulatory inference, human–monkey chimera development, KRAS-driven lung tumor aging, and lethal COVID-19 lung pathology.

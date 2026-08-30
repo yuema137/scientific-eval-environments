@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/astrovisbench.md)
 
+> **First appeared:** 2025-05-26 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.20538)
+
 ## Overview
 
 AstroVisBench is a code benchmark for scientific computing and visualization in astronomy: a model must implement an astronomy-specific data-processing workflow and then produce the plot that conveys the intended scientific insight. Visualizations are graded by a VLM-as-a-judge pipeline validated against annotations by five professional astronomers.

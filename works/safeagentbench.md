@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/safeagentbench.md)
 
+> **First appeared:** 2024-12-17 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2412.13178)
+
 ## Overview
 
 SafeAgentBench evaluates whether embodied LLM agents plan safely: 750 executable tasks covering 10 potential hazards and 3 task types, run in SafeAgentEnv — a universal embodied environment with a low-level controller and 17 high-level actions — where the most safety-conscious baseline rejects only 10% of detailed hazardous tasks.

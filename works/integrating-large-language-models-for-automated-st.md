@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/integrating-large-language-models-for-automated-st.md)
 
+> **First appeared:** 2025-04-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2504.09754)
+
 ## Overview
 
 A hand-curated benchmark of twenty structural analysis word problems (SAWPs) on 2D frames with ground-truth solutions, used to compare four LLMs inside an OpenSeesPy-backed framework and to measure the run-to-run stability of the best of them.

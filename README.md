@@ -32,6 +32,7 @@ The collection changes as the field changes. Every three days, an update agent s
 - **[Browse by Domain](./domains/README.md)** — find evaluation work within a scientific or engineering field.
 - **[Browse by Research Activity](./activities/README.md)** — find works by the task the evaluated agent or system performs.
 - **[Browse All Works](./works/README.md)** — open the complete collection of factual work cards.
+- **[Browse Works by First Appearance](./WORKS_BY_DATE.md)** — view the collection from newest to oldest initial public appearance.
 
 Choose the entry point that matches the question you already have:
 

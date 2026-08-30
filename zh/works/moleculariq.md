@@ -2,6 +2,8 @@
 
 > [English](../../works/moleculariq.md) | **简体中文**
 
+> **首次公开：** 2026-01-21 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2601.15279)
+
 ## Overview
 
 MolecularIQ 是只收录「符号可验证」任务的分子结构推理 benchmark：每个答案都能对照分子图本身检验，从而摆脱大多数化学 benchmark 里引入泄漏与偏差的文献标签、代理标签和选择题形式。

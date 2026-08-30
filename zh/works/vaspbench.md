@@ -2,6 +2,8 @@
 
 > [English](../../works/vaspbench.md) | **简体中文**
 
+> **首次公开：** 2026-05-25 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2605.26179)
+
 ## Overview
 
 VASPBench 是面向自主密度泛函理论计算的专建 benchmark，横跨 34 个任务、9 种 DFT 计算类型；它随 AutoDFT 一同发布——一个闭环多 agent 框架，负责规划、运行并修复 VASP 计算，用 GPT-5.2 达到 94.1% 的任务级成功率。

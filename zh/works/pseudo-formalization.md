@@ -2,6 +2,8 @@
 
 > [English](../../works/pseudo-formalization.md) | **简体中文**
 
+> **首次公开：** 2026-05-19 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2605.20531)
+
 ## Overview
 
 Pseudo-Formalization（PF）是一种评估方法论，它把自然语言数学证明改写为若干自包含模块——每个模块陈述自身的前提、结论与证明——再对每个模块独立检查。它在奥林匹克竞赛级与研究级数学上接受评估，并发布 ArxivMathGradingBench，包含 35 篇 arXiv 研究论文以及作者事后披露的 40 处错误。

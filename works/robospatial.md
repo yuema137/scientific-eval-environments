@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/robospatial.md)
 
+> **First appeared:** 2024-11-25 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2411.16537)
+
 ## Overview
 
 RoboSpatial teaches and tests spatial understanding for robotics-oriented vision-language models: 1M images, 5K 3D scans, and 3M annotated spatial relationships over real indoor and tabletop scenes, in both 2D- and 3D-ready form — models trained on it outperform baselines on spatial affordance prediction, spatial relationship prediction, and robot manipulation.

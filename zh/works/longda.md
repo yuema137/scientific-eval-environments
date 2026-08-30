@@ -2,6 +2,8 @@
 
 > [English](../../works/longda.md) | **简体中文**
 
+> **首次公开：** 2026-01-05 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2601.02598)
+
 ## Overview
 
 LongDA 是一个在 documentation-intensive（文档密集型）分析工作流下评估 LLM agent 的数据分析 benchmark：505 条分析查询，grounding 在覆盖 17 个公开美国全国性调查的专家撰写出版物上，配套文档平均长达 263k token。它同时发布了 LongTA——一个作为评估脚手架与 baseline 的工具增强 agent 框架。

@@ -2,6 +2,8 @@
 
 > [English](../../works/first-head-to-head-comparison-of-agentic-ai-applie.md) | **简体中文**
 
+> **首次公开：** 2026-05-27 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2605.28916)
+
 ## Overview
 
 一项受控的正面对比实验：两套商用 agentic coding 系统 Claude Code 与 Codex 拿到完全相同的书面规格说明、跑在完全相同的硬件上，要在无人干预的条件下，对 Einstein Telescope 的模拟数据端到端执行一条引力波分析管线；实验同时记录并比较双方的科学产出与过程行为。

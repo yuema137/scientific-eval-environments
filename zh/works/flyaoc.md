@@ -2,6 +2,8 @@
 
 > [English](../../works/flyaoc.md) | **简体中文**
 
+> **首次公开：** 2026-02-09 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2602.09163)
+
 ## Overview
 
 FlyAOC 是面向端到端 agentic 本体策展的 benchmark：agent 拿到的只有一个基因符号，须在 16,898 篇果蝇全文论文的语料中检索并阅读，产出以本体为锚的结构化标注，再与取自 FlyBase 的 7,397 条专家策展结果比对打分。（同一版本的 arXiv 摘要中也把该 benchmark 称作「FlyBench」；论文标题、发布的代码与仓库名用的都是 FlyAOC。）

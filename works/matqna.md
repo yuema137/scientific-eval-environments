@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/matqna.md)
 
+> **First appeared:** 2025-09-14 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2509.11335)
+
 ## Overview
 
 MatQnA is a benchmark dataset for multimodal LLMs in materials characterization and analysis, spanning ten mainstream characterization methods — XPS, XRD, SEM, TEM and others — where the most advanced models (GPT-4.1, Claude 4, Gemini 2.5, Doubao Vision Pro) already reach nearly 90% on objective questions.

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/qcbench.md)
 
+> **First appeared:** 2025-08-03 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2508.01670)
+
 ## Overview
 
 QCBench evaluates LLMs on domain-specific quantitative chemistry: 350 computational problems across 7 chemistry subfields in three difficulty tiers, structured to prevent heuristic shortcuts and demand explicit step-by-step numerical reasoning.

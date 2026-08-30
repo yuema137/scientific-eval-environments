@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/bioagent-bench.md)
 
+> **First appeared:** 2026-01-29 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2601.21800)
+
 ## Overview
 
 BioAgent Bench is an AI-agent evaluation suite for bioinformatics: manually curated end-to-end tasks — RNA-seq, variant calling, metagenomics — that agents must complete as multi-step pipelines producing concrete output artifacts, with robustness probed via controlled perturbations.

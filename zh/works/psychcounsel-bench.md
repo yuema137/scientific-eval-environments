@@ -2,6 +2,8 @@
 
 > [English](../../works/psychcounsel-bench.md) | **简体中文**
 
+> **首次公开：** 2025-10-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2510.01611)
+
 ## Overview
 
 PsychCounsel-Bench 用专业认证题评测 LLM 的心理学水平：约 2,252 道来自美国国家咨询师认证考试（NCE）的单选题，先进模型能越过约 70% 的及格线，而较小的开源模型则远远不及。

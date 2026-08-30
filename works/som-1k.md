@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/som-1k.md)
 
+> **First appeared:** 2025-09-25 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2509.21079)
+
 ## Overview
 
 SoM-1K is a multimodal benchmark of 1,065 annotated strength-of-materials (mechanics of materials) problems — each pairing a textual problem statement with a schematic diagram, an expert-written description of that diagram, and a full worked ground-truth solution — used to evaluate eight foundation models under three prompting strategies with expert manual grading.

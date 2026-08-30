@@ -2,6 +2,8 @@
 
 > [English](../../works/pse-bench.md) | **简体中文**
 
+> **首次公开：** 2026-04-04 · **来源：** [官方代码库创建](https://github.com/sombsuk/PSE-Bench)
+
 ## Overview
 
 PSE-Bench 是一个含 200 道开放式题目的 benchmark，覆盖过程系统工程的四个核心领域，并配一套多 judge 评测框架：每份答复由五个独立的 LLM judge 对照一份七要素评分细则打分。

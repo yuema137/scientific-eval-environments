@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/codepde.md)
 
+> **First appeared:** 2025-05-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.08783)
+
 ## Overview
 
 CodePDE is an inference framework for LLM-driven PDE solver generation: PDE solving is framed as code generation, and the framework's evaluation study — spanning reasoning, debugging, self-refinement, and test-time scaling on representative PDE problems — functions as the reference evaluation for LLM-generated numerical solvers.

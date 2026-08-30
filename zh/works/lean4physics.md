@@ -2,6 +2,8 @@
 
 > [English](../../works/lean4physics.md) | **简体中文**
 
+> **首次公开：** 2025-10-30 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2510.26094)
+
 ## Overview
 
 Lean4Physics（Lean4PHYS）是大学物理在 Lean4 中的推理框架，贡献了 LeanPhysBench——200 条手工编写、经同行评审的形式化物理命题，取材于大学教材与物理竞赛题——以及 PhysLib，一个社区驱动的、收录形式化物理推理所需单位制与定理的基础仓库。论文称这是首个 Lean4 物理 benchmark。

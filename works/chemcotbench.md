@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/chemcotbench.md)
 
+> **First appeared:** 2025-05-27 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.21318)
+
 ## Overview
 
 ChemCoTBench moves chemical evaluation beyond QA by framing molecular transformations as modular chemical operations — addition, deletion, substitution — so that problem-solving becomes a transparent, step-by-step workflow: 1,495 samples across 22 tasks in molecular property optimization and chemical reaction prediction.

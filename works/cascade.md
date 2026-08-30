@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/cascade.md)
 
+> **First appeared:** 2025-12-29 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2512.23880)
+
 ## Overview
 
 CASCADE is a self-evolving agentic framework in which an agent acquires and accumulates executable skills for scientific work through two meta-skills — continuous learning and self-reflection — and ships SciSkillBench, a 116-task materials-science and chemistry benchmark used to measure what the accumulated skills are worth.

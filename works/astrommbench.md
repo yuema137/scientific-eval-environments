@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/astrommbench.md)
 
+> **First appeared:** 2025-09-29 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.00063)
+
 ## Overview
 
 AstroMMBench is a multimodal astronomy benchmark of 621 expert-reviewed multiple-choice questions over figures drawn from astronomy papers, spanning six astrophysical subfields, used to evaluate 25 multimodal large language models on astronomical image understanding.

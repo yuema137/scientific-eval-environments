@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mlagentbench.md)
 
+> **First appeared:** 2023-10-05 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2310.03302)
+
 ## Overview
 
 MLAgentBench evaluates language agents on machine-learning experimentation: a suite of 13 tasks — from improving CIFAR-10 accuracy to recent research problems like BabyLM — where an agent reads and writes files, executes code, inspects outputs, and iterates to beat a starter-code baseline, with the best agent (Claude 3 Opus) at 37.5% average success.

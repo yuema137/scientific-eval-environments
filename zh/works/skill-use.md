@@ -2,6 +2,8 @@
 
 > [English](../../works/skill-use.md) | **简体中文**
 
+> **首次公开：** 2026-08-05 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.04828)
+
 ## Overview
 
 Skill-Use 是追问 LLM agent 能否真正在 agentic harness 中使用 skill 的 benchmark：79 个真实 skill、177 个可执行任务，横跨九个领域，任务锚定真实文件并在隔离的 Docker 沙箱中运行。

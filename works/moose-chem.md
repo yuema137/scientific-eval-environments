@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/moose-chem.md)
 
+> **First appeared:** 2024-10-09 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2410.07076)
+
 ## Overview
 
 MOOSE-Chem evaluates whether LLMs can rediscover unseen chemistry hypotheses: a benchmark of 51 high-impact chemistry papers published after January 2024, each manually annotated by PhD chemists with background, inspirations, and hypothesis, paired with an agentic framework that retrieves inspirations, composes hypotheses, and ranks them.

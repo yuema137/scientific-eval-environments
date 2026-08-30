@@ -2,6 +2,8 @@
 
 > [English](../../works/llm-thermodynamics.md) | **简体中文**
 
+> **首次公开：** 2025-01-27 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2502.05195)
+
 ## Overview
 
 一项 benchmark 研究：在 22 道化工热力学题目上评估五个大语言模型，答案由受过训练的人类专家按学术考试的判卷方式打分。

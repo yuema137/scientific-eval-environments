@@ -2,6 +2,8 @@
 
 > [English](../../works/swe-bench.md) | **简体中文**
 
+> **首次公开：** 2023-10-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2310.06770)
+
 ## Overview
 
 SWE-bench 评估语言模型能否通过编辑代码库来解决真实的 GitHub issue。它包含来自 12 个流行 Python 仓库的 2,294 个 issue–pull request 任务实例，并通过执行仓库自身的测试来对模型的补丁打分。

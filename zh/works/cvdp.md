@@ -2,6 +2,8 @@
 
 > [English](../../works/cvdp.md) | **简体中文**
 
+> **首次公开：** 2025-06-17 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2506.14074)
+
 ## Overview
 
 CVDP（Comprehensive Verilog Design Problems）是 NVIDIA 面向 LLM 与 agent 的下一代 RTL 设计与验证 benchmark：783 个问题、13 个任务类别——RTL 生成、验证、调试、规格对齐与技术问答——兼有非 agent 与 agent 两种格式，最先进的模型在代码生成上 pass@1 不超过 34%。

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/hls-eval.md)
 
+> **First appeared:** 2025-04-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2504.12268)
+
 ## Overview
 
 HLS-Eval is a benchmark and framework for evaluating LLMs on high-level synthesis design tasks: 94 unique designs with natural-language descriptions and testbenches, over two tasks — generating HLS code from natural language and performing HLS-specific edits to optimize performance and hardware efficiency — scored by parseability, compilability, runnability, and synthesizability on Vitis HLS.

@@ -2,6 +2,8 @@
 
 > [English](../../works/transportbench.md) | **简体中文**
 
+> **首次公开：** 2024-08-15 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2408.08302)
+
 ## Overview
 
 TransportBench 是一个含 140 道本科交通工程题目的数据集，题目取自 University of Illinois 的两门土木工程课程，配以人类专家评分，用于测量七个商业与开放权重 LLM 的准确率、答案一致性与推理行为。

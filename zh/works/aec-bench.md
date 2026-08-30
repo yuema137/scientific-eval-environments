@@ -2,6 +2,8 @@
 
 > [English](../../works/aec-bench.md) | **简体中文**
 
+> **首次公开：** 2026-03-31 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2603.29199)
+
 ## Overview
 
 AEC-Bench 是一个建立在真实施工文档集之上的多模态 agent benchmark：九个任务族、三个作用范围层级共 196 个任务实例，由 agent 在沙箱化的 Docker 环境中经 Harbor 测评框架执行，再由各任务专属的自动验证器对结构化的发现结果判分。

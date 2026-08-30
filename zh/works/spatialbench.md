@@ -2,6 +2,8 @@
 
 > [English](../../works/spatialbench.md) | **简体中文**
 
+> **首次公开：** 2025-12-26 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2512.21907)
+
 ## Overview
 
 SpatialBench 追问 agent 能否分析真实世界的空间生物学数据：146 个可验证问题，横跨五种空间技术与七类任务，从步骤前数据快照出发、以确定性判分检验关键生物学结果的复原。

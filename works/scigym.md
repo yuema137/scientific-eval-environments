@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/scigym.md)
 
+> **First appeared:** 2025-07-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2507.02083)
+
 ## Overview
 
 SciGym measures the scientific capabilities of language models with a systems-biology dry lab: agents iteratively design experiments and analyze the resulting simulated data on biological systems encoded in the Systems Biology Markup Language (SBML), submitting hypothesized mechanisms against hidden ground-truth systems.

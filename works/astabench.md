@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/astabench.md)
 
+> **First appeared:** 2025-10-24 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.21652)
+
 ## Overview
 
 AstaBench is a benchmark suite that provides a holistic measure of agentic ability to perform scientific research, pairing its tasks with a reproducible tool environment and cost-controlled scoring. It comprises 2,400+ problems across 11 benchmarks in four task categories — literature understanding, code & execution, data analysis, and end-to-end discovery — with many problems inspired by actual user requests to deployed Asta agents.

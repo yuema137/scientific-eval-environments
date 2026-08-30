@@ -2,6 +2,8 @@
 
 > [English](../../works/swe-bench-promax.md) | **简体中文**
 
+> **首次公开：** 2026-08-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.09802)
+
 ## Overview
 
 SWE-Bench ProMax 是一个专家整理的多语言代码重构 benchmark，含 170 个来自真实提交的实例，横跨七种编程语言，用于考察 coding agent 在跨多文件、协同且保持行为不变的改动上的能力。

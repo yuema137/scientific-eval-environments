@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/cfdllmbench.md)
 
+> **First appeared:** 2025-09-19 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2509.20374)
+
 ## Overview
 
 CFDLLMBench is a three-tier benchmark suite for evaluating large language models on computational fluid dynamics, progressing from graduate-level CFD knowledge (CFDQuery) through numerical and physical reasoning in generated Python solvers (CFDCodeBench) to end-to-end OpenFOAM case configuration and execution (FoamBench).

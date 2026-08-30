@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/pta-grpo.md)
 
+> **First appeared:** 2025-10-02 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.01833)
+
 ## Overview
 
 PTA-GRPO distills compact high-level guidance from chain-of-thought traces, then jointly optimizes plan quality and fine-grained reasoning with reinforcement learning.

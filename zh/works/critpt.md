@@ -2,6 +2,8 @@
 
 > [English](../../works/critpt.md) | **简体中文**
 
+> **首次公开：** 2025-09-30 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2509.26574)
+
 ## Overview
 
 CritPt（Complex Research using Integrated Thinking – Physics Test，读作「critical point」）是含 71 个复合、未发表的研究级物理挑战的 benchmark，可分解为 190 个更简单的检查点任务，由 50 余位活跃物理研究者在 11 个以上子领域中全新创作。

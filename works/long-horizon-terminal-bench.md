@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/long-horizon-terminal-bench.md)
 
+> **First appeared:** 2026-07-09 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.08964)
+
 ## Overview
 
 Long-Horizon-Terminal-Bench extends Terminal-Bench to substantially longer execution horizons. It uses fine-grained graded subtasks to enable dense intermediate rewards and partial credit rather than binary end-task pass/fail.

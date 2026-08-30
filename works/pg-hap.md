@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/pg-hap.md)
 
+> **First appeared:** 2026-04-24 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.22748)
+
 ## Overview
 
 PG-HAP trains a lightweight policy to select high-level reasoning actions step by step while keeping the executor LLM fully frozen.
@@ -18,6 +20,7 @@ N/A — general mathematical and commonsense reasoning methodology; no scientifi
 
 ## Links
 
+- **Preprint:** <https://arxiv.org/abs/2604.22748>
 - **Paper:** <https://aclanthology.org/2026.findings-acl.2024/>
 - **Code:** <https://github.com/john1226966735/PG-HAP>
 - **Venue:** Findings of ACL 2026

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/fisher-r1.md)
 
+> **First appeared:** 2026-08-07 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.07437)
+
 ## Overview
 
 A benchmark (P-Bench) of 425 realistic hypothesis-testing tasks and an open-weight LLM agent (Fisher-R1) trained to perform statistically valid hypothesis testing, evaluating whether an agent selects an appropriate statistical method, computes a correct p-value, and draws a valid reject/fail-to-reject conclusion.

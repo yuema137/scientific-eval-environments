@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/hiscibench.md)
 
+> **First appeared:** 2025-12-28 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2512.22899)
+
 ## Overview
 
 HiSciBench is a hierarchical multi-disciplinary benchmark of 8,735 instances that arranges scientific capability into five ascending levels — factual literacy, literature parsing, literature question answering, literature review generation, and data-driven scientific discovery — across mathematics, physics, chemistry, biology, geography and astronomy, with multimodal and cross-lingual inputs.

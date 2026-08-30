@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/sciagentarena.md)
 
+> **First appeared:** 2026-06-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.12736)
+
 ## Overview
 
 SciAgentArena is a systematic benchmark for evaluating AI agents in real-world scientific research scenarios across scales. It provides roughly 200 tasks with stepwise verification in an interactive, agent-agnostic environment.

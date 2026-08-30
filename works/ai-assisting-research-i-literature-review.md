@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ai-assisting-research-i-literature-review.md)
 
+> **First appeared:** 2026-07-28 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.25672)
+
 ## Overview
 
 A controlled head-to-head comparison of AI-assisted and human-expert literature review on eight real frontier research projects in physics, astrophysics and cosmology, measuring how far AI-selected references overlap with expert-selected ones and quantifying fabrication and metadata-mismatch rates across 701 AI-generated references.

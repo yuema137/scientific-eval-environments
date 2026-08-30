@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/da-code.md)
 
+> **First appeared:** 2024-10-09 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2410.07331)
+
 ## Overview
 
 DA-Code is an agent-oriented data-science code-generation benchmark: complex data wrangling, analytics, and code generation tasks set in a controllable, executable sandbox environment, where even the best current LLMs reach only 30.5% accuracy.

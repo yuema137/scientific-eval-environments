@@ -2,6 +2,8 @@
 
 > [English](../../works/verilogeval.md) | **简体中文**
 
+> **首次公开：** 2023-09-14 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2309.07544)
+
 ## Overview
 
 VerilogEval 是评测 LLM 生成 Verilog 代码的标杆 benchmark：取自 HDLBits 教学网站的 156 个问题，通过将生成的 RTL 与参考解仿真对比来自动检验功能正确性。

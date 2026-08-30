@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/physics-benchmark.md)
 
+> **First appeared:** 2025-03-26 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2503.21821)
+
 ## Overview
 
 PHYSICS is a comprehensive benchmark for university-level physics problem solving: 1,297 expert-annotated problems covering six core areas — classical mechanics, quantum mechanics, thermodynamics and statistical mechanics, electromagnetism, atomic physics, and optics — with a robust automated evaluation system.

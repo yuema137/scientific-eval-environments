@@ -2,6 +2,8 @@
 
 > [English](../../works/embodied-agent-interface.md) | **简体中文**
 
+> **首次公开：** 2024-10-09 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2410.07166)
+
 ## Overview
 
 Embodied Agent Interface（EAI）把 LLM 的具身决策评测分解为四个模块——目标解释、子目标分解、动作排序、状态转移建模——在 VirtualHome 与 BEHAVIOR 中对照模拟器状态逐一评分，并配有细粒度的错误分类法。

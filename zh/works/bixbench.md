@@ -2,6 +2,8 @@
 
 > [English](../../works/bixbench.md) | **简体中文**
 
+> **首次公开：** 2025-02-28 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2503.00096)
+
 ## Overview
 
 BixBench 是面向计算生物学 LLM agent 的 benchmark：50 余个来自真实世界的生物数据分析场景、近 300 个开放式问题，agent 在容器化 Jupyter 环境中探索数据集并完成长的多步分析轨迹。

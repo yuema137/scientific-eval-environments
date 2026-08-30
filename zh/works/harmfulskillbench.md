@@ -2,6 +2,8 @@
 
 > [English](../../works/harmfulskillbench.md) | **简体中文**
 
+> **首次公开：** 2026-04-16 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2604.15415)
+
 ## Overview
 
 HarmfulSkillBench 是一个含 200 个 skill 的 benchmark，测量预装的 agent skill 会在多大程度上压低 LLM 对有害任务的拒答；随之发布的还有一项覆盖两大公开 agent skill 注册库、共 98,440 个 skill 的测量研究。

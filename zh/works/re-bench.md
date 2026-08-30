@@ -2,6 +2,8 @@
 
 > [English](../../works/re-bench.md) | **简体中文**
 
+> **首次公开：** 2024-11-22 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2411.15114)
+
 ## Overview
 
 RE-Bench（Research Engineering Benchmark，v1）在前沿 AI R&D 能力上对照人类专家评测语言模型 agent：7 个带参考解的开放式 ML 研究工程环境，加上 61 位人类专家 71 次 8 小时尝试的数据——2 小时预算下 agent 得分是人类的 4 倍，但到 32 小时人类反超到 2 倍。

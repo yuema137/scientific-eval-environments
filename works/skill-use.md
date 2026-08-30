@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/skill-use.md)
 
+> **First appeared:** 2026-08-05 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.04828)
+
 ## Overview
 
 Skill-Use is a benchmark asking whether LLM agents can actually use skills in agentic harnesses: 79 real skills with 177 executable tasks across nine domains, each grounded in real files and run in an isolated Docker sandbox.

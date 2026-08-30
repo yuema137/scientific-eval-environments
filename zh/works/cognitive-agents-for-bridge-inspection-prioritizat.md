@@ -2,6 +2,8 @@
 
 > [English](../../works/cognitive-agents-for-bridge-inspection-prioritizat.md) | **简体中文**
 
+> **首次公开：** 2026-07-29 · **来源：** [engrxiv 公开发布](https://engrxiv.org/preprint/view/7703)
+
 ## Overview
 
 一项实证评估：把一个以标准为依据、用于公路桥梁检测排序的 LLM agent，与三个非 LLM 基线放在连续六年的 National Bridge Inventory（NBI）年度快照上比较，所有方法都对照实际观测到的桥梁劣化情况计分；另请一位持证桥梁检测工程师对 agent 写出的理由做独立盲评。

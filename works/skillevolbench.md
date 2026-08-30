@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/skillevolbench.md)
 
+> **First appeared:** 2026-05-22 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.24117)
+
 ## Overview
 
 SkillEvolBench is a diagnostic benchmark for the step from experience reuse to skill formation: whether an LLM agent can distil its own episodic trajectories into reusable procedural skills that still work when the skill library is frozen and the tasks shift.

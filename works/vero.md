@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/vero.md)
 
+> **First appeared:** 2026-02-25 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2602.22480)
+
 ## Overview
 
 VeRO (Versioning, Rewards, and Observations) is an outer harness for benchmarking coding agents on *agent harness optimization* — iteratively improving a target agent by editing and evaluating its code — providing versioned snapshots, budget-controlled evaluation, and structured execution traces. VeRO-Bench is the accompanying benchmark suite of target agents, tasks, and reference evaluation procedures.

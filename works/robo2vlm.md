@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/robo2vlm.md)
 
+> **First appeared:** 2025-05-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.15517)
+
 ## Overview
 
 Robo2VLM generates visual question answering from large-scale in-the-wild robot manipulation data: Robo2VLM-1 holds 684,710 multiple-choice questions covering 463 distinct scenes and 3,396 manipulation tasks, derived from 176K real tele-operated robot trajectories whose sensor streams — end-effector pose, gripper aperture, force sensing — supply the ground truth.

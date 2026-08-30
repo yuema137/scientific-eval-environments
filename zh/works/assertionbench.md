@@ -2,6 +2,8 @@
 
 > [English](../../works/assertionbench.md) | **简体中文**
 
+> **首次公开：** 2024-06-26 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2406.18627)
+
 ## Overview
 
 AssertionBench 评测大语言模型的硬件断言生成：100 个从 OpenCores 精选的 Verilog 设计，配以经形式验证的断言（来自 GoldMine 与 HARM 工具），考察 LLM 能否为数字硬件推断出功能正确的断言。

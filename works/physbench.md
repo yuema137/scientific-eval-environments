@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/physbench.md)
 
+> **First appeared:** 2025-01-27 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2501.16411)
+
 ## Overview
 
 PhysBench benchmarks vision-language models on physical-world understanding: 10,002 entries of interleaved video-image-text data across four domains — physical object properties, object relationships, scene understanding, and physics-based dynamics — in 19 subclasses and 8 capability dimensions, evaluated on 75 VLMs and paired with the PhysAgent enhancement framework.

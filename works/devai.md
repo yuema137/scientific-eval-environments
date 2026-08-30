@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/devai.md)
 
+> **First appeared:** 2024-10-14 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2410.10934)
+
 ## Overview
 
 DevAI is a benchmark of 55 realistic automated-AI-development tasks with 365 hierarchical user requirements, released with Agent-as-a-Judge — an evaluation method in which agentic systems evaluate agentic systems, providing step-by-step feedback and matching human-evaluation reliability while far outperforming LLM-as-a-Judge.

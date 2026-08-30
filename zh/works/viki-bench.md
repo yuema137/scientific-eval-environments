@@ -2,6 +2,8 @@
 
 > [English](../../works/viki-bench.md) | **简体中文**
 
+> **首次公开：** 2025-06-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2506.09049)
+
 ## Overview
 
 VIKI-Bench 是首个面向具身多 agent 协作的层级化 benchmark，设三个结构化层级——agent 激活、任务规划、轨迹感知——覆盖多样的机器人形态与多视角视觉观测；配套方法 VIKI-R 用链式思维示范微调 VLM，再以多层级奖励做强化学习。

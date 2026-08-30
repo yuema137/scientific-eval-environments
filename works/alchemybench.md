@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/alchemybench.md)
 
+> **First appeared:** 2025-02-23 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2502.16457)
+
 ## Overview
 
 AlchemyBench is an end-to-end benchmark for LLM-driven materials synthesis, built on 17,000 expert-verified synthesis recipes from open-access literature: models predict raw materials and equipment, generate the synthesis procedure, and forecast characterization outcomes, graded by an expert-level LLM-as-a-Judge framework.

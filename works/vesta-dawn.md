@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/vesta-dawn.md)
 
+> **First appeared:** 2026-05-29 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.00384)
+
 ## Overview
 
 VESTA is a vision-language agent that performs iterative statistical model fitting with a dynamically

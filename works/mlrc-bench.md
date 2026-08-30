@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mlrc-bench.md)
 
+> **First appeared:** 2025-04-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2504.09702)
+
 ## Overview
 
 MLRC-Bench asks whether language agents can solve machine-learning research challenges: a curated suite of 7 competition tasks where agents must propose and implement novel research methods, scored objectively by how much of the gap between a provided baseline and top human participants they close — where the best agent closes only 9.3%.

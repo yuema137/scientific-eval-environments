@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ainsteinbench.md)
 
+> **First appeared:** 2025-12-24 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2512.21373)
+
 ## Overview
 
 AInsteinBench benchmarks coding agents on scientific repositories: tasks derived from maintainer-authored pull requests in six widely used, production-grade scientific codebases — spanning quantum chemistry, quantum computing, molecular dynamics, numerical relativity, fluid dynamics, and cheminformatics — resolved in executable environments with test-driven verification.

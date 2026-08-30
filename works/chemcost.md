@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/chemcost.md)
 
+> **First appeared:** 2026-05-08 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.07251)
+
 ## Overview
 
 ChemCost asks whether agents can price a reaction: 1,427 evaluable reactions grounded to a frozen pricing snapshot of 2,261 chemicals and 230,775 supplier quotes, where an agent must ground chemical identities, retrieve quotes, select valid purchasable packs, normalize quantities, and compute cost — the strongest agents reach only 50.6% accuracy within 25% relative error on clean inputs.

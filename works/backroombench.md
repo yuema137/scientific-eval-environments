@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/backroombench.md)
 
+> **First appeared:** 2026-07-29 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.27484)
+
 ## Overview
 
 BACKROOMBench is a verified testbed, built on the BACKTRACE evaluation framework, that measures whether a skill-augmented language agent's *stated* skill use matches the skill's *intervention-measured* causal influence on its answer.

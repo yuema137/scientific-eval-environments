@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ma-rlhf.md)
 
+> **First appeared:** 2024-10-03 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2410.02743)
+
 ## Overview
 
 MA-RLHF replaces token-level policy updates with macro-actions made from token sequences or higher-level language constructs, testing whether coarser temporal abstraction improves RLHF credit assignment and learning efficiency.
@@ -18,6 +20,7 @@ N/A — general LLM alignment methodology; no scientific or research activity is
 
 ## Links
 
+- **Preprint:** <https://arxiv.org/abs/2410.02743>
 - **Paper:** <https://proceedings.iclr.cc/paper_files/paper/2025/hash/429d69979c22b06d6baa65caf3ab1e10-Abstract-Conference.html>
 - **Code:** <https://github.com/ernie-research/MA-RLHF>
 - **Venue:** ICLR 2025

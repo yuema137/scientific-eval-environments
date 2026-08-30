@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/fgbench.md)
 
+> **First appeared:** 2025-08-01 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2508.01055)
+
 ## Overview
 
 FGBench evaluates molecular property reasoning at functional-group granularity: 625K generated problems annotated with which of 245 functional groups drive a property difference, with a 7K curated subset used to benchmark state-of-the-art LLMs.

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md)
 
+> **First appeared:** 2026-06-05 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.07718)
+
 ## Overview
 
 An empirical case study that evaluates general-purpose coding agents on a real fly-optogenetics "data-to-discovery" pipeline, assessing whether agents can automate the software-engineering stages scientists normally build by hand, using evaluation criteria grounded in domain-expert standards.

@@ -2,6 +2,8 @@
 
 > [English](../../works/tcs-bench.md) | **简体中文**
 
+> **首次公开：** 2026-08-10 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.09538)
+
 ## Overview
 
 TCS-Bench 是一个评估大语言模型在研究级理论计算机科学（TCS）证明生成上的 benchmark，每个任务要求模型为取自顶级 TCS 会议论文的一条目标结论产出自包含的证明。

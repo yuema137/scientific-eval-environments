@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/hipho.md)
 
+> **First appeared:** 2025-09-09 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2509.07894)
+
 ## Overview
 
 HiPhO is a high-school physics olympiad benchmark compiling the 13 latest (2024–2025) international and regional olympiad exams, graded with official marking schemes at both answer and step level, and mapping model scores onto official gold/silver/bronze medal thresholds for direct comparison with human contestants.

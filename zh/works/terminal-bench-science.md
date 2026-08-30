@@ -2,6 +2,8 @@
 
 > [English](../../works/terminal-bench-science.md) | **简体中文**
 
+> **首次公开：** 2026-01-25 · **来源：** [官方代码库创建](https://github.com/harbor-framework/terminal-bench-science)
+
 ## Overview
 
 Terminal-Bench Science 将 Terminal-Bench 框架扩展到自然科学领域，通过确定性的编程化验证在容器化环境中评估 AI agent 在真实科学计算工作流上的表现。

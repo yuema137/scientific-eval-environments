@@ -2,6 +2,8 @@
 
 > [English](../../works/agent-skill-evaluation-survey.md) | **简体中文**
 
+> **首次公开：** 2026-06-09 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.11435)
+
 ## Overview
 
 这篇综述关注 skill 建成之后如何评估、如何演化：把相关文献归入四种 skill 演化范式与六类以 skill 为中心的 benchmark，并指出 benchmark 覆盖上的结构性空缺。

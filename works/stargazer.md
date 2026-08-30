@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/stargazer.md)
 
+> **First appeared:** 2026-04-17 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2604.15664)
+
 ## Overview
 
 Stargazer is a scalable benchmark environment for evaluating AI agents on dynamic, iterative, physics-grounded model-fitting tasks over radial-velocity (RV) time series. It comprises 120 tasks — 100 simulator-generated across three difficulty tiers plus 20 anonymized real archival systems — with built-in per-criterion feedback on every submission.

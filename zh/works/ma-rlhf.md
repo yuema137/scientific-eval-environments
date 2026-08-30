@@ -2,6 +2,8 @@
 
 > [English](../../works/ma-rlhf.md) | **简体中文**
 
+> **首次公开：** 2024-10-03 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2410.02743)
+
 ## 概览
 
 MA-RLHF 不再逐 token 更新 policy，而是把一段 token 或更高层语言结构当作 macro-action，用实验检验更粗的时间粒度能否改善 RLHF 的 credit assignment 与学习效率。
@@ -18,6 +20,7 @@ N/A — 通用 LLM alignment 方法，没有直接评价科学或研究活动。
 
 ## Links
 
+- **Preprint:** <https://arxiv.org/abs/2410.02743>
 - **Paper:** <https://proceedings.iclr.cc/paper_files/paper/2025/hash/429d69979c22b06d6baa65caf3ab1e10-Abstract-Conference.html>
 - **Code:** <https://github.com/ernie-research/MA-RLHF>
 - **Venue:** ICLR 2025

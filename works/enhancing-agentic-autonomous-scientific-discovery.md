@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/enhancing-agentic-autonomous-scientific-discovery.md)
 
+> **First appeared:** 2025-11-18 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2511.14631)
+
 ## Overview
 
 A 10-task benchmark for data-driven scientific discovery — mostly cosmological power-spectrum and molecular spectral-line problems — paired with a vision-language "plot judge" that grades an agent's generated figures against dynamically generated, domain-specific rubrics and feeds the verdict back as a self-correction signal.

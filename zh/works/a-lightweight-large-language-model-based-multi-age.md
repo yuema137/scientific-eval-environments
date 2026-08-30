@@ -2,6 +2,8 @@
 
 > [English](../../works/a-lightweight-large-language-model-based-multi-age.md) | **简体中文**
 
+> **首次公开：** 2025-10-06 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2510.05414)
+
 ## Overview
 
 一个含二十道二维建筑框架结构分析题的 benchmark，每题独立运行十次；随之提出的是一套由五个 agent 组成、以 Llama-3.3 70B 驱动的管线，把框架的文字描述转成可执行的 OpenSeesPy 有限元代码。

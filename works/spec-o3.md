@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/spec-o3.md)
 
+> **First appeared:** 2026-01-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2601.06498)
+
 ## Overview
 
 Spec-o3 is a tool-augmented vision-language agent for vetting rare celestial object candidates by automated spectral inspection. Alongside the agent, the paper contributes SpecVI-Bench, a standardized five-task benchmark of rare-object identification from LAMOST spectra with deliberately imbalanced test sets, external baselines, a cross-survey generalization split, and a published rubric for expert scoring of the agent's reasoning traces.

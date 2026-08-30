@@ -2,6 +2,8 @@
 
 > [English](../../works/medhelm.md) | **简体中文**
 
+> **首次公开：** 2025-05-26 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2505.23802)
+
 ## Overview
 
 MedHELM 将 Stanford CRFM 的 HELM（Holistic Evaluation of Language Models）扩展到医疗任务。它把由医生共同验证的分类体系、一个覆盖广泛的 benchmark 套件与一种显式与医生评分对齐的 LLM-jury 评估方法结合在一起。

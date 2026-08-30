@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/cmt-benchmark.md)
 
+> **First appeared:** 2025-10-06 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2510.05228)
+
 ## Overview
 
 CMT-Benchmark is a benchmark of 50 expert-researcher-level problems in condensed matter theory, built by expert researchers and machine-graded against expert-supplied ground truth, including symbolic handling of non-commuting operators via normal ordering.

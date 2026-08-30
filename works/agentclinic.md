@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/agentclinic.md)
 
+> **First appeared:** 2024-05-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2405.07960)
+
 ## Overview
 
 AgentClinic is a multimodal agent benchmark for AI in simulated clinical environments: a doctor agent must reach diagnoses through sequential patient interactions, multimodal data collection under incomplete information, and tool use — across nine medical specialties and seven languages.

@@ -2,6 +2,8 @@
 
 > [English](../../works/a-framework-for-evaluating-agentic-skills-at-scale.md) | **简体中文**
 
+> **首次公开：** 2026-06-16 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.17819)
+
 ## Overview
 
 一套评估方法学，让 skill 作者把自己的 skill 变成带评分量规的真实可执行任务，并在大规模上应用于约 500 个真实 agent skill、1,000 个生成任务和 19 种 agent–模型配置。

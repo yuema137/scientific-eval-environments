@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/imaging-101.md)
 
+> **First appeared:** 2026-07-12 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.10789)
+
 ## Overview
 
 Imaging-101 is a benchmark of 57 expert-verified computational-imaging tasks spanning six scientific domains, each grounded in a peer-reviewed paper and its open-source reference implementation, used to evaluate LLM coding agents on building complete reconstruction pipelines.

@@ -2,6 +2,8 @@
 
 > [English](../../works/curation-bench.md) | **简体中文**
 
+> **首次公开：** 2026-06-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.04261)
+
 ## Overview
 
 Curation-Bench 测试 generalist coding agent 能否在模型、训练 recipe 和 eval suite 固定时，通过反复 train、evaluate、revise 改进训练数据策略。

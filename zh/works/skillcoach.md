@@ -2,6 +2,8 @@
 
 > [English](../../works/skillcoach.md) | **简体中文**
 
+> **首次公开：** 2026-07-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2607.01874)
+
 ## Overview
 
 SkillCoach 是面向 agent skill 使用的过程级评估框架，其 rubric 会自我演化：rubric 从真实 rollout 中归纳而来，沿四个维度为轨迹打分——skill 选择、skill 遵循、skill 组合，以及基于 skill 的反思——同时把外部 verifier 保留为独立的结果信号。

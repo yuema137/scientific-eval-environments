@@ -2,6 +2,8 @@
 
 > [English](../../works/naturebench.md) | **简体中文**
 
+> **首次公开：** 2026-06-23 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.24530)
+
 ## Overview
 
 NatureBench 评估 AI coding agent 是否能匹敌 Nature-family 科学出版物的已发表 SOTA——被作者框定为一次从"复现"走向"方法论发现"的评估尝试。

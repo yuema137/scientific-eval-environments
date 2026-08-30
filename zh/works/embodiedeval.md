@@ -2,6 +2,8 @@
 
 > [English](../../works/embodiedeval.md) | **简体中文**
 
+> **首次公开：** 2025-01-21 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2501.11858)
+
 ## Overview
 
 EmbodiedEval 在一个交互式 3D 模拟框架中把多模态 LLM 当作具身 agent 来评测：125 个多样 3D 场景中的 328 个任务，横跨导航、物体交互、社交互动、属性问答与空间问答五个类别。

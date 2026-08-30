@@ -2,6 +2,8 @@
 
 > [English](../../works/enhancing-agentic-autonomous-scientific-discovery.md) | **简体中文**
 
+> **首次公开：** 2025-11-18 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2511.14631)
+
 ## Overview
 
 一个面向数据驱动科学发现的 10 任务 benchmark——题目以宇宙学功率谱和分子谱线问题为主——外加一个视觉语言「plot judge」：它按动态生成的领域专属评分细则给 agent 画出的图打分，再把判定结果作为自我纠正信号回灌给 agent。

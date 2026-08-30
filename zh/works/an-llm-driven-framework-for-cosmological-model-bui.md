@@ -2,6 +2,8 @@
 
 > [English](../../works/an-llm-driven-framework-for-cosmological-model-bui.md) | **简体中文**
 
+> **首次公开：** 2025-10-07 · **来源：** [公开存档记录](https://doi.org/10.5281/zenodo.18372109)
+
 ## Overview
 
 一套多阶段评估框架，衡量 LLM 驱动的 coding agent 能否在容器化环境中修改 CLASS 玻尔兹曼求解器代码库，自主提出、实现并探索另类宇宙学模型。agent 的提交由三方面自动打分：二元的执行里程碑、与真值参考实现的数值一致性，以及基于真实巡天数据算出的宇宙学似然/张力奖励。

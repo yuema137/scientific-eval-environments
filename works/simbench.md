@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/simbench.md)
 
+> **First appeared:** 2024-08-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2408.11987)
+
 ## Overview
 
 SimBench evaluates and diagnoses LLM-based digital-twin generation for multi-physics simulation: simulator-oriented LLMs build digital twins for the open-source Chrono simulator — multibody dynamics, finite element analysis, vehicle dynamics, robotic dynamics, and sensor simulation — through multi-turn interactions, scored by an LLM judge with predefined rules and human-in-the-loop guidance.

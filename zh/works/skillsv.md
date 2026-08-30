@@ -2,6 +2,8 @@
 
 > [English](../../works/skillsv.md) | **简体中文**
 
+> **首次公开：** 2026-08-05 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.04562)
+
 ## Overview
 
 SkillSV（结构感知的 agent skill Shapley 估值）是把 credit 分配到 skill 内部单元的归因框架——将 skill 编译为单元、依赖与层级，从而只评估合法的反事实 skill。

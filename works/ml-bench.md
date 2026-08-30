@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ml-bench.md)
 
+> **First appeared:** 2023-11-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2311.09835)
+
 ## Overview
 
 ML-Bench evaluates LLMs and agents on machine-learning tasks at repository-level code: 9,641 examples across 18 GitHub repositories, split into ML-LLM-Bench (generate code from a task description in repository context) and ML-Agent-Bench (execute tasks end to end autonomously in a Linux sandbox).

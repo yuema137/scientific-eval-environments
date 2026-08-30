@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/realpdebench.md)
 
+> **First appeared:** 2026-01-05 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2601.01829)
+
 ## Overview
 
 RealPDEBench is a benchmark for scientific machine learning that integrates real-world measurements with paired numerical simulations — presented as the first of its kind — comprising five datasets, three tasks, eight metrics, and ten baselines. Its subject is scientific ML models rather than LLM agents (see the repository note under Limitations).

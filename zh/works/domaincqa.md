@@ -2,6 +2,8 @@
 
 > [English](../../works/domaincqa.md) | **简体中文**
 
+> **首次公开：** 2025-03-25 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2503.19498)
+
 ## Overview
 
 DomainCQA 是一套在科学领域内构建知识密集型图表问答 benchmark 的方法论，其实例化产物是 **AstroChart**——取自天文学论文的 482 张图表、1,690 组问答对——并用它评测了 21 个多模态大语言模型，同时给出人类基线。

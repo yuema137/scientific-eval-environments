@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/pseudo-formalization.md)
 
+> **First appeared:** 2026-05-19 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.20531)
+
 ## Overview
 
 Pseudo-Formalization (PF) is an evaluation methodology that verifies natural-language mathematical proofs by rewriting them into self-contained modules — each stating its premises, conclusion, and proof — and then checking every module independently. It is evaluated on olympiad-level and research-level mathematics, and ships ArxivMathGradingBench, 35 arXiv research papers carrying 40 errors their authors later disclosed.

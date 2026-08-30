@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/vhdl-eval.md)
 
+> **First appeared:** 2024-06-06 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2406.04379)
+
 ## Overview
 
 VHDL-Eval is a framework for evaluating LLMs on VHDL code generation: 202 problems assembled by translating Verilog evaluation problems into VHDL and aggregating publicly available VHDL problems, evaluated under zero-shot, in-context learning, and parameter-efficient fine-tuning.

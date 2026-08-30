@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ai-cosplaying-as-astrophysicists-a-controlled-synt.md)
 
+> **First appeared:** 2026-03-30 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2603.29039)
+
 ## Overview
 
 A controlled evaluation study in which LLM-simulated astrophysics researchers complete everyday astrophysics

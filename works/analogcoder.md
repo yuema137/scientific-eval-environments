@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/analogcoder.md)
 
+> **First appeared:** 2024-05-23 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2405.14918)
+
 ## Overview
 
 AnalogCoder is the first training-free LLM agent for designing analog circuits through Python code generation, using a feedback-enhanced self-correcting flow and a reusable circuit tool library; it successfully designs 20 circuits — five more than standard GPT-4o — over a curated benchmark of analog circuit design tasks.

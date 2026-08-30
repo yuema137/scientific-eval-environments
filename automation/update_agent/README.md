@@ -8,12 +8,14 @@ never auto-merges.**
 
 English writing, Chinese translation, and Chinese naturalness review all follow [`../../EXPLANATION_STYLE.md`](../../EXPLANATION_STYLE.md). The pipeline preserves causal structure, concrete traces, and boundaries instead of treating translation as sentence-by-sentence word substitution.
 
+Every accepted card also records a sourced `First appeared` date: the earliest verifiable day when the work itself became publicly accessible, regardless of later publication. Workers compare preprint/submission, official project/data/software release, publisher/proceedings, DOI, and official-repository records; venue facts remain separate in `Links`. Repository addition is permitted only as an explicitly labeled last resort. After the Chinese mirror exists, `python3 scripts/backfill_first_appeared.py --index-only` regenerates the bilingual chronological indexes without another network request.
+
 ## Five phases (ordered; a later phase never starts if an earlier one failed)
 
 ```
 Phase 1  Discovery        arXiv + OpenReview + HuggingFace + GitHub metadata, every Topic/Domain/Activity + global queries
 Phase 2  Cards            deep primary-source review; write factual English cards; reject aggressively
-Phase 3  English axes     Topic / Domain / Activity specialists + deterministic integration + count refresh
+Phase 3  English axes     Topic / Domain / Activity specialists + deterministic integration + date-index/count refresh
 Phase 4  Chinese mirror   translate every changed English page (English is canonical)
 Phase 5  Chinese review   independent editor rewrites literal/awkward Chinese
 Final gate               machine-readable; PR is impossible unless all five phases pass

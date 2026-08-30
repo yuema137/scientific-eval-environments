@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/skill2-bench.md)
 
+> **First appeared:** 2026-08-05 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.05139)
+
 ## Overview
 
 Skill²-Bench is a benchmark of *cross-skill long-horizon tasks* — multi-step problems whose consecutive steps require different reasoning skills and depend on earlier answers — calibrated by **skill entropy**, a directed pairwise measure of how hard it is to switch from one skill to another. It is introduced together with Skill-Entropy RL, a training method that reuses the same measure as a reward signal.

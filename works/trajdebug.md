@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/trajdebug.md)
 
+> **First appeared:** 2026-08-06 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.06346)
+
 ## Overview
 
 TRAJDEBUG is an error-lifecycle tracing framework for identifying critical failures in long-horizon agent trajectories, released together with TrajErrBench, a benchmark of 486 manually annotated failed trajectories drawn from Tau2Bench and SWE-Bench Pro.

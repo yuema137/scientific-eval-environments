@@ -2,6 +2,8 @@
 
 > [English](../../works/chemx.md) | **简体中文**
 
+> **首次公开：** 2025-10-01 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2510.00795)
+
 ## Overview
 
 ChemX 评测 agent 系统在化学科学信息自动抽取上的表现：10 个人工整理、领域专家校验的数据集，覆盖纳米材料与小分子，用来对比 ChatGPT Agent 等文档抽取 agent 与化学专用抽取管线。

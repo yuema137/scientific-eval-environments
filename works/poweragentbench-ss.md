@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/poweragentbench-ss.md)
 
+> **First appeared:** 2026-06-17 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.18789)
+
 ## Overview
 
 PowerAgentBench-SS benchmarks agentic AI in power-system steady-state studies: given public case data, action constraints, a tool API, and a validation budget, agents inspect a grid case, call simulators, screen contingencies, propose admissible mitigations, and produce an auditable evidence trail — while a hidden evaluator recomputes physical validity and scores the submitted report.

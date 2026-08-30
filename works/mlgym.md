@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mlgym.md)
 
+> **First appeared:** 2025-02-20 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2502.14499)
+
 ## Overview
 
 MLGym is the first Gym environment for AI-research tasks — enabling reinforcement-learning research on training agents — paired with MLGym-Bench, a benchmark of 13 diverse open-ended AI-research tasks across computer vision, NLP, reinforcement learning, and game theory.

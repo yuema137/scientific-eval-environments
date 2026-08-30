@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/seephys.md)
 
+> **First appeared:** 2025-05-25 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2505.19099)
+
 ## Overview
 
 SeePhys is a large-scale multimodal benchmark for vision-based physics reasoning, spanning middle school to PhD qualifying exams across 7 fundamental physics domains and 21 categories of highly heterogeneous diagrams, with 75% of problems vision-essential.

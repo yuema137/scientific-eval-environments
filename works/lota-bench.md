@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/lota-bench.md)
 
+> **First appeared:** 2024-02-13 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2402.08178)
+
 ## Overview
 
 LoTa-Bench benchmarks language-oriented task planners for embodied agents with fully automated scoring: LLM-generated plans are executed in simulators and graded on goal satisfaction, over two dataset-simulator pairs — ALFRED on AI2-THOR and an extended Watch-And-Help on VirtualHome.

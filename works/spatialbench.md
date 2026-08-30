@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/spatialbench.md)
 
+> **First appeared:** 2025-12-26 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2512.21907)
+
 ## Overview
 
 SpatialBench asks whether agents can analyze real-world spatial biology data: 146 verifiable problems across five spatial technologies and seven task categories, graded deterministically on recovery of a key biological result from a pre-step data snapshot.

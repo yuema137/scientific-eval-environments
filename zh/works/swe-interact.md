@@ -2,6 +2,8 @@
 
 > [English](../../works/swe-interact.md) | **简体中文**
 
+> **首次公开：** 2026-06-29 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2606.30573)
+
 ## Overview
 
 SWE-Interact 是评估 coding agent 在多轮、交互式、用户驱动的软件工程任务上的测试平台：用户模拟器逐步披露需求并给出反馈，考察 agent 能否发现意图、适应变化并在已有工作上继续推进。

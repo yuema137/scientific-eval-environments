@@ -2,6 +2,8 @@
 
 > [English](../../works/simbench.md) | **简体中文**
 
+> **首次公开：** 2024-08-21 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2408.11987)
+
 ## Overview
 
 SimBench 评估并诊断 LLM 的数字孪生生成能力：面向仿真的 LLM 通过多轮交互为开源 Chrono 仿真器构建数字孪生——多体动力学、有限元分析、车辆动力学、机器人动力学与传感器仿真——由带预定义规则与人在环指导的 LLM judge 打分。

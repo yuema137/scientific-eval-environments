@@ -2,6 +2,8 @@
 
 > [English](../../works/crafts.md) | **简体中文**
 
+> **首次公开：** 2026-08-02 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.01369)
+
 ## Overview
 
 CRAFTS 是一套角色分工、经微调的 LLM agent 系统，用于自动构建可执行的化工过程仿真模型；随之一同提出的还有 OpenIDAES-450——一个含 450 个案例的 IDAES 过程仿真数据集，配有留出评测划分与结构化的校验契约。

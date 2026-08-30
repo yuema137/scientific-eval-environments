@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/agentic-microscopy-benchmarks.md)
 
+> **First appeared:** 2026-08-05 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.05266)
+
 ## Overview
 
 An industry study (Carl Zeiss Research Microscopy Solutions) pairing a benchmark-and-trace-logging framework for agentic self-driving microscopy with a meta-finding: 53 benchmark tests across 105 agent configurations support qualification, regression testing, and diagnosis — but do not predict performance on unseen tasks.

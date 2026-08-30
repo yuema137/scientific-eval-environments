@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/frontier-llm-based-agents-can-overcome-the-ontolog.md)
 
+> **First appeared:** 2026-05-27 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.28965)
+
 ## Overview
 
 A controlled re-evaluation of an established biocuration gold standard in which five frontier LLMs, each run as an "agentic curator" inside a self-contained workspace, produce Entity-Quality phenotype annotations and are scored against the same gold standard, the same three trained human curators, and the same NLP baseline used in the original 2018 study.

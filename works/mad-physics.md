@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mad-physics.md)
 
+> **First appeared:** 2026-05-11 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2605.10820)
+
 ## Overview
 
 MaD Physics (Measuring and Discovering Physics) is a benchmark that evaluates whether agents can plan informative measurements under a fixed cost budget and then infer the underlying physical law from the data they collect. It spans three simulated environments — classical mechanics, fluid mechanics, and quantum mechanics — each also offered with altered physical laws to control for memorized knowledge.

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/vla-arena.md)
 
+> **First appeared:** 2025-12-27 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2512.22539)
+
 ## Overview
 
 VLA-Arena is an open-source benchmark and toolchain for evaluating Vision-Language-Action (VLA) models as generalist robot-manipulation policies, using a structured task-design framework that varies difficulty along three orthogonal axes.

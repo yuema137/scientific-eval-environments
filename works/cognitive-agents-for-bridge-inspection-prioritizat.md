@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/cognitive-agents-for-bridge-inspection-prioritizat.md)
 
+> **First appeared:** 2026-07-29 · **Source:** [engrxiv public posting](https://engrxiv.org/preprint/view/7703)
+
 ## Overview
 
 An empirical evaluation that places a standards-grounded LLM agent for highway-bridge inspection prioritization against three non-LLM baselines on six consecutive annual National Bridge Inventory (NBI) snapshots, scoring every method against observed future bridge deterioration and adding an independent blind rating of the agent's written rationales by a licensed bridge inspector.

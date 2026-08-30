@@ -2,6 +2,8 @@
 
 > [English](../../works/robospatial.md) | **简体中文**
 
+> **首次公开：** 2024-11-25 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2411.16537)
+
 ## Overview
 
 RoboSpatial 为面向机器人的视觉-语言模型教授并测试空间理解：真实室内与桌面场景上的 1M 图像、5K 3D 扫描、3M 标注空间关系，兼备 2D 与 3D 就绪形式——在其上训练的模型在空间 affordance 预测、空间关系预测与机器人操作上胜过基线。

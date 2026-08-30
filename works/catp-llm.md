@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/catp-llm.md)
 
+> **First appeared:** 2024-11-25 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2411.16313)
+
 ## Overview
 
 CATP-LLM (Cost-Aware Tool Planning with LLMs) is a framework for empowering LLMs to plan tool use while accounting for tool execution costs, accompanied by OpenCATP, described as the first dataset for cost-aware planning (11,100 evaluation samples). It is documented here for OpenCATP, its cost-aware *evaluation* contribution; the paper's headline contribution — the CATP-LLM planning method — is agent-planning work adjacent to this repository's evaluation focus (see the repository note under Limitations).

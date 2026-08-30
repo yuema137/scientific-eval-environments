@@ -2,6 +2,8 @@
 
 > [English](../../works/labbench2.md) | **简体中文**
 
+> **首次公开：** 2026-02-04 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2604.09554)
+
 ## Overview
 
 LABBench2 是面向生物学研究 AI 系统的改进版 benchmark：近 1,900 个任务在更真实的情境中重演 LAB-Bench 的能力类别——从 PDF、图片与生物信息学文件中作答——相对 LAB-Bench 造成各子任务上 26–46% 的模型准确率下滑。

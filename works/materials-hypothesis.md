@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/materials-hypothesis.md)
 
+> **First appeared:** 2025-01-23 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2501.13299)
+
 ## Overview
 
 This work evaluates goal-driven, constraint-guided LLM agents for materials discovery: given research goals and specific constraints, the agents generate hypotheses for achieving them, scored by a scalable evaluation metric designed to emulate how a materials scientist would critically judge a hypothesis.

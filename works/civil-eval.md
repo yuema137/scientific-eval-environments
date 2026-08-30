@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/civil-eval.md)
 
+> **First appeared:** 2026-01-31 · **Source:** [Official publication page](https://zgglxb.chd.edu.cn/EN/10.19721/j.cnki.1001-7372.2026.01.012)
+
 ## Overview
 
 Civil-Eval is a Chinese-language evaluation dataset for civil and transportation engineering knowledge, built from Chinese national professional-registration examinations, together with a weighted scoring method used to benchmark general-purpose LLMs, reasoning models, and a domain-specific civil-engineering model.

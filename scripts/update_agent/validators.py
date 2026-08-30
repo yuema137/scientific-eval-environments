@@ -94,6 +94,15 @@ def _section(txt, heading):
     return m.group(1) if m else None
 
 
+def _first_appeared(txt, chinese=False):
+    label = "首次公开" if chinese else "First appeared"
+    pattern = (r"^>\s+\*\*" + re.escape(label) +
+               r"(?:：|:)\*\*\s+(\d{4}-\d{2}-\d{2})\s+·\s+\*\*(?:来源|Source)(?:：|:)\*\*\s+"
+               r"\[[^\]]+\]\((https?://[^)]+)\)\s*$")
+    matches = re.findall(pattern, txt, re.M)
+    return matches[0] if len(matches) == 1 else None
+
+
 def validate_cards(repo_root, slugs):
     errs = []
     required = _template_headings(repo_root)
@@ -111,6 +120,8 @@ def validate_cards(repo_root, slugs):
                 errs.append("%s: heading '## %s' appears %d times (want 1)" % (slug, h, n))
         if _has_placeholder(txt):
             errs.append("%s: contains a placeholder token" % slug)
+        if not _first_appeared(txt):
+            errs.append("%s: missing or invalid sourced First appeared stamp" % slug)
         links = _section(txt, "Links") or ""
         if not re.search(r"https?://", links):
             errs.append("%s: Links section has no URL" % slug)
@@ -191,6 +202,11 @@ def validate_bilingual(repo_root, slugs):
             errs.append("%s: en card missing zh switcher" % slug)
         if "English" not in zt:
             errs.append("%s: zh card missing en switcher" % slug)
+        ed, zd = _first_appeared(et), _first_appeared(zt, chinese=True)
+        if not ed or not zd:
+            errs.append("%s: missing or invalid first-appearance stamp in en/zh" % slug)
+        elif ed != zd:
+            errs.append("%s: first-appearance date or provenance URL differs en/zh" % slug)
     return (not errs, errs)
 
 
@@ -218,6 +234,26 @@ def validate_topic_explanations(repo_root=REPO_ROOT):
     return (not errs, errs)
 
 
+# ---------------------------------------------------------------- first appearance
+def validate_first_appearance(repo_root=REPO_ROOT):
+    errs = []
+    cards = [p for p in glob.glob(os.path.join(repo_root, "works", "*.md"))
+             if os.path.basename(p) != "README.md"]
+    for en in cards:
+        slug = os.path.basename(en)[:-3]
+        zh = os.path.join(repo_root, "zh", "works", "%s.md" % slug)
+        if not os.path.exists(zh):
+            errs.append("%s: missing Chinese mirror" % slug)
+            continue
+        ed = _first_appeared(open(en).read())
+        zd = _first_appeared(open(zh).read(), chinese=True)
+        if not ed or not zd:
+            errs.append("%s: missing or invalid sourced first-appearance stamp" % slug)
+        elif ed != zd:
+            errs.append("%s: first-appearance date or provenance URL differs en/zh" % slug)
+    return (not errs, errs)
+
+
 # ---------------------------------------------------------------- CLI
 def _report(name, ok, errs):
     print("%s: %s" % (name, "PASS" if ok else "FAIL"))
@@ -229,7 +265,7 @@ def _report(name, ok, errs):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("check", choices=["profiles", "discovery", "cards", "axes", "bilingual",
-                                      "topic-explanations"])
+                                      "topic-explanations", "first-appearance"])
     ap.add_argument("--repo-root", default=REPO_ROOT)
     ap.add_argument("--run-dir")
     ap.add_argument("--slugs", default="")
@@ -247,6 +283,8 @@ def main():
         ok, e = validate_bilingual(a.repo_root, slugs)
     elif a.check == "topic-explanations":
         ok, e = validate_topic_explanations(a.repo_root)
+    elif a.check == "first-appearance":
+        ok, e = validate_first_appearance(a.repo_root)
     sys.exit(_report(a.check, ok, e))
 
 

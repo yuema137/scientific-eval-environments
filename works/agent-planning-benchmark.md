@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/agent-planning-benchmark.md)
 
+> **First appeared:** 2026-06-03 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.04874)
+
 ## Overview
 
 Agent Planning Benchmark (APB) is a planning-specific diagnostic benchmark with 4,209 multimodal cases across 22 domains and five settings, separating complete-plan generation from feedback-conditioned next-step planning and robustness to tool or task defects.

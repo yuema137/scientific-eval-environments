@@ -2,6 +2,8 @@
 
 > [English](../../works/enconda-bench.md) | **简体中文**
 
+> **首次公开：** 2025-10-29 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2510.25694)
+
 ## Overview
 
 Enconda-bench（Environment Configuration Diagnosis Benchmark）在环境配置这一软件工程 agent 常见瓶颈上做过程级评估——避免端到端 build/test benchmark 只报最终结果，隐藏 agent 在哪里、为何失败。

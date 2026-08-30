@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/t-eval.md)
 
+> **First appeared:** 2023-12-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2312.14033)
+
 ## Overview
 
 T-Eval is a fine-grained tool-use benchmark that decomposes evaluation into six capability subprocesses and scores each independently, rather than reducing tool-use to an end-task success rate.

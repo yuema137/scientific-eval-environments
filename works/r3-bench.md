@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/r3-bench.md)
 
+> **First appeared:** 2026-08-17 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.16033)
+
 ## Overview
 
 R³-Bench evaluates resource-rational reasoning: a model faces a suite of six problems that must share one budget, so success depends on allocating effort across problems rather than solving each in isolation. Its distinguishing move is to calibrate suite performance against the same model's demonstrated single-problem competence, using matched response curves to build an offline empirical oracle over observed successes.

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/swe-together.md)
 
+> **First appeared:** 2026-06-29 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.29957)
+
 ## Overview
 
 SWE-Together is a multi-turn coding benchmark reconstructed from real user-agent sessions: 109 repository-level tasks curated from 11,260 recorded sessions, replayed across agents through a reactive LLM-based user simulator that preserves the original users' intents.

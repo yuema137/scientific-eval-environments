@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/macbench.md)
 
+> **First appeared:** 2024-11-25 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2411.16955)
+
 ## Overview
 
 MaCBench probes the limitations of multimodal (vision-language) models for chemistry and materials research across three core aspects — data extraction, experimental understanding, and results interpretation — finding near-perfect equipment identification and standardized data extraction but fundamental limits in spatial reasoning, cross-modal synthesis, and multi-step inference.

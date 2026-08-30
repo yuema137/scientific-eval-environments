@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/cpsyexam.md)
 
+> **First appeared:** 2024-05-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2405.10212)
+
 ## Overview
 
 CPsyExam is a Chinese benchmark for evaluating psychology knowledge in LLMs using examination questions: from a pool of 22,000 questions, 4,000 are curated into the benchmark along two axes — psychological knowledge and case analysis.

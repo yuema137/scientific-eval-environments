@@ -2,6 +2,8 @@
 
 > [English](../../works/loopsbench.md) | **简体中文**
 
+> **首次公开：** 2026-07-31 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.00267)
+
 ## Overview
 
 LoopsBench 是一个长 horizon benchmark，用于评估 coding agent 的「循环工程（loop engineering）」——即持续、多步的软件开发；其中每个任务都是一张由可分别测试的开发单元构成的依赖 DAG，先决关系的边有源码证据支撑。

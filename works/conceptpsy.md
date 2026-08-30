@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/conceptpsy.md)
 
+> **First appeared:** 2023-11-16 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2311.09861)
+
 ## Overview
 
 ConceptPsy is a psychology benchmark suite built for conceptual comprehensiveness: 12 core subjects and 1,383 manually collected concepts, with each question annotated to a chapter so that per-concept performance — not just an aggregate score — becomes visible.

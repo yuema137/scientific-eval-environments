@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/atom-bench.md)
 
+> **First appeared:** 2026-06-15 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2606.16826)
+
 ## Overview
 
 ATOM-Bench is a real-world robot benchmark that separates *atomic* manipulation skills from *compositional* tasks built out of them, so that a failure on a composed task can be attributed either to a weak underlying atom or to a genuine failure of compositional reuse.

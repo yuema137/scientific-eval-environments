@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mattext.md)
 
+> **First appeared:** 2024-06-25 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2406.17295)
+
 ## Overview
 
 MatText is a benchmarking framework for predicting materials properties with large language models from text representations of crystals: across nine representations and model scales up to 70B parameters and 2M structures, it documents a persistent "geometric blindness" — LLMs capture category patterns but miss coordinate information, and specialized geometric architectures outperform them by significant margins.

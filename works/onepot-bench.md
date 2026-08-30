@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/onepot-bench.md)
 
+> **First appeared:** 2026-08-03 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.02595)
+
 ## Overview
 
 onepot-Bench 0 is a proprietary, lab-aware chemistry benchmark suite in three parts: ChemAbacus (tool-free cheminformatics literacy and numerical reasoning), SynthRefusal (safety and refusal behavior across benign, controlled, and designer-drug targets), and SynthBench (reaction-outcome prediction and catalyst selection on private experimental data generated in the authors' laboratory).

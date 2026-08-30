@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/long-horizon-agent-trajectory-attribution.md)
 
+> **First appeared:** 2026-08-07 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.06909)
+
 ## Overview
 
 A benchmark and fine-grained annotation framework for *trajectory attribution* — identifying which component of a long-horizon LLM-agent trajectory (user instructions, tool calls, observations, memory, etc.) is primarily responsible for an observed outcome such as a task-aligned action, an unsafe action, or a safety refusal.

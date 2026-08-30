@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/scbench.md)
 
+> **First appeared:** 2026-02-09 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2602.09063)
+
 ## Overview
 
 scBench evaluates AI agents on single-cell RNA-seq analysis: 394 verifiable problems spanning six sequencing platforms and seven task categories, each handing the agent a snapshot of experimental data immediately prior to an analysis step and grading recovery of a key biological result deterministically.

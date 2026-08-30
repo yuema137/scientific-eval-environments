@@ -2,6 +2,8 @@
 
 > [English](../../works/ainsteinbench.md) | **简体中文**
 
+> **首次公开：** 2025-12-24 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2512.21373)
+
 ## Overview
 
 AInsteinBench 在科学代码仓库上评测 coding agent：任务派生自六个广泛使用的生产级科学代码库的维护者 pull request——覆盖量子化学、量子计算、分子动力学、数值相对论、流体力学与化学信息学——在可执行环境中以测试驱动的方式验证。

@@ -2,6 +2,8 @@
 
 > [English](../../works/astabench.md) | **简体中文**
 
+> **首次公开：** 2025-10-24 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2510.21652)
+
 ## Overview
 
 AstaBench 是一个为 agent 的科学研究能力提供整体度量的 benchmark 套件，将任务与可复现的工具环境和成本受控的评分相配套。它由 11 个 benchmark 的 2,400+ 个问题组成，覆盖四个任务类别——文献理解、代码与执行、数据分析与端到端发现——其中许多问题源自已部署 Asta agent 收到的真实用户请求。

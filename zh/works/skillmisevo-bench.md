@@ -2,6 +2,8 @@
 
 > [English](../../works/skillmisevo-bench.md) | **简体中文**
 
+> **首次公开：** 2026-08-13 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2608.12851)
+
 ## Overview
 
 SkillMisevo-Bench 是一个冻结的 benchmark，配套生命周期感知的 harness SkillMisevo-Gym，用来度量「skill 误演化」：自我改进的 LLM agent 把一次不安全的成功蒸馏进自己的持久 skill 库，于是在触发它的那个输入早已消失之后，这套不安全的流程仍会被检索出来重新执行。

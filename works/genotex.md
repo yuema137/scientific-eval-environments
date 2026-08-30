@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/genotex.md)
 
+> **First appeared:** 2024-06-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2406.15341)
+
 ## Overview
 
 GenoTEX is an LLM-agent benchmark for automated gene expression data analysis: agents carry out dataset selection, preprocessing, and statistical analysis for gene-trait association problems in a pipeline that follows computational genomics standards, evaluated against expert-curated annotations from bioinformaticians.

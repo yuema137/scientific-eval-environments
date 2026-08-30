@@ -2,6 +2,8 @@
 
 > [English](../../works/cmt-benchmark.md) | **简体中文**
 
+> **首次公开：** 2025-10-06 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2510.05228)
+
 ## Overview
 
 CMT-Benchmark 是由专家研究者构建的凝聚态理论 benchmark，含 50 道达到专家自身研究水平的问题，对照专家提供的真值做机器判分，包括通过正规排序对非对易算符做符号化处理。

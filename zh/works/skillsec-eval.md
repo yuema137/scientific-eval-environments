@@ -2,6 +2,8 @@
 
 > [English](../../works/skillsec-eval.md) | **简体中文**
 
+> **首次公开：** 2026-07-15 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2607.13987)
+
 ## Overview
 
 SkillSec-Eval 是面向可复用 agent skill 的生命周期感知评估框架：它把 skill 生命周期拆成五个信任边界各异的阶段——仓库准入、语义检索、规划器选择、运行时执行与 skill 演化——并在一个含 327 个真实 skill 的仓库上逐阶段分别评估攻击与防御。

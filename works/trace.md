@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/trace.md)
 
+> **First appeared:** 2026-02-05 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2602.21230)
+
 ## Overview
 
 TRACE (Trajectory-Aware Comprehensive Evaluation) is an evaluation framework for deep research agents that scores whole reasoning trajectories via a hierarchical utility function, and quantifies latent agent capability by measuring the minimum guidance required for success. It ships with DeepResearch-Bench, an accompanying benchmark with controllable task complexity.

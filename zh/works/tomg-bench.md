@@ -2,6 +2,8 @@
 
 > [English](../../works/tomg-bench.md) | **简体中文**
 
+> **首次公开：** 2024-12-19 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2412.14642)
+
 ## Overview
 
 Speak-to-Structure（S²-Bench，最初名为 TOMG-Bench）评估 LLM 在开放域自然语言驱动的分子生成上的能力：分子编辑（MolEdit）、分子优化（MolOpt）、定制生成（MolCustom）三类任务——指令允许多个合法分子，答案按是否满足指令来检验，而非对照单一参考。

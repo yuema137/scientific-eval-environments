@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/a-unified-issue-resolution-benchmark-for-requireme.md)
 
+> **First appeared:** 2026-08-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.09072)
+
 ## Overview
 
 SWE-RPG is a repository-level issue-resolution benchmark that pairs executable patch evaluation with validated ground-truth references for Requirement Clarification and Implementation Planning, enabling stage-aligned diagnosis of complete coding-agent trajectories rather than pass/fail-only scoring.

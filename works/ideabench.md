@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/ideabench.md)
 
+> **First appeared:** 2024-10-31 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2411.02429)
+
 ## Overview
 
 IdeaBench benchmarks LLMs for research idea generation: it profiles LLMs as domain-specific researchers grounded in the same context human researchers use — titles and abstracts of influential papers plus their references — and evaluates generated ideas with a two-stage framework combining GPT-4o ranking and a relative "Insight Score."

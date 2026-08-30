@@ -2,6 +2,8 @@
 
 > [English](../../works/scivisagentbench.md) | **简体中文**
 
+> **首次公开：** 2026-03-31 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2603.29139)
+
 ## Overview
 
 SciVisAgentBench 是一个 benchmark，评估把自然语言意图转化为可执行的科学数据分析与可视化（SciVis）任务的 agent，覆盖多步骤、贴近真实的分析场景。

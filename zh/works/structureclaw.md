@@ -2,6 +2,8 @@
 
 > [English](../../works/structureclaw.md) | **简体中文**
 
+> **首次公开：** 2026-07-16 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2607.14896)
+
 ## Overview
 
 StructureClaw 把一个可追溯的结构工程 LLM agent 工作台与一个可执行 benchmark 配对：150 个受控场景横跨标准工作流、交互鲁棒性与多模态结构模型重构，以严格的结构模型匹配与「对照冻结参考求解器响应的数值一致性」验证。

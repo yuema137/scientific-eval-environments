@@ -2,6 +2,8 @@
 
 > [English](../../works/physics-benchmark.md) | **简体中文**
 
+> **首次公开：** 2025-03-26 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2503.21821)
+
 ## Overview
 
 PHYSICS 是大学水平物理解题的综合 benchmark：1,297 道专家标注的问题，覆盖六大核心领域——经典力学、量子力学、热力学与统计力学、电磁学、原子物理与光学——并配有稳健的自动评估系统。

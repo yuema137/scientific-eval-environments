@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/scivisagentbench.md)
 
+> **First appeared:** 2026-03-31 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2603.29139)
+
 ## Overview
 
 SciVisAgentBench is a benchmark for evaluating agents that translate natural-language intent into executable scientific data-analysis and visualization (SciVis) tasks across multi-step, realistic analysis settings.

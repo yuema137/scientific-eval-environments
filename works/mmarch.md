@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/mmarch.md)
 
+> **First appeared:** 2026-08-10 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.09281)
+
 ## Overview
 
 MMArch is a 1,212-item multimodal benchmark built from figures in peer-reviewed architecture and civil-engineering papers, testing whether a model can gather visual evidence spread across a technical figure, identify the governing engineering principle, and apply it to reach a conclusion.

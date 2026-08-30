@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/genebench-pro.md)
 
+> **First appeared:** 2026-06-30 · **Source:** [Official release](https://openai.com/index/introducing-genebench-pro/)
+
 ## Overview
 
 GeneBench-Pro is a benchmark for AI agents performing realistic multistage statistical analyses in genomics, quantitative biology, and translational biomedicine. Its 129 problems are built on constructively simulated data-generating processes rather than real datasets, so that a wrong answer is attributable to a scientific error rather than to one of several equally defensible analyst choices.

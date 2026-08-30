@@ -2,6 +2,8 @@
 
 > [English](../../works/beyond-aha.md) | **简体中文**
 
+> **首次公开：** 2025-05-15 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2505.10554)
+
 ## 概览
 
 Beyond 'Aha!' 先把 deduction、induction 和 abduction 显式训练成可复用 meta-ability，再做领域 RL，不再依赖 outcome RL 偶然产生这些行为。
@@ -18,6 +20,7 @@ N/A — 测的是通用 reasoning transfer，不是 agent 执行科学或研究 
 
 ## Links
 
+- **Preprint:** <https://arxiv.org/abs/2505.10554>
 - **Paper:** <https://aclanthology.org/2026.findings-acl.1981/>
 - **Venue:** Findings of ACL 2026
 

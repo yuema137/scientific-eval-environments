@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/metaact-rl.md)
 
+> **First appeared:** 2026-01-07 · **Source:** [Public proceedings record](https://doi.org/10.48448/ctt6-ms79)
+
 ## Overview
 
 MetaAct-RL formulates language-model reasoning as sequential choice and execution of semantic meta-actions such as forward reasoning, critique, and refinement.

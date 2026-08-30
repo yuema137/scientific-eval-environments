@@ -2,6 +2,8 @@
 
 > [English](../../works/toolathlon.md) | **简体中文**
 
+> **首次公开：** 2025-10-29 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2510.25726)
+
 ## Overview
 
 The Tool Decathlon（Toolathlon）是一个面向多样、真实、长 horizon 任务执行的 language agent benchmark：108 个任务覆盖 32 个真实软件应用与 604 个工具，配以真实的初始环境状态，并用严格可验证的、基于状态的评估脚本打分。

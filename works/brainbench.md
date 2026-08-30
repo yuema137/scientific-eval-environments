@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/brainbench.md)
 
+> **First appeared:** 2024-03-04 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2403.03230)
+
 ## Overview
 
 BrainBench is a forward-looking benchmark for neuroscience, introduced in the paper "Large language models surpass human experts in predicting neuroscience results": given an original abstract from the Journal of Neuroscience and a version altered to change the result while maintaining coherency, the model must identify which reports the real outcome. It is a static two-alternative task, not an agent benchmark (see the repository note under Limitations).

@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/eee-bench.md)
 
+> **First appeared:** 2024-11-03 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2411.01492)
+
 ## Overview
 
 EEE-Bench is a comprehensive multimodal electrical and electronics engineering benchmark: 2,860 curated problems spanning 10 essential subdomains (analog circuits, control systems, and more) that require understanding intricate images like abstract circuits and system diagrams alongside professional instructions — where 17 LLMs and LMMs average only 19.48%–46.78%.

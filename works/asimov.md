@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/asimov.md)
 
+> **First appeared:** 2025-03-11 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2503.08663)
+
 ## Overview
 
 The ASIMOV Benchmark evaluates the semantic safety of VLMs serving as robot brains — judging the desirability and safety of situations and rejecting unconstitutional actions — using large-scale datasets generated from real-world visual scenes and hospital injury reports, paired with a method that auto-generates and amends robot constitutions to a top alignment rate of 84.3%.

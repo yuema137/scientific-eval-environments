@@ -21,6 +21,7 @@ For each assigned page, write/update the Chinese mirror at the parallel `zh/...`
 - Follow `EXPLANATION_STYLE.md` / `zh/EXPLANATION_STYLE.md`. Preserve the source's causal path: what job the concept does, what the old path lost, which actor changes which step, how one concrete task/decision/score moves, and where the claim stops. If the English source fails to expose that path, translate its facts faithfully but do not invent a mechanism; flag the page for editorial review in the one-line output summary.
 - Necessary English jargon may remain, but the Chinese around it must sound natural when read aloud by a technical peer. Replace abstract noun piles with actors and actions. Do not use Chinese em dashes (`——`) for definitions or long asides. Do not add Dongbei catchphrases, dialect spellings, comedy, or regional vocabulary.
 - Include the correct language switcher line and any breadcrumb, with correct relative paths.
+- Preserve the English card's `First appeared` date exactly. Translate only the label and source description; keep the provenance URL unchanged.
 
 ## Output (STRICT)
 Return ONLY:

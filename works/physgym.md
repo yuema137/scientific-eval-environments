@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/physgym.md)
 
+> **First appeared:** 2025-07-21 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2507.15550)
+
 ## Overview
 
 PhysGym is a benchmark suite and simulation platform for LLM-based agents in interactive physics discovery: agents actively probe simulated environments, gather data sequentially under constraints, and formulate hypotheses about underlying physical laws — with sophisticated control over how much prior knowledge the agent is given.

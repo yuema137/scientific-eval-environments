@@ -2,6 +2,8 @@
 
 > **English** | [简体中文](../zh/works/labrobfail.md)
 
+> **First appeared:** 2026-07-26 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2607.23704)
+
 ## Overview
 
 LabRobFail benchmarks robotic failure analysis in chemical self-driving laboratories: over 20,000 trajectories across 70+ task scenarios with failures injected at the control, physics, and semantic levels (five categories, 11 fine-grained types), evaluating six capabilities from failure detection to actionable correction — the paired domain-specialized VLM reaches 90.83% detection accuracy and lifts downstream task success by 4–16 percentage points as a real-time supervisor.
