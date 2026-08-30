@@ -8,15 +8,15 @@ Agent 看过 solution 以后做对一次，不代表它学会了 reusable skill�
 
 一条 evaluation loop 可以先让 agent 解 example，再写成 skill file，把文件冻结，最后放到 held-out task 上。然后比较 frozen skill、raw-trajectory reuse 和 no-memory baseline。如果换任务还能迁移，artifact 才可能抓住了 reusable procedure；如果只会做 near-duplicate，它只是压缩了经验，没有学到通用方法。
 
-## Definition
+## 定义
 
-这个 topic 研究 agent 能否把经验、trajectory、示范或 evaluator feedback 变成可复用的程序性 skill，并检验任务、上下文或组合方式改变后，这些 skill 是否仍然有效。
+Skill learning 问 agent 能不能把经验变成可复用流程。经验可以来自 trajectory、demonstration 或 evaluator feedback，结果可以是 skill file、policy、memory item 或其他 artifact。Evolution 再问 agent 失败后能不能修改这份 artifact。最后要用新 task、新 context 或新组合来测它还能不能用。
 
-## Motivation
+## 为什么重要
 
-Agent 在 acquisition 阶段完成任务，不表示它学到了可复用 skill。评估需要区分 episodic replay 与真正抽象、skill 写作与 skill 检索、原题复做与冻结后的迁移。这和 Skill Hierarchy 不同：后者把能力拆开测量，这里研究 skill 如何学到、如何修改。
+在 acquisition example 上成功，只能证明 agent 做对了这道题。它可能只是把原 trajectory 重放了一遍，并没有学到方法。更有用的 evaluation 会冻结 skill，拿掉原 trace，再放到 held-out condition 上测 transfer。这和 Skill Hierarchy 不同，后者拆解已有能力，不研究 skill 怎样学到、修改和复用。
 
-## Existing Approaches
+## 现有方法
 
 - **冻结后部署。** [SkillEvolBench](../works/skillevolbench.md) 将生成的 skill 与原始 trajectory、人工 seed 对照，并测试 context shift、adversarial shortcut 和 composition。
 - **分别评价 artifact、trajectory 与 outcome。** [SkillLearnBench](../works/skilllearnbench.md) 不只看任务成功，也直接检查生成 skill 的质量。
@@ -24,7 +24,7 @@ Agent 在 acquisition 阶段完成任务，不表示它学到了可复用 skill�
 - **生命周期安全。** [SkillMisevo-Bench](../works/skillmisevo-bench.md) 分开测量不安全 skill 的写入、检索、执行和跨 session 保留。
 - **可复用能力结构。** [GATE](../works/gate.md) 演化的是分层 tool graph，而不是文字 skill 文件。
 
-## Comparison
+## 方法对比
 
 | Work | 学到的 artifact | Feedback | 迁移测试 | 关键区分 |
 |---|---|---|---|---|
@@ -34,7 +34,7 @@ Agent 在 acquisition 阶段完成任务，不表示它学到了可复用 skill�
 | SkillMisevo-Bench | 可能不安全的演化 skill | 在线 evolution 更新 | 新 session persistence | 写入、检索与伤害 |
 | GATE | 分层 tool graph | 执行经验 | 使用演化 graph 的新任务 | 结构化能力 artifact |
 
-## Open Questions
+## 还没解决的问题
 
 - 什么证据能证明 agent 做了抽象，而不是重放记住的 trajectory？
 - Skill 本身、检索和执行应如何分开打分？
@@ -42,7 +42,7 @@ Agent 在 acquisition 阶段完成任务，不表示它学到了可复用 skill�
 - 怎样用冻结部署测长期迁移，又不阻断合理的在线适应？
 - 哪种 skill 表示便于跨 harness 组合、检查和维护？
 
-## Related Works
+## 相关工作
 
 - [Beyond 'Aha!'](../works/beyond-aha.md)
 - [SkillEvolBench](../works/skillevolbench.md)

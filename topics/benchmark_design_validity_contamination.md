@@ -10,11 +10,11 @@ Trace one coding item: choose a recent repository, generate tests, require those
 
 ## Definition
 
-This topic studies whether benchmark tasks, reference answers, verifiers, sampling procedures, and reported scores support the claims made from them. It covers task construction, contamination resistance, dynamic evaluation, ecological validity, verifier rigor, and benchmark maintenance.
+This topic checks the chain that turns a task into a claim. Where did the task come from? Could the model have memorized it? Does the reference answer cover valid alternatives? Can the verifier reject a plausible but broken result? Does the environment preserve the real constraint the benchmark claims to test? The answers determine whether the reported score means what readers think it means.
 
 ## Motivation
 
-A precise score can still be invalid if tasks are memorized, tests are weak, reference answers are incomplete, or the environment omits the conditions the claimed capability requires. Benchmark validity is therefore an empirical research object, not housekeeping.
+Clean arithmetic does not rescue a bad measurement. Memorized tasks inflate capability, weak tests admit false passes, incomplete references reject defensible answers, and toy environments remove the hard part of real work. Benchmark design is therefore part of the research result. It must be tested and maintained, not treated as packaging around the model evaluation.
 
 ## Existing Approaches
 

@@ -10,16 +10,16 @@ Resource-aware evaluation records or constrains those costs. Under a $10 budget,
 
 ## Definition
 
-Resource-aware evaluation treats resource expenditure — tokens, tool-call fees, wall-clock time, compute, simulation time, or a domain-specific currency — as part of what the benchmark measures rather than as a post-hoc statistic. In its strongest form, one such resource (typically cost) becomes an explicit optimization objective the agent must balance against task success.
+Resource-aware evaluation records what an agent spends to obtain its result. That may be tokens, tool fees, wall-clock time, compute, simulator time, or experimental material. Some benchmarks only report the expenditure. Stronger designs give the agent a budget and test whether it can trade task quality against that constraint.
 
 ## Motivation
 
-Agent capability and resource consumption tend to move together: stronger models are usually more expensive, and longer trajectories often yield better answers. Evaluating capability in isolation therefore rewards *solve at any cost*, which does not match the deployment setting for scientific or production agents.
+More resources often buy better results: a stronger model costs more, extra tool calls reveal more evidence, and a longer search finds more solutions. A score that ignores expenditure therefore rewards "solve at any cost." Scientific and production deployments rarely have that option, so the evaluation must expose the trade-off.
 
-Two meaningful distinctions structure the space:
+Two distinctions keep different claims apart:
 
-- **Resource as reported metric** vs. **resource as objective.** The former surfaces trade-offs at analysis time; the latter tests whether the agent can *plan* under a budget.
-- **Token cost only** vs. **tool-use cost (simulation time, experimental resources).** Focusing on token cost alone misses the dominant cost in many scientific workflows.
+- **Reported metric vs. explicit objective.** Reporting cost lets readers compare systems after the run. Enforcing a budget tests whether the agent can plan while resources are scarce.
+- **Language-model cost vs. task cost.** Tokens may be cheap beside a simulation, a laboratory experiment, or scarce instrument time. Counting only model calls can miss the resource that actually limits the workflow.
 
 ## Existing Approaches
 

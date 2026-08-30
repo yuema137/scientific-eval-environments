@@ -10,13 +10,13 @@ Trajectory evaluation keeps the route. For a five-step tool task, an evaluator c
 
 ## Definition
 
-Trajectory evaluation refers to evaluation methods that score an agent based on the sequence of actions and intermediate states it produces, not only its final answer. Metrics may include per-step correctness, subgoal completion, per-capability subprocess scoring, reasoning quality, evidence grounding, or process efficiency.
+Trajectory evaluation keeps the path between prompt and result. It scores the agent's actions and intermediate states, not only the final answer. Depending on the task, the evaluator may check each step, completed subgoals, evidence use, reasoning quality, tool efficiency, or the subprocess associated with a particular capability.
 
 ## Motivation
 
-End-task success is a coarse signal. Two agents that both fail — or both succeed — can differ meaningfully in *how* they got there. Trajectory-level metrics surface those differences and enable diagnosis of *where* a capability breaks down.
+Final success is a coarse label. One successful agent may verify its evidence; another may guess repeatedly and get lucky. One failing agent may complete four valid subgoals before a final error; another may never start the right task. Trajectory metrics preserve those differences and show where behavior first breaks down.
 
-Trajectory evaluation is also load-bearing for longer-horizon settings, where a single terminal reward provides too little signal to identify which step went wrong.
+That extra detail matters most on long tasks, where one terminal reward covers many dependent actions. It also costs more: traces must be stored, annotated, or judged, and an unreliable step evaluator can create a more detailed but still wrong diagnosis.
 
 ## Existing Approaches
 

@@ -8,15 +8,15 @@ Scientific agent 不能只看文字像不像专家。它可能要复现一个结
 
 拿一个 computational task 走一遍：给 agent 一个从 paper 取出的 question 和 starter environment，在 container 里执行它的 code，把结果与 accepted value 比较，同时记录 cost 和 failure stage。这比再找一个 model 判断答案「像不像科学」更扎实。但它只覆盖这道 task 所代表的 workflow 与 validity check，不能自动推出 agent 具备通用 scientific competence。
 
-## Definition
+## 定义
 
-Scientific agent benchmark 是在真实科学研究或实践中提取任务的 AI agent 评估——计算工作流、参数调优、以文献为依托的问题，或对已发表结果的复现。它们与通用 agent benchmark 的区别在于任务来源（真实科学工作）和正确性标准（对已发表或专家定义结果的匹配）。
+Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：跑计算 workflow、调 simulator、根据文献回答、分析数据，或复现已发表结果。它们的 task 来自科学工作，正确性也要靠 executable check、measured value、publication 或专家判断来锅定，不能只看文字像不像那么回事。
 
-## Motivation
+## 为什么重要
 
-科学工作具有通用 agent benchmark 建模不足的若干特征：中间评估可能开销昂贵（仿真、实验）、任务通常长 horizon、正确性有时需要参照已发表或专家标准而非合成 ground truth、工作流涉及需要领域知识才能正确串联的异构工具。给科学 agent 打分需要在评估中显式关注这些特征——因此值得作为独立 topic。
+科学工作同时改变了 task 和 evaluator。跑一次 simulation 或 experiment 可能很贵，多种 tool 可能必须按领域规则排好顺序，分析方法也可能不止一种合理选择。但最后的数字仍然要符合物理约束或已发表结果。通用 agent benchmark 常常把这些条件拿掉，所以需要单独跟踪能把它们保留下来的 evaluation design。
 
-## Existing Approaches
+## 现有方法
 
 - **可执行的科学工作流。** [Terminal-Bench Science](../works/terminal-bench-science.md) 在容器中用 pytest 确定性验证 AI agent 在自然科学计算工作流上的表现，覆盖五个科学领域。
 - **以出版物 SOTA 锚定难度。** [NatureBench](../works/naturebench.md) 从 Nature-family 论文蒸馏 90 个任务，追问 coding agent 是否能达到已发表 SOTA——揭示了显著缺口：最强 agent 仅在 17.8% 的任务上超越已发表 SOTA（匹敌 47.8%）。
@@ -205,7 +205,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **真实的科学数据库，真正起作用的判据却没写出来。** [BiomedSQL](../works/biomedsql.md) 把 68,000 组 question / SQL / answer 三元组落在一个存放神经退行性疾病遗传学与药物审批记录的生产级 BigQuery 库上，题目刻意写成让起决定作用的那道过滤条件——全基因组显著性、效应方向、哪些试验期算作已获批——必须由模型自己补出来；所有配置都比实测的双分析师基线低约 27 分。[AISE-Bench](../works/aise-bench.md) 瞄准的则是学术知识图谱，除答案外还标注了计划与经校验的 API 参数，于是「答案对、路子错」也会显形。
 - **用一棵 rubric 树取代一个笼统的 judge。** [RubricsTree](../works/rubricstree.md) 把开放式的个人健康 agent 评估自顶向下拆成 100 多条医生可以逐条核验的原子布尔叶节点 rubric，再由上下文感知路由器只激活与当前查询相关的那一部分；与专家组的一致性达到 ICC₃ = 0.876、κ = 0.787，而基于原则的基线只有 0.291 与 0.431；同一套 rubric 还被复用为指令、反馈与训练奖励。
 
-## Comparison
+## 方法对比
 
 | Benchmark | Year | 任务来源 | 科学范围 | 验证方式 | Card |
 |---|---|---|---|---|---|
@@ -454,7 +454,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 | AutoWorldModel-Bench | 2026 | 八个游戏环境 × 四种基础世界模型架构，共 64 个会话 | 不指定改进方向的自主世界模型研究 | 留出集上 Position L1 与 Alive F1 在 1/10/20 三个时程上的组合，权重 0.1/0.2/0.7 | [→](../works/autoworldmodel-bench.md) |
 | Agents Catching Agents | 2026 | 六个公开临床数据集上的七个 cohort，覆盖文本、影像与表格记录 | 捷径线索下临床多 agent 委员会的效度 | 捷径采纳率对照孤立条件下的翻转率；三种监督检测器以精确率、召回率与假阳性率计分 | [→](../works/agents-catching-agents.md) |
 
-## Open Questions
+## 还没解决的问题
 
 - **正确性的参照标准。** 科学任务允许多种合理的参照标准——已发表 SOTA（NatureBench）、专家分类（MedHELM）、可执行验证（Terminal-Bench Science）、与传统方法对比（SimulCost）。跨 benchmark 比较时，哪一种应成为标准？
 - **发现 vs. 复现。** NatureBench 明确区分「匹敌 SOTA」与「真正的方法论创新」。评分指标该如何操作化「发现」？
@@ -462,7 +462,7 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - **广度 vs. 深度。** 跨学科 benchmark（NatureBench、AIRS-Bench、MedHELM）给出广度；单仿真器 / 单领域 benchmark 给出深度。哪一种更适合作为主要评估面？
 - **Judge 可靠性。** MedHELM 报告的 LLM-jury 与医生一致性为 ICC = 0.47。这是否是其他使用 LLM-judge 评分的科学领域 benchmark 应报告的下限？多少才算充分？
 
-## Related Works
+## 相关工作
 
 - [Curation-Bench](../works/curation-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)
@@ -711,6 +711,6 @@ Scientific agent benchmark 是在真实科学研究或实践中提取任务的 A
 - [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
 - [Agents Catching Agents](../works/agents-catching-agents.md)
 
-## Further Reading
+## 延伸阅读
 
 - Yehudai, Eden, Li, Uziel, Zhao, Bar-Haim, Cohan, Shmueli-Scheuer. *Survey on Evaluation of LLM-based Agents*. arXiv 2503.16416, 2025. <https://arxiv.org/abs/2503.16416>

@@ -10,15 +10,15 @@
 
 ## 定义
 
-Hierarchical decision abstraction 研究一个 agent 的行为应该怎样分层表示、评价和优化。层级可以包括目标、策略、子目标、推理动作、工具调用、token chunk、primitive action 和连续控制。它追问的不只是「这个 decision 好不好」，还包括「多大的一段行为应该算一个 decision」。
+Agent 会在不同尺度上做决定：先选目标和策略，再选子目标、推理动作和工具，最后才落到 token 或底层控制。Hierarchical decision abstraction 要决定这些边界画在哪里，以及每一层怎样表示、打分和改进。它先问的不是「这个 decision 好不好」，而是「多大一段行为才算一个 decision」。
 
-## 动机
+## 为什么重要
 
-如果只对 token、tool call 或 raw control 组成的整条 trajectory 给一个最终分数，策略选择和执行质量就混在了一起。自动驾驶中，选哪条路线、是否变道，以及具体怎样转方向盘或踩刹车，处在不同时间尺度上。科研 agent 也一样：选择诊断策略、决定做哪个实验、调用工具和生成代码，不应该被压成一个看不出内部结构的黑箱。
+只给整条 trajectory 一个最终分数，会把策略和执行混在一起。自动驾驶中，选路线、决定变道、转方向盘是三个不同尺度的决定。科研 agent 也一样：先选诊断策略，再选实验，然后调工具并写代码。把这四层压成一条 trace，就看不出到底是哪一层坏了。
 
-把这些层级显式写出来以后，evaluation 才能指出该改哪里。系统可以区分「子目标选对了，但执行失败」和「子目标选错了，但执行得很漂亮」；训练时也能把 reward 给到真正负责的层级。开发者因此可以单独修 planner、executor、skill 或 controller，而不必把整个系统推倒重训。这个 topic 连接了 measurement 与 evaluation-driven improvement。
+层级一旦可见，evaluation 就能分清「子目标选对了，但执行失败」和「子目标选错了，但执行得很漂亮」。Training 可以把 reward 给到真正负责的层级，开发者也可以单独修 planner、executor、skill 或 controller，不用把整个系统推倒重训。这套 hierarchy 把诊断直接连到了可模块化的改进。
 
-它不同于 [Skill Hierarchy](./skill_hierarchy.md)。Skill Hierarchy 问的是一项任务需要哪些能力；它也不同于 [Planning & Decision-Making Evaluation](./planning_decision_evaluation.md)，后者问选出的 decision 是否合理。Hierarchical Decision Abstraction 问的是：应该在哪个粒度上定义和评分这个 decision。
+它和 [Skill Hierarchy](./skill_hierarchy.md) 不同，后者问一项任务需要哪些能力。它和 [Planning & Decision-Making Evaluation](./planning_decision_evaluation.md) 也不同，后者问选出的 decision 好不好。这里问的是 decision 的粒度：路线、操作、控制信号，还是别的层级。
 
 ## 现有方法
 
@@ -52,7 +52,7 @@ Hierarchical decision abstraction 研究一个 agent 的行为应该怎样分层
 - **接口错误。** 两个模块可能各自有能力，却在层级转换时失败。Evaluation 需要区分 planner error、executor error 与 grounding/interface error。
 - **严格对照实验。** 目前还缺少这样的实验：固定 model、data、reward、compute 和 environment，只改变 action representation，再同时测 IID success、OOD transfer、composition、sample efficiency、strategy diversity 和 decision cost。
 
-## Related Works
+## 相关工作
 
 - [MA-RLHF](../works/ma-rlhf.md)
 - [CoLA](../works/cola.md)

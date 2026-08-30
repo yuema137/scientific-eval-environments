@@ -10,13 +10,13 @@ A skill hierarchy splits the capability profile. For a tool-use task, score inst
 
 ## Definition
 
-Skill hierarchy refers to the decomposition of a complex agent capability into a structured set of narrower capabilities or subskills, together with evaluation protocols that score each subskill separately. Benchmarks in this space share the design commitment that a single aggregate score conflates too much: to understand what an agent can and cannot do, evaluation must probe multiple levels of the capability tree.
+A skill hierarchy breaks a broad capability into narrower abilities and scores them separately. Instead of saying only that an agent is "good at coding" or "bad at research," the evaluator tests planning, retrieval, tool use, verification, and other subskills at the levels needed for diagnosis.
 
 ## Motivation
 
-Aggregate leaderboards obscure the shape of an agent's competence. Two agents with the same overall score may fail on entirely different subskills, and a single-metric ranking does not tell a downstream user which agent to trust for which sub-task. Skill-hierarchy benchmarks address this by producing a per-capability profile.
+One leaderboard number hides the shape of competence. Two agents can tie overall because one retrieves evidence well but plans poorly, while the other has the opposite profile. A per-capability result tells developers what to improve and tells users which agent fits a particular job.
 
-Skill hierarchy is closely related to but distinct from [Credit Assignment](./credit_assignment.md). Skill hierarchy asks *which subskill an agent has*; credit assignment asks *which step of a trajectory drove a success or failure*. They can be pursued together — score each subskill along the trajectory — but they answer different questions.
+This differs from [Credit Assignment](./credit_assignment.md). Skill hierarchy asks which abilities the agent has. Credit assignment asks which step changed the outcome of one run. An evaluator can label both skill and step, but the two labels answer different questions.
 
 ## Existing Approaches
 

@@ -10,11 +10,11 @@ Consider a repository task: inspect the issue, locate code, edit two files, run 
 
 ## Definition
 
-Long-horizon agent evaluation covers benchmarks whose tasks require many sequential decisions, tool calls, or interaction turns before the task can be judged complete. "Long" is not a fixed step count; it is the property that failures accumulate across steps, that intermediate state matters, and that a single terminal reward gives too little diagnostic signal.
+A long-horizon benchmark makes the agent carry a task through many dependent decisions, tool calls, or interaction turns before anyone can judge completion. "Long" is not a universal step threshold. The important property is dependence: earlier actions change later state, errors accumulate, and one final reward cannot explain what happened.
 
 ## Motivation
 
-Short-horizon benchmarks over-reward models that are strong at one-shot reasoning. Real deployments — professional workflows, scientific-computing pipelines, multi-turn tool use — are longer than a single prompt-response. Long-horizon benchmarks are the setting in which planning, error recovery, state maintenance, and cost-awareness become measurable, and they are typically the setting in which trajectory-level evaluation is worth its overhead.
+A one-shot task can show that a model knows what to say next. It cannot show that the agent remembers earlier work, reacts to tool output, recovers from a bad step, or manages a budget across a workflow. Professional and scientific tasks require those behaviors. Long-horizon settings expose them, although the longer trace also creates more possible failure causes and makes trajectory-level evaluation more expensive.
 
 ## Existing Approaches
 

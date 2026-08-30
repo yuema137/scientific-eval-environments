@@ -8,15 +8,15 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 
 拿 repository task 来说：先读 issue，再找 code，改两个 file，跑 test，定位 failure，最后修改 patch。它之所以是 long-horizon，不是因为超过某个硬性的 step count，而是每一步都依赖前面留下的 state。长任务能暴露 planning 与 recovery，也会把更多 failure cause 混在一起，所以通常还得配 trajectory diagnostic。
 
-## Definition
+## 定义
 
-长 horizon agent 评估覆盖这样一类 benchmark：其任务需要多次顺序决策、多轮工具调用或多轮交互才能判定完成。"长"并非固定的步数——它指失败可能沿步骤累积、中间状态起作用、单一的最终奖励难以给出足够的诊断信号。
+长 horizon benchmark 要求 agent 经过多次相互依赖的决策、工具调用或交互，才能完成任务。「长」没有通用的步数门槛。关键是依赖关系：前面的 action 会改变后面的 state，错误会累积，一个最终 reward 说不清中间发生了什么。
 
-## Motivation
+## 为什么重要
 
-短 horizon benchmark 会奖励擅长一步推理的模型。真实部署——专业工作流、科学计算 pipeline、多轮 tool use——远长于一次 prompt-response。长 horizon benchmark 是规划、错误恢复、状态维护与 cost-awareness 变得可测量的场景，通常也是 trajectory 级评估的开销真正值得的场景。
+一次问答可以看出 model 知不知道下一句该说什么，却看不出 agent 能不能记住前面做过的事、根据 tool output 调整、从错误中恢复，或在整个 workflow 中管好预算。真实的专业和科学任务需要这些能力。长 horizon 能把它们暴露出来，但更长的 trace 也会带来更多失败原因，trajectory evaluation 的成本也更高。
 
-## Existing Approaches
+## 现有方法
 
 长 horizon benchmark 沿几个维度分化：环境介质、horizon 长度、是否存在密集中间奖励、任务的生态 grounding。
 
@@ -71,7 +71,7 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 - **除了能力，horizon 还会一并带上什么。** [SkillMisevo-Bench](../works/skillmisevo-bench.md) 把同一套持久状态的设计搬到安全上：恶意暴露按固定日程在一个 episode 内分次投放，最后一个区块则在彻底重置后只重新载入 agent 自己写下的 `SKILL.md`，从而把当场造成的危害与熬过整场会话留存下来的危害分开。
 - **只有长度，没有环境。** [Skill²-Bench](../works/skill2-bench.md) 单独抽出长 horizon 难度中的一个成分——在前后依赖的相邻步骤之间切换推理 skill 所付出的代价——放进 2 到 10 步的链条里考察：没有工具、没有外部状态，失败一步也无从补救；难度由一个有向的成对 skill 熵测度校准，该测度以单一参考模型为准固定下来。
 
-## Comparison
+## 方法对比
 
 | Benchmark | Year | Horizon 信号 | 环境 | Card |
 |---|---|---|---|---|
@@ -133,14 +133,14 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 | R³-Bench | 2026 | 一份预算由六道题共用，因此必须分配算力，还得舍掉一部分题 | 无工具作答与 Terminus-2 shell | [→](../works/r3-bench.md) |
 | BATS / Budget Tracker | 2025 | 以工具调用预算为 scaling 轴（每种工具 10/30/50/100）；不给 agent 预算意识，性能很快见顶 | 真实网页浏览环境下的搜索 agent，另有零售对话与 SWE-bench Verified | [→](../works/bats-budget-aware.md) |
 
-## Open Questions
+## 还没解决的问题
 
 - **"长 horizon" 到底指什么？** 步数？wall-clock？独立 tool call？独立子决策？不同 benchmark 采用不同定义，跨 benchmark 比较受限。
 - **最终奖励 vs. trajectory 指标。** 带密集子任务奖励的 benchmark 产出非 Pass@1 信号；仅有终态结果的 benchmark 则不产出。长 horizon 排行榜应如何权衡两者？
 - **生态效度 vs. 可复现性。** 生态 grounding 的任务（Agents' Last Exam、Terminal-Bench Science）源于真实工作流，需付出评审成本；合成任务更易扩展。哪一种更适合作为主要评估面？
 - **难度上限。** Frontier 模型在短 horizon 上迅速饱和。当前长 horizon benchmark 是否在下一代模型面前仍保留难度上限？
 
-## Related Works
+## 相关工作
 
 - [HiPER](../works/hiper.md)
 - [TravelPlanner](../works/travelplanner.md)
@@ -202,6 +202,6 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 - [R³-Bench](../works/r3-bench.md)
 - [BATS / Budget Tracker](../works/bats-budget-aware.md)
 
-## Further Reading
+## 延伸阅读
 
 - Yehudai, Eden, Li, Uziel, Zhao, Bar-Haim, Cohan, Shmueli-Scheuer. *Survey on Evaluation of LLM-based Agents*. arXiv 2503.16416, 2025. <https://arxiv.org/abs/2503.16416>

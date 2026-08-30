@@ -2,9 +2,9 @@
 
 > [English](../../topics/README.md) | **简体中文**
 
-文献综述页面，每页对应一个规范化的 evaluation-research 方向。
+Topic 页把一张张 work card 连起来，讲清一个评估问题。
 
-Topic 页是**evaluation research 轴**，与 domain 和 activity 平级。它回答三个问题：测什么、怎么测，以及怎样用 evaluation 改进 agent。
+当你的问题以「我们怎么知道」开头时，就从这里进。比如：agent 选的 plan 好不好？一条长 run 为什么失败？Judge 可不可信？Evaluation result 应该怎样改变 training data？每个 topic 页先把实际问题说明白，再让一个具体案例走完机制，最后比较相关文献。
 
 ```
 Topic  →  代表性 works  →  原始论文
@@ -14,7 +14,7 @@ Topic  →  代表性 works  →  原始论文
 
 Topic 集合是固定的。新增 topic 需要更新 [`../../AGENT.md`](../../AGENT.md)。
 
-每个 topic 都先用 `先看它解决什么问题` 带读者进门，再进入正式 synthesis。入口会说明原来的 evaluation path、现在改了哪一步，让一个具体 trace 走一遍，并交代最近的边界。完整规则见[解释写作规范](../EXPLANATION_STYLE.md)。
+每个 topic 都从 `先看它解决什么问题` 开始，但不能只有这一段像人话。后面的「定义」要划清边界，「为什么重要」要写出旧测法漏掉了什么，「现有方法」要说清每种工作改了哪一步，「还没解决的问题」要交代现有 evidence 还不能回答什么。完整规则见[解释写作规范](../EXPLANATION_STYLE.md)。
 
 | # | Topic | 文件 | 收录 works |
 |---|---|---|---|
@@ -50,29 +50,29 @@ Skill Hierarchy 与 Credit Assignment 是两个独立的 topic。
 
 > **English** | [简体中文](../zh/topics/<topic_file>.md) · [← All topics](./README.md)
 
-## Definition
+## 定义
 
 对该 topic 的简明定义。一个段落。
 
-## Motivation
+## 为什么重要
 
 该 topic 对科学评估为何重要。它解决什么问题？缺少它会缺失什么？
 
-## Existing Approaches
+## 现有方法
 
 代表性工作，可以按任何最能阐明该 topic 的方式分组或排序。引用
 `../works/` 中的卡片，而不是复述其中的事实细节。
 
-## Comparison
+## 方法对比
 
 使用适配**本** topic 的维度构建比较表或矩阵——不要试图复用其他
 topic 的维度。
 
-## Open Questions
+## 还没解决的问题
 
 当前挑战与未来研究方向。明确标注为前瞻性内容，而非既定事实。
 
-## Related Works
+## 相关工作
 
 - [<Work Name>](../works/<work-card>.md) — 一句话说明收录原因。
 ```

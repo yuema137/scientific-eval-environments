@@ -2,7 +2,7 @@
 
 > [English](../../works/README.md) | **简体中文**
 
-针对单个已有工作的事实性引用卡片。
+每篇论文或每个项目一张卡。读者不用先去啃 abstract，也能看懂这份工作改了什么。
 
 **"Works"** 比 "benchmarks" 更广。本目录为仓库记录的每一份工作保存一张卡片，包括：
 
@@ -12,15 +12,15 @@
 - **面向评估的 agent RL 工作** — 以*评估* agent 为核心的强化学习贡献（agent 的 reward 设计、credit-assignment 方法、agent trajectory 的 off-policy 评估）。纯 RL 算法 / 训练 / 策略优化工作不在范围内；参见 [`../../AGENT.md`](../../AGENT.md)。
 - **参考论文（Reference papers）** — 综述与立场论文，卡片上会显式标注类型。
 
-每份工作在本目录下**只有一个** Markdown 文件——没有按类别划分的子目录。文件名使用 kebab-case，与工作的官方名称对应（例如 `terminal-bench-science.md`、`medhelm.md`、`trace.md`）。
+每份工作在本目录下**只有一个** Markdown 文件，不再按类别分子目录。卡片先说原来的 evaluation 或 development path 怎样走，再说这份工作改了哪一步，让一个 task 走到 score，最后交代 source 能支撑到哪里。文件名使用 kebab-case，例如 `terminal-bench-science.md`、`medhelm.md` 和 `trace.md`。
 
 ## 卡片是什么（不是什么）
 
-卡片回答的问题是：**"这份工作是什么？"**
+一张卡回答四个具体问题：**这份工作解决什么事？它改了哪一步？这个改动怎样被评估？现有证据还不能证明什么？**
 
 卡片**不是**文献综述。综合、比较与设计空间分析属于 [`../topics/`](../topics/)。
 
-保持卡片轻量。如果一段比较或分析值得写下来，它应该写进 topic 页。
+卡片要简洁，但不能只堆名词。它负责解释一份工作，不负责判断整个领域里谁更好。跨工作比较放到 topic 页。
 
 ## 卡片模板
 
@@ -33,7 +33,7 @@
 
 ## Overview
 
-一到两句话描述这份工作是什么。
+用一到两句话回答：原来的 path 怎样走，这份工作改了哪一步，它又怎样检查这个改动。遵循 [`../../EXPLANATION_STYLE.md`](../../EXPLANATION_STYLE.md)，不要粘贴 abstract 或换几个词再抄一遍。
 
 ## Topics
 
@@ -53,7 +53,7 @@
 
 ## Summary
 
-两到四句话描述这份工作的总体设计与目标。
+用两到四句话让核心机制走一遍：输入或 state 先到哪里，谁做了什么 intervention，结果怎样变成 score。如果 `Limitations` 还没有覆盖最重要的边界，就在这里交代。
 
 ## Tasks
 
@@ -66,8 +66,7 @@
 
 ## Evaluation
 
-答案/trajectory 如何被评分（确定性验证器、专家 rubric、LLM judge、
-基于执行的检查等）。综述与立场论文写 `N/A` 并附说明。
+答案或 trajectory 怎样被打分，比如确定性 verifier、专家 rubric、LLM judge 或基于执行的 check。读者应该能跟着一个代表性样例，从 output 一直走到 score。综述与立场论文写 `N/A` 并附说明。
 
 ## Typical Duration
 

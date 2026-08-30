@@ -10,11 +10,11 @@ One evaluation loop can let the agent solve examples, write a skill file, freeze
 
 ## Definition
 
-Skill learning and evolution studies whether agents can turn experience, trajectories, demonstrations, or evaluator feedback into reusable procedural artifacts and whether those artifacts transfer when tasks, contexts, or compositions change.
+Skill learning asks whether an agent can turn experience into a reusable procedure. The source may be a trajectory, demonstration, or evaluator feedback; the result may be a skill file, policy, memory item, or other artifact. Evolution asks whether the agent can revise that artifact after failure. Evaluation then tests whether it still works when the task, context, or skill combination changes.
 
 ## Motivation
 
-Task success during acquisition does not show that a reusable skill was learned. Evaluation must separate episodic reuse from abstraction, skill authoring from retrieval, and immediate replay from frozen deployment. This differs from Skill Hierarchy, which decomposes a capability for measurement rather than studying how skills are acquired and revised.
+Solving the acquisition example proves only that the agent solved that example. It may have copied the original trace instead of learning a method. A useful evaluation freezes the skill, removes the source trajectory, and tests transfer on held-out conditions. This differs from Skill Hierarchy, which decomposes an existing capability rather than studying how a skill is acquired, revised, and reused.
 
 ## Existing Approaches
 

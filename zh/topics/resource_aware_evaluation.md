@@ -8,20 +8,20 @@
 
 Resource-aware evaluation 会记录或限制这些成本。比如总 budget 是 10 美元，agent 用 2 美元 retrieval、5 美元 simulation，再留 3 美元 verification；score 要同时展示 task quality 和 spending。便宜的失败不自动比昂贵的成功好，所以 benchmark 应该把 trade-off 摊开，别悄悄压成一个解释不清的 total。
 
-## Definition
+## 定义
 
-Resource-aware evaluation 把资源消耗——token、tool-call 费用、wall-clock 时间、计算资源、仿真时间或某种领域特定的成本单位——纳入 benchmark 所衡量的范围，而不仅作为事后统计。在其最强的形式下，某种资源（通常是成本）被作为 agent 必须与任务成功一起权衡的显式优化目标。
+Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此花了什么。成本可以是 token、tool fee、wall-clock time、compute、simulator time 或实验材料。有些 benchmark 只报告消耗；更强的设计会直接给 agent 一个预算，测它能不能在资源约束下权衡任务质量。
 
-## Motivation
+## 为什么重要
 
-Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；更长的 trajectory 通常能得到更好的答案。因此，孤立地评估能力等价于奖励"不惜代价解题"——这与科学或生产场景下的部署条件并不一致。
+更多资源通常能换来更好结果：更强的 model 更贵，多调几次 tool 能找到更多 evidence，搜得更久也可能找到更好的 solution。如果 score 完全忽略消耗，就是在奖励「不惜代价解题」。科学和生产环境很少允许这么做，所以 evaluation 必须把 trade-off 摊开。
 
 有两个划分维度：
 
 - **资源作为额外报告的指标** vs. **资源作为显式目标**：前者在分析阶段浮现 trade-off；后者考察 agent 是否能在预算下**规划**。
 - **仅 token 成本** vs. **tool-use 成本（仿真时间、实验资源）**：只看 token 成本会遗漏许多科学工作流的主要成本。
 
-## Existing Approaches
+## 现有方法
 
 - **在 tool use 中把成本作为一等目标。** [CostBench](../works/costbench.md) 把成本最小化本身设为任务，在 travel-planning 场景下具有可配置的原子/组合工具成本，并通过阻断事件迫使重规划。
 - **Token 之外的 tool-use 成本，聚焦科学仿真。** [SimulCost](../works/simulcost.md) 把 cost-aware 评估扩展到物理仿真参数调优，显式建模仿真时间与实验资源成本，覆盖 13 个仿真器，并直接与传统方法对比。
@@ -50,7 +50,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 
 两者都没有给出规划器在方案之间做取舍时真正需要的东西：一个以动作为单位、以任务特征为条件的分布，覆盖 token、墙钟、GPU 时间、内存与费用，并带有校准过的不确定性。参见下方的 Open Questions。
 
-## Comparison
+## 方法对比
 
 | Benchmark | Year | 资源单位 | 资源角色 | 场景 | Card |
 |---|---|---|---|---|---|
@@ -75,7 +75,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 | AI Research Preference Models | 2026 | 候选方案执行所耗的 H200 GPU 小时 | 预算固定，贡献在于如何**分配**——用一个冻结的预训练模型预测哪些候选值得真正跑一遍 | AI 研究 agent 在 ML 解空间上的搜索（AIRA-dojo 跑 AIRS-Bench） | [→](../works/ai-research-preference-models.md) |
 | BATS / Budget Tracker | 2025 | 统一计价：token 开销加上按每次 0.001 美元固定计价的工具调用 | 预算是硬约束，但每一轮都让 agent **看得见**；scaling 曲线在统一计价下绘制 | 网页搜索 agent（BrowseComp、BrowseComp-ZH、HLE-Search），另有 τ²-bench 与 SWE-bench Verified | [→](../works/bats-budget-aware.md) |
 
-## Open Questions
+## 还没解决的问题
 
 - **不同场景下的资源规范化。** 一美元的 API 支出、一美元的 tool-call 费用、一秒的 wall-clock 或仿真时间并不直接可比。哪一种"资源货币"应作为跨 benchmark 比较的标准？或者它们本就无法完全统一？
 - **静态 vs. 动态的鲁棒性。** CostBench 报告了显著的静态–动态下降。这一差距是当前模型的属性，还是仅是特定扰动分布的属性？领域是否应就一套标准扰动分布达成共识？
@@ -84,7 +84,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - **预测出来的成本 vs. 花掉的成本。** 本页所有工作都是在动作**选定之后**再去限制或测量资源消耗。没有谁暴露出一个以动作为单位、以任务特征为条件的事前成本预测——即 `C(动作, 任务特征) → 分布`，覆盖 token、墙钟、GPU 时间、显存峰值与费用，并附带不确定性估计。这一点之所以要紧，是因为 agent 工作流方差大且带条件结构：一次失败会牵出「诊断—重试」链，因此实际期望成本是 `C₀ + P(失败)·C_重试 + …`，而不是把计划中的各步简单相加；而在预算下做取舍的规划器需要的是尾部分位数（p90），不是均值。由此引出三个问题。成本预测器究竟是一件**评估**工具，还是 agent 的一个组件——它到底该不该进入这条轴？这样的预测器是否应当按自身的校准度（分动作类别的预测值对实际值）单独计分，而不只看它带来的下游任务分数？以及，benchmark 是否应当在消耗量之外一并报告**预测误差**，好把「碰巧没超预算」的 agent 与「知道每件事要花多少因而没超」的 agent 区分开？
 - **谁的估计算数。** 如果资源估计出自规划器自己的自然语言（「这大概要二十分钟」），它既没有依据也无从计分。把提出动作的执行者、为动作定价的估计器、以及在预算下放行或驳回的策略三者分开，就能各自独立地衡量——但本页目前没有任何 benchmark 把这三种角色分开评估。
 
-## Related Works
+## 相关工作
 
 - [PostTrainBench](../works/posttrainbench.md)
 - [CostBench](../works/costbench.md) — 动态 tool-use 条件下的成本最优规划。
@@ -108,7 +108,7 @@ Agent 能力与资源消耗往往同向变化：更强的模型通常更贵；�
 - [AI Research Preference Models](../works/ai-research-preference-models.md) — 用不到三分之二的执行预算、约 15 小时就达到未引导 agent 24 小时的分数，并同时给出验证集与测试集的 oracle 上界。
 - [BATS / Budget Tracker](../works/bats-budget-aware.md) — 把 token 与工具调用折算进同一种计价；仅仅把剩余预算告诉 agent，就能用十分之一的预算追平 ReAct 基线的准确率。
 
-## Further Reading
+## 延伸阅读
 
 - Yehudai, Eden, Li, Uziel, Zhao, Bar-Haim, Cohan, Shmueli-Scheuer. *Survey on Evaluation of LLM-based Agents*. arXiv 2503.16416, 2025. 指出 cost-efficiency 是当前 agent 评估中覆盖不足的维度。<https://arxiv.org/abs/2503.16416>
 

@@ -8,15 +8,15 @@ Evaluator 也是一套 measurement system，不是 oracle。LLM judge 给一条 
 
 可以拿 100 条 expert-labeled trajectory，让 judge 全部打一次分，再分别看 false pass、false failure，并交换展示顺序重测。这是在用 judge 排 agent 或提供 reward 之前，先评价 judge 自己。即便这批数据上一致性很高，也不能保证 agent 改变行为、开始钻 judge 空子以后仍然可靠。
 
-## Definition
+## 定义
 
-这个 topic 研究给 agent 打分的 evaluator 是否准确、校准良好、经得住分布变化，而且真的适合后续用途。Evaluator 不只包括 LLM judge，也包括确定性 verifier、专家 rubric、reward model 和混合系统。
+Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确定性 verifier、专家 rubric、reward model、LLM judge，也可以把几种方法组合起来。这个 topic 检查它能不能给出正确 verdict，能不能如实表达不确定性，换个无关的展示方式会不会变分，以及这个分数到了下游是不是真能用。
 
-## Motivation
+## 为什么重要
 
-Agent 的分数是否可信，取决于 evaluator。它在简单样例上同意人类，并不表示它能稳定地给 agent 排名、提供可靠 reward，或抵抗位置、文风、长度和 trajectory 分布变化。因此，evaluator 本身也需要 ground truth、误差分析和压力测试。
+分数会把 evaluator 的错误一起带到下游。Judge 可能在简单样例上和专家一致，但一换 candidate order 就颠倒排名，或者偏爱长答案，遇到和 validation set 不同的 trajectory 就失灵。在用它排 leaderboard 或提供 training reward 之前，先得用专家 ground truth、calibration check 和压力测试来评价 evaluator 自己。
 
-## Existing Approaches
+## 现有方法
 
 - **专家标注的 trajectory。** [AgentRewardBench](../works/agentrewardbench.md) 与 [MobileJudgeBench](../works/mobilejudgebench.md) 分别用 web 和 mobile agent 的专家结果检验自动 judge。
 - **成对偏好。** [Plan-RewardBench](../works/plan-rewardbench.md) 交换候选顺序，测试 evaluator 能否从易混淆的工具 trajectory 中选出较优者。
@@ -24,7 +24,7 @@ Agent 的分数是否可信，取决于 evaluator。它在简单样例上同意�
 - **混合验证。** [AgentLens](../works/agentlens.md) 把形式化检查、多个 judge 维度和带证据的文字审查结合起来。
 - **领域校准。** [AstroVisBench](../works/astrovisbench.md)、[PSE-Bench](../works/pse-bench.md) 和 [FIRE-Bench](../works/fire-bench.md) 都报告科学输出 judge 与人类专家的一致程度。
 
-## Comparison
+## 方法对比
 
 | Work | 被检验的 evaluator | Ground truth | 可靠性信号 | 下游验证 |
 |---|---|---|---|---|
@@ -35,7 +35,7 @@ Agent 的分数是否可信，取决于 evaluator。它在简单样例上同意�
 | AgentLens | 混合 judge 与形式化 verifier | 可执行检查和审查证据 | 多维质量指数 | Coding agent 诊断 |
 | AstroVisBench | 多模态可视化 judge | 专业天文学家标注 | 排名相关与标注者一致性 | Judge 选择 |
 
-## Open Questions
+## 还没解决的问题
 
 - 哪些 judge 指标真能预测排名、reward 和部署决策是否可靠？
 - Evaluator 的不确定性应如何传递到 leaderboard 和统计比较？
@@ -43,7 +43,7 @@ Agent 的分数是否可信，取决于 evaluator。它在简单样例上同意�
 - Pairwise、pointwise、rubric 和确定性 evaluator 各自在什么条件下失效？
 - 怎样抵抗 reward hacking、文风偏差、contamination 和针对 evaluator 的自适应优化？
 
-## Related Works
+## 相关工作
 
 - [AgentRewardBench](../works/agentrewardbench.md)
 - [MobileJudgeBench](../works/mobilejudgebench.md)

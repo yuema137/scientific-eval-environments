@@ -10,11 +10,11 @@ For example, an agent fine-tunes a base model, runs a held-out suite, sees that 
 
 ## Definition
 
-Evaluation-driven post-training studies systems in which evaluation is a first-class objective, feedback signal, selection mechanism, or experimental environment for improving a model or agent through fine-tuning, reinforcement learning, preference learning, or related adaptation.
+Evaluation-driven post-training puts an evaluator inside the improvement loop. A developer or agent uses its results to choose data, rewards, fine-tuning settings, preference updates, or reinforcement-learning experiments, then evaluates the changed model again.
 
 ## Motivation
 
-Evaluation can guide development rather than merely score its endpoint. The relevant unit is the closed loop: evaluate, diagnose, intervene, and re-evaluate. Ordinary training papers that merely report benchmark numbers remain outside this topic; evaluation must actively determine what is selected, optimized, or attempted next.
+The useful signal is not just whether the final model is better. It is which measured weakness caused the next intervention and whether that intervention fixed the weakness without breaking something else. Ordinary papers that train once and report benchmark numbers remain outside this topic. Evaluation must influence what the system selects, optimizes, or tries next.
 
 ## Existing Approaches
 

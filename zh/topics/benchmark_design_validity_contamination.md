@@ -8,15 +8,15 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 
 拿一道 coding task 走一遍：从近期 repository 取题，生成 test，要求 test 覆盖改动过的 branch，执行 agent 提交的 patch，再记录 verifier 漏掉了什么。每一步都堵住一种失真来源，但没有哪一步能让 benchmark 永久有效。Repository 会变，model 会见到新数据，verifier 自己也得定期审计。
 
-## Definition
+## 定义
 
-这个 topic 研究 benchmark 的任务、参考答案、verifier、抽样方式和分数，能不能支撑论文据此提出的结论。它包括任务构造、contamination 控制、动态评估、现实有效性、verifier 严谨度和长期维护。
+这个 topic 检查的是「从 task 到结论」这条链。Task 从哪里来，model 有没有可能背过答案，参考答案是否容得下其他正确解，verifier 能不能拦住看着合理但其实是错的结果，environment 有没有保留真实任务的关键约束。这些问题的答案，决定了分数能不能支撑论文的结论。
 
-## Motivation
+## 为什么重要
 
-分数算得再精确，如果题目已经被记住、测试太弱、参考答案不完整，或者环境缺少被测能力所需的关键条件，结论仍然不成立。因此，benchmark 是否有效本身就是研究问题，不只是维护工作。
+计分算得再准，也救不了坏测量。任务被记住会高估能力，test 太弱会让错误结果通过，参考答案不全会拒绝合理解，toy environment 会把真实工作中最难的条件拿掉。所以 benchmark design 本身就是研究结果的一部分，需要实测，也需要持续维护。
 
-## Existing Approaches
+## 现有方法
 
 - **动态、近期来源。** [CODE2BENCH](../works/code2bench.md)、[PRL-Bench](../works/prl-bench.md) 和 [MedBrowseComp](../works/medbrowsecomp.md) 从近期 repository、论文或实时来源刷新题目。
 - **私有或新写答案。** [CritPt](../works/critpt.md)、[OnePot-Bench](../works/onepot-bench.md) 和 [GeneBench-Pro](../works/genebench-pro.md) 使用未发表、私有或留出的材料。
@@ -24,7 +24,7 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 - **Verifier 严谨度。** CODE2BENCH 要求 property-based tests 达到 branch-coverage gate；[FrontierCode](../works/frontiercode.md) 同时做执行检查与 contamination 检测。
 - **近期研究实现。** [ResearchCodeBench](../works/researchcodebench.md) 从近期研究贡献构造实现任务，并单独发布 contamination-safe 子集。
 
-## Comparison
+## 方法对比
 
 | Work | 任务来源 | 有效性措施 | Verification | 刷新方式 |
 |---|---|---|---|---|
@@ -34,7 +34,7 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 | DiscoverPhysics | 自动生成的物理世界 | 按需生成反事实规律 | Simulator ground truth | 每个实例更新 |
 | ResearchCodeBench | 近期 ML 论文 | contamination-safe 论文子集 | 可执行代码测试 | 新论文批次 |
 
-## Open Questions
+## 还没解决的问题
 
 - Contamination audit 怎样从“没搜到重合”进一步支持“确实不存在”？
 - 要声称功能正确，test adequacy 需要达到什么证据标准？
@@ -42,7 +42,7 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 - Synthetic control 在什么情况下会损失科学和工程场景所需的现实有效性？
 - Reference、rubric 和 judge 的不确定性应如何进入最终分数？
 
-## Related Works
+## 相关工作
 
 - [CODE2BENCH](../works/code2bench.md)
 - [PRL-Bench](../works/prl-bench.md)

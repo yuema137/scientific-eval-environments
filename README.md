@@ -4,19 +4,25 @@
 
 > **English** | [简体中文](./zh/README.md)
 
-An open knowledge base on **evaluation for scientific and engineering AI agents**: what is measured, how evaluation is designed and interpreted, and how evaluation drives system improvement.
+This repository tracks how scientific and engineering AI agents are evaluated, and how those results feed back into development.
 
-**Evaluation is not only a way to measure AI systems; it is a feedback mechanism for building them.** The repository follows the full loop: measure, diagnose, intervene, and re-evaluate — across plans, trajectories, skills, harnesses, data, and post-training.
+The key idea is simple: a score should do more than say whether an agent won or lost. It should help someone decide what to change next. If a research agent fails to reproduce a paper, the useful question is whether the plan was wrong, a tool call failed, the verifier missed an error, or the system ran out of budget. Those diagnoses lead to different repairs.
 
-Each piece of work has a concise, factual reference card. Cards are organized along three independent axes: **topics** (the evaluation question), **domains** (the scientific field), and **activities** (what the evaluated agent actually does). Topic pages begin with the practical problem, trace one concrete example, and then move into the formal literature map. Start from the question you have, follow the links to representative works, and continue to the primary sources.
+The repository follows that loop:
 
-This is a reference, not a benchmark implementation. Its prose follows the repository's [Explanation Style Guide](./EXPLANATION_STYLE.md): expose actors and changed steps, use a real trace when it clarifies the mechanism, and state what each result does not establish.
+```text
+task → agent run → evaluation → diagnosis → intervention → new evaluation
+```
+
+One work card records what a paper or project actually contributes. Three independent indexes let readers approach that card from different questions: **topic** asks what evaluation problem it addresses, **domain** asks where the task lives, and **activity** asks what the agent does. Topic pages connect the cards into a literature map and explain where the methods differ.
+
+This is a reference, not a benchmark implementation. The [Explanation Style Guide](./EXPLANATION_STYLE.md) governs the prose: name the actor, show the old path and the changed step, trace a real example when useful, and state the nearest limitation.
 
 ---
 
 ## A Living Knowledge Base
 
-Scientific Evaluation Environments is continuously maintained rather than periodically released. An automated update agent scans public sources every three days for new work, integrates relevant additions into the knowledge base, and proposes updates through pull requests for human review.
+The collection changes as the field changes. Every three days, an update agent searches public sources for new work. It drafts cards and index updates, but does not publish them directly. Each batch arrives as a pull request so a person can check the sources, taxonomy, prose, and Chinese mirror before merge.
 
 ---
 
@@ -27,7 +33,7 @@ Scientific Evaluation Environments is continuously maintained rather than period
 - **[Browse by Research Activity](./activities/README.md)** — find works by the task the evaluated agent or system performs.
 - **[Browse All Works](./works/README.md)** — open the complete collection of factual work cards.
 
-The three axes are co-equal entry points over the same cards:
+Choose the entry point that matches the question you already have:
 
 ```
 Topic     →  Representative works            →  Original papers   (what / how / how evaluation is used)
@@ -35,13 +41,13 @@ Domain    →  Works evaluated in that domain  →  Original papers   (where the
 Activity  →  Works performing that task      →  Original papers   (what the agent does)
 ```
 
-A work may appear under several topics, domains, and activities — each is a different lens on the same work, not an exclusive bucket.
+These are not competing classifications. A benchmark for a chemistry agent may belong to several topics, one domain, and several activities at the same time. Each link answers a different question about the same work.
 
 ---
 
 ## Browse by Topic
 
-Topics are the **evaluation-research axis**. They cover capabilities and behavior being measured, evaluation design and interpretation, and evaluation-driven improvement. Each page is a literature review with its own comparison table. See [`topics/`](./topics/README.md) for the full index.
+A topic starts with an evaluation problem. Some topics ask what behavior to measure, such as planning or long-horizon work. Others ask whether the measurement itself is trustworthy, or how its feedback changes skills, harnesses, data, and post-training. Each topic page explains that problem, groups the main approaches, and compares them using dimensions that fit the problem. See [`topics/`](./topics/README.md) for the full index.
 
 | Topic | What you'll find |
 |---|---|
@@ -65,7 +71,7 @@ Topics are the **evaluation-research axis**. They cover capabilities and behavio
 
 ## Browse by Domain
 
-Domains are the **field axis**: the science or engineering discipline a work evaluates in, co-equal with topics. Work counts show current coverage; the authoritative index and per-page tables live in [`domains/`](./domains/README.md).
+Domain pages answer a narrower question: where does the evaluated work happen? A physics benchmark and a biology benchmark may use the same evaluation method but face different tools, artifacts, costs, and correctness standards. The counts below show current coverage; the maintained index and per-domain tables live in [`domains/`](./domains/README.md).
 
 **Sciences**
 
@@ -102,7 +108,7 @@ Narrower fields fold into these canonical domains (bioinformatics → Biology, G
 
 ## Browse by Research Activity
 
-Activities are the **task axis**: what the evaluated agent or system actually does, independent of field or evaluation method. A work may perform several activities; works that evaluate no scientific or research task (surveys, pure methodology, general-purpose benchmarks) carry an explicit `N/A` and appear on no activity page. Full index in [`activities/`](./activities/README.md).
+Activity pages follow the work itself. Does the agent search literature, run a simulation, design an experiment, reproduce a result, or carry a project end to end? The same activity can appear in several domains and use several evaluation methods. Work that evaluates no scientific or research task, such as a survey or pure evaluation methodology, carries an explicit `N/A`. See [`activities/`](./activities/README.md) for the full index.
 
 | Activity | What it covers | Works |
 |---|---|--:|
@@ -122,11 +128,9 @@ Activities are the **task axis**: what the evaluated agent or system actually do
 
 ## Scope
 
-**In scope:** evaluation for scientific and engineering agents, including benchmarks, methodologies, diagnostics, evaluator validation, benchmark validity, scientific workflows, and evaluation-driven skill learning, harness optimization, data curation, and post-training.
+Work is in scope when evaluation changes what we know or what the development loop does next. That includes benchmarks, diagnostic methods, evaluator validation, benchmark-validity research, scientific workflows, and systems that use evaluation to revise skills, harnesses, data, or post-training.
 
-**Out of scope (for now):** pure training, optimization, data, or agent-implementation work when evaluation is only a conventional results section; generic multi-agent or memory systems without an evaluation-centered contribution.
-
-The cutline is whether evaluation is structurally central. Improvement work belongs when evaluation determines the objective, feedback, selection, diagnosis, or experimental loop; merely reporting benchmark scores is not enough.
+A paper is not in scope merely because it reports benchmark scores. Pure training, optimization, data, memory, or multi-agent work stays out when evaluation appears only in the final results table. The test is operational: does evaluation define the objective, supply feedback, select an intervention, diagnose a failure, or serve as the experiment environment?
 
 "Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **381 work cards**, **15 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
 

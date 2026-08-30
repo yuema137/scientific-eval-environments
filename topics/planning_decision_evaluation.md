@@ -10,13 +10,13 @@ Suppose a training run degrades. The agent can immediately change the learning r
 
 ## Definition
 
-Planning and decision-making evaluation measures whether an agent selects a sound action, action sequence, or plan from the state, goal, constraints, available tools, and evidence known at the time of choice. It includes complete-plan generation, constraint satisfaction, tool and action selection, feedback-conditioned replanning, infeasibility recognition, and evaluation of plan quality against valid alternatives.
+Planning evaluation freezes the information available at a choice point, then asks whether the agent selected a sound next action or plan. The evaluator may check constraints, compare valid alternatives, test tool selection, verify a complete plan, or see whether the agent replans after feedback and recognizes an impossible task.
 
 ## Motivation
 
-End-to-end success entangles planning with execution, tool operation, perception, state tracking, and recovery. A failed run therefore does not establish that the chosen plan was poor, while a successful local action may still have large opportunity cost relative to a better alternative. Planning-specific evaluation makes the decision itself observable: what should the agent do next, why is that choice admissible, and how should it revise the plan when the state changes?
+End-to-end success mixes planning with execution, perception, tool operation, state tracking, and recovery. A good plan can fail during execution. A bad plan can survive through retries. Even a locally successful action may waste the chance to take a much better one. Planning-specific evaluation isolates the choice itself: what should the agent do next, was that choice defensible then, and how should new evidence change it?
 
-This topic is distinct from long-horizon evaluation, which characterizes how much sequential interaction a task requires, and from trajectory evaluation, which scores a sequence after it has been produced. A planning task can be tool-free and single-response, as in [NATURAL PLAN](../works/natural-plan.md); a long trajectory can fail for reasons unrelated to planning; and a trajectory metric need not judge whether each decision was good under the information available at that moment.
+This is not a synonym for task length or trajectory scoring. [NATURAL PLAN](../works/natural-plan.md) tests planning in one tool-free response. A long run can fail for reasons unrelated to its plan, and a trajectory metric can describe a sequence without judging whether each action was the best choice at the time.
 
 ## Existing Approaches
 

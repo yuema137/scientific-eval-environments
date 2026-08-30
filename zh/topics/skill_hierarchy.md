@@ -8,17 +8,17 @@
 
 Skill hierarchy 会把 capability profile 拆开。比如 tool-use task 分别测 instruction following、planning、retrieval、execution 和 review，最后得到 `planning 90% / retrieval 40% / execution 85%`，retrieval bottleneck 就露出来了。这张图说明 agent 有哪些能力，不说明某一条 trajectory 为什么失败；后一个问题属于 credit assignment。
 
-## Definition
+## 定义
 
-Skill hierarchy 指把复杂的 agent 能力分解为一组更窄的能力或 subskill 的结构化集合，并配以对每个 subskill 分别打分的评估协议。这类 benchmark 共享一个设计承诺：单一聚合分数把太多东西混在一起——要理解 agent 能做什么、不能做什么，评估必须探查能力树的多个层次。
+Skill hierarchy 把一项宽泛能力拆成更窄的子能力，再分别打分。它不只说 agent 「会写代码」或「不会做研究」，而是根据诊断需要，分开测 planning、retrieval、tool use、verification 和其他 subskill。
 
-## Motivation
+## 为什么重要
 
-聚合排行榜掩盖了 agent 能力的形状。两个总分相同的 agent 可能在完全不同的 subskill 上失败，单指标排名无法告诉下游用户"哪一个 agent 更适合哪一类子任务"。Skill-hierarchy benchmark 通过产出**per-capability 画像**来解决这一问题。
+一个 leaderboard 总分会把能力的形状藏起来。两个 agent 可能总分一样，但一个 retrieval 强、planning 弱，另一个刚好相反。Per-capability profile 能告诉开发者该改哪里，也能告诉用户哪个 agent 更适合手头的工作。
 
-Skill hierarchy 与 [Credit Assignment](./credit_assignment.md) 相关但不同。Skill hierarchy 问**agent 拥有哪些 subskill**；credit assignment 问**trajectory 的哪一步驱动了成功或失败**。两者可以合起来做——沿 trajectory 对每个 subskill 分别打分——但它们回答的是不同的问题。
+它和 [Credit Assignment](./credit_assignment.md) 不同。Skill hierarchy 问 agent 拥有哪些能力；credit assignment 问一次 run 里哪一步改变了结果。Evaluator 可以同时标 skill 和 step，但两种 label 回答的不是一个问题。
 
-## Existing Approaches
+## 现有方法
 
 - **任务子目标分解。** [AgentBoard](../works/agentboard.md) 为每个任务标注一条子目标链，并报告进展率——实际上是 per-subgoal 的能力信号。
 - **能力子过程分解（tool use）。** [T-Eval](../works/t-eval.md) 把 tool use 拆为 6 个子过程（instruction following / planning / reasoning / retrieval / understanding / review），在孤立任务上分别评估。
@@ -37,7 +37,7 @@ Skill hierarchy 与 [Credit Assignment](./credit_assignment.md) 相关但不同�
 - **把 skill 层当作攻击面来分解。** 上面几项工作分解的是能力，另有一条安全线分解的是暴露面。[SkillSec-Eval](../works/skillsec-eval.md) 把 skill 生命周期切成五个各有独立信任边界的阶段——仓库准入、语义检索、规划器选取、运行时执行、演化——并在每一阶段分别报告攻击与防御，由此说明失效远在执行之前就已开始。[SCR-Bench](../works/scr-bench.md) 改按组合机制分解，给能力流动、信任传递与授权混淆各配一个子 benchmark 及配套的孤立对照，于是报告出的风险能归到组合本身，而不是归到那些 skill 上。[HarmfulSkillBench](../works/harmfulskillbench.md) 把危害定位在 skill 预期的功能之中，并用四种条件把「装上」的效应与「声明意图」的效应分开。
 - **被评的对象是产物，而不是能力。** 有一簇工作评的是 skill 本身，而不去分解 agent 能做什么。在构建一侧，[SkillLearnBench](../works/skilllearnbench.md) 对自动生成的 skill 按功能覆盖、可执行性与安全性打分，与轨迹和结果并列；[SkillEvolBench](../works/skillevolbench.md) 在部署时把归纳出的 skill 库冻结，发现原始轨迹常常胜过由它蒸馏出的 skill。在采纳一侧，[SkillAudit](../works/skillaudit.md) 与 [A Framework for Evaluating Agentic Skills at Scale](../works/a-framework-for-evaluating-agentic-skills-at-scale.md) 干脆不要固定题库，直接从写好的 skill 包生成任务与 rubric，让覆盖面跟着该 skill 声明的范围走；两者都在配对运行上测量「用 skill」与「不用 skill」的差值。其中几张卡片在自己的 repository note 中就写明，这并不是本 topic 当初据以定义的那种分解模式；把它们收在这里，只因这是现有最接近的落脚点——与 [GATE](../works/gate.md) 的情形相同，那张卡片的归属说明也记下了同样的错位。
 
-## Comparison
+## 方法对比
 
 | Benchmark | Year | 分解粒度 | 轴 | Card |
 |---|---|---|---|---|
@@ -85,7 +85,7 @@ Skill hierarchy 与 [Credit Assignment](./credit_assignment.md) 相关但不同�
 | SCR-Bench | 2026 | 各组合机制各配一个子 benchmark，并各带一个配套的孤立对照 | 能力流动 / 信任传递 / 授权混淆 | [→](../works/scr-bench.md) |
 | SkillSec-Eval | 2026 | 把 skill 生命周期切成各有独立信任边界的若干阶段 | 5 个阶段：仓库准入 / 语义检索 / 规划器选取 / 运行时执行 / skill 演化，每阶段分报攻击与防御 | [→](../works/skillsec-eval.md) |
 
-## Open Questions
+## 还没解决的问题
 
 - **任务特定 vs. 跨任务分解。** AgentBoard 对每个任务单独分解成子目标；T-Eval / Enconda-bench 则把能力本身分解成跨任务共享的子过程；AgentAtlas 跨 benchmark 按控制决策类型做分解。哪一种能给出更可迁移的能力画像？
 - **轴的选择。** T-Eval 的 6 个、Enconda-bench 的 4 个、UniClawBench 的 5 个、AgentAtlas 的 6 个都是合理分解。是否存在一个规范化的最小集合，还是轴的选择必然依赖领域？
@@ -93,7 +93,7 @@ Skill hierarchy 与 [Credit Assignment](./credit_assignment.md) 相关但不同�
 - **分解 vs. 归纳。** 本页如今装着两类结构上不同的东西：一类 benchmark 分解一项能力并给各部分打分，另一类给 agent *产出*的 skill 打分（SkillLearnBench、SkillEvolBench、SkillAudit、A Framework for Evaluating Agentic Skills at Scale，以及 GATE——其卡片已记下这种错位）。后一类中有几张卡片在 repository note 里就是这么说的。这两类该不该放在同一个标题之下？第二类本身是否自成一条脉络？
 - **嵌入式 vs. 覆盖式分解。** Skill-hierarchy 信号应由底层 benchmark 内嵌产出（AgentBoard、T-Eval、Enconda-bench、UniClawBench 的方式），还是作为跨 benchmark 的覆盖层（AgentAtlas 的方式）？
 
-## Related Works
+## 相关工作
 
 - [AgentBoard](../works/agentboard.md)
 - [T-Eval](../works/t-eval.md)
@@ -139,6 +139,6 @@ Skill hierarchy 与 [Credit Assignment](./credit_assignment.md) 相关但不同�
 - [SCR-Bench](../works/scr-bench.md)
 - [SkillSec-Eval](../works/skillsec-eval.md)
 
-## Further Reading
+## 延伸阅读
 
 - Yehudai, Eden, Li, Uziel, Zhao, Bar-Haim, Cohan, Shmueli-Scheuer. *Survey on Evaluation of LLM-based Agents*. arXiv 2503.16416, 2025. <https://arxiv.org/abs/2503.16416>

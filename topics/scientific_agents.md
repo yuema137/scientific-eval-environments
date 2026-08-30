@@ -10,11 +10,11 @@ For one computational task, give the agent a paper-derived question and starter 
 
 ## Definition
 
-Scientific agent benchmarks evaluate AI agents on tasks drawn from scientific research and practice — computational workflows, parameter tuning, literature-grounded problems, or replication of published results. What distinguishes them from general-purpose agent benchmarks is the source of tasks (real scientific work) and the standard for correctness (matching published or expert-defined outcomes).
+Scientific agent benchmarks ask an agent to perform work taken from science: run a computational workflow, tune a simulator, answer from the literature, analyze data, or reproduce a published result. Their tasks come from scientific practice, and correctness is anchored to executable checks, measured values, publications, or expert judgment rather than surface plausibility alone.
 
 ## Motivation
 
-Scientific work has features that generic agent benchmarks under-model: intermediate evaluation may be expensive (simulations, experiments), tasks are often long-horizon, correctness must sometimes be validated against a published or expert reference rather than a synthetic ground truth, and workflows involve heterogeneous tools that require domain knowledge to sequence correctly. A separate topic exists because scoring scientific agents demands attention to these features.
+Scientific work changes both the task and the evaluator. A simulation or experiment may make one intermediate check expensive. Several tools may need to run in a domain-specific order. More than one analysis can be defensible, while a final number may still need to match a physical or published constraint. Generic agent benchmarks often remove these conditions. A dedicated topic tracks evaluation designs that keep them visible.
 
 ## Existing Approaches
 

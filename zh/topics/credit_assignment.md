@@ -8,17 +8,17 @@
 
 Credit assignment 改的是打分路径。Evaluator 可以给已完成的 subgoal 部分分，标出第一个坏步骤，或者估计哪个 action 真正改变了结果。于是 trace 可以写成：`plan 正确 → data load 正确 → unit conversion 错误 → 最终失败`。这样才能知道 credit 或责任落在哪儿，但前提是 intermediate label 或 counterfactual estimate 本身可信。
 
-## Definition
+## 定义
 
-在评估语境下，credit assignment 是把一条 trajectory 的成功或失败**归因**到具体步骤、子目标或中间输出的问题——而不是把成功当作 trajectory 整体的一个无结构属性。在 benchmark 中，credit-assignment 机制表现为密集中间奖励、部分得分或分步打分——即使最终结果只是一个二值信号，它们也能保留更细的信号。
+Credit assignment 要回答的是：trajectory 里哪一部分造成了这个结果。Evaluator 不再只给整条 run 贴一个通过或失败标签，而是记录完成了哪些 subgoal、哪个中间结果是对的，以及哪一步开始出错。最终结果仍然可以只有一个 bit，但过程信号会告诉我们进展停在了哪里。
 
-## Motivation
+## 为什么重要
 
-长 horizon 与开放式任务产出的 trajectory 中，单一的终态信号——通过还是失败——粒度太粗，难以提供有用的信息。两条失败的 trajectory 可以在**哪里**出错上有差异；两条成功的 trajectory 可以在成功是由稳健的中间推理挣来、还是仅由一次幸运的最后一步得到而有差异。Credit assignment 是评估阶段刻意保留这种更细信号的设计承诺。
+长任务和开放任务可以在很多地方失败。一个 agent 可能 plan 选对了，最后换算单位时出错；另一个可能从第一步就走偏了。一个零分会把两条 run 压成同一个结果。成功也有同样的问题：运气好撞对了，和每一步都做对了，不该算一回事。Credit assignment 保留这些差别，开发者才知道修哪里，learning system 也才能拿到更有用的信号。
 
-Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。Skill hierarchy 问**agent 拥有哪些 subskill**；credit assignment 问**trajectory 的哪一步驱动了结果**。许多 benchmark 同时对两者做出贡献。
+它和 [Skill Hierarchy](./skill_hierarchy.md) 不是一件事。Skill hierarchy 问 agent 会哪些能力；credit assignment 问这一次 run 里哪个事件改变了结果。同一个 benchmark 可以同时回答两个问题，但需要的 label 和 evidence 不一样。
 
-## Existing Approaches
+## 现有方法
 
 - **通过子目标进展给部分得分。** [AgentBoard](../works/agentboard.md) 按标注子目标的完成比例给分——即使 trajectory 在最后失败，只要它取得了中间进展，仍能得到非零分。
 - **阈值下的分级部分奖励。** [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md) 把任务分解为带分级奖励的子任务，并在可配置阈值下聚合（0.95 部分奖励、1.0 完美奖励），使指标能区分"几乎解出"和"毫无进展"。
@@ -42,7 +42,7 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 - **组件级轨迹归因。** [Long-Horizon Agent Trajectory Attribution](../works/long-horizon-agent-trajectory-attribution.md) 把观测到的 agent 结果归因到负有责任的轨迹组件，并恢复其周围的归因链，配基于似然与留一法的参考基线。
 - **最小必要成因。** [TempoBench](../works/tempobench.md) 在形式化标注的 Mealy 机执行轨迹上，孤立出反事实式的 credit assignment——哪些输入对观测输出是必要的——与前向模拟相区分。
 
-## Comparison
+## 方法对比
 
 | Benchmark | Year | Credit 信号 | Credit 的 trajectory 单位 | Card |
 |---|---|---|---|---|
@@ -68,13 +68,13 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 | TempoBench | 2025 | 经反事实归因识别最小必要成因，与前向模拟相对 | 执行轨迹的每个输入条件 | [→](../works/tempobench.md) |
 | SkillShapley | 2026 | 在 skill 步骤的联盟上求 Shapley 值，采用分界自适应采样估计；对照精确 Shapley 值报告 MAE，并给出删除验证曲线 | agent skill 内部的每一步，而非轨迹步骤 | [→](../works/skillshapley.md) |
 
-## Open Questions
+## 还没解决的问题
 
 - **在哪里分配 credit。** Per subgoal（AgentBoard）、per 分级子任务（Long-Horizon-Terminal-Bench）、per trajectory 维度（FinTrace、TRACE）——每种选择都反映了一种关于"trajectory 由什么构成"的理论。它们在聚合后是否等价，还是各自揭示不同的模型行为？
 - **加权。** 阈值聚合（Long-Horizon-Terminal-Bench）与效用函数（TRACE）都需要权重。如何选择权重才能让 credit-assigned 分数在跨 benchmark 时可比？
 - **对 judge 的依赖。** 像 "reasoning quality" 这样的 trajectory 级维度通常需要模型或人类 judge。Judge 本身的可靠性是否是 credit-assignment 指标的瓶颈？
 
-## Related Works
+## 相关工作
 
 - [MA-RLHF](../works/ma-rlhf.md)
 - [MetaAct-RL](../works/metaact-rl.md)
@@ -102,6 +102,6 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 - [SkillSV](../works/skillsv.md)
 - [TRAJDEBUG](../works/trajdebug.md)
 
-## Further Reading
+## 延伸阅读
 
 - Yehudai, Eden, Li, Uziel, Zhao, Bar-Haim, Cohan, Shmueli-Scheuer. *Survey on Evaluation of LLM-based Agents*. arXiv 2503.16416, 2025. <https://arxiv.org/abs/2503.16416>
