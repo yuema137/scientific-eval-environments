@@ -294,6 +294,18 @@ def validate(month, manifest=None):
         errors.append("English and Chinese report work sets differ")
     if "——" in zh:
         errors.append("Chinese report contains a prohibited em dash")
+    for boilerplate in (
+        "Together, these works move the discussion from a single headline result toward a more explicit account of the behavior, evidence, or development step being evaluated.",
+        "This cluster changes what evaluators can see and act on:",
+    ):
+        if boilerplate in en:
+            errors.append("English report contains retired boilerplate: %s" % boilerplate)
+    for boilerplate in (
+        "说白了，这批工作共同往前推了一步：不能只看最后成没成，还得把行为、证据或改进环节摊开，才能知道下一步该改哪儿。",
+        "把这组工作放一块看，变化不只是多了几个分数，而是 evaluator 能看见、能诊断的东西变多了：",
+    ):
+        if boilerplate in zh:
+            errors.append("Chinese report contains retired boilerplate: %s" % boilerplate)
     prohibited = ("老铁", "嘎嘎", "嘎哈")
     for word in prohibited:
         if word in zh:
