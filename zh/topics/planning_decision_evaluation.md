@@ -53,6 +53,9 @@ Planning & Decision-Making Evaluation 衡量的是：面对当时已知的状态
 
 ## Related Works
 
+- [PG-HAP](../works/pg-hap.md) — 对 high-level reasoning action 做逐步 policy selection。
+- [HiPER](../works/hiper.md) — 把 high-level subgoal planning 与 low-level execution 分开。
+- [PTA-GRPO](../works/pta-grpo.md) — 同时优化短 plan guidance 与详细 reasoning。
 - [PlanBench](../works/planbench.md) — 形式化计划生成、最优性、验证与重新规划。
 - [NATURAL PLAN](../works/natural-plan.md) — 工具信息随上下文提供的自然语言约束规划。
 - [TravelPlanner](../works/travelplanner.md) — 多类约束下的现实工具规划。

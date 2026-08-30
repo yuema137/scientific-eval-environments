@@ -15,6 +15,12 @@ Planning & Decision-Making Evaluation:
   - planning decision-making agent evaluation
   - tool-use planning diagnostic benchmark
   - replanning sequential decision evaluation
+Hierarchical Decision Abstraction:
+  - hierarchical action abstraction LLM agent evaluation
+  - temporal abstraction language model reinforcement learning
+  - semantic meta-action reasoning evaluation
+  - macro action latent action LLM post-training
+  - hierarchical planner executor agent credit assignment
 Trajectory Evaluation:
   - agent trajectory evaluation
   - process-level agent evaluation

@@ -1,7 +1,7 @@
 # Daily Update Agent
 
 A deterministic GitHub Actions orchestrator + Claude Code semantic workers that keeps this
-knowledge base current: it discovers newly released evaluation and evaluation-driven-improvement work, writes verified English
+knowledge base current: it discovers newly released evaluation and evaluation-driven-improvement work, including methods that make action or decision abstraction an explicit object of evaluation and optimization, writes verified English
 work cards, integrates them into every canonical axis, mirrors and independently reviews the
 Chinese translation, validates everything, and **opens a pull request for human review — it
 never auto-merges.**

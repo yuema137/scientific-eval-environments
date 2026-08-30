@@ -43,6 +43,10 @@ EVAL_LOOP = re.compile(
     r"benchmark\s+feedback|held[-\s]out\s+eval(uation)?|"
     r"(optimi[sz]|improv|curat|post[-\s]?train|fine[-\s]?tun)\w*[^.]{0,80}eval(uation|uator)?|"
     r"eval(uation|uator)?[^.]{0,80}(optimi[sz]|improv|curat|post[-\s]?train|fine[-\s]?tun)\w*)", re.I)
+DECISION_ABSTRACTION = re.compile(
+    r"(hierarch\w*\s+(action|decision|plan|policy)|temporal\s+abstraction|macro[-\s]?action|"
+    r"meta[-\s]?action|latent\s+action|high[-\s]?level\s+(action|subgoal|planner)|"
+    r"planner[-\s](executor|execute)|action\s+(granularity|abstraction|hierarchy))", re.I)
 
 # GitHub repo-noise patterns (matched on name / topics primarily, description secondarily)
 GH_NOISE = re.compile(
@@ -66,6 +70,7 @@ def _combined(text):
     # that have neither a scientific nor an agent angle. (Calibration audit: the bare EVAL+SCI path
     # admitted 131/432 arXiv records, largely generic-science/ML benchmarks.)
     return bool(STRONG.search(text)
+                or (DECISION_ABSTRACTION.search(text) and LLM.search(text))
                 or (EVAL_LOOP.search(text) and (AGENT.search(text) or LLM.search(text)))
                 or (EVAL.search(text) and (AGENT.search(text) or (SCI.search(text) and LLM.search(text)))))
 

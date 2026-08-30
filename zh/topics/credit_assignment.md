@@ -70,6 +70,9 @@ Credit assignment 与 [Skill Hierarchy](./skill_hierarchy.md) 相关但不同。
 
 ## Related Works
 
+- [MA-RLHF](../works/ma-rlhf.md)
+- [MetaAct-RL](../works/metaact-rl.md)
+- [HiPER](../works/hiper.md)
 - [SkillShapley](../works/skillshapley.md)
 - [TempoBench](../works/tempobench.md)
 - [TelemetrySuffBench](../works/telemetrysuffbench.md)

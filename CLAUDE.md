@@ -27,17 +27,18 @@ A work card lists its topics in the `Topics` block and its activities in the `Ac
 | I | General Long-Horizon Agent Benchmarks | `long_horizon_evaluation.md` |
 | II | Scientific Agent Benchmarks | `scientific_agents.md` |
 | III | Planning & Decision-Making Evaluation | `planning_decision_evaluation.md` |
-| IV | Trajectory Evaluation | `trajectory_evaluation.md` |
-| V | Skill Hierarchy | `skill_hierarchy.md` |
-| VI | Credit Assignment | `credit_assignment.md` |
-| VII | Resource-aware Evaluation | `resource_aware_evaluation.md` |
-| VIII | Evaluator Reliability & Validation | `evaluator_reliability_validation.md` |
-| IX | Benchmark Design, Validity & Contamination | `benchmark_design_validity_contamination.md` |
-| X | Skill Learning & Evolution | `skill_learning_evolution.md` |
-| XI | Agent Harnesses & Scaffolding | `agent_harnesses_scaffolding.md` |
-| XII | Evaluation-Driven Data Curation | `evaluation_driven_data_curation.md` |
-| XIII | Evaluation-Driven Post-Training | `evaluation_driven_post_training.md` |
-| XIV | Survey | `survey.md` |
+| IV | Hierarchical Decision Abstraction | `hierarchical_decision_abstraction.md` |
+| V | Trajectory Evaluation | `trajectory_evaluation.md` |
+| VI | Skill Hierarchy | `skill_hierarchy.md` |
+| VII | Credit Assignment | `credit_assignment.md` |
+| VIII | Resource-aware Evaluation | `resource_aware_evaluation.md` |
+| IX | Evaluator Reliability & Validation | `evaluator_reliability_validation.md` |
+| X | Benchmark Design, Validity & Contamination | `benchmark_design_validity_contamination.md` |
+| XI | Skill Learning & Evolution | `skill_learning_evolution.md` |
+| XII | Agent Harnesses & Scaffolding | `agent_harnesses_scaffolding.md` |
+| XIII | Evaluation-Driven Data Curation | `evaluation_driven_data_curation.md` |
+| XIV | Evaluation-Driven Post-Training | `evaluation_driven_post_training.md` |
+| XV | Survey | `survey.md` |
 
 Skill Hierarchy and Credit Assignment are independent topics — do not merge.
 

@@ -25,6 +25,10 @@ def test_prefilter_arxiv_positive():
         "Can Generalist Agents Automate Data Curation?",
         "Agents iteratively revise data policies using downstream evaluation feedback."
     ))[0] is True
+    assert prefilter.judge(_arx(
+        "Hierarchical Action Abstraction for LLM Agents",
+        "A high-level planner selects semantic subgoals and an executor carries them out over multiple tool actions."
+    ))[0] is True
 
 
 def test_prefilter_arxiv_negative():

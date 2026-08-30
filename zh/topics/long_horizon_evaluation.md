@@ -136,6 +136,7 @@
 
 ## Related Works
 
+- [HiPER](../works/hiper.md)
 - [TravelPlanner](../works/travelplanner.md)
 - [SkillEvolBench](../works/skillevolbench.md)
 - [PATH-Bench](../works/path-bench.md)
