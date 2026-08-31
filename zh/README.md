@@ -2,48 +2,99 @@
 
 > [English](../README.md) | **简体中文**
 
-这个知识库追踪两件事：科学和工程 AI agent 怎样被评估，评估结果又怎样回到开发过程里。
+如果你做科学、工程，或者做 AI，很快就会碰到一个问题：agent benchmark 论文很多，但你不容易一下看明白它到底在测什么、对应哪类真实 workflow、以及失败以后你到底能从里边学到啥。
 
-核心想法很直接：一个分数不应该只说 agent 成功了还是失败了，它还应该帮人判断下一步改什么。比如一个科研 agent 没能复现论文结果，真正有用的问题是：plan 选错了，tool call 失败了，verifier 漏掉了错误，还是预算用完了？四种原因对应四种修法。
+这个仓库就是拿来把这件事讲清楚的。
 
-这个仓库追踪的就是这条闭环：
+它收集的是科学与工程 AI agent 的评估工作，但不只盯着“模型拿了多少分”。真正有用的问题是，这个分数能不能告诉你下一步该改哪儿。比如一个 agent 没复现出论文结果，问题可能出在 plan、tool use、verifier、任务设计，或者预算不够。这几种问题不是一回事，修法也不一样。
+
+换句话说，这个仓库盯的是这条闭环：
+
+![评估闭环](../site/assets/readme-eval-loop.svg)
+
+仓库本身不复杂：
+
+- 一张 work card 讲清一篇论文或一个项目到底贡献了什么。
+- 三组平级索引让你从不同问题找到同一张卡。
+- 月报讲的是文献结构怎么变了，不只是这个月又多了哪些 PDF。
+
+![仓库结构图](../site/assets/readme-repo-map.svg)
+
+这是参考资料库，不是 benchmark 实现仓库。[解释写作规范](./EXPLANATION_STYLE.md) 约束正文都得写人话：谁在做什么，哪一步变了，必要时跟一条具体对象走一遍流程，同时把边界讲清楚，别把结论写过头。
+
+---
+
+## 从哪开始看
+
+你手上如果已经带着问题，直接按问题选入口：
+
+| 如果你想问的是…… | 从这里开始 |
+|---|---|
+| “这篇 work 真正在解决哪个评估问题？” | [Topics](./topics/README.md) |
+| “物理 / 化学 / 生物 / 机器人 / 土木这些领域各有哪些 work？” | [Domains](./domains/README.md) |
+| “哪些 benchmark 真让 agent 去做文献综述、模拟、实验设计或复现？” | [Activities](./activities/README.md) |
+| “这个 benchmark / 方法本身到底是怎么回事？” | [Works](./works/README.md) |
+| “最近新增了什么，以及为什么值得看？” | [月度报告](./monthly/README.md) |
+| “我想按最早公开时间看整个时间线。” | [按首次公开时间浏览](./WORKS_BY_DATE.md) |
+| “我想直接看交互式页面。” | [SciEval explorer](https://yuema137.github.io/scieval/) |
+
+这几组入口不是互相打架的分类，而是读同一批 work 的三种方式：
 
 ```text
-任务 → agent 执行 → 评估 → 诊断 → 修改系统 → 再次评估
+Topic     → 这份 work 在解决哪个评估问题？
+Domain    → 它落在哪个科学或工程领域？
+Activity  → 被评估的 agent 实际在做什么？
 ```
 
-每张 work card 记录一篇论文或一个项目实际贡献了什么。三组索引让读者从不同问题找到同一张卡：**topic** 看它解决哪个评估问题，**domain** 看任务落在哪个学科，**activity** 看 agent 实际做什么。Topic 页再把这些卡连成文献脉络，解释各种方法到底差在哪里。
-
-本仓库是参考资料，不是 benchmark 实现。[解释写作规范](./EXPLANATION_STYLE.md) 约束所有正文：写清谁在做什么，原来哪一步有问题，新方法改了哪一步，以及这个结果还不能证明什么。
+同一份 work 可以同时出现在多个 topic、多个 domain、多个 activity 下。
 
 ---
 
-## 持续演进的知识库
+## 什么算在范围里
 
-这个集合会跟着领域一起变。每隔三天，自动更新 agent 会从公开来源寻找新工作。它会起草卡片和索引更新，但不会直接发布。每批内容都要通过 pull request，由人检查来源、分类、文字和中文镜像后才能合并。
+最短的版本就是：
 
----
+- 如果 evaluation 是核心，这个 work 就在范围里
+- 如果 evaluation 只是最后一张 results table，它通常不在范围里
 
-## 从这里开始
+具体来说，这个仓库会收：
 
-- **[按 Topic 浏览](./topics/README.md)**：从一个评估问题出发，先看具体例子怎样变化，再比较相关文献。
-- **[按 Domain 浏览](./domains/README.md)**：查某个科学或工程领域内有哪些评估工作。
-- **[按 Research Activity 浏览](./activities/README.md)**：按受评 agent 或系统实际执行的任务查找工作。
-- **[浏览全部 Works](./works/README.md)**：查看已收录的全部工作卡片。
-- **[按首次公开时间浏览](./WORKS_BY_DATE.md)**：按首次公开日期从新到旧查看全部 works。
-- **[阅读月度报告](./monthly/README.md)**：查看每个月知识库新增了什么，以及这些工作放在一起带来了什么新认识。
+- 科学与工程 agent benchmark
+- trajectory、judge、credit assignment、resource use 这些评估方法
+- benchmark validity、contamination、verifier design 相关工作
+- 用 evaluation 去驱动 skill、harness、data curation、post-training 改进的工作
+- 有助于把整个空间讲明白的 survey 和 position paper
 
-先看你手里带着什么问题，再选入口：
+但普通训练论文、普通 agent 论文，不会因为最后报了几个 benchmark 分数就自动收进来。判断标准很具体：evaluation 有没有定义 objective、提供 feedback、承担 diagnosis、决定 intervention，或者直接构成 experiment environment？
 
-```
-Topic     →  代表性 works       →  原始论文   （测什么/怎么测/怎样使用评估）
-Domain    →  该领域中的评估工作  →  原始论文   （任务位于哪个领域）
-Activity  →  执行该任务的工作    →  原始论文   （agent 做什么）
-```
+## 这个仓库怎么读
 
-这三组不是互相排斥的分类。一个化学 agent benchmark 可以同时属于多个 topic、一个 domain 和多个 activity。每条链接只是在回答同一份工作的不同问题。
+最不容易绕晕的方法，就是记住每一层各管什么：
 
----
+- [Works](./works/README.md) 是事实卡片，讲单篇论文、单个 benchmark、单种方法、单篇 survey。
+- [Topics](./topics/README.md) 是围绕评估问题写的文献综述。
+- [Domains](./domains/README.md) 讲 work 落在哪个科学或工程领域。
+- [Activities](./activities/README.md) 讲 agent 实际在做哪类研究任务。
+- [Monthly reports](./monthly/README.md) 讲每个月文献结构怎么变。
+
+Markdown 文件才是唯一真源。HTML explorer 只是从这些 Markdown 自动导出来的展示层。
+
+## 当前覆盖情况
+
+现在仓库里有：
+
+- **381** 张 work card
+- **15** 个 topic 页面
+- **19** 个 domain 页面
+- **11** 个 activity 页面
+- **32** 份月报，覆盖 2024-01 到 2026-08
+
+目前收录最密的地方，主要集中在：
+
+- scientific agent benchmarks
+- trajectory evaluation
+- physics、chemistry、biology、astronomy、civil/structural engineering
+- scientific problem solving、scientific software/workflow engineering、data analysis
 
 ## 按 Topic 浏览
 
@@ -134,6 +185,29 @@ Activity 页跟着 agent 实际完成的工作走。它是在搜文献、跑 sim
 一篇论文有 benchmark 分数，不等于它自动进入范围。如果 evaluation 只在最后的 results table 里出现，纯 training、optimization、data、memory 或 multi-agent work 仍然不收。具体判断时看这几件事：evaluation 有没有定义 objective，提供 feedback，选择 intervention，诊断 failure，或直接成为 experiment environment。
 
 "Works" 比 "benchmarks" 更广：集合中收录 benchmark、评估方法学、评估框架、面向评估的 RL 工作、综述与立场论文的卡片，每张卡片都会显式标注类型。目前共有 **381 张卡片**、**15 个 topic 页**、**19 个 domain 页**、**11 个 activity 页**，并在 [`zh/`](./README.md) 下配有中文镜像。
+
+---
+
+## 持续维护，而不是一次性发布
+
+这个仓库是持续维护的。
+
+每三天，自动更新 agent 会从公开来源找新 work，起草 cards 和索引更新，再发一个 pull request 给人审。每个月 1 号，仓库还会为上个月生成一份中英双语月报。日更链路和月报链路都支持手动触发，所以维护者可以中途补跑某个窗口，但不会凭空再造第二份同月文件。
+
+## 交互式 explorer
+
+GitHub 仓库很适合维护和追溯，不太适合做视觉浏览。配套的 explorer 就是为了解这个问题，但它不会改变真源。
+
+这个 explorer：
+
+- 作为独立的 `/scieval/` 子页面，部署在维护者的 GitHub Pages 个人站里
+- 读取从仓库 Markdown 导出的 JSON
+- 提供可搜索、可筛选的交互式浏览界面
+- 补上时间线和结构图这类更适合视觉理解的东西
+
+相关 Markdown 合并以后，自动 workflow 会先构建并检查一份自包含的静态快照。检查通过后，它只更新个人站仓库里的 `scieval/**`，不会碰主页的其他文件。中间任何一步失败，线上继续使用上一份快照，个人主页也照常工作。
+
+但 explorer **不拥有内容**。如果网页和某个 Markdown 文件说的不一样，以 Markdown 为准。
 
 ---
 
