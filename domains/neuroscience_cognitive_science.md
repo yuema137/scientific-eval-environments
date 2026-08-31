@@ -16,6 +16,7 @@ Neuroscience together with psychology and cognitive science.
 | MetaSyn | 2026 | Conduct protocol-faithful systematic review and meta-analysis; psychology is among the subjects its 422 expert-curated meta-analyses span. | Multi-stage systematic-review workflows: identify the eligible studies for a research question with structured PI/ECO criteria within a shared PubMed-anchored corpus containing ineligible distractors. | Study identification against the original expert reviewers' included set, with stage-wise evaluation locating failures along the meta-analysis pipeline. | [→](../works/metasyn.md) |
 | BrainBench | 2024 | Predict the outcomes of neuroscience experiments: distinguish real from result-altered abstracts across five Journal of Neuroscience sections. | 200 original-vs-altered abstract pairs (official dataset); static two-alternative forced choice. | Perplexity-based choice for LLMs; human experts with confidence and expertise ratings; calibration analyzed. | [→](../works/brainbench.md) |
 | BrainBench (EEG) | 2026 | Understand EEG: perform instruction-conditioned signal processing, quantitative evidence, and scientific interpretation, then produce a grounded report. | 4 subsets (foundational, sleep, neurocognitive, physiological) over 17 datasets; 100K+ executions; CodeAct + agentic paradigms. | Numerical, categorical, set, sequence, semantic, and artifact validation of outputs. | [→](../works/brainbench-eeg.md) |
+| Model Discovery Agent | 2026 | Identify a hidden ion-channel mechanism and forecast a mystery neuron's response to stimulation protocols it has not seen. | Six NeuronBench worlds with deterministic and finite-channel-noise stochastic Hodgkin–Huxley dynamics; 2 passive traces plus at most 5 designed experiments. | Deterministic held-out error on six electrophysiological features plus channel-class structural recovery, compared across random, EIG, and task-directed designs. | [→](../works/model-discovery-agent.md) |
 | Rodent-Bench | 2026 | Annotate rodent behavior from video: temporal segmentation and classification across neuroscience paradigms. | Real rodent behavior video (10–35 min) across social, grooming, scratching, freezing paradigms; two versions; 3 MLLMs. | Second-wise accuracy, macro F1, mean average precision, mutual information, and Matthews correlation coefficient. | [→](../works/rodent-bench.md) |
 | CPsyExam | 2024 | Answer psychology examination questions across knowledge recall and case analysis. | 4,000 questions curated from a 22,000-question pool with balanced subject coverage; static QA. | Accuracy across subjects and the two axes (psychological knowledge, case analysis). | [→](../works/cpsyexam.md) |
 | ConceptPsy | 2023 | Answer psychology questions with comprehensive concept coverage across 12 core subjects. | 12 subjects and 1,383 manually collected concepts; each question annotated to a chapter; static QA. | Overall plus chapter-wise (per-concept) accuracy, exposing per-concept variation. | [→](../works/conceptpsy.md) |
@@ -69,6 +70,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | ScienceAgentBench | PSY, COG | ✘ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✔ | ✔ | 2 | 1 | 3 | **8.5** |
 | Neuroscience Data-to-Discovery Case Study | BEH, SYS | ? | ◐ | ◐ | ✔ | ◐ | ✔ | ✔ | **4.5** | ◐ | ✔ | ? | 3 | 0 | 4 | **8.5** |
 | BrainBench (EEG) | EPHYS, SLEEP, COG | ? | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | **3** | ✘ | ◐ | ? | 2 | 3 | 3 | **8.5** |
+| Model Discovery Agent | EPHYS, CELL, CNEU | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 4 | **8** |
 | Rodent-Bench | BEH | ✘ | ✘ | ◐ | ✔ | ✘ | ✔ | ✘ | **2.5** | ✘ | ✘ | ◐ | 3 | 2 | 2 | **7.5** |
 | MetaSyn | PSY, MH | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | **2.5** | ◐ | ✘ | ◐ | 2 | 1 | 3 | **7** |
 | BrainBench | COG, SYS, CELL, DIS, DEV | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ✔ | ✘ | ✔ | 3 | 2 | 3 | **10** |
@@ -79,7 +81,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | PsychCounsel-Bench | CLIN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 3 | 3 | 1 | **7.5** |
 Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
 
-Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 of the 47 rows, which is why it leads the coverage group — almost no work here demonstrably grants live retrieval, and most do not say; the full text of eleven of those thirty-five was read for this column and not one states it either way. `Scale` is `?` on 12 rows, every one a multi-domain suite that reports a total task count but no per-domain breakdown. Both columns record that silence rather than resolving it by inference, and in both cases the silence costs the work real score. Two further cells remain `?`: SciCode and Terminal-Bench Science on `Real`.
+Repository note: `?` records a source that does not settle the column, not an inferred absence. This matters most for `Net` and for per-domain `Scale` in multi-domain suites, where papers often report only a total task count.
 
 ## Related Works
 
@@ -91,6 +93,7 @@ Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 o
 - [MetaSyn](../works/metasyn.md)
 - [BrainBench](../works/brainbench.md)
 - [BrainBench (EEG)](../works/brainbench-eeg.md)
+- [Model Discovery Agent](../works/model-discovery-agent.md)
 - [Rodent-Bench](../works/rodent-bench.md)
 - [CPsyExam](../works/cpsyexam.md)
 - [ConceptPsy](../works/conceptpsy.md)

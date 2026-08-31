@@ -53,6 +53,7 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 - **Budgeted gravitational discovery.** [Gravity-Bench-v1](../works/gravity-bench.md) has agents plan observations of a simulated two-body gravitational system within an experimental budget and analyze the data to uncover concealed — sometimes out-of-distribution — physics; per the official project page, the top model drops from 74% with full data access to 49% under the budget.
 - **Prior-knowledge-controlled discovery.** [PhysGym](../works/physgym.md) poses 97 interactive physics-discovery problems at four controlled levels of supplied priors, separating what an agent discovers from what it was told; per the official repository, o4-mini falls from 62.89% to 31% as priors are removed.
 - **Counterfactual-world discovery.** [DiscoverPhysics](../works/discoverphysics.md) asks agents to run experiments in 22 simulated worlds whose physics deliberately deviates from ours and submit both an explanation and a Python law, scored by held-out trajectory MSE plus a rubric-based LLM-judged explanation score; the strongest agents pass only half the worlds.
+- **Bayesian model discovery under an experiment budget.** [Model Discovery Agent](../works/model-discovery-agent.md) evaluates one choose-experiment–update-belief–propose-model loop across chemistry, counterfactual physics, probabilistic programs, and electrophysiology. Held-out prediction and structural recovery are rescored after every intervention, exposing how quickly useful mechanisms emerge rather than only the final answer.
 - **Operating professional FEA software.** [FEABench](../works/feabench.md) has LLM agents solve multiphysics problems end to end by driving COMSOL Multiphysics through its API; the best strategy generates executable API calls 88% of the time.
 - **Quantum many-body reproduction.** [QMP-Bench](../works/qmp-bench.md) extracts 100 research-level, end-to-end quantum many-body simulation tasks from 21 high-impact journals, verified by paired programming and scientific verifiers.
 - **Precision-referenced gravitational-wave tasks.** [gwBenchmarks](../works/gwbenchmarks.md) stress-tests twelve coding agents on eight gravitational-wave tasks whose data represent over 10⁸ core-hours, scoring through an external framework because agents fabricated or partially evaluated results; on hard tasks all agents fall 1–2 orders of magnitude short of the ≲10⁻⁴ domain requirement.
@@ -244,6 +245,7 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 | Gravity-Bench-v1 | 2025 | Simulated two-body systems incl. out-of-distribution physics | Gravitational-physics discovery under an observation budget | Reference solutions from rigorous dynamics simulations, calibrated against human expertise | [→](../works/gravity-bench.md) |
 | PhysGym | 2025 | 97 problems sourced from PHYBench, run as interactive simulations | Physics discovery under four controlled prior-knowledge levels | Standardized protocols for hypothesis accuracy and model fidelity | [→](../works/physgym.md) |
 | DiscoverPhysics | 2026 | 22 counterfactual N-body worlds generated on demand | Laws of motion in deliberately non-standard physics | Held-out trajectory MSE + rubric-based LLM-judged explanation score | [→](../works/discoverphysics.md) |
+| Model Discovery Agent | 2026 | ChemBench, ForceBench, seven BoxingGym domains, and six deterministic/stochastic NeuronBench worlds | Interactive mechanistic model discovery under experiment budgets | Held-out interventional prediction curves + deterministic structural-recovery checks | [→](../works/model-discovery-agent.md) |
 | FEABench | 2025 | Multiphysics problems solved via the COMSOL Multiphysics API | Finite-element multiphysics simulation | Evaluation over generated API calls and computed answers; executability metric | [→](../works/feabench.md) |
 | QMP-Bench | 2026 | 100 tasks extracted from 21 high-impact journals | Quantum many-body simulation | Programming verifiers plus principle-based scientific verifiers | [→](../works/qmp-bench.md) |
 | gwBenchmarks | 2026 | 8 tasks over data representing 10⁸+ core-hours of compute | Gravitational-wave astronomy at ≲10⁻⁴ relative error | External pre-defined evaluation framework with per-task physics metrics | [→](../works/gwbenchmarks.md) |
@@ -583,6 +585,7 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 - [Gravity-Bench-v1](../works/gravity-bench.md)
 - [PhysGym](../works/physgym.md)
 - [DiscoverPhysics](../works/discoverphysics.md)
+- [Model Discovery Agent](../works/model-discovery-agent.md)
 - [FEABench](../works/feabench.md)
 - [QMP-Bench](../works/qmp-bench.md)
 - [gwBenchmarks](../works/gwbenchmarks.md)

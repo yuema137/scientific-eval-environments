@@ -16,7 +16,7 @@
 
 第二类任务是**以优化模型指标为目标的 ML 工程**，要求 agent 迭代式地构建并训练模型。[MLAgentBench](../works/mlagentbench.md)、[MLE-bench](../works/mle-bench.md) 和 [MLE-Dojo](../works/mle-dojo.md) 把 ML 研究/工程构建成在 Kaggle 风格任务上不断改进指标的交互式循环；[DSBench](../works/dsbench.md) 在分析任务之外还加入了数据建模任务；[BioXArena](../works/bioxarena.md) 则在固定算力预算下，把完整的训练与提交流程应用于生物医学 ML。
 
-第三类任务是**以物理为基础的预测与模型拟合**，其中拟合出的模型本身就是核心产物。[gwBenchmarks](../works/gwbenchmarks.md) 要求给出高精度的波形代理模型和残余体拟合，[RealPDEBench](../works/realpdebench.md) 衡量科学 ML 在物理系统上的仿真到现实差距，[Stargazer](../works/stargazer.md) 为径向速度序列拟合 Keplerian 轨道模型，而 [DiscoverPhysics](../works/discoverphysics.md) 则要求推断并实现反事实模拟世界的物理定律。天文则把这一点收紧为在几乎简并的候选之间做模型*选择*：[VESTA / DAWN](../works/vesta-dawn.md) 在只有到 log-log 空间才分得开的恒星初始质量函数族上、以及在引力波啁啾上，为「作图—变换—重拟合」这一循环评分；[Mephisto](../works/mephisto.md) 搜索的是候选的 CIGALE 光谱能量分布模型，而不是一张固定的参数网格；[VLM 验证的发现研究](../works/enhancing-agentic-autonomous-scientific-discovery.md) 则把还原出正确的生成模型作为通过判据，同时由一个视觉 judge 去查看拟合出的曲线。
+第三类任务是**以物理为基础的预测与模型拟合**，其中拟合出的模型本身就是核心产物。[gwBenchmarks](../works/gwbenchmarks.md) 要求给出高精度的波形代理模型和残余体拟合，[RealPDEBench](../works/realpdebench.md) 衡量科学 ML 在物理系统上的仿真到现实差距，[Stargazer](../works/stargazer.md) 为径向速度序列拟合 Keplerian 轨道模型，而 [DiscoverPhysics](../works/discoverphysics.md) 则要求推断并实现反事实模拟世界的物理定律。[Model Discovery Agent](../works/model-discovery-agent.md) 在这条线上再加 Bayesian model averaging 和 M-open hypothesis expansion，最后专门拿 agent 从没做过的 intervention 检验 world model。天文则把这一点收紧为在几乎简并的候选之间做模型*选择*：[VESTA / DAWN](../works/vesta-dawn.md) 在只有到 log-log 空间才分得开的恒星初始质量函数族上、以及在引力波啁啾上，为「作图—变换—重拟合」这一循环评分；[Mephisto](../works/mephisto.md) 搜索的是候选的 CIGALE 光谱能量分布模型，而不是一张固定的参数网格；[VLM 验证的发现研究](../works/enhancing-agentic-autonomous-scientific-discovery.md) 则把还原出正确的生成模型作为通过判据，同时由一个视觉 judge 去查看拟合出的曲线。
 
 ## Comparison
 
@@ -36,6 +36,7 @@
 | BioXArena | 2026 | 构建并训练生物医学预测模型 | 76 个端到端任务，9 个领域，2 小时单 GPU 预算 | 隐藏标签 0-1 评分；最佳 MLEvolve 0.666 | [卡片](../works/bioxarena.md) |
 | Cognitive Agents for Bridge Inspection Prioritization | 2026 | 依据清册记录预测未来劣化，据此为桥梁排序 | 康涅狄格州 3,365 座桥梁，六个年度 NBI 数据版本，四种方法同台比较 | 以截至 2025 年观测到的持续劣化为准，计算 AUC 与平均精度 | [卡片](../works/cognitive-agents-for-bridge-inspection-prioritizat.md) |
 | DiscoverPhysics | 2026 | 推断并实现反事实世界的物理定律 | 22 个模拟 N-body 世界，迭代式实验提案 | 轨迹 MSE 加上按 rubric 评判的解释；最佳约 50% | [卡片](../works/discoverphysics.md) |
+| Model Discovery Agent | 2026 | 发现并平均 mechanistic world model | 四组 interactive benchmark；LLM 提结构，Bayesian machinery 做 inference | Held-out interventional prediction 与 structural recovery 随实验预算的变化 | [卡片](../works/model-discovery-agent.md) |
 | DSAgentBench | 2026 | 在数据科学工作流中构建预测模型 | 275 个真实环境任务，含一个建模阶段 | 确定性的模型性能验证 | [卡片](../works/dsagentbench.md) |
 | gwBenchmarks | 2026 | 构建高精度代理模型并拟合残余体性质 | 8 个任务，基于超过 10^8 核时的 NR 级数据 | 通过外部评估器达到约 1e-4 的相对误差；agent 未能达标 | [卡片](../works/gwbenchmarks.md) |
 | onepot-Bench 0 | 2026 | 预测反应结果并选择催化剂 | 三部分套件（cheminformatics、拒答、合成），私有实验室数据 | 对照私有实验真实值进行预测 | [卡片](../works/onepot-bench.md) |
@@ -57,6 +58,7 @@
 - [MLE-Dojo](../works/mle-dojo.md)
 - [BioXArena](../works/bioxarena.md)
 - [DiscoverPhysics](../works/discoverphysics.md)
+- [Model Discovery Agent](../works/model-discovery-agent.md)
 - [gwBenchmarks](../works/gwbenchmarks.md)
 - [onepot-Bench 0](../works/onepot-bench.md)
 - [RealPDEBench](../works/realpdebench.md)

@@ -21,6 +21,7 @@ Chemistry as the science, including computational chemistry and molecular design
 | SMDD-Bench | 2026 | Solve medicinal-chemistry design problems — 2D pharmacophore identification, scaffold hopping, lead optimization, fragment assembly — against protein targets. | 502 guaranteed-solvable multi-turn tasks over 102 targets under a limited oracle-call budget. | Solve rate over guaranteed-solvable instances; best frontier model 40.2%. | [→](../works/smdd-bench.md) |
 | AInsteinBench | 2025 | Resolve maintainer-PR tasks in production scientific repositories; quantum chemistry and cheminformatics are among its six codebases. | Repository-level coding-agent tasks in executable environments. | Test-driven verification with expert-reviewed curation. | [→](../works/ainsteinbench.md) |
 | ChemBench | 2024 | Measure chemical knowledge and reasoning against the expertise of human chemists. | 2,700+ curated question–answer pairs; static QA without tools. | Automated framework scoring with a recruited chemist baseline and confidence analysis. | [→](../works/chembench.md) |
+| Model Discovery Agent | 2026 | Discover an enzyme-kinetic rate law by choosing informative combinations of seven controllable chemical conditions. | 36 interactive ChemBench/ActiveSciBench-Chem tasks (12 mechanism families × 3 tiers), evaluated at two seeds and up to 60 designed experiments. | Held-out reaction-rate error on 1,000 novel conditions plus SymPy-based mathematical equivalence to the true rate law. | [→](../works/model-discovery-agent.md) |
 | ChemEval | 2024 | Assess the chemical capabilities research professionals need, from literature understanding to advanced chemical knowledge. | 42 tasks across 4 progressive levels and 12 dimensions, from open-source data and expert-crafted material. | Zero- and few-shot evaluation with curated demonstrations and prompts. | [→](../works/chemeval.md) |
 | ChemCoTBench | 2025 | Solve molecular property optimization and reaction prediction as step-by-step chemical operations. | 1,495 samples across 22 tasks posed as modular add/delete/substitute workflows. | Structured evaluation over annotated operation workflows with a reasoning taxonomy. | [→](../works/chemcotbench.md) |
 | MolecularIQ | 2026 | Reason over molecular graphs — the structure that determines molecular properties. | Symbolically verifiable structure-reasoning tasks; static evaluation. | Symbolic verification against the molecular graph; failures localized to specific structures. | [→](../works/moleculariq.md) |
@@ -104,6 +105,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Science Edge Evaluation (SEE) | ANAL | ◐ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **3** | ✘ | ✘ | ◐ | 2 | ? | 4 | **6.5** |
 | DrBencher | BIOCHEM | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 1 | 1 | **6** |
 | CASCADE | CHEMINF, NANO | ✔ | ◐ | ✘ | ✘ | ✘ | ◐ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | ? | 1 | **4** |
+| Model Discovery Agent | GEN | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 1 | 4 | **8** |
 | ChemCost | SYN | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | **2.5** | ✔ | ✘ | ✘ | 3 | 3 | 4 | **11** |
 | ChemX | NANO, MED | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **2.5** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | MDArena | MD, BIOCHEM | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **2.5** | ◐ | ✔ | ✘ | 2 | 1 | 2 | **6.5** |
@@ -131,7 +133,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | ChemEBench | CHEMINF, ORG | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ◐ | ✘ | 2 | ? | 0 | **2.5** |
 Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
 
-Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 of the 47 rows, which is why it leads the coverage group — almost no work here demonstrably grants live retrieval, and most do not say; the full text of eleven of those thirty-five was read for this column and not one states it either way. `Scale` is `?` on 12 rows, every one a multi-domain suite that reports a total task count but no per-domain breakdown. Both columns record that silence rather than resolving it by inference, and in both cases the silence costs the work real score. Two further cells remain `?`: SciCode and Terminal-Bench Science on `Real`.
+Repository note: `?` records a source that does not settle the column, not an inferred absence. This matters most for `Net` and for per-domain `Scale` in multi-domain suites, where papers often report only a total task count.
 
 ## Related Works
 
@@ -149,6 +151,7 @@ Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 o
 - [SMDD-Bench](../works/smdd-bench.md)
 - [AInsteinBench](../works/ainsteinbench.md)
 - [ChemBench](../works/chembench.md)
+- [Model Discovery Agent](../works/model-discovery-agent.md)
 - [ChemEval](../works/chemeval.md)
 - [ChemCoTBench](../works/chemcotbench.md)
 - [MolecularIQ](../works/moleculariq.md)

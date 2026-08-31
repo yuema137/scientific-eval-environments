@@ -26,6 +26,7 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 | Gravity-Bench-v1 | 2025 | Discover the concealed — sometimes out-of-distribution — physics of a simulated two-body gravitational system from planned observations. | Interactive observation-planning-and-analysis episodes under an experimental budget (up to 100 observations per run, official project page). | Answers checked against reference solutions from rigorous gravitational-dynamics simulations, calibrated against human expertise. | [→](../works/gravity-bench.md) |
 | PhysGym | 2025 | Discover underlying physical laws by probing interactive simulations, at four controlled levels of supplied prior knowledge. | 97 curated problems (sourced from PHYBench) run as sequential interactive episodes under a limited experimental budget. | Standardized protocols and metrics for hypothesis accuracy and model fidelity. | [→](../works/physgym.md) |
 | DiscoverPhysics | 2026 | Uncover the laws of motion of N-body worlds whose physics deliberately deviates from ours — modified gravity, hidden particle species. | 22 counterfactual worlds generated on demand; iterative experiment proposal ending in a natural-language explanation plus a Python law. | Trajectory MSE on held-out particles plus a rubric-based LLM-judged explanation score. | [→](../works/discoverphysics.md) |
+| Model Discovery Agent | 2026 | Recover counterfactual force laws and predict unseen particle trajectories while choosing which probe launch to run next. | Six interactive two-particle ForceBench worlds wrapped from DiscoverPhysics; up to 8 designed experiments, 3 seeds. | Deterministic normalized MSE on held-out trajectories plus structural recovery of the submitted force law, traced against experiment budget. | [→](../works/model-discovery-agent.md) |
 | FEABench | 2025 | Solve multiphysics problems end to end with finite element analysis by operating COMSOL Multiphysics through its API. | Natural-language problem descriptions; the agentic setting iterates API calls against software feedback. | Evaluation over generated API calls and computed answers, with executability of API calls as a headline metric. | [→](../works/feabench.md) |
 | QMP-Bench | 2026 | Reproduce published quantum many-body simulation results end to end. | 100 research-level tasks extracted from 21 high-impact journals. | Programming verifiers for coding correctness plus scientific verifiers for principle-based physical validity. | [→](../works/qmp-bench.md) |
 | gwBenchmarks | 2026 | Perform high-precision gravitational-wave science: waveform surrogates from numerical relativity, black-hole orbital dynamics, remnant fitting, template banks. | 8 tasks over data representing more than 10⁸ core-hours of compute; 12 coding agents evaluated. | External pre-defined evaluation framework with per-task physics metrics (frequency-domain mismatch, relative errors) against a ≲10⁻⁴ domain requirement. | [→](../works/gwbenchmarks.md) |
@@ -110,6 +111,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | An LLM-driven framework for cosmological model-building and exploration | COS | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | SciVisAgentBench | GEN | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
 | Gravity-Bench-v1 | GR, CLA | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✔ | ✘ | ✔ | 3 | ? | 4 | **9** |
+| Model Discovery Agent | CLA | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 4 | **8** |
 | MaD Physics | CLA, FLU, QM | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 1 | **5** |
 | PACE-Bench | CLA, FLU | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✘ | ✔ | 3 | 2 | 4 | **10** |
 | AI's Capability in Assisting Scientific Research I: Literature Review | GR, HEP, INSTR | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **2.5** | ✔ | ✘ | ✔ | 2 | 0 | 4 | **8** |
@@ -151,7 +153,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 
 Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
 
-Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 of the 47 rows, which is why it leads the coverage group — almost no work here demonstrably grants live retrieval, and most do not say; the full text of eleven of those thirty-five was read for this column and not one states it either way. `Scale` is `?` on 12 rows, every one a multi-domain suite that reports a total task count but no per-domain breakdown. Both columns record that silence rather than resolving it by inference, and in both cases the silence costs the work real score. Two further cells remain `?`: SciCode and Terminal-Bench Science on `Real`.
+Repository note: `?` records a source that does not settle the column, not an inferred absence. This matters most for `Net` and for per-domain `Scale` in multi-domain suites, where papers often report only a total task count.
 ## Related Works
 
 - [SciVisAgentBench](../works/scivisagentbench.md)
@@ -171,6 +173,7 @@ Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 o
 - [Gravity-Bench-v1](../works/gravity-bench.md)
 - [PhysGym](../works/physgym.md)
 - [DiscoverPhysics](../works/discoverphysics.md)
+- [Model Discovery Agent](../works/model-discovery-agent.md)
 - [FEABench](../works/feabench.md)
 - [QMP-Bench](../works/qmp-bench.md)
 - [gwBenchmarks](../works/gwbenchmarks.md)

@@ -20,6 +20,7 @@ Sorted by `First appeared`, newest first; titles provide a stable tie-breaker wi
 | 2026-08-10 | [TCS-Bench](./works/tcs-bench.md) | [arXiv initial submission](https://arxiv.org/abs/2608.09538) |
 | 2026-08-10 | [SWE-RPG](./works/a-unified-issue-resolution-benchmark-for-requireme.md) | [arXiv initial submission](https://arxiv.org/abs/2608.09072) |
 | 2026-08-10 | [SWE-Bench ProMax](./works/swe-bench-promax.md) | [arXiv initial submission](https://arxiv.org/abs/2608.09802) |
+| 2026-08-10 | [Model Discovery Agent](./works/model-discovery-agent.md) | [arXiv initial submission](https://arxiv.org/abs/2608.09696v1) |
 | 2026-08-10 | [MMArch](./works/mmarch.md) | [arXiv initial submission](https://arxiv.org/abs/2608.09281) |
 | 2026-08-10 | [Evo-Bench](./works/evo-bench.md) | [arXiv initial submission](https://arxiv.org/abs/2608.09096) |
 | 2026-08-10 | [Co-Evolution in Agentic Systems: Toward Self-Directed Evolution Beyond Human Design](./works/co-evolution-agentic-systems-survey.md) | [arXiv initial submission](https://arxiv.org/abs/2608.10299) |

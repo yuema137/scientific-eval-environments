@@ -21,6 +21,7 @@
 | SMDD-Bench | 2026 | 面向蛋白靶点求解药物化学设计问题——2D 药效团识别、骨架跃迁、先导化合物优化、片段组装。 | 有限 oracle 调用预算下、102 个靶点上 502 个保证有解的多轮任务。 | 保证有解实例上的解出率；最佳前沿模型 40.2%。 | [→](../works/smdd-bench.md) |
 | AInsteinBench | 2025 | 解决生产级科学仓库中的维护者 PR 任务；量子化学与化学信息学在其六个代码库之列。 | 可执行环境中的仓库级 coding agent 任务。 | 经专家评审整理的测试驱动验证。 | [→](../works/ainsteinbench.md) |
 | ChemBench | 2024 | 以人类化学家的专业水平为对照，测量化学知识与推理。 | 2,700 多个策划问答对；不借助工具的静态问答。 | 自动化框架评分，配招募的化学家基线与置信度分析。 | [→](../works/chembench.md) |
+| Model Discovery Agent | 2026 | 在七个可控化学条件里选择最有信息量的组合，发现隐藏的 enzyme-kinetic rate law。 | ChemBench/ActiveSciBench-Chem 的 36 个 interactive task（12 类 mechanism × 3 个难度），2 个 seed，最多 60 次 designed experiment。 | 在 1,000 个新条件上计算 held-out reaction-rate error，再用 SymPy 检查发现的 rate law 是否和真值数学等价。 | [→](../works/model-discovery-agent.md) |
 | ChemEval | 2024 | 评估科研人员需要的化学能力，从文献理解到深入的化学知识。 | 42 个任务，覆盖 4 个递进层级与 12 个维度，数据来自开源与专家手工设计。 | 精选示例与提示下的零样本/少样本评估。 | [→](../works/chemeval.md) |
 | ChemCoTBench | 2025 | 把分子性质优化与反应预测当作分步化学操作来求解。 | 1,495 个样本、22 个任务，以加/删/换的模块化工作流呈现。 | 在标注操作工作流上的结构化评估，配推理分类法。 | [→](../works/chemcotbench.md) |
 | MolecularIQ | 2026 | 在分子图——决定分子性质的结构——上做推理。 | 符号可验证的结构推理任务；静态评估。 | 对照分子图的符号验证；失败可定位到结构类型。 | [→](../works/moleculariq.md) |
@@ -104,6 +105,7 @@
 | Science Edge Evaluation (SEE) | ANAL | ◐ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **3** | ✘ | ✘ | ◐ | 2 | ? | 4 | **6.5** |
 | DrBencher | BIOCHEM | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 1 | 1 | **6** |
 | CASCADE | CHEMINF, NANO | ✔ | ◐ | ✘ | ✘ | ✘ | ◐ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | ? | 1 | **4** |
+| Model Discovery Agent | GEN | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 1 | 4 | **8** |
 | ChemCost | SYN | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | **2.5** | ✔ | ✘ | ✘ | 3 | 3 | 4 | **11** |
 | ChemX | NANO, MED | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **2.5** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | MDArena | MD, BIOCHEM | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **2.5** | ◐ | ✔ | ✘ | 2 | 1 | 2 | **6.5** |
@@ -131,7 +133,7 @@
 | ChemEBench | CHEMINF, ORG | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ◐ | ✘ | 2 | ? | 0 | **2.5** |
 Repository note: 有两行不属于其余各列所预设的 agent 场景。RealPDEBench 评的是科学机器学习代理模型而非 agent，其"任务设定"几列描述的是一套离线训练与评测流程。SciVQR 是静态多模态问答，没有 agent、工具调用或环境交互。
 
-Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 35 行为 `?`，这也正是它排在覆盖面一组最前的原因——本领域几乎没有工作被明确记载允许实时检索，而大多数干脆不提；为核这一列，其中十一篇的全文都读过，没有一篇给出说法。`Scale` 有 12 行为 `?`，无一例外都是跨领域套件：给了任务总数，却不给逐领域拆分。两列都如实记录这种沉默，而不靠推断把它填掉；而在两列上，沉默都实实在在地扣掉了这些工作的分数。另有两格仍为 `?`：SciCode 与 Terminal-Bench Science 的 `Real`。
+Repository note：`?` 表示来源没有把这一列说清楚，不是仓库推断它不存在。这个区别在 `Net` 和跨领域套件的逐领域 `Scale` 上尤其重要，因为论文经常只报总任务数。
 
 ## Related Works
 
@@ -149,6 +151,7 @@ Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 3
 - [SMDD-Bench](../works/smdd-bench.md)
 - [AInsteinBench](../works/ainsteinbench.md)
 - [ChemBench](../works/chembench.md)
+- [Model Discovery Agent](../works/model-discovery-agent.md)
 - [ChemEval](../works/chemeval.md)
 - [ChemCoTBench](../works/chemcotbench.md)
 - [MolecularIQ](../works/moleculariq.md)

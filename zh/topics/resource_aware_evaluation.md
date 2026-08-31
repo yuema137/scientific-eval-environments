@@ -28,6 +28,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 - **面向 cost-aware planning 的专用数据集。** [CATP-LLM / OpenCATP](../works/catp-llm.md) 贡献了 OpenCATP——被称为首个面向 cost-aware planning 的数据集（11,100 样本），其中工具执行成本（如执行时间）与任务性能联合打分。其配对的规划方法属于本仓库范围之外的 agent 构建工作；数据集才是此处记录的 resource-aware 评估贡献。
 - **按保真度定价的测量预算。** [MaD Physics](../works/mad-physics.md) 对每次观测收取随其精度上升的成本，并对每个 trial 的总花费设上限，使 agent 必须在固定预算下分配测量，以推断一条未知的——有时被改动的——物理定律。
 - **给物理发现设观测预算。** [Gravity-Bench-v1](../works/gravity-bench.md) 限定 agent 对模拟二体引力系统可观测的次数，让实验设计本身进入评分范围；据官方项目页，最佳模型从全量数据下的 74% 跌到预算下的 49%。
+- **把 data efficiency 画成 learning curve。** [Model Discovery Agent](../works/model-discovery-agent.md) 在四组 discovery 任务里，每做一次实验就重测 held-out prediction 和 mechanism recovery。这里花掉的资源就是实验本身：看 Value of Information policy、random design 和原 benchmark agent 谁能让误差随预算增加降得更快。
 - **把 oracle 调用作为分子设计中的定价资源。** [SMDD-Bench](../works/smdd-bench.md) 为 502 个保证有解的药物设计任务设定有限的 oracle 调用预算，探索必须规划而非穷举；最佳前沿模型仅解出 40.2%。
 - **把诊断成本写上记分表。** [SDBench](../works/sdbench.md) 对 agent（与 21 位医生）的每次就诊与检查计费，守门人只应答被明确提出的询问，按准确率-成本前沿评分；改变编排方式比换模型更能移动这条前沿。
 - **成本本身即任务。** [ChemCost](../works/chemcost.md) 不是给 agent 的开销设预算，而是让 agent 计算一个反应的成本——对照冻结价格快照，配无 judge 的精确真值与阶段级失败诊断。
@@ -64,6 +65,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 | EcoAgent-Bench | 2026 | 显式单任务预算下的定价动作 | 一等目标——升级/省钱成对分组上的经济一致性 | 304 个源自 QA 的任务、5 个族；tool-API 与 workspace-CLI 两种设定 | [→](../works/ecoagent-bench.md) |
 | HarnessOpt-Bench | 2026 | 目标评估调用（固定预算，TEE 计量） | 对优化-评估循环的强制硬约束 | Harness 优化；4 任务 × 5 个优化器 LLM，111 次计分运行 | [→](../works/harnessopt-bench.md) |
 | Gravity-Bench-v1 | 2025 | 对模拟系统的观测（据官方项目页每次运行至多 100 次） | 对实验设计的强制预算；报告全量与预算下的差距 | 模拟双星上的引力物理发现 | [→](../works/gravity-bench.md) |
+| Model Discovery Agent | 2026 | 实验 / intervention | 每次实验后都重测性能；不同 benchmark 使用不同固定上限 | 化学、物理、probabilistic model 和 neuron 的 mechanistic discovery | [→](../works/model-discovery-agent.md) |
 | SMDD-Bench | 2026 | oracle 调用（有限的单任务预算） | 对设计空间探索的强制硬约束 | 小分子药物设计；502 个有解任务、102 个靶点 | [→](../works/smdd-bench.md) |
 | SDBench | 2025 | 就诊与诊断检查的费用 | 与准确率联合评分，构成准确率-成本前沿 | 带信息守门人的 304 个 NEJM-CPC 病例序贯诊断 | [→](../works/sdbench.md) |
 | ChemCost | 2026 | 冻结价格快照中的供应商报价与可购包装 | 成本即任务本身——agent 对照精确真值计算反应成本 | 反应定价；1,427 个反应、230,775 条报价；含噪声注入下的鲁棒性评测 | [→](../works/chemcost.md) |
@@ -97,6 +99,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 - [EcoAgent-Bench](../works/ecoagent-bench.md) — 定价动作与显式预算下的经济决策，以经济一致性评分。
 - [HarnessOpt-Bench](../works/harnessopt-bench.md) — LLM 在固定且经 TEE 审计的评估预算下优化 agent harness。
 - [Gravity-Bench-v1](../works/gravity-bench.md) — 引力物理发现中预算受限的观测规划。
+- [Model Discovery Agent](../works/model-discovery-agent.md) — 在四组 discovery 任务里，用 experiment-budget learning curve 同时追踪 held-out prediction 和 mechanism recovery。
 - [SMDD-Bench](../works/smdd-bench.md) — 有限 oracle 调用预算下、保证有解的药物设计。
 - [SDBench](../works/sdbench.md) — 按准确率-成本前沿评分的序贯诊断。
 - [ChemCost](../works/chemcost.md) — 把反应成本计算本身作为被测任务，配无 judge 的精确定价真值。

@@ -16,6 +16,7 @@
 | MetaSyn | 2026 | 进行忠实于协议的系统综述与 meta 分析；心理学是其 422 个专家整理 meta 分析所覆盖的主题之一。 | 多阶段系统综述工作流：在掺入不合格干扰文献的共享 PubMed 文献库中，依据带结构化 PI/ECO 标准的研究问题找出应纳入的研究。 | 对照原综述作者实际纳入的研究集做识别评估，并以分阶段评估定位 meta 分析流程中的失败环节。 | [→](../works/metasyn.md) |
 | BrainBench | 2024 | 预测神经科学实验的结果：在 Journal of Neuroscience 五个栏目上分辨真实与改动结果的摘要。 | 200 对原始/改动摘要（官方数据集）；静态二选一强制选择。 | LLM 以困惑度作答；人类专家附信心与专长评级；校准性单独分析。 | [→](../works/brainbench.md) |
 | BrainBench (EEG) | 2026 | 理解 EEG：完成指令条件下的信号处理、定量证据与科学解读，并产出有依据的报告。 | 四个子集（基础、睡眠、神经认知、生理）覆盖 17 个数据集；逾 10 万次执行；CodeAct + agent 范式。 | 对输出做数值、类别、集合、序列、语义与产物校验。 | [→](../works/brainbench-eeg.md) |
+| Model Discovery Agent | 2026 | 找出隐藏的 ion-channel mechanism，并预测 mystery neuron 在没见过的 stimulation protocol 下怎么响应。 | 六个 NeuronBench world，包含 deterministic 和 finite-channel-noise stochastic Hodgkin–Huxley dynamics；先给 2 条 passive trace，再允许最多 5 次 designed experiment。 | 在六项 electrophysiological feature 上确定性计算 held-out error，再检查 channel class 的 structural recovery，并比较 random、EIG 和 task-directed design。 | [→](../works/model-discovery-agent.md) |
 | Rodent-Bench | 2026 | 从视频标注啮齿类行为：跨神经科学范式的时间分割与分类。 | 真实啮齿类行为视频（10–35 分钟），覆盖社交、理毛、抓挠、僵直范式；两个版本；3 个 MLLM。 | 逐秒准确率、宏 F1、平均精度均值、互信息与 Matthews 相关系数。 | [→](../works/rodent-bench.md) |
 | CPsyExam | 2024 | 回答涵盖知识回忆与案例分析的心理学考试题。 | 从 22,000 道题库中精选、学科覆盖均衡的 4,000 道题；静态问答。 | 跨学科与两轴（心理学知识、案例分析）的准确率。 | [→](../works/cpsyexam.md) |
 | ConceptPsy | 2023 | 以覆盖 12 个核心学科的全面概念回答心理学题目。 | 12 个学科、1,383 个人工收集的概念；每题标注到章节；静态问答。 | 总体加章节级（逐概念）准确率，显现逐概念差异。 | [→](../works/conceptpsy.md) |
@@ -69,6 +70,7 @@
 | ScienceAgentBench | PSY, COG | ✘ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✔ | ✔ | 2 | 1 | 3 | **8.5** |
 | Neuroscience Data-to-Discovery Case Study | BEH, SYS | ? | ◐ | ◐ | ✔ | ◐ | ✔ | ✔ | **4.5** | ◐ | ✔ | ? | 3 | 0 | 4 | **8.5** |
 | BrainBench (EEG) | EPHYS, SLEEP, COG | ? | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | **3** | ✘ | ◐ | ? | 2 | 3 | 3 | **8.5** |
+| Model Discovery Agent | EPHYS, CELL, CNEU | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 4 | **8** |
 | Rodent-Bench | BEH | ✘ | ✘ | ◐ | ✔ | ✘ | ✔ | ✘ | **2.5** | ✘ | ✘ | ◐ | 3 | 2 | 2 | **7.5** |
 | MetaSyn | PSY, MH | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | **2.5** | ◐ | ✘ | ◐ | 2 | 1 | 3 | **7** |
 | BrainBench | COG, SYS, CELL, DIS, DEV | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ✔ | ✘ | ✔ | 3 | 2 | 3 | **10** |
@@ -79,7 +81,7 @@
 | PsychCounsel-Bench | CLIN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 3 | 3 | 1 | **7.5** |
 Repository note: 有两行不属于其余各列所预设的 agent 场景。RealPDEBench 评的是科学机器学习代理模型而非 agent，其"任务设定"几列描述的是一套离线训练与评测流程。SciVQR 是静态多模态问答，没有 agent、工具调用或环境交互。
 
-Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 35 行为 `?`，这也正是它排在覆盖面一组最前的原因——本领域几乎没有工作被明确记载允许实时检索，而大多数干脆不提；为核这一列，其中十一篇的全文都读过，没有一篇给出说法。`Scale` 有 12 行为 `?`，无一例外都是跨领域套件：给了任务总数，却不给逐领域拆分。两列都如实记录这种沉默，而不靠推断把它填掉；而在两列上，沉默都实实在在地扣掉了这些工作的分数。另有两格仍为 `?`：SciCode 与 Terminal-Bench Science 的 `Real`。
+Repository note：`?` 表示来源没有把这一列说清楚，不是仓库推断它不存在。这个区别在 `Net` 和跨领域套件的逐领域 `Scale` 上尤其重要，因为论文经常只报总任务数。
 
 ## Related Works
 
@@ -91,6 +93,7 @@ Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 3
 - [MetaSyn](../works/metasyn.md)
 - [BrainBench](../works/brainbench.md)
 - [BrainBench (EEG)](../works/brainbench-eeg.md)
+- [Model Discovery Agent](../works/model-discovery-agent.md)
 - [Rodent-Bench](../works/rodent-bench.md)
 - [CPsyExam](../works/cpsyexam.md)
 - [ConceptPsy](../works/conceptpsy.md)

@@ -32,12 +32,12 @@ Domain pages are **factual reference pages, not literature reviews** — co-equa
 
 | Group | Domain | Works |
 |---|---|---|
-| Science | [Physics](./physics.md) | 47 |
+| Science | [Physics](./physics.md) | 48 |
 | Science | [Astronomy](./astronomy.md) | 34 |
 | Science | [Mathematics](./mathematics.md) | 19 |
-| Science | [Chemistry](./chemistry.md) | 38 |
+| Science | [Chemistry](./chemistry.md) | 39 |
 | Science | [Biology](./biology.md) | 38 |
-| Science | [Neuroscience & Cognitive Science](./neuroscience_cognitive_science.md) | 12 |
+| Science | [Neuroscience & Cognitive Science](./neuroscience_cognitive_science.md) | 13 |
 | Science | [Medicine & Health](./medicine_health.md) | 22 |
 | Science | [Earth Science](./earth_science.md) | 12 |
 | Science | [Environmental Science](./environmental_science.md) | 6 |

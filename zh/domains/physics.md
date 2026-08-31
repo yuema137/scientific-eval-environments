@@ -26,6 +26,7 @@
 | Gravity-Bench-v1 | 2025 | 通过有计划的观测，发现模拟二体引力系统中被隐藏的——有时是分布外的——物理。 | 实验预算下的交互式「观测规划 + 数据分析」回合（据官方项目页每次运行至多 100 次观测）。 | 对照严格引力动力学模拟导出的参考解检验答案，并与人类专家水平对标。 | [→](../works/gravity-bench.md) |
 | PhysGym | 2025 | 通过探查交互式模拟发现底层物理定律，先验知识分四个受控层级提供。 | 97 个精选问题（取自 PHYBench），以有限实验预算下的逐步交互回合运行。 | 假设准确性与模型保真度的标准化协议与指标。 | [→](../works/physgym.md) |
 | DiscoverPhysics | 2026 | 揭示物理刻意偏离现实的 N 体世界——修改引力、隐藏粒子种类——的运动定律。 | 按需生成的 22 个反事实世界；迭代提出实验，最终提交自然语言解释与定律的 Python 实现。 | 留出粒子上的轨迹 MSE，加按评分标准的 LLM 解释分。 | [→](../works/discoverphysics.md) |
+| Model Discovery Agent | 2026 | 一边选择下一次 probe launch，一边恢复 counterfactual force law，并预测没见过的粒子轨迹。 | 从 DiscoverPhysics 封装出的六个 interactive 双粒子 ForceBench world；最多 8 次 designed experiment，3 个 seed。 | 在 held-out trajectory 上确定性计算 normalized MSE，并检查提交 force law 的 structural recovery；两项都随实验预算追踪。 | [→](../works/model-discovery-agent.md) |
 | FEABench | 2025 | 通过 API 操作 COMSOL Multiphysics，用有限元分析端到端求解多物理场问题。 | 以自然语言给出问题描述；agentic 设定下对照软件反馈迭代 API 调用。 | 对生成 API 调用与计算答案的评估，API 调用可执行率为主要指标。 | [→](../works/feabench.md) |
 | QMP-Bench | 2026 | 端到端复现已发表的量子多体模拟结果。 | 100 个研究级任务，提取自 21 种高影响力期刊。 | 编程验证器检验代码正确性，科学验证器检验基于物理原理的有效性。 | [→](../works/qmp-bench.md) |
 | gwBenchmarks | 2026 | 完成高精度引力波科学：数值相对论波形代理模型、黑洞轨道动力学、并合遗迹拟合、模板库。 | 8 个任务，底层数据代表 10⁸ 核时以上的计算；12 个 coding agent 受评。 | 外部预定义评估框架配单任务物理指标（频域失配、相对误差），对照 ≲10⁻⁴ 的领域要求。 | [→](../works/gwbenchmarks.md) |
@@ -110,6 +111,7 @@
 | An LLM-driven framework for cosmological model-building and exploration | COS | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | SciVisAgentBench | GEN | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
 | Gravity-Bench-v1 | GR, CLA | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✔ | ✘ | ✔ | 3 | ? | 4 | **9** |
+| Model Discovery Agent | CLA | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 4 | **8** |
 | MaD Physics | CLA, FLU, QM | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 1 | **5** |
 | PACE-Bench | CLA, FLU | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✘ | ✔ | 3 | 2 | 4 | **10** |
 | AI's Capability in Assisting Scientific Research I: Literature Review | GR, HEP, INSTR | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **2.5** | ✔ | ✘ | ✔ | 2 | 0 | 4 | **8** |
@@ -151,7 +153,7 @@
 
 Repository note: 有两行不属于其余各列所预设的 agent 场景。RealPDEBench 评的是科学机器学习代理模型而非 agent，其"任务设定"几列描述的是一套离线训练与评测流程。SciVQR 是静态多模态问答，没有 agent、工具调用或环境交互。
 
-Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 35 行为 `?`，这也正是它排在覆盖面一组最前的原因——本领域几乎没有工作被明确记载允许实时检索，而大多数干脆不提；为核这一列，其中十一篇的全文都读过，没有一篇给出说法。`Scale` 有 12 行为 `?`，无一例外都是跨领域套件：给了任务总数，却不给逐领域拆分。两列都如实记录这种沉默，而不靠推断把它填掉；而在两列上，沉默都实实在在地扣掉了这些工作的分数。另有两格仍为 `?`：SciCode 与 Terminal-Bench Science 的 `Real`。
+Repository note：`?` 表示来源没有把这一列说清楚，不是仓库推断它不存在。这个区别在 `Net` 和跨领域套件的逐领域 `Scale` 上尤其重要，因为论文经常只报总任务数。
 ## Related Works
 
 - [SciVisAgentBench](../works/scivisagentbench.md)
@@ -171,6 +173,7 @@ Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 3
 - [Gravity-Bench-v1](../works/gravity-bench.md)
 - [PhysGym](../works/physgym.md)
 - [DiscoverPhysics](../works/discoverphysics.md)
+- [Model Discovery Agent](../works/model-discovery-agent.md)
 - [FEABench](../works/feabench.md)
 - [QMP-Bench](../works/qmp-bench.md)
 - [gwBenchmarks](../works/gwbenchmarks.md)

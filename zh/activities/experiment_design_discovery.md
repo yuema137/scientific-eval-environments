@@ -12,7 +12,7 @@
 
 ## Task Patterns
 
-一大类工作把科学发现设定为**在物理规律隐藏的模拟世界中进行交互式实验**：agent 反复提出实验、观察输出，最终提交支配性的规律。[NewtonBench](../works/newtonbench.md) 通过 run_experiment 工具在经过反事实改动的物理定律上开展实验，[PhysGym](../works/physgym.md) 增加了可控的先验知识分级，[Gravity-Bench-v1](../works/gravity-bench.md) 探究模拟的二体系统，[DiscoverPhysics](../works/discoverphysics.md) 要求在 N-body 世界中既给出解释又给出 Python 形式的规律，[SciGym](../works/scigym.md) 则围绕隐藏的 SBML 系统运行一个 systems-biology 的干实验室。其中一些工作把发现过程明确地与**资源/测量预算**挂钩：[MaD Physics](../works/mad-physics.md) 在固定上限下按精度为每次观测定价，[Gravity-Bench-v1](../works/gravity-bench.md) 则对数据采集加以约束。
+一大类工作把科学发现设定为**在物理规律隐藏的模拟世界中进行交互式实验**：agent 反复提出实验、观察输出，最终提交支配性的规律。[NewtonBench](../works/newtonbench.md) 通过 run_experiment 工具在经过反事实改动的物理定律上开展实验，[PhysGym](../works/physgym.md) 增加了可控的先验知识分级，[Gravity-Bench-v1](../works/gravity-bench.md) 探究模拟的二体系统，[DiscoverPhysics](../works/discoverphysics.md) 要求在 N-body 世界中既给出解释又给出 Python 形式的规律，[SciGym](../works/scigym.md) 则围绕隐藏的 SBML 系统运行一个 systems-biology 的干实验室。其中一些工作把发现过程明确地与**资源/测量预算**挂钩：[MaD Physics](../works/mad-physics.md) 在固定上限下按精度为每次观测定价，[Gravity-Bench-v1](../works/gravity-bench.md) 对数据采集加以约束，[Model Discovery Agent](../works/model-discovery-agent.md) 则用 Value of Information 挑 intervention，并逐次画出 prediction 和 mechanism recovery 随实验数怎么变化。
 
 **符号方程 / 假设再发现**这一类工作在抑制记忆的前提下评估对规律或假设的复原能力。[LLM-SRBench](../works/llm-srbench.md) 把方程改写成陌生的形式并加入合成问题，[MOOSE-Chem](../works/moose-chem.md) 则再发现训练截止之后的化学假设。对已发表成果的全流程再发现见于 [EXP-Bench](../works/exp-bench.md) 和 [FIRE-Bench](../works/fire-bench.md)，其中 agent 需设计并执行实验以复现已记录的结果。
 
@@ -43,6 +43,7 @@
 | DiscoverPhysics | 2026 | 发现反事实模拟世界的规律 | 22 个 N-body 世界，迭代实验，原始轨迹数据 | 提交解释加 Python 规律；轨迹 MSE + 评分量表 | [卡片](../works/discoverphysics.md) |
 | FIRE-Bench | 2026 | 对已发表 ML 成果的全流程再发现 | 40 项已执行任务 + 60 篇论文池，仅给研究问题 | 设计/运行实验以再发现成果；最佳 F1 <50 | [卡片](../works/fire-bench.md) |
 | MaD Physics | 2026 | 有预算的测量规划与定律推断 | 三个 JAX 模拟器（经典/流体/量子），改动物理的变体 | 在按精度定价的预算下推断定律以预测未来状态 | [卡片](../works/mad-physics.md) |
+| Model Discovery Agent | 2026 | 面向 mechanistic discovery 的 Bayesian experiment design | 四组 benchmark；顺序 intervention，加上 M-open hypothesis expansion | 用更少实验降低 held-out prediction error 并恢复真实机制 | [卡片](../works/model-discovery-agent.md) |
 | MolQuest | 2026 | 智能体式化学结构解析 | 多轮谱图采集（NMR/MS），迭代精化 | 正确结构；SOTA 约 50% | [卡片](../works/molquest.md) |
 | SciAgentArena | 2026 | 跨尺度的真实世界科学研究 | 约 200 项逐步验证的任务，五个生物医学领域，与 agent 无关 | 完成数据分析/优化/发现/有效性类任务 | [卡片](../works/sciagentarena.md) |
 | Apodex Discovery | 2026 | 在带隐藏验证器的可执行环境中求解真实世界的发现问题 | 覆盖 561 个行业的调研从 423 个候选中选出 20 个问题；环境有状态，自带工具、数据与预算 | 隐藏验证器给出的结果，外加盲评的六维过程分；衣壳设计比已发表的最好水平高出 7% | [卡片](../works/apodex-discovery.md) |
@@ -66,6 +67,7 @@
 - [DiscoverPhysics](../works/discoverphysics.md)
 - [FIRE-Bench](../works/fire-bench.md)
 - [MaD Physics](../works/mad-physics.md)
+- [Model Discovery Agent](../works/model-discovery-agent.md)
 - [MolQuest](../works/molquest.md)
 - [SciAgentArena](../works/sciagentarena.md)
 - [An LLM-driven framework for cosmological model-building and exploration](../works/an-llm-driven-framework-for-cosmological-model-bui.md)
