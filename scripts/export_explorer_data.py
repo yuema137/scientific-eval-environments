@@ -8,7 +8,6 @@ generated from cards, topic/domain/activity indexes, and monthly reports.
 from __future__ import annotations
 
 import argparse
-import datetime as dt
 import json
 import re
 from collections import Counter, defaultdict
@@ -332,7 +331,6 @@ def build_dataset(root: Path = ROOT) -> dict:
         documents[source_path] = _document_links(source_path)
 
     return {
-        "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "ground_truth": {
             "markdown": True,
             "note": "This dataset is generated from repository Markdown. The explorer is a render layer only.",
