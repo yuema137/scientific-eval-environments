@@ -22,6 +22,7 @@ The explorer must not introduce hand-maintained content that can drift away from
 - `scripts/build_explorer_site.py` builds a self-contained static bundle from the Markdown corpus.
 - `scripts/export_explorer_data.py` exports the structured index and wraps rendered Markdown documents in JSON.
 - `site/index.html`, `site/app.js`, and `site/styles.css` render that exported JSON.
+- `site/assets/social-preview.png` and the Open Graph metadata in `site/index.html` provide the public link preview used by social platforms.
 - `.github/workflows/explorer-pages.yml` validates the bundle and publishes a guarded snapshot PR to the personal-site repository.
 
 `site/data/` and `site/documents/` are generated output and are ignored in git. They may exist locally for preview, but they are never source content.
