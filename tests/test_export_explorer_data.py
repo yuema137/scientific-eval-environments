@@ -1,3 +1,4 @@
+import struct
 from pathlib import Path
 
 from scripts.build_explorer_site import build_site
@@ -54,6 +55,7 @@ def test_production_bundle_is_self_contained(tmp_path):
     assert (output / "data" / "index.json").exists()
     assert (output / "documents" / "en" / "README.json").exists()
     assert (output / "documents" / "zh" / "monthly" / "README.json").exists()
+    assert (output / "assets" / "social-preview.png").exists()
     assert not list(output.rglob("*.md"))
     assert '"source_sha": "test-sha"' in (output / "manifest.json").read_text(encoding="utf-8")
 
@@ -82,6 +84,9 @@ def test_markdown_navigation_uses_the_in_page_reader():
     assert "response.json()" in app
     assert "../README.md" not in index
     assert "Content-Security-Policy" in index
+    assert '<link rel="canonical" href="https://yuema137.github.io/scieval/">' in index
+    assert '<meta property="og:image" content="https://yuema137.github.io/scieval/assets/social-preview.png">' in index
+    assert '<meta name="twitter:card" content="summary_large_image">' in index
 
     styles = (ROOT / "site" / "styles.css").read_text(encoding="utf-8")
     assert ".table-scroll.is-wide" in styles
@@ -111,3 +116,13 @@ def test_diagram_connectors_render_behind_nodes():
     assert '<g text-anchor="middle" fill="#4E5F7A"' in loop
     assert repo_map.count('text-anchor="middle"') >= 5
     assert "Factual cards for individual papers," not in repo_map
+
+
+def test_social_preview_has_standard_large_card_dimensions():
+    preview = ROOT / "site" / "assets" / "social-preview.png"
+    with preview.open("rb") as image:
+        assert image.read(8) == b"\x89PNG\r\n\x1a\n"
+        assert image.read(4) == b"\x00\x00\x00\r"
+        assert image.read(4) == b"IHDR"
+        width, height = struct.unpack(">II", image.read(8))
+    assert (width, height) == (1200, 630)
