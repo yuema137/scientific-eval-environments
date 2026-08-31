@@ -44,9 +44,9 @@ Solving the acquisition example proves only that the agent solved that example. 
 
 ## Related Works
 
-- [Beyond 'Aha!'](../works/beyond-aha.md)
+- [SkillMisevo-Bench](../works/skillmisevo-bench.md)
+- [SkillCoach](../works/skillcoach.md)
 - [SkillEvolBench](../works/skillevolbench.md)
 - [SkillLearnBench](../works/skilllearnbench.md)
-- [SkillCoach](../works/skillcoach.md)
-- [SkillMisevo-Bench](../works/skillmisevo-bench.md)
+- [Beyond 'Aha!'](../works/beyond-aha.md)
 - [GATE](../works/gate.md)

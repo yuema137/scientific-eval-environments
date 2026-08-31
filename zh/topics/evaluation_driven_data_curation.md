@@ -40,6 +40,6 @@ Evaluation-driven data curation 用下游评估结果决定下一轮训练数据
 
 ## 相关工作
 
-- [Curation-Bench](../works/curation-bench.md)
 - [SkillCoach](../works/skillcoach.md)
+- [Curation-Bench](../works/curation-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)

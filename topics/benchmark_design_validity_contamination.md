@@ -44,14 +44,14 @@ Clean arithmetic does not rescue a bad measurement. Memorized tasks inflate capa
 
 ## Related Works
 
-- [CODE2BENCH](../works/code2bench.md)
-- [PRL-Bench](../works/prl-bench.md)
-- [MedBrowseComp](../works/medbrowsecomp.md)
-- [CritPt](../works/critpt.md)
 - [OnePot-Bench](../works/onepot-bench.md)
 - [GeneBench-Pro](../works/genebench-pro.md)
-- [DiscoverPhysics](../works/discoverphysics.md)
-- [Robotouille](../works/robotouille.md)
 - [FrontierCode](../works/frontiercode.md)
-- [ResearchCodeBench](../works/researchcodebench.md)
+- [DiscoverPhysics](../works/discoverphysics.md)
+- [PRL-Bench](../works/prl-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)
+- [CritPt](../works/critpt.md)
+- [CODE2BENCH](../works/code2bench.md)
+- [ResearchCodeBench](../works/researchcodebench.md)
+- [MedBrowseComp](../works/medbrowsecomp.md)
+- [Robotouille](../works/robotouille.md)

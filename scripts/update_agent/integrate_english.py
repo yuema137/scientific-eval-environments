@@ -14,6 +14,7 @@ import re
 import subprocess
 
 from common import taxonomy, read_json, log, REPO_ROOT
+from related_works import sort_all
 
 
 def _display(repo_root):
@@ -105,6 +106,7 @@ def run(run_dir, repo_root=REPO_ROOT):
             % (slug, len(topics), len(acts), len(dmap.get(slug, []))))
 
     counts = os.path.join(repo_root, "scripts", "update_counts.py")
+    sort_all(repo_root)
     if os.path.exists(counts):
         subprocess.run(["python3", counts], cwd=repo_root, check=False)
     return sorted(slugs)

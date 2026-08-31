@@ -44,14 +44,14 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 
 ## 相关工作
 
-- [CODE2BENCH](../works/code2bench.md)
-- [PRL-Bench](../works/prl-bench.md)
-- [MedBrowseComp](../works/medbrowsecomp.md)
-- [CritPt](../works/critpt.md)
 - [OnePot-Bench](../works/onepot-bench.md)
 - [GeneBench-Pro](../works/genebench-pro.md)
-- [DiscoverPhysics](../works/discoverphysics.md)
-- [Robotouille](../works/robotouille.md)
 - [FrontierCode](../works/frontiercode.md)
-- [ResearchCodeBench](../works/researchcodebench.md)
+- [DiscoverPhysics](../works/discoverphysics.md)
+- [PRL-Bench](../works/prl-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)
+- [CritPt](../works/critpt.md)
+- [CODE2BENCH](../works/code2bench.md)
+- [ResearchCodeBench](../works/researchcodebench.md)
+- [MedBrowseComp](../works/medbrowsecomp.md)
+- [Robotouille](../works/robotouille.md)

@@ -88,29 +88,28 @@ Neither yields what a planner would need to choose between plans: a per-action, 
 
 ## Related Works
 
-- [PostTrainBench](../works/posttrainbench.md)
-- [CostBench](../works/costbench.md) — Cost-optimal planning under dynamic tool-use conditions.
-- [SimulCost](../works/simulcost.md) — Cost-aware physics-simulation parameter tuning across 13 simulators.
-- [CATP-LLM / OpenCATP](../works/catp-llm.md) — OpenCATP, a dataset for cost-aware tool planning (11,100 samples).
-- [MaD Physics](../works/mad-physics.md) — Fidelity-priced measurement budgets in simulated physics; agents trade measurement quality against quantity to infer altered physical laws.
-- [BAGEN](../works/bagen.md) — Progressive budget-interval prediction with trainable early-stopping across token and multi-resource agents.
-- [VeRO / VeRO-Bench](../works/vero.md) — Benchmarking coding agents as agent optimizers under a gated evaluation-call budget.
-- [Frontier-Eng](../works/frontier-eng.md) — Iterative engineering optimization under a fixed simulator-interaction budget.
-- [EcoAgent-Bench](../works/ecoagent-bench.md) — Economic decision-making under priced actions and explicit budgets, scored for economic consistency.
-- [HarnessOpt-Bench](../works/harnessopt-bench.md) — LLMs optimizing agent harnesses under a fixed, TEE-audited evaluation budget.
-- [Gravity-Bench-v1](../works/gravity-bench.md) — Budgeted observation planning for gravitational-physics discovery.
-- [Model Discovery Agent](../works/model-discovery-agent.md) — Held-out prediction and mechanism-recovery learning curves over experiment budgets in four discovery families.
-- [SMDD-Bench](../works/smdd-bench.md) — Guaranteed-solvable drug design under a limited oracle-call budget.
-- [SDBench](../works/sdbench.md) — Sequential diagnosis scored on the accuracy-versus-cost frontier.
-- [ChemCost](../works/chemcost.md) — Reaction-cost computation as the measured task, with judge-free exact pricing ground truth.
-- [MASSE](../works/masse.md) — Token usage and runtime scored as a rubric component of an end-to-end structural engineering workflow benchmark.
-- [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) — Runtime and peak memory measured per autonomous pipeline run, making speed and footprint a comparison axis between two agents that produce the same science.
-- [SkillAudit](../works/skillaudit.md) — Time and token savings measured against a matched no-skill run, reported per skill package alongside utility and safety.
-- [Beyond Final Scores](../works/beyond-final-scores.md) — Per-task wall-clock budgets and per-model inference cost reported next to performance, spanning a roughly 20× cost spread across seven models.
 - [R³-Bench](../works/r3-bench.md) — One budget shared across a six-problem suite, calibrated against each model's own demonstrated single-problem competence.
 - [AI Research Preference Models](../works/ai-research-preference-models.md) — Matches the unguided agent's 24-hour score in ~15 hours on under two-thirds of its execution budget, with validation- and test-oracle ceilings reported alongside.
+- [Beyond Final Scores](../works/beyond-final-scores.md) — Per-task wall-clock budgets and per-model inference cost reported next to performance, spanning a roughly 20× cost spread across seven models.
+- [Model Discovery Agent](../works/model-discovery-agent.md) — Held-out prediction and mechanism-recovery learning curves over experiment budgets in four discovery families.
+- [EcoAgent-Bench](../works/ecoagent-bench.md) — Economic decision-making under priced actions and explicit budgets, scored for economic consistency.
+- [HarnessOpt-Bench](../works/harnessopt-bench.md) — LLMs optimizing agent harnesses under a fixed, TEE-audited evaluation budget.
+- [SkillAudit](../works/skillaudit.md) — Time and token savings measured against a matched no-skill run, reported per skill package alongside utility and safety.
+- [BAGEN](../works/bagen.md) — Progressive budget-interval prediction with trainable early-stopping across token and multi-resource agents.
+- [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) — Runtime and peak memory measured per autonomous pipeline run, making speed and footprint a comparison axis between two agents that produce the same science.
+- [SMDD-Bench](../works/smdd-bench.md) — Guaranteed-solvable drug design under a limited oracle-call budget.
+- [MaD Physics](../works/mad-physics.md) — Fidelity-priced measurement budgets in simulated physics; agents trade measurement quality against quantity to infer altered physical laws.
+- [ChemCost](../works/chemcost.md) — Reaction-cost computation as the measured task, with judge-free exact pricing ground truth.
+- [Frontier-Eng](../works/frontier-eng.md) — Iterative engineering optimization under a fixed simulator-interaction budget.
+- [SimulCost](../works/simulcost.md) — Cost-aware physics-simulation parameter tuning across 13 simulators.
+- [PostTrainBench](../works/posttrainbench.md)
+- [VeRO / VeRO-Bench](../works/vero.md) — Benchmarking coding agents as agent optimizers under a gated evaluation-call budget.
 - [BATS / Budget Tracker](../works/bats-budget-aware.md) — Prices tokens and tool calls in one currency; injecting remaining budget alone matches a ReAct baseline's accuracy at one-tenth the budget.
-
+- [CostBench](../works/costbench.md) — Cost-optimal planning under dynamic tool-use conditions.
+- [MASSE](../works/masse.md) — Token usage and runtime scored as a rubric component of an end-to-end structural engineering workflow benchmark.
+- [SDBench](../works/sdbench.md) — Sequential diagnosis scored on the accuracy-versus-cost frontier.
+- [Gravity-Bench-v1](../works/gravity-bench.md) — Budgeted observation planning for gravitational-physics discovery.
+- [CATP-LLM / OpenCATP](../works/catp-llm.md) — OpenCATP, a dataset for cost-aware tool planning (11,100 samples).
 ## Further Reading
 
 - Yehudai, Eden, Li, Uziel, Zhao, Bar-Haim, Cohan, Shmueli-Scheuer. *Survey on Evaluation of LLM-based Agents*. arXiv 2503.16416, 2025. Identifies cost-efficiency as an under-covered dimension in current agent evaluation. <https://arxiv.org/abs/2503.16416>

@@ -45,10 +45,10 @@ A benchmark observes the whole model–harness configuration. If two systems use
 
 ## Related Works
 
-- [Harness-Bench](../works/harness-bench.md)
-- [RigorBench](../works/rigorbench.md)
 - [Evo-Bench](../works/evo-bench.md)
 - [HarnessOpt-Bench](../works/harnessopt-bench.md)
-- [VeRO](../works/vero.md)
+- [RigorBench](../works/rigorbench.md)
 - [Curation-Bench](../works/curation-bench.md)
+- [Harness-Bench](../works/harness-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)
+- [VeRO](../works/vero.md)

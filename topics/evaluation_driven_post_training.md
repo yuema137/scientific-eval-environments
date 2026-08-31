@@ -42,14 +42,14 @@ The useful signal is not just whether the final model is better. It is which mea
 
 ## Related Works
 
-- [PostTrainBench](../works/posttrainbench.md)
-- [Curation-Bench](../works/curation-bench.md)
-- [SkillCoach](../works/skillcoach.md)
 - [MobileJudgeBench](../works/mobilejudgebench.md)
-- [MA-RLHF](../works/ma-rlhf.md)
-- [CoLA](../works/cola.md)
-- [MetaAct-RL](../works/metaact-rl.md)
+- [SkillCoach](../works/skillcoach.md)
+- [Curation-Bench](../works/curation-bench.md)
 - [PG-HAP](../works/pg-hap.md)
+- [PostTrainBench](../works/posttrainbench.md)
 - [HiPER](../works/hiper.md)
+- [MetaAct-RL](../works/metaact-rl.md)
 - [PTA-GRPO](../works/pta-grpo.md)
 - [Beyond 'Aha!'](../works/beyond-aha.md)
+- [CoLA](../works/cola.md)
+- [MA-RLHF](../works/ma-rlhf.md)

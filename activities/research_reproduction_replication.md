@@ -36,14 +36,14 @@ A third grouping reproduces **study results from provided code and data** or ben
 
 ## Related Works
 
+- [Replica](../works/replica.md)
+- [NatureBench](../works/naturebench.md)
+- [Collider-Bench](../works/collider-bench.md)
+- [Quantifying the Reproducibility of Astrophysical Methods with Large Language Models and Information Theory](../works/quantifying-the-reproducibility-of-astrophysical-m.md)
+- [AutoMat](../works/automat.md)
+- [PRBench](../works/prbench.md)
+- [FIRE-Bench](../works/fire-bench.md)
+- [ReplicationBench](../works/replicationbench.md)
+- [PaperBench](../works/paperbench.md)
 - [CORE-Bench](../works/core-bench.md)
 - [SUPER](../works/super.md)
-- [PaperBench](../works/paperbench.md)
-- [ReplicationBench](../works/replicationbench.md)
-- [AutoMat](../works/automat.md)
-- [Collider-Bench](../works/collider-bench.md)
-- [FIRE-Bench](../works/fire-bench.md)
-- [NatureBench](../works/naturebench.md)
-- [PRBench](../works/prbench.md)
-- [Quantifying the Reproducibility of Astrophysical Methods with Large Language Models and Information Theory](../works/quantifying-the-reproducibility-of-astrophysical-m.md)
-- [Replica](../works/replica.md)

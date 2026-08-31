@@ -59,17 +59,17 @@ The literature progresses from controlled plan validity toward realistic, agent-
 
 ## Related Works
 
+- [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) — validated implementation-planning ground truth in repository issue resolution.
+- [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) — expert-rubric evaluation of plans for real research projects.
+- [RigorBench](../works/rigorbench.md) — planning fidelity scored separately from engineering outcome.
+- [AISE-Bench](../works/aise-bench.md) — gold-plan graph comparison for tool learning.
+- [Agent Planning Benchmark](../works/agent-planning-benchmark.md) — holistic, feedback-conditioned, robustness, and infeasibility diagnostics.
 - [PG-HAP](../works/pg-hap.md) — stepwise policy over high-level reasoning actions.
+- [Plan-RewardBench](../works/plan-rewardbench.md) — pairwise judging of tool-use trajectories with dedicated planning splits.
 - [HiPER](../works/hiper.md) — high-level subgoal planning separated from low-level execution.
 - [PTA-GRPO](../works/pta-grpo.md) — compact plan guidance optimized alongside detailed reasoning.
-- [PlanBench](../works/planbench.md) — formal plan generation, optimality, validation, and replanning.
-- [NATURAL PLAN](../works/natural-plan.md) — natural-language constraint planning with tool information supplied in context.
-- [TravelPlanner](../works/travelplanner.md) — tool-using real-world planning under heterogeneous constraints.
-- [Agent Planning Benchmark](../works/agent-planning-benchmark.md) — holistic, feedback-conditioned, robustness, and infeasibility diagnostics.
-- [LoTa-Bench](../works/lota-bench.md) — simulator-executed embodied planning.
 - [Embodied Agent Interface](../works/embodied-agent-interface.md) — state-grounded localization of embodied planning failures.
-- [AISE-Bench](../works/aise-bench.md) — gold-plan graph comparison for tool learning.
-- [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) — validated implementation-planning ground truth in repository issue resolution.
-- [RigorBench](../works/rigorbench.md) — planning fidelity scored separately from engineering outcome.
-- [Plan-RewardBench](../works/plan-rewardbench.md) — pairwise judging of tool-use trajectories with dedicated planning splits.
-- [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) — expert-rubric evaluation of plans for real research projects.
+- [NATURAL PLAN](../works/natural-plan.md) — natural-language constraint planning with tool information supplied in context.
+- [LoTa-Bench](../works/lota-bench.md) — simulator-executed embodied planning.
+- [TravelPlanner](../works/travelplanner.md) — tool-using real-world planning under heterogeneous constraints.
+- [PlanBench](../works/planbench.md) — formal plan generation, optimality, validation, and replanning.

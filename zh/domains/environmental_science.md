@@ -71,9 +71,9 @@ Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 3
 
 ## Related Works
 
-- [GeoNatureAgent Benchmark](../works/geonatureagent-benchmark.md)
-- [Terminal-Bench Science](../works/terminal-bench-science.md)
-- [ERI Benchmark](../works/eri-benchmark.md)
-- [LLM-EPANET](../works/llm-epanet.md)
-- [Hydro-SE Bench](../works/hydro-se-bench.md)
 - [OntoLearner](../works/ontolearner.md)
+- [GeoNatureAgent Benchmark](../works/geonatureagent-benchmark.md)
+- [ERI Benchmark](../works/eri-benchmark.md)
+- [Terminal-Bench Science](../works/terminal-bench-science.md)
+- [Hydro-SE Bench](../works/hydro-se-bench.md)
+- [LLM-EPANET](../works/llm-epanet.md)

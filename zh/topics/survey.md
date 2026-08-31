@@ -46,12 +46,12 @@
 
 ## 相关工作
 
+- [Co-Evolution in Agentic Systems](../works/co-evolution-agentic-systems-survey.md) — 多组件自我演化的分类体系，并专节论述共同演化系统为何打破静态 benchmark 的前提。
+- [Position: AI Agents in Scientific Teams Should Be Studied as Human-Agent Systems](../works/ai-agents-in-scientific-teams.md) — 主张科学 agent 的评估应以人—agent 二元组为分析单元。
+- [Autonomous Research Agents: A Survey of AI Scientists and the Verification Gap](../works/ara-survey.md) — 自主研究 agent 的七维可验证性审计。
+- [From Chatbot to Digital Colleague](../works/from-chatbot-to-digital-colleague.md) — 立场论文，主张向持久自主 AI 的范式转变。
 - [Agent Skill Evaluation and Evolution: Frameworks and Benchmarks](../works/agent-skill-evaluation-survey.md) — skill 演化范式与以 skill 为中心的 benchmark 两套分类，以及交叉后暴露的覆盖空白。
 - [From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](../works/from-reasoning-to-agentic.md)
-- [A Survey on Large Language Model based Autonomous Agents](../works/llm-autonomous-agents-survey.md) — LLM-based 自主 agent 的整体性综述（构建、应用、评估）。
-- [Survey on Evaluation of LLM-based Agents](../works/agent-evaluation-survey.md) — LLM-agent 评估的五视角分类综述。
 - [Evaluation and Benchmarking of LLM Agents: A Survey](../works/agent-evaluation-benchmarking-survey.md) — LLM-agent 评估的二维（objectives 对 process）分类综述，侧重企业场景。
-- [From Chatbot to Digital Colleague](../works/from-chatbot-to-digital-colleague.md) — 立场论文，主张向持久自主 AI 的范式转变。
-- [Autonomous Research Agents: A Survey of AI Scientists and the Verification Gap](../works/ara-survey.md) — 自主研究 agent 的七维可验证性审计。
-- [Position: AI Agents in Scientific Teams Should Be Studied as Human-Agent Systems](../works/ai-agents-in-scientific-teams.md) — 主张科学 agent 的评估应以人—agent 二元组为分析单元。
-- [Co-Evolution in Agentic Systems](../works/co-evolution-agentic-systems-survey.md) — 多组件自我演化的分类体系，并专节论述共同演化系统为何打破静态 benchmark 的前提。
+- [Survey on Evaluation of LLM-based Agents](../works/agent-evaluation-survey.md) — LLM-agent 评估的五视角分类综述。
+- [A Survey on Large Language Model based Autonomous Agents](../works/llm-autonomous-agents-survey.md) — LLM-based 自主 agent 的整体性综述（构建、应用、评估）。

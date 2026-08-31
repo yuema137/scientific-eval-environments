@@ -44,9 +44,9 @@ Skill learning 问 agent 能不能把经验变成可复用流程。经验可以�
 
 ## 相关工作
 
-- [Beyond 'Aha!'](../works/beyond-aha.md)
+- [SkillMisevo-Bench](../works/skillmisevo-bench.md)
+- [SkillCoach](../works/skillcoach.md)
 - [SkillEvolBench](../works/skillevolbench.md)
 - [SkillLearnBench](../works/skilllearnbench.md)
-- [SkillCoach](../works/skillcoach.md)
-- [SkillMisevo-Bench](../works/skillmisevo-bench.md)
+- [Beyond 'Aha!'](../works/beyond-aha.md)
 - [GATE](../works/gate.md)

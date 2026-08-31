@@ -319,6 +319,8 @@ def build_dataset(root: Path = ROOT) -> dict:
     monthly_reports = _monthly_reports()
     latest = max((card["first_appeared"] for card in cards), default=None)
     earliest = min((card["first_appeared"] for card in cards), default=None)
+    works_by_first_appeared = sorted(cards, key=lambda item: item["title"].casefold())
+    works_by_first_appeared.sort(key=lambda item: item["first_appeared"], reverse=True)
 
     documents = {}
     source_paths = ["README.md"]
@@ -350,7 +352,7 @@ def build_dataset(root: Path = ROOT) -> dict:
         "monthly_reports": monthly_reports,
         "timeline": timeline,
         "documents": documents,
-        "works": sorted(cards, key=lambda item: (item["first_appeared"], item["title"]), reverse=True),
+        "works": works_by_first_appeared,
     }
 
 

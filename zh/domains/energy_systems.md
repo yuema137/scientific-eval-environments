@@ -70,7 +70,7 @@ Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 3
 ## Related Works
 
 - [EnergyBridge](../works/energybridge.md)
-- [Hydro-SE Bench](../works/hydro-se-bench.md)
-- [ResearchClawBench](../works/researchclawbench.md)
 - [PowerAgentBench-SS](../works/poweragentbench-ss.md)
+- [ResearchClawBench](../works/researchclawbench.md)
+- [Hydro-SE Bench](../works/hydro-se-bench.md)
 - [ElecBench](../works/elecbench.md)
