@@ -1,0 +1,88 @@
+name: Publish Explorer Snapshot
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "README.md"
+      - "zh/README.md"
+      - "works/**"
+      - "zh/works/**"
+      - "topics/**"
+      - "zh/topics/**"
+      - "domains/**"
+      - "zh/domains/**"
+      - "activities/**"
+      - "zh/activities/**"
+      - "monthly/**"
+      - "zh/monthly/**"
+      - "site/**"
+      - "scripts/build_explorer_site.py"
+      - "scripts/export_explorer_data.py"
+      - "tests/test_export_explorer_data.py"
+      - ".github/workflows/explorer-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: explorer-snapshot
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Test the explorer compiler
+        run: python3 -m pytest tests/test_export_explorer_data.py -q
+
+      - name: Build a self-contained snapshot
+        run: python3 scripts/build_explorer_site.py --output "$RUNNER_TEMP/scieval" --source-sha "$GITHUB_SHA"
+
+      - name: Validate the publication boundary
+        run: |
+          set -euo pipefail
+          test -f "$RUNNER_TEMP/scieval/index.html"
+          test -f "$RUNNER_TEMP/scieval/data/index.json"
+          test -f "$RUNNER_TEMP/scieval/documents/en/README.json"
+          test -f "$RUNNER_TEMP/scieval/documents/zh/README.json"
+          test -z "$(find "$RUNNER_TEMP/scieval" -type l -print -quit)"
+          test -z "$(find "$RUNNER_TEMP/scieval" -name '*.md' -print -quit)"
+          node --check "$RUNNER_TEMP/scieval/app.js"
+          python3 -m json.tool "$RUNNER_TEMP/scieval/data/index.json" >/dev/null
+
+      - name: Check out the personal site
+        uses: actions/checkout@v4
+        with:
+          repository: yuema137/yuema137.github.io
+          ref: main
+          ssh-key: ${{ secrets.PERSONAL_SITE_DEPLOY_KEY }}
+          path: personal-site
+          fetch-depth: 0
+
+      - name: Update the isolated snapshot branch
+        id: sync
+        working-directory: personal-site
+        run: |
+          set -euo pipefail
+          git checkout -B auto/scieval-sync origin/main
+          mkdir -p scieval
+          rsync -a --delete "$RUNNER_TEMP/scieval/" scieval/
+
+          if [ -z "$(git status --porcelain -- scieval)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scieval
+          git commit -m "Update SciEval explorer snapshot"
+          git fetch origin auto/scieval-sync || true
+          git push --force-with-lease origin HEAD:auto/scieval-sync
+          echo "changed=true" >> "$GITHUB_OUTPUT"

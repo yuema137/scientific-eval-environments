@@ -1,0 +1,42 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="28" fill="#F8FAFF"/>
+  <rect x="24" y="24" width="1152" height="712" rx="24" fill="white" stroke="#D8E0F0" stroke-width="2"/>
+  <text x="70" y="92" fill="#365DF0" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">One corpus, three ways to enter it</text>
+  <path d="M370 274C454 308 494 330 516 345" stroke="#7C4DFF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M830 274C742 310 700 330 682 345" stroke="#7C4DFF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M600 518C600 482 600 466 600 438" stroke="#7C4DFF" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="600" cy="380" r="118" fill="#EEF3FF" stroke="#365DF0" stroke-width="4"/>
+  <text x="600" y="352" text-anchor="middle" fill="#142033" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Works</text>
+  <g text-anchor="middle" fill="#4E5F7A" font-family="Inter, Arial, sans-serif" font-size="16">
+    <text x="600" y="388">Factual cards for</text>
+    <text x="600" y="412">papers, benchmarks,</text>
+    <text x="600" y="436">methods, and surveys</text>
+  </g>
+  <rect x="118" y="160" width="250" height="124" rx="22" fill="#F5F7FF" stroke="#D8E0F0" stroke-width="2"/>
+  <text x="243" y="202" text-anchor="middle" fill="#142033" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Topics</text>
+  <g text-anchor="middle" fill="#4E5F7A" font-family="Inter, Arial, sans-serif" font-size="16">
+    <text x="243" y="236">What evaluation problem</text>
+    <text x="243" y="260">does this work address?</text>
+  </g>
+  <rect x="832" y="160" width="250" height="124" rx="22" fill="#F5F7FF" stroke="#D8E0F0" stroke-width="2"/>
+  <text x="957" y="200" text-anchor="middle" fill="#142033" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Domains</text>
+  <g text-anchor="middle" fill="#4E5F7A" font-family="Inter, Arial, sans-serif" font-size="15">
+    <text x="957" y="228">Which scientific or</text>
+    <text x="957" y="250">engineering field is it</text>
+    <text x="957" y="272">grounded in?</text>
+  </g>
+  <rect x="470" y="520" width="260" height="124" rx="22" fill="#F5F7FF" stroke="#D8E0F0" stroke-width="2"/>
+  <text x="600" y="562" text-anchor="middle" fill="#142033" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Activities</text>
+  <g text-anchor="middle" fill="#4E5F7A" font-family="Inter, Arial, sans-serif" font-size="16">
+    <text x="600" y="596">What does the agent</text>
+    <text x="600" y="620">actually do?</text>
+  </g>
+  <g text-anchor="middle" fill="#365DF0" font-family="Inter, Arial, sans-serif" font-size="16">
+    <text x="243" y="330">planning, trajectories, judges,</text>
+    <text x="243" y="352">benchmark validity, post-training...</text>
+    <text x="957" y="330">physics, chemistry, biology,</text>
+    <text x="957" y="352">robotics, civil engineering...</text>
+    <text x="600" y="684">literature review, simulation,</text>
+    <text x="600" y="706">experiment design, reproduction...</text>
+  </g>
+</svg>

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <title>Scientific Evaluation Environments</title>
+    <meta name="description" content="Interactive explorer for scientific and engineering AI agent evaluation research, generated from Markdown source files.">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="shell">
+      <header class="site-header">
+        <div class="brand">
+          <p class="eyebrow" id="eyebrow">Scientific Evaluation Environments</p>
+          <h1 id="hero-title">Scientific Evaluation Environments</h1>
+          <p class="hero-text" id="hero-text">
+            A living knowledge base for scientific and engineering AI agent evaluation. See what each benchmark measures, what its results reveal, and what developers can improve next. Browse by topic, domain, activity, or month.
+          </p>
+        </div>
+        <div class="header-actions">
+          <a class="button primary" href="./documents/en/README.json" id="readme-link" data-reader-link="true">Guide</a>
+          <a class="button" href="./documents/en/monthly/README.json" id="monthly-link" data-reader-link="true">Monthly</a>
+          <a class="button" href="https://github.com/yuema137/scientific-eval-environments" id="github-link" target="_blank" rel="noopener noreferrer">GitHub repository</a>
+          <button class="button ghost" id="lang-toggle" type="button">中文</button>
+        </div>
+      </header>
+
+      <nav class="tabs" aria-label="Explorer sections">
+        <button class="tab is-active" type="button" data-tab="home" id="tab-home">Home</button>
+        <button class="tab" type="button" data-tab="topics" id="tab-topics">Topics</button>
+        <button class="tab" type="button" data-tab="domains" id="tab-domains">Domains</button>
+        <button class="tab" type="button" data-tab="activities" id="tab-activities">Activities</button>
+        <button class="tab" type="button" data-tab="monthly" id="tab-monthly">Monthly</button>
+        <button class="tab" type="button" data-tab="works" id="tab-works">Works</button>
+      </nav>
+
+      <main class="tab-panels">
+        <section class="tab-panel is-active" data-panel="home">
+          <section class="hero-grid">
+            <div class="panel intro-panel">
+              <h2 id="home-why-title">What this repository is for</h2>
+              <p id="home-why-text">
+                A benchmark score is useful only if it helps you decide what to change next. This repository collects work that makes evaluation more diagnostic, more legible, and more useful for building scientific and engineering agents.
+              </p>
+              <div class="key-points" id="home-points"></div>
+            </div>
+            <div class="figure-stack">
+              <img src="./assets/readme-eval-loop.svg" alt="Evaluation loop from task to run to evaluation to diagnosis to intervention to new evaluation.">
+              <img class="repo-map-figure" src="./assets/readme-repo-map.svg" alt="Repository map showing works at the center and topics, domains, and activities as three reading axes.">
+            </div>
+          </section>
+
+          <section class="stats-grid" id="stats"></section>
+
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker" id="axes-kicker">How to read the corpus</p>
+                <h2 id="axes-title">Three ways into the same work card</h2>
+              </div>
+            </div>
+            <div class="overview-grid" id="overview-cards"></div>
+          </section>
+
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker" id="automation-kicker">Maintenance flow</p>
+                <h2 id="automation-title">How the repository stays current</h2>
+                <p id="automation-text">The repository updates in two rhythms: every three days for new works, and every month for synthesis.</p>
+              </div>
+            </div>
+            <div class="flow-grid" id="automation-cards"></div>
+          </section>
+
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker" id="home-monthly-kicker">Recent synthesis</p>
+                <h2 id="home-monthly-title">Recent monthly reports</h2>
+              </div>
+            </div>
+            <div id="home-monthly-reports" class="card-grid"></div>
+          </section>
+        </section>
+
+        <section class="tab-panel" data-panel="topics">
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker" id="topics-kicker">Evaluation questions</p>
+                <h2 id="topics-title">Topics</h2>
+                <p id="topics-text">Topics group work by the evaluation problem it addresses.</p>
+              </div>
+            </div>
+            <div id="topics-grid" class="card-grid"></div>
+          </section>
+        </section>
+
+        <section class="tab-panel" data-panel="domains">
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker" id="domains-kicker">Scientific and engineering fields</p>
+                <h2 id="domains-title">Domains</h2>
+                <p id="domains-text">Domain pages answer where a benchmark or method is grounded.</p>
+              </div>
+            </div>
+            <div id="domains-grid" class="card-grid"></div>
+          </section>
+        </section>
+
+        <section class="tab-panel" data-panel="activities">
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker" id="activities-kicker">What the agent does</p>
+                <h2 id="activities-title">Activities</h2>
+                <p id="activities-text">Activities group work by the actual scientific or research task under evaluation.</p>
+              </div>
+            </div>
+            <div id="activities-grid" class="card-grid"></div>
+          </section>
+        </section>
+
+        <section class="tab-panel" data-panel="monthly">
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker" id="monthly-kicker">Research stories over time</p>
+                <h2 id="monthly-title">Monthly reports</h2>
+                <p id="monthly-text">Monthly reports summarize what entered the knowledge base and what that cluster of work changed in the field.</p>
+              </div>
+            </div>
+            <div class="monthly-layout">
+              <div class="timeline-panel">
+                <h3 id="timeline-title">First-appearance timeline</h3>
+                <p id="timeline-text">Each bar counts works by earliest public appearance month.</p>
+                <div id="timeline" class="timeline"></div>
+              </div>
+              <div>
+                <div id="monthly-reports" class="card-grid"></div>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section class="tab-panel" data-panel="works">
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker" id="works-kicker">Card-level lookup</p>
+                <h2 id="works-title">Works</h2>
+                <p id="works-text">Search by title or summary, then narrow by topic, domain, activity, or month.</p>
+              </div>
+            </div>
+
+            <div class="controls">
+              <input id="search" type="search" placeholder="Search works">
+              <select id="topic-filter"><option value="">All topics</option></select>
+              <select id="domain-filter"><option value="">All domains</option></select>
+              <select id="activity-filter"><option value="">All activities</option></select>
+              <select id="month-filter"><option value="">All months</option></select>
+            </div>
+
+            <div class="results-head">
+              <h3 id="results-title">Works</h3>
+              <p id="results-count"></p>
+            </div>
+            <div id="results" class="results"></div>
+          </section>
+        </section>
+
+        <section class="tab-panel" data-panel="reader">
+          <section class="panel">
+            <article id="reader-content" class="markdown-body reader-empty">
+              <p>Select any topic, domain, activity, monthly report, or work card to render it here as HTML.</p>
+            </article>
+          </section>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p id="footer-text">Generated from Markdown source files in the repository. If content disagrees, trust the Markdown.</p>
+      </footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+  </html>
