@@ -1,0 +1,27 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="320" rx="28" fill="#F8FAFF"/>
+  <rect x="28" y="28" width="1144" height="264" rx="22" fill="white" stroke="#D8E0F0" stroke-width="2"/>
+  <text x="60" y="82" fill="#365DF0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Evaluation should tell you what to change next</text>
+  <g stroke="#7C4DFF" stroke-width="6" stroke-linecap="round">
+    <path d="M210 163H238"/>
+    <path d="M418 163H446"/>
+    <path d="M626 163H654"/>
+    <path d="M834 163H862"/>
+    <path d="M1062 163C1110 163 1110 232 1010 232H220C120 232 120 163 150 163"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600" fill="#142033">
+    <rect x="60" y="132" width="150" height="62" rx="18" fill="#EEF3FF"/><text x="112" y="170">Task</text>
+    <rect x="248" y="132" width="170" height="62" rx="18" fill="#EEF3FF"/><text x="299" y="170">Agent run</text>
+    <rect x="456" y="132" width="170" height="62" rx="18" fill="#EEF3FF"/><text x="502" y="170">Evaluation</text>
+    <rect x="664" y="132" width="170" height="62" rx="18" fill="#EEF3FF"/><text x="714" y="170">Diagnosis</text>
+    <rect x="872" y="132" width="190" height="62" rx="18" fill="#EEF3FF"/><text x="916" y="170">Intervention</text>
+  </g>
+  <g text-anchor="middle" fill="#4E5F7A" font-family="Inter, Arial, sans-serif" font-size="14">
+    <text x="135" y="114">What is the agent trying to do?</text>
+    <text x="333" y="114">What actually happened?</text>
+    <text x="541" y="114">How was it scored?</text>
+    <text x="749" y="114">Why did it fail or succeed?</text>
+    <text x="967" y="114">What should change next?</text>
+    <text x="600" y="267">The loop matters more than the final score alone.</text>
+  </g>
+</svg>
