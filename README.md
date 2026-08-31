@@ -1,51 +1,100 @@
-
-
 # Scientific Evaluation Environments
 
 > **English** | [简体中文](./zh/README.md)
 
-This repository tracks how scientific and engineering AI agents are evaluated, and how those results feed back into development.
+If you work on science, engineering, or AI, you usually hit the same problem fast: there are many papers about "agent benchmarks", but it is hard to tell what they actually measure, what kind of workflow they represent, and what you would learn from a failure.
 
-The key idea is simple: a score should do more than say whether an agent won or lost. It should help someone decide what to change next. If a research agent fails to reproduce a paper, the useful question is whether the plan was wrong, a tool call failed, the verifier missed an error, or the system ran out of budget. Those diagnoses lead to different repairs.
+This repository exists to make that legible.
 
-The repository follows that loop:
+It tracks work on evaluating scientific and engineering AI agents, but it does not stop at "what score did the model get?" The useful question is what the score helps you change next. If an agent fails to reproduce a paper, is the problem the plan, the tool use, the verifier, the task design, or the budget? Those are different failures, and they call for different repairs.
+
+In other words, the repository follows this loop:
+
+![Evaluation loop](./site/assets/readme-eval-loop.svg)
+
+The repository itself is simple:
+
+- One work card tells you what one paper or project actually contributed.
+- Three independent indexes help you find that same card from different questions.
+- Monthly reports explain what changed in the literature, not just which PDFs appeared.
+
+![Repository map](./site/assets/readme-repo-map.svg)
+
+This is a reference library, not a benchmark implementation. The repository's [Explanation Style Guide](./EXPLANATION_STYLE.md) keeps the writing concrete: name the actor, show what changed, trace one real object when that helps, and say what the result still does not establish.
+
+---
+
+## Start here
+
+If you already know what kind of question you have, use the matching entry point:
+
+| If your question is... | Start here |
+|---|---|
+| "What evaluation problem is this paper really about?" | [Topics](./topics/README.md) |
+| "Which work exists for physics / chemistry / biology / robotics / civil engineering?" | [Domains](./domains/README.md) |
+| "Which benchmarks make agents do literature review, simulation, experiment design, or reproduction?" | [Activities](./activities/README.md) |
+| "What exactly does this one benchmark or method do?" | [Works](./works/README.md) |
+| "What was added recently, and why does it matter?" | [Monthly reports](./monthly/README.md) |
+| "What is the chronology by earliest public release?" | [Works by first appearance](./WORKS_BY_DATE.md) |
+| "I want the interactive view." | [SciEval explorer](https://yuema137.github.io/scieval/) |
+
+These entry points are not competing taxonomies. They are three ways of reading the same corpus:
 
 ```text
-task → agent run → evaluation → diagnosis → intervention → new evaluation
+Topic     → what evaluation problem does this work address?
+Domain    → which scientific or engineering field is it grounded in?
+Activity  → what does the evaluated agent actually do?
 ```
 
-One work card records what a paper or project actually contributes. Three independent indexes let readers approach that card from different questions: **topic** asks what evaluation problem it addresses, **domain** asks where the task lives, and **activity** asks what the agent does. Topic pages connect the cards into a literature map and explain where the methods differ.
-
-This is a reference, not a benchmark implementation. The [Explanation Style Guide](./EXPLANATION_STYLE.md) governs the prose: name the actor, show the old path and the changed step, trace a real example when useful, and state the nearest limitation.
+A single work can appear under several topics, several domains, and several activities at once.
 
 ---
 
-## A Living Knowledge Base
+## What is in scope
 
-The collection changes as the field changes. Every three days, an update agent searches public sources for new work. It drafts cards and index updates, but does not publish them directly. Each batch arrives as a pull request so a person can check the sources, taxonomy, prose, and Chinese mirror before merge.
+The short version is:
 
----
+- in scope when evaluation is the point
+- out of scope when evaluation is only the last results table
 
-## Start Exploring
+More concretely, this repository includes:
 
-- **[Browse by Topic](./topics/README.md)** — start from an evaluation problem, see how one example changes, then compare the literature.
-- **[Browse by Domain](./domains/README.md)** — find evaluation work within a scientific or engineering field.
-- **[Browse by Research Activity](./activities/README.md)** — find works by the task the evaluated agent or system performs.
-- **[Browse All Works](./works/README.md)** — open the complete collection of factual work cards.
-- **[Browse Works by First Appearance](./WORKS_BY_DATE.md)** — view the collection from newest to oldest initial public appearance.
-- **[Read Monthly Reports](./monthly/README.md)** — follow what entered the knowledge base each month and what changed across the literature.
+- scientific and engineering agent benchmarks
+- evaluation methods for trajectories, judges, credit assignment, and resource use
+- work on benchmark validity, contamination, and verifier design
+- evaluation-driven improvement loops for skills, harnesses, data curation, and post-training
+- surveys and position papers that clarify the space
 
-Choose the entry point that matches the question you already have:
+It does not include ordinary training or agent papers just because they report benchmark numbers. The cutline is operational: does evaluation define the objective, the feedback signal, the diagnosis, the intervention choice, or the experimental environment?
 
-```
-Topic     →  Representative works            →  Original papers   (what / how / how evaluation is used)
-Domain    →  Works evaluated in that domain  →  Original papers   (where the task lives)
-Activity  →  Works performing that task      →  Original papers   (what the agent does)
-```
+## How to read the repository
 
-These are not competing classifications. A benchmark for a chemistry agent may belong to several topics, one domain, and several activities at the same time. Each link answers a different question about the same work.
+The easiest way to avoid getting lost is to remember the division of labor:
 
----
+- [Works](./works/README.md) are factual cards for individual papers, benchmarks, methods, and surveys.
+- [Topics](./topics/README.md) are literature reviews about evaluation questions.
+- [Domains](./domains/README.md) tell you what scientific or engineering field a work is grounded in.
+- [Activities](./activities/README.md) tell you what the agent actually does.
+- [Monthly reports](./monthly/README.md) explain what changed month by month.
+
+The Markdown files are the ground truth. The HTML explorer is only a render layer generated from those files.
+
+## Current coverage
+
+The repository currently contains:
+
+- **381** work cards
+- **15** topic pages
+- **19** domain pages
+- **11** activity pages
+- **32** monthly reports from 2024-01 through 2026-08
+
+Coverage is broad across both sciences and engineering. The heaviest current concentrations are in:
+
+- scientific agent benchmarks
+- trajectory evaluation
+- physics, chemistry, biology, astronomy, and civil/structural engineering
+- scientific problem solving, scientific software/workflow engineering, and data analysis
 
 ## Browse by Topic
 
@@ -135,6 +184,32 @@ Work is in scope when evaluation changes what we know or what the development lo
 A paper is not in scope merely because it reports benchmark scores. Pure training, optimization, data, memory, or multi-agent work stays out when evaluation appears only in the final results table. The test is operational: does evaluation define the objective, supply feedback, select an intervention, diagnose a failure, or serve as the experiment environment?
 
 "Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **381 work cards**, **15 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
+
+---
+
+## A Living Knowledge Base
+
+This repository is maintained continuously.
+
+Every three days, an update agent searches public sources for new work, drafts cards and index changes, and opens a pull request for human review. On the first day of each month, the repository also prepares a bilingual monthly report for the previous month. Both the daily update path and the monthly report path support manual triggering as well, so maintainers can refresh a specific window without inventing duplicate files.
+
+## Interactive explorer
+
+The repository is good for maintenance and provenance. It is less good for visual browsing. The companion explorer fixes that without changing the source of truth.
+
+The explorer:
+
+- is deployed as an isolated `/scieval/` subpage on the maintainer's GitHub Pages site
+- reads generated JSON exported from repository Markdown
+- shows the corpus as a searchable, filterable interface
+- adds visual structure such as the first-appearance timeline and axis overview
+
+After relevant Markdown changes merge here, an automated workflow builds and
+validates a self-contained snapshot. A guarded pull request then updates only
+`scieval/**` in the personal-site repository. If that process fails, the
+previous snapshot and the rest of the personal site stay unchanged.
+
+The explorer does **not** own content. If the site and a Markdown file disagree, the Markdown file wins.
 
 ---
 
