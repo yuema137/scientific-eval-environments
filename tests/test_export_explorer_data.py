@@ -34,6 +34,10 @@ def test_write_dataset_creates_json(tmp_path):
     assert '"works"' in text
 
 
+def test_dataset_generation_is_deterministic():
+    assert build_dataset(ROOT) == build_dataset(ROOT)
+
+
 def test_write_documents_creates_localized_json(tmp_path):
     write_documents(tmp_path, ROOT)
     english = tmp_path / "documents" / "en" / "topics" / "scientific_agents.json"
