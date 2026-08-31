@@ -53,6 +53,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - **预算受限的引力发现。** [Gravity-Bench-v1](../works/gravity-bench.md) 让 agent 在实验预算内规划对模拟二体引力系统的观测，再分析数据以揭示被隐藏的——有时是分布外的——物理；据官方项目页，最佳模型从全量数据下的 74% 跌到预算下的 49%。
 - **先验受控的物理发现。** [PhysGym](../works/physgym.md) 把 97 个交互式物理发现问题布置在四个受控的先验层级下，把「agent 发现了什么」与「agent 被告知了什么」分开；据官方仓库，先验逐级撤去时 o4-mini 从 62.89% 跌至 31%。
 - **反事实世界的定律发现。** [DiscoverPhysics](../works/discoverphysics.md) 让 agent 在 22 个物理刻意偏离现实的模拟世界中做实验，并同时提交解释与定律的 Python 实现，以留出粒子上的轨迹 MSE 加按评分标准的 LLM 解释分评判；最强 agent 也只通过一半的世界。
+- **实验预算下的 Bayesian model discovery。** [Model Discovery Agent](../works/model-discovery-agent.md) 用同一套「选实验—更新 belief—提出新模型」循环，横跨化学、反事实物理、probabilistic program 和 electrophysiology。每次 intervention 以后都重测 held-out prediction 和 structural recovery，所以它看的不是最后蒙没蒙对，而是有用的机制多快浮出来。
 - **操作专业 FEA 软件。** [FEABench](../works/feabench.md) 让 LLM agent 通过 API 驱动 COMSOL Multiphysics 端到端求解多物理场问题；最佳策略生成的 API 调用有 88% 可执行。
 - **量子多体复现。** [QMP-Bench](../works/qmp-bench.md) 从 21 种高影响力期刊提取 100 个研究级端到端量子多体模拟任务，由编程验证器与科学验证器成对验证。
 - **以精度为参照的引力波任务。** [gwBenchmarks](../works/gwbenchmarks.md) 在八个底层数据超过 10⁸ 核时的引力波任务上压力测试 12 个 coding agent，并因 agent 会伪造或只做部分评估而改用外部框架计分；较难任务上所有 agent 距 ≲10⁻⁴ 的领域要求差 1–2 个数量级。
@@ -244,6 +245,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 | Gravity-Bench-v1 | 2025 | 含分布外物理的模拟二体系统 | 观测预算下的引力物理发现 | 对照严格动力学模拟的参考解，与人类专家对标 | [→](../works/gravity-bench.md) |
 | PhysGym | 2025 | 取自 PHYBench 的 97 个问题，以交互模拟运行 | 四个受控先验层级下的物理发现 | 假设准确性与模型保真度的标准化协议 | [→](../works/physgym.md) |
 | DiscoverPhysics | 2026 | 按需生成的 22 个反事实 N 体世界 | 刻意非标准物理中的运动定律 | 留出粒子上的轨迹 MSE + 按评分标准的 LLM 解释分 | [→](../works/discoverphysics.md) |
+| Model Discovery Agent | 2026 | ChemBench、ForceBench、七个 BoxingGym domain 和六个 deterministic/stochastic NeuronBench world | 实验预算下的 interactive mechanistic model discovery | Held-out intervention prediction curve + deterministic structural-recovery check | [→](../works/model-discovery-agent.md) |
 | FEABench | 2025 | 经 COMSOL Multiphysics API 求解的多物理场问题 | 有限元多物理场仿真 | 对生成 API 调用与计算答案的评估；可执行率指标 | [→](../works/feabench.md) |
 | QMP-Bench | 2026 | 提取自 21 种高影响力期刊的 100 个任务 | 量子多体模拟 | 编程验证器加基于物理原理的科学验证器 | [→](../works/qmp-bench.md) |
 | gwBenchmarks | 2026 | 8 个任务，底层数据代表 10⁸+ 核时计算 | ≲10⁻⁴ 相对误差要求下的引力波天文学 | 外部预定义评估框架，配单任务物理指标 | [→](../works/gwbenchmarks.md) |
@@ -583,6 +585,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - [Gravity-Bench-v1](../works/gravity-bench.md)
 - [PhysGym](../works/physgym.md)
 - [DiscoverPhysics](../works/discoverphysics.md)
+- [Model Discovery Agent](../works/model-discovery-agent.md)
 - [FEABench](../works/feabench.md)
 - [QMP-Bench](../works/qmp-bench.md)
 - [gwBenchmarks](../works/gwbenchmarks.md)

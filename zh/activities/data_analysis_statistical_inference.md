@@ -16,7 +16,7 @@
 
 第二类任务涵盖**通用数据科学以及文档密集型的分析**。[BLADE](../works/blade.md)、[DA-Code](../works/da-code.md)、[DSBench](../works/dsbench.md) 和 [ScienceAgentBench](../works/scienceagentbench.md) 以专家或源自论文的标准答案为基准，考察开放式的数据整理、分析和统计建模；[AstaBench](../works/astabench.md) 则把数据分析作为一个类别，纳入了更大的研究套件之中。[LongDA](../works/longda.md) 把在美国联邦调查数据的长文档中检索定位作为核心瓶颈，而 [GeoNatureAgent Benchmark](../works/geonatureagent-benchmark.md) 通过对生产环境 API 的结构化工具调用来测试环境地理空间分析。
 
-第三类任务把分析刻画为**预算受限的测量与基于物理的拟合**：[Gravity-Bench-v1](../works/gravity-bench.md)、[MaD Physics](../works/mad-physics.md)、[SciGym](../works/scigym.md) 和 [Stargazer](../works/stargazer.md) 要求 agent 在成本预算约束下规划数据采集，并从采集或仿真得到的数据中推断规律、机制或轨道模型。[EXP-Bench](../works/exp-bench.md) 则把这一思路扩展到端到端的 AI 研究实验。
+第三类任务把分析刻画为**预算受限的测量与基于物理的拟合**：[Gravity-Bench-v1](../works/gravity-bench.md)、[MaD Physics](../works/mad-physics.md)、[SciGym](../works/scigym.md) 和 [Stargazer](../works/stargazer.md) 要求 agent 在成本预算约束下规划数据采集，并从采集或仿真得到的数据中推断规律、机制或轨道模型。[Model Discovery Agent](../works/model-discovery-agent.md) 把这层 inference machinery 明着拆出来：每来一个 designed experiment，就更新 model structure、parameter 和 latent dynamics 三层 Bayesian uncertainty。[EXP-Bench](../works/exp-bench.md) 则把这一思路扩展到端到端的 AI 研究实验。
 
 天文学贡献了一类独特的任务：**面向观测档案与巡天数据流的分析**。其中一条脉络直接从人类审核者看到的仪器产物出发，去甄别或分类巡天探测：[AstroAlertBench](../works/astroalertbench.md) 把 ZTF 警报的 broker 元数据与 science/reference/difference 图像配在一起，[Spec-o3 / SpecVI-Bench](../works/spec-o3.md) 则要求 agent 在给出稀有天体判定之前，先把 LAMOST 光谱中选定的波段区间重新绘出来看。另一条脉络借助领域中成熟的分析代码，从档案星表反推物理量——[Mephisto](../works/mephisto.md) 为 256 个 COSMOS2020 星系搜索 CIGALE 光谱能量分布模型，并以穷举网格结果为参照；[gammapyGPT](../works/gammapygpt.md) 对 Gammapy 给出的流量与谱指数做数值校验；[Plausible but Wrong](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md) 按参数还原程度为超新星、转动曲线、系外行星与引力透镜分析打分；[Einstein Telescope 的 agent 对比研究](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) 则在模拟探测器应变上跑完整的匹配滤波搜索。[AstroVisBench](../works/astrovisbench.md) 与 [Imaging-101](../works/imaging-101.md) 位于同一类中偏代码的一端，而 [VESTA / DAWN](../works/vesta-dawn.md) 把「作图—变换—重拟合」这一循环单独拎出来，放在天体物理的函数族上考察。
 
@@ -58,6 +58,7 @@
 | Imaging-101 | 2026 | 借逆问题求解器从间接测量中恢复信号 | 57 个以论文为依据的任务，六个领域，四阶段的标准流水线 | 对照逐任务阈值的 NCC 与 NRMSE（端到端最佳 17/57） | [卡片](../works/imaging-101.md) |
 | LongDA | 2026 | 文档密集型的调查数据分析 | 505 个查询，17 项美国调查，约 263k-token 文档 | 通过可执行代码给出数值/列表答案 | [卡片](../works/longda.md) |
 | MaD Physics | 2026 | 预算受限的测量与物理定律推断 | 三个仿真环境，含改变物理规律的变体 | 推断规律以预测系统未来状态 | [卡片](../works/mad-physics.md) |
+| Model Discovery Agent | 2026 | 对 mechanistic model 做 sequential Bayesian inference | 四组 discovery 任务上的 SMC³：结构、参数、latent state 三层 | 每次实验后的 held-out predictive loss 与 deterministic structural recovery | [卡片](../works/model-discovery-agent.md) |
 | Neuroscience Data-to-Discovery Case Study | 2026 | 果蝇数据的行为分类与统计比较 | 9 任务的果蝇光遗传学流程；约 47 GB 数据 | 各阶段输出对照专家标注（如 Mann–Whitney U） | [卡片](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md) |
 | Plausible but Wrong | 2026 | 对公开档案天文星表的分析 | 4 个研究任务：超新星、转动曲线、系外行星、引力透镜 | Parameter Recovery Score，外加物理合理性评级 | [卡片](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md) |
 | Rodent-Bench | 2026 | 多模态的啮齿动物行为视频标注 | 长录像（10-35 分钟），多种范式 | 时间分割/分类（逐秒准确率、F1） | [卡片](../works/rodent-bench.md) |
@@ -96,6 +97,7 @@
 - [HeurekaBench](../works/heurekabench.md)
 - [LongDA](../works/longda.md)
 - [MaD Physics](../works/mad-physics.md)
+- [Model Discovery Agent](../works/model-discovery-agent.md)
 - [Rodent-Bench](../works/rodent-bench.md)
 - [scBench](../works/scbench.md)
 - [scBench-Long](../works/scbench-long.md)
