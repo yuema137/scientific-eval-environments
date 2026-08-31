@@ -46,12 +46,12 @@ Readers often need a map before they need another benchmark card. A survey can s
 
 ## Related Works
 
+- [Co-Evolution in Agentic Systems](../works/co-evolution-agentic-systems-survey.md) — Taxonomy of multi-component self-evolution, with a section on why co-evolving systems break static benchmarking.
+- [Position: AI Agents in Scientific Teams Should Be Studied as Human-Agent Systems](../works/ai-agents-in-scientific-teams.md) — Argues that scientific-agent evaluation should take the human-agent pair as its unit of analysis.
+- [Autonomous Research Agents: A Survey of AI Scientists and the Verification Gap](../works/ara-survey.md) — Seven-dimension verifiability audit of autonomous research agents.
+- [From Chatbot to Digital Colleague](../works/from-chatbot-to-digital-colleague.md) — Position paper on the paradigm shift toward persistent autonomous AI.
 - [Agent Skill Evaluation and Evolution: Frameworks and Benchmarks](../works/agent-skill-evaluation-survey.md) — Taxonomies of skill-evolution paradigms and of skill-centric benchmarks, with the resulting coverage gaps.
 - [From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models](../works/from-reasoning-to-agentic.md)
-- [A Survey on Large Language Model based Autonomous Agents](../works/llm-autonomous-agents-survey.md) — Holistic survey of LLM-based autonomous agents (construction, application, evaluation).
-- [Survey on Evaluation of LLM-based Agents](../works/agent-evaluation-survey.md) — Comprehensive 5-perspective taxonomy of LLM-agent evaluation.
 - [Evaluation and Benchmarking of LLM Agents: A Survey](../works/agent-evaluation-benchmarking-survey.md) — Two-dimensional (objectives vs. process) taxonomy of LLM-agent evaluation with enterprise focus.
-- [From Chatbot to Digital Colleague](../works/from-chatbot-to-digital-colleague.md) — Position paper on the paradigm shift toward persistent autonomous AI.
-- [Autonomous Research Agents: A Survey of AI Scientists and the Verification Gap](../works/ara-survey.md) — Seven-dimension verifiability audit of autonomous research agents.
-- [Position: AI Agents in Scientific Teams Should Be Studied as Human-Agent Systems](../works/ai-agents-in-scientific-teams.md) — Argues that scientific-agent evaluation should take the human-agent pair as its unit of analysis.
-- [Co-Evolution in Agentic Systems](../works/co-evolution-agentic-systems-survey.md) — Taxonomy of multi-component self-evolution, with a section on why co-evolving systems break static benchmarking.
+- [Survey on Evaluation of LLM-based Agents](../works/agent-evaluation-survey.md) — Comprehensive 5-perspective taxonomy of LLM-agent evaluation.
+- [A Survey on Large Language Model based Autonomous Agents](../works/llm-autonomous-agents-survey.md) — Holistic survey of LLM-based autonomous agents (construction, application, evaluation).

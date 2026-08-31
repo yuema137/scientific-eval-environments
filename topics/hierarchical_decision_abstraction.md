@@ -54,10 +54,10 @@ This differs from [Skill Hierarchy](./skill_hierarchy.md), which asks what abili
 
 ## Related Works
 
-- [MA-RLHF](../works/ma-rlhf.md)
-- [CoLA](../works/cola.md)
-- [MetaAct-RL](../works/metaact-rl.md)
 - [PG-HAP](../works/pg-hap.md)
 - [HiPER](../works/hiper.md)
+- [MetaAct-RL](../works/metaact-rl.md)
 - [PTA-GRPO](../works/pta-grpo.md)
 - [Beyond 'Aha!'](../works/beyond-aha.md)
+- [CoLA](../works/cola.md)
+- [MA-RLHF](../works/ma-rlhf.md)

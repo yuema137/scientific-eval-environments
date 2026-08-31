@@ -39,6 +39,16 @@ def test_dataset_generation_is_deterministic():
     assert build_dataset(ROOT) == build_dataset(ROOT)
 
 
+def test_works_are_ordered_by_first_appearance_newest_first():
+    works = build_dataset(ROOT)["works"]
+    assert [work["first_appeared"] for work in works] == sorted(
+        (work["first_appeared"] for work in works), reverse=True
+    )
+    for left, right in zip(works, works[1:]):
+        if left["first_appeared"] == right["first_appeared"]:
+            assert left["title"].casefold() <= right["title"].casefold()
+
+
 def test_write_documents_creates_localized_json(tmp_path):
     write_documents(tmp_path, ROOT)
     english = tmp_path / "documents" / "en" / "topics" / "scientific_agents.json"
@@ -77,6 +87,7 @@ def test_markdown_navigation_uses_the_in_page_reader():
     assert "renderMarkdown(document.markdown, document.source_path)" in app
     assert "resolveDocumentLink(href, sourcePath)" in app
     assert "localizedDocumentUrl(state.reader.url)" in app
+    assert "right.first_appeared.localeCompare(left.first_appeared)" in app
     assert 'localStorage.setItem("scieval-explorer-language", state.lang)' in app
     assert "languageSwitcher.test(line.trim())" in app
     assert 'link.dataset.readerLink !== "true" && !isLocalDocumentLink(href)' in app

@@ -83,15 +83,15 @@ Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 o
 
 ## Related Works
 
-- [CFDLLMBench](../works/cfdllmbench.md)
-- [Terminal-Bench Science](../works/terminal-bench-science.md)
-- [SimBench](../works/simbench.md)
-- [FEM-Bench](../works/fem-bench.md)
-- [RealPDEBench](../works/realpdebench.md)
-- [FEABench](../works/feabench.md)
-- [MooseBench](../works/moosebench.md)
 - [SciConvBench](../works/sciconvbench.md)
-- [AInsteinBench](../works/ainsteinbench.md)
+- [MooseBench](../works/moosebench.md)
 - [ERI Benchmark](../works/eri-benchmark.md)
+- [Terminal-Bench Science](../works/terminal-bench-science.md)
+- [RealPDEBench](../works/realpdebench.md)
+- [AInsteinBench](../works/ainsteinbench.md)
+- [FEM-Bench](../works/fem-bench.md)
 - [SoM-1K](../works/som-1k.md)
+- [CFDLLMBench](../works/cfdllmbench.md)
 - [EngDesign](../works/engdesign.md)
+- [FEABench](../works/feabench.md)
+- [SimBench](../works/simbench.md)

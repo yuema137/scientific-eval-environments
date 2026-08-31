@@ -70,7 +70,7 @@ Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 o
 ## Related Works
 
 - [EnergyBridge](../works/energybridge.md)
-- [Hydro-SE Bench](../works/hydro-se-bench.md)
-- [ResearchClawBench](../works/researchclawbench.md)
 - [PowerAgentBench-SS](../works/poweragentbench-ss.md)
+- [ResearchClawBench](../works/researchclawbench.md)
+- [Hydro-SE Bench](../works/hydro-se-bench.md)
 - [ElecBench](../works/elecbench.md)

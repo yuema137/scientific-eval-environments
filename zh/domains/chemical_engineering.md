@@ -83,15 +83,15 @@ Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 3
 
 ## Related Works
 
-- [Terminal-Bench Science](../works/terminal-bench-science.md)
-- [CeProBench](../works/ceprobench.md)
-- [Simona](../works/simona.md)
 - [CRAFTS](../works/crafts.md)
 - [A Tutorial on Autonomous Fault-Tolerant Control Using Knowledge-Grounded LLM Agents](../works/ctrl-alt-recover.md)
 - [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md)
-- [Can Large Language Models Automate the HAZOP Process Without Human Intervention?](../works/can-large-language-models-automate-the-hazop-proce.md)
 - [PSE-Bench](../works/pse-bench.md)
-- [ChemEBench](../works/chemebench.md)
-- [PEOA](../works/peoa.md)
-- [Using Large Language Models for Solving Thermodynamic Problems](../works/llm-thermodynamics.md)
+- [CeProBench](../works/ceprobench.md)
 - [ERI Benchmark](../works/eri-benchmark.md)
+- [Terminal-Bench Science](../works/terminal-bench-science.md)
+- [Simona](../works/simona.md)
+- [Can Large Language Models Automate the HAZOP Process Without Human Intervention?](../works/can-large-language-models-automate-the-hazop-proce.md)
+- [ChemEBench](../works/chemebench.md)
+- [Using Large Language Models for Solving Thermodynamic Problems](../works/llm-thermodynamics.md)
+- [PEOA](../works/peoa.md)

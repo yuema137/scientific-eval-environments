@@ -45,10 +45,10 @@ Benchmark 看到的是整套 model–harness configuration。如果两套系统�
 
 ## 相关工作
 
-- [Harness-Bench](../works/harness-bench.md)
-- [RigorBench](../works/rigorbench.md)
 - [Evo-Bench](../works/evo-bench.md)
 - [HarnessOpt-Bench](../works/harnessopt-bench.md)
-- [VeRO](../works/vero.md)
+- [RigorBench](../works/rigorbench.md)
 - [Curation-Bench](../works/curation-bench.md)
+- [Harness-Bench](../works/harness-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)
+- [VeRO](../works/vero.md)

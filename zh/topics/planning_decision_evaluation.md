@@ -59,17 +59,17 @@ Planning evaluation 先把决策时可用的信息固定下来，再问 agent �
 
 ## 相关工作
 
+- [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) — repository issue 解决中的经验证实现规划 ground truth。
+- [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) — 以专家 rubric 评价真实科研项目计划。
+- [RigorBench](../works/rigorbench.md) — 与工程结果分开计分的 planning fidelity。
+- [AISE-Bench](../works/aise-bench.md) — 对照 gold plan graph 评价工具学习中的规划。
+- [Agent Planning Benchmark](../works/agent-planning-benchmark.md) — 整体、基于反馈、稳健性与不可行性诊断。
 - [PG-HAP](../works/pg-hap.md) — 对 high-level reasoning action 做逐步 policy selection。
+- [Plan-RewardBench](../works/plan-rewardbench.md) — 含专项 planning split 的工具 trajectory 成对评价。
 - [HiPER](../works/hiper.md) — 把 high-level subgoal planning 与 low-level execution 分开。
 - [PTA-GRPO](../works/pta-grpo.md) — 同时优化短 plan guidance 与详细 reasoning。
-- [PlanBench](../works/planbench.md) — 形式化计划生成、最优性、验证与重新规划。
-- [NATURAL PLAN](../works/natural-plan.md) — 工具信息随上下文提供的自然语言约束规划。
-- [TravelPlanner](../works/travelplanner.md) — 多类约束下的现实工具规划。
-- [Agent Planning Benchmark](../works/agent-planning-benchmark.md) — 整体、基于反馈、稳健性与不可行性诊断。
-- [LoTa-Bench](../works/lota-bench.md) — 在 simulator 中执行的具身规划。
 - [Embodied Agent Interface](../works/embodied-agent-interface.md) — 依据状态定位具身规划失败。
-- [AISE-Bench](../works/aise-bench.md) — 对照 gold plan graph 评价工具学习中的规划。
-- [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) — repository issue 解决中的经验证实现规划 ground truth。
-- [RigorBench](../works/rigorbench.md) — 与工程结果分开计分的 planning fidelity。
-- [Plan-RewardBench](../works/plan-rewardbench.md) — 含专项 planning split 的工具 trajectory 成对评价。
-- [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) — 以专家 rubric 评价真实科研项目计划。
+- [NATURAL PLAN](../works/natural-plan.md) — 工具信息随上下文提供的自然语言约束规划。
+- [LoTa-Bench](../works/lota-bench.md) — 在 simulator 中执行的具身规划。
+- [TravelPlanner](../works/travelplanner.md) — 多类约束下的现实工具规划。
+- [PlanBench](../works/planbench.md) — 形式化计划生成、最优性、验证与重新规划。

@@ -73,10 +73,10 @@ Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 o
 
 ## Related Works
 
-- [TCS-Bench](../works/tcs-bench.md)
-- [AutoResearchBench](../works/autoresearchbench.md)
-- [ResearchClawBench](../works/researchclawbench.md)
-- [ScholarQuest](../works/scholarquest.md)
-- [CORE-Bench](../works/core-bench.md)
-- [EngDesign](../works/engdesign.md)
 - [R³-Bench](../works/r3-bench.md)
+- [TCS-Bench](../works/tcs-bench.md)
+- [ScholarQuest](../works/scholarquest.md)
+- [ResearchClawBench](../works/researchclawbench.md)
+- [AutoResearchBench](../works/autoresearchbench.md)
+- [EngDesign](../works/engdesign.md)
+- [CORE-Bench](../works/core-bench.md)

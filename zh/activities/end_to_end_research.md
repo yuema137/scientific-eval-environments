@@ -32,12 +32,12 @@
 
 ## Related Works
 
-- [AstaBench](../works/astabench.md)
-- [MLGym](../works/mlgym.md)
-- [MLR-Bench](../works/mlr-bench.md)
-- [AIRS-Bench](../works/airs-bench.md)
-- [ResearchClawBench](../works/researchclawbench.md)
-- [AutoResearchEval](../works/autoresearcheval.md)
 - [AI Research Preference Models](../works/ai-research-preference-models.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
 - [Curation-Bench](../works/curation-bench.md)
+- [ResearchClawBench](../works/researchclawbench.md)
 - [PostTrainBench](../works/posttrainbench.md)
+- [AIRS-Bench](../works/airs-bench.md)
+- [AstaBench](../works/astabench.md)
+- [MLR-Bench](../works/mlr-bench.md)
+- [MLGym](../works/mlgym.md)

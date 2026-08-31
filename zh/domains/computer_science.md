@@ -73,10 +73,10 @@ Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 3
 
 ## Related Works
 
-- [TCS-Bench](../works/tcs-bench.md)
-- [AutoResearchBench](../works/autoresearchbench.md)
-- [ResearchClawBench](../works/researchclawbench.md)
-- [ScholarQuest](../works/scholarquest.md)
-- [CORE-Bench](../works/core-bench.md)
-- [EngDesign](../works/engdesign.md)
 - [R³-Bench](../works/r3-bench.md)
+- [TCS-Bench](../works/tcs-bench.md)
+- [ScholarQuest](../works/scholarquest.md)
+- [ResearchClawBench](../works/researchclawbench.md)
+- [AutoResearchBench](../works/autoresearchbench.md)
+- [EngDesign](../works/engdesign.md)
+- [CORE-Bench](../works/core-bench.md)

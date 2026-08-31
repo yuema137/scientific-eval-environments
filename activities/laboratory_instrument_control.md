@@ -26,6 +26,6 @@ The second form evaluates instrument-control *code* against a high-fidelity digi
 
 ## Related Works
 
-- [AFMBench](../works/afmbench.md)
-- [EnvTrace](../works/envtrace.md)
 - [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md)
+- [EnvTrace](../works/envtrace.md)
+- [AFMBench](../works/afmbench.md)

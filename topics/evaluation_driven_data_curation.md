@@ -40,6 +40,6 @@ Nearly every training paper reports a final score. That alone does not close a l
 
 ## Related Works
 
-- [Curation-Bench](../works/curation-bench.md)
 - [SkillCoach](../works/skillcoach.md)
+- [Curation-Bench](../works/curation-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)

@@ -7,6 +7,7 @@ from conftest import build_mini_repo
 import inventory
 import deduplicate
 import phase_state
+import related_works
 import validators
 
 
@@ -160,6 +161,48 @@ def test_axes_valid_mapping(tmp_path):
     ])
     ok, errs = validators.validate_axes(root)
     assert ok, errs
+
+
+def test_axis_related_works_are_sorted_by_first_appeared(tmp_path):
+    root = build_mini_repo(str(tmp_path), [
+        {"slug": "older", "title": "Older", "topics": ["trajectory_evaluation"]},
+        {"slug": "zulu", "title": "Zulu", "topics": ["trajectory_evaluation"]},
+        {"slug": "alpha", "title": "Alpha", "topics": ["trajectory_evaluation"]},
+    ])
+    for slug, date in (("older", "2024-01-01"), ("zulu", "2026-01-01"), ("alpha", "2026-01-01")):
+        path = os.path.join(root, "works", "%s.md" % slug)
+        text = open(path).read().replace("2025-01-02", date)
+        open(path, "w").write(text)
+
+    page = os.path.join(root, "topics", "trajectory_evaluation.md")
+    zh_page = os.path.join(root, "zh", "topics", "trajectory_evaluation.md")
+    open(zh_page, "w").write("# trajectory_evaluation\n\n## 相关工作\n\n"
+                              "- [Older](../works/older.md)\n"
+                              "- [Zulu](../works/zulu.md)\n"
+                              "- [Alpha](../works/alpha.md)\n")
+    assert related_works.sort_all(root) == [
+        "topics/trajectory_evaluation.md",
+        "zh/topics/trajectory_evaluation.md",
+    ]
+    text = open(page).read()
+    assert text.index("../works/alpha.md") < text.index("../works/zulu.md") < text.index("../works/older.md")
+    zh_text = open(zh_page).read()
+    assert zh_text.index("../works/alpha.md") < zh_text.index("../works/zulu.md") < zh_text.index("../works/older.md")
+    ok, errs = validators.validate_axes(root)
+    assert ok, errs
+
+
+def test_axis_validator_rejects_non_chronological_related_works(tmp_path):
+    root = build_mini_repo(str(tmp_path), [
+        {"slug": "older", "title": "Older", "topics": ["trajectory_evaluation"]},
+        {"slug": "newer", "title": "Newer", "topics": ["trajectory_evaluation"]},
+    ])
+    newer = os.path.join(root, "works", "newer.md")
+    newer_text = open(newer).read().replace("2025-01-02", "2026-01-01")
+    open(newer, "w").write(newer_text)
+    ok, errs = validators.validate_axes(root)
+    assert not ok
+    assert any("not ordered by First appeared" in error for error in errs)
 
 
 def test_topic_explanations_detect_missing_entry(tmp_path):

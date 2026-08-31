@@ -88,29 +88,28 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 
 ## 相关工作
 
-- [PostTrainBench](../works/posttrainbench.md)
-- [CostBench](../works/costbench.md) — 动态 tool-use 条件下的成本最优规划。
-- [SimulCost](../works/simulcost.md) — 覆盖 13 个仿真器的 cost-aware 物理仿真参数调优。
-- [CATP-LLM / OpenCATP](../works/catp-llm.md) — OpenCATP，面向 cost-aware 工具规划的数据集（11,100 样本）。
-- [MaD Physics](../works/mad-physics.md) — 模拟物理中按保真度定价的测量预算；agent 在测量的质与量之间权衡以推断被改动的物理定律。
-- [BAGEN](../works/bagen.md) — 跨 token 与多资源 agent 的渐进式预算区间预测与可训练的提前停止。
-- [VeRO / VeRO-Bench](../works/vero.md) — 在门控评估调用预算下把 coding agent 作为 agent 优化器来 benchmark。
-- [Frontier-Eng](../works/frontier-eng.md) — 固定仿真器交互预算下的迭代式工程优化。
-- [EcoAgent-Bench](../works/ecoagent-bench.md) — 定价动作与显式预算下的经济决策，以经济一致性评分。
-- [HarnessOpt-Bench](../works/harnessopt-bench.md) — LLM 在固定且经 TEE 审计的评估预算下优化 agent harness。
-- [Gravity-Bench-v1](../works/gravity-bench.md) — 引力物理发现中预算受限的观测规划。
-- [Model Discovery Agent](../works/model-discovery-agent.md) — 在四组 discovery 任务里，用 experiment-budget learning curve 同时追踪 held-out prediction 和 mechanism recovery。
-- [SMDD-Bench](../works/smdd-bench.md) — 有限 oracle 调用预算下、保证有解的药物设计。
-- [SDBench](../works/sdbench.md) — 按准确率-成本前沿评分的序贯诊断。
-- [ChemCost](../works/chemcost.md) — 把反应成本计算本身作为被测任务，配无 judge 的精确定价真值。
-- [MASSE](../works/masse.md) — 在端到端结构工程工作流 benchmark 中，把 token 用量与运行时间作为 rubric 的一个计分项。
-- [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) — 每一次自主流程运行都测量运行时间与峰值内存；两个 agent 产出的科学结果相同，速度与资源占用便成了它们之间的一条比较轴。
-- [SkillAudit](../works/skillaudit.md) — 对照配对的「不用 skill」运行测量时间与 token 的节省，逐个 skill 包与效用、安全性一并报告。
-- [Beyond Final Scores](../works/beyond-final-scores.md) — 每任务墙钟预算与逐模型推理开销与性能并列报告，七个模型之间成本相差约 20 倍。
 - [R³-Bench](../works/r3-bench.md) — 一份预算由六道题共用，并校准到各模型自己已展示出的单题水平。
 - [AI Research Preference Models](../works/ai-research-preference-models.md) — 用不到三分之二的执行预算、约 15 小时就达到未引导 agent 24 小时的分数，并同时给出验证集与测试集的 oracle 上界。
+- [Beyond Final Scores](../works/beyond-final-scores.md) — 每任务墙钟预算与逐模型推理开销与性能并列报告，七个模型之间成本相差约 20 倍。
+- [Model Discovery Agent](../works/model-discovery-agent.md) — 在四组 discovery 任务里，用 experiment-budget learning curve 同时追踪 held-out prediction 和 mechanism recovery。
+- [EcoAgent-Bench](../works/ecoagent-bench.md) — 定价动作与显式预算下的经济决策，以经济一致性评分。
+- [HarnessOpt-Bench](../works/harnessopt-bench.md) — LLM 在固定且经 TEE 审计的评估预算下优化 agent harness。
+- [SkillAudit](../works/skillaudit.md) — 对照配对的「不用 skill」运行测量时间与 token 的节省，逐个 skill 包与效用、安全性一并报告。
+- [BAGEN](../works/bagen.md) — 跨 token 与多资源 agent 的渐进式预算区间预测与可训练的提前停止。
+- [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) — 每一次自主流程运行都测量运行时间与峰值内存；两个 agent 产出的科学结果相同，速度与资源占用便成了它们之间的一条比较轴。
+- [SMDD-Bench](../works/smdd-bench.md) — 有限 oracle 调用预算下、保证有解的药物设计。
+- [MaD Physics](../works/mad-physics.md) — 模拟物理中按保真度定价的测量预算；agent 在测量的质与量之间权衡以推断被改动的物理定律。
+- [ChemCost](../works/chemcost.md) — 把反应成本计算本身作为被测任务，配无 judge 的精确定价真值。
+- [Frontier-Eng](../works/frontier-eng.md) — 固定仿真器交互预算下的迭代式工程优化。
+- [SimulCost](../works/simulcost.md) — 覆盖 13 个仿真器的 cost-aware 物理仿真参数调优。
+- [PostTrainBench](../works/posttrainbench.md)
+- [VeRO / VeRO-Bench](../works/vero.md) — 在门控评估调用预算下把 coding agent 作为 agent 优化器来 benchmark。
 - [BATS / Budget Tracker](../works/bats-budget-aware.md) — 把 token 与工具调用折算进同一种计价；仅仅把剩余预算告诉 agent，就能用十分之一的预算追平 ReAct 基线的准确率。
-
+- [CostBench](../works/costbench.md) — 动态 tool-use 条件下的成本最优规划。
+- [MASSE](../works/masse.md) — 在端到端结构工程工作流 benchmark 中，把 token 用量与运行时间作为 rubric 的一个计分项。
+- [SDBench](../works/sdbench.md) — 按准确率-成本前沿评分的序贯诊断。
+- [Gravity-Bench-v1](../works/gravity-bench.md) — 引力物理发现中预算受限的观测规划。
+- [CATP-LLM / OpenCATP](../works/catp-llm.md) — OpenCATP，面向 cost-aware 工具规划的数据集（11,100 样本）。
 ## 延伸阅读
 
 - Yehudai, Eden, Li, Uziel, Zhao, Bar-Haim, Cohan, Shmueli-Scheuer. *Survey on Evaluation of LLM-based Agents*. arXiv 2503.16416, 2025. 指出 cost-efficiency 是当前 agent 评估中覆盖不足的维度。<https://arxiv.org/abs/2503.16416>

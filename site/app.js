@@ -338,7 +338,9 @@ function filterWorks() {
     const matchesActivity = !state.filters.activity || work.activities.some(item => item.slug === state.filters.activity);
     const matchesMonth = !state.filters.month || work.first_appeared_month === state.filters.month;
     return matchesSearch && matchesTopic && matchesDomain && matchesActivity && matchesMonth;
-  });
+  }).sort((left, right) =>
+    right.first_appeared.localeCompare(left.first_appeared) || left.title.localeCompare(right.title)
+  );
 }
 
 function tagRow(label, items) {
