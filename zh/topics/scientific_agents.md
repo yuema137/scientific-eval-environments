@@ -455,6 +455,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 | Apodex Discovery | 2026 | 覆盖 561 个行业的调研识别出 423 个候选，从中选出 20 个问题 | 十个工业与科学领域，从衣壳设计到芯片验证 | 可执行环境内的隐藏验证器，外加盲评的六维过程打分（与结果的 Spearman ρ = +0.51） | [→](../works/apodex-discovery.md) |
 | AutoWorldModel-Bench | 2026 | 八个游戏环境 × 四种基础世界模型架构，共 64 个会话 | 不指定改进方向的自主世界模型研究 | 留出集上 Position L1 与 Alive F1 在 1/10/20 三个时程上的组合，权重 0.1/0.2/0.7 | [→](../works/autoworldmodel-bench.md) |
 | Agents Catching Agents | 2026 | 六个公开临床数据集上的七个 cohort，覆盖文本、影像与表格记录 | 捷径线索下临床多 agent 委员会的效度 | 捷径采纳率对照孤立条件下的翻转率；三种监督检测器以精确率、召回率与假阳性率计分 | [→](../works/agents-catching-agents.md) |
+| ASI-Bench | 2026 | 取自文献的 60 个项目级任务（1,300+ 候选想法、40+ 专家、31,000+ 人时） | 11 个科学领域，四个指导层级下的项目级研究 | 逐任务的评估门与加权打分器，对照可复现的逐任务参考；B1–B4 指导梯度，B3/B4 平均分低于 40 | [→](../works/asi-bench.md) |
 
 ## 还没解决的问题
 
@@ -713,6 +714,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - [Apodex Discovery](../works/apodex-discovery.md)
 - [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
 - [Agents Catching Agents](../works/agents-catching-agents.md)
+- [ASI-Bench](../works/asi-bench.md)
 
 ## 延伸阅读
 

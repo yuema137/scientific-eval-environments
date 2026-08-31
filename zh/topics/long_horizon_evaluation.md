@@ -132,6 +132,7 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 | AutoWorldModel-Bench | 2026 | 单张 H100 上 6 小时一个会话，每次单独训练限时 10 分钟，把预算折算成迭代次数 | 八个暴露结构化实体状态的游戏环境 | [→](../works/autoworldmodel-bench.md) |
 | R³-Bench | 2026 | 一份预算由六道题共用，因此必须分配算力，还得舍掉一部分题 | 无工具作答与 Terminus-2 shell | [→](../works/r3-bench.md) |
 | BATS / Budget Tracker | 2025 | 以工具调用预算为 scaling 轴（每种工具 10/30/50/100）；不给 agent 预算意识，性能很快见顶 | 真实网页浏览环境下的搜索 agent，另有零售对话与 SWE-bench Verified | [→](../works/bats-budget-aware.md) |
+| ASI-Bench | 2026 | 60 个项目级科研任务；完整轨迹跨越 2,600+ 次交互轮、2,400+ 个执行步、35+ 小时 agent 执行 | 沙箱化科学研究（Docker `os` / `linux_ns`），配 agent 中立的 harness 适配器 | [→](../works/asi-bench.md) |
 
 ## 还没解决的问题
 
@@ -201,6 +202,7 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 - [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
 - [R³-Bench](../works/r3-bench.md)
 - [BATS / Budget Tracker](../works/bats-budget-aware.md)
+- [ASI-Bench](../works/asi-bench.md)
 
 ## 延伸阅读
 

@@ -6,6 +6,7 @@ Sorted by `First appeared`, newest first; titles provide a stable tie-breaker wi
 
 | First appeared | Work | Source |
 |---|---|---|
+| 2026-08-18 | [ASI-Bench](./works/asi-bench.md) | [arXiv:2608.17271v1](https://arxiv.org/abs/2608.17271) |
 | 2026-08-17 | [R³-Bench](./works/r3-bench.md) | [arXiv initial submission](https://arxiv.org/abs/2608.16033) |
 | 2026-08-14 | [PACE-Bench](./works/pace-bench.md) | [arXiv initial submission](https://arxiv.org/abs/2608.14441) |
 | 2026-08-14 | [AutoResearchEval](./works/autoresearcheval.md) | [arXiv initial submission](https://arxiv.org/abs/2608.14905) |

@@ -32,9 +32,9 @@ The set of activities is fixed. Adding, renaming, or removing one requires updat
 | [Optimization & Engineering Design](./optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 26 |
 | [Scientific Software & Workflow Engineering](./scientific_software_workflow_engineering.md) | Scientific/engineering code generation, repository and pipeline engineering, HDL and formal-spec code | 71 |
 | [Research Reproduction & Replication](./research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 11 |
-| [End-to-End Research](./end_to_end_research.md) | Multi-stage research lifecycle across several major phases, from formulation to reporting | 9 |
+| [End-to-End Research](./end_to_end_research.md) | Multi-stage research lifecycle across several major phases, from formulation to reporting | 10 |
 
-Across the corpus, 361 activity memberships are assigned over the applicable work cards.
+Across the corpus, 362 activity memberships are assigned over the applicable work cards.
 
 ## Activities are multi-label
 
