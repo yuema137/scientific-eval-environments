@@ -19,6 +19,7 @@ Evaluation-driven post-training 把evaluator 放进改进闭环。开发者或 a
 ## 现有方法
 
 - **自动 post-training R&D。** [PostTrainBench](../works/posttrainbench.md) 给 CLI agent 一个 base model、evaluator 和固定 GPU 时间，最后评价提交模型。
+- **算法设计 R&D。** [AI4AI-Bench](../works/ai4ai-bench.md) 把 intervention 收窄到 learning procedure：agent 可以对着便宜 proxy 做实验，但最终只有 source patch 能进入 clean-start run，由封闭的 final evaluator 打分。
 - **数据策略优化。** [Curation-Bench](../works/curation-bench.md) 固定模型和 recipe，只允许修改数据选择。
 - **由评估产生监督。** [SkillCoach](../works/skillcoach.md) 把经过验证的过程 rubric 变成 SFT trajectory filter。
 - **Judge 作为训练 reward。** [MobileJudgeBench](../works/mobilejudgebench.md) 检验离线 judge 指标能否预测 on-policy reward 的实际效果。
@@ -28,6 +29,7 @@ Evaluation-driven post-training 把evaluator 放进改进闭环。开发者或 a
 | Work | 被改进对象 | 允许的干预 | Evaluation 的作用 | 防止 gaming 的措施 |
 |---|---|---|---|---|
 | PostTrainBench | Base language model | 数据、SFT、adapter、RL、超参数 | 反复反馈与最终 objective | 规则、held-out evaluator、contamination audit |
+| AI4AI-Bench | 十个 AI research repository 的 training algorithm | Loss、supervision、update rule、data、schedule、optimizer 或外围 run configuration | 四小时 exploration 用便宜 proxy；clean-start final evaluation 保持封闭 | 只移交 source、同条件重跑 baseline、固定 final evaluator |
 | Curation-Bench | 数据策略与训练后的 VLM | Selection policy | 每轮 downstream feedback | 固定模型、recipe 与 suite |
 | SkillCoach | 通过 SFT 改进 agent model | Trajectory selection | Process-quality filter | Validation-gated rubric evolution |
 | MobileJudgeBench | 通过 RL 改进 mobile agent | Reward evaluator choice | Judge 作为 on-policy reward | 人工 ground truth 的 judge benchmark |
@@ -42,6 +44,7 @@ Evaluation-driven post-training 把evaluator 放进改进闭环。开发者或 a
 
 ## 相关工作
 
+- [AI4AI-Bench](../works/ai4ai-bench.md)
 - [MobileJudgeBench](../works/mobilejudgebench.md)
 - [SkillCoach](../works/skillcoach.md)
 - [Curation-Bench](../works/curation-bench.md)

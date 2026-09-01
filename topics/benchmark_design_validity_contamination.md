@@ -22,6 +22,7 @@ Clean arithmetic does not rescue a bad measurement. Memorized tasks inflate capa
 - **Private or newly authored answers.** [CritPt](../works/critpt.md), [OnePot-Bench](../works/onepot-bench.md), and [GeneBench-Pro](../works/genebench-pro.md) use unpublished, private, or held-out material.
 - **Procedural and counterfactual construction.** [DiscoverPhysics](../works/discoverphysics.md) generates worlds on demand; [Robotouille](../works/robotouille.md) procedurally generates embodied tasks.
 - **Verifier rigor.** CODE2BENCH gates property-based tests on branch coverage, while [FrontierCode](../works/frontiercode.md) combines execution with contamination detection.
+- **Sealed replay after open exploration.** [AI4AI-Bench](../works/ai4ai-bench.md) lets agents use a cheap proxy during development, then transfers only source code into a fresh run scored by a fixed final evaluator; the original algorithm is rerun under the same conditions.
 - **Recency-aware implementation.** [ResearchCodeBench](../works/researchcodebench.md) derives implementation tasks from recent research contributions and publishes a contamination-safe subset.
 
 ## Comparison
@@ -44,6 +45,7 @@ Clean arithmetic does not rescue a bad measurement. Memorized tasks inflate capa
 
 ## Related Works
 
+- [AI4AI-Bench](../works/ai4ai-bench.md)
 - [OnePot-Bench](../works/onepot-bench.md)
 - [GeneBench-Pro](../works/genebench-pro.md)
 - [FrontierCode](../works/frontiercode.md)

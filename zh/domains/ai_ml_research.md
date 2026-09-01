@@ -12,6 +12,7 @@
 |---|---|---|---|---|---|
 | Curation-Bench | 2026 | 自动开展 vision-language instruction-tuning 数据选择研究，反复设计和修改可执行 curation policy。 | 固定 base model、训练 recipe 与 evaluator 的开放式 agent 研究 loop；最多迭代 10 轮。 | 用每个数据子集训练模型，再做 downstream evaluation，并与已有 selection baseline 和数据预算比较。 | [→](../works/curation-bench.md) |
 | PostTrainBench | 2026 | 围绕七类推理、工具、知识、医疗和代码目标，自主 post-train base LLM。 | 四种 base model × 七个 benchmark target；每任务单张 H100、10 小时，使用四种 CLI scaffold。 | Held-out target benchmark score，跨 base model 与目标聚合，并审计 trace、data 和 script contamination。 | [→](../works/posttrainbench.md) |
+| AI4AI-Bench | 2026 | 自主改写 learning algorithm，而不只是调整现成 training run 的参数。 | 十个冻结 research repository，覆盖 SFT、agentic RL、distillation、preference optimization、reward modeling、diffusion、unlearning、graph generation、model merging 与 pruning；四小时探索，再做最多十二小时的 clean run。 | 用 repository 原生的确定性指标评分，并统一映射为：0 代表无信息、0.1 代表同条件重跑的原算法、1.0 代表估计最优值；另按 intervention layer 分类提交的 diff。 | [→](../works/ai4ai-bench.md) |
 | EXP-Bench | 2025 | 完成来自有影响力 AI 论文的完整研究实验——提出假设、设计并实现流程、执行、得出结论——覆盖计算机视觉、NLP 与强化学习。 | 461 个任务，来自 51 篇 NeurIPS 2024 与 ICLR 2024 论文，分解为 12,737 个可单独评分的子任务，每个任务给定研究问题与不完整起始代码。 | 设计、实现（对照真值 git diff）与结论由 LLM judge 评分，另有容器化执行验证器；All·E✓ 要求四项全对（最佳报告值 0.5%）。 | [→](../works/exp-bench.md) |
 | FIRE-Bench | 2026 | 在只给高层研究问题的条件下，重新发现近期高影响力 ML 研究中已确立、可验证的发现——LLM 行为实证研究，外加 CV 与神经网络分析扩展。 | 40 个完整执行的任务，构建自逐论文的研究问题树（根问题 → 子问题 → 叶实验）；全部轻量计算（单块 80GB A100 上 ≤24 小时）。 | 把 agent 结论与真值发现各自拆为原子主张后做语义蕴含匹配，计主张级 precision/recall/F1；judge 与人类对照验证 F1 达 0.89。 | [→](../works/fire-bench.md) |
 | AIRS-Bench | 2026 | 语言建模与时间序列预测（连同数学与生物信息学）中的前沿研究任务，覆盖完整研究生命周期，不提供基线代码。 | 20 个任务；agent 以 CSV 提交留出测试集上的预测。 | 基于执行、只看结果：任务专属评估脚本计分；SOTA 归一化分数，接近上限处用 'march of nines' 变换。 | [→](../works/airs-bench.md) |
@@ -94,6 +95,7 @@
 | EXP-Bench | CV, LM, RL | ? | ✘ | ◐ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ◐ | ◐ | 2 | 2 | 3 | **8.5** |
 | MLRC-Bench | GEN | ? | ◐ | ◐ | ◐ | ✘ | ✔ | ✔ | **3.5** | ✔ | ◐ | ✔ | 3 | 0 | 3 | **8.5** |
 | Beyond Final Scores | MLE, SYS | ? | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ | **3.5** | ◐ | ✘ | ✘ | 3 | 1 | 4 | **8.5** |
+| AI4AI-Bench | LM, CV, RL, MLE | ? | ✘ | ✔ | ◐ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 3 | 1 | 4 | **8** |
 | DSBench | DS | ? | ◐ | ◐ | ◐ | ✘ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✘ | 2 | 2 | 2 | **7** |
 | MLGym | CV, LM, RL, GT | ✔ | ◐ | ◐ | ✘ | ✘ | ◐ | ✔ | **3.5** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
 | SUPER | CODE | ◐ | ✘ | ✘ | ✘ | ◐ | ✔ | ✔ | **3** | ◐ | ✘ | ✘ | 3 | 3 | 3 | **9.5** |
@@ -113,6 +115,7 @@ Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 3
 
 ## Related Works
 
+- [AI4AI-Bench](../works/ai4ai-bench.md)
 - [AI Research Preference Models](../works/ai-research-preference-models.md)
 - [Beyond Final Scores](../works/beyond-final-scores.md)
 - [Replica](../works/replica.md)

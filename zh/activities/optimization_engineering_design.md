@@ -16,7 +16,7 @@
 
 第二大类是**分子与药物设计**，其指令或目标往往对应多种有效结构：[TOMG-Bench](../works/tomg-bench.md)（开放域分子编辑、优化与定制化生成）和 [SMDD-Bench](../works/smdd-bench.md)（面向蛋白靶点、带预算约束的多轮小分子药物设计）。[Aviary](../works/aviary.md) 提供了蛋白质工程与分子克隆环境，[SciAgentArena](../works/sciagentarena.md) 则在多个生物医学领域纳入了优化与药物发现类任务。
 
-第三大类是**仿真引导的参数调优，以及在仿真器反馈下的迭代式工程设计**：[HydroAgent](../works/hydroagent.md)（校准业务化水文模型以最大化 NSE）、[SimulCost](../works/simulcost.md)（在多种物理仿真器上进行成本感知的参数调优）、[Frontier-Eng](../works/frontier-eng.md)（在工业级仿真器奖励与交互预算下的迭代式生成式设计）、[RE-Bench](../works/re-bench.md)（对照参考解的开放式 ML 研究工程优化），以及 [EngDesign](../works/engdesign.md)（横跨九个工程方向的设计产物，各自交由所属方向的仿真器校核，最多可迭代十轮反馈）。
+第三大类是**仿真引导的参数调优，以及在仿真器反馈下的迭代式工程设计**：[HydroAgent](../works/hydroagent.md)（校准业务化水文模型以最大化 NSE）、[SimulCost](../works/simulcost.md)（在多种物理仿真器上进行成本感知的参数调优）、[Frontier-Eng](../works/frontier-eng.md)（在工业级仿真器奖励与交互预算下的迭代式生成式设计）、[RE-Bench](../works/re-bench.md)（对照参考解的开放式 ML 研究工程优化）、[AI4AI-Bench](../works/ai4ai-bench.md)（直接改写 learning algorithm，再用 clean-start run 检验 source patch），以及 [EngDesign](../works/engdesign.md)（横跨九个工程方向的设计产物，各自交由所属方向的仿真器校核，最多可迭代十轮反馈）。
 
 第四大类是**化工过程设计与装置运行决策**，其设计空间是一张流程图或一个操作点，而非控制器或分子。[Simona](../works/simona.md) 让 agent 挑选单元操作并调整其配置，直到流程图能够收敛；[CeProBench](../works/ceprobench.md) 的 Parameter 维度则在 Aspen Plus 中围绕收率、纯度与成本目标细化操作参数。另有两项工作把决策从设计阶段移到运行阶段，且方案只有经外部验证器放行才算可行：[容错控制教程环境](../works/ctrl-alt-recover.md)要求在注入装置故障后给出一个恢复模式或一组三元设定点，[AAE 框架](../works/aae-framework.md)则通过遍历装置的 P&ID 拓扑来评判所提出的控制动作。
 
@@ -52,9 +52,11 @@
 | SimulCost | 2026 | 物理仿真的成本感知参数调优 | 2,947 个单轮 + 1,931 个多轮任务，13 个仿真器 | 在仿真时间/资源预算下的调优质量 | [卡片](../works/simulcost.md) |
 | SMDD-Bench | 2026 | 带预算约束的多轮小分子药物设计 | 502 个可解实例，102 个靶点，五种任务类型 | oracle 调用限制下的求解率（GPT-5.4: 40.2%） | [卡片](../works/smdd-bench.md) |
 | PACE-Bench | 2026 | 在机构的运行物理改变之后重新设计，使其恢复可用 | Box2D 中 144 个源到目标对；每对 20 次尝试，反馈只作诊断不给修改建议 | 约束满足比例下的 Pass@2；全量 benchmark 最好成绩为 35.9%（Reflexion + Qwen3-14B） | [卡片](../works/pace-bench.md) |
+| AI4AI-Bench | 2026 | 在十个 AI research repository 中重新设计 learning procedure | 单张 B300 上四小时探索，使用便宜 proxy；随后只移交 source，做最多十二小时的 clean run | 对照同条件重跑原算法的 repository 原生最终指标，并分类 patch 改的是 learning 本身还是外围 run | [卡片](../works/ai4ai-bench.md) |
 
 ## Related Works
 
+- [AI4AI-Bench](../works/ai4ai-bench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [EnergyBridge](../works/energybridge.md)
 - [A Tutorial on Autonomous Fault-Tolerant Control Using Knowledge-Grounded LLM Agents](../works/ctrl-alt-recover.md)

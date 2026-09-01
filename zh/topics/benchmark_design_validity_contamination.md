@@ -22,6 +22,7 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 - **私有或新写答案。** [CritPt](../works/critpt.md)、[OnePot-Bench](../works/onepot-bench.md) 和 [GeneBench-Pro](../works/genebench-pro.md) 使用未发表、私有或留出的材料。
 - **程序生成与反事实构造。** [DiscoverPhysics](../works/discoverphysics.md) 按需生成物理世界，[Robotouille](../works/robotouille.md) 则程序化生成具身任务。
 - **Verifier 严谨度。** CODE2BENCH 要求 property-based tests 达到 branch-coverage gate；[FrontierCode](../works/frontiercode.md) 同时做执行检查与 contamination 检测。
+- **开放 exploration 之后做封闭 replay。** [AI4AI-Bench](../works/ai4ai-bench.md) 允许 agent 在开发时使用便宜 proxy，随后只把 source code 送入 fresh run，由固定 final evaluator 打分；原算法也在相同条件下重跑。
 - **近期研究实现。** [ResearchCodeBench](../works/researchcodebench.md) 从近期研究贡献构造实现任务，并单独发布 contamination-safe 子集。
 
 ## 方法对比
@@ -44,6 +45,7 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 
 ## 相关工作
 
+- [AI4AI-Bench](../works/ai4ai-bench.md)
 - [OnePot-Bench](../works/onepot-bench.md)
 - [GeneBench-Pro](../works/genebench-pro.md)
 - [FrontierCode](../works/frontiercode.md)

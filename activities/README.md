@@ -29,12 +29,12 @@ The set of activities is fixed. Adding, renaming, or removing one requires updat
 | [Simulation & Scientific Computing](./simulation_scientific_computing.md) | Numerical simulation, PDE/FEM, MD/DFT, running and building scientific simulators | 35 |
 | [Experiment Design & Scientific Discovery](./experiment_design_discovery.md) | Experiment and observation planning, active measurement, hypothesis generation, law discovery | 23 |
 | [Laboratory & Instrument Control](./laboratory_instrument_control.md) | Instrument, microscope, and beamline control; lab automation; behaviour-defined control code | 3 |
-| [Optimization & Engineering Design](./optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 26 |
-| [Scientific Software & Workflow Engineering](./scientific_software_workflow_engineering.md) | Scientific/engineering code generation, repository and pipeline engineering, HDL and formal-spec code | 71 |
+| [Optimization & Engineering Design](./optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 27 |
+| [Scientific Software & Workflow Engineering](./scientific_software_workflow_engineering.md) | Scientific/engineering code generation, repository and pipeline engineering, HDL and formal-spec code | 72 |
 | [Research Reproduction & Replication](./research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 11 |
 | [End-to-End Research](./end_to_end_research.md) | Multi-stage research lifecycle across several major phases, from formulation to reporting | 9 |
 
-Across the corpus, 361 activity memberships are assigned over the applicable work cards.
+Across the corpus, 363 activity memberships are assigned over the applicable work cards.
 
 ## Activities are multi-label
 
