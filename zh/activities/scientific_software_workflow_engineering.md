@@ -18,7 +18,7 @@
 
 **科学仓库工程与研究复现。** 这些工作让 agent 在真实代码库和论文上开展工作。[AInsteinBench](../works/ainsteinbench.md) 将 SWE-bench 的维护者 PR 范式移植到六个生产级科学仓库；[SUPER](../works/super.md) 和 [ML-Bench](../works/ml-bench.md) 考察真实研究仓库的搭建与运行。论文复现类工作包括 [PaperBench](../works/paperbench.md)、[EXP-Bench](../works/exp-bench.md)、[PRBench](../works/prbench.md)、[QMP-Bench](../works/qmp-bench.md)、[NatureBench](../works/naturebench.md) 和 [gwBenchmarks](../works/gwbenchmarks.md)。
 
-**ML 研究代码实现与 ML 工程。** 一大批工作把 ML 研究/工程本身作为要编写的代码产物。[MLAgentBench](../works/mlagentbench.md)、[MLE-bench](../works/mle-bench.md)、[MLE-Dojo](../works/mle-dojo.md)、[MLRC-Bench](../works/mlrc-bench.md)、[RE-Bench](../works/re-bench.md) 和 [DevAI](../works/devai.md) 让 agent 训练模型、优化代码，或对照基线与排行榜提出新方法。[ResearchCodeBench](../works/researchcodebench.md) 实现近期论文中的新贡献，[SciCode](../works/scicode.md) 则覆盖由科学家精心编排的、横跨各自然科学子领域的研究编程。
+**ML 研究代码实现与 ML 工程。** 一大批工作把 ML 研究/工程本身作为要编写的代码产物。[MLAgentBench](../works/mlagentbench.md)、[MLE-bench](../works/mle-bench.md)、[MLE-Dojo](../works/mle-dojo.md)、[MLRC-Bench](../works/mlrc-bench.md)、[RE-Bench](../works/re-bench.md) 和 [DevAI](../works/devai.md) 让 agent 训练模型、优化代码，或对照基线与排行榜提出新方法。[AI4AI-Bench](../works/ai4ai-bench.md) 把“改外围 run”和“改 learning algorithm”明确拆开：最终只把 source patch 送进 clean-start evaluation，再按 intervention layer 给 diff 分类。[ResearchCodeBench](../works/researchcodebench.md) 实现近期论文中的新贡献，[SciCode](../works/scicode.md) 则覆盖由科学家精心编排的、横跨各自然科学子领域的研究编程。
 
 **生物信息学/数据科学流水线与跨领域工作流。** 流水线构建与数据科学编程类工作包括 [GenoTEX](../works/genotex.md)、[BioAgent Bench](../works/bioagent-bench.md)、[MedAgentGym](../works/medagentgym.md)、[BioXArena](../works/bioxarena.md)、[DA-Code](../works/da-code.md)、[ScienceAgentBench](../works/scienceagentbench.md) 和 [MatTools](../works/mattools.md)（pymatgen）。形式化规约代码由 [SysMoBench](../works/sysmobench.md)（TLA+ 模型）代表。更广义的容器化科学计算测评框架有 [Terminal-Bench Science](../works/terminal-bench-science.md) 和结构工程工作台 [StructureClaw](../works/structureclaw.md)。工程文档的产出则由 [DrafterBench](../works/drafterbench.md) 代表：它那条由 46 个函数组成的制图工具链，让最终被评分的产物成了记录下来的操作链，而不是渲染出的图纸。有两项工作动的是交互界面本身：[ScienceBoard](../works/scienceboard.md) 在带监测探针的 Ubuntu 虚拟机里，通过 GUI 与 CLI 驱动六款专业科学桌面软件；[ALeRCE Text-to-SQL](../works/alerce-text-to-sql.md) 则把产物换成一条针对 25 表天文警报 broker 模式的可执行查询，而 agent 出错的地方是领域语义，不是 SQL 语法——[BiomedSQL](../works/biomedsql.md) 走的是同一路数，只是那里的查询还得自行补上问题没有言明的显著性阈值、效应方向与试验期过滤条件。与之相关的一条脉络是面向特定仪器与特定库的分析代码：[gammapyGPT](../works/gammapygpt.md) 瞄准的是一个文档稀薄、仍在活跃开发的伽马射线库，模型先验在此最弱；[AstroVisBench](../works/astrovisbench.md) 把处理代码与那张必须承载科学洞见的图分开；[Imaging-101](../works/imaging-101.md) 则把 57 个以论文为依据的计算成像任务规整成固定的「预处理 / 正向物理 / 逆问题求解 / 可视化」流水线，好让失败能够归因到具体的某一阶段。
 
@@ -97,9 +97,11 @@
 | PACE-Bench | 2026 | 反复改写一段定义结构装配与控制逻辑的 Python 程序 | 六个物理族共 144 对，每对 20 次尝试 | 在预算内做出可用的目标设计，由刚体仿真验证 | [卡片](../works/pace-bench.md) |
 | Beyond Final Scores | 2026 | 在数小时的长时程运行中改进模型、系统与 CUDA 工件 | 36 个 AutoLab 任务，每个 2–12 小时墙钟；共 756 条 rollout | 归一化验证器分数，以 avg@3 与 best@3 报告，并附确定性过程指标 | [卡片](../works/beyond-final-scores.md) |
 | AutoWorldModel-Bench | 2026 | 修改单文件的世界模型实现——架构、损失、超参或训练流程 | 64 个会话，每会话单张 H100 上 6 小时，单次训练限时 10 分钟 | 留出测试分相对给定基础模型的提升；91% 的胜出改动是实质性修改而非调参 | [卡片](../works/autoworldmodel-bench.md) |
+| AI4AI-Bench | 2026 | 改写 repository training code，让 learning procedure 真正变好 | 十个冻结 repository；四小时 proxy 引导的探索，随后只移交 source，做最多十二小时的 clean run | 对照同条件重跑原算法的确定性最终指标，并按 intervention layer 分类 diff | [卡片](../works/ai4ai-bench.md) |
 
 ## Related Works
 
+- [AI4AI-Bench](../works/ai4ai-bench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [Beyond Final Scores](../works/beyond-final-scores.md)
 - [CRAFTS](../works/crafts.md)

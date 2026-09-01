@@ -41,6 +41,7 @@ Two distinctions keep different claims apart:
 - **Resource saved, rather than resource spent.** [SkillAudit](../works/skillaudit.md) measures the resource *delta* an installed artifact produces: matched with-skill and no-skill runs on identical instructions and inputs yield an Efficiency Gain (relative saving in execution time) and a Cost Gain (relative saving in effective input tokens), each clipped to [-1, 1] and combined into an Efficiency-Cost Gain reported beside utility and safety in the same per-skill report. Nothing is budgeted; what is measured is whether adopting the skill pays for the context it occupies.
 - **One currency for tokens and tool calls.** [BATS / Budget Tracker](../works/bats-budget-aware.md) formalizes `C_unified = c_token + Σ cᵢ·Pᵢ`, pricing tool invocations at a flat $0.001 alongside token cost, which is what allows cost-performance *scaling curves* to be drawn instead of accuracies compared at nominally equal tool budgets. Its finding is that raising a budget without telling the agent how much remains does not help: injecting used/remaining counts alone matches a ReAct baseline's accuracy at one-tenth its budget, for 31.3% lower cost.
 - **Cost-performance frontier reporting.** Other work reports accuracy alongside token or dollar cost so that agents can be compared on a Pareto frontier rather than a single accuracy number. This is analysis-time resource-awareness rather than benchmark-time resource-awareness.
+- **Separate exploration from verification compute.** [AI4AI-Bench](../works/ai4ai-bench.md) gives the agent four hours on one B300 to explore, then spends up to twelve additional hours rerunning the submitted source from scratch. It reports API spend and output-token scaling by reasoning effort, while keeping formal-training GPU cost outside the dollar total.
 
 ### A gap: budgets are given, not predicted
 
@@ -75,6 +76,7 @@ Neither yields what a planner would need to choose between plans: a per-action, 
 | Beyond Final Scores | 2026 | Wall-clock hours per task and USD inference cost per model | Budget bounds the run; cost is reported alongside the score rather than folded into it | Long-horizon AI R&D over 36 AutoLab tasks | [→](../works/beyond-final-scores.md) |
 | R³-Bench | 2026 | Output tokens (tool-free) or counted tool actions (agentic), calibrated per model as ρ ∈ {0.2, 0.8} of its own unbudgeted baseline | Shared across a six-problem suite, making allocation itself the evaluated skill | Mathematics, competitive programming and abstract reasoning | [→](../works/r3-bench.md) |
 | AI Research Preference Models | 2026 | H200 GPU-hours of candidate execution | The budget is fixed and the contribution is how it is ALLOCATED — a frozen-LM predictor picks which candidates are worth running | AI research agents searching over ML solutions (AIRA-dojo on AIRS-Bench) | [→](../works/ai-research-preference-models.md) |
+| AI4AI-Bench | 2026 | Four B300-hours of exploration per task, up to twelve B300-hours of clean-start verification, API dollars and output tokens | Hard two-stage budget; exploration spend is reported against final algorithm quality | Algorithm-design agents over ten frozen AI research repositories | [→](../works/ai4ai-bench.md) |
 | BATS / Budget Tracker | 2025 | Unified currency: token cost + tool invocations priced at a flat $0.001 each | Budget is a hard constraint made VISIBLE to the agent each turn; scaling curves are drawn in the unified currency | Web-search agents (BrowseComp, BrowseComp-ZH, HLE-Search), plus τ²-bench and SWE-bench Verified | [→](../works/bats-budget-aware.md) |
 
 ## Open Questions
@@ -88,6 +90,7 @@ Neither yields what a planner would need to choose between plans: a per-action, 
 
 ## Related Works
 
+- [AI4AI-Bench](../works/ai4ai-bench.md)
 - [R³-Bench](../works/r3-bench.md) — One budget shared across a six-problem suite, calibrated against each model's own demonstrated single-problem competence.
 - [AI Research Preference Models](../works/ai-research-preference-models.md) — Matches the unguided agent's 24-hour score in ~15 hours on under two-thirds of its execution budget, with validation- and test-oracle ceilings reported alongside.
 - [Beyond Final Scores](../works/beyond-final-scores.md) — Per-task wall-clock budgets and per-model inference cost reported next to performance, spanning a roughly 20× cost spread across seven models.

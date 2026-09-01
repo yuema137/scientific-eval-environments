@@ -171,6 +171,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - **全流程 ML 研究。** [MLR-Bench](../works/mlr-bench.md) 在想法、方案、实验、论文四阶段评估 201 个开放式任务，发现 agent 约 80% 的情形编造结果。
 - **AI R&D 对照人类专家。** [RE-Bench](../works/re-bench.md)（METR）在 7 个研究工程环境上以时间预算对照 61 位专家——2h 时 agent 4 倍，32h 时人类 2 倍。
 - **面向 AI 研究的 RL 竞技场。** [MLGym](../works/mlgym.md)（Meta）把 Gym 环境与 13 个开放式研究任务配对，发现前沿 agent 调参却不创新。
+- **把算法设计本身当成研究目标。** [AI4AI-Bench](../works/ai4ai-bench.md) 给 agent 十个冻结的 AI research repository，让它提交能在 clean-start evaluation 下改进 learning procedure 的 source patch，再检查每个 patch 改的是算法本身，还是外围 run。
 - **实现新颖研究代码。** [ResearchCodeBench](../works/researchcodebench.md) 要模型实现 2024–2025 论文的贡献；最强（Gemini-2.5-Pro）达 37.3%。
 - **研究想法生成。** [IdeaBench](../works/ideabench.md) 把 LLM 以有影响力论文上下文为依据，用两阶段框架按新颖性与可行性为想法评分。
 - **发散式科学思维。** [LiveIdeaBench](../works/liveideabench.md) 在 1,180 个关键词、22 个领域上评估单关键词想法生成，发现创造力难以由通用智力预测。
@@ -455,6 +456,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 | Apodex Discovery | 2026 | 覆盖 561 个行业的调研识别出 423 个候选，从中选出 20 个问题 | 十个工业与科学领域，从衣壳设计到芯片验证 | 可执行环境内的隐藏验证器，外加盲评的六维过程打分（与结果的 Spearman ρ = +0.51） | [→](../works/apodex-discovery.md) |
 | AutoWorldModel-Bench | 2026 | 八个游戏环境 × 四种基础世界模型架构，共 64 个会话 | 不指定改进方向的自主世界模型研究 | 留出集上 Position L1 与 Alive F1 在 1/10/20 三个时程上的组合，权重 0.1/0.2/0.7 | [→](../works/autoworldmodel-bench.md) |
 | Agents Catching Agents | 2026 | 六个公开临床数据集上的七个 cohort，覆盖文本、影像与表格记录 | 捷径线索下临床多 agent 委员会的效度 | 捷径采纳率对照孤立条件下的翻转率；三种监督检测器以精确率、召回率与假阳性率计分 | [→](../works/agents-catching-agents.md) |
+| AI4AI-Bench | 2026 | 十个冻结 research repository，覆盖十类 AI training algorithm | 四小时内诊断、改写并测试 training algorithm；最终只提交 source | 在同条件下从头运行修改版与原方法，映射到统一的 0/0.1/1 尺度；再按 intervention layer 分类 diff | [→](../works/ai4ai-bench.md) |
 
 ## 还没解决的问题
 
@@ -466,6 +468,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 
 ## 相关工作
 
+- [AI4AI-Bench](../works/ai4ai-bench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [Replica](../works/replica.md)

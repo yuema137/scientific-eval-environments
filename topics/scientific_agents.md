@@ -171,6 +171,7 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 - **Full-pipeline ML research.** [MLR-Bench](../works/mlr-bench.md) evaluates 201 open-ended tasks across idea, proposal, experiment, and paper stages, and finds agents fabricate results ~80% of the time.
 - **AI R&D vs human experts.** [RE-Bench](../works/re-bench.md) (METR) compares agents to 61 experts on 7 research-engineering environments under time budgets — agents 4x at 2h, humans 2x at 32h.
 - **An RL gym for AI research.** [MLGym](../works/mlgym.md) (Meta) pairs a Gym environment with 13 open-ended research tasks, finding frontier agents tune hyperparameters but do not innovate.
+- **Algorithm design as the research target.** [AI4AI-Bench](../works/ai4ai-bench.md) gives agents ten frozen AI research repositories and asks for source patches that improve the learning procedure under clean-start evaluation, then checks whether each patch changed the algorithm or only the surrounding run.
 - **Implementing novel research code.** [ResearchCodeBench](../works/researchcodebench.md) asks models to code the contributions of 2024–2025 papers; the best (Gemini-2.5-Pro) reaches 37.3%.
 - **Research idea generation.** [IdeaBench](../works/ideabench.md) grounds LLMs in influential-paper context and scores generated ideas by novelty and feasibility via a two-stage framework.
 - **Divergent scientific thinking.** [LiveIdeaBench](../works/liveideabench.md) evaluates single-keyword idea generation across 1,180 keywords and 22 domains, finding creativity is poorly predicted by general intelligence.
@@ -455,6 +456,7 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 | Apodex Discovery | 2026 | 20 problems selected from 423 candidates identified across a 561-industry survey | Ten industrial and scientific areas, from capsid design to chip verification | Hidden verifiers inside executable environments, plus blind six-dimension process scoring (Spearman ρ = +0.51 with outcome) | [→](../works/apodex-discovery.md) |
 | AutoWorldModel-Bench | 2026 | Eight game environments × four base world-model architectures, 64 sessions | Autonomous world-model research with no improvement direction specified | Held-out composite of Position L1 and Alive F1 at horizons 1/10/20, weighted 0.1/0.2/0.7 | [→](../works/autoworldmodel-bench.md) |
 | Agents Catching Agents | 2026 | Seven cohorts over six public clinical datasets spanning text, imaging and tabular records | Validity of clinical multi-agent committees under shortcut cues | Shortcut-adoption rate against the isolated-condition flip rate; three oversight detectors scored on precision, recall and false-positive rate | [→](../works/agents-catching-agents.md) |
+| AI4AI-Bench | 2026 | Ten frozen research repositories spanning ten AI training-algorithm families | Diagnose, rewrite and test a training algorithm during four-hour exploration; submit source only | Clean-start execution against the original method under identical conditions, mapped to a shared 0/0.1/1 scale; submitted diffs classified by intervention layer | [→](../works/ai4ai-bench.md) |
 
 ## Open Questions
 
@@ -466,6 +468,7 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 
 ## Related Works
 
+- [AI4AI-Bench](../works/ai4ai-bench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [Replica](../works/replica.md)
