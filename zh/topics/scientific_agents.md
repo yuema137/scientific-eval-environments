@@ -455,6 +455,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 | PACE-Bench | 2026 | 36 份手工构建的 Box2D 设计，变异出 144 个源到目标的适配对 | 六个物理族，从静力学、运动学到控制与颗粒流 | 刚体仿真；约束满足比例与 [−100, 100] 区间的任务分数，报告为 Pass@2 | [→](../works/pace-bench.md) |
 | Apodex Discovery | 2026 | 覆盖 561 个行业的调研识别出 423 个候选，从中选出 20 个问题 | 十个工业与科学领域，从衣壳设计到芯片验证 | 可执行环境内的隐藏验证器，外加盲评的六维过程打分（与结果的 Spearman ρ = +0.51） | [→](../works/apodex-discovery.md) |
 | AutoWorldModel-Bench | 2026 | 八个游戏环境 × 四种基础世界模型架构，共 64 个会话 | 不指定改进方向的自主世界模型研究 | 留出集上 Position L1 与 Alive F1 在 1/10/20 三个时程上的组合，权重 0.1/0.2/0.7 | [→](../works/autoworldmodel-bench.md) |
+| ASI-Bench | 2026 | 来自文献的 60 个项目级任务（1,300+ 个候选 idea、40+ 位专家、31,000+ 小时人工投入） | 11 个科学领域，四个指导等级下的项目级研究 | 针对任务的 evaluation gate 与加权 scorer，对照可复现的逐任务 reference；B1-B4 指导梯度且 B3/B4 均值低于 40 | [→](../works/asi-bench.md) |
 | Agents Catching Agents | 2026 | 六个公开临床数据集上的七个 cohort，覆盖文本、影像与表格记录 | 捷径线索下临床多 agent 委员会的效度 | 捷径采纳率对照孤立条件下的翻转率；三种监督检测器以精确率、召回率与假阳性率计分 | [→](../works/agents-catching-agents.md) |
 | AI4AI-Bench | 2026 | 十个冻结 research repository，覆盖十类 AI training algorithm | 四小时内诊断、改写并测试 training algorithm；最终只提交 source | 在同条件下从头运行修改版与原方法，映射到统一的 0/0.1/1 尺度；再按 intervention layer 分类 diff | [→](../works/ai4ai-bench.md) |
 
@@ -469,6 +470,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 ## 相关工作
 
 - [AI4AI-Bench](../works/ai4ai-bench.md)
+- [ASI-Bench](../works/asi-bench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [Replica](../works/replica.md)

@@ -172,7 +172,7 @@ Activity pages follow the work itself. Does the agent search literature, run a s
 | [Optimization & Engineering Design](./activities/optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 27 |
 | [Literature Search & Evidence Synthesis](./activities/literature_evidence_synthesis.md) | Literature retrieval, systematic review, evidence synthesis, literature-grounded extraction | 23 |
 | [Research Reproduction & Replication](./activities/research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 11 |
-| [End-to-End Research](./activities/end_to_end_research.md) | Multi-stage research lifecycle across several major phases | 9 |
+| [End-to-End Research](./activities/end_to_end_research.md) | Multi-stage research lifecycle across several major phases | 10 |
 | [Laboratory & Instrument Control](./activities/laboratory_instrument_control.md) | Instrument, microscope, and beamline control; lab automation; behaviour-defined control code | 3 |
 
 ---
@@ -183,7 +183,7 @@ Work is in scope when evaluation changes what we know or what the development lo
 
 A paper is not in scope merely because it reports benchmark scores. Pure training, optimization, data, memory, or multi-agent work stays out when evaluation appears only in the final results table. The test is operational: does evaluation define the objective, supply feedback, select an intervention, diagnose a failure, or serve as the experiment environment?
 
-"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **383 work cards**, **15 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
+"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **384 work cards**, **15 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
 
 ---
 

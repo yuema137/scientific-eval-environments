@@ -455,6 +455,7 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 | PACE-Bench | 2026 | 36 hand-built Box2D designs mutated into 144 source-to-target adaptation pairs | Six physics families, from statics and kinematics to control and granular flow | Rigid-body simulation; constraint-satisfaction fraction and task score in [−100, 100], reported as Pass@2 | [→](../works/pace-bench.md) |
 | Apodex Discovery | 2026 | 20 problems selected from 423 candidates identified across a 561-industry survey | Ten industrial and scientific areas, from capsid design to chip verification | Hidden verifiers inside executable environments, plus blind six-dimension process scoring (Spearman ρ = +0.51 with outcome) | [→](../works/apodex-discovery.md) |
 | AutoWorldModel-Bench | 2026 | Eight game environments × four base world-model architectures, 64 sessions | Autonomous world-model research with no improvement direction specified | Held-out composite of Position L1 and Alive F1 at horizons 1/10/20, weighted 0.1/0.2/0.7 | [→](../works/autoworldmodel-bench.md) |
+| ASI-Bench | 2026 | 60 project-level tasks from the literature (1,300+ candidate ideas, 40+ experts, 31,000+ human hours) | 11 scientific domains, project-level research at four guidance levels | Task-specific evaluation gates and weighted scorers against reproducible per-task references; B1-B4 guidance gradient with B3/B4 mean below 40 | [→](../works/asi-bench.md) |
 | Agents Catching Agents | 2026 | Seven cohorts over six public clinical datasets spanning text, imaging and tabular records | Validity of clinical multi-agent committees under shortcut cues | Shortcut-adoption rate against the isolated-condition flip rate; three oversight detectors scored on precision, recall and false-positive rate | [→](../works/agents-catching-agents.md) |
 | AI4AI-Bench | 2026 | Ten frozen research repositories spanning ten AI training-algorithm families | Diagnose, rewrite and test a training algorithm during four-hour exploration; submit source only | Clean-start execution against the original method under identical conditions, mapped to a shared 0/0.1/1 scale; submitted diffs classified by intervention layer | [→](../works/ai4ai-bench.md) |
 
@@ -469,6 +470,7 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 ## Related Works
 
 - [AI4AI-Bench](../works/ai4ai-bench.md)
+- [ASI-Bench](../works/asi-bench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [Replica](../works/replica.md)

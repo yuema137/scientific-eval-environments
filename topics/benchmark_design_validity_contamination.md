@@ -34,6 +34,7 @@ Clean arithmetic does not rescue a bad measurement. Memorized tasks inflate capa
 | CritPt | Unpublished expert problems | Answers unavailable to training corpora | Expert/reference checking | New authored batches |
 | DiscoverPhysics | Generated physical worlds | On-demand counterfactual laws | Simulator ground truth | Per instance |
 | ResearchCodeBench | Recent ML papers | Contamination-safe paper subset | Executable code tests | New paper cohorts |
+| ASI-Bench | 60 project tasks from the literature, expert-filtered | B1-B4 guidance gradient within one project; B3 and B4 mean forced strictly below 40 at task acceptance | Task-specific gates and weighted scorers vs reproducible per-task references; private `seed42` reference set | New authored task batches via public portal |
 
 ## Open Questions
 
@@ -46,6 +47,7 @@ Clean arithmetic does not rescue a bad measurement. Memorized tasks inflate capa
 ## Related Works
 
 - [AI4AI-Bench](../works/ai4ai-bench.md)
+- [ASI-Bench](../works/asi-bench.md)
 - [OnePot-Bench](../works/onepot-bench.md)
 - [GeneBench-Pro](../works/genebench-pro.md)
 - [FrontierCode](../works/frontiercode.md)

@@ -34,6 +34,7 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 | CritPt | 未发表的专家问题 | 答案不进入训练语料 | 专家与参考答案检查 | 新的专家题批次 |
 | DiscoverPhysics | 自动生成的物理世界 | 按需生成反事实规律 | Simulator ground truth | 每个实例更新 |
 | ResearchCodeBench | 近期 ML 论文 | contamination-safe 论文子集 | 可执行代码测试 | 新论文批次 |
+| ASI-Bench | 60 个来自文献、经专家筛选的项目任务 | 同一项目内 B1-B4 指导梯度；接收任务时强制 B3 与 B4 均值低于 40 | 针对任务的 gate 和加权 scorer，对照可复现的逐任务 reference；私有 `seed42` reference set | 通过公共入口持续加入新编写的任务批次 |
 
 ## 还没解决的问题
 
@@ -46,6 +47,7 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 ## 相关工作
 
 - [AI4AI-Bench](../works/ai4ai-bench.md)
+- [ASI-Bench](../works/asi-bench.md)
 - [OnePot-Bench](../works/onepot-bench.md)
 - [GeneBench-Pro](../works/genebench-pro.md)
 - [FrontierCode](../works/frontiercode.md)

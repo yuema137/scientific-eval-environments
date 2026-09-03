@@ -18,8 +18,8 @@ Topic 集合是固定的。新增 topic 需要更新 [`../../AGENT.md`](../../AG
 
 | # | Topic | 文件 | 收录 works |
 |---|---|---|---|
-| I | [General Long-Horizon Agent Benchmarks](./long_horizon_evaluation.md) | `long_horizon_evaluation.md` | 59 |
-| II | [Scientific Agent Benchmarks](./scientific_agents.md) | `scientific_agents.md` | 248 |
+| I | [General Long-Horizon Agent Benchmarks](./long_horizon_evaluation.md) | `long_horizon_evaluation.md` | 60 |
+| II | [Scientific Agent Benchmarks](./scientific_agents.md) | `scientific_agents.md` | 249 |
 | III | [Planning & Decision-Making Evaluation](./planning_decision_evaluation.md) | `planning_decision_evaluation.md` | 14 |
 | IV | [Hierarchical Decision Abstraction](./hierarchical_decision_abstraction.md) | `hierarchical_decision_abstraction.md` | 7 |
 | V | [Trajectory Evaluation](./trajectory_evaluation.md) | `trajectory_evaluation.md` | 57 |
@@ -27,7 +27,7 @@ Topic 集合是固定的。新增 topic 需要更新 [`../../AGENT.md`](../../AG
 | VII | [Credit Assignment](./credit_assignment.md) | `credit_assignment.md` | 25 |
 | VIII | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 23 |
 | IX | [Evaluator Reliability & Validation](./evaluator_reliability_validation.md) | `evaluator_reliability_validation.md` | 8 |
-| X | [Benchmark Design, Validity & Contamination](./benchmark_design_validity_contamination.md) | `benchmark_design_validity_contamination.md` | 12 |
+| X | [Benchmark Design, Validity & Contamination](./benchmark_design_validity_contamination.md) | `benchmark_design_validity_contamination.md` | 13 |
 | XI | [Skill Learning & Evolution](./skill_learning_evolution.md) | `skill_learning_evolution.md` | 6 |
 | XII | [Agent Harnesses & Scaffolding](./agent_harnesses_scaffolding.md) | `agent_harnesses_scaffolding.md` | 7 |
 | XIII | [Evaluation-Driven Data Curation](./evaluation_driven_data_curation.md) | `evaluation_driven_data_curation.md` | 3 |

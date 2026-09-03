@@ -132,6 +132,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | AutoWorldModel-Bench | 2026 | 6-hour session on one H100 with a 10-minute cap per individual training run, which converts the budget into iteration count | Eight game environments exposing structured entity state | [→](../works/autoworldmodel-bench.md) |
 | R³-Bench | 2026 | One budget shared across a six-problem suite, so effort must be allocated and some problems triaged away | Tool-free completion and a Terminus-2 shell | [→](../works/r3-bench.md) |
 | BATS / Budget Tracker | 2025 | Tool-call budget as the scaling axis (10/30/50/100 per tool); performance plateaus without budget awareness | Web-search agents over live browsing, plus retail dialogue and SWE-bench Verified | [→](../works/bats-budget-aware.md) |
+| ASI-Bench | 2026 | 60 project-level research tasks; complete trajectories span 2,600+ interaction turns, 2,400+ execution steps, and 35+ hours of agent execution across the suite | Sandboxed scientific research (Docker `os` / `linux_ns`) with agent-neutral harness adapters | [→](../works/asi-bench.md) |
 
 ## Open Questions
 
@@ -142,6 +143,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 
 ## Related Works
 
+- [ASI-Bench](../works/asi-bench.md)
 - [R³-Bench](../works/r3-bench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [PACE-Bench](../works/pace-bench.md)
