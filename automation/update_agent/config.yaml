@@ -16,7 +16,7 @@ watermark:
                            # "new-work" dates (arXiv submittedDate, OpenReview odate/first-public,
                            # GitHub creation) and each lags differently, so a 3-day cadence searches
                            # the last ~5-6 days. Dedup drops the repeats, so overlap is nearly free.
-  max_catchup_days: 14     # beyond this backlog -> needs_attention (no silent truncation)
+  max_catchup_days: 60     # beyond this backlog -> needs_attention (no silent truncation); permits recovery from a short outage
   min_interval_hours: 72   # scheduled runs proceed only every ~72h (true cadence, month-independent)
 
 # arXiv discovery uses OAI-PMH incremental harvesting (not the Search API — a ~38-query fan-out

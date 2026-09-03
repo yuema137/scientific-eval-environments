@@ -249,8 +249,13 @@ def test_watermark_recent_uses_overlap():
 
 
 def test_watermark_catch_up_exceeded_needs_attention():
-    w = watermark.compute_window("2026-08-30T00:00:00+00:00", "2026-08-01T00:00:00+00:00", 24, 14, 3)
+    w = watermark.compute_window("2026-10-15T00:00:00+00:00", "2026-08-01T00:00:00+00:00", 24, 60, 3)
     assert w["catch_up_exceeded"] is True and w["basis"] == "catch_up_exceeded"
+
+
+def test_watermark_allows_short_outage_recovery():
+    w = watermark.compute_window("2026-09-03T00:00:00+00:00", "2026-08-12T00:00:00+00:00", 72, 60, 3)
+    assert w["catch_up_exceeded"] is False and w["basis"] == "watermark"
 
 
 def test_is_due():
