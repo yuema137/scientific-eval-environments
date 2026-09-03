@@ -75,6 +75,23 @@ def _main_additions(month):
     return sorted(paths)
 
 
+def _reported_slugs_before(month):
+    """Return cards already assigned to an earlier monthly report.
+
+    Historical reports are keyed by public first appearance, while later reports are keyed by
+    arrival on main. A backfill can therefore be present in the archive before the commit that
+    added its card. Never emit that card a second time when rebuilding a later main-addition
+    report.
+    """
+    reported = set()
+    for path in sorted((ROOT / "monthly").glob("????-??.md")):
+        if path.stem >= month:
+            continue
+        text = path.read_text()
+        reported.update(re.findall(r"\[[^]]+\]\(\.\./works/([a-z0-9-]+)\.md\)", text))
+    return reported
+
+
 def build_manifest(month, basis="main-addition"):
     works = []
     if basis == "first-appearance":
@@ -82,7 +99,9 @@ def build_manifest(month, basis="main-addition"):
                        if path.name != "README.md" and STAMP.search(path.read_text()) and
                        STAMP.search(path.read_text()).group(1)[:7] == month)
     else:
-        paths = _main_additions(month)
+        already_reported = _reported_slugs_before(month)
+        paths = [path for path in _main_additions(month)
+                 if Path(path).stem not in already_reported]
     for rel in paths:
         path = ROOT / rel
         if not path.exists():

@@ -90,6 +90,18 @@ def test_manifest_uses_main_addition_month_and_preserves_first_appearance(tmp_pa
     assert work["domains"][0]["slug"] == "biology"
 
 
+def test_main_addition_manifest_does_not_repeat_prior_backfill(tmp_path, monkeypatch):
+    root = _fixture_repo(tmp_path, monkeypatch)
+    (root / "monthly" / "2026-07.md").write_text(
+        "# July 2026 Monthly Report\n\n## Complete Monthly Index\n\n"
+        "| Work | First appeared | Added as | Topics | Domains |\n"
+        "|---|---|---|---|---|\n"
+        "| [Fixture Work](../works/fixture-work.md) | 2024-02-03 | Backfill | — | — |\n"
+    )
+    manifest, _ = monthly.build_manifest("2026-08")
+    assert manifest["works_count"] == 0
+
+
 def test_validate_requires_complete_bilingual_index(tmp_path, monkeypatch):
     root = _fixture_repo(tmp_path, monkeypatch)
     manifest, _ = monthly.build_manifest("2026-08")

@@ -44,17 +44,33 @@ jobs:
           fi
           echo "month=$MONTH" >> "$GITHUB_OUTPUT"
       - name: Generate bilingual report
+        id: generate-report
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
           git checkout -B "auto/monthly-report-${{ steps.report-month.outputs.month }}" origin/main
-          python3 scripts/monthly_report.py generate --month "${{ steps.report-month.outputs.month }}" --force
+          python3 scripts/monthly_report.py prepare --month "${{ steps.report-month.outputs.month }}" --basis main-addition
+          COUNT="$(python3 - <<'PY'
+          import json
+          from pathlib import Path
+          month = "${{ steps.report-month.outputs.month }}"
+          print(json.loads((Path("runtime/monthly-report") / (month + ".json")).read_text())["works_count"])
+          PY
+          )"
+          echo "has_work=$([ "$COUNT" -gt 0 ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          if [ "$COUNT" -eq 0 ]; then
+            echo "No new cards reached main during ${{ steps.report-month.outputs.month }}; no report PR needed."
+            exit 0
+          fi
+          python3 scripts/monthly_report.py generate --month "${{ steps.report-month.outputs.month }}" --basis main-addition --force
       - name: Deterministic validation
+        if: ${{ steps.generate-report.outputs.has_work == 'true' }}
         run: |
           python3 scripts/monthly_report.py validate --month "${{ steps.report-month.outputs.month }}"
           python3 scripts/monthly_report.py validate-all
           python3 scripts/update_counts.py --check
       - name: Open report PR for human review
+        if: ${{ steps.generate-report.outputs.has_work == 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash scripts/publish_monthly_report.sh "${{ steps.report-month.outputs.month }}"
