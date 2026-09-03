@@ -41,6 +41,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 - **省下的资源，而非花掉的资源。** [SkillAudit](../works/skillaudit.md) 测的是装上一件产物之后资源的**变化量**：在相同指令与相同输入下配对跑「用 skill」与「不用 skill」两组，得到 Efficiency Gain（执行时间的相对节省）与 Cost Gain（有效输入 token 的相对节省），两者各自截断到 [-1, 1] 后合成 Efficiency-Cost Gain，与效用、安全性一起写进同一份 per-skill 报告。这里不设任何预算，要测的是：采纳这个 skill，是否值回它所占的上下文。
 - **把 token 与工具调用折算到同一种计价。** [BATS / Budget Tracker](../works/bats-budget-aware.md) 给出 `C_unified = c_token + Σ cᵢ·Pᵢ`，把工具调用按每次 0.001 美元与 token 成本并列计价——正是有了单一货币，成本—性能的 **scaling 曲线**才画得出来，而不必在名义上相等的工具预算下比准确率。它的发现是：只把预算调高、却不告诉 agent 还剩多少，并没有用；仅仅注入已用/剩余的计数，就能以十分之一的预算追平 ReAct 基线的准确率，总成本还低 31.3%。
 - **成本–性能前沿式报告。** 另一些工作在 accuracy 之外同时报告 token 或 dollar 成本，用于在 Pareto 前沿上而非单一 accuracy 数字上做比较。这是分析时的资源意识，而非 benchmark 内部的资源意识。
+- **把 exploration 与 verification compute 分开。** [AI4AI-Bench](../works/ai4ai-bench.md) 先给 agent 一张 B300、四小时做探索，再花最多十二小时从头运行提交的 source。它按 reasoning effort 报告 API spend 和 output-token scaling，但 formal training 的 GPU 成本没有计入 dollar total。
 
 ### 一处缺口：预算是给定的，不是预测出来的
 
@@ -75,6 +76,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 | Beyond Final Scores | 2026 | 每任务的墙钟小时数与逐模型的美元推理开销 | 预算限定运行时长；成本与分数并列报告，而非折算进分数 | 36 个 AutoLab 任务上的长时程 AI 研发 | [→](../works/beyond-final-scores.md) |
 | R³-Bench | 2026 | 输出 token（无工具）或计数的工具动作（agentic），按各模型自身无预算基线校准为 ρ ∈ {0.2, 0.8} | 由六道题共用，分配本身成为被评估的能力 | 数学、竞赛编程与抽象推理 | [→](../works/r3-bench.md) |
 | AI Research Preference Models | 2026 | 候选方案执行所耗的 H200 GPU 小时 | 预算固定，贡献在于如何**分配**——用一个冻结的预训练模型预测哪些候选值得真正跑一遍 | AI 研究 agent 在 ML 解空间上的搜索（AIRA-dojo 跑 AIRS-Bench） | [→](../works/ai-research-preference-models.md) |
+| AI4AI-Bench | 2026 | 每项任务四 B300-hours exploration，最多十二 B300-hours clean-start verification，另报 API dollar 与 output token | 两阶段硬预算；将 exploration spend 与最终算法质量并排报告 | 在十个冻结 AI research repository 上做算法设计的 agent | [→](../works/ai4ai-bench.md) |
 | BATS / Budget Tracker | 2025 | 统一计价：token 开销加上按每次 0.001 美元固定计价的工具调用 | 预算是硬约束，但每一轮都让 agent **看得见**；scaling 曲线在统一计价下绘制 | 网页搜索 agent（BrowseComp、BrowseComp-ZH、HLE-Search），另有 τ²-bench 与 SWE-bench Verified | [→](../works/bats-budget-aware.md) |
 
 ## 还没解决的问题
@@ -88,29 +90,29 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 
 ## 相关工作
 
-- [PostTrainBench](../works/posttrainbench.md)
-- [CostBench](../works/costbench.md) — 动态 tool-use 条件下的成本最优规划。
-- [SimulCost](../works/simulcost.md) — 覆盖 13 个仿真器的 cost-aware 物理仿真参数调优。
-- [CATP-LLM / OpenCATP](../works/catp-llm.md) — OpenCATP，面向 cost-aware 工具规划的数据集（11,100 样本）。
-- [MaD Physics](../works/mad-physics.md) — 模拟物理中按保真度定价的测量预算；agent 在测量的质与量之间权衡以推断被改动的物理定律。
-- [BAGEN](../works/bagen.md) — 跨 token 与多资源 agent 的渐进式预算区间预测与可训练的提前停止。
-- [VeRO / VeRO-Bench](../works/vero.md) — 在门控评估调用预算下把 coding agent 作为 agent 优化器来 benchmark。
-- [Frontier-Eng](../works/frontier-eng.md) — 固定仿真器交互预算下的迭代式工程优化。
-- [EcoAgent-Bench](../works/ecoagent-bench.md) — 定价动作与显式预算下的经济决策，以经济一致性评分。
-- [HarnessOpt-Bench](../works/harnessopt-bench.md) — LLM 在固定且经 TEE 审计的评估预算下优化 agent harness。
-- [Gravity-Bench-v1](../works/gravity-bench.md) — 引力物理发现中预算受限的观测规划。
-- [Model Discovery Agent](../works/model-discovery-agent.md) — 在四组 discovery 任务里，用 experiment-budget learning curve 同时追踪 held-out prediction 和 mechanism recovery。
-- [SMDD-Bench](../works/smdd-bench.md) — 有限 oracle 调用预算下、保证有解的药物设计。
-- [SDBench](../works/sdbench.md) — 按准确率-成本前沿评分的序贯诊断。
-- [ChemCost](../works/chemcost.md) — 把反应成本计算本身作为被测任务，配无 judge 的精确定价真值。
-- [MASSE](../works/masse.md) — 在端到端结构工程工作流 benchmark 中，把 token 用量与运行时间作为 rubric 的一个计分项。
-- [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) — 每一次自主流程运行都测量运行时间与峰值内存；两个 agent 产出的科学结果相同，速度与资源占用便成了它们之间的一条比较轴。
-- [SkillAudit](../works/skillaudit.md) — 对照配对的「不用 skill」运行测量时间与 token 的节省，逐个 skill 包与效用、安全性一并报告。
-- [Beyond Final Scores](../works/beyond-final-scores.md) — 每任务墙钟预算与逐模型推理开销与性能并列报告，七个模型之间成本相差约 20 倍。
+- [AI4AI-Bench](../works/ai4ai-bench.md)
 - [R³-Bench](../works/r3-bench.md) — 一份预算由六道题共用，并校准到各模型自己已展示出的单题水平。
 - [AI Research Preference Models](../works/ai-research-preference-models.md) — 用不到三分之二的执行预算、约 15 小时就达到未引导 agent 24 小时的分数，并同时给出验证集与测试集的 oracle 上界。
+- [Beyond Final Scores](../works/beyond-final-scores.md) — 每任务墙钟预算与逐模型推理开销与性能并列报告，七个模型之间成本相差约 20 倍。
+- [Model Discovery Agent](../works/model-discovery-agent.md) — 在四组 discovery 任务里，用 experiment-budget learning curve 同时追踪 held-out prediction 和 mechanism recovery。
+- [EcoAgent-Bench](../works/ecoagent-bench.md) — 定价动作与显式预算下的经济决策，以经济一致性评分。
+- [HarnessOpt-Bench](../works/harnessopt-bench.md) — LLM 在固定且经 TEE 审计的评估预算下优化 agent harness。
+- [SkillAudit](../works/skillaudit.md) — 对照配对的「不用 skill」运行测量时间与 token 的节省，逐个 skill 包与效用、安全性一并报告。
+- [BAGEN](../works/bagen.md) — 跨 token 与多资源 agent 的渐进式预算区间预测与可训练的提前停止。
+- [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) — 每一次自主流程运行都测量运行时间与峰值内存；两个 agent 产出的科学结果相同，速度与资源占用便成了它们之间的一条比较轴。
+- [SMDD-Bench](../works/smdd-bench.md) — 有限 oracle 调用预算下、保证有解的药物设计。
+- [MaD Physics](../works/mad-physics.md) — 模拟物理中按保真度定价的测量预算；agent 在测量的质与量之间权衡以推断被改动的物理定律。
+- [ChemCost](../works/chemcost.md) — 把反应成本计算本身作为被测任务，配无 judge 的精确定价真值。
+- [Frontier-Eng](../works/frontier-eng.md) — 固定仿真器交互预算下的迭代式工程优化。
+- [SimulCost](../works/simulcost.md) — 覆盖 13 个仿真器的 cost-aware 物理仿真参数调优。
+- [PostTrainBench](../works/posttrainbench.md)
+- [VeRO / VeRO-Bench](../works/vero.md) — 在门控评估调用预算下把 coding agent 作为 agent 优化器来 benchmark。
 - [BATS / Budget Tracker](../works/bats-budget-aware.md) — 把 token 与工具调用折算进同一种计价；仅仅把剩余预算告诉 agent，就能用十分之一的预算追平 ReAct 基线的准确率。
-
+- [CostBench](../works/costbench.md) — 动态 tool-use 条件下的成本最优规划。
+- [MASSE](../works/masse.md) — 在端到端结构工程工作流 benchmark 中，把 token 用量与运行时间作为 rubric 的一个计分项。
+- [SDBench](../works/sdbench.md) — 按准确率-成本前沿评分的序贯诊断。
+- [Gravity-Bench-v1](../works/gravity-bench.md) — 引力物理发现中预算受限的观测规划。
+- [CATP-LLM / OpenCATP](../works/catp-llm.md) — OpenCATP，面向 cost-aware 工具规划的数据集（11,100 样本）。
 ## 延伸阅读
 
 - Yehudai, Eden, Li, Uziel, Zhao, Bar-Haim, Cohan, Shmueli-Scheuer. *Survey on Evaluation of LLM-based Agents*. arXiv 2503.16416, 2025. 指出 cost-efficiency 是当前 agent 评估中覆盖不足的维度。<https://arxiv.org/abs/2503.16416>

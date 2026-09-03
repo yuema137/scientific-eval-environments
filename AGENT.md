@@ -125,7 +125,7 @@ Adding a new canonical topic is a structural decision that requires updating thi
 - **Existing Approaches** — representative work.
 - **Comparison** — comparison table(s) using dimensions specific to this topic.
 - **Open Questions** — current challenges and future directions.
-- **Related Works** — links to work cards in `works/`.
+- **Related Works** — links to work cards in `works/`, ordered by `First appeared` newest first and then by title A–Z for same-day ties.
 
 There is **no global comparison matrix**. Each topic owns its own comparison dimensions.
 
@@ -176,7 +176,7 @@ Adding a new canonical domain is a structural decision that requires updating th
   - **`Domain`** is not yes/no: it lists the subfields the work evaluates in, as short abbreviations taken from the card's `## Domains` prose. Its vocabulary is **defined per domain page**, not shared — physics subfields and robotics subfields have nothing in common — and every abbreviation a page uses must be expanded on that page.
   - **`Fail`** is graded `0`–`4`, not yes/no: `0` nothing beyond headline scores; `1` narrative remarks only; `2` named error classes or case studies without counts; `3` a quantified failure account (per-class counts or shares, or measured breakdowns isolating failure conditions); `4` level 3 plus a controlled experiment or ablation built to test why the failures occur.
   - **`Cov` and `Rig`** are bolded and close their groups. Yes/no columns score `✔` 1, `◐` 0.5, `✘` 0, `?` 0; graded columns contribute their number, `?` scoring 0; `Domain` does not score. Both are **floors on what a work demonstrably does, not rankings of quality** — a `?` costs exactly what a `✘` costs; high `Cov` with low `Rig` means reaching for everything and pinning little down, low `Cov` with high `Rig` means measuring a narrow thing carefully, and which is right depends on the question being asked. `Cov` describes the evaluation setup, not the science: a work can sit last here and still be its subfield's most important paper. Each page must carry these cautions.
-- **Related Works** — bare links to the work cards (the mapping list). A domain with no documented works yet states so explicitly.
+- **Related Works** — bare links to the work cards (the mapping list), ordered by `First appeared` newest first and then by title A–Z for same-day ties. A domain with no documented works yet states so explicitly.
 
 **Rules:**
 
@@ -222,7 +222,7 @@ Adding, renaming, splitting, or removing a canonical activity is a structural de
 - **Scope** — what belongs here and the key boundary cases.
 - **Task Patterns** — synthesis of how the activity appears across the corpus, linking work cards.
 - **Comparison** — a factual table with the fixed columns `Work | Year | Activity instantiation | Task form / environment | Deliverable or success target | Card`. *Activity instantiation* states what the work asks the agent to do with respect to **this** activity (not a whole-benchmark summary). Every cell must be verifiable from the work's card.
-- **Related Works** — bare links to the work cards (the reverse-index mapping list).
+- **Related Works** — bare links to the work cards (the reverse-index mapping list), ordered by `First appeared` newest first and then by title A–Z for same-day ties.
 
 **Rules:**
 

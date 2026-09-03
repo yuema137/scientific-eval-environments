@@ -54,10 +54,10 @@ Agent 会在不同尺度上做决定：先选目标和策略，再选子目标�
 
 ## 相关工作
 
-- [MA-RLHF](../works/ma-rlhf.md)
-- [CoLA](../works/cola.md)
-- [MetaAct-RL](../works/metaact-rl.md)
 - [PG-HAP](../works/pg-hap.md)
 - [HiPER](../works/hiper.md)
+- [MetaAct-RL](../works/metaact-rl.md)
 - [PTA-GRPO](../works/pta-grpo.md)
 - [Beyond 'Aha!'](../works/beyond-aha.md)
+- [CoLA](../works/cola.md)
+- [MA-RLHF](../works/ma-rlhf.md)

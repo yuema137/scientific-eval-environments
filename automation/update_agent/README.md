@@ -21,6 +21,8 @@ Phase 5  Chinese review   independent editor rewrites literal/awkward Chinese
 Final gate               machine-readable; PR is impossible unless all five phases pass
 ```
 
+The deterministic integration step keeps every Topic, Domain, and Activity `Related Works` index ordered by the cards' `First appeared` dates, newest first; same-day ties use title A–Z. Axis comparison tables retain their own methodology-specific ordering.
+
 Each GitHub Actions job is one phase (`discovery → english → chinese → review → finalize`);
 state passes between jobs as `runtime/` artifacts. Every phase writes `runtime/state/<phase>.json`,
 and `scripts/update_agent/phase_state.py` computes `ready_for_pr` — the only thing that lets the

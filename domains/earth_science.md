@@ -83,15 +83,15 @@ Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 o
 
 ## Related Works
 
-- [DrBencher](../works/drbencher.md)
-- [SciVisAgentBench](../works/scivisagentbench.md)
+- [Imaging-101](../works/imaging-101.md)
 - [GeoNatureAgent Benchmark](../works/geonatureagent-benchmark.md)
-- [ScienceAgentBench](../works/scienceagentbench.md)
-- [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [ResearchClawBench](../works/researchclawbench.md)
 - [HydroAgent](../works/hydroagent.md)
+- [SciVQR](../works/scivqr.md)
+- [DrBencher](../works/drbencher.md)
+- [SciVisAgentBench](../works/scivisagentbench.md)
+- [Terminal-Bench Science](../works/terminal-bench-science.md)
+- [HiSciBench](../works/hiscibench.md)
 - [Hydro-SE Bench](../works/hydro-se-bench.md)
 - [ScienceBoard](../works/scienceboard.md)
-- [Imaging-101](../works/imaging-101.md)
-- [SciVQR](../works/scivqr.md)
-- [HiSciBench](../works/hiscibench.md)
+- [ScienceAgentBench](../works/scienceagentbench.md)

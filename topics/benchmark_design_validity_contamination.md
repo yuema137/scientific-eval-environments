@@ -22,6 +22,7 @@ Clean arithmetic does not rescue a bad measurement. Memorized tasks inflate capa
 - **Private or newly authored answers.** [CritPt](../works/critpt.md), [OnePot-Bench](../works/onepot-bench.md), and [GeneBench-Pro](../works/genebench-pro.md) use unpublished, private, or held-out material.
 - **Procedural and counterfactual construction.** [DiscoverPhysics](../works/discoverphysics.md) generates worlds on demand; [Robotouille](../works/robotouille.md) procedurally generates embodied tasks.
 - **Verifier rigor.** CODE2BENCH gates property-based tests on branch coverage, while [FrontierCode](../works/frontiercode.md) combines execution with contamination detection.
+- **Sealed replay after open exploration.** [AI4AI-Bench](../works/ai4ai-bench.md) lets agents use a cheap proxy during development, then transfers only source code into a fresh run scored by a fixed final evaluator; the original algorithm is rerun under the same conditions.
 - **Recency-aware implementation.** [ResearchCodeBench](../works/researchcodebench.md) derives implementation tasks from recent research contributions and publishes a contamination-safe subset.
 
 ## Comparison
@@ -33,7 +34,7 @@ Clean arithmetic does not rescue a bad measurement. Memorized tasks inflate capa
 | CritPt | Unpublished expert problems | Answers unavailable to training corpora | Expert/reference checking | New authored batches |
 | DiscoverPhysics | Generated physical worlds | On-demand counterfactual laws | Simulator ground truth | Per instance |
 | ResearchCodeBench | Recent ML papers | Contamination-safe paper subset | Executable code tests | New paper cohorts |
-| ASI-Bench | 60 project tasks from the literature, expert-filtered | B1–B4 guidance gradient within one project; B3 and B4 mean forced strictly below 40 at task acceptance | Task-specific gates and weighted scorers vs reproducible per-task references; private `seed42` reference set | New authored task batches via public portal |
+| ASI-Bench | 60 project tasks from the literature, expert-filtered | B1-B4 guidance gradient within one project; B3 and B4 mean forced strictly below 40 at task acceptance | Task-specific gates and weighted scorers vs reproducible per-task references; private `seed42` reference set | New authored task batches via public portal |
 
 ## Open Questions
 
@@ -45,15 +46,16 @@ Clean arithmetic does not rescue a bad measurement. Memorized tasks inflate capa
 
 ## Related Works
 
-- [CODE2BENCH](../works/code2bench.md)
-- [PRL-Bench](../works/prl-bench.md)
-- [MedBrowseComp](../works/medbrowsecomp.md)
-- [CritPt](../works/critpt.md)
+- [AI4AI-Bench](../works/ai4ai-bench.md)
+- [ASI-Bench](../works/asi-bench.md)
 - [OnePot-Bench](../works/onepot-bench.md)
 - [GeneBench-Pro](../works/genebench-pro.md)
-- [DiscoverPhysics](../works/discoverphysics.md)
-- [Robotouille](../works/robotouille.md)
 - [FrontierCode](../works/frontiercode.md)
-- [ResearchCodeBench](../works/researchcodebench.md)
+- [DiscoverPhysics](../works/discoverphysics.md)
+- [PRL-Bench](../works/prl-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)
-- [ASI-Bench](../works/asi-bench.md)
+- [CritPt](../works/critpt.md)
+- [CODE2BENCH](../works/code2bench.md)
+- [ResearchCodeBench](../works/researchcodebench.md)
+- [MedBrowseComp](../works/medbrowsecomp.md)
+- [Robotouille](../works/robotouille.md)

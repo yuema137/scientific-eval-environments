@@ -26,6 +26,6 @@
 
 ## Related Works
 
-- [AFMBench](../works/afmbench.md)
-- [EnvTrace](../works/envtrace.md)
 - [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md)
+- [EnvTrace](../works/envtrace.md)
+- [AFMBench](../works/afmbench.md)

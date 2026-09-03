@@ -29,17 +29,17 @@
 | AI Research Preference Models | 2026 | 通过挑选哪些候选方案值得执行，来引导 AI 研究 agent 的搜索 | 基于冻结预训练模型的偏好模型接入 AIRA-dojo 的树搜索，覆盖 20 个 AIRS-Bench 机器学习研究任务；每任务单张 H200 跑 24 小时 | 归一化分数由 0.684 提升到 0.729，同时只用了不到三分之二的执行预算 | [卡片](../works/ai-research-preference-models.md) |
 | Curation-Bench | 2026 | 根据 downstream evaluation 反复研究和修改训练数据选择策略 | 固定 VLM、训练 recipe 和 evaluator；最多修改 10 轮可执行 policy | 在受控数据预算下提高下游质量的数据策略 | [卡片](../works/curation-bench.md) |
 | PostTrainBench | 2026 | 自主选择数据、训练方法、compute allocation 和实验，完成 base LLM post-training | 七个目标、四种 base model；每任务单张 H100 跑 10 小时 | 提交模型在 held-out benchmark 上取得的最高分 | [卡片](../works/posttrainbench.md) |
-| ASI-Bench | 2026 | 在一个研究项目内自己选方法、搭工作流、跑出并验证结果，分四个指导层级（B1–B4） | 11 个科学领域的 60 个项目级任务；沙箱化、agent 中立的 harness | 各指导层级的任务分数（0–100）；18 个 agent–模型组合的宏平均 B1 50.91 / B2 29.10 / B3 26.62 | [卡片](../works/asi-bench.md) |
+| ASI-Bench | 2026 | 在一个研究项目内选择方法、搭建流程、运行并产出可验证结果，覆盖四个指导等级（B1-B4） | 11 个科学领域的 60 个项目级任务；沙箱与 agent-neutral harness | 各指导等级 0-100 分；18 个 agent-model configuration 的 macro mean 为 B1 50.91 / B2 29.10 / B3 26.62 | [卡片](../works/asi-bench.md) |
 
 ## Related Works
 
-- [AstaBench](../works/astabench.md)
-- [MLGym](../works/mlgym.md)
-- [MLR-Bench](../works/mlr-bench.md)
-- [AIRS-Bench](../works/airs-bench.md)
-- [ResearchClawBench](../works/researchclawbench.md)
-- [AutoResearchEval](../works/autoresearcheval.md)
-- [AI Research Preference Models](../works/ai-research-preference-models.md)
-- [Curation-Bench](../works/curation-bench.md)
-- [PostTrainBench](../works/posttrainbench.md)
 - [ASI-Bench](../works/asi-bench.md)
+- [AI Research Preference Models](../works/ai-research-preference-models.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
+- [Curation-Bench](../works/curation-bench.md)
+- [ResearchClawBench](../works/researchclawbench.md)
+- [PostTrainBench](../works/posttrainbench.md)
+- [AIRS-Bench](../works/airs-bench.md)
+- [AstaBench](../works/astabench.md)
+- [MLR-Bench](../works/mlr-bench.md)
+- [MLGym](../works/mlgym.md)

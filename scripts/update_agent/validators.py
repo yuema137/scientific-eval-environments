@@ -10,6 +10,7 @@ import re
 import sys
 
 from common import taxonomy, search_profiles, read_json, REPO_ROOT
+from related_works import card_order, expected_slug_order
 
 # Real template residue that must never survive into a finished card. Bare words like TBD/TBA are
 # NOT banned outright: they appear in legitimate prose ("the preprint lists the venue as TBD"). Only
@@ -139,6 +140,7 @@ def _card_axis_links(txt, axis):
 
 def validate_axes(repo_root):
     errs = []
+    order = card_order(repo_root)
     tax = taxonomy(repo_root)
     valid = {a: set(tax.get(a, {}).values()) for a in ("topics", "activities", "domains")}
     cards = [p for p in glob.glob(os.path.join(repo_root, "works", "*.md"))
@@ -161,7 +163,8 @@ def validate_axes(repo_root):
             pp = os.path.join(repo_root, axis, "%s.md" % page)
             if not os.path.exists(pp):
                 continue
-            rw = _section(open(pp).read(), "Related Works") or ""
+            text = open(pp).read()
+            rw = _section(text, "Related Works") or _section(text, "相关工作") or ""
             page_slugs = re.findall(r"\]\(\.\./works/([a-z0-9\-]+)\.md\)", rw)
             if len(page_slugs) != len(set(page_slugs)):
                 errs.append("%s/%s: duplicate Related Works entry" % (axis, page))
@@ -174,13 +177,30 @@ def validate_axes(repo_root):
             for slug, links in card_axis[axis].items():
                 if page in links and slug not in page_set:
                     errs.append("%s: card lists %s/%s but page omits it" % (slug, axis, page))
+            if all(slug in order for slug in page_slugs) and page_slugs != expected_slug_order(page_slugs, order):
+                errs.append("%s/%s: Related Works is not ordered by First appeared" % (axis, page))
     # domains: one-way; every domain-page Related Works link resolves
     for page in valid["domains"]:
         pp = os.path.join(repo_root, "domains", "%s.md" % page)
         rw = _section(open(pp).read(), "Related Works") or ""
-        for s in re.findall(r"\]\(\.\./works/([a-z0-9\-]+)\.md\)", rw):
+        page_slugs = re.findall(r"\]\(\.\./works/([a-z0-9\-]+)\.md\)", rw)
+        for s in page_slugs:
             if not os.path.exists(os.path.join(repo_root, "works", "%s.md" % s)):
                 errs.append("domains/%s: Related Works -> missing card %s" % (page, s))
+        if all(slug in order for slug in page_slugs) and page_slugs != expected_slug_order(page_slugs, order):
+            errs.append("domains/%s: Related Works is not ordered by First appeared" % page)
+
+    # Chinese mirrors must expose the same chronological navigation order.
+    for axis in ("topics", "activities", "domains"):
+        for page in valid[axis]:
+            pp = os.path.join(repo_root, "zh", axis, "%s.md" % page)
+            if not os.path.exists(pp):
+                continue
+            text = open(pp).read()
+            rw = _section(text, "Related Works") or _section(text, "相关工作") or ""
+            page_slugs = re.findall(r"\]\(\.\./works/([a-z0-9\-]+)\.md\)", rw)
+            if all(slug in order for slug in page_slugs) and page_slugs != expected_slug_order(page_slugs, order):
+                errs.append("zh/%s/%s: Related Works is not ordered by First appeared" % (axis, page))
     return (not errs, errs)
 
 

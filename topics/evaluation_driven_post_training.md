@@ -19,6 +19,7 @@ The useful signal is not just whether the final model is better. It is which mea
 ## Existing Approaches
 
 - **Autonomous post-training R&D.** [PostTrainBench](../works/posttrainbench.md) gives CLI agents a base model, evaluator, and fixed GPU-time budget, then scores the submitted model.
+- **Algorithm-design R&D.** [AI4AI-Bench](../works/ai4ai-bench.md) narrows the intervention to the learning procedure: the agent may experiment against a cheap proxy, but only its source patch reaches a clean-start run scored by the sealed final evaluator.
 - **Data-policy optimization.** [Curation-Bench](../works/curation-bench.md) narrows intervention to data selection under a fixed model and recipe.
 - **Evaluation-derived supervision.** [SkillCoach](../works/skillcoach.md) turns a validated process rubric into a trajectory filter for supervised fine-tuning.
 - **Judge utility as training reward.** [MobileJudgeBench](../works/mobilejudgebench.md) tests whether offline judge metrics predict downstream on-policy reward usefulness.
@@ -28,6 +29,7 @@ The useful signal is not just whether the final model is better. It is which mea
 | Work | Improved object | Allowed intervention | Evaluation role | Guard against gaming |
 |---|---|---|---|---|
 | PostTrainBench | Base language model | Data, SFT, adapters, RL, hyperparameters | Repeated feedback and final objective | Rules, held-out evaluator, contamination audit |
+| AI4AI-Bench | Training algorithm across ten AI research repositories | Loss, supervision, update rule, data, schedule, optimizer, or surrounding run configuration | Cheap proxy during four-hour exploration; sealed clean-start final evaluation | Source-only handoff, identical baseline rerun, fixed final evaluator |
 | Curation-Bench | Data policy and trained VLM | Selection policy | Per-iteration downstream feedback | Fixed model, recipe, and suite |
 | SkillCoach | Agent model via SFT | Trajectory selection | Process-quality filter | Validation-gated rubric evolution |
 | MobileJudgeBench | Mobile agent via RL | Reward evaluator choice | Judge as on-policy reward | Human-grounded judge benchmark |
@@ -42,14 +44,15 @@ The useful signal is not just whether the final model is better. It is which mea
 
 ## Related Works
 
-- [PostTrainBench](../works/posttrainbench.md)
-- [Curation-Bench](../works/curation-bench.md)
-- [SkillCoach](../works/skillcoach.md)
+- [AI4AI-Bench](../works/ai4ai-bench.md)
 - [MobileJudgeBench](../works/mobilejudgebench.md)
-- [MA-RLHF](../works/ma-rlhf.md)
-- [CoLA](../works/cola.md)
-- [MetaAct-RL](../works/metaact-rl.md)
+- [SkillCoach](../works/skillcoach.md)
+- [Curation-Bench](../works/curation-bench.md)
 - [PG-HAP](../works/pg-hap.md)
+- [PostTrainBench](../works/posttrainbench.md)
 - [HiPER](../works/hiper.md)
+- [MetaAct-RL](../works/metaact-rl.md)
 - [PTA-GRPO](../works/pta-grpo.md)
 - [Beyond 'Aha!'](../works/beyond-aha.md)
+- [CoLA](../works/cola.md)
+- [MA-RLHF](../works/ma-rlhf.md)

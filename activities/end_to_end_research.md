@@ -29,17 +29,17 @@ What distinguishes these from single-stage tasks is that success depends on chai
 | AI Research Preference Models | 2026 | Steer an AI research agent's search by choosing which candidate solutions get executed | Frozen-LM preference models in AIRA-dojo's tree search over 20 AIRS-Bench ML-research tasks; 24 h per task on one H200 | Normalized score 0.684 -> 0.729 while using under two-thirds of the execution budget | [card](../works/ai-research-preference-models.md) |
 | Curation-Bench | 2026 | Iteratively research and revise a training-data selection policy from downstream evaluation | Fixed VLM, training recipe and evaluator; executable policy edited for up to 10 rounds | A data policy that improves downstream quality under a controlled data budget | [card](../works/curation-bench.md) |
 | PostTrainBench | 2026 | Autonomously choose data, training method, compute allocation and experiments to post-train a base LLM | Seven targets; four base models; one H100 for 10 hours per task | Highest held-out benchmark score from the submitted trained model | [card](../works/posttrainbench.md) |
-| ASI-Bench | 2026 | Select the method, build the workflow, run it and produce verifiable results within one research project, at four guidance levels (B1–B4) | 60 project-level tasks across 11 scientific domains; sandboxed, agent-neutral harnesses | Task score 0–100 at each guidance level; macro means B1 50.91 / B2 29.10 / B3 26.62 across 18 agent–model configurations | [card](../works/asi-bench.md) |
+| ASI-Bench | 2026 | Select the method, build the workflow, run it and produce verifiable results within one research project, at four guidance levels (B1-B4) | 60 project-level tasks across 11 scientific domains; sandboxed, agent-neutral harnesses | Task score 0-100 at each guidance level; macro means B1 50.91 / B2 29.10 / B3 26.62 across 18 agent-model configurations | [card](../works/asi-bench.md) |
 
 ## Related Works
 
-- [AstaBench](../works/astabench.md)
-- [MLGym](../works/mlgym.md)
-- [MLR-Bench](../works/mlr-bench.md)
-- [AIRS-Bench](../works/airs-bench.md)
-- [ResearchClawBench](../works/researchclawbench.md)
-- [AutoResearchEval](../works/autoresearcheval.md)
-- [AI Research Preference Models](../works/ai-research-preference-models.md)
-- [Curation-Bench](../works/curation-bench.md)
-- [PostTrainBench](../works/posttrainbench.md)
 - [ASI-Bench](../works/asi-bench.md)
+- [AI Research Preference Models](../works/ai-research-preference-models.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
+- [Curation-Bench](../works/curation-bench.md)
+- [ResearchClawBench](../works/researchclawbench.md)
+- [PostTrainBench](../works/posttrainbench.md)
+- [AIRS-Bench](../works/airs-bench.md)
+- [AstaBench](../works/astabench.md)
+- [MLR-Bench](../works/mlr-bench.md)
+- [MLGym](../works/mlgym.md)

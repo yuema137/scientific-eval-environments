@@ -6,6 +6,7 @@
 
 | 首次公开 | Work | 来源 |
 |---|---|---|
+| 2026-08-20 | [AI4AI-Bench](./works/ai4ai-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.20318) |
 | 2026-08-18 | [ASI-Bench](./works/asi-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.17271) |
 | 2026-08-17 | [R³-Bench](./works/r3-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.16033) |
 | 2026-08-14 | [PACE-Bench](./works/pace-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.14441) |

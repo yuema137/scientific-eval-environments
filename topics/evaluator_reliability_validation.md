@@ -45,11 +45,11 @@ A score inherits the evaluator's mistakes. A judge can agree with experts on eas
 
 ## Related Works
 
-- [AgentRewardBench](../works/agentrewardbench.md)
 - [MobileJudgeBench](../works/mobilejudgebench.md)
-- [Plan-RewardBench](../works/plan-rewardbench.md)
 - [SkillTV-Bench](../works/skilltv-bench.md)
 - [AgentLens](../works/agentlens.md)
-- [AstroVisBench](../works/astrovisbench.md)
+- [Plan-RewardBench](../works/plan-rewardbench.md)
 - [PSE-Bench](../works/pse-bench.md)
 - [FIRE-Bench](../works/fire-bench.md)
+- [AstroVisBench](../works/astrovisbench.md)
+- [AgentRewardBench](../works/agentrewardbench.md)

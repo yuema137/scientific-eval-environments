@@ -16,7 +16,7 @@ A large cluster targets **electronic and hardware design**. Analog work is cover
 
 A second cluster is **molecular and drug design**, where instructions or targets admit many valid structures: [TOMG-Bench](../works/tomg-bench.md) (open-domain molecule editing, optimization, customized generation) and [SMDD-Bench](../works/smdd-bench.md) (budgeted multi-turn small-molecule drug design over protein targets). [Aviary](../works/aviary.md) contributes protein-engineering and molecular-cloning environments, and [SciAgentArena](../works/sciagentarena.md) includes optimization and drug-discovery task categories across biomedical fields.
 
-A third cluster is **simulation-guided parameter tuning and iterative engineering design under simulator feedback**: [HydroAgent](../works/hydroagent.md) (calibrating an operational hydrologic model to maximize NSE), [SimulCost](../works/simulcost.md) (cost-aware parameter tuning across physics simulators), [Frontier-Eng](../works/frontier-eng.md) (iterative generative design under industrial-grade simulator reward and interaction budgets), [RE-Bench](../works/re-bench.md) (open-ended ML research-engineering optimization against reference solutions), and [EngDesign](../works/engdesign.md) (design artifacts across nine engineering areas checked by each area's own simulator, with up to ten feedback rounds).
+A third cluster is **simulation-guided parameter tuning and iterative engineering design under simulator feedback**: [HydroAgent](../works/hydroagent.md) (calibrating an operational hydrologic model to maximize NSE), [SimulCost](../works/simulcost.md) (cost-aware parameter tuning across physics simulators), [Frontier-Eng](../works/frontier-eng.md) (iterative generative design under industrial-grade simulator reward and interaction budgets), [RE-Bench](../works/re-bench.md) (open-ended ML research-engineering optimization against reference solutions), [AI4AI-Bench](../works/ai4ai-bench.md) (redesigning the learning algorithm itself and judging the source patch in a clean-start run), and [EngDesign](../works/engdesign.md) (design artifacts across nine engineering areas checked by each area's own simulator, with up to ten feedback rounds).
 
 A fourth cluster is **chemical-process design and plant-operation decisions**, where the design space is a flowsheet or an operating point rather than a controller or a molecule. [Simona](../works/simona.md) has agents choose unit operations and tune their configuration until the flowsheet converges, and the Parameter dimension of [CeProBench](../works/ceprobench.md) refines operating parameters against yield, purity, and cost objectives inside Aspen Plus. Two works move the decision from design time to run time, where a proposal is admissible only if an external validator clears it: the [fault-tolerant-control tutorial environments](../works/ctrl-alt-recover.md) ask for a recovery mode or a setpoint triple after an injected plant fault, and the [AAE framework](../works/aae-framework.md) grades proposed control actions by traversal of the plant's P&ID topology.
 
@@ -52,32 +52,34 @@ A fifth cluster is **civil and structural component design against codes and sol
 | SimulCost | 2026 | Cost-aware parameter tuning of physics simulations | 2,947 single-round + 1,931 multi-round tasks, 13 simulators | Tuning quality under simulation-time/resource budget | [card](../works/simulcost.md) |
 | SMDD-Bench | 2026 | Budgeted multi-turn small-molecule drug design | 502 solvable instances, 102 targets, five task types | Solve rate under oracle-call limit (GPT-5.4: 40.2%) | [card](../works/smdd-bench.md) |
 | PACE-Bench | 2026 | Redesign a mechanism so that it works again after its operating physics changes | 144 source-to-target pairs in Box2D; 20 attempts per pair with non-prescriptive diagnostic feedback | Pass@2 under a constraint-satisfaction fraction; best full-benchmark result 35.9% (Reflexion + Qwen3-14B) | [card](../works/pace-bench.md) |
+| AI4AI-Bench | 2026 | Redesign learning procedures across ten AI research repositories | Four hours on one B300 to explore against a cheap proxy; source-only handoff into a clean run of up to twelve hours | Repository-native final metric relative to an identically rerun original algorithm, plus classification of whether the patch changed learning or only the surrounding run | [card](../works/ai4ai-bench.md) |
 
 ## Related Works
 
-- [PDAgent-Bench](../works/pdagent-bench.md)
+- [AI4AI-Bench](../works/ai4ai-bench.md)
+- [PACE-Bench](../works/pace-bench.md)
 - [EnergyBridge](../works/energybridge.md)
-- [AnalogCoder](../works/analogcoder.md)
-- [AnalogXpert](../works/analogxpert.md)
-- [Aviary](../works/aviary.md)
-- [ControlAgent / ControlEval](../works/controleval.md)
-- [RE-Bench](../works/re-bench.md)
-- [Speak-to-Structure / TOMG-Bench](../works/tomg-bench.md)
-- [CVDP](../works/cvdp.md)
-- [HLS-Eval](../works/hls-eval.md)
-- [Frontier-Eng](../works/frontier-eng.md)
-- [HydroAgent](../works/hydroagent.md)
-- [PowerAgentBench-SS](../works/poweragentbench-ss.md)
-- [SciAgentArena](../works/sciagentarena.md)
-- [SimulCost](../works/simulcost.md)
-- [SMDD-Bench](../works/smdd-bench.md)
-- [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md)
 - [A Tutorial on Autonomous Fault-Tolerant Control Using Knowledge-Grounded LLM Agents](../works/ctrl-alt-recover.md)
+- [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md)
+- [PowerAgentBench-SS](../works/poweragentbench-ss.md)
+- [PDAgent-Bench](../works/pdagent-bench.md)
+- [SciAgentArena](../works/sciagentarena.md)
+- [SMDD-Bench](../works/smdd-bench.md)
+- [HydroAgent](../works/hydroagent.md)
+- [Frontier-Eng](../works/frontier-eng.md)
+- [MolClaw](../works/molclaw.md)
+- [PE Civil Bench](../works/pe-civil-bench.md)
+- [SimulCost](../works/simulcost.md)
 - [CeProBench](../works/ceprobench.md)
 - [Simona](../works/simona.md)
-- [EngDesign](../works/engdesign.md)
 - [MASSE](../works/masse.md)
+- [EngDesign](../works/engdesign.md)
+- [CVDP](../works/cvdp.md)
 - [Large Language Model-Based Multi-Agent Systems for Automated Foundation Design](../works/large-language-model-based-multi-agent-systems-for.md)
-- [PE Civil Bench](../works/pe-civil-bench.md)
-- [MolClaw](../works/molclaw.md)
-- [PACE-Bench](../works/pace-bench.md)
+- [HLS-Eval](../works/hls-eval.md)
+- [Aviary](../works/aviary.md)
+- [Speak-to-Structure / TOMG-Bench](../works/tomg-bench.md)
+- [AnalogXpert](../works/analogxpert.md)
+- [RE-Bench](../works/re-bench.md)
+- [ControlAgent / ControlEval](../works/controleval.md)
+- [AnalogCoder](../works/analogcoder.md)

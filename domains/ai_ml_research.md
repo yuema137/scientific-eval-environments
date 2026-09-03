@@ -12,6 +12,7 @@ AI and machine learning as the science under study: reproducing, rediscovering, 
 |---|---|---|---|---|---|
 | Curation-Bench | 2026 | Automate research on vision-language instruction-tuning data selection by iteratively designing and revising executable curation policies. | Open-ended agent research loop with a fixed base model, training recipe and evaluator; up to 10 policy iterations. | Downstream evaluation of the model trained on each selected subset, compared with published selection baselines and data budgets. | [→](../works/curation-bench.md) |
 | PostTrainBench | 2026 | Autonomously post-train base LLMs for seven reasoning, tool-use, knowledge, health and coding targets. | Four base models × seven benchmark targets; one H100 and 10 hours per task, through four CLI scaffolds. | Held-out target benchmark score, aggregated across base models and targets, plus trace/data/script contamination audits. | [→](../works/posttrainbench.md) |
+| AI4AI-Bench | 2026 | Autonomously redesign learning algorithms rather than only tune a supplied training run. | Ten frozen research repositories spanning SFT, agentic RL, distillation, preference optimization, reward modeling, diffusion, unlearning, graph generation, model merging and pruning; four-hour exploration plus a clean run of up to twelve hours. | Deterministic repository-native metrics mapped so 0 is uninformative, 0.1 is the rerun original algorithm and 1.0 is an estimated optimum; submitted diffs are also classified by intervention layer. | [→](../works/ai4ai-bench.md) |
 | EXP-Bench | 2025 | Conduct complete research experiments from influential AI publications — formulate hypotheses, design and implement procedures, execute, and conclude — across computer vision, NLP, and reinforcement learning. | 461 tasks from 51 NeurIPS 2024 and ICLR 2024 papers, decomposed into 12,737 individually gradable subtasks, each with a research question and incomplete starter code. | LLM judges for design, implementation (vs. ground-truth git diffs), and conclusion, plus a containerized execution validator; All·E✓ requires all four (best reported: 0.5%). | [→](../works/exp-bench.md) |
 | FIRE-Bench | 2026 | Rediscover established, verifiable findings from recent high-impact ML research — empirical studies of LLM behavior, plus a CV and neural-network-analysis extension — given only the high-level research question. | 40 fully executed tasks built from per-paper research-problem trees (root question → subproblems → leaf experiments); all compute-light (≤24 h on one 80GB A100). | Claim-level precision/recall/F1 by semantic entailment between atomic claims of the agent's conclusion and the ground-truth findings; judge validated at F1 0.89 against humans. | [→](../works/fire-bench.md) |
 | AIRS-Bench | 2026 | Frontier research-science tasks in language modeling and time-series forecasting (alongside mathematics and bioinformatics), covering the full research lifecycle with no baseline code. | 20 tasks; the agent submits held-out test-split predictions as a CSV. | Execution-based, outcome-only scoring by task-specific evaluators; SOTA-normalized score with a 'march of nines' transform near the ceiling. | [→](../works/airs-bench.md) |
@@ -94,6 +95,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | EXP-Bench | CV, LM, RL | ? | ✘ | ◐ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ◐ | ◐ | 2 | 2 | 3 | **8.5** |
 | MLRC-Bench | GEN | ? | ◐ | ◐ | ◐ | ✘ | ✔ | ✔ | **3.5** | ✔ | ◐ | ✔ | 3 | 0 | 3 | **8.5** |
 | Beyond Final Scores | MLE, SYS | ? | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ | **3.5** | ◐ | ✘ | ✘ | 3 | 1 | 4 | **8.5** |
+| AI4AI-Bench | LM, CV, RL, MLE | ? | ✘ | ✔ | ◐ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 3 | 1 | 4 | **8** |
 | DSBench | DS | ? | ◐ | ◐ | ◐ | ✘ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✘ | 2 | 2 | 2 | **7** |
 | MLGym | CV, LM, RL, GT | ✔ | ◐ | ◐ | ✘ | ✘ | ◐ | ✔ | **3.5** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
 | SUPER | CODE | ◐ | ✘ | ✘ | ✘ | ◐ | ✔ | ✔ | **3** | ◐ | ✘ | ✘ | 3 | 3 | 3 | **9.5** |
@@ -113,30 +115,31 @@ Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 o
 
 ## Related Works
 
+- [AI4AI-Bench](../works/ai4ai-bench.md)
+- [AI Research Preference Models](../works/ai-research-preference-models.md)
+- [Beyond Final Scores](../works/beyond-final-scores.md)
+- [Replica](../works/replica.md)
+- [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
 - [Curation-Bench](../works/curation-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)
-- [EXP-Bench](../works/exp-bench.md)
-- [FIRE-Bench](../works/fire-bench.md)
 - [AIRS-Bench](../works/airs-bench.md)
+- [FIRE-Bench](../works/fire-bench.md)
 - [AstaBench](../works/astabench.md)
-- [PaperBench](../works/paperbench.md)
-- [MLE-bench](../works/mle-bench.md)
-- [MLE-Dojo](../works/mle-dojo.md)
-- [MLAgentBench](../works/mlagentbench.md)
-- [ML-Bench](../works/ml-bench.md)
-- [DSBench](../works/dsbench.md)
-- [DA-Code](../works/da-code.md)
-- [BLADE](../works/blade.md)
-- [MLRC-Bench](../works/mlrc-bench.md)
-- [SUPER](../works/super.md)
-- [MLR-Bench](../works/mlr-bench.md)
-- [RE-Bench](../works/re-bench.md)
-- [MLGym](../works/mlgym.md)
 - [ResearchCodeBench](../works/researchcodebench.md)
-- [IdeaBench](../works/ideabench.md)
+- [EXP-Bench](../works/exp-bench.md)
+- [MLR-Bench](../works/mlr-bench.md)
+- [MLE-Dojo](../works/mle-dojo.md)
+- [MLRC-Bench](../works/mlrc-bench.md)
+- [PaperBench](../works/paperbench.md)
+- [MLGym](../works/mlgym.md)
 - [LiveIdeaBench](../works/liveideabench.md)
+- [RE-Bench](../works/re-bench.md)
+- [IdeaBench](../works/ideabench.md)
 - [DevAI / Agent-as-a-Judge](../works/devai.md)
-- [Replica](../works/replica.md)
-- [Beyond Final Scores](../works/beyond-final-scores.md)
-- [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
-- [AI Research Preference Models](../works/ai-research-preference-models.md)
+- [DA-Code](../works/da-code.md)
+- [MLE-bench](../works/mle-bench.md)
+- [DSBench](../works/dsbench.md)
+- [SUPER](../works/super.md)
+- [BLADE](../works/blade.md)
+- [ML-Bench](../works/ml-bench.md)
+- [MLAgentBench](../works/mlagentbench.md)

@@ -45,11 +45,11 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 
 ## 相关工作
 
-- [AgentRewardBench](../works/agentrewardbench.md)
 - [MobileJudgeBench](../works/mobilejudgebench.md)
-- [Plan-RewardBench](../works/plan-rewardbench.md)
 - [SkillTV-Bench](../works/skilltv-bench.md)
 - [AgentLens](../works/agentlens.md)
-- [AstroVisBench](../works/astrovisbench.md)
+- [Plan-RewardBench](../works/plan-rewardbench.md)
 - [PSE-Bench](../works/pse-bench.md)
 - [FIRE-Bench](../works/fire-bench.md)
+- [AstroVisBench](../works/astrovisbench.md)
+- [AgentRewardBench](../works/agentrewardbench.md)

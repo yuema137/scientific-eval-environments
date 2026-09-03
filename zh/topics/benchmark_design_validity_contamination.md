@@ -22,6 +22,7 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 - **私有或新写答案。** [CritPt](../works/critpt.md)、[OnePot-Bench](../works/onepot-bench.md) 和 [GeneBench-Pro](../works/genebench-pro.md) 使用未发表、私有或留出的材料。
 - **程序生成与反事实构造。** [DiscoverPhysics](../works/discoverphysics.md) 按需生成物理世界，[Robotouille](../works/robotouille.md) 则程序化生成具身任务。
 - **Verifier 严谨度。** CODE2BENCH 要求 property-based tests 达到 branch-coverage gate；[FrontierCode](../works/frontiercode.md) 同时做执行检查与 contamination 检测。
+- **开放 exploration 之后做封闭 replay。** [AI4AI-Bench](../works/ai4ai-bench.md) 允许 agent 在开发时使用便宜 proxy，随后只把 source code 送入 fresh run，由固定 final evaluator 打分；原算法也在相同条件下重跑。
 - **近期研究实现。** [ResearchCodeBench](../works/researchcodebench.md) 从近期研究贡献构造实现任务，并单独发布 contamination-safe 子集。
 
 ## 方法对比
@@ -33,7 +34,7 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 | CritPt | 未发表的专家问题 | 答案不进入训练语料 | 专家与参考答案检查 | 新的专家题批次 |
 | DiscoverPhysics | 自动生成的物理世界 | 按需生成反事实规律 | Simulator ground truth | 每个实例更新 |
 | ResearchCodeBench | 近期 ML 论文 | contamination-safe 论文子集 | 可执行代码测试 | 新论文批次 |
-| ASI-Bench | 取自文献、经专家筛选的 60 个项目级任务 | 同一项目内的 B1–B4 指导梯度；任务接收时强制 B3 与 B4 平均分严格低于 40 | 逐任务的评估门与加权打分器，对照可复现的逐任务参考；私有 `seed42` 参考集 | 通过公开 portal 的新任务批次 |
+| ASI-Bench | 60 个来自文献、经专家筛选的项目任务 | 同一项目内 B1-B4 指导梯度；接收任务时强制 B3 与 B4 均值低于 40 | 针对任务的 gate 和加权 scorer，对照可复现的逐任务 reference；私有 `seed42` reference set | 通过公共入口持续加入新编写的任务批次 |
 
 ## 还没解决的问题
 
@@ -45,15 +46,16 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 
 ## 相关工作
 
-- [CODE2BENCH](../works/code2bench.md)
-- [PRL-Bench](../works/prl-bench.md)
-- [MedBrowseComp](../works/medbrowsecomp.md)
-- [CritPt](../works/critpt.md)
+- [AI4AI-Bench](../works/ai4ai-bench.md)
+- [ASI-Bench](../works/asi-bench.md)
 - [OnePot-Bench](../works/onepot-bench.md)
 - [GeneBench-Pro](../works/genebench-pro.md)
-- [DiscoverPhysics](../works/discoverphysics.md)
-- [Robotouille](../works/robotouille.md)
 - [FrontierCode](../works/frontiercode.md)
-- [ResearchCodeBench](../works/researchcodebench.md)
+- [DiscoverPhysics](../works/discoverphysics.md)
+- [PRL-Bench](../works/prl-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)
-- [ASI-Bench](../works/asi-bench.md)
+- [CritPt](../works/critpt.md)
+- [CODE2BENCH](../works/code2bench.md)
+- [ResearchCodeBench](../works/researchcodebench.md)
+- [MedBrowseComp](../works/medbrowsecomp.md)
+- [Robotouille](../works/robotouille.md)
