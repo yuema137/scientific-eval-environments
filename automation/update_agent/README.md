@@ -37,6 +37,9 @@ finalize job open a PR.
   commented out pending a first legitimate PR, so every earlier run was `workflow_dispatch`.
 - GitHub disables scheduled workflows on repositories with **60 days of no activity**; any push
   re-arms them. If the cadence silently stops, check this first.
+- The catch-up guard allows a backlog of up to 60 days. A longer outage fails visibly rather than
+  silently skipping old records; after a successful recovery, the durable watermark advances and
+  the normal 72-hour cadence resumes.
 - `workflow_dispatch` supports manual modes (below). Scheduled runs are always `full`.
 - Concurrency group `daily-knowledge-update`, `cancel-in-progress: false` — a running production
   update is never interrupted by the next trigger.
