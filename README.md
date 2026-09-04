@@ -26,6 +26,8 @@ This is a reference library, not a benchmark implementation. The repository's [E
 
 ## Start here
 
+> **Live interactive explorer:** [Open SciEval](https://yuema137.github.io/scieval/) for a searchable, visual view of this repository. The Markdown here is canonical; the website is an automatically generated snapshot.
+
 If you already know what kind of question you have, use the matching entry point:
 
 | If your question is... | Start here |
@@ -83,7 +85,7 @@ The Markdown files are the ground truth. The HTML explorer is only a render laye
 
 The repository currently contains:
 
-- **382** work cards
+- **384** work cards
 - **15** topic pages
 - **19** domain pages
 - **11** activity pages
@@ -210,6 +212,10 @@ validates a self-contained snapshot. A guarded pull request then updates only
 previous snapshot and the rest of the personal site stay unchanged.
 
 The explorer does **not** own content. If the site and a Markdown file disagree, the Markdown file wins.
+
+### How the site stays in sync
+
+After a relevant change reaches `main`, [`Publish Explorer Snapshot`](./.github/workflows/explorer-pages.yml) rebuilds and validates the site from the repository's Markdown. It then opens a guarded machine pull request in the personal-site repository that changes only `scieval/**`. The personal site validates that snapshot before merging and deploying it. A failed build or validation leaves the previous live snapshot and the rest of the personal site untouched.
 
 ---
 
