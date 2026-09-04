@@ -2,6 +2,10 @@
 
 > [English](../README.md) | **简体中文**
 
+> ## [打开 SciEval 交互网站 →](https://yuema137.github.io/scieval/)
+>
+> **网站才是给读者看的主入口。** GitHub 负责维护 Markdown 和追溯来源；想浏览这套知识库，直接进 explorer 就行。
+
 如果你做科学、工程，或者做 AI，很快就会碰到一个问题：agent benchmark 论文很多，但你不容易一下看明白它到底在测什么、对应哪类真实 workflow、以及失败以后你到底能从里边学到啥。
 
 这个仓库就是拿来把这件事讲清楚的。
