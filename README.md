@@ -2,6 +2,10 @@
 
 > **English** | [简体中文](./zh/README.md)
 
+> ## [Open the SciEval Explorer →](https://yuema137.github.io/scieval/)
+>
+> **The website is the reader-facing home of this project.** Use GitHub to inspect provenance and maintain the Markdown; use the explorer to browse the knowledge base.
+
 If you work on science, engineering, or AI, you usually hit the same problem fast: there are many papers about "agent benchmarks", but it is hard to tell what they actually measure, what kind of workflow they represent, and what you would learn from a failure.
 
 This repository exists to make that legible.
