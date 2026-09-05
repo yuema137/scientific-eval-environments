@@ -22,7 +22,8 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 - **成对偏好。** [Plan-RewardBench](../works/plan-rewardbench.md) 交换候选顺序，测试 evaluator 能否从易混淆的工具 trajectory 中选出较优者。
 - **需要 skill 知识的判断。** [SkillTV-Bench](../works/skilltv-bench.md) 检查 judge 能否验证依赖特定 skill 的执行过程。
 - **混合验证。** [AgentLens](../works/agentlens.md) 把形式化检查、多个 judge 维度和带证据的文字审查结合起来。
-- **领域校准。** [AstroVisBench](../works/astrovisbench.md)、[PSE-Bench](../works/pse-bench.md) 和 [FIRE-Bench](../works/fire-bench.md) 都报告科学输出 judge 与人类专家的一致程度。
+- **领域校准。** [AstroVisBench](../works/astrovisbench.md)、[PSE-Bench](../works/pse-bench.md) 和 [FIRE-Bench](../works/fire-bench.md) 都报告科学输出 judge 与人类专家的一致程度。[DiscoveryBench](../works/discoverybench.md) 把自己的假设匹配 evaluator 验了两轮：先在 200 个抽取与匹配决策上逐步核对，再拿三位标注者对预测假设的排序做整体比对。
+- **拿会议的录用结论当锚点。** [AI-Researcher](../works/ai-researcher.md) 用内容相近的 ICLR 录用与拒稿配对检验自己的审稿 agent，并在给任何生成论文打分之前，先把最分不清这两类稿件的 evaluator 剔除。
 
 ## 方法对比
 
@@ -34,6 +35,8 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 | SkillTV-Bench | LLM-as-a-Judge 与 Agent-as-a-Judge | 需要 skill 知识的 trajectory 标签 | Judge accuracy 与 best-of-N 选择 | Trajectory 选择 |
 | AgentLens | 混合 judge 与形式化 verifier | 可执行检查和审查证据 | 多维质量指数 | Coding agent 诊断 |
 | AstroVisBench | 多模态可视化 judge | 专业天文学家标注 | 排名相关与标注者一致性 | Judge 选择 |
+| DiscoveryBench | GPT-4 假设匹配 evaluator（HMS） | 从已发表论文复现的标准假设；三位标注者在 100 组上的偏好排序 | 与人类排序一致率 95%，Fleiss κ = 0.91；200 个样例上抽取与匹配步骤正确率 94-99% | Benchmark 评分 |
+| AI-Researcher | 五个 LLM 审稿 agent，换序两两比较 | 32 组内容相近的 ICLR 论文配对（2021-2023）的录用/拒稿结果 | 录用预测准确率 65.62-90.62%；可比质量检出率（评分高于 -1.0 的配对占比）93.75-100% | Evaluator 选型：主实验剔除了最弱的模型 |
 
 ## 还没解决的问题
 
@@ -53,3 +56,5 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 - [FIRE-Bench](../works/fire-bench.md)
 - [AstroVisBench](../works/astrovisbench.md)
 - [AgentRewardBench](../works/agentrewardbench.md)
+- [AI-Researcher](../works/ai-researcher.md)
+- [DiscoveryBench](../works/discoverybench.md)

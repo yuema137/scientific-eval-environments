@@ -48,6 +48,7 @@ Life-science evaluation from molecular to population scale. Bioinformatics, geno
 | BiomedSQL | 2025 | Answer human-genomics questions over GWAS summary statistics, SMR causal-inference results, allele frequencies and gene–pathway associations for neurodegenerative disease, supplying the statistical-genetics conventions — genome-wide significance thresholds, effect directionality — that the question never states. | 68,000 question / SQL query / answer triples over a ten-table BigQuery database ranging from a few hundred rows to 72.2M, templated from 40 expert-authored seed queries; models scored on a representative 546-question test set. | Execution Accuracy as the headline metric (the executed query output must match the gold execution result exactly), with Jaccard partial credit and syntax error rate alongside, against a measured baseline of two biomedical analysts at 90.0% EX. | [→](../works/biomedsql.md) |
 | OntoLearner | 2026 | Construct ontology structure for biology and life sciences — one of the 22 domains its ontology collection spans — by typing terms, recovering the is-a hierarchy between types, and extracting non-taxonomic relations. | 180 machine-readable ontologies across 22 domains with pipeline-ready train/dev/test splits for three ontology-learning tasks; 22 retrieval models and 12 LLMs evaluated in single-shot structured prediction rather than an agentic setting. | Precision, recall and F1 computed by normalized pair-level and triple-level matching against the gold ontology structure; per-domain and per-model scores are `TODO(reference)` in the card, the paper's results section not being retrievable. | [→](../works/ontolearner.md) |
 | Apodex Discovery | 2026 | Adeno-associated virus capsid design across viability prediction, tropism prediction, structure prediction and generative design. | One of 20 executable environments, each supplying tools, data, budgets and a hidden verifier behind a fixed episode interface. | Task-specific experimental fitness measures against the published state of the art, which the system exceeded by 7% across all four tasks. | [→](../works/apodex-discovery.md) |
+| DiscoveryBench | 2024 | Recover the findings of two published organismal-biology studies: whether accelerated body-size evolution in upland environments tracks recent speciation in South American freshwater fishes, and how introduction pathway shapes the invasion success of non-native plants along environmental gradients. | 16 of the 239 real test tasks are biology; each supplies the study's dataset(s), column metadata and a natural-language discovery goal, and the agent writes and runs its own analysis workflow. | GPT-4 Hypothesis Matching Score against the paper's gold hypothesis over context, variables and relationship; the best non-oracle agent scores 0% on this domain. | [→](../works/discoverybench.md) |
 
 ## Capability Matrix
 
@@ -102,6 +103,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | BioXArena | GEN | ✘ | ◐ | ✘ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 3 | 1 | 3 | **9** |
 | SpatialBench | SPAT | ? | ✘ | ◐ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
 | scBench-Long | SCB, IMM | ? | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✘ | ✔ | ◐ | 2 | 1 | 3 | **7.5** |
+| DiscoveryBench | ECOEV | ? | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ✘ | ✔ | 1 | 1 | 4 | **7.5** |
 | HeurekaBench | SCB | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | 2 | 3 | **7** |
 | NatureBench | SCB, PROT | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 2 | 1 | 2 | **7** |
 | Frontier LLM-based agents can overcome the ontology curation bottleneck for natural phenotypes | ECOEV, CURA | ✘ | ✘ | ◐ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✘ | 3 | 2 | 1 | **7** |
@@ -171,5 +173,6 @@ Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 o
 - [ScienceAgentBench](../works/scienceagentbench.md)
 - [SciCode](../works/scicode.md)
 - [LAB-Bench](../works/lab-bench.md)
+- [DiscoveryBench](../works/discoverybench.md)
 - [BioKGBench](../works/biokgbench.md)
 - [GenoTEX](../works/genotex.md)

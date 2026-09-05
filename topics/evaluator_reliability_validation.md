@@ -22,7 +22,8 @@ A score inherits the evaluator's mistakes. A judge can agree with experts on eas
 - **Pairwise preference validation.** [Plan-RewardBench](../works/plan-rewardbench.md) controls candidate order and asks evaluators to distinguish preferred tool-use trajectories from confusable negatives.
 - **Skill-aware judging.** [SkillTV-Bench](../works/skilltv-bench.md) tests whether judges can verify trajectories whose correctness depends on task-specific skill knowledge.
 - **Hybrid verification.** [AgentLens](../works/agentlens.md) combines formal checks with multiple judge dimensions and evidence-linked reviews.
-- **Domain calibration.** [AstroVisBench](../works/astrovisbench.md), [PSE-Bench](../works/pse-bench.md), and [FIRE-Bench](../works/fire-bench.md) report human agreement for judges used on scientific outputs.
+- **Domain calibration.** [AstroVisBench](../works/astrovisbench.md), [PSE-Bench](../works/pse-bench.md), and [FIRE-Bench](../works/fire-bench.md) report human agreement for judges used on scientific outputs. [DiscoveryBench](../works/discoverybench.md) audits its hypothesis-matching evaluator twice: step by step on 200 extraction and matching decisions, then end to end against three annotators ranking predicted hypotheses.
+- **Conference decisions as the anchor.** [AI-Researcher](../works/ai-researcher.md) tests its paper-review agent on content-matched pairs of accepted and rejected ICLR submissions, and drops the evaluator that separates them worst before rating any generated paper.
 
 ## Comparison
 
@@ -34,6 +35,8 @@ A score inherits the evaluator's mistakes. A judge can agree with experts on eas
 | SkillTV-Bench | LLM-as-a-Judge and Agent-as-a-Judge | Skill-aware trajectory labels | Judge accuracy and best-of-N selection | Trajectory selection |
 | AgentLens | Hybrid judge plus formal verifier | Executable checks and review evidence | Multi-dimensional quality index | Coding-agent diagnosis |
 | AstroVisBench | Multimodal visualization judges | Professional astronomer annotations | Rank correlation and inter-annotator agreement | Judge selection |
+| DiscoveryBench | GPT-4 hypothesis-matching evaluator (HMS) | Gold hypotheses replicated from published papers; three annotators' preference rankings over 100 pairs | 95% agreement with human rankings, Fleiss κ = 0.91; 94-99% correct on the extraction and matching steps over 200 examples | Benchmark scoring |
+| AI-Researcher | Five LLM paper-review agents in order-swapped pairwise comparison | ICLR accept/reject decisions on 32 content-matched paper pairs (2021-2023) | Acceptance-prediction accuracy 65.62-90.62%; comparable-quality detection (share of pairs rated above -1.0) 93.75-100% | Evaluator selection: the weakest model is dropped from the main experiments |
 
 ## Open Questions
 
@@ -53,3 +56,5 @@ A score inherits the evaluator's mistakes. A judge can agree with experts on eas
 - [FIRE-Bench](../works/fire-bench.md)
 - [AstroVisBench](../works/astrovisbench.md)
 - [AgentRewardBench](../works/agentrewardbench.md)
+- [AI-Researcher](../works/ai-researcher.md)
+- [DiscoveryBench](../works/discoverybench.md)

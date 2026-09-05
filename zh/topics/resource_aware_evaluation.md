@@ -43,6 +43,8 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 - **成本–性能前沿式报告。** 另一些工作在 accuracy 之外同时报告 token 或 dollar 成本，用于在 Pareto 前沿上而非单一 accuracy 数字上做比较。这是分析时的资源意识，而非 benchmark 内部的资源意识。
 - **把 exploration 与 verification compute 分开。** [AI4AI-Bench](../works/ai4ai-bench.md) 先给 agent 一张 B300、四小时做探索，再花最多十二小时从头运行提交的 source。它按 reasoning effort 报告 API spend 和 output-token scaling，但 formal training 的 GPU 成本没有计入 dollar total。
 
+- **把时长上限和 GPU 配额写成任务约束。** [InnovatorBench](../works/innovatorbench.md) 在 20 个 LLM 研究任务的描述里都写明了工作时长上限和 GPU 配额。所以 agent 如果把时间全花在一次自己后来又放弃的训练上，到该提交的时候就拿不出东西了。论文按模型和研究方向报告墙钟小时数与美元花费，和分数列在一起；其 test-time scaling 曲线显示，agent 要跑过 11 小时才拿到最好成绩。论文记录的失败也都是资源上的失败：预算还剩 21 小时就把训练任务停掉，以及推理任务还占着 GPU 就启动整卡训练脚本。
+
 ### 一处缺口：预算是给定的，不是预测出来的
 
 上面每一种做法，都是把预算作为**agent 必须遵守的约束**交下去，事后再看它花了多少。几乎没有谁要求 agent 或 harness 在动作执行**之前**估计它会花多少。库内有两项工作最接近，但值得区分开：
@@ -78,6 +80,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 | AI Research Preference Models | 2026 | 候选方案执行所耗的 H200 GPU 小时 | 预算固定，贡献在于如何**分配**——用一个冻结的预训练模型预测哪些候选值得真正跑一遍 | AI 研究 agent 在 ML 解空间上的搜索（AIRA-dojo 跑 AIRS-Bench） | [→](../works/ai-research-preference-models.md) |
 | AI4AI-Bench | 2026 | 每项任务四 B300-hours exploration，最多十二 B300-hours clean-start verification，另报 API dollar 与 output token | 两阶段硬预算；将 exploration spend 与最终算法质量并排报告 | 在十个冻结 AI research repository 上做算法设计的 agent | [→](../works/ai4ai-bench.md) |
 | BATS / Budget Tracker | 2025 | 统一计价：token 开销加上按每次 0.001 美元固定计价的工具调用 | 预算是硬约束，但每一轮都让 agent **看得见**；scaling 曲线在统一计价下绘制 | 网页搜索 agent（BrowseComp、BrowseComp-ZH、HLE-Search），另有 τ²-bench 与 SWE-bench Verified | [→](../works/bats-budget-aware.md) |
+| InnovatorBench | 2025 | 工作时长上限、GPU 配额、墙钟小时数、美元 | 预算写进每个任务，作为操作约束；时间与费用按模型、按研究方向报告 | 20 个 2-36 小时的 LLM 研究任务；最好成绩出现在 11 小时之后，平均每次尝试 5.13 小时、32.92 美元 | [→](../works/innovatorbench.md) |
 
 ## 还没解决的问题
 
@@ -109,6 +112,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 - [VeRO / VeRO-Bench](../works/vero.md) — 在门控评估调用预算下把 coding agent 作为 agent 优化器来 benchmark。
 - [BATS / Budget Tracker](../works/bats-budget-aware.md) — 把 token 与工具调用折算进同一种计价；仅仅把剩余预算告诉 agent，就能用十分之一的预算追平 ReAct 基线的准确率。
 - [CostBench](../works/costbench.md) — 动态 tool-use 条件下的成本最优规划。
+- [InnovatorBench](../works/innovatorbench.md)
 - [MASSE](../works/masse.md) — 在端到端结构工程工作流 benchmark 中，把 token 用量与运行时间作为 rubric 的一个计分项。
 - [SDBench](../works/sdbench.md) — 按准确率-成本前沿评分的序贯诊断。
 - [Gravity-Bench-v1](../works/gravity-bench.md) — 引力物理发现中预算受限的观测规划。

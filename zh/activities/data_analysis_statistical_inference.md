@@ -70,6 +70,7 @@
 | Stargazer | 2026 | 迭代式、基于物理的 RV 模型拟合 | 120 个任务（100 个合成 + 20 个真实档案） | 按标准逐项通过的 Keplerian 拟合（Easy 80%，真实 0%） | [卡片](../works/stargazer.md) |
 | TS-Skill | 2026 | 信号层面的时间序列分析：尺度选择、定位、跨区间整合 | 覆盖七种 skill 组合的 3,000 道 QA；25 个按领域设定的合成类别 | 按单 skill 与按组合报告准确率（无工具时 SK3 不高于 0.259 的随机基线） | [卡片](../works/ts-skill.md) |
 | VESTA / DAWN | 2026 | 带残差检视的迭代式分布与时间序列拟合 | 400 个实例，含恒星 IMF 与引力波啁啾切分 | 对照真值的 Jensen–Shannon 散度与 ELPD-LOO | [卡片](../works/vesta-dawn.md) |
+| DiscoveryBench | 2024 | 清洗、合并并统计分析给定数据集，导出一句自然语言假设 | 六个领域的 264 个真实任务（训练 25 / 测试 239）外加 903 个合成任务；每题给数据集、字段说明与一句发现目标 | 与标准假设在 context、variables、relationship 三维上的 Hypothesis Matching Score；最佳系统 25% | [卡片](../works/discoverybench.md) |
 
 ## Related Works
 
@@ -116,4 +117,5 @@
 - [ScienceAgentBench](../works/scienceagentbench.md)
 - [DSBench](../works/dsbench.md)
 - [BLADE](../works/blade.md)
+- [DiscoveryBench](../works/discoverybench.md)
 - [GenoTEX](../works/genotex.md)

@@ -458,6 +458,9 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 | ASI-Bench | 2026 | 60 project-level tasks from the literature (1,300+ candidate ideas, 40+ experts, 31,000+ human hours) | 11 scientific domains, project-level research at four guidance levels | Task-specific evaluation gates and weighted scorers against reproducible per-task references; B1-B4 guidance gradient with B3/B4 mean below 40 | [→](../works/asi-bench.md) |
 | Agents Catching Agents | 2026 | Seven cohorts over six public clinical datasets spanning text, imaging and tabular records | Validity of clinical multi-agent committees under shortcut cues | Shortcut-adoption rate against the isolated-condition flip rate; three oversight detectors scored on precision, recall and false-positive rate | [→](../works/agents-catching-agents.md) |
 | AI4AI-Bench | 2026 | Ten frozen research repositories spanning ten AI training-algorithm families | Diagnose, rewrite and test a training algorithm during four-hour exploration; submit source only | Clean-start execution against the original method under identical conditions, mapped to a shared 0/0.1/1 scale; submitted diffs classified by intervention layer | [→](../works/ai4ai-bench.md) |
+| DiscoveryBench | 2024 | DB-Real replicated in Python from 20+ published papers and author-verified; DB-Synth generated from hypothesis semantic trees | Data-driven discovery across sociology, biology, humanities, economics, engineering and meta-science | GPT-4 Hypothesis Matching Score over context, variables and relationship; agrees with human preference rankings 95% of the time (Fleiss κ = 0.91) | [→](../works/discoverybench.md) |
+| InnovatorBench | 2025 | 20 tasks from 14 NeurIPS / ICLR / COLM / EMNLP / ACL papers, each starter repository stripped of the paper's key implementation | LLM research: data construction, filtering and augmentation, loss design, reward design, scaffold construction | Deterministic external scoring scripts calibrated so a baseline anchors near 0 and the paper's own reference solution near 80 | [→](../works/innovatorbench.md) |
+| AI-Researcher | 2025 | 22 target papers (2022-2024) chosen by keyword and citation filtering, with method names, technical detail and citations anonymized | Diffusion models, vector quantization, graph neural networks, recommender systems | Code-review agent for completeness and 5-point correctness, plus order-swapped pairwise LLM review against the human paper (-3 to +3); reviewer validated at 65.62-90.62% on 32 ICLR accept/reject pairs | [→](../works/ai-researcher.md) |
 
 ## Open Questions
 
@@ -585,6 +588,7 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 - [BridgeEQA](../works/bridgeeqa.md)
 - [EnvTrace](../works/envtrace.md)
 - [Can Large Language Models Automate the HAZOP Process Without Human Intervention?](../works/can-large-language-models-automate-the-hazop-proce.md)
+- [InnovatorBench](../works/innovatorbench.md)
 - [Lean4Physics](../works/lean4physics.md)
 - [ReplicationBench](../works/replicationbench.md)
 - [AstaBench](../works/astabench.md)
@@ -657,6 +661,7 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 - [PHYSICS](../works/physics-benchmark.md)
 - [DomainCQA / AstroChart](../works/domaincqa.md)
 - [LLM-EPANET](../works/llm-epanet.md)
+- [AI-Researcher](../works/ai-researcher.md)
 - [BixBench](../works/bixbench.md)
 - [AlchemyBench](../works/alchemybench.md)
 - [MLGym](../works/mlgym.md)
@@ -699,6 +704,7 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 - [LAB-Bench](../works/lab-bench.md)
 - [ElecBench](../works/elecbench.md)
 - [MolPuzzle](../works/molpuzzle.md)
+- [DiscoveryBench](../works/discoverybench.md)
 - [BioKGBench](../works/biokgbench.md)
 - [AssertionBench](../works/assertionbench.md)
 - [MatText](../works/mattext.md)

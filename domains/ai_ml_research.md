@@ -38,6 +38,8 @@ AI and machine learning as the science under study: reproducing, rediscovering, 
 | Beyond Final Scores | 2026 | Improve a correct but deliberately suboptimal ML or systems artifact over a long run. | 36 AutoLab tasks in four families (Model Development 7, System Optimization 15, Puzzle & Challenge 10, CUDA 4); 756 rollouts across seven models. | Automated per-task verifier with scores normalised to [0, 1]; a manual audit found only 1.2% of solutions genuinely novel and 6.3% exploiting evaluation-specific shortcuts. | [→](../works/beyond-final-scores.md) |
 | AutoWorldModel-Bench | 2026 | Autonomously improve a provided world model with no improvement direction specified in advance. | 64 sessions (2 agents × 8 games × 4 base architectures), 6 hours on one H100 per session, 10-minute cap per training run. | Held-out composite of Position L1 and Alive F1 at h ∈ {1, 10, 20}; 33 of 64 sessions reach Δ ≥ +0.10 and 91% of winning edits are substantive rather than hyperparameter tweaks. | [→](../works/autoworldmodel-bench.md) |
 | AI Research Preference Models | 2026 | Decide which of an AI research agent's candidate ML solutions are worth spending GPU time to execute. | Two frozen-LM preference models (plan/code reasoning; and pilot experiments under a 5-minute cap) inserted into AIRA-dojo's child-creation step over 20 AIRS-Bench tasks; 24 h on one H200 per task, 10 seeds, 200 GPU-hours total. | AIRS-Bench normalized score: 0.684 unguided -> 0.711 inference-only -> 0.729 agentic, against a 0.748 validation-oracle ceiling; new SOTA on WinoGrande (94.1%) and SVAMP (95.7%). | [→](../works/ai-research-preference-models.md) |
+| InnovatorBench | 2025 | Improve on published LLM-research contributions instead of reproducing them: construct, filter and augment training data, design losses and RL rewards, and build agent scaffolds. | 20 tasks from 14 papers across six research areas, 2-36 hours each in ResearchGym on a multi-GPU cluster with asynchronous jobs and snapshots; up to four scored submissions per task. | Deterministic external scripts (accuracy, F1, BLEU, entropy) run outside the writable workspace against hidden reference data, calibrated so a baseline anchors near 0 and the paper's own reference solution near 80. | [→](../works/innovatorbench.md) |
+| AI-Researcher | 2025 | Produce a research contribution in diffusion models, vector quantization, graph neural networks or recommender systems, from references and data through implementation to a written manuscript. | 22 guided (Level-1) and 6 open-ended (Level-2) tasks built from 22 papers published 2022-2024, with method names, technical detail, dataset naming and citations anonymized in the inputs. | Code-review agent scoring implementation completeness and a 5-point correctness, plus five LLM reviewers comparing the generated manuscript against the human paper on a -3 to +3 scale with presentation order swapped. | [→](../works/ai-researcher.md) |
 
 ## Capability Matrix
 
@@ -47,7 +49,7 @@ A checklist view of the same works: what each one does and does not put under ev
 
 **`Domain`** names the AI and machine learning research subfields the work actually evaluates in, taken from the card's `## Domains` prose. This vocabulary is specific to this page — each domain page defines its own, since one domain's subfields have nothing to say to another's.
 
-`LM` language modeling & NLP · `CV` computer vision & vision-language modeling · `RL` reinforcement learning · `GT` game theory & multi-agent decision making · `TS` time-series forecasting · `WM` world modeling & learned dynamics · `INTERP` neural-network analysis & interpretability · `MLE` machine-learning engineering & model development · `SYS` ML systems, kernels & performance engineering · `DS` data science & statistical data analysis · `CODE` research-code implementation, setup & reproduction · `IDEA` research ideation & hypothesis generation · `GEN` curriculum-wide or unspecified, no single subfield
+`LM` language modeling & NLP · `CV` computer vision & vision-language modeling · `VQ` vector quantization & discrete representation learning · `GNN` graph learning & graph neural networks · `IR` recommender systems & information retrieval · `RL` reinforcement learning · `GT` game theory & multi-agent decision making · `TS` time-series forecasting · `WM` world modeling & learned dynamics · `INTERP` neural-network analysis & interpretability · `MLE` machine-learning engineering & model development · `SYS` ML systems, kernels & performance engineering · `DS` data science & statistical data analysis · `CODE` research-code implementation, setup & reproduction · `IDEA` research ideation & hypothesis generation · `GEN` curriculum-wide or unspecified, no single subfield
 
 **Two scores, not one.** The columns split into **coverage** — what the evaluation setup puts under test — and **rigor** — how far you can trust what it reports. They are summed separately because they pull against each other: a benchmark can put everything under test and verify none of it carefully, and a deliberately narrow one can be the most trustworthy thing on the page. Rows are ordered by `Cov`, highest first, and by `Rig` within equal coverage; remaining ties keep Comparison-table order. Coverage leads because it is the axis a reader scans for — *does this benchmark even put my problem under test* — and `Rig` then says how far to trust what it reports.
 
@@ -81,6 +83,7 @@ Three cautions. A `?` costs exactly what a `✘` costs, so both scores are floor
 For multi-domain suites the row describes this domain's slice, as in the Comparison table.
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| InnovatorBench | LM, RL | ◐ | ◐ | ✔ | ◐ | ✔ | ✔ | ✔ | **5.5** | ◐ | ✘ | ◐ | 3 | 1 | 4 | **9** |
 | MLR-Bench | GEN | ✔ | ✔ | ◐ | ✔ | ✘ | ✔ | ✔ | **5.5** | ✘ | ✔ | ✘ | 1 | 2 | 3 | **7** |
 | PostTrainBench | MLE | ✔ | ✔ | ✔ | ✘ | ✘ | ✔ | ✔ | **5** | ✘ | ◐ | ✘ | 2 | 1 | 4 | **7.5** |
 | AIRS-Bench | LM, TS | ✔ | ✔ | ✘ | ✘ | ✔ | ✔ | ✔ | **5** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
@@ -89,6 +92,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | AI Research Preference Models | GEN | ? | ✔ | ✔ | ✘ | ✔ | ✔ | ✔ | **5** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
 | Replica | GEN | ? | ✘ | ✔ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ◐ | 1 | 2 | 2 | **7** |
 | DevAI / Agent-as-a-Judge | MLE | ✔ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **5** | ✘ | ✔ | ◐ | 1 | 1 | 3 | **6.5** |
+| AI-Researcher | CV, VQ, GNN, IR | ✔ | ◐ | ? | ◐ | ◐ | ✔ | ✔ | **4.5** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | FIRE-Bench | LM, CV, INTERP | ? | ✔ | ◐ | ? | ✔ | ✔ | ✔ | **4.5** | ◐ | ✘ | ◐ | 1 | 1 | 3 | **6** |
 | AstaBench | GEN | ◐ | ◐ | ✔ | ? | ◐ | ✔ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | ? | 1 | **5** |
 | MLE-bench | MLE | ◐ | ◐ | ◐ | ? | ✘ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 3 | 1 | 3 | **9** |
@@ -124,6 +128,7 @@ Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 o
 - [PostTrainBench](../works/posttrainbench.md)
 - [AIRS-Bench](../works/airs-bench.md)
 - [FIRE-Bench](../works/fire-bench.md)
+- [InnovatorBench](../works/innovatorbench.md)
 - [AstaBench](../works/astabench.md)
 - [ResearchCodeBench](../works/researchcodebench.md)
 - [EXP-Bench](../works/exp-bench.md)
@@ -131,6 +136,7 @@ Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 o
 - [MLE-Dojo](../works/mle-dojo.md)
 - [MLRC-Bench](../works/mlrc-bench.md)
 - [PaperBench](../works/paperbench.md)
+- [AI-Researcher](../works/ai-researcher.md)
 - [MLGym](../works/mlgym.md)
 - [LiveIdeaBench](../works/liveideabench.md)
 - [RE-Bench](../works/re-bench.md)

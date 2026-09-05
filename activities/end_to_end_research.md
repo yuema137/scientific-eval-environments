@@ -30,6 +30,7 @@ What distinguishes these from single-stage tasks is that success depends on chai
 | Curation-Bench | 2026 | Iteratively research and revise a training-data selection policy from downstream evaluation | Fixed VLM, training recipe and evaluator; executable policy edited for up to 10 rounds | A data policy that improves downstream quality under a controlled data budget | [card](../works/curation-bench.md) |
 | PostTrainBench | 2026 | Autonomously choose data, training method, compute allocation and experiments to post-train a base LLM | Seven targets; four base models; one H100 for 10 hours per task | Highest held-out benchmark score from the submitted trained model | [card](../works/posttrainbench.md) |
 | ASI-Bench | 2026 | Select the method, build the workflow, run it and produce verifiable results within one research project, at four guidance levels (B1-B4) | 60 project-level tasks across 11 scientific domains; sandboxed, agent-neutral harnesses | Task score 0-100 at each guidance level; macro means B1 50.91 / B2 29.10 / B3 26.62 across 18 agent-model configurations | [card](../works/asi-bench.md) |
+| AI-Researcher | 2025 | Literature review, idea generation, algorithm design, implementation, experiments and manuscript writing in one run | 22 guided and 6 open-ended tasks built from 22 papers in four AI subfields; references, instruction (Level-1 only) and datasets as input | Implementation completeness and correctness, plus an order-swapped pairwise review against the human paper on a -3 to +3 scale | [card](../works/ai-researcher.md) |
 
 ## Related Works
 
@@ -42,4 +43,5 @@ What distinguishes these from single-stage tasks is that success depends on chai
 - [AIRS-Bench](../works/airs-bench.md)
 - [AstaBench](../works/astabench.md)
 - [MLR-Bench](../works/mlr-bench.md)
+- [AI-Researcher](../works/ai-researcher.md)
 - [MLGym](../works/mlgym.md)

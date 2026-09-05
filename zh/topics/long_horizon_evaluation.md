@@ -133,6 +133,7 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 | R³-Bench | 2026 | 一份预算由六道题共用，因此必须分配算力，还得舍掉一部分题 | 无工具作答与 Terminus-2 shell | [→](../works/r3-bench.md) |
 | BATS / Budget Tracker | 2025 | 以工具调用预算为 scaling 轴（每种工具 10/30/50/100）；不给 agent 预算意识，性能很快见顶 | 真实网页浏览环境下的搜索 agent，另有零售对话与 SWE-bench Verified | [→](../works/bats-budget-aware.md) |
 | ASI-Bench | 2026 | 60 个项目级研究任务；完整轨迹覆盖 2,600+ 次交互、2,400+ 次执行步骤，以及全套 35+ 小时 agent 执行 | 沙箱科学研究（Docker `os` / `linux_ns`），配 agent-neutral harness adapter | [→](../works/asi-bench.md) |
+| InnovatorBench | 2025 | 20 个任务，每个 2-36 小时；agent 要跑过 11 小时才拿到最好成绩，约为 PaperBench 达到饱和所需时间的 6.5 倍 | ResearchGym：通过 HTTP 驱动多台 GPU 机器，支持异步后台任务，也支持快照的保存与恢复 | [→](../works/innovatorbench.md) |
 
 ## 还没解决的问题
 
@@ -178,6 +179,7 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 - [LongDA](../works/longda.md)
 - [VLA-Arena](../works/vla-arena.md)
 - [BATS / Budget Tracker](../works/bats-budget-aware.md)
+- [InnovatorBench](../works/innovatorbench.md)
 - [Toolathlon](../works/toolathlon.md)
 - [DeepResearch Bench](../works/deepresearch-bench.md)
 - [MLR-Bench](../works/mlr-bench.md)
