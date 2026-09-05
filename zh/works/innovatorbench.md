@@ -24,7 +24,7 @@ InnovatorBench 把 AI 研究 benchmark 的目标从「复现这个结果」改�
 - **Paper:** <https://arxiv.org/abs/2510.27598>
 - **Code:** <https://github.com/GAIR-NLP/InnovatorBench>
 - **Dataset:** <https://huggingface.co/datasets/GAIR/InnovatorBench>
-- **Venue:** ICLR 2026
+- **Venue:** ICLR 2026 · official listing <https://iclr.cc/virtual/2026/poster/10006754>
 
 ## Summary
 

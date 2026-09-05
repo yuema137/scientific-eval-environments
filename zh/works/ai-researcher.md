@@ -23,7 +23,7 @@ AI-Researcher 一次给出两样东西：一个自主研究系统，以及用来
 - **Paper:** <https://arxiv.org/abs/2505.18705>
 - **Project:** <https://autoresearcher.github.io>
 - **Code:** <https://github.com/HKUDS/AI-Researcher>
-- **Venue:** NeurIPS 2025
+- **Venue:** NeurIPS 2025 · official listing <https://neurips.cc/virtual/2025/poster/116385>
 
 ## Summary
 

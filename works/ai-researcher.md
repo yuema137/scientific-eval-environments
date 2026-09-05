@@ -23,7 +23,7 @@ AI-Researcher pairs an autonomous research system with Scientist-Bench, the benc
 - **Paper:** <https://arxiv.org/abs/2505.18705>
 - **Project:** <https://autoresearcher.github.io>
 - **Code:** <https://github.com/HKUDS/AI-Researcher>
-- **Venue:** NeurIPS 2025
+- **Venue:** NeurIPS 2025 · official listing <https://neurips.cc/virtual/2025/poster/116385>
 
 ## Summary
 

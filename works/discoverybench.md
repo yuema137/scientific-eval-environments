@@ -22,7 +22,7 @@ DiscoveryBench asks an agent to find a hypothesis rather than compute an answer.
 
 - **Paper:** <https://arxiv.org/abs/2407.01725>
 - **Code:** <https://github.com/allenai/discoverybench>
-- **Venue:** ICLR 2025
+- **Venue:** ICLR 2025 · official listing <https://iclr.cc/virtual/2025/poster/32050>
 
 ## Summary
 

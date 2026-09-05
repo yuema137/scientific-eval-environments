@@ -22,7 +22,7 @@ DiscoveryBench 让 agent 去找假设，而不是算答案。此前的数据分�
 
 - **Paper:** <https://arxiv.org/abs/2407.01725>
 - **Code:** <https://github.com/allenai/discoverybench>
-- **Venue:** ICLR 2025
+- **Venue:** ICLR 2025 · official listing <https://iclr.cc/virtual/2025/poster/32050>
 
 ## Summary
 
