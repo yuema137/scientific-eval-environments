@@ -18,6 +18,7 @@ EXP-Bench 是一个 benchmark，评估 AI agent 能否完成源自有影响力 A
 - [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
 - [实验设计与科学发现](../activities/experiment_design_discovery.md)
 - [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+- [研究复现与重复](../activities/research_reproduction_replication.md)
 
 ## Links
 
@@ -55,7 +56,7 @@ EXP-Bench 针对的局限是：尽管自动化 AI 研究前景可观，当前 AI
 ## Key Design Ideas
 
 - 半自主整理流水线，从论文及其配套开源代码中抽取并结构化实验细节，含基于影响力的筛选与轻量人工验证。
-- 每个任务将研究问题、高层方法描述与不完整起始代码配对；ground-truth 的设计、代码 diff 与结论均源自原论文自身的脚本。
+- 每个任务将研究问题、高层方法描述与不完整起始代码配对；ground-truth 的设计、代码 diff 与结论都来自源论文本身及其开源代码库。
 - 将每个任务细粒度分解为可独立评分的子任务（共 12,737 个），覆盖设计、实现与结论，使单项得分与端到端成功相互分离。
 - 容器化执行，并由 monitor 完整性检查在评分前筛查 agent 日志中的违规行为。
 

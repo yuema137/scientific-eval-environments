@@ -31,10 +31,10 @@ The set of activities is fixed. Adding, renaming, or removing one requires updat
 | [Laboratory & Instrument Control](./laboratory_instrument_control.md) | Instrument, microscope, and beamline control; lab automation; behaviour-defined control code | 3 |
 | [Optimization & Engineering Design](./optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 27 |
 | [Scientific Software & Workflow Engineering](./scientific_software_workflow_engineering.md) | Scientific/engineering code generation, repository and pipeline engineering, HDL and formal-spec code | 72 |
-| [Research Reproduction & Replication](./research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 11 |
+| [Research Reproduction & Replication](./research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 12 |
 | [End-to-End Research](./end_to_end_research.md) | Multi-stage research lifecycle across several major phases, from formulation to reporting | 10 |
 
-Across the corpus, 364 activity memberships are assigned over the applicable work cards.
+Across the corpus, 365 activity memberships are assigned over the applicable work cards.
 
 ## Activities are multi-label
 

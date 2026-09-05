@@ -12,7 +12,7 @@ Intentionally cross-cutting; it frequently co-occurs with Simulation, Data Analy
 
 ## Task Patterns
 
-Several members reproduce or replicate **ML/AI research papers**, ranging from getting existing repositories to run to full from-scratch replication. [SUPER](../works/super.md) isolates the setup-and-execute bottleneck of running real ML/NLP repos, [PaperBench](../works/paperbench.md) requires replicating ICML 2024 papers from scratch against author-co-developed rubrics, and [FIRE-Bench](../works/fire-bench.md) asks agents to rediscover published ML findings from only a research question. These co-occur heavily with Scientific Software and Data Analysis, and lean on LLM-as-judge grading.
+Several members reproduce or replicate **ML/AI research papers**, ranging from getting existing repositories to run to full from-scratch replication. [SUPER](../works/super.md) isolates the setup-and-execute bottleneck of running real ML/NLP repos, [PaperBench](../works/paperbench.md) requires replicating ICML 2024 papers from scratch against author-co-developed rubrics, and [FIRE-Bench](../works/fire-bench.md) asks agents to rediscover published ML findings from only a research question. [EXP-Bench](../works/exp-bench.md) sits between those last two: it supplies the source paper's research question, method description and masked repository but blocks the paper itself, then scores the agent's design, code diff and conclusion against the ground truth extracted from that paper. These co-occur heavily with Scientific Software and Data Analysis, and lean on LLM-as-judge grading.
 
 A second cluster reproduces **physics, astro, and materials claims** using open software and specialized toolchains, co-occurring strongly with Simulation and Scientific Software. [ReplicationBench](../works/replicationbench.md) targets astrophysics paper replication, [PRBench](../works/prbench.md) reimplements physics algorithms from scratch to match published numbers, [Collider-Bench](../works/collider-bench.md) recasts LHC searches through a public simulation stack scored by histogram fidelity, and [AutoMat](../works/automat.md) reproduces computational materials-science claims across DFT/MD/ML workflows. [Quantifying the Reproducibility of Astrophysical Methods](../works/quantifying-the-reproducibility-of-astrophysical-m.md) inverts the question within the same field: instead of asking whether an agent can reproduce a method, it samples many reconstructions of one method at nested levels of manuscript text and measures how much the writing itself constrains the space of valid implementations, scoring the executable pipelines that result on an ordinal validity hierarchy.
 
@@ -24,6 +24,7 @@ A third grouping reproduces **study results from provided code and data** or ben
 |---|---|---|---|---|---|
 | CORE-Bench | 2024 | Reproduce published study results from released code and data | 270 tasks from 90 papers, 3 difficulty levels, language + vision | Computational reproducibility accuracy (hardest level | [card](../works/core-bench.md) |
 | SUPER | 2024 | Set up and execute tasks from real research repositories | 45 end-to-end + 152 sub + 602 auto-generated ML/NLP GitHub problems | End-to-end success (GPT-4o 16.3%) | [card](../works/super.md) |
+| EXP-Bench | 2025 | Reconstruct a published AI experiment's design, code and conclusion from its research question and starter code | 461 tasks from 51 NeurIPS/ICLR 2024 papers; containerized, 40-minute cap, monitor blocks reading the source paper | Design, implementation and conclusion matching the paper's ground truth, plus a clean re-run (best All·E✓ 0.5%) | [card](../works/exp-bench.md) |
 | PaperBench | 2025 | Replicate SOTA AI papers from scratch | 20 ICML 2024 papers, 8,316 rubric tasks, sandbox | Rubric-graded replication score (best 21.0%) | [card](../works/paperbench.md) |
 | ReplicationBench | 2025 | Replicate astrophysics paper core contributions | 111 tasks over 20 papers, computational sandboxes | Faithfulness + correctness scores (best <20%) | [card](../works/replicationbench.md) |
 | AutoMat | 2026 | Reproduce computational materials science claims end-to-end | 85 SME-curated claims, HPC-representative resource-controlled env | Reproducibility score / success rate (best 54.1%) | [card](../works/automat.md) |
@@ -44,6 +45,7 @@ A third grouping reproduces **study results from provided code and data** or ben
 - [PRBench](../works/prbench.md)
 - [FIRE-Bench](../works/fire-bench.md)
 - [ReplicationBench](../works/replicationbench.md)
+- [EXP-Bench](../works/exp-bench.md)
 - [PaperBench](../works/paperbench.md)
 - [CORE-Bench](../works/core-bench.md)
 - [SUPER](../works/super.md)
