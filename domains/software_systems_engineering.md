@@ -91,9 +91,8 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | AInsteinBench | SCISW, MAINT | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 3 | 2 | 2 | **7.5** |
 | SWE-bench | MAINT | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | **0.5** | ◐ | ✘ | ◐ | 3 | 3 | 3 | **10** |
 | VCoT-Bench | FV | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 2 | 3 | 3 | **8.5** |
-Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
 
-Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 of the 47 rows, which is why it leads the coverage group — almost no work here demonstrably grants live retrieval, and most do not say; the full text of eleven of those thirty-five was read for this column and not one states it either way. `Scale` is `?` on 12 rows, every one a multi-domain suite that reports a total task count but no per-domain breakdown. Both columns record that silence rather than resolving it by inference, and in both cases the silence costs the work real score. Two further cells remain `?`: SciCode and Terminal-Bench Science on `Real`.
+Repository note: one column holds nearly every unknown. `Net` is `?` on 7 of the 19 rows, where the source describes the task environment without saying whether the agent could reach the live network. The three remaining unknowns all belong to FrontierCode — `Cost`, `MM` and `Scale` — which has no accompanying paper and publishes neither a task count nor a budget.
 
 ## Related Works
 

@@ -65,9 +65,8 @@
 | ERI Benchmark | WQ, AIR, WRM, WASTE, EIA | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✘ | 2 | 2 | 3 | **8** |
 | Hydro-SE Bench | WRM | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 2 | ? | 3 | **5** |
 | OntoLearner | ECO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | ? | 1 | **4** |
-Repository note: 有两行不属于其余各列所预设的 agent 场景。RealPDEBench 评的是科学机器学习代理模型而非 agent，其"任务设定"几列描述的是一套离线训练与评测流程。SciVQR 是静态多模态问答，没有 agent、工具调用或环境交互。
 
-Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 35 行为 `?`，这也正是它排在覆盖面一组最前的原因——本领域几乎没有工作被明确记载允许实时检索，而大多数干脆不提；为核这一列，其中十一篇的全文都读过，没有一篇给出说法。`Scale` 有 12 行为 `?`，无一例外都是跨领域套件：给了任务总数，却不给逐领域拆分。两列都如实记录这种沉默，而不靠推断把它填掉；而在两列上，沉默都实实在在地扣掉了这些工作的分数。另有两格仍为 `?`：SciCode 与 Terminal-Bench Science 的 `Real`。
+Repository note: 6 行里有 3 行的 `Scale` 是 `?`，原因都一样：它们只给了总数，没给其中属于环境科学的那一部分。LLM-EPANET 是分成五个复杂度类别的 69 条查询，Hydro-SE Bench 是覆盖九个子领域的 4,000 道题，OntoLearner 是横跨 22 个领域的 180 个本体。本页另外两个未知都出自 Terminal-Bench Science，分别在 `Net` 和 `Real`。
 
 ## Related Works
 

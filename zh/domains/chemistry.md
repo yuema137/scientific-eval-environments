@@ -131,9 +131,8 @@
 | SciCode | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✘ | **0** | ✘ | ✘ | ✘ | 3 | ? | 3 | **6** |
 | OntoLearner | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 3 | ? | 0 | **3.5** |
 | ChemEBench | CHEMINF, ORG | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ◐ | ✘ | 2 | ? | 0 | **2.5** |
-Repository note: 有两行不属于其余各列所预设的 agent 场景。RealPDEBench 评的是科学机器学习代理模型而非 agent，其"任务设定"几列描述的是一套离线训练与评测流程。SciVQR 是静态多模态问答，没有 agent、工具调用或环境交互。
 
-Repository note：`?` 表示来源没有把这一列说清楚，不是仓库推断它不存在。这个区别在 `Net` 和跨领域套件的逐领域 `Scale` 上尤其重要，因为论文经常只报总任务数。
+Repository note: 未知主要压在 `Scale` 上，39 行里有 13 行是 `?`。其中九个是跨领域套件，只给整套题目总数、不给化学这一块；另外四个（MetaSyn、MaCBench、AInsteinBench、onepot-Bench 0）根本没公布过固定的题目数量。`Net` 有 7 行是 `?`，来源始终没说 agent 能否连到实时网络；`Real` 有 3 行（MolPuzzle、Terminal-Bench Science、SciCode）。onepot-Bench 0 自己又多占四格未知：`Cost`、`MM`、`Human`、`Rubric`。它的卡片只能依据一份摘要写成，那份摘要只点了三个子套件的名字，这几列一个也没交代。
 
 ## Related Works
 

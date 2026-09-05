@@ -131,9 +131,8 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SciCode | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✘ | **0** | ✘ | ✘ | ✘ | 3 | ? | 3 | **6** |
 | OntoLearner | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 3 | ? | 0 | **3.5** |
 | ChemEBench | CHEMINF, ORG | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ◐ | ✘ | 2 | ? | 0 | **2.5** |
-Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
 
-Repository note: `?` records a source that does not settle the column, not an inferred absence. This matters most for `Net` and for per-domain `Scale` in multi-domain suites, where papers often report only a total task count.
+Repository note: `Scale` carries most of the unknowns here, `?` on 13 of the 39 rows. Nine are multi-field suites that publish a suite-wide item count and no chemistry slice; the other four (MetaSyn, MaCBench, AInsteinBench, onepot-Bench 0) publish no fixed item count at all. `Net` is `?` on 7 rows, where the source never says whether the agent could reach the live network, and `Real` on 3 (MolPuzzle, Terminal-Bench Science, SciCode). onepot-Bench 0 adds four more unknowns on its own: `Cost`, `MM`, `Human` and `Rubric`. Its card rests on an abstract that names the three constituent suites without settling any of those columns.
 
 ## Related Works
 

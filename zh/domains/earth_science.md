@@ -77,9 +77,8 @@
 | SciVQR | GEOL, HYD, CLI | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | Hydro-SE Bench | HYD, ATM | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 2 | ? | 3 | **5** |
-Repository note: 有两行不属于其余各列所预设的 agent 场景。RealPDEBench 评的是科学机器学习代理模型而非 agent，其"任务设定"几列描述的是一套离线训练与评测流程。SciVQR 是静态多模态问答，没有 agent、工具调用或环境交互。
 
-Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 35 行为 `?`，这也正是它排在覆盖面一组最前的原因——本领域几乎没有工作被明确记载允许实时检索，而大多数干脆不提；为核这一列，其中十一篇的全文都读过，没有一篇给出说法。`Scale` 有 12 行为 `?`，无一例外都是跨领域套件：给了任务总数，却不给逐领域拆分。两列都如实记录这种沉默，而不靠推断把它填掉；而在两列上，沉默都实实在在地扣掉了这些工作的分数。另有两格仍为 `?`：SciCode 与 Terminal-Bench Science 的 `Real`。
+Repository note: 这一页只有 12 行，未知却很集中：`Net` 有 5 行是 `?`，`Scale` 也有 5 行。每一个 `Scale` 未知都是只报一个总数、不报地球科学那一块的套件：ResearchClawBench 的 40 个任务、SciVisAgentBench 横跨七个领域的 108 个案例、ScienceBoard 的 169 个计算机操作任务、SciVQR 覆盖六个学科的 3,254 道题，以及 Hydro-SE Bench 的 4,000 道题，后者按子领域的拆分只以图的形式给出。`Real` 上 ScienceBoard 和 Terminal-Bench Science 是 `?`。
 
 ## Related Works
 

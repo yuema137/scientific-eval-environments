@@ -77,9 +77,8 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SciVQR | GEOL, HYD, CLI | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | Hydro-SE Bench | HYD, ATM | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 2 | ? | 3 | **5** |
-Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
 
-Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 of the 47 rows, which is why it leads the coverage group — almost no work here demonstrably grants live retrieval, and most do not say; the full text of eleven of those thirty-five was read for this column and not one states it either way. `Scale` is `?` on 12 rows, every one a multi-domain suite that reports a total task count but no per-domain breakdown. Both columns record that silence rather than resolving it by inference, and in both cases the silence costs the work real score. Two further cells remain `?`: SciCode and Terminal-Bench Science on `Real`.
+Repository note: on a twelve-row page the unknowns are concentrated: `Net` is `?` on 5 rows and `Scale` on 5. Every `Scale` unknown is a suite that publishes one total and no earth-science slice — ResearchClawBench's 40 tasks, SciVisAgentBench's 108 cases across seven domains, ScienceBoard's 169 computer-use tasks, SciVQR's 3,254 questions across six subjects, and Hydro-SE Bench's 4,000 questions, whose per-subfield split appears only as a figure. `Real` is `?` for ScienceBoard and Terminal-Bench Science.
 
 ## Related Works
 

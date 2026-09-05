@@ -77,9 +77,8 @@
 | PSE-Bench | FLOW, OPT, DES | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✘ | 1 | 2 | 3 | **7** |
 | Using Large Language Models for Solving Thermodynamic Problems | THERMO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ◐ | 1 | 1 | 3 | **6.5** |
 | ChemEBench | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✘ | 2 | ? | 1 | **4** |
-Repository note: 有两行不属于其余各列所预设的 agent 场景。RealPDEBench 评的是科学机器学习代理模型而非 agent，其"任务设定"几列描述的是一套离线训练与评测流程。SciVQR 是静态多模态问答，没有 agent、工具调用或环境交互。
 
-Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 35 行为 `?`，这也正是它排在覆盖面一组最前的原因——本领域几乎没有工作被明确记载允许实时检索，而大多数干脆不提；为核这一列，其中十一篇的全文都读过，没有一篇给出说法。`Scale` 有 12 行为 `?`，无一例外都是跨领域套件：给了任务总数，却不给逐领域拆分。两列都如实记录这种沉默，而不靠推断把它填掉；而在两列上，沉默都实实在在地扣掉了这些工作的分数。另有两格仍为 `?`：SciCode 与 Terminal-Bench Science 的 `Real`。
+Repository note: 这一页的未知不多，而且大多集中在少数几行上。`Net` 在 12 行里有 4 行是 `?`，`Cost` 有 2 行，原因都一样：来源描述了怎么跑，却没说 agent 能不能联网，也没说一次运行允许花多少。两处 `Scale` 的 `?` 成因不同：那篇容错控制教程给的是可参数化的场景生成器，本来就没有固定任务清单；ChemEBench 只报了全套 101 个任务，没有单列化学工程这一块。Terminal-Bench Science 一行就占了本页三格未知：`Net`、`Cost`，以及本页唯一一个 `MM` 未知。
 
 ## Related Works
 

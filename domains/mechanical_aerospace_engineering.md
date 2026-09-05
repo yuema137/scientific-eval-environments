@@ -77,9 +77,8 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | RealPDEBench | FLU, THERM | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | ERI Benchmark | GEN, AERO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✔ | 2 | 3 | 3 | **10** |
 | FEM-Bench | FEA, SOL | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ◐ | ✘ | ◐ | 3 | 1 | 2 | **7** |
-Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
 
-Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 of the 47 rows, which is why it leads the coverage group — almost no work here demonstrably grants live retrieval, and most do not say; the full text of eleven of those thirty-five was read for this column and not one states it either way. `Scale` is `?` on 12 rows, every one a multi-domain suite that reports a total task count but no per-domain breakdown. Both columns record that silence rather than resolving it by inference, and in both cases the silence costs the work real score. Two further cells remain `?`: SciCode and Terminal-Bench Science on `Real`.
+Repository note: half the page is unknown on `Net` — `?` on 6 of the 12 rows, because the source never says whether the agent could reach the live network. `Scale` is `?` on 3, and here the cause is not a missing per-domain split but a missing count outright: SciConvBench, AInsteinBench and FEABench each describe their task form without publishing how many tasks there are. Terminal-Bench Science is the page's one `Real` unknown.
 
 ## Related Works
 
