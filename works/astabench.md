@@ -11,6 +11,9 @@ AstaBench is a benchmark suite that provides a holistic measure of agentic abili
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
+- [Agent Harnesses & Scaffolding](../topics/agent_harnesses_scaffolding.md)
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 
 ## Activities
 
@@ -31,7 +34,7 @@ AstaBench argues that existing agent benchmark suites lack reproducible tools fo
 
 ## Tasks
 
-2,400+ problems across 11 benchmarks: literature understanding (PaperFindingBench, LitQA2-FullText-Search, ScholarQA-CS2, LitQA2-FullText, ArxivDIGESTables-Clean), code & execution (SUPER-Expert, CORE-Bench-Hard⁻, DS-1000), data analysis (DiscoveryBench), and end-to-end discovery (E2E-Bench, E2E-Bench-Hard), each with test and validation splits. Of the 11 benchmarks, 7 were created by the authors (4 previously unreleased) and the rest adapt prior datasets in slightly modified form; many problems derive from real usage of deployed Asta systems — PaperFindingBench from PaperFinder and OpenSciLM usage logs, ScholarQA-CS2 from 100 user questions issued to OpenSciLM — while the two end-to-end benchmarks pair machine-generated research tasks with human expert review. Literature benchmarks carry per-benchmark corpus date cutoffs so that retrieval is limited to papers predating benchmark creation.
+2,400+ problems across 11 benchmarks: literature understanding (PaperFindingBench, LitQA2-FullText-Search, ScholarQA-CS2, LitQA2-FullText, ArxivDIGESTables-Clean), code & execution (SUPER-Expert, CORE-Bench-Hard⁻, DS-1000), data analysis (DiscoveryBench), and end-to-end discovery (E2E-Bench, E2E-Bench-Hard), each with test and validation splits. Of the 11 benchmarks, 7 were created by the authors (4 previously unreleased) and the rest adapt prior datasets in slightly modified form; many problems derive from real usage of deployed Asta systems — PaperFindingBench from PaperFinder and OpenSciLM usage logs, ScholarQA-CS2 from 100 user questions issued to OpenSciLM — while the two end-to-end benchmarks pair machine-generated research tasks with human expert review. Literature benchmarks carry per-benchmark corpus date cutoffs that limit retrieval to papers predating benchmark creation, so papers published afterwards cannot contaminate results.
 
 ## Domains
 
