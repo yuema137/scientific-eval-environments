@@ -357,6 +357,116 @@ def validate_zh_card_headings(repo_root=REPO_ROOT):
     return (not errs, errs)
 
 
+# ---------------------------------------------------------------- domain capability matrices
+# AGENT.md orders every Capability Matrix by `Cov` descending, then `Rig` descending within equal
+# coverage, remaining ties keeping Comparison-table order. Nothing checked it, and two pages had
+# drifted — a row inserted at the wrong rank reads as a ranking claim its own marks do not support.
+# Rows tied on BOTH scores are legal in either order (that is what "remaining ties" means), so only
+# a strict inversion is an error; flagging ties would turn a documented freedom into a failure.
+def _domain_pages(repo_root):
+    """[(repo-relative path, absolute path)] for every domain page, English first, then Chinese."""
+    out = []
+    for prefix in ("", "zh"):
+        d = os.path.join(repo_root, prefix, "domains")
+        for p in sorted(glob.glob(os.path.join(d, "*.md"))):
+            if os.path.basename(p) == "README.md":
+                continue
+            out.append((os.path.relpath(p, repo_root).replace(os.sep, "/"), p))
+    return out
+
+
+def _matrix_table(path):
+    """(header cells, body rows) of a page's `## Capability Matrix`, or (None, None).
+
+    The matrix is optional by design — AGENT.md describes it as rolling out domain by domain — so a
+    page carrying no matrix section, or a section with no table yet, is skipped rather than failed.
+    """
+    m = re.search(r"^##\s+Capability Matrix\s*\n(.*?)(?=^##\s|\Z)", open(path).read(), re.S | re.M)
+    if not m:
+        return None, None
+    lines = [l for l in m.group(1).splitlines() if l.strip().startswith("|")]
+    if len(lines) < 2:
+        return None, None
+    cells = [[c.strip() for c in l.strip().strip("|").split("|")] for l in lines]
+    return cells[0], cells[2:]          # [1] is the header rule
+
+
+def _matrix_rows(rel, header, body):
+    """([(work, Cov, Rig)], errors) for one matrix.
+
+    Columns are located BY HEADER NAME. The header is identical on all 19 domain pages today, which
+    is precisely why an index-based reader would keep working right up to the day someone inserts a
+    column — and would then silently compare two other numbers.
+    """
+    errs, idx = [], {}
+    for col in ("Work", "Cov", "Rig"):
+        if col in header:
+            idx[col] = header.index(col)
+        else:
+            errs.append("%s: Capability Matrix has no '%s' column" % (rel, col))
+    if len(idx) < 3:
+        return [], errs
+    rows = []
+    for n, cells in enumerate(body, 1):
+        if len(cells) <= max(idx.values()):
+            errs.append("%s: Capability Matrix row %d has %d cells, the header has %d"
+                        % (rel, n, len(cells), len(header)))
+            continue
+        work = cells[idx["Work"]]
+        scores = []
+        for col in ("Cov", "Rig"):
+            try:
+                scores.append(float(cells[idx[col]].replace("*", "").strip()))
+            except ValueError:
+                errs.append("%s: Capability Matrix row %d '%s' has a non-numeric %s cell '%s'"
+                            % (rel, n, work, col, cells[idx[col]]))
+                scores.append(None)
+        rows.append((work, scores[0], scores[1]))
+    return rows, errs
+
+
+def validate_matrix_ordering(repo_root=REPO_ROOT):
+    """Capability Matrix rows rank by `Cov` then `Rig`, and en/zh rank identically."""
+    errs, parsed = [], {}
+    for rel, path in _domain_pages(repo_root):
+        header, body = _matrix_table(path)
+        if header is None:
+            continue
+        rows, row_errs = _matrix_rows(rel, header, body)
+        errs.extend(row_errs)
+        parsed[rel] = rows
+        for i, (work, cov, rig) in enumerate(rows):
+            if cov is None or rig is None:
+                continue
+            for other, o_cov, o_rig in rows[i + 1:]:
+                if o_cov is None or o_rig is None:
+                    continue
+                if o_cov > cov or (o_cov == cov and o_rig > rig):
+                    errs.append("%s: row %d '%s' (Cov %g, Rig %g) precedes '%s' (Cov %g, Rig %g)"
+                                % (rel, i + 1, work, cov, rig, other, o_cov, o_rig))
+    # The Chinese mirror is a translation of the same ranking, not a second opinion on it: a row
+    # that sits in a different place there is a different claim about the work, and a row missing
+    # from one side means one language is quietly documenting a smaller corpus.
+    for rel, rows in sorted(parsed.items()):
+        if rel.startswith("zh/"):
+            continue
+        zh_rel = "zh/" + rel
+        if zh_rel not in parsed:
+            if os.path.exists(os.path.join(repo_root, zh_rel)):
+                errs.append("%s: mirrors %s but has no Capability Matrix table" % (zh_rel, rel))
+            continue
+        zh_rows = parsed[zh_rel]
+        if len(zh_rows) != len(rows):
+            errs.append("%s: Capability Matrix has %d rows, %s has %d"
+                        % (zh_rel, len(zh_rows), rel, len(rows)))
+            continue
+        for n, (en_row, zh_row) in enumerate(zip(rows, zh_rows), 1):
+            if en_row[0] != zh_row[0]:
+                errs.append("%s: Capability Matrix row %d is '%s', %s has '%s'"
+                            % (zh_rel, n, zh_row[0], rel, en_row[0]))
+    return (not errs, errs)
+
+
 # ---------------------------------------------------------------- topic explanations
 def validate_topic_explanations(repo_root=REPO_ROOT):
     """Require a readable entry section on every canonical topic and its mirror."""
@@ -416,7 +526,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("check", choices=["profiles", "discovery", "cards", "cards-all", "axes",
                                       "bilingual", "bilingual-all", "zh-activity-labels",
-                                      "zh-headings", "topic-explanations", "first-appearance"])
+                                      "zh-headings", "matrix-ordering", "topic-explanations",
+                                      "first-appearance"])
     ap.add_argument("--repo-root", default=REPO_ROOT)
     ap.add_argument("--run-dir")
     ap.add_argument("--slugs", default="")
@@ -440,6 +551,8 @@ def main():
         ok, e = validate_zh_activity_labels(a.repo_root)
     elif a.check == "zh-headings":
         ok, e = validate_zh_card_headings(a.repo_root)
+    elif a.check == "matrix-ordering":
+        ok, e = validate_matrix_ordering(a.repo_root)
     elif a.check == "topic-explanations":
         ok, e = validate_topic_explanations(a.repo_root)
     elif a.check == "first-appearance":

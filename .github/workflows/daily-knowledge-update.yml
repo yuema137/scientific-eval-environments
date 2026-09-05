@@ -44,7 +44,14 @@ jobs:
     if: ${{ github.event.inputs.mode != 'auth-smoke' && github.event.inputs.mode != 'discovery-smoke' && github.event.inputs.mode != 'fixture-e2e-smoke' }}
     runs-on: ubuntu-latest
     steps:
+      # Full history, not the default depth-1: `monthly_report.py validate-all` resolves a
+      # main-addition report's manifest through `git rev-list --first-parent HEAD` plus a
+      # parent diff per commit. On a shallow checkout that walk sees one commit with no
+      # reachable parent, so the manifest comes back empty and every such report fails as
+      # "found N rows for 0 works". Latent only because every report on disk today is
+      # first-appearance basis, which reads works/ and never touches git.
       - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
       - run: pip install -q requests pyyaml pytest
