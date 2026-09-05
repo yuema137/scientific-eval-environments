@@ -50,4 +50,4 @@ Domain pages are **factual reference pages, not literature reviews** — co-equa
 | Engineering | [Chemical Engineering](./chemical_engineering.md) | 12 |
 | Engineering | [Civil & Structural Engineering](./civil_structural_engineering.md) | 30 |
 | Engineering | [Robotics](./robotics.md) | 18 |
-| Engineering | [Software & Systems Engineering](./software_systems_engineering.md) | 18 |
+| Engineering | [Software & Systems Engineering](./software_systems_engineering.md) | 19 |

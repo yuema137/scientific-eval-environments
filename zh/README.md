@@ -153,7 +153,7 @@ Domain 页回答的问题更具体：受评工作发生在哪个学科？一个�
 |---|--:|
 | [Electrical Engineering](./domains/electrical_engineering.md) | 18 |
 | [Robotics](./domains/robotics.md) | 18 |
-| [Software & Systems Engineering](./domains/software_systems_engineering.md) | 18 |
+| [Software & Systems Engineering](./domains/software_systems_engineering.md) | 19 |
 | [Mechanical & Aerospace Engineering](./domains/mechanical_aerospace_engineering.md) | 12 |
 | [Energy Systems](./domains/energy_systems.md) | 5 |
 | [Civil & Structural Engineering](./domains/civil_structural_engineering.md) | 30 |
