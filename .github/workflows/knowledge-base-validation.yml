@@ -64,6 +64,10 @@ jobs:
         if: ${{ !cancelled() }}
         run: python scripts/update_agent/validators.py zh-headings
 
+      - name: Domain Capability Matrices are ranked correctly (en + zh)
+        if: ${{ !cancelled() }}
+        run: python scripts/update_agent/validators.py matrix-ordering
+
       # Offline and self-contained: the two live-network cases opt in via RUN_LIVE_SMOKE=1
       # and stay skipped here.
       - name: Deterministic test suite

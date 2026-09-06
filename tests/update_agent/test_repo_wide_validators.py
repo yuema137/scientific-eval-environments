@@ -233,9 +233,156 @@ def test_zh_heading_check_ignores_the_works_readme(tmp_path):
     assert ok, errs
 
 
+# ------------------------------------------------------------ domain capability matrices
+MATRIX_COLUMNS = ["Work", "Domain", "Net", "E2E", "Cost", "MM", "Repro", "Real", "Inter", "Cov",
+                  "Human", "Rubric", "Contam", "Verif", "Scale", "Fail", "Rig"]
+
+
+def _matrix_page(root, domain, rows, folder="domains", columns=None):
+    """Write a domain page whose Capability Matrix holds `rows` of (work, Cov, Rig).
+
+    `columns` lets a test shift the header, which is how the by-name column lookup is exercised:
+    the same rows read correctly under a header an index-based parser would misread.
+    """
+    columns = list(columns or MATRIX_COLUMNS)
+    lines = ["| " + " | ".join(columns) + " |", "|" + "---|" * len(columns)]
+    for work, cov, rig in rows:
+        cell = {"Work": work, "Domain": "GEN", "Cov": "**%s**" % cov, "Rig": "**%s**" % rig,
+                "Verif": "3", "Scale": "2", "Fail": "4"}
+        lines.append("| " + " | ".join(cell.get(c, "\u2714") for c in columns) + " |")
+    d = os.path.join(root, folder)
+    os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, "%s.md" % domain), "w").write(
+        "# %s\n\n## Scope\n\nA field.\n\n## Capability Matrix\n\nA checklist view.\n\n%s\n\n"
+        "## Related Works\n\n- none yet\n" % (domain, "\n".join(lines)))
+
+
+def _matrix_fixture(tmp_path, rows, zh_rows="same", domain="physics", columns=None):
+    """A mini repo carrying one domain page and, unless `zh_rows` is None, its Chinese mirror."""
+    root = build_mini_repo(str(tmp_path), [{"slug": "alpha", "title": "Alpha"}])
+    _matrix_page(root, domain, rows, columns=columns)
+    if zh_rows is not None:
+        _matrix_page(root, domain, rows if zh_rows == "same" else zh_rows,
+                     folder=os.path.join("zh", "domains"), columns=columns)
+    return root
+
+
+def test_matrix_ordering_accepts_a_correctly_ranked_page(tmp_path):
+    root = _matrix_fixture(tmp_path, [("High", "5.5", "7"), ("Mid", "5", "9"),
+                                      ("Low", "5", "6.5"), ("Least", "0", "13")])
+    ok, errs = validators.validate_matrix_ordering(root)
+    assert ok, errs
+
+
+def test_matrix_ordering_flags_a_rig_inversion_inside_equal_coverage(tmp_path):
+    """The ai_ml_research defect: equal `Cov`, but the lower `Rig` row sits first."""
+    root = _matrix_fixture(tmp_path, [("Curation-Bench", "5", "7"), ("PaperBench", "5", "7.5")],
+                           zh_rows=None)
+    ok, errs = validators.validate_matrix_ordering(root)
+    assert not ok
+    assert errs == ["domains/physics.md: row 1 'Curation-Bench' (Cov 5, Rig 7) precedes "
+                    "'PaperBench' (Cov 5, Rig 7.5)"]
+
+
+def test_matrix_ordering_flags_a_coverage_inversion(tmp_path):
+    root = _matrix_fixture(tmp_path, [("Narrow", "3", "11"), ("Broad", "5", "2")], zh_rows=None)
+    ok, errs = validators.validate_matrix_ordering(root)
+    assert not ok
+    assert errs == ["domains/physics.md: row 1 'Narrow' (Cov 3, Rig 11) precedes "
+                    "'Broad' (Cov 5, Rig 2)"]
+
+
+def test_matrix_ordering_reports_every_row_a_misplaced_row_jumped(tmp_path):
+    """The chemistry defect: one row at the wrong rank inverts against each row above it."""
+    root = _matrix_fixture(tmp_path, [("MolClaw", "3", "7"), ("DrBencher", "3", "6"),
+                                      ("Model Discovery Agent", "3", "8")], zh_rows=None)
+    ok, errs = validators.validate_matrix_ordering(root)
+    assert not ok
+    assert errs == [
+        "domains/physics.md: row 1 'MolClaw' (Cov 3, Rig 7) precedes "
+        "'Model Discovery Agent' (Cov 3, Rig 8)",
+        "domains/physics.md: row 2 'DrBencher' (Cov 3, Rig 6) precedes "
+        "'Model Discovery Agent' (Cov 3, Rig 8)",
+    ]
+
+
+@pytest.mark.parametrize("order", [("Ay", "Bee"), ("Bee", "Ay")])
+def test_matrix_ordering_allows_a_tie_on_both_scores_in_either_order(tmp_path, order):
+    """Rows equal on `Cov` AND `Rig` keep Comparison-table order — a freedom, not a defect."""
+    root = _matrix_fixture(tmp_path, [(order[0], "4", "6.5"), (order[1], "4", "6.5")])
+    ok, errs = validators.validate_matrix_ordering(root)
+    assert ok, errs
+
+
+def test_matrix_ordering_reads_cov_and_rig_by_header_name(tmp_path):
+    """A shifted header must not shift which numbers get compared."""
+    columns = ["Work", "Notes"] + MATRIX_COLUMNS[1:]
+    root = _matrix_fixture(tmp_path, [("First", "5", "7"), ("Second", "5", "7.5")],
+                           zh_rows=None, columns=columns)
+    ok, errs = validators.validate_matrix_ordering(root)
+    assert not ok
+    assert errs == ["domains/physics.md: row 1 'First' (Cov 5, Rig 7) precedes "
+                    "'Second' (Cov 5, Rig 7.5)"]
+
+
+def test_matrix_ordering_flags_an_en_zh_row_order_mismatch(tmp_path):
+    """Both pages are internally ordered; only the tie is resolved differently."""
+    root = _matrix_fixture(tmp_path, [("Ay", "4", "6"), ("Bee", "4", "6")],
+                           zh_rows=[("Bee", "4", "6"), ("Ay", "4", "6")])
+    ok, errs = validators.validate_matrix_ordering(root)
+    assert not ok
+    assert errs == [
+        "zh/domains/physics.md: Capability Matrix row 1 is 'Bee', domains/physics.md has 'Ay'",
+        "zh/domains/physics.md: Capability Matrix row 2 is 'Ay', domains/physics.md has 'Bee'",
+    ]
+
+
+def test_matrix_ordering_flags_an_en_zh_row_count_mismatch(tmp_path):
+    root = _matrix_fixture(tmp_path, [("Ay", "4", "6"), ("Bee", "3", "6")],
+                           zh_rows=[("Ay", "4", "6")])
+    ok, errs = validators.validate_matrix_ordering(root)
+    assert not ok
+    assert errs == ["zh/domains/physics.md: Capability Matrix has 1 rows, "
+                    "domains/physics.md has 2"]
+
+
+def test_matrix_ordering_flags_a_mirror_that_dropped_the_matrix(tmp_path):
+    root = _matrix_fixture(tmp_path, [("Ay", "4", "6")], zh_rows=None)
+    d = os.path.join(root, "zh", "domains")
+    os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, "physics.md"), "w").write("# physics\n\n## Scope\n\n一个领域。\n")
+    ok, errs = validators.validate_matrix_ordering(root)
+    assert not ok
+    assert errs == ["zh/domains/physics.md: mirrors domains/physics.md but has no "
+                    "Capability Matrix table"]
+
+
+def test_matrix_ordering_skips_a_domain_page_with_no_matrix_yet(tmp_path):
+    """The matrix rolls out domain by domain; a page without one is not yet a defect."""
+    root = build_mini_repo(str(tmp_path), [{"slug": "alpha", "title": "Alpha"}])
+    open(os.path.join(root, "domains", "physics.md"), "w").write(
+        "# physics\n\n## Scope\n\nA field.\n\n## Related Works\n\n- none yet\n")
+    ok, errs = validators.validate_matrix_ordering(root)
+    assert ok, errs
+
+
+def test_matrix_ordering_reports_an_unparseable_score_cell(tmp_path):
+    root = _matrix_fixture(tmp_path, [("Ay", "4", "6"), ("Bee", "3", "n/a")], zh_rows=None)
+    ok, errs = validators.validate_matrix_ordering(root)
+    assert not ok
+    assert errs == ["domains/physics.md: Capability Matrix row 2 'Bee' has a non-numeric "
+                    "Rig cell '**n/a**'"]
+
+
+def test_repository_capability_matrices_are_ordered():
+    """The real pages, not a fixture: this is the check the two repaired pages must keep passing."""
+    ok, errs = validators.validate_matrix_ordering(ROOT)
+    assert ok, errs
+
+
 # ------------------------------------------------------------ CLI wiring
 @pytest.mark.parametrize("check", ["cards-all", "bilingual-all", "zh-activity-labels",
-                                   "zh-headings"])
+                                   "zh-headings", "matrix-ordering"])
 def test_cli_subcommand_runs_against_a_repo_root(tmp_path, check):
     root = _zh_fixture(str(tmp_path), [{"slug": "alpha", "title": "Alpha",
                                         "activities": ["simulation_scientific_computing"]}],
