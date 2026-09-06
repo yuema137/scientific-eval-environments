@@ -16,7 +16,7 @@ PACE-Bench（Physics Adaptation via Code Evolution）考察自演化 agent 在�
 ## Activities
 
 - [优化与工程设计](../activities/optimization_engineering_design.md)
-- [科研软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
 
 ## Links
 

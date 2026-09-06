@@ -14,7 +14,7 @@ TCS-Bench 是一个评估大语言模型在研究级理论计算机科学（TCS�
 
 ## Activities
 
-- [Scientific Problem Solving & Reasoning](../activities/scientific_problem_solving_reasoning.md)
+- [科学问题求解与推理](../activities/scientific_problem_solving_reasoning.md)
 
 ## Links
 

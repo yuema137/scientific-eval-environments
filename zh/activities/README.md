@@ -18,7 +18,7 @@ Activity  →  执行该任务的 works  →  原始论文   （agent 做什么�
 
 ## 规范化分类
 
-活动集合是固定的。新增、重命名或删除某个活动需同步更新 [`../AGENT.md`](../AGENT.md)。数量为当前映射到各活动的 work 卡片数（一份工作可归入多个活动）。
+活动集合是固定的。新增、重命名或删除某个活动需同步更新 [`AGENT.md`](../../AGENT.md)。数量为当前映射到各活动的 work 卡片数（一份工作可归入多个活动）。
 
 | Activity | 涵盖内容 | Works |
 |---|---|--:|
@@ -68,5 +68,5 @@ Activity  →  执行该任务的 works  →  原始论文   （agent 做什么�
 - **证据标准。** 分类依据卡片所描述的实际任务（`Overview`、`Tasks`、`Summary`、`Main Contribution`、`Domains`、`Key Design Ideas`），必要时回溯到经核验的原始来源——绝不依据标题关键词。
 - **不强行归类、不设 `Other`。** 确实不适用的工作给出明确的 `N/A` 原因；不存在兜底活动。
 - **职责划分。** Topic 负责评估方法学综述与开放问题；Domain 描述领域内的任务落地与科学验证；Activity 描述任务与工作流模式；卡片仍为个体工作的事实性参考。详细的评分方法学留在卡片、Topic 与 Domain 中。
-- **双语镜像。** 每个活动页与每张卡片的 `## Activities` 块都在 [`../zh/activities/`](../zh/activities/README.md) 与 `../zh/works/` 下镜像，随每次英文改动同步。
-- **分类变更**需同步更新 [`../AGENT.md`](../AGENT.md) 与 [`../CLAUDE.md`](../CLAUDE.md)。
+- **双语镜像。** 中文活动页与卡片的 `## Activities` 块跟英文侧一一对应，每次英文改动后立即同步，不拖到最后。卡片的章节标题保持英文，只有活动标签用中文；某个活动的标准中文标签，就是它在 `zh/activities/` 下对应页面的一级标题。
+- **分类变更**需同步更新 [`AGENT.md`](../../AGENT.md) 与 [`CLAUDE.md`](../../CLAUDE.md)。
