@@ -272,6 +272,7 @@ Activity  →  Works performing that task        →  Original papers
 - Avoid duplication.
 - Prefer **linking** over **copying**.
 - **Counts are derived, never hand-written.** Every reader-facing count — per-topic, per-domain, and per-activity work counts, activity-membership totals, and the card/page totals in the root READMEs — is generated from the reverse indexes by [`scripts/update_counts.py`](./scripts/update_counts.py). After any change that adds, removes, or re-maps a card, run `python scripts/update_counts.py` to refresh the numbers; `--check` reports drift without writing (suitable for CI). Do not edit a count cell by hand.
+- **Checkable rules are checked.** Every pull request runs a repository-wide deterministic gate ([`.github/workflows/knowledge-base-validation.yml`](./.github/workflows/knowledge-base-validation.yml)) over the taxonomy profiles, the two-way topic and activity reverse indexes, the card template and its section order in both languages, the English/Chinese mirror, the Chinese activity labels, and the derived counts; that workflow file is the authoritative list of what is enforced. A failing check is answered by fixing the content, never by weakening the check. When a rule in this document is found to have drifted from the repository, prefer making it machine-checkable over restating it — an unenforced rule is how `## 研究活动` reached a compliance rate of zero across 381 cards.
 
 The repository should feel like a technical handbook rather than research notes.
 

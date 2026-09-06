@@ -104,6 +104,36 @@ def _first_appeared(txt, chinese=False):
     return matches[0] if len(matches) == 1 else None
 
 
+def all_card_slugs(repo_root=REPO_ROOT):
+    """Every card slug in works/, README excluded.
+
+    The daily updater validates only the slugs a single run produced, which is correct for a
+    phase gate but means historical drift in older cards is never re-examined. CI enumerates the
+    whole layer here instead of shell-globbing in YAML, so the repo-wide entry points below stay
+    testable and the glob rules live in one place.
+    """
+    return sorted(os.path.basename(p)[:-3]
+                  for p in glob.glob(os.path.join(repo_root, "works", "*.md"))
+                  if os.path.basename(p) != "README.md")
+
+
+def _heading_order_error(label, txt, required, what="section"):
+    """Return an ordering error for `txt`, or None.
+
+    Only meaningful once every required heading is present exactly once; the caller reports
+    presence separately, so checking the set first keeps a card with a missing section from also
+    producing a confusing order complaint.
+    """
+    got = [h for h in re.findall(r"^##\s+(.*?)\s*$", txt, re.M) if h in required]
+    if sorted(got) != sorted(required) or got == required:
+        return None
+    for want, have in zip(required, got):
+        if want != have:
+            return ("%s: %s '## %s' is out of template order (the template has '## %s' here)"
+                    % (label, what, have, want))
+    return "%s: %ss are out of template order" % (label, what)
+
+
 def validate_cards(repo_root, slugs):
     errs = []
     required = _template_headings(repo_root)
@@ -119,6 +149,9 @@ def validate_cards(repo_root, slugs):
             n = len(re.findall(r"^##\s+" + re.escape(h) + r"\s*$", txt, re.M))
             if n != 1:
                 errs.append("%s: heading '## %s' appears %d times (want 1)" % (slug, h, n))
+        order_err = _heading_order_error(slug, txt, required)
+        if order_err:
+            errs.append(order_err)
         if _has_placeholder(txt):
             errs.append("%s: contains a placeholder token" % slug)
         if not _first_appeared(txt):
@@ -230,6 +263,100 @@ def validate_bilingual(repo_root, slugs):
     return (not errs, errs)
 
 
+# ---------------------------------------------------------------- repo-wide card sweeps
+# The daily updater passes an explicit slug list (a run gates on what it just wrote). CI needs the
+# whole layer, so these wrappers exist rather than a YAML glob — the enumeration is then covered by
+# the same tests as the checks themselves. The wrapped functions keep their signatures unchanged.
+def validate_cards_all(repo_root=REPO_ROOT):
+    return validate_cards(repo_root, all_card_slugs(repo_root))
+
+
+def validate_bilingual_all(repo_root=REPO_ROOT):
+    return validate_bilingual(repo_root, all_card_slugs(repo_root))
+
+
+# ---------------------------------------------------------------- Chinese card conventions
+ZH_ACTIVITY_LINK = re.compile(r"\[([^\]]+)\]\(\.\./activities/([a-z0-9_]+)\.md\)")
+# Any CJK ideograph in a `## ` heading. Chinese cards translate prose and activity labels, never
+# the section headings themselves.
+CJK = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]")
+
+
+def _zh_card_paths(repo_root):
+    return sorted(p for p in glob.glob(os.path.join(repo_root, "zh", "works", "*.md"))
+                  if os.path.basename(p) != "README.md")
+
+
+def _canonical_zh_activity_labels(repo_root):
+    """{activity slug: canonical Chinese label} taken from each zh/activities page's H1 title.
+
+    Derived from the page rather than from a table in a doc on purpose: a hand-maintained table is
+    itself a thing that drifts, and the H1 is what a reader actually lands on when they follow the
+    link — so it is the label a card's link text is measured against.
+    """
+    labels, errs = {}, []
+    for p in sorted(glob.glob(os.path.join(repo_root, "zh", "activities", "*.md"))):
+        if os.path.basename(p) == "README.md":
+            continue
+        slug = os.path.basename(p)[:-3]
+        m = re.search(r"^#\s+(.+?)\s*$", open(p).read(), re.M)
+        if not m:
+            errs.append("zh/activities/%s.md: no H1 title to derive the canonical label from" % slug)
+            continue
+        labels[slug] = m.group(1).strip()
+    return labels, errs
+
+
+def validate_zh_activity_labels(repo_root=REPO_ROOT):
+    """Every activity link on a Chinese card must be labelled with that activity page's own H1."""
+    labels, errs = _canonical_zh_activity_labels(repo_root)
+    for path in _zh_card_paths(repo_root):
+        slug = os.path.basename(path)[:-3]
+        txt = open(path).read()
+        blk = _section(txt, "Activities")
+        if blk is None:
+            errs.append("%s: zh card has no '## Activities' section" % slug)
+            continue
+        for label, act in ZH_ACTIVITY_LINK.findall(blk):
+            expected = labels.get(act)
+            if expected is None:
+                errs.append("%s: activity '%s' has no zh/activities page" % (slug, act))
+            elif label.strip() != expected:
+                errs.append("%s: activity '%s' labelled '%s', canonical is '%s'"
+                            % (slug, act, label.strip(), expected))
+    return (not errs, errs)
+
+
+def validate_zh_card_headings(repo_root=REPO_ROOT):
+    """Chinese work cards keep the ENGLISH `## ` section headings; only prose and the activity
+    labels are Chinese.
+
+    The headings are load-bearing twice over: every card validator locates a section by its English
+    heading (a translated heading makes the section invisible rather than wrong), and they are the
+    URL anchors that topic, domain and activity pages link into.
+    """
+    errs = []
+    required = _template_headings(repo_root)
+    for path in _zh_card_paths(repo_root):
+        slug = os.path.basename(path)[:-3]
+        txt = open(path).read()
+        chinese = [h for h in re.findall(r"^##\s+(.*?)\s*$", txt, re.M) if CJK.search(h)]
+        if chinese:
+            # One error per card, not per heading: a translated card fails on every section at once,
+            # and the presence/order checks below would only restate the same defect.
+            errs.append("%s: zh card uses Chinese section headings (%s) — zh cards keep the "
+                        "English headings" % (slug, ", ".join("## " + h for h in chinese)))
+            continue
+        for h in required:
+            n = len(re.findall(r"^##\s+" + re.escape(h) + r"\s*$", txt, re.M))
+            if n != 1:
+                errs.append("%s: zh card heading '## %s' appears %d times (want 1)" % (slug, h, n))
+        order_err = _heading_order_error(slug, txt, required, what="zh card section")
+        if order_err:
+            errs.append(order_err)
+    return (not errs, errs)
+
+
 # ---------------------------------------------------------------- topic explanations
 def validate_topic_explanations(repo_root=REPO_ROOT):
     """Require a readable entry section on every canonical topic and its mirror."""
@@ -279,13 +406,17 @@ def _report(name, ok, errs):
     print("%s: %s" % (name, "PASS" if ok else "FAIL"))
     for e in errs[:40]:
         print("  -", e)
+    # A repo-wide sweep can exceed the print cap; say so rather than let the tail vanish silently.
+    if len(errs) > 40:
+        print("  ... and %d more (%d total)" % (len(errs) - 40, len(errs)))
     return 0 if ok else 1
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("check", choices=["profiles", "discovery", "cards", "axes", "bilingual",
-                                      "topic-explanations", "first-appearance"])
+    ap.add_argument("check", choices=["profiles", "discovery", "cards", "cards-all", "axes",
+                                      "bilingual", "bilingual-all", "zh-activity-labels",
+                                      "zh-headings", "topic-explanations", "first-appearance"])
     ap.add_argument("--repo-root", default=REPO_ROOT)
     ap.add_argument("--run-dir")
     ap.add_argument("--slugs", default="")
@@ -301,6 +432,14 @@ def main():
         ok, e = validate_axes(a.repo_root)
     elif a.check == "bilingual":
         ok, e = validate_bilingual(a.repo_root, slugs)
+    elif a.check == "cards-all":
+        ok, e = validate_cards_all(a.repo_root)
+    elif a.check == "bilingual-all":
+        ok, e = validate_bilingual_all(a.repo_root)
+    elif a.check == "zh-activity-labels":
+        ok, e = validate_zh_activity_labels(a.repo_root)
+    elif a.check == "zh-headings":
+        ok, e = validate_zh_card_headings(a.repo_root)
     elif a.check == "topic-explanations":
         ok, e = validate_topic_explanations(a.repo_root)
     elif a.check == "first-appearance":
