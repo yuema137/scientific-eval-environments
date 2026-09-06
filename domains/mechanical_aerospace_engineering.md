@@ -78,6 +78,8 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | ERI Benchmark | GEN, AERO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✔ | 2 | 3 | 3 | **10** |
 | FEM-Bench | FEA, SOL | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ◐ | ✘ | ◐ | 3 | 1 | 2 | **7** |
 
+Repository note: one row sits outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol.
+
 Repository note: half the page is unknown on `Net` — `?` on 6 of the 12 rows, because the source never says whether the agent could reach the live network. `Scale` is `?` on 3, and here the cause is not a missing per-domain split but a missing count outright: SciConvBench, AInsteinBench and FEABench each describe their task form without publishing how many tasks there are. Terminal-Bench Science is the page's one `Real` unknown.
 
 ## Related Works
