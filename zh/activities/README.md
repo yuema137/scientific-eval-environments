@@ -18,7 +18,7 @@ Activity  →  执行该任务的 works  →  原始论文   （agent 做什么�
 
 ## 规范化分类
 
-活动集合是固定的。新增、重命名或删除某个活动需同步更新 [`../AGENT.md`](../AGENT.md)。数量为当前映射到各活动的 work 卡片数（一份工作可归入多个活动）。
+活动集合是固定的。新增、重命名或删除某个活动需同步更新 [`AGENT.md`](../../AGENT.md)。数量为当前映射到各活动的 work 卡片数（一份工作可归入多个活动）。
 
 | Activity | 涵盖内容 | Works |
 |---|---|--:|
@@ -31,10 +31,10 @@ Activity  →  执行该任务的 works  →  原始论文   （agent 做什么�
 | [实验室与仪器控制](./laboratory_instrument_control.md) | 仪器、显微镜与光束线控制、实验室自动化、行为定义的控制代码 | 3 |
 | [优化与工程设计](./optimization_engineering_design.md) | 参数与控制器调优、工程/逆向设计、材料与分子设计 | 27 |
 | [科学软件与工作流工程](./scientific_software_workflow_engineering.md) | 科学/工程代码生成、仓库与流水线工程、HDL 与形式化规约代码 | 74 |
-| [研究复现与重复](./research_reproduction_replication.md) | 复现已发表的分析、结果与方法；匹配已报告的结论 | 11 |
+| [研究复现与重复](./research_reproduction_replication.md) | 复现已发表的分析、结果与方法；匹配已报告的结论 | 12 |
 | [端到端研究](./end_to_end_research.md) | 跨越多个主要阶段的多阶段研究生命周期，从提出问题到汇报 | 11 |
 
-在整个语料中，共对适用的 work 卡片赋予了 370 条活动归属。
+在整个语料中，共对适用的 work 卡片赋予了 371 条活动归属。
 
 ## 活动是多标签的
 
@@ -68,5 +68,5 @@ Activity  →  执行该任务的 works  →  原始论文   （agent 做什么�
 - **证据标准。** 分类依据卡片所描述的实际任务（`Overview`、`Tasks`、`Summary`、`Main Contribution`、`Domains`、`Key Design Ideas`），必要时回溯到经核验的原始来源——绝不依据标题关键词。
 - **不强行归类、不设 `Other`。** 确实不适用的工作给出明确的 `N/A` 原因；不存在兜底活动。
 - **职责划分。** Topic 负责评估方法学综述与开放问题；Domain 描述领域内的任务落地与科学验证；Activity 描述任务与工作流模式；卡片仍为个体工作的事实性参考。详细的评分方法学留在卡片、Topic 与 Domain 中。
-- **双语镜像。** 每个活动页与每张卡片的 `## Activities` 块都在 [`../zh/activities/`](../zh/activities/README.md) 与 `../zh/works/` 下镜像，随每次英文改动同步。
-- **分类变更**需同步更新 [`../AGENT.md`](../AGENT.md) 与 [`../CLAUDE.md`](../CLAUDE.md)。
+- **双语镜像。** 中文活动页与卡片的 `## Activities` 块跟英文侧一一对应，每次英文改动后立即同步，不拖到最后。卡片的章节标题保持英文，只有活动标签用中文；某个活动的标准中文标签，就是它在 `zh/activities/` 下对应页面的一级标题。
+- **分类变更**需同步更新 [`AGENT.md`](../../AGENT.md) 与 [`CLAUDE.md`](../../CLAUDE.md)。

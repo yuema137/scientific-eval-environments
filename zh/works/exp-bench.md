@@ -11,12 +11,14 @@ EXP-Bench 是一个 benchmark，评估 AI agent 能否完成源自有影响力 A
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 
 ## Activities
 
 - [数据分析与统计推断](../activities/data_analysis_statistical_inference.md)
 - [实验设计与科学发现](../activities/experiment_design_discovery.md)
 - [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+- [研究复现与重复](../activities/research_reproduction_replication.md)
 
 ## Links
 
@@ -54,7 +56,7 @@ EXP-Bench 针对的局限是：尽管自动化 AI 研究前景可观，当前 AI
 ## Key Design Ideas
 
 - 半自主整理流水线，从论文及其配套开源代码中抽取并结构化实验细节，含基于影响力的筛选与轻量人工验证。
-- 每个任务将研究问题、高层方法描述与不完整起始代码配对；ground-truth 的设计、代码 diff 与结论均源自原论文自身的脚本。
+- 每个任务将研究问题、高层方法描述与不完整起始代码配对；ground-truth 的设计、代码 diff 与结论都来自源论文本身及其开源代码库。
 - 将每个任务细粒度分解为可独立评分的子任务（共 12,737 个），覆盖设计、实现与结论，使单项得分与端到端成功相互分离。
 - 容器化执行，并由 monitor 完整性检查在评分前筛查 agent 日志中的违规行为。
 
@@ -67,7 +69,7 @@ EXP-Bench 针对的局限是：尽管自动化 AI 研究前景可观，当前 AI
 ## Limitations
 
 - Repository note: 设计、实现与结论的评分均依赖基于 LLM 的 judge 对照抽取的 ground truth；只有执行检查是程序化的，因此汇总得分继承了 judge 的可靠性。
-- Repository note: 每个任务都是对两个 2024 年会议已发表 AI 实验的复现——开放式实验与非 AI 科学领域不在所评估的范围内。
+- Repository note: 每个任务重建的都是两个 2024 年会议上已发表的 AI 实验。研究问题、方法的高层描述和起始代码全部来自源论文，而 monitor 又禁止 agent 去读这篇论文，所以真正被判分的，是别人已经跑过的那次实验从设计到实现、执行、结论这一段。问题的提出、文献调研、成文报告，以及开放式实验与非 AI 科学领域，都不在评估范围内。
 
 ## Related Works
 

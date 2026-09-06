@@ -23,6 +23,7 @@ A benchmark observes the whole model–harness configuration. If two systems use
 - **Autonomous harness improvement.** [Evo-Bench](../works/evo-bench.md), [HarnessOpt-Bench](../works/harnessopt-bench.md), and [VeRO](../works/vero.md) give agents evaluator access and measure held-out lift from harness edits.
 - **Cross-loop interaction.** [Curation-Bench](../works/curation-bench.md) shows that a method-guided scaffold changes which data-curation policies an agent explores.
 - **Post-training configurations.** [PostTrainBench](../works/posttrainbench.md) compares agents through multiple CLI scaffolds under the same GPU-time protocol.
+- **Tooling held fixed, and declared when it is not.** [AstaBench](../works/astabench.md) serves every agent the same date-restricted literature tools and the same sandboxed notebook, puts 16 agent classes behind one Inspect-compatible task interface so a general agent needs no per-benchmark adaptation, and labels each leaderboard entry as using the standard tools, an equivalent custom interface, or fully custom tooling. A score gap can then be read against what the harness supplied rather than credited to the model by default.
 
 ## Comparison
 
@@ -34,6 +35,7 @@ A benchmark observes the whole model–harness configuration. If two systems use
 | HarnessOpt-Bench | Audited optimization target | Held-out splits and eval budget | Metered evaluator calls | Held-out gain |
 | VeRO | Arbitrary programmatic harness | Permissions, versions, budgets | Standardized observation interface | Expected lift |
 | Curation-Bench | Research scaffold | Model, recipe, evaluator | Per-iteration benchmark results | Better data policy |
+| AstaBench | Confounder to standardize and declare | Tools, corpus date cutoffs, task interface, cost accounting | Suite score with cost, openness and tooling category | Model-harness comparison at stated tool parity |
 
 ## Open Questions
 
@@ -52,3 +54,4 @@ A benchmark observes the whole model–harness configuration. If two systems use
 - [Harness-Bench](../works/harness-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)
 - [VeRO](../works/vero.md)
+- [AstaBench](../works/astabench.md)

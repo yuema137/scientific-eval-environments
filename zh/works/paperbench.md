@@ -11,6 +11,7 @@ PaperBench 评估 AI agent 能否复现最前沿的 AI 研究：agent 需从零�
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Evaluator Reliability & Validation](../topics/evaluator_reliability_validation.md)
 
 ## Activities
 
@@ -37,12 +38,13 @@ AI 研究（机器学习）：ICML 2024 论文的复现。
 
 ## Evaluation
 
-- 与作者共同开发的层级式评分标准；LLM judge 按标准评分，其自身表现在单独的 judge benchmark 上测量。
-- **报告。** 最好的受评 agent（配开源脚手架的 Claude 3.5 Sonnet (New)）平均 21.0%；模型尚未超过 ML 博士的人类基线。
+- **先复跑，再判分。** 每篇论文都配一份与作者共同开发的层级式评分标准。agent 的运行结束后，提交物会被复制到一台全新的 Ubuntu 24.04 虚拟机（配一块 A10 GPU），从干净状态执行其中的 `reproduce.sh`，这样运行期间硬写进去的结果就能和代码真正跑出来的结果区分开。随后 SimpleJudge 逐个判定评分标准的叶节点，输入包括论文、完整的评分标准 JSON、该节点的具体要求，以及它自己排序后认为最相关的十个提交文件。
+- **judge 自己也有一套 benchmark。** JudgeEval 取 PaperBench 中四篇论文加开发集中一篇论文的部分复现结果，这些复现或从零写成、或改自原作者的代码库，再由研究者逐个叶节点人工判分，把这些人工标签当作 judge 二分判断的 ground truth。按论文做宏平均后，SimpleJudge 换用不同后端模型的 F1 依次为：GPT-4o-mini 0.59（每篇 $8）、GPT-4o 0.73（$120）、o1-mini 0.78（$72）、o1 0.84（$830）、o3-mini 0.83（$66），随机打标签为 0.49。主结果采用 o3-mini，取的是性价比而不是最高 F1。
+- **报告。** 最好的受评 agent（配开源脚手架的 Claude 3.5 Sonnet (New)）平均 21.0%。在一个三篇论文的子集上，ML 博士基线在 48 小时的有效工时后达到 41.4%，同一子集上 o1 为 26.6%；在一次 36 小时的加长运行里，o1 前期领先于人类，24 小时后被人类反超。
 
 ## Typical Duration
 
-从零开始的论文复现会话，含代码开发与实验执行；预算为 TODO(reference)。
+agent 的单次运行上限为 12 小时，环境是配单块 NVIDIA A10 GPU 的 Ubuntu 24.04 Docker 容器；另有一次 o1 搭配 IterativeAgent 的加长运行跑到 36 小时，每小时存一次快照，并在第 1、3、6、12、36 小时的快照上判分。独立的复跑环节把 `reproduce.sh` 的运行时间上限设为 12 小时，实测足够所有脚本跑完，agent 产出的脚本平均只跑 5.5 分钟。8 位人类基线参与者以兼职方式投入，有效工时由工时表记录，其分数取自相同工时刻度上的快照。
 
 ## Main Contribution
 
@@ -61,7 +63,8 @@ AI 研究（机器学习）：ICML 2024 论文的复现。
 
 ## Limitations
 
-- Repository note: 卡片依据 arXiv 摘要与元数据编写（2026 年 8 月）；摘要未陈述的细节有待全文校验。
+- Repository note: 所有分数都由 judge 给出。o3-mini 版 SimpleJudge 在 JudgeEval 上的 F1 是 0.83，并非与人工完全一致，而 JudgeEval 本身只由五篇论文的部分复现构成，因此判分误差是在一个很小的标注样本上被测出来的，而不是被消除了。
+- Repository note: 题集是机器学习方向的 20 篇 ICML 2024 论文；人类基线只在其中 4 篇上采集、每篇 3 次尝试，而对外报告的专家对比又落在一个三篇论文的子集上，所以这个人类锚点覆盖的只是 benchmark 的一小块。
 
 ## Related Works
 

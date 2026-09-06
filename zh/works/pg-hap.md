@@ -4,7 +4,7 @@
 
 > **首次公开：** 2026-04-24 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2604.22748)
 
-## 概览
+## Overview
 
 PG-HAP 训练一个轻量 policy，逐步选择 high-level reasoning action，同时让 executor LLM 完全保持冻结。
 
@@ -25,19 +25,19 @@ N/A — 通用数学与 commonsense reasoning 方法，没有直接评价科学�
 - **Code:** <https://github.com/john1226966735/PG-HAP>
 - **Venue:** Findings of ACL 2026
 
-## 摘要
+## Summary
 
 Planner 可选 Analysis、Decomposition、Reasoning、Knowledge Recall、Code Generation/Refinement、Verification 和 Final Answer。Action-dependency mask 阻止无效或重复 transition，action-diversity reward 则防止所有问题坍缩成同一模板。Qwen2.5 executor 保持冻结，因此结果能更干净地反映 high-level policy 的作用。
 
-## 任务
+## Tasks
 
 五个数学与常识 reasoning benchmark，包括 MATH、GSM8K、SVAMP、CommonsenseQA 和 StrategyQA；主实验使用冻结的 3B/7B executor。
 
-## 领域
+## Domains
 
 通用语言模型 reasoning，不对应某个 canonical 科学或工程领域。
 
-## 评估
+## Evaluation
 
 Answer accuracy、action-sequence distribution、structural redundancy、sequence collapse，以及 dependency masking 和 diversity reward 的 ablation。
 
@@ -45,7 +45,7 @@ Answer accuracy、action-sequence distribution、structural redundancy、sequenc
 
 没有报告固定的逐题时间或 token budget。
 
-## 主要贡献
+## Main Contribution
 
 用一个 planner–executor 对照实验说明：不改 executor，只改 high-level action selection，也能改善 reasoning。
 
@@ -59,7 +59,7 @@ Answer accuracy、action-sequence distribution、structural redundancy、sequenc
 - Frozen executor 让性能变化可以更明确地归因给 planner。
 - 显式 action trace 能暴露 final accuracy 看不到的重复和 collapse。
 
-## 局限
+## Limitations
 
 - Action set 与 legal-transition graph 由人设计。
 - 五个 benchmark 上减少 template collapse，不等于已经证明广泛 OOD transfer。

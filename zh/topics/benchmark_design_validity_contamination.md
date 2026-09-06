@@ -24,6 +24,9 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 - **Verifier 严谨度。** CODE2BENCH 要求 property-based tests 达到 branch-coverage gate；[FrontierCode](../works/frontiercode.md) 同时做执行检查与 contamination 检测。
 - **开放 exploration 之后做封闭 replay。** [AI4AI-Bench](../works/ai4ai-bench.md) 允许 agent 在开发时使用便宜 proxy，随后只把 source code 送入 fresh run，由固定 final evaluator 打分；原算法也在相同条件下重跑。
 - **近期研究实现。** [ResearchCodeBench](../works/researchcodebench.md) 从近期研究贡献构造实现任务，并单独发布 contamination-safe 子集。
+- **先把模型已经会的题筛掉。** [HeurekaBench](../works/heurekabench.md) 让 GPT-4o 和 Claude-4-Sonnet 在拿不到数据集的条件下回答每一道候选题，只保留它们答错的题，留下来的题就不可能光靠预训练知识答出来；它的判分 rubric 还会对主要依赖模型知识、而没去分析数据的回答扣分。
+- **可复现的工具本身就是有效性条件。** [AstaBench](../works/astabench.md) 明确写出五条 agent benchmark 设计原则，并按这些原则搭建套件：语料检索工具只返回 benchmark 构建之前发表的论文，之后发表的论文因此污染不到结果；所有任务共用一个标准接口；排行榜上每个分数都要同时声明 agent 的开放度与工具方式。
+- **不只管题目，也管运行过程。** [EXP-Bench](../works/exp-bench.md) 在判分之前先扫一遍 agent 的日志，查有没有读源论文、动 Git、伪造数据这类被禁止的行为，并把每个任务拆成可单独判分的子任务，使分项得分不会替代端到端成功。
 
 ## 方法对比
 
@@ -35,6 +38,9 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 | DiscoverPhysics | 自动生成的物理世界 | 按需生成反事实规律 | Simulator ground truth | 每个实例更新 |
 | ResearchCodeBench | 近期 ML 论文 | contamination-safe 论文子集 | 可执行代码测试 | 新论文批次 |
 | ASI-Bench | 60 个来自文献、经专家筛选的项目任务 | 同一项目内 B1-B4 指导梯度；接收任务时强制 B3 与 B4 均值低于 40 | 针对任务的 gate 和加权 scorer，对照可复现的逐任务 reference；私有 `seed42` reference set | 通过公共入口持续加入新编写的任务批次 |
+| AstaBench | 11 个 benchmark：7 个由作者构建（其中 4 个此前未发布），其余改编自已有数据集 | 五条明确的 benchmark 设计原则；语料工具按 benchmark 构建日期截断；排行榜逐条声明开放度与工具方式 | 各 benchmark 自有指标并附归一化成本；11 个中有 6 个使用 LLM judge | 套件每次修订时加入新 benchmark 与新截断日期 |
+| EXP-Bench | 51 篇 NeurIPS/ICLR 2024 论文及其代码仓库中的 461 个任务 | 按影响力筛选、多轮抽取、人工校验；运行期用 monitor 监测读源论文与伪造数据 | 容器化执行加 LLM judge，覆盖 12,737 个可判分子任务 | 用同一条流水线处理新的论文批次 |
+| HeurekaBench | 已发表研究及其配套代码仓库 | 两个前沿模型剔除不看数据也能答对的题；人工再筛掉幻觉、重复以及未通过验证的部分 | Ground truth 对照该研究已报告的发现核验；judge 与 11 位专家比对过 | 新研究重新过一遍流水线 |
 
 ## 还没解决的问题
 
@@ -54,8 +60,11 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 - [DiscoverPhysics](../works/discoverphysics.md)
 - [PRL-Bench](../works/prl-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)
+- [HeurekaBench](../works/heurekabench.md)
+- [AstaBench](../works/astabench.md)
 - [CritPt](../works/critpt.md)
 - [CODE2BENCH](../works/code2bench.md)
 - [ResearchCodeBench](../works/researchcodebench.md)
+- [EXP-Bench](../works/exp-bench.md)
 - [MedBrowseComp](../works/medbrowsecomp.md)
 - [Robotouille](../works/robotouille.md)

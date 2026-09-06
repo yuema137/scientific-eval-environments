@@ -127,6 +127,9 @@ invoked headless via `run_claude_worker.py` (`claude -p --output-format json`, b
 
 - `CLAUDE_CODE_OAUTH_TOKEN` is consumed only as a GitHub secret env var; never logged/committed.
 - No `pull_request`/`pull_request_target` trigger — a fork can never run this secret-bearing workflow.
+  Pull requests are gated instead by `.github/workflows/knowledge-base-validation.yml`, a separate
+  secret-free workflow (`contents: read`, no token, repository-local Python only). That is where a
+  `pull_request` trigger belongs; do not add one here to "make PRs validated".
 - Every paper/README/abstract/webpage is **untrusted data**; agent prompts forbid obeying embedded
   instructions, running external code, cloning/executing candidate repos, or leaking secrets.
 - Least-privilege: top-level `contents: read`; only `finalize` has `contents: write` + `pull-requests: write`.
@@ -141,7 +144,8 @@ overlapping lookback lets the next day's run recover. To debug: open the failed 
 ## Tests
 
 - `tests/update_agent/` — deterministic unit/fixture tests (inventory, dedup, phase gate,
-  profile coverage, axis/bilingual validators, empty-run, failure-injection).
+  profile coverage, axis/bilingual validators, empty-run, failure-injection, and the
+  repo-wide sweeps + Chinese-card conventions in `test_repo_wide_validators.py`).
 - Live smokes: `discovery-smoke` (sources), `auth-smoke` (token), `fixture-e2e-smoke` (5 phases).
 
 ## Disable / enable

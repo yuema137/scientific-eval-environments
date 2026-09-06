@@ -56,14 +56,14 @@ A professional-requirements-first taxonomy of chemical capability — progressiv
 - Expert-crafted tasks anchor the suite to what practitioners need, not what data is easy to scrape.
 - Separate dimensions let the general/specialist trade-off show up as a profile, not a single score.
 
-## Limitations
-
-- Repository note: card compiled from the arXiv abstract and official project materials (August 2026); details beyond those sources await full-paper validation. The arXiv and ICLR versions differ (42 tasks/12 dimensions vs. 62 tasks/13 dimensions, with a changed title); numbers above state their source version.
-
 ## Strengths
 
 - The level/dimension structure produces capability profiles that are directly actionable for model selection.
 - Documents the general-vs-specialized split with a consistent protocol across 12 models.
+
+## Limitations
+
+- Repository note: card compiled from the arXiv abstract and official project materials (August 2026); details beyond those sources await full-paper validation. The arXiv and ICLR versions differ (42 tasks/12 dimensions vs. 62 tasks/13 dimensions, with a changed title); numbers above state their source version.
 
 ## Related Works
 

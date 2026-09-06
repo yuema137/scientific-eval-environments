@@ -16,7 +16,7 @@ AutoWorldModel-Bench 是一个闭环 benchmark：交给前沿编码 agent 一个
 ## Activities
 
 - [建模与预测](../activities/modeling_prediction.md)
-- [科研软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
 
 ## Links
 

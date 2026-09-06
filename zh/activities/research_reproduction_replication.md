@@ -12,7 +12,7 @@
 
 ## Task Patterns
 
-有一批成员针对 **ML/AI 研究论文**进行复现或复制，任务难度从让现有代码库能够跑起来，到完全从零开始的复制不等。[SUPER](../works/super.md) 聚焦于运行真实 ML/NLP 代码库时"配置与执行"这一瓶颈环节，[PaperBench](../works/paperbench.md) 要求依据由论文作者共同参与制定的评分细则，从零复制 ICML 2024 的论文，而 [FIRE-Bench](../works/fire-bench.md) 则要求 agent 仅凭一个研究问题，重新发现已发表的 ML 研究成果。这些工作与 Scientific Software、Data Analysis 高度共现，并普遍依赖 LLM-as-judge 的评分方式。
+有一批成员针对 **ML/AI 研究论文**进行复现或复制，任务难度从让现有代码库能够跑起来，到完全从零开始的复制不等。[SUPER](../works/super.md) 聚焦于运行真实 ML/NLP 代码库时"配置与执行"这一瓶颈环节，[PaperBench](../works/paperbench.md) 要求依据由论文作者共同参与制定的评分细则，从零复制 ICML 2024 的论文，而 [FIRE-Bench](../works/fire-bench.md) 则要求 agent 仅凭一个研究问题，重新发现已发表的 ML 研究成果。[EXP-Bench](../works/exp-bench.md) 的位置介于后两者之间：交给 agent 的是源论文的研究问题、方法概述和一份做过遮蔽处理的代码库，但不允许它去翻论文原文；评分时再用从这篇论文里抽取的 ground truth 去比对 agent 的实验设计、代码 diff 和结论。这些工作与 Scientific Software、Data Analysis 高度共现，并普遍依赖 LLM-as-judge 的评分方式。
 
 第二类工作借助开源软件和专用工具链，复现 **physics、astro 和 materials 领域的结论**，与 Simulation、Scientific Software 强烈共现。[ReplicationBench](../works/replicationbench.md) 面向 astrophysics 论文的复制，[PRBench](../works/prbench.md) 从零重新实现 physics 算法以匹配已发表的数值结果，[Collider-Bench](../works/collider-bench.md) 将 LHC 搜索实验重构到一套公开的仿真技术栈中，并以直方图的拟合度打分，而 [AutoMat](../works/automat.md) 则跨 DFT/MD/ML 工作流复现 computational materials science 的结论。[Quantifying the Reproducibility of Astrophysical Methods](../works/quantifying-the-reproducibility-of-astrophysical-m.md) 在同一领域内把问题反了过来：它问的不是 agent 能否复现一项方法，而是在层层嵌套的稿件文本层级上对同一方法反复采样重建，衡量文字本身把有效实现的空间约束到什么程度，并按一套有序的有效性层级为由此得到的可执行流程评分。
 
@@ -24,6 +24,7 @@
 |---|---|---|---|---|---|
 | CORE-Bench | 2024 | 基于公开的代码与数据复现已发表的研究结果 | 来自 90 篇论文的 270 个任务，3 个难度等级，涵盖 language 与 vision | 计算可复现性准确率（最高难度约 21%） | [卡片](../works/core-bench.md) |
 | SUPER | 2024 | 从真实研究代码库中配置并执行任务 | 45 个端到端 + 152 个子任务 + 602 个自动生成的 ML/NLP GitHub 问题 | 端到端成功率（GPT-4o 16.3%） | [卡片](../works/super.md) |
+| EXP-Bench | 2025 | 依据论文给出的研究问题和起始代码，重建一次已发表 AI 实验的设计、代码与结论 | 来自 51 篇 NeurIPS/ICLR 2024 论文的 461 个任务；容器化环境，单任务 40 分钟上限，monitor 禁止查阅原论文 | 设计、实现与结论都要对上论文的 ground truth，且代码能干净重跑（最高 All·E✓ 0.5%） | [卡片](../works/exp-bench.md) |
 | PaperBench | 2025 | 从零复制 SOTA AI 论文 | 20 篇 ICML 2024 论文，8,316 个评分细则任务，sandbox | 按评分细则打分的复制得分（最高 21.0%） | [卡片](../works/paperbench.md) |
 | ReplicationBench | 2025 | 复制 astrophysics 论文的核心贡献 | 覆盖 20 篇论文的 111 个任务，计算 sandbox | 忠实度 + 正确性得分（最高 <20%） | [卡片](../works/replicationbench.md) |
 | AutoMat | 2026 | 端到端复现 computational materials science 的结论 | 85 个由 SME 精选的结论，具备 HPC 代表性、资源受控的环境 | 可复现性得分 / 成功率（最高 54.1%） | [卡片](../works/automat.md) |
@@ -44,6 +45,7 @@
 - [PRBench](../works/prbench.md)
 - [FIRE-Bench](../works/fire-bench.md)
 - [ReplicationBench](../works/replicationbench.md)
+- [EXP-Bench](../works/exp-bench.md)
 - [PaperBench](../works/paperbench.md)
 - [CORE-Bench](../works/core-bench.md)
 - [SUPER](../works/super.md)

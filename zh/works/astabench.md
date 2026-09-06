@@ -11,6 +11,9 @@ AstaBench 是一个为 agent 的科学研究能力提供整体度量的 benchmar
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Resource-aware Evaluation](../topics/resource_aware_evaluation.md)
+- [Agent Harnesses & Scaffolding](../topics/agent_harnesses_scaffolding.md)
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 
 ## Activities
 
@@ -31,7 +34,7 @@ AstaBench 认为现有 agent benchmark 套件缺乏用于受控比较的可复�
 
 ## Tasks
 
-11 个 benchmark 共 2,400+ 个问题：文献理解（PaperFindingBench、LitQA2-FullText-Search、ScholarQA-CS2、LitQA2-FullText、ArxivDIGESTables-Clean）、代码与执行（SUPER-Expert、CORE-Bench-Hard⁻、DS-1000）、数据分析（DiscoveryBench）以及端到端发现（E2E-Bench、E2E-Bench-Hard），每个 benchmark 均带有测试与验证划分。11 个 benchmark 中有 7 个由作者构建（4 个此前未发布），其余在略作修改后改编自已有数据集；许多问题源自已部署 Asta 系统的真实使用——PaperFindingBench 取自 PaperFinder 与 OpenSciLM 的使用日志，ScholarQA-CS2 取自向 OpenSciLM 提交的 100 个用户问题——而两个端到端 benchmark 则将机器生成的研究任务与人类专家评审相结合。文献类 benchmark 携带按 benchmark 设定的语料日期截断，使检索仅限于 benchmark 构建之前的论文。
+11 个 benchmark 共 2,400+ 个问题：文献理解（PaperFindingBench、LitQA2-FullText-Search、ScholarQA-CS2、LitQA2-FullText、ArxivDIGESTables-Clean）、代码与执行（SUPER-Expert、CORE-Bench-Hard⁻、DS-1000）、数据分析（DiscoveryBench）以及端到端发现（E2E-Bench、E2E-Bench-Hard），每个 benchmark 均带有测试与验证划分。11 个 benchmark 中有 7 个由作者构建（4 个此前未发布），其余在略作修改后改编自已有数据集；许多问题源自已部署 Asta 系统的真实使用——PaperFindingBench 取自 PaperFinder 与 OpenSciLM 的使用日志，ScholarQA-CS2 取自向 OpenSciLM 提交的 100 个用户问题——而两个端到端 benchmark 则将机器生成的研究任务与人类专家评审相结合。文献类 benchmark 携带按 benchmark 设定的语料日期截断，把检索限制在 benchmark 构建之前发表的论文上，之后发表的论文因此污染不到结果。
 
 ## Domains
 
