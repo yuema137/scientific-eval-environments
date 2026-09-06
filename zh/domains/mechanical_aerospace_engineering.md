@@ -78,6 +78,8 @@
 | ERI Benchmark | GEN, AERO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✔ | 2 | 3 | 3 | **10** |
 | FEM-Bench | FEA, SOL | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ◐ | ✘ | ◐ | 3 | 1 | 2 | **7** |
 
+Repository note: 有一行不属于其余各列所预设的 agent 场景。RealPDEBench 评的是科学机器学习代理模型而非 agent，其"任务设定"几列描述的是一套离线训练与评测流程。
+
 Repository note: 本页有一半的行在 `Net` 上是未知，12 行里占 6 行，因为来源始终没说 agent 能否连到实时网络。`Scale` 有 3 行是 `?`，成因和别的页不同：不是缺少逐领域拆分，而是压根没有数量。SciConvBench、AInsteinBench、FEABench 都只描述了任务形态，没说一共有多少个任务。本页 `Real` 上唯一的未知是 Terminal-Bench Science。
 
 ## Related Works

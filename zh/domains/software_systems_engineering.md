@@ -73,7 +73,7 @@
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | SWE-chat | HAI, MAINT | ✔ | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ | **4.5** | ✔ | ◐ | ◐ | 2 | 3 | 3 | **10** |
-| DiscoveryBench | REQ, EMP | ? | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ✘ | ✔ | 1 | 1 | 4 | **7.5** |
+| DiscoveryBench | REQ, EMP | ? | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ✘ | ✔ | 1 | 1 | 3 | **6.5** |
 | Long-Horizon-Terminal-Bench | GEN | ? | ✘ | ◐ | ◐ | ◐ | ◐ | ✔ | **3** | ✘ | ✔ | ◐ | 3 | 1 | 3 | **8.5** |
 | AgentLens | TEST, MAINT, HAI | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✔ | ◐ | 2 | 1 | 3 | **7.5** |
 | Enconda-bench | CFG | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ✔ | 2 | 3 | 3 | **9.5** |
