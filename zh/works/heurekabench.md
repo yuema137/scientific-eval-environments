@@ -11,6 +11,8 @@ HeurekaBench 是一个用于「造 benchmark」的框架——它生成面向实
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Evaluator Reliability & Validation](../topics/evaluator_reliability_validation.md)
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 
 ## Activities
 
@@ -28,7 +30,7 @@ HeurekaBench 是一个用于「造 benchmark」的框架——它生成面向实
 
 ## Tasks
 
-单细胞实例 sc-HeurekaBench 包含 50 道开放题与 50 道选择题，构建自 13 篇论文中的 41 条已验证洞见——其中 9 篇出自 Nature、4 篇出自 Cell。题目分三个阶段产出：insights generation，从科学文献中抽取候选洞见并半自动验证；questions generation，把已验证的洞见改写为问答对；question solving，由 agent 自主设计并执行多步分析，给出基于数据的答案。另有一个精简子集 sc-HeurekaBench-Lite，限定数据集小于 750 MB，含其中 22 道开放题与 18 道选择题，以确保所有参与比较的 agent 都能在同一批任务上跑通。
+单细胞实例 sc-HeurekaBench 包含 50 道开放题与 50 道选择题，构建自 13 篇论文中的 41 条已验证洞见——其中 9 篇出自 Nature、4 篇出自 Cell。题目分三个阶段产出：insights generation，从科学文献中抽取候选洞见并半自动验证；questions generation，把已验证的洞见改写为问答对，再过两轮筛选，把不看数据也能答对的题、以及人工审阅否掉的题剔除；question solving，由 agent 自主设计并执行多步分析，给出基于数据的答案。另有一个精简子集 sc-HeurekaBench-Lite，限定数据集小于 750 MB，含其中 22 道开放题与 18 道选择题，以确保所有参与比较的 agent 都能在同一批任务上跑通。
 
 ## Domains
 
@@ -36,9 +38,10 @@ HeurekaBench 是一个用于「造 benchmark」的框架——它生成面向实
 
 ## Evaluation
 
-- **开放题正确性由 LLM judge 评定。** 采用 G-Eval，以 GPT-4o 作为 judge，给出 1 至 5 分的评级。评定时把回答与 ground truth 双方都拆解为原子事实，评级反映二者在完整、部分、缺失三类事实上的重合情况。
+- **开放题正确性由 LLM judge 评定。** 采用 G-Eval，以 GPT-4o 作为 judge，给出 1 至 5 分的评级。评定时把回答与 ground truth 双方都拆解为原子事实，评级反映二者在完整、部分、缺失三类事实上的重合情况。这套 rubric 还会对那种主要靠模型自身预训练知识、而没有真去分析给定数据集的回答扣分。
 - **选择题**以 accuracy 为主指标，同时报告 precision 与 recall。
 - **Ground truth 取自已发表的发现。** 流水线产出的候选工作流须与源研究所报告的结果比对验证，而非对照合成目标或标注者自行编写的答案。
+- **先把 judge 验一遍，再拿它评分。** 11 位人类专家按同样的 1 至 5 分标准，为 Biomni 搭配 GPT-OSS-120B 产出的 25 条开放题答案打分；这些专家是单细胞方向的博士生或博士后，至少有一年处理单细胞数据的经验，来自四所高校、六个实验室。把专家分数分别按众数和中位数汇总，judge 与专家相差不超过 1 分的题目占 92%（23/25）和 96%（24/25），对两种汇总方式的 Spearman 秩相关分别为 0.93 和 0.90，Cohen's κ（二次惩罚）都是 0.85。换个角度再验一次：把 judge 模型换掉，在三个 planner 模型上，GPT-4o 与 Claude-4.5-Sonnet judge 的平均 Spearman 为 0.84 ± 0.03（κ 0.81 ± 0.03），与 Gemini-2.5-Pro 为 0.79 ± 0.01（κ 0.71 ± 0.04），三个 judge 对 planner 的排名也完全一致。
 - **报告：** 在 sc-HeurekaBench-Lite 上，三个现有单细胞 agent 的开放题正确性（5 分制）分别为 BixBench-Agent 2.34、Biomni 2.31、CellVoyager 2.03。planner 模型的消融给出 Claude-4-Sonnet 2.58 ± 0.05、GPT-OSS-120B 2.08 ± 0.05、Qwen3-235B-thinking 1.85 ± 0.03。作者另报告，加入 critic 模块可使开源 LLM agent 的 ill-formed 回答改善至多 22%，从而缩小与闭源同类的差距。
 
 ## Typical Duration
@@ -55,6 +58,7 @@ HeurekaBench 是一个用于「造 benchmark」的框架——它生成面向实
 - Ground truth 锚定在已发表研究已报告的发现上，并与该研究的代码仓库配对，使正确性标准具备外部参照。
 - 由多个 LLM 抽取候选洞见并生成候选工作流，再以一道半自动验证环节把关，决定什么才能成为题目。
 - 同一批已验证洞见以开放题与选择题两种形式出题，使自由生成与受限选择能在同一来源上被衡量。
+- 一道题只有在两个前沿模型不看数据也答不上来时才会进入 benchmark。GPT-4o 与 Claude-4-Sonnet 先在没有数据集的条件下回答每一道候选题：选择题只要两个模型都答对就丢掉，开放题只要两个模型在同一套 1 至 5 分的 G-Eval 标准下都高于 3.0 分就丢掉。之后还有一道人工筛查，剔除幻觉、重复，以及取自洞见中未通过验证那部分的题目。
 
 ## Strengths
 
@@ -64,7 +68,7 @@ HeurekaBench 是一个用于「造 benchmark」的框架——它生成面向实
 
 ## Limitations
 
-- Repository note: 该流水线是半自动的，依赖多个 LLM 抽取洞见与生成候选工作流，开放题答案又由 LLM judge 评分，因此题目本身及其评分都继承了用于产出它们的模型的可靠性。
+- Repository note: 该流水线是半自动的，依赖多个 LLM 抽取洞见与生成候选工作流，再由人工审阅者实际跑一遍生成的代码，核对结果是否与源研究报告的结论对得上。论文给出了评分 judge 与专家、与另外两个 judge 模型的一致性数据，却没有为抽取环节给出对应指标，所以题目质量靠的是这道人工审阅，而不是一个测出来的错误率。
 - Repository note: 目前只存在单细胞这一个实例——流水线虽被主张为领域无关，但论文并未评估其向其他领域的迁移——且所报告的 agent 比较跑在精简的 Lite 子集上，而非完整的 50 道开放题。
 
 ## Related Works

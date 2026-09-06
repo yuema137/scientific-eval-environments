@@ -17,8 +17,8 @@ AI4AI-Bench 测的是 coding agent 能不能改进 AI 系统“怎么学”，�
 
 ## Activities
 
-- [Optimization & Engineering Design](../activities/optimization_engineering_design.md)
-- [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+- [优化与工程设计](../activities/optimization_engineering_design.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
 
 ## Links
 

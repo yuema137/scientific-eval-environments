@@ -24,6 +24,9 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 - **混合验证。** [AgentLens](../works/agentlens.md) 把形式化检查、多个 judge 维度和带证据的文字审查结合起来。
 - **领域校准。** [AstroVisBench](../works/astrovisbench.md)、[PSE-Bench](../works/pse-bench.md) 和 [FIRE-Bench](../works/fire-bench.md) 都报告科学输出 judge 与人类专家的一致程度。[DiscoveryBench](../works/discoverybench.md) 把自己的假设匹配 evaluator 验了两轮：先在 200 个抽取与匹配决策上逐步核对，再拿三位标注者对预测假设的排序做整体比对。
 - **拿会议的录用结论当锚点。** [AI-Researcher](../works/ai-researcher.md) 用内容相近的 ICLR 录用与拒稿配对检验自己的审稿 agent，并在给任何生成论文打分之前，先把最分不清这两类稿件的 evaluator 剔除。
+- **领域校准。** [AstroVisBench](../works/astrovisbench.md)、[PSE-Bench](../works/pse-bench.md) 和 [FIRE-Bench](../works/fire-bench.md) 都报告科学输出 judge 与人类专家的一致程度。
+- **给 judge 单独做一套 benchmark。** [PaperBench](../works/paperbench.md) 先人工判定论文部分复现结果的每一个评分叶节点，再把候选 judge 后端当作二分类器对照这些标签打分，最后按每美元换来的 F1 而不是最高 F1 来选型。
+- **同一批答案，既换人也换 judge。** [HeurekaBench](../works/heurekabench.md) 在正式使用 judge 之前验两轮：11 位领域专家对同样的 25 条开放题答案打分，另有两个前沿模型对同一批 agent 结果重新评分，于是评分者之间的分歧和 judge 模型之间的分歧被分开报告。
 
 ## 方法对比
 
@@ -37,6 +40,8 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 | AstroVisBench | 多模态可视化 judge | 专业天文学家标注 | 排名相关与标注者一致性 | Judge 选择 |
 | DiscoveryBench | GPT-4 假设匹配 evaluator（HMS） | 从已发表论文复现的标准假设；三位标注者在 100 组上的偏好排序 | 与人类排序一致率 95%，Fleiss κ = 0.91；200 个样例上抽取与匹配步骤正确率 94-99% | Benchmark 评分 |
 | AI-Researcher | 五个 LLM 审稿 agent，换序两两比较 | 32 组内容相近的 ICLR 论文配对（2021-2023）的录用/拒稿结果 | 录用预测准确率 65.62-90.62%；可比质量检出率（评分高于 -1.0 的配对占比）93.75-100% | Evaluator 选型：主实验剔除了最弱的模型 |
+| PaperBench | 覆盖评分叶节点的 SimpleJudge，五种后端模型 | 五篇论文部分复现结果的人工判分叶节点 | 宏平均二分类 F1（0.59-0.84），与每篇成本并列报告 | 为主排行榜选定 judge 后端 |
+| HeurekaBench | 以 GPT-4o 为后端的 G-Eval judge | 11 位单细胞专家对 25 条开放题答案打分；另有两个 judge 模型 | 与专家汇总分的 Spearman 0.93 / 0.90、Cohen's κ 0.85；judge 之间 Spearman 0.84 / 0.79 | Judge 选型与 planner 模型排名 |
 
 ## 还没解决的问题
 
@@ -54,7 +59,9 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 - [Plan-RewardBench](../works/plan-rewardbench.md)
 - [PSE-Bench](../works/pse-bench.md)
 - [FIRE-Bench](../works/fire-bench.md)
+- [HeurekaBench](../works/heurekabench.md)
 - [AstroVisBench](../works/astrovisbench.md)
 - [AgentRewardBench](../works/agentrewardbench.md)
+- [PaperBench](../works/paperbench.md)
 - [AI-Researcher](../works/ai-researcher.md)
 - [DiscoveryBench](../works/discoverybench.md)

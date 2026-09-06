@@ -24,6 +24,9 @@ Clean arithmetic does not rescue a bad measurement. Memorized tasks inflate capa
 - **Verifier rigor.** CODE2BENCH gates property-based tests on branch coverage, while [FrontierCode](../works/frontiercode.md) combines execution with contamination detection.
 - **Sealed replay after open exploration.** [AI4AI-Bench](../works/ai4ai-bench.md) lets agents use a cheap proxy during development, then transfers only source code into a fresh run scored by a fixed final evaluator; the original algorithm is rerun under the same conditions.
 - **Recency-aware implementation.** [ResearchCodeBench](../works/researchcodebench.md) derives implementation tasks from recent research contributions and publishes a contamination-safe subset.
+- **Screening out what the model already knows.** [HeurekaBench](../works/heurekabench.md) has GPT-4o and Claude-4-Sonnet answer every candidate question with no dataset access and keeps only the ones they miss, so a surviving question cannot be answered from pre-training alone; its judge rubric additionally penalizes an answer that leans on model knowledge instead of the supplied data.
+- **Reproducible tools as a validity condition.** [AstaBench](../works/astabench.md) states five principles for benchmarking agents and builds the suite to them: corpus tools restricted to papers predating benchmark creation so later publications cannot contaminate results, one standard task interface, and a leaderboard where openness and tooling are declared alongside every score.
+- **Guarding the run, not just the task set.** [EXP-Bench](../works/exp-bench.md) screens agent logs for disallowed behavior — reading the source paper, Git operations, fabricated data — before any grading happens, and splits each task into individually gradable subtasks so per-aspect credit never stands in for end-to-end success.
 
 ## Comparison
 
@@ -35,6 +38,9 @@ Clean arithmetic does not rescue a bad measurement. Memorized tasks inflate capa
 | DiscoverPhysics | Generated physical worlds | On-demand counterfactual laws | Simulator ground truth | Per instance |
 | ResearchCodeBench | Recent ML papers | Contamination-safe paper subset | Executable code tests | New paper cohorts |
 | ASI-Bench | 60 project tasks from the literature, expert-filtered | B1-B4 guidance gradient within one project; B3 and B4 mean forced strictly below 40 at task acceptance | Task-specific gates and weighted scorers vs reproducible per-task references; private `seed42` reference set | New authored task batches via public portal |
+| AstaBench | 11 benchmarks: 7 author-created (4 previously unreleased), the rest adapted | Five stated benchmarking principles; corpus tools cut off at benchmark-creation date; openness and tooling declared per leaderboard entry | Per-benchmark metrics with normalized cost; 6 of the 11 use LLM judges | New benchmarks and new cutoffs at each suite revision |
+| EXP-Bench | 461 tasks from 51 NeurIPS/ICLR 2024 papers and their repositories | Impact-based filtering, multi-pass extraction, human validation; run-time monitor for source-paper access and fabricated data | Containerized execution plus LLM judges over 12,737 gradable subtasks | New paper cohorts through the same pipeline |
+| HeurekaBench | Published studies paired with their code repositories | Two frontier models discard questions answerable without the data; manual pass removes hallucinations, duplicates, and non-validated components | Ground truth verified against the study's reported findings; judge checked against 11 experts | New studies re-run through the pipeline |
 
 ## Open Questions
 
@@ -54,8 +60,11 @@ Clean arithmetic does not rescue a bad measurement. Memorized tasks inflate capa
 - [DiscoverPhysics](../works/discoverphysics.md)
 - [PRL-Bench](../works/prl-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)
+- [HeurekaBench](../works/heurekabench.md)
+- [AstaBench](../works/astabench.md)
 - [CritPt](../works/critpt.md)
 - [CODE2BENCH](../works/code2bench.md)
 - [ResearchCodeBench](../works/researchcodebench.md)
+- [EXP-Bench](../works/exp-bench.md)
 - [MedBrowseComp](../works/medbrowsecomp.md)
 - [Robotouille](../works/robotouille.md)
