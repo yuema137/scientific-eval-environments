@@ -11,12 +11,14 @@ EXP-Bench is a benchmark that evaluates AI agents on conducting complete researc
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 
 ## Activities
 
 - [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
 - [Experiment Design & Scientific Discovery](../activities/experiment_design_discovery.md)
 - [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+- [Research Reproduction & Replication](../activities/research_reproduction_replication.md)
 
 ## Links
 
@@ -54,7 +56,7 @@ A benchmark of 461 authentic end-to-end AI research experiment tasks, extracted 
 ## Key Design Ideas
 
 - Semi-autonomous curation pipeline that extracts and structures experimental details from papers and their associated open-source code, with impact-based filtering and lightweight human validation.
-- Each task pairs a research question and a high-level method description with incomplete starter code; ground-truth design, code diff, and conclusion are derived from the source paper's own scripts.
+- Each task pairs a research question and a high-level method description with incomplete starter code; ground-truth design, code diff, and conclusion are curated from the source paper and its released codebase.
 - Fine-grained decomposition of every task into individually gradable subtasks (12,737 in total) across design, implementation, and conclusion, separating per-aspect scores from end-to-end success.
 - Containerized execution with a monitor integrity check that screens agent logs for disallowed behaviors before grading.
 
@@ -67,7 +69,7 @@ A benchmark of 461 authentic end-to-end AI research experiment tasks, extracted 
 ## Limitations
 
 - Repository note: Design, implementation, and conclusion grading all rely on LLM-based judges against extracted ground truth; only the execution check is programmatic, so aggregate scores inherit judge reliability.
-- Repository note: Every task reproduces a published AI experiment from two 2024 venues — open-ended experimentation and non-AI scientific domains are outside the evaluated setting.
+- Repository note: Every task reconstructs a published AI experiment from two 2024 venues. The research question, the high-level method description, and the starter code all come from the source paper, and the monitor blocks the agent from reading that paper, so what is graded is the design → implement → execute → conclude span of an experiment someone has already run. Problem formulation, literature review, reporting, open-ended experimentation, and non-AI scientific domains are outside the evaluated setting.
 
 ## Related Works
 

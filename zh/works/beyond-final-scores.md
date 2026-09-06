@@ -16,7 +16,7 @@
 
 ## Activities
 
-- [科研软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
+- [科学软件与工作流工程](../activities/scientific_software_workflow_engineering.md)
 
 ## Links
 

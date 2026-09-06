@@ -178,7 +178,7 @@ Activity 页跟着 agent 实际完成的工作走。它是在搜文献、跑 sim
 | [文献检索与证据综合](./activities/literature_evidence_synthesis.md) | 文献检索、系统综述、证据综合、以文献为依托的抽取 | 23 |
 | [建模与预测](./activities/modeling_prediction.md) | 预测与代理建模、性质预测、预报 | 22 |
 | [优化与工程设计](./activities/optimization_engineering_design.md) | 参数与控制器调优、工程/逆向设计、材料与分子设计 | 27 |
-| [研究复现与重复](./activities/research_reproduction_replication.md) | 复现已发表的分析、结果与方法；匹配已报告的结论 | 11 |
+| [研究复现与重复](./activities/research_reproduction_replication.md) | 复现已发表的分析、结果与方法；匹配已报告的结论 | 12 |
 | [端到端研究](./activities/end_to_end_research.md) | 跨越多个主要阶段的多阶段研究生命周期 | 11 |
 | [实验室与仪器控制](./activities/laboratory_instrument_control.md) | 仪器、显微镜与光束线控制、实验室自动化、行为定义的控制代码 | 3 |
 

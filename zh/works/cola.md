@@ -4,7 +4,7 @@
 
 > **首次公开：** 2025-03-27 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2503.21383)
 
-## 概览
+## Overview
 
 CoLA 为 LLM 学出一个紧凑 latent action space，使 policy 的 decision representation 不再由 token vocabulary 直接决定。
 
@@ -24,19 +24,19 @@ N/A — 通用 LLM 与 agent adaptation 方法，没有直接评价科学或研�
 - **Model:** <https://huggingface.co/LAMDA-RL/Llama-3.1-CoLA-10B>
 - **Venue:** ICML 2025
 
-## 摘要
+## Summary
 
 CoLA 用面向 future token 的 inverse-dynamics model 提取 latent action，把 LLM 调成由 action 控制的 language world model，再通过 behavior cloning 或 RL 训练 action policy。实验覆盖数学、preference control、ALFWorld 和 ScienceWorld，并区分 seen 与 unseen agent task。
 
-## 任务
+## Tasks
 
 数学 reasoning 与 search、可控 preference generation，以及 ALFWorld 和 ScienceWorld 中的多轮交互。
 
-## 领域
+## Domains
 
 通用语言模型控制与 embodied/text-agent environment。ScienceWorld 在这里是模拟 agent task，不是科学研究 workflow，因此不映射到 canonical science domain。
 
-## 评估
+## Evaluation
 
 数学 benchmark accuracy 与 pass@K、GPT-4 preference win rate、reward-hacking stress test，以及 seen/unseen ALFWorld 和 ScienceWorld task success。
 
@@ -44,7 +44,7 @@ CoLA 用面向 future token 的 inverse-dynamics model 提取 latent action，�
 
 不同任务没有统一的 wall-clock 或 episode 时长。
 
-## 主要贡献
+## Main Contribution
 
 不由人手写 action taxonomy，而是把 LLM 的 RL action-space structure 本身变成学习对象。
 
@@ -58,7 +58,7 @@ CoLA 用面向 future token 的 inverse-dynamics model 提取 latent action，�
 - 同一个 representation 同时在 reasoning、preference 和 interactive agent 上测试。
 - 包含 seen/unseen split 与 reward-hacking probe。
 
-## 局限
+## Limitations
 
 - Latent action 不如具名 semantic action 容易解释。
 - 下游结果提高不等于这些 latent dimension 对应可复用的人类策略。
