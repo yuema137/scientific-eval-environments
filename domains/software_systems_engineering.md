@@ -4,7 +4,7 @@
 
 ## Scope
 
-Building and verifying software as engineering: code generation on real repositories, environment configuration, formal specification and verification. Web/UI agents and computer use are not software engineering.
+Building and verifying software as engineering: code generation on real repositories, environment configuration, formal specification and verification, and empirical research on software engineering practice itself, such as requirements engineering. Web/UI agents and computer use are not software engineering.
 
 ## Comparison
 
@@ -28,6 +28,7 @@ Building and verifying software as engineering: code generation on real reposito
 | SWE-RPG | 2026 | Repository-level issue resolution — bug fixing and feature addition in real Python and Java projects — diagnosed across the full trajectory (requirement clarification → implementation planning → code generation → submission) rather than by pass/fail alone. | 163 tasks from 31 Python and Java repositories (113 bug fixes, 50 feature additions), each with an executable fail-to-pass/pass-to-pass harness plus validated intermediate ground truths for Requirement Clarification and Implementation Planning; three agents across six LLM backends. | Execution-based resolved rate (patch applies, all fail-to-pass pass, no pass-to-pass regresses; avg 31.5%, best 49.7%), plus LLM-judge stage attribution and per-stage coverage calibrated against human consensus (92%/96%). | [→](../works/a-unified-issue-resolution-benchmark-for-requireme.md) |
 | EngDesign | 2025 | Operating system and computer architecture design delivered as a functional artifact — a system design that must work under its stated constraints rather than match a reference answer. | Operating System Design (8) and Computer Architecture Design (5) of 101 design tasks / 473 gradable items across nine engineering areas; single-turn by default plus an iterative protocol of up to 10 revision rounds on simulator feedback. | Per-task evaluation scripts execute the produced design and return a binary pass, a 0–100 partial-credit score and a log; over the whole benchmark the best model rises from a 34.38% first-attempt pass rate to almost 60% after ten iterations. | [→](../works/engdesign.md) |
 | RigorBench | 2026 | Engineering process discipline in software work — multi-file feature implementation, diagnosis and repair of subtle bugs, recovery from failing first attempts, abstention on impossible or ambiguous specifications, and checkpointed multi-step refactoring — measured over how the solution was reached rather than by outcome alone. | 100 tasks, 20 in each of five categories, each shipping a starter repository in Node.js/Express, Python, Rust or Django; roughly 410 task executions across four agentic harnesses running on the same foundation model. | Trajectory-based scoring of seven pillars with published sub-metric formulas — planning fidelity, verification coverage, recovery efficiency, abstention quality, atomic transition integrity, test assertion density, exploration efficiency — combined into a composite RigorScore, with build and test health checked programmatically in an isolated Docker environment and only qualitative sub-metrics left to an LLM judge; an outcome score is measured separately on the same runs. | [→](../works/rigorbench.md) |
+| DiscoveryBench | 2024 | Recover the findings of a published survey of industrial requirements-engineering practice for ML-enabled systems — what practitioners report about how requirements are handled in ML projects — from the raw survey responses. | 15 of the 239 real test tasks are engineering; each supplies the survey dataset, its column metadata, background knowledge and a natural-language discovery goal, and the agent writes and runs its own cleaning and statistical workflow. | GPT-4 Hypothesis Matching Score against the source paper's gold hypothesis over context, variables and relationship; the best non-oracle agent scores 7% on this domain. | [→](../works/discoverybench.md) |
 
 ## Capability Matrix
 
@@ -37,7 +38,7 @@ A checklist view of the same works: what each one does and does not put under ev
 
 **`Domain`** names the software and systems engineering subfields the work actually evaluates in, taken from the card's `## Domains` prose. This vocabulary is specific to this page — each domain page defines its own, since one domain's subfields have nothing to say to another's.
 
-`MAINT` software maintenance & evolution (issue resolution, bug fixing, refactoring) · `FEAT` feature development & repository-level implementation · `TEST` software testing & quality assurance · `FV` formal specification & program verification · `DIST` distributed & concurrent systems · `OS` operating systems & systems programming · `ARCH` computer architecture & hardware design · `CFG` build, dependency & environment configuration · `REQ` requirements engineering & intent elicitation · `PROC` software process, planning & engineering discipline · `HAI` human–agent collaboration & developer interaction · `SCISW` scientific & research software engineering · `GEN` curriculum-wide or unspecified, no single subfield
+`MAINT` software maintenance & evolution (issue resolution, bug fixing, refactoring) · `FEAT` feature development & repository-level implementation · `TEST` software testing & quality assurance · `FV` formal specification & program verification · `DIST` distributed & concurrent systems · `OS` operating systems & systems programming · `ARCH` computer architecture & hardware design · `CFG` build, dependency & environment configuration · `REQ` requirements engineering & intent elicitation · `PROC` software process, planning & engineering discipline · `EMP` empirical software engineering — survey, process and practitioner studies of how software is actually built in industry · `HAI` human–agent collaboration & developer interaction · `SCISW` scientific & research software engineering · `GEN` curriculum-wide or unspecified, no single subfield
 
 **Two scores, not one.** The columns split into **coverage** — what the evaluation setup puts under test — and **rigor** — how far you can trust what it reports. They are summed separately because they pull against each other: a benchmark can put everything under test and verify none of it carefully, and a deliberately narrow one can be the most trustworthy thing on the page. Rows are ordered by `Cov`, highest first, and by `Rig` within equal coverage; remaining ties keep Comparison-table order. Coverage leads because it is the axis a reader scans for — *does this benchmark even put my problem under test* — and `Rig` then says how far to trust what it reports.
 
@@ -72,6 +73,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | SWE-chat | HAI, MAINT | ✔ | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ | **4.5** | ✔ | ◐ | ◐ | 2 | 3 | 3 | **10** |
+| DiscoveryBench | REQ, EMP | ? | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ✘ | ✔ | 1 | 1 | 4 | **7.5** |
 | Long-Horizon-Terminal-Bench | GEN | ? | ✘ | ◐ | ◐ | ◐ | ◐ | ✔ | **3** | ✘ | ✔ | ◐ | 3 | 1 | 3 | **8.5** |
 | AgentLens | TEST, MAINT, HAI | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✔ | ◐ | 2 | 1 | 3 | **7.5** |
 | Enconda-bench | CFG | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ✔ | 2 | 3 | 3 | **9.5** |
@@ -112,4 +114,5 @@ Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 o
 - [Enconda-bench](../works/enconda-bench.md)
 - [SysMoBench](../works/sysmobench.md)
 - [EngDesign](../works/engdesign.md)
+- [DiscoveryBench](../works/discoverybench.md)
 - [SWE-bench](../works/swe-bench.md)
