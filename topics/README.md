@@ -25,11 +25,11 @@ Every topic opens with `Start Here`, but the explanation must continue through t
 | V | [Trajectory Evaluation](./trajectory_evaluation.md) | `trajectory_evaluation.md` | 57 |
 | VI | [Skill Hierarchy](./skill_hierarchy.md) | `skill_hierarchy.md` | 43 |
 | VII | [Credit Assignment](./credit_assignment.md) | `credit_assignment.md` | 25 |
-| VIII | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 23 |
-| IX | [Evaluator Reliability & Validation](./evaluator_reliability_validation.md) | `evaluator_reliability_validation.md` | 8 |
-| X | [Benchmark Design, Validity & Contamination](./benchmark_design_validity_contamination.md) | `benchmark_design_validity_contamination.md` | 13 |
+| VIII | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 24 |
+| IX | [Evaluator Reliability & Validation](./evaluator_reliability_validation.md) | `evaluator_reliability_validation.md` | 10 |
+| X | [Benchmark Design, Validity & Contamination](./benchmark_design_validity_contamination.md) | `benchmark_design_validity_contamination.md` | 16 |
 | XI | [Skill Learning & Evolution](./skill_learning_evolution.md) | `skill_learning_evolution.md` | 6 |
-| XII | [Agent Harnesses & Scaffolding](./agent_harnesses_scaffolding.md) | `agent_harnesses_scaffolding.md` | 7 |
+| XII | [Agent Harnesses & Scaffolding](./agent_harnesses_scaffolding.md) | `agent_harnesses_scaffolding.md` | 8 |
 | XIII | [Evaluation-Driven Data Curation](./evaluation_driven_data_curation.md) | `evaluation_driven_data_curation.md` | 3 |
 | XIV | [Evaluation-Driven Post-Training](./evaluation_driven_post_training.md) | `evaluation_driven_post_training.md` | 12 |
 | XV | [Survey](./survey.md) | `survey.md` | 9 |

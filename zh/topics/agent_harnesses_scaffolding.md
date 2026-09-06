@@ -23,6 +23,7 @@ Benchmark 看到的是整套 model–harness configuration。如果两套系统�
 - **自动改进 harness。** [Evo-Bench](../works/evo-bench.md)、[HarnessOpt-Bench](../works/harnessopt-bench.md) 与 [VeRO](../works/vero.md) 给 agent evaluator access，再测修改后的 held-out lift。
 - **研究 loop 中的 scaffold。** [Curation-Bench](../works/curation-bench.md) 表明，要求引用并改造既有方法的 scaffold 会改变 agent 探索的数据策略。
 - **Post-training 配置。** [PostTrainBench](../works/posttrainbench.md) 在同一 GPU 时间协议下比较多种 CLI scaffold。
+- **工具统一发放，用了别的就必须声明。** [AstaBench](../works/astabench.md) 给每个 agent 发同一套按日期截断的文献检索工具和同一个沙箱 notebook，又把 16 个 agent 类别接到同一个 Inspect 任务接口上，通用 agent 因此不用为每个 benchmark 单独改造。排行榜上每条记录还要标明它用的是标准工具、等价的自定义接口，还是完全自定义的工具。这样一来，分数差可以对照 harness 到底提供了什么来读，而不是默认记在模型头上。
 
 ## 方法对比
 
@@ -34,6 +35,7 @@ Benchmark 看到的是整套 model–harness configuration。如果两套系统�
 | HarnessOpt-Bench | 可审计的优化目标 | Held-out split 与 eval budget | 计量的 evaluator 调用 | Held-out gain |
 | VeRO | 任意程序化 harness | 权限、版本和预算 | 标准 observation interface | Expected lift |
 | Curation-Bench | 研究 scaffold | 模型、recipe、evaluator | 每轮 benchmark 结果 | 更好的数据策略 |
+| AstaBench | 需要标准化并公开声明的混杂因素 | 工具、语料日期截断、任务接口、成本核算 | 套件分数，附成本与开放度/工具方式分类 | 在声明过的工具对等条件下比较 model-harness |
 
 ## 还没解决的问题
 
@@ -52,3 +54,4 @@ Benchmark 看到的是整套 model–harness configuration。如果两套系统�
 - [Harness-Bench](../works/harness-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)
 - [VeRO](../works/vero.md)
+- [AstaBench](../works/astabench.md)

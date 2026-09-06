@@ -11,6 +11,7 @@ EXP-Bench is a benchmark that evaluates AI agents on conducting complete researc
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 
 ## Activities
 
@@ -67,7 +68,7 @@ A benchmark of 461 authentic end-to-end AI research experiment tasks, extracted 
 ## Limitations
 
 - Repository note: Design, implementation, and conclusion grading all rely on LLM-based judges against extracted ground truth; only the execution check is programmatic, so aggregate scores inherit judge reliability.
-- Repository note: Every task reproduces a published AI experiment from two 2024 venues — open-ended experimentation and non-AI scientific domains are outside the evaluated setting.
+- Repository note: Every task reconstructs a published AI experiment from two 2024 venues. The research question, the high-level method description, and the starter code all come from the source paper, and the monitor blocks the agent from reading that paper, so what is graded is the design → implement → execute → conclude span of an experiment someone has already run. Problem formulation, literature review, reporting, open-ended experimentation, and non-AI scientific domains are outside the evaluated setting.
 
 ## Related Works
 

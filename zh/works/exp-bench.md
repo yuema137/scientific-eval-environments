@@ -11,6 +11,7 @@ EXP-Bench 是一个 benchmark，评估 AI agent 能否完成源自有影响力 A
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 
 ## Activities
 
@@ -67,7 +68,7 @@ EXP-Bench 针对的局限是：尽管自动化 AI 研究前景可观，当前 AI
 ## Limitations
 
 - Repository note: 设计、实现与结论的评分均依赖基于 LLM 的 judge 对照抽取的 ground truth；只有执行检查是程序化的，因此汇总得分继承了 judge 的可靠性。
-- Repository note: 每个任务都是对两个 2024 年会议已发表 AI 实验的复现——开放式实验与非 AI 科学领域不在所评估的范围内。
+- Repository note: 每个任务重建的都是两个 2024 年会议上已发表的 AI 实验。研究问题、方法的高层描述和起始代码全部来自源论文，而 monitor 又禁止 agent 去读这篇论文，所以真正被判分的，是别人已经跑过的那次实验从设计到实现、执行、结论这一段。问题的提出、文献调研、成文报告，以及开放式实验与非 AI 科学领域，都不在评估范围内。
 
 ## Related Works
 

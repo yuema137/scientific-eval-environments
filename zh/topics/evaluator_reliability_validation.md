@@ -23,6 +23,8 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 - **需要 skill 知识的判断。** [SkillTV-Bench](../works/skilltv-bench.md) 检查 judge 能否验证依赖特定 skill 的执行过程。
 - **混合验证。** [AgentLens](../works/agentlens.md) 把形式化检查、多个 judge 维度和带证据的文字审查结合起来。
 - **领域校准。** [AstroVisBench](../works/astrovisbench.md)、[PSE-Bench](../works/pse-bench.md) 和 [FIRE-Bench](../works/fire-bench.md) 都报告科学输出 judge 与人类专家的一致程度。
+- **给 judge 单独做一套 benchmark。** [PaperBench](../works/paperbench.md) 先人工判定论文部分复现结果的每一个评分叶节点，再把候选 judge 后端当作二分类器对照这些标签打分，最后按每美元换来的 F1 而不是最高 F1 来选型。
+- **同一批答案，既换人也换 judge。** [HeurekaBench](../works/heurekabench.md) 在正式使用 judge 之前验两轮：11 位领域专家对同样的 25 条开放题答案打分，另有两个前沿模型对同一批 agent 结果重新评分，于是评分者之间的分歧和 judge 模型之间的分歧被分开报告。
 
 ## 方法对比
 
@@ -34,6 +36,8 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 | SkillTV-Bench | LLM-as-a-Judge 与 Agent-as-a-Judge | 需要 skill 知识的 trajectory 标签 | Judge accuracy 与 best-of-N 选择 | Trajectory 选择 |
 | AgentLens | 混合 judge 与形式化 verifier | 可执行检查和审查证据 | 多维质量指数 | Coding agent 诊断 |
 | AstroVisBench | 多模态可视化 judge | 专业天文学家标注 | 排名相关与标注者一致性 | Judge 选择 |
+| PaperBench | 覆盖评分叶节点的 SimpleJudge，五种后端模型 | 五篇论文部分复现结果的人工判分叶节点 | 宏平均二分类 F1（0.59-0.84），与每篇成本并列报告 | 为主排行榜选定 judge 后端 |
+| HeurekaBench | 以 GPT-4o 为后端的 G-Eval judge | 11 位单细胞专家对 25 条开放题答案打分；另有两个 judge 模型 | 与专家汇总分的 Spearman 0.93 / 0.90、Cohen's κ 0.85；judge 之间 Spearman 0.84 / 0.79 | Judge 选型与 planner 模型排名 |
 
 ## 还没解决的问题
 
@@ -51,5 +55,7 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 - [Plan-RewardBench](../works/plan-rewardbench.md)
 - [PSE-Bench](../works/pse-bench.md)
 - [FIRE-Bench](../works/fire-bench.md)
+- [HeurekaBench](../works/heurekabench.md)
 - [AstroVisBench](../works/astrovisbench.md)
 - [AgentRewardBench](../works/agentrewardbench.md)
+- [PaperBench](../works/paperbench.md)

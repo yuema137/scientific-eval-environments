@@ -40,6 +40,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 - **把效率写进评分 rubric。** [MASSE](../works/masse.md) 既不给 agent 设预算，也不把成本单列出来报告：它的整体系统 benchmark MASEB 在 100 分里划出 20 分给「效率与鲁棒性」，而负责评阅一整份结构工程分析日志的 GPT-5 评审，会把总 token 用量与总运行时间与四项分数一并写进同一个 JSON 对象——于是一条又准又贵的流水线拿不到满分。论文随附的四个后端之间的成本/运行时权衡分析，读的也正是这同一批测量值。
 - **省下的资源，而非花掉的资源。** [SkillAudit](../works/skillaudit.md) 测的是装上一件产物之后资源的**变化量**：在相同指令与相同输入下配对跑「用 skill」与「不用 skill」两组，得到 Efficiency Gain（执行时间的相对节省）与 Cost Gain（有效输入 token 的相对节省），两者各自截断到 [-1, 1] 后合成 Efficiency-Cost Gain，与效用、安全性一起写进同一份 per-skill 报告。这里不设任何预算，要测的是：采纳这个 skill，是否值回它所占的上下文。
 - **把 token 与工具调用折算到同一种计价。** [BATS / Budget Tracker](../works/bats-budget-aware.md) 给出 `C_unified = c_token + Σ cᵢ·Pᵢ`，把工具调用按每次 0.001 美元与 token 成本并列计价——正是有了单一货币，成本—性能的 **scaling 曲线**才画得出来，而不必在名义上相等的工具预算下比准确率。它的发现是：只把预算调高、却不告诉 agent 还剩多少，并没有用；仅仅注入已用/剩余的计数，就能以十分之一的预算追平 ReAct 基线的准确率，总成本还低 31.3%。
+- **把价格冻住，两次评测才可比。** [AstaBench](../works/astabench.md) 不给 agent 设预算。它把 Inspect 记录下来的每一次模型用量折算成每道题的归一化美元成本，价格取自 `litellm` 成本表的冻结快照并计入缓存折扣，于是 API 涨价前跑的一次评测和涨价后跑的一次仍能放在同一根坐标轴上。排行榜再把分数对成本画出来并标出 Pareto 前沿，这个套件最值得注意的结论也正是从这张图上读出来的：ReAct 搭配 gpt-5-mini 每题只花 $0.04 就拿到 31.6%，而排名第一的 agent 花 $3.40 才拿到 53.0%。
 - **成本–性能前沿式报告。** 另一些工作在 accuracy 之外同时报告 token 或 dollar 成本，用于在 Pareto 前沿上而非单一 accuracy 数字上做比较。这是分析时的资源意识，而非 benchmark 内部的资源意识。
 - **把 exploration 与 verification compute 分开。** [AI4AI-Bench](../works/ai4ai-bench.md) 先给 agent 一张 B300、四小时做探索，再花最多十二小时从头运行提交的 source。它按 reasoning effort 报告 API spend 和 output-token scaling，但 formal training 的 GPU 成本没有计入 dollar total。
 
@@ -78,6 +79,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 | AI Research Preference Models | 2026 | 候选方案执行所耗的 H200 GPU 小时 | 预算固定，贡献在于如何**分配**——用一个冻结的预训练模型预测哪些候选值得真正跑一遍 | AI 研究 agent 在 ML 解空间上的搜索（AIRA-dojo 跑 AIRS-Bench） | [→](../works/ai-research-preference-models.md) |
 | AI4AI-Bench | 2026 | 每项任务四 B300-hours exploration，最多十二 B300-hours clean-start verification，另报 API dollar 与 output token | 两阶段硬预算；将 exploration spend 与最终算法质量并排报告 | 在十个冻结 AI research repository 上做算法设计的 agent | [→](../works/ai4ai-bench.md) |
 | BATS / Budget Tracker | 2025 | 统一计价：token 开销加上按每次 0.001 美元固定计价的工具调用 | 预算是硬约束，但每一轮都让 agent **看得见**；scaling 曲线在统一计价下绘制 | 网页搜索 agent（BrowseComp、BrowseComp-ZH、HLE-Search），另有 τ²-bench 与 SWE-bench Verified | [→](../works/bats-budget-aware.md) |
+| AstaBench | 2025 | 每道题的归一化美元成本，价格取自冻结的 `litellm` 快照并计入缓存折扣 | 只报告、不设预算：分数从分数-成本 Pareto 前沿上读出，排行榜每条记录还要声明自身的开放度与工具方式 | 科学研究辅助；11 个 benchmark、2,400+ 道题，22 个 agent 类别下的 57 个 agent | [→](../works/astabench.md) |
 
 ## 还没解决的问题
 
@@ -109,6 +111,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 - [VeRO / VeRO-Bench](../works/vero.md) — 在门控评估调用预算下把 coding agent 作为 agent 优化器来 benchmark。
 - [BATS / Budget Tracker](../works/bats-budget-aware.md) — 把 token 与工具调用折算进同一种计价；仅仅把剩余预算告诉 agent，就能用十分之一的预算追平 ReAct 基线的准确率。
 - [CostBench](../works/costbench.md) — 动态 tool-use 条件下的成本最优规划。
+- [AstaBench](../works/astabench.md) — 用冻结价格表算出的每题美元成本不随时间漂移，公开排行榜上给出分数-成本 Pareto 前沿。
 - [MASSE](../works/masse.md) — 在端到端结构工程工作流 benchmark 中，把 token 用量与运行时间作为 rubric 的一个计分项。
 - [SDBench](../works/sdbench.md) — 按准确率-成本前沿评分的序贯诊断。
 - [Gravity-Bench-v1](../works/gravity-bench.md) — 引力物理发现中预算受限的观测规划。
