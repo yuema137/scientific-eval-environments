@@ -18,6 +18,7 @@ EXP-Bench is a benchmark that evaluates AI agents on conducting complete researc
 - [Data Analysis & Statistical Inference](../activities/data_analysis_statistical_inference.md)
 - [Experiment Design & Scientific Discovery](../activities/experiment_design_discovery.md)
 - [Scientific Software & Workflow Engineering](../activities/scientific_software_workflow_engineering.md)
+- [Research Reproduction & Replication](../activities/research_reproduction_replication.md)
 
 ## Links
 
@@ -55,7 +56,7 @@ A benchmark of 461 authentic end-to-end AI research experiment tasks, extracted 
 ## Key Design Ideas
 
 - Semi-autonomous curation pipeline that extracts and structures experimental details from papers and their associated open-source code, with impact-based filtering and lightweight human validation.
-- Each task pairs a research question and a high-level method description with incomplete starter code; ground-truth design, code diff, and conclusion are derived from the source paper's own scripts.
+- Each task pairs a research question and a high-level method description with incomplete starter code; ground-truth design, code diff, and conclusion are curated from the source paper and its released codebase.
 - Fine-grained decomposition of every task into individually gradable subtasks (12,737 in total) across design, implementation, and conclusion, separating per-aspect scores from end-to-end success.
 - Containerized execution with a monitor integrity check that screens agent logs for disallowed behaviors before grading.
 

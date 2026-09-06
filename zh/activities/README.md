@@ -31,10 +31,10 @@ Activity  →  执行该任务的 works  →  原始论文   （agent 做什么�
 | [实验室与仪器控制](./laboratory_instrument_control.md) | 仪器、显微镜与光束线控制、实验室自动化、行为定义的控制代码 | 3 |
 | [优化与工程设计](./optimization_engineering_design.md) | 参数与控制器调优、工程/逆向设计、材料与分子设计 | 27 |
 | [科学软件与工作流工程](./scientific_software_workflow_engineering.md) | 科学/工程代码生成、仓库与流水线工程、HDL 与形式化规约代码 | 72 |
-| [研究复现与重复](./research_reproduction_replication.md) | 复现已发表的分析、结果与方法；匹配已报告的结论 | 11 |
+| [研究复现与重复](./research_reproduction_replication.md) | 复现已发表的分析、结果与方法；匹配已报告的结论 | 12 |
 | [端到端研究](./end_to_end_research.md) | 跨越多个主要阶段的多阶段研究生命周期，从提出问题到汇报 | 10 |
 
-在整个语料中，共对适用的 work 卡片赋予了 364 条活动归属。
+在整个语料中，共对适用的 work 卡片赋予了 365 条活动归属。
 
 ## 活动是多标签的
 
