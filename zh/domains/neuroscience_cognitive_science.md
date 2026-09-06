@@ -79,9 +79,8 @@
 | ConceptPsy | PSY | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 3 | 3 | 3 | **10** |
 | CPsyExam | PSY, CLIN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 2 | 3 | 2 | **7.5** |
 | PsychCounsel-Bench | CLIN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 3 | 3 | 1 | **7.5** |
-Repository note: 有两行不属于其余各列所预设的 agent 场景。RealPDEBench 评的是科学机器学习代理模型而非 agent，其"任务设定"几列描述的是一套离线训练与评测流程。SciVQR 是静态多模态问答，没有 agent、工具调用或环境交互。
 
-Repository note：`?` 表示来源没有把这一列说清楚，不是仓库推断它不存在。这个区别在 `Net` 和跨领域套件的逐领域 `Scale` 上尤其重要，因为论文经常只报总任务数。
+Repository note: 这一页的未知不多，而且大多挂在个别工作上，而不是某一列上。`Net` 在 13 行里有 4 行是 `?`。`Contam` 有 2 行是 `?`，分别是 Neuroscience Data-to-Discovery Case Study 和 BrainBench (EEG)，来源都没交代有没有什么手段能让答案不被预训练语料记住。Terminal-Bench Science 一行就占了四格：`Net`、`MM`、`Repro`、`Real`。本页唯一的 `Scale` 未知是 ResearchClawBench，它那 40 个任务从未按领域拆开。
 
 ## Related Works
 

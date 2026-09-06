@@ -77,9 +77,8 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | PSE-Bench | FLOW, OPT, DES | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✘ | 1 | 2 | 3 | **7** |
 | Using Large Language Models for Solving Thermodynamic Problems | THERMO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ◐ | 1 | 1 | 3 | **6.5** |
 | ChemEBench | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✘ | 2 | ? | 1 | **4** |
-Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
 
-Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 of the 47 rows, which is why it leads the coverage group — almost no work here demonstrably grants live retrieval, and most do not say; the full text of eleven of those thirty-five was read for this column and not one states it either way. `Scale` is `?` on 12 rows, every one a multi-domain suite that reports a total task count but no per-domain breakdown. Both columns record that silence rather than resolving it by inference, and in both cases the silence costs the work real score. Two further cells remain `?`: SciCode and Terminal-Bench Science on `Real`.
+Repository note: the unknowns are thin on the ground and mostly attach to a few rows. `Net` is `?` on 4 of the 12 rows and `Cost` on 2, in each case because the source describes the run without saying whether the agent could reach the network or what it was allowed to spend. The two `Scale` unknowns have different causes: the fault-tolerant-control tutorial ships parameterised scenario generators instead of a fixed task list, and ChemEBench counts 101 tasks across its whole suite with no chemical-engineering slice. Terminal-Bench Science alone carries three of the page's unknowns: `Net`, `Cost`, and the only `MM` unknown here.
 
 ## Related Works
 

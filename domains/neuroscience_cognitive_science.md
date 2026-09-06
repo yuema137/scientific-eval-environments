@@ -79,9 +79,8 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | ConceptPsy | PSY | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 3 | 3 | 3 | **10** |
 | CPsyExam | PSY, CLIN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 2 | 3 | 2 | **7.5** |
 | PsychCounsel-Bench | CLIN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 3 | 3 | 1 | **7.5** |
-Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
 
-Repository note: `?` records a source that does not settle the column, not an inferred absence. This matters most for `Net` and for per-domain `Scale` in multi-domain suites, where papers often report only a total task count.
+Repository note: the unknowns are few, and they attach to individual works rather than to a column. `Net` is `?` on 4 of the 13 rows. `Contam` is `?` on two, the Neuroscience Data-to-Discovery Case Study and BrainBench (EEG), where the source does not say whether anything keeps the answer out of a pretraining corpus. Terminal-Bench Science alone accounts for four cells — `Net`, `MM`, `Repro` and `Real` — and the page's only `Scale` unknown is ResearchClawBench, whose 40 tasks are never broken down by field.
 
 ## Related Works
 

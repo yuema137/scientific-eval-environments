@@ -109,9 +109,8 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | OpenXRD | STRUCT, CHAR | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | 2 | 2 | **7** |
 | SciCode | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✘ | **0** | ✘ | ✘ | ✘ | 3 | ? | 3 | **6** |
 | OntoLearner | INFO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | ? | 1 | **4** |
-Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
 
-Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 of the 47 rows, which is why it leads the coverage group — almost no work here demonstrably grants live retrieval, and most do not say; the full text of eleven of those thirty-five was read for this column and not one states it either way. `Scale` is `?` on 12 rows, every one a multi-domain suite that reports a total task count but no per-domain breakdown. Both columns record that silence rather than resolving it by inference, and in both cases the silence costs the work real score. Two further cells remain `?`: SciCode and Terminal-Bench Science on `Real`.
+Repository note: the unknowns cluster in two columns. `Net` is `?` on 8 of the 28 rows, where neither the card nor the primary source says whether the agent could reach the live network. `Scale` is `?` on 7: five are multi-field suites that publish a total with no materials slice, while MaCBench and SciConvBench publish no task count at all. `Real` is `?` for Terminal-Bench Science and SciCode. Each mark records the source's silence rather than closing it by inference.
 
 ## Related Works
 

@@ -97,9 +97,8 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | RubricsTree | PH, CLIN | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✔ | ✘ | 1 | 2 | 3 | **7** |
 | OntoLearner | KR | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | ? | 1 | **4** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
-Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
 
-Repository note: two columns carry nearly all the unknowns. `Net` is `?` on 35 of the 47 rows, which is why it leads the coverage group — almost no work here demonstrably grants live retrieval, and most do not say; the full text of eleven of those thirty-five was read for this column and not one states it either way. `Scale` is `?` on 12 rows, every one a multi-domain suite that reports a total task count but no per-domain breakdown. Both columns record that silence rather than resolving it by inference, and in both cases the silence costs the work real score. Two further cells remain `?`: SciCode and Terminal-Bench Science on `Real`.
+Repository note: `Net` holds the largest block of unknowns, `?` on 9 of the 22 rows, where the source describes the run without saying whether the agent could reach the live network. All four `Scale` unknowns are multi-field suites reporting a total with no medicine slice: Imaging-101, SciVisAgentBench, Fisher-R1 / P-Bench and OntoLearner. Three single cells remain — Apodex Discovery on `MM`, MedAgentGym on `Human`, Terminal-Bench Science on `Real`.
 
 ## Related Works
 

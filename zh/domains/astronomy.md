@@ -123,9 +123,8 @@
 | AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation | COS, GAL, GW | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0.5** | ✔ | ✔ | ✔ | 3 | 1 | 3 | **10** |
 | AI Cosplaying as Astrophysicists | GEN | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | **0.5** | ✘ | ✔ | ✘ | 0 | 3 | 4 | **8** |
 | From Queries to Criteria | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✘ | 1 | 1 | 2 | **5** |
-Repository note: 有两行不属于其余各列所预设的 agent 场景。RealPDEBench 评的是科学机器学习代理模型而非 agent，其"任务设定"几列描述的是一套离线训练与评测流程。SciVQR 是静态多模态问答，没有 agent、工具调用或环境交互。
 
-Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 35 行为 `?`，这也正是它排在覆盖面一组最前的原因——本领域几乎没有工作被明确记载允许实时检索，而大多数干脆不提；为核这一列，其中十一篇的全文都读过，没有一篇给出说法。`Scale` 有 12 行为 `?`，无一例外都是跨领域套件：给了任务总数，却不给逐领域拆分。两列都如实记录这种沉默，而不靠推断把它填掉；而在两列上，沉默都实实在在地扣掉了这些工作的分数。另有两格仍为 `?`：SciCode 与 Terminal-Bench Science 的 `Real`。
+Repository note: 未知集中在两列。`Net` 在 34 行里有 12 行是 `?`，卡片和原始论文都没交代 agent 能否连到实时网络。`Scale` 有 7 行是 `?`：其中六个是跨领域或跨应用的套件，只给了整套的题目总数，却没有天文学这一块的数量；Gravity-Bench-v1 干脆没公布过任务数。另有一格是 `?`：Terminal-Bench Science 的 `Real`。这些 `?` 记的是来源的沉默，不是靠推断填出来的答案。
 
 ## Related Works
 
