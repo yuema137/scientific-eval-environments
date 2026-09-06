@@ -208,6 +208,7 @@ Sorted by `First appeared`, newest first; titles provide a stable tie-breaker wi
 | 2025-11-04 | [CostBench](./works/costbench.md) | [arXiv initial submission](https://arxiv.org/abs/2511.02734) |
 | 2025-11-03 | [Can Large Language Models Automate the HAZOP Process Without Human Intervention?](./works/can-large-language-models-automate-the-hazop-proce.md) | [Official publication record](https://doi.org/10.1016/j.ssci.2025.107039) |
 | 2025-10-31 | [TempoBench](./works/tempobench.md) | [arXiv initial submission](https://arxiv.org/abs/2510.27544) |
+| 2025-10-31 | [InnovatorBench](./works/innovatorbench.md) | [arXiv initial submission](https://arxiv.org/abs/2510.27598) |
 | 2025-10-30 | [Lean4Physics / LeanPhysBench](./works/lean4physics.md) | [arXiv initial submission](https://arxiv.org/abs/2510.26094) |
 | 2025-10-29 | [The Tool Decathlon / Toolathlon](./works/toolathlon.md) | [arXiv initial submission](https://arxiv.org/abs/2510.25726) |
 | 2025-10-29 | [Enconda-bench](./works/enconda-bench.md) | [arXiv initial submission](https://arxiv.org/abs/2510.25694) |
@@ -300,6 +301,7 @@ Sorted by `First appeared`, newest first; titles provide a stable tie-breaker wi
 | 2025-03-20 | [Survey on Evaluation of LLM-based Agents](./works/agent-evaluation-survey.md) | [arXiv initial submission](https://arxiv.org/abs/2503.16416) |
 | 2025-03-20 | [LLM-EPANET](./works/llm-epanet.md) | [arXiv initial submission](https://arxiv.org/abs/2503.16191) |
 | 2025-03-11 | [ASIMOV](./works/asimov.md) | [arXiv initial submission](https://arxiv.org/abs/2503.08663) |
+| 2025-03-04 | [AI-Researcher](./works/ai-researcher.md) | [Official repository release announcement](https://github.com/HKUDS/AI-Researcher) |
 | 2025-02-28 | [BixBench](./works/bixbench.md) | [arXiv initial submission](https://arxiv.org/abs/2503.00096) |
 | 2025-02-23 | [AlchemyBench](./works/alchemybench.md) | [arXiv initial submission](https://arxiv.org/abs/2502.16457) |
 | 2025-02-20 | [MLGym](./works/mlgym.md) | [arXiv initial submission](https://arxiv.org/abs/2502.14499) |
@@ -357,6 +359,7 @@ Sorted by `First appeared`, newest first; titles provide a stable tie-breaker wi
 | 2024-07-14 | [LAB-Bench](./works/lab-bench.md) | [arXiv initial submission](https://arxiv.org/abs/2407.10362) |
 | 2024-07-07 | [ElecBench](./works/elecbench.md) | [arXiv initial submission](https://arxiv.org/abs/2407.05365) |
 | 2024-07-03 | [MolPuzzle](./works/molpuzzle.md) | [Official repository initial commit](https://github.com/KehanGuo2/MolPuzzle/commit/11e5f4c4c12f3a150291f58f52a8c595ededb6da) |
+| 2024-07-01 | [DiscoveryBench](./works/discoverybench.md) | [arXiv initial submission](https://arxiv.org/abs/2407.01725) |
 | 2024-06-29 | [BioKGBench](./works/biokgbench.md) | [arXiv initial submission](https://arxiv.org/abs/2407.00466) |
 | 2024-06-26 | [AssertionBench](./works/assertionbench.md) | [arXiv initial submission](https://arxiv.org/abs/2406.18627) |
 | 2024-06-25 | [MatText](./works/mattext.md) | [arXiv initial submission](https://arxiv.org/abs/2406.17295) |

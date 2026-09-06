@@ -133,6 +133,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | R³-Bench | 2026 | One budget shared across a six-problem suite, so effort must be allocated and some problems triaged away | Tool-free completion and a Terminus-2 shell | [→](../works/r3-bench.md) |
 | BATS / Budget Tracker | 2025 | Tool-call budget as the scaling axis (10/30/50/100 per tool); performance plateaus without budget awareness | Web-search agents over live browsing, plus retail dialogue and SWE-bench Verified | [→](../works/bats-budget-aware.md) |
 | ASI-Bench | 2026 | 60 project-level research tasks; complete trajectories span 2,600+ interaction turns, 2,400+ execution steps, and 35+ hours of agent execution across the suite | Sandboxed scientific research (Docker `os` / `linux_ns`) with agent-neutral harness adapters | [→](../works/asi-bench.md) |
+| InnovatorBench | 2025 | 20 tasks of 2-36 hours each; agents reach their best score only after 11+ hours, about 6.5x the saturation time on PaperBench | ResearchGym: several GPU machines driven over HTTP, asynchronous background jobs, snapshot save and restore | [→](../works/innovatorbench.md) |
 
 ## Open Questions
 
@@ -178,6 +179,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - [LongDA](../works/longda.md)
 - [VLA-Arena](../works/vla-arena.md)
 - [BATS / Budget Tracker](../works/bats-budget-aware.md)
+- [InnovatorBench](../works/innovatorbench.md)
 - [Toolathlon](../works/toolathlon.md)
 - [DeepResearch Bench](../works/deepresearch-bench.md)
 - [MLR-Bench](../works/mlr-bench.md)

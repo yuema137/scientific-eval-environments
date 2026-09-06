@@ -70,6 +70,7 @@ A final cluster addresses **neuroscience and behavioral signal analysis**: [Brai
 | Stargazer | 2026 | Iterative physics-grounded RV model fitting | 120 tasks (100 synthetic + 20 real archival) | Per-criterion pass on Keplerian fits (Easy 80%, real 0%) | [card](../works/stargazer.md) |
 | TS-Skill | 2026 | Signal-level time-series analysis: scale selection, localization, cross-interval integration | 3,000 QA items over the seven skill combinations; 25 domain-conditioned synthetic categories | Per-skill and per-combination accuracy (SK3 at or below the 0.259 random baseline without tools) | [card](../works/ts-skill.md) |
 | VESTA / DAWN | 2026 | Iterative distribution and time-series fitting with residual inspection | 400 instances including stellar-IMF and gravitational-wave chirp splits | Jensen-Shannon divergence and ELPD-LOO against ground truth | [card](../works/vesta-dawn.md) |
+| DiscoveryBench | 2024 | Clean, join and statistically analyse supplied datasets to derive a hypothesis stated in natural language | 264 real tasks (25 train / 239 test) over six domains plus 903 synthetic tasks; dataset, column metadata and a discovery goal per task | Hypothesis Matching Score against the gold hypothesis over context, variables and relationship; best system 25% | [card](../works/discoverybench.md) |
 
 ## Related Works
 
@@ -116,4 +117,5 @@ A final cluster addresses **neuroscience and behavioral signal analysis**: [Brai
 - [ScienceAgentBench](../works/scienceagentbench.md)
 - [DSBench](../works/dsbench.md)
 - [BLADE](../works/blade.md)
+- [DiscoveryBench](../works/discoverybench.md)
 - [GenoTEX](../works/genotex.md)

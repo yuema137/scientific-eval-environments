@@ -79,3 +79,4 @@ AstaBench 认为现有 agent benchmark 套件缺乏用于受控比较的可复�
 - [ScienceAgentBench](./scienceagentbench.md) — 同样评估 agent 的数据驱动科学任务，但对单项分析子任务的独立生成程序进行评分，而非在一个成本核算套件中横跨文献、代码、数据分析与端到端发现。
 - [Terminal-Bench Science](./terminal-bench-science.md) — 同样是多领域科学 agent benchmark，但由领域专家撰写、在容器中运行的终端任务构成，而非带成本受控排行榜评分的标准化研究工具环境。
 - [Aviary](./aviary.md) — 同样为 agent 提供科学任务环境，但将其封装为带 terminal reward、面向训练的 language-grounded POMDP，而非考虑混杂因素评分的 benchmark 套件。
+- [DiscoveryBench](./discoverybench.md) — 本套件里承担数据分析部分的 benchmark，另有单独卡片。

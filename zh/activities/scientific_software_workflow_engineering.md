@@ -98,6 +98,8 @@
 | Beyond Final Scores | 2026 | 在数小时的长时程运行中改进模型、系统与 CUDA 工件 | 36 个 AutoLab 任务，每个 2–12 小时墙钟；共 756 条 rollout | 归一化验证器分数，以 avg@3 与 best@3 报告，并附确定性过程指标 | [卡片](../works/beyond-final-scores.md) |
 | AutoWorldModel-Bench | 2026 | 修改单文件的世界模型实现——架构、损失、超参或训练流程 | 64 个会话，每会话单张 H100 上 6 小时，单次训练限时 10 分钟 | 留出测试分相对给定基础模型的提升；91% 的胜出改动是实质性修改而非调参 | [卡片](../works/autoworldmodel-bench.md) |
 | AI4AI-Bench | 2026 | 改写 repository training code，让 learning procedure 真正变好 | 十个冻结 repository；四小时 proxy 引导的探索，随后只移交 source，做最多十二小时的 clean run | 对照同条件重跑原算法的确定性最终指标，并按 intervention layer 分类 diff | [卡片](../works/ai4ai-bench.md) |
+| InnovatorBench | 2025 | 在被抽掉关键实现的研究仓库里做出可运行产物：数据流水线、损失与奖励函数、agent 脚手架 | 六个 LLM 研究方向共 20 个任务；多机 GPU 工作区，支持异步任务与快照 | 提交产物由外部确定性脚本评分，格式不合格记 0 | [卡片](../works/innovatorbench.md) |
+| AI-Researcher | 2025 | 把研究方案落成该方法的一份可运行实现 | Docker 工作区中的 22 个 Level-1 与 6 个 Level-2 任务，配参考仓库与数据集 | 完整性（预算内代码可执行）与 5 分制正确性；Claude 系列 backbone 下为 93.8% 与 2.65/5 | [卡片](../works/ai-researcher.md) |
 
 ## Related Works
 
@@ -132,6 +134,7 @@
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [AInsteinBench](../works/ainsteinbench.md)
 - [FEM-Bench](../works/fem-bench.md)
+- [InnovatorBench](../works/innovatorbench.md)
 - [An LLM-driven framework for cosmological model-building and exploration](../works/an-llm-driven-framework-for-cosmological-model-bui.md)
 - [A Lightweight Large Language Model-Based Multi-Agent System for 2D Frame Structural Analysis](../works/a-lightweight-large-language-model-based-multi-age.md)
 - [gammapyGPT](../works/gammapygpt.md)
@@ -155,6 +158,7 @@
 - [FEABench](../works/feabench.md)
 - [PaperBench](../works/paperbench.md)
 - [LLM-EPANET](../works/llm-epanet.md)
+- [AI-Researcher](../works/ai-researcher.md)
 - [PDE-Controller](../works/pde-controller.md)
 - [RE-Bench](../works/re-bench.md)
 - [FVEval](../works/fveval.md)

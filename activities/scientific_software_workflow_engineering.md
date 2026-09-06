@@ -98,6 +98,8 @@ Covers scientific **and** engineering software or workflow artifacts — includi
 | Beyond Final Scores | 2026 | Improve model, system and CUDA artifacts over multi-hour runs | 36 AutoLab tasks at 2–12 h wall-clock each; 756 rollouts | Normalised verifier score reported as avg@3 and best@3, with deterministic process metrics alongside | [card](../works/beyond-final-scores.md) |
 | AutoWorldModel-Bench | 2026 | Modify a single-file world-model implementation — architecture, loss, hyperparameters or training procedure | 64 sessions, 6 h per session on one H100, 10-minute cap per training run | Held-out test-score lift over the provided base; 91% of winning edits were substantive rather than hyperparameter tweaks | [card](../works/autoworldmodel-bench.md) |
 | AI4AI-Bench | 2026 | Rewrite repository training code so the learning procedure improves | Ten frozen repositories; four-hour proxy-guided exploration followed by a source-only clean run of up to twelve hours | Deterministic final metric against an identically rerun original algorithm, plus intervention-layer classification of the diff | [card](../works/ai4ai-bench.md) |
+| InnovatorBench | 2025 | Build runnable research artifacts inside a stripped research repository: data pipelines, loss and reward functions, agent scaffolds | 20 tasks over six LLM-research areas; multi-machine GPU workspace with asynchronous jobs and snapshots | A submitted artifact scored by deterministic external scripts, format failures returning 0 | [card](../works/innovatorbench.md) |
+| AI-Researcher | 2025 | Turn a research plan into an executable implementation of the proposed method | 22 Level-1 and 6 Level-2 tasks in a Docker workspace with reference repositories and datasets | Completeness (code executes within budget) and a 5-point correctness score; 93.8% and 2.65/5 with Claude-series backbones | [card](../works/ai-researcher.md) |
 
 ## Related Works
 
@@ -132,6 +134,7 @@ Covers scientific **and** engineering software or workflow artifacts — includi
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [AInsteinBench](../works/ainsteinbench.md)
 - [FEM-Bench](../works/fem-bench.md)
+- [InnovatorBench](../works/innovatorbench.md)
 - [An LLM-driven framework for cosmological model-building and exploration](../works/an-llm-driven-framework-for-cosmological-model-bui.md)
 - [A Lightweight Large Language Model-Based Multi-Agent System for 2D Frame Structural Analysis](../works/a-lightweight-large-language-model-based-multi-age.md)
 - [gammapyGPT](../works/gammapygpt.md)
@@ -155,6 +158,7 @@ Covers scientific **and** engineering software or workflow artifacts — includi
 - [FEABench](../works/feabench.md)
 - [PaperBench](../works/paperbench.md)
 - [LLM-EPANET](../works/llm-epanet.md)
+- [AI-Researcher](../works/ai-researcher.md)
 - [PDE-Controller](../works/pde-controller.md)
 - [RE-Bench](../works/re-bench.md)
 - [FVEval](../works/fveval.md)

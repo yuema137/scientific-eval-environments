@@ -38,6 +38,8 @@
 | Beyond Final Scores | 2026 | 在长时程运行中改进一份正确但刻意做得不够好的 ML 或系统工件。 | 四族共 36 个 AutoLab 任务（模型开发 7、系统优化 15、谜题与挑战 10、CUDA 4）；七个模型共 756 条 rollout。 | 逐任务自动验证器，分数归一化到 [0, 1]；人工审计发现只有 1.2% 的解真正新颖，6.3% 利用了评测特有的捷径。 | [→](../works/beyond-final-scores.md) |
 | AutoWorldModel-Bench | 2026 | 在事先不指定改进方向的前提下，自主改进一个给定的世界模型。 | 64 个会话（2 个 agent × 8 个游戏 × 4 种基础架构），每会话单张 H100 上 6 小时，单次训练限时 10 分钟。 | 留出集上 Position L1 与 Alive F1 在 h ∈ {1, 10, 20} 上的组合；64 个会话中 33 个达到 Δ ≥ +0.10，91% 的胜出改动是实质性修改而非调参。 | [→](../works/autoworldmodel-bench.md) |
 | AI Research Preference Models | 2026 | 判断 AI 研究 agent 提出的哪些候选 ML 方案值得花 GPU 时间真正跑一遍。 | 两个基于冻结预训练模型的偏好模型（一个只读方案与代码；一个先在 5 分钟上限内跑试点实验），接入 AIRA-dojo 的子节点生成环节，覆盖 20 个 AIRS-Bench 任务；每任务单张 H200 跑 24 小时、10 个随机种子，合计 200 GPU 小时。 | AIRS-Bench 归一化分数：未引导 0.684 → 只读式 0.711 → agentic 式 0.729，验证集 oracle 上界为 0.748；在 WinoGrande（94.1%）与 SVAMP（95.7%）上刷新最好水平。 | [→](../works/ai-research-preference-models.md) |
+| InnovatorBench | 2025 | 在已发表的 LLM 研究成果之上做改进而不是复现：构建、过滤与增强训练数据，设计损失与 RL 奖励，搭建 agent 脚手架。 | 六个研究方向共 20 个任务，取自 14 篇论文，每个 2-36 小时，在 ResearchGym 的多 GPU 集群上运行，支持异步任务与快照；每题最多四次计分提交。 | 外部确定性脚本（准确率、F1、BLEU、熵）在可写工作区之外、对照隐藏参考数据运行，标定为 baseline 落在 0 附近、论文自身参考解落在 80 附近。 | [→](../works/innovatorbench.md) |
+| AI-Researcher | 2025 | 在扩散模型、向量量化、图神经网络或推荐系统中做出研究贡献，从参考文献和数据一路走到实现与成稿。 | 由 22 篇 2022-2024 年论文构造的 22 个指导式（Level-1）与 6 个开放式（Level-2）任务，输入中的方法名、技术细节、数据集命名与引用均已匿名化。 | 代码审查 agent 评实现完整性与 5 分制正确性，另由五个 LLM 审稿人换序比较生成稿与人类论文，评分区间 -3 到 +3。 | [→](../works/ai-researcher.md) |
 
 ## Capability Matrix
 
@@ -47,7 +49,7 @@
 
 **`Domain`** 列出该工作实际评测的人工智能与机器学习研究子领域，取自卡片的 `## Domains` 段落。这套缩写只属于本页——每个 domain 页各自定义，毕竟一个领域的子领域和另一个领域的彼此说不上话。
 
-`LM` 语言建模与自然语言处理 · `CV` 计算机视觉与视觉-语言建模 · `RL` 强化学习 · `GT` 博弈论与多智能体决策 · `TS` 时间序列预测 · `WM` 世界模型与动力学学习 · `INTERP` 神经网络分析与可解释性 · `MLE` 机器学习工程与模型开发 · `SYS` ML 系统、算子与性能工程 · `DS` 数据科学与统计数据分析 · `CODE` 科研代码实现、环境搭建与复现 · `IDEA` 研究选题与假设生成 · `GEN` 覆盖整个课程体系或未具体说明，无单一子领域
+`LM` 语言建模与自然语言处理 · `CV` 计算机视觉与视觉-语言建模 · `VQ` 向量量化与离散表示学习 · `GNN` 图学习与图神经网络 · `IR` 推荐系统与信息检索 · `RL` 强化学习 · `GT` 博弈论与多智能体决策 · `TS` 时间序列预测 · `WM` 世界模型与动力学学习 · `INTERP` 神经网络分析与可解释性 · `MLE` 机器学习工程与模型开发 · `SYS` ML 系统、算子与性能工程 · `DS` 数据科学与统计数据分析 · `CODE` 科研代码实现、环境搭建与复现 · `IDEA` 研究选题与假设生成 · `GEN` 覆盖整个课程体系或未具体说明，无单一子领域
 
 **两个分，不是一个。** 各列分成**覆盖面**——评测设置把什么纳入了考察——与**严谨度**——它报出来的东西有多可信。两者分开求和，因为它们方向相反：一个 benchmark 可以什么都考一点却什么都没验扎实，而一个刻意收窄的 benchmark 反而可能是本页最可信的。各行按 `Cov` 从高到低排，`Cov` 相同时比 `Rig`，仍相同则保持 Comparison 表原序。以覆盖面领先排序，是因为读者扫表时先问的就是这件事——*这个 benchmark 到底有没有把我关心的问题纳入考察*——`Rig` 随后回答它报出的东西能信到什么程度。
 
@@ -81,6 +83,7 @@
 跨领域套件的行按本领域的切片来写，与上面的 Comparison 表一致。
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| InnovatorBench | LM, RL | ◐ | ◐ | ✔ | ◐ | ✔ | ✔ | ✔ | **5.5** | ◐ | ✘ | ◐ | 3 | 1 | 4 | **9** |
 | MLR-Bench | GEN | ✔ | ✔ | ◐ | ✔ | ✘ | ✔ | ✔ | **5.5** | ✘ | ✔ | ✘ | 1 | 2 | 3 | **7** |
 | PostTrainBench | MLE | ✔ | ✔ | ✔ | ✘ | ✘ | ✔ | ✔ | **5** | ✘ | ◐ | ✘ | 2 | 1 | 4 | **7.5** |
 | AIRS-Bench | LM, TS | ✔ | ✔ | ✘ | ✘ | ✔ | ✔ | ✔ | **5** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
@@ -89,6 +92,7 @@
 | Curation-Bench | CV, MLE | ? | ✔ | ✔ | ✔ | ✘ | ✔ | ✔ | **5** | ✘ | ✘ | ✘ | 3 | 0 | 4 | **7** |
 | Replica | GEN | ? | ✘ | ✔ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ◐ | 1 | 2 | 2 | **7** |
 | DevAI / Agent-as-a-Judge | MLE | ✔ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **5** | ✘ | ✔ | ◐ | 1 | 1 | 3 | **6.5** |
+| AI-Researcher | CV, VQ, GNN, IR | ✔ | ◐ | ? | ◐ | ◐ | ✔ | ✔ | **4.5** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | FIRE-Bench | LM, CV, INTERP | ? | ✔ | ◐ | ? | ✔ | ✔ | ✔ | **4.5** | ◐ | ✘ | ◐ | 1 | 1 | 3 | **6** |
 | AstaBench | GEN | ◐ | ◐ | ✔ | ? | ◐ | ✔ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | ? | 1 | **5** |
 | MLE-bench | MLE | ◐ | ◐ | ◐ | ? | ✘ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 3 | 1 | 3 | **9** |
@@ -124,6 +128,7 @@ Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 3
 - [PostTrainBench](../works/posttrainbench.md)
 - [AIRS-Bench](../works/airs-bench.md)
 - [FIRE-Bench](../works/fire-bench.md)
+- [InnovatorBench](../works/innovatorbench.md)
 - [AstaBench](../works/astabench.md)
 - [ResearchCodeBench](../works/researchcodebench.md)
 - [EXP-Bench](../works/exp-bench.md)
@@ -131,6 +136,7 @@ Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 3
 - [MLE-Dojo](../works/mle-dojo.md)
 - [MLRC-Bench](../works/mlrc-bench.md)
 - [PaperBench](../works/paperbench.md)
+- [AI-Researcher](../works/ai-researcher.md)
 - [MLGym](../works/mlgym.md)
 - [LiveIdeaBench](../works/liveideabench.md)
 - [RE-Bench](../works/re-bench.md)

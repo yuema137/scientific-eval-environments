@@ -458,6 +458,9 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 | ASI-Bench | 2026 | 来自文献的 60 个项目级任务（1,300+ 个候选 idea、40+ 位专家、31,000+ 小时人工投入） | 11 个科学领域，四个指导等级下的项目级研究 | 针对任务的 evaluation gate 与加权 scorer，对照可复现的逐任务 reference；B1-B4 指导梯度且 B3/B4 均值低于 40 | [→](../works/asi-bench.md) |
 | Agents Catching Agents | 2026 | 六个公开临床数据集上的七个 cohort，覆盖文本、影像与表格记录 | 捷径线索下临床多 agent 委员会的效度 | 捷径采纳率对照孤立条件下的翻转率；三种监督检测器以精确率、召回率与假阳性率计分 | [→](../works/agents-catching-agents.md) |
 | AI4AI-Bench | 2026 | 十个冻结 research repository，覆盖十类 AI training algorithm | 四小时内诊断、改写并测试 training algorithm；最终只提交 source | 在同条件下从头运行修改版与原方法，映射到统一的 0/0.1/1 尺度；再按 intervention layer 分类 diff | [→](../works/ai4ai-bench.md) |
+| DiscoveryBench | 2024 | DB-Real 用 Python 复现了 20 多篇已发表论文的工作流，并经作者核验；DB-Synth 由假设语义树生成 | 社会学、生物学、人文、经济学、工程与元科学中的数据驱动发现 | GPT-4 计算的 Hypothesis Matching Score，按 context、variables、relationship 三维打分；与人类偏好排序有 95% 一致（Fleiss κ = 0.91） | [→](../works/discoverybench.md) |
+| InnovatorBench | 2025 | 20 个任务取自 14 篇 NeurIPS / ICLR / COLM / EMNLP / ACL 论文，每个起始仓库都删掉了论文的关键实现 | LLM 研究：数据构建、过滤与增强，损失设计，奖励设计，脚手架构建 | 外部确定性评分脚本，标定为 baseline 落在 0 附近、论文自身参考解落在 80 附近 | [→](../works/innovatorbench.md) |
+| AI-Researcher | 2025 | 22 篇 2022-2024 年目标论文，按关键词与引用量筛出，输入中的方法名、技术细节与引用均已匿名化 | 扩散模型、向量量化、图神经网络、推荐系统 | 代码审查 agent 评实现完整性与 5 分制正确性，另由 LLM 审稿人换序两两比较生成稿与人类论文（-3 到 +3）；审稿人在 32 组 ICLR 录用/拒稿配对上验证，准确率 65.62-90.62% | [→](../works/ai-researcher.md) |
 
 ## 还没解决的问题
 
@@ -585,6 +588,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - [BridgeEQA](../works/bridgeeqa.md)
 - [EnvTrace](../works/envtrace.md)
 - [Can Large Language Models Automate the HAZOP Process Without Human Intervention?](../works/can-large-language-models-automate-the-hazop-proce.md)
+- [InnovatorBench](../works/innovatorbench.md)
 - [Lean4Physics](../works/lean4physics.md)
 - [ReplicationBench](../works/replicationbench.md)
 - [AstaBench](../works/astabench.md)
@@ -657,6 +661,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - [PHYSICS](../works/physics-benchmark.md)
 - [DomainCQA / AstroChart](../works/domaincqa.md)
 - [LLM-EPANET](../works/llm-epanet.md)
+- [AI-Researcher](../works/ai-researcher.md)
 - [BixBench](../works/bixbench.md)
 - [AlchemyBench](../works/alchemybench.md)
 - [MLGym](../works/mlgym.md)
@@ -699,6 +704,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - [LAB-Bench](../works/lab-bench.md)
 - [ElecBench](../works/elecbench.md)
 - [MolPuzzle](../works/molpuzzle.md)
+- [DiscoveryBench](../works/discoverybench.md)
 - [BioKGBench](../works/biokgbench.md)
 - [AssertionBench](../works/assertionbench.md)
 - [MatText](../works/mattext.md)

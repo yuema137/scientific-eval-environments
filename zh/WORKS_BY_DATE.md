@@ -208,6 +208,7 @@
 | 2025-11-04 | [CostBench](./works/costbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2511.02734) |
 | 2025-11-03 | [Can Large Language Models Automate the HAZOP Process Without Human Intervention?](./works/can-large-language-models-automate-the-hazop-proce.md) | [官方出版记录](https://doi.org/10.1016/j.ssci.2025.107039) |
 | 2025-10-31 | [TempoBench](./works/tempobench.md) | [arXiv 首次提交](https://arxiv.org/abs/2510.27544) |
+| 2025-10-31 | [InnovatorBench](./works/innovatorbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2510.27598) |
 | 2025-10-30 | [Lean4Physics / LeanPhysBench](./works/lean4physics.md) | [arXiv 首次提交](https://arxiv.org/abs/2510.26094) |
 | 2025-10-29 | [The Tool Decathlon / Toolathlon](./works/toolathlon.md) | [arXiv 首次提交](https://arxiv.org/abs/2510.25726) |
 | 2025-10-29 | [Enconda-bench](./works/enconda-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2510.25694) |
@@ -300,6 +301,7 @@
 | 2025-03-20 | [Survey on Evaluation of LLM-based Agents](./works/agent-evaluation-survey.md) | [arXiv 首次提交](https://arxiv.org/abs/2503.16416) |
 | 2025-03-20 | [LLM-EPANET](./works/llm-epanet.md) | [arXiv 首次提交](https://arxiv.org/abs/2503.16191) |
 | 2025-03-11 | [ASIMOV](./works/asimov.md) | [arXiv 首次提交](https://arxiv.org/abs/2503.08663) |
+| 2025-03-04 | [AI-Researcher](./works/ai-researcher.md) | [官方代码库发布公告](https://github.com/HKUDS/AI-Researcher) |
 | 2025-02-28 | [BixBench](./works/bixbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2503.00096) |
 | 2025-02-23 | [AlchemyBench](./works/alchemybench.md) | [arXiv 首次提交](https://arxiv.org/abs/2502.16457) |
 | 2025-02-20 | [MLGym](./works/mlgym.md) | [arXiv 首次提交](https://arxiv.org/abs/2502.14499) |
@@ -357,6 +359,7 @@
 | 2024-07-14 | [LAB-Bench](./works/lab-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2407.10362) |
 | 2024-07-07 | [ElecBench](./works/elecbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2407.05365) |
 | 2024-07-03 | [MolPuzzle](./works/molpuzzle.md) | [官方代码库首次提交](https://github.com/KehanGuo2/MolPuzzle/commit/11e5f4c4c12f3a150291f58f52a8c595ededb6da) |
+| 2024-07-01 | [DiscoveryBench](./works/discoverybench.md) | [arXiv 首次提交](https://arxiv.org/abs/2407.01725) |
 | 2024-06-29 | [BioKGBench](./works/biokgbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2407.00466) |
 | 2024-06-26 | [AssertionBench](./works/assertionbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2406.18627) |
 | 2024-06-25 | [MatText](./works/mattext.md) | [arXiv 首次提交](https://arxiv.org/abs/2406.17295) |

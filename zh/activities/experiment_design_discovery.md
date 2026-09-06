@@ -47,6 +47,8 @@
 | MolQuest | 2026 | 智能体式化学结构解析 | 多轮谱图采集（NMR/MS），迭代精化 | 正确结构；SOTA 约 50% | [卡片](../works/molquest.md) |
 | SciAgentArena | 2026 | 跨尺度的真实世界科学研究 | 约 200 项逐步验证的任务，五个生物医学领域，与 agent 无关 | 完成数据分析/优化/发现/有效性类任务 | [卡片](../works/sciagentarena.md) |
 | Apodex Discovery | 2026 | 在带隐藏验证器的可执行环境中求解真实世界的发现问题 | 覆盖 561 个行业的调研从 423 个候选中选出 20 个问题；环境有状态，自带工具、数据与预算 | 隐藏验证器给出的结果，外加盲评的六维过程分；衣壳设计比已发表的最好水平高出 7% | [卡片](../works/apodex-discovery.md) |
+| DiscoveryBench | 2024 | 从数据中搜索并验证假设；发现目标由标准假设遮掉一个维度得到 | 取自 20 多篇已发表论文的 264 个真实任务外加 903 个合成任务；多数据集分析流程最长超过 20 步 | 一句在 context、variables、relationship 上与标准假设吻合的陈述句；生物学任务得分为 0% | [卡片](../works/discoverybench.md) |
+| InnovatorBench | 2025 | 自己提出方法、实现出来、跑实验，再依据返回的分数改进 | ResearchGym 中的 20 个 LLM 研究任务，每个 2-36 小时，最多四次计分提交 | 要超过锚定在 80 附近的隐藏参考解；最佳模型平均 24.01 | [卡片](../works/innovatorbench.md) |
 
 ## Related Works
 
@@ -58,6 +60,7 @@
 - [MaD Physics](../works/mad-physics.md)
 - [MolQuest](../works/molquest.md)
 - [FIRE-Bench](../works/fire-bench.md)
+- [InnovatorBench](../works/innovatorbench.md)
 - [NewtonBench](../works/newtonbench.md)
 - [An LLM-driven framework for cosmological model-building and exploration](../works/an-llm-driven-framework-for-cosmological-model-bui.md)
 - [PhysGym](../works/physgym.md)
@@ -72,4 +75,5 @@
 - [LiveIdeaBench](../works/liveideabench.md)
 - [IdeaBench](../works/ideabench.md)
 - [MOOSE-Chem](../works/moose-chem.md)
+- [DiscoveryBench](../works/discoverybench.md)
 - [AgentClinic](../works/agentclinic.md)

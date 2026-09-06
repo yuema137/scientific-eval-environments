@@ -48,6 +48,7 @@
 | BiomedSQL | 2025 | 围绕神经退行性疾病的 GWAS 汇总统计量、SMR 因果推断结果、等位基因频率与基因–通路关联，回答人类基因组学问题，其间还得自行补上问题从未言明的统计遗传学惯例——全基因组显著性阈值、效应方向。 | 68,000 组 question / SQL 查询 / answer 三元组，落在一个十张表的 BigQuery 数据库上（表的规模从几百行到 72.2M 行不等），由 40 条专家编写的种子查询套模板扩展而来；模型在一个有代表性的 546 题测试集上评分。 | 以 Execution Accuracy 为主指标（查询执行结果须与金标准执行结果完全一致），并列报告 Jaccard 部分得分与语法错误率；对照实测的两位生物医学分析师基线，其 EX 为 90.0%。 | [→](../works/biomedsql.md) |
 | OntoLearner | 2026 | 为生物与生命科学——它的本体集合覆盖的 22 个领域之一——构建本体结构：给术语定类型、恢复类型之间的 is-a 层级、抽取非分类关系。 | 覆盖 22 个领域的 180 个机器可读本体，为三项本体学习任务备好可直接接入流水线的 train/dev/test 切分；共评测 22 个检索模型与 12 个 LLM，设定是单次结构化预测而非 agentic 循环。 | 以归一化的成对与三元组匹配对照金标准本体结构计算 precision、recall 与 F1；卡片中逐领域、逐模型的分数为 `TODO(reference)`，因论文的结果章节无法获取。 | [→](../works/ontolearner.md) |
 | Apodex Discovery | 2026 | 腺相关病毒衣壳设计，涵盖活性预测、嗜性预测、结构预测与生成式设计。 | 20 个可执行环境之一，每个环境在固定的 episode 接口背后提供工具、数据、预算与隐藏验证器。 | 面向各项任务的实验适应度指标，对照已发表的最好水平——该系统在全部四项任务上都高出 7%。 | [→](../works/apodex-discovery.md) |
+| DiscoveryBench | 2024 | 重新得出两篇已发表的个体生物学研究的结论：南美淡水鱼在高地环境中体型演化加速是否与近期物种形成相关，以及引入途径如何影响外来植物沿环境梯度的入侵成功率。 | 239 个真实测试任务中有 16 个属于生物学；每题给出该研究的数据集、字段说明和一句自然语言发现目标，分析流程由 agent 自己写并运行。 | 与论文标准假设在 context、variables、relationship 三维上的 GPT-4 Hypothesis Matching Score；非 oracle 最佳 agent 在该领域得分为 0%。 | [→](../works/discoverybench.md) |
 
 ## Capability Matrix
 
@@ -102,6 +103,7 @@
 | BioXArena | GEN | ✘ | ◐ | ✘ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 3 | 1 | 3 | **9** |
 | SpatialBench | SPAT | ? | ✘ | ◐ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
 | scBench-Long | SCB, IMM | ? | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✘ | ✔ | ◐ | 2 | 1 | 3 | **7.5** |
+| DiscoveryBench | ECOEV | ? | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ✘ | ✔ | 1 | 1 | 4 | **7.5** |
 | HeurekaBench | SCB | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | 2 | 3 | **7** |
 | NatureBench | SCB, PROT | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 2 | 1 | 2 | **7** |
 | Frontier LLM-based agents can overcome the ontology curation bottleneck for natural phenotypes | ECOEV, CURA | ✘ | ✘ | ◐ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✘ | 3 | 2 | 1 | **7** |
@@ -171,5 +173,6 @@ Repository note: 几乎所有未知都集中在两列。`Net` 在 47 行中有 3
 - [ScienceAgentBench](../works/scienceagentbench.md)
 - [SciCode](../works/scicode.md)
 - [LAB-Bench](../works/lab-bench.md)
+- [DiscoveryBench](../works/discoverybench.md)
 - [BioKGBench](../works/biokgbench.md)
 - [GenoTEX](../works/genotex.md)

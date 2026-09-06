@@ -30,6 +30,7 @@
 | Curation-Bench | 2026 | 根据 downstream evaluation 反复研究和修改训练数据选择策略 | 固定 VLM、训练 recipe 和 evaluator；最多修改 10 轮可执行 policy | 在受控数据预算下提高下游质量的数据策略 | [卡片](../works/curation-bench.md) |
 | PostTrainBench | 2026 | 自主选择数据、训练方法、compute allocation 和实验，完成 base LLM post-training | 七个目标、四种 base model；每任务单张 H100 跑 10 小时 | 提交模型在 held-out benchmark 上取得的最高分 | [卡片](../works/posttrainbench.md) |
 | ASI-Bench | 2026 | 在一个研究项目内选择方法、搭建流程、运行并产出可验证结果，覆盖四个指导等级（B1-B4） | 11 个科学领域的 60 个项目级任务；沙箱与 agent-neutral harness | 各指导等级 0-100 分；18 个 agent-model configuration 的 macro mean 为 B1 50.91 / B2 29.10 / B3 26.62 | [卡片](../works/asi-bench.md) |
+| AI-Researcher | 2025 | 一次运行内走完文献调研、想法生成、算法设计、实现、实验与论文撰写 | 由四个 AI 子方向的 22 篇论文构造的 22 个指导式任务与 6 个开放式任务；输入为参考文献、数据集，以及仅 Level-1 提供的研究指令 | 实现完整性与正确性，外加与人类论文换序两两比较的 -3 到 +3 评分 | [卡片](../works/ai-researcher.md) |
 
 ## Related Works
 
@@ -42,4 +43,5 @@
 - [AIRS-Bench](../works/airs-bench.md)
 - [AstaBench](../works/astabench.md)
 - [MLR-Bench](../works/mlr-bench.md)
+- [AI-Researcher](../works/ai-researcher.md)
 - [MLGym](../works/mlgym.md)

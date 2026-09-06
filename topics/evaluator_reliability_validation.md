@@ -22,6 +22,8 @@ A score inherits the evaluator's mistakes. A judge can agree with experts on eas
 - **Pairwise preference validation.** [Plan-RewardBench](../works/plan-rewardbench.md) controls candidate order and asks evaluators to distinguish preferred tool-use trajectories from confusable negatives.
 - **Skill-aware judging.** [SkillTV-Bench](../works/skilltv-bench.md) tests whether judges can verify trajectories whose correctness depends on task-specific skill knowledge.
 - **Hybrid verification.** [AgentLens](../works/agentlens.md) combines formal checks with multiple judge dimensions and evidence-linked reviews.
+- **Domain calibration.** [AstroVisBench](../works/astrovisbench.md), [PSE-Bench](../works/pse-bench.md), and [FIRE-Bench](../works/fire-bench.md) report human agreement for judges used on scientific outputs. [DiscoveryBench](../works/discoverybench.md) audits its hypothesis-matching evaluator twice: step by step on 200 extraction and matching decisions, then end to end against three annotators ranking predicted hypotheses.
+- **Conference decisions as the anchor.** [AI-Researcher](../works/ai-researcher.md) tests its paper-review agent on content-matched pairs of accepted and rejected ICLR submissions, and drops the evaluator that separates them worst before rating any generated paper.
 - **Domain calibration.** [AstroVisBench](../works/astrovisbench.md), [PSE-Bench](../works/pse-bench.md), and [FIRE-Bench](../works/fire-bench.md) report human agreement for judges used on scientific outputs.
 - **A judge with its own benchmark.** [PaperBench](../works/paperbench.md) hand-grades the rubric leaf nodes of partial paper replications, then scores candidate judge backends as binary classifiers against those labels and selects the one with the best F1 per dollar rather than the highest F1.
 - **Experts and alternate judges on the same answers.** [HeurekaBench](../works/heurekabench.md) checks its judge twice before using it: eleven domain experts rate the same 25 open-ended answers, and two other frontier models re-score the same agent runs, so rater disagreement and judge-model disagreement are reported separately.
@@ -36,6 +38,8 @@ A score inherits the evaluator's mistakes. A judge can agree with experts on eas
 | SkillTV-Bench | LLM-as-a-Judge and Agent-as-a-Judge | Skill-aware trajectory labels | Judge accuracy and best-of-N selection | Trajectory selection |
 | AgentLens | Hybrid judge plus formal verifier | Executable checks and review evidence | Multi-dimensional quality index | Coding-agent diagnosis |
 | AstroVisBench | Multimodal visualization judges | Professional astronomer annotations | Rank correlation and inter-annotator agreement | Judge selection |
+| DiscoveryBench | GPT-4 hypothesis-matching evaluator (HMS) | Gold hypotheses replicated from published papers; three annotators' preference rankings over 100 pairs | 95% agreement with human rankings, Fleiss κ = 0.91; 94-99% correct on the extraction and matching steps over 200 examples | Benchmark scoring |
+| AI-Researcher | Five LLM paper-review agents in order-swapped pairwise comparison | ICLR accept/reject decisions on 32 content-matched paper pairs (2021-2023) | Acceptance-prediction accuracy 65.62-90.62%; comparable-quality detection (share of pairs rated above -1.0) 93.75-100% | Evaluator selection: the weakest model is dropped from the main experiments |
 | PaperBench | SimpleJudge over rubric leaf nodes, five model backends | Hand-graded leaf nodes from partial replications of five papers | Macro-averaged binary F1 (0.59-0.84) reported against cost per paper | Judge backend chosen for the main leaderboard |
 | HeurekaBench | G-Eval judge with GPT-4o | 11 single-cell experts on 25 open-ended answers; two alternate judge models | Spearman 0.93 / 0.90 and Cohen's κ 0.85 against expert aggregates; inter-judge Spearman 0.84 / 0.79 | Judge selection and planner-model ranking |
 
@@ -59,3 +63,5 @@ A score inherits the evaluator's mistakes. A judge can agree with experts on eas
 - [AstroVisBench](../works/astrovisbench.md)
 - [AgentRewardBench](../works/agentrewardbench.md)
 - [PaperBench](../works/paperbench.md)
+- [AI-Researcher](../works/ai-researcher.md)
+- [DiscoveryBench](../works/discoverybench.md)
