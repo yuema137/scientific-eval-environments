@@ -11,6 +11,8 @@ HeurekaBench is a framework for creating benchmarks of exploratory, open-ended r
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
+- [Evaluator Reliability & Validation](../topics/evaluator_reliability_validation.md)
+- [Benchmark Design, Validity & Contamination](../topics/benchmark_design_validity_contamination.md)
 
 ## Activities
 
@@ -28,7 +30,7 @@ The authors argue that evaluating co-scientist agents requires realistic end-to-
 
 ## Tasks
 
-sc-HeurekaBench, the single-cell instantiation, comprises 50 open-ended questions and 50 multiple-choice questions built from 41 validated insights across 13 papers — nine from Nature and four from Cell. Questions are produced in three stages: insights generation, in which candidate insights are extracted from scientific articles and semi-automatically validated; questions generation, in which validated insights are reformulated as question–answer pairs; and question solving, in which the agent autonomously designs and executes a multi-step analysis producing a data-driven answer. A reduced subset, sc-HeurekaBench-Lite, restricts to datasets under 750 MB and contains 22 of the open-ended and 18 of the multiple-choice questions, so that every compared agent can be run on the same tasks.
+sc-HeurekaBench, the single-cell instantiation, comprises 50 open-ended questions and 50 multiple-choice questions built from 41 validated insights across 13 papers — nine from Nature and four from Cell. Questions are produced in three stages: insights generation, in which candidate insights are extracted from scientific articles and semi-automatically validated; questions generation, in which validated insights are reformulated as question–answer pairs and then passed through a two-stage filter that drops questions answerable without the data and questions the reviewers reject; and question solving, in which the agent autonomously designs and executes a multi-step analysis producing a data-driven answer. A reduced subset, sc-HeurekaBench-Lite, restricts to datasets under 750 MB and contains 22 of the open-ended and 18 of the multiple-choice questions, so that every compared agent can be run on the same tasks.
 
 ## Domains
 
@@ -36,9 +38,10 @@ Single-cell biology, as the instantiation of a construction pipeline the authors
 
 ## Evaluation
 
-- **Open-ended correctness by LLM judge.** G-Eval with GPT-4o assigns a rating from 1 to 5. Both the response and the ground truth are decomposed into atomic facts, and the rating reflects overlap across complete, partial, and missing facts.
+- **Open-ended correctness by LLM judge.** G-Eval with GPT-4o assigns a rating from 1 to 5. Both the response and the ground truth are decomposed into atomic facts, and the rating reflects overlap across complete, partial, and missing facts. The adapted rubric also penalizes an answer that leans on the model's pre-training knowledge instead of the supplied dataset.
 - **Multiple-choice questions** are scored by accuracy, with precision and recall also reported.
 - **Ground truth is the published finding.** Candidate workflows produced by the pipeline are verified against what the source study reported, rather than against a synthetic target or an annotator-authored key.
+- **The judge is measured before it is used.** Eleven human experts, PhD students or postdoctoral researchers with at least a year of single-cell experience drawn from four universities and six labs, rated 25 open-ended answers produced by Biomni with GPT-OSS-120B on the same 1–5 scale. Aggregating the expert scores by mode and by median, the judge's rating differed by at most one point on 92% (23/25) and 96% (24/25) of the questions, with Spearman rank correlation 0.93 and 0.90 against the two aggregations and Cohen's κ (quadratic penalty) of 0.85 under both. Swapping the judge model instead of the raters, GPT-4o agrees with a Claude-4.5-Sonnet judge at mean Spearman 0.84 ± 0.03 (κ 0.81 ± 0.03) and with Gemini-2.5-Pro at 0.79 ± 0.01 (κ 0.71 ± 0.04) across three planner models, and all three judges rank those planners identically.
 - **Reported.** On sc-HeurekaBench-Lite, open-ended correctness across three existing single-cell agents reaches 2.34 for BixBench-Agent, 2.31 for Biomni, and 2.03 for CellVoyager, on the 1–5 scale. A planner-model ablation gives Claude-4-Sonnet 2.58 ± 0.05, GPT-OSS-120B 2.08 ± 0.05, and Qwen3-235B-thinking 1.85 ± 0.03. The authors further report that adding a critic module improves ill-formed responses for open-source LLM-based agents by up to 22%, closing the gap with closed-source counterparts.
 
 ## Typical Duration
@@ -55,6 +58,7 @@ A semi-automated pipeline for constructing end-to-end scientific benchmarks from
 - Ground truth is anchored to findings already reported in a published study, paired with that study's code repository, so the correctness standard has an external referent.
 - Multiple LLMs extract candidate insights and generate candidate workflows, with a semi-automatic validation step gating what becomes a question.
 - The same validated insights are posed in two forms, open-ended and multiple-choice, so that free-form generation and constrained selection are measured against a common source.
+- A generated question only enters the benchmark if two frontier models fail to answer it without the data. GPT-4o and Claude-4-Sonnet answer every candidate question with no dataset access; a multiple-choice question is discarded when both get it right, and an open-ended one when both score above 3.0 on the same 1–5 G-Eval scale. A manual pass then removes hallucinations, duplicates, and questions drawn from parts of an insight the reviewers could not validate.
 
 ## Strengths
 
@@ -64,7 +68,7 @@ A semi-automated pipeline for constructing end-to-end scientific benchmarks from
 
 ## Limitations
 
-- Repository note: The pipeline is semi-automated and relies on multiple LLMs to extract insights and generate candidate workflows, and open-ended answers are graded by an LLM judge, so both the questions and their scoring inherit the reliability of the models used to produce them.
+- Repository note: The pipeline is semi-automated and relies on multiple LLMs to extract insights and generate candidate workflows, gated by human reviewers who run the generated code and check that its output matches what the source study reported. The paper measures the grading judge against expert ratings and against two other judge models; it reports no equivalent agreement figure for the extraction step, so question quality rests on that review rather than on a measured error rate.
 - Repository note: Only the single-cell instantiation exists — the pipeline is presented as domain-general but transfer to another field is not evaluated — and the reported agent comparison runs on the reduced Lite subset rather than the full 50 open-ended questions.
 
 ## Related Works

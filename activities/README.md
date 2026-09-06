@@ -31,10 +31,10 @@ The set of activities is fixed. Adding, renaming, or removing one requires updat
 | [Laboratory & Instrument Control](./laboratory_instrument_control.md) | Instrument, microscope, and beamline control; lab automation; behaviour-defined control code | 3 |
 | [Optimization & Engineering Design](./optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 27 |
 | [Scientific Software & Workflow Engineering](./scientific_software_workflow_engineering.md) | Scientific/engineering code generation, repository and pipeline engineering, HDL and formal-spec code | 74 |
-| [Research Reproduction & Replication](./research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 11 |
+| [Research Reproduction & Replication](./research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 12 |
 | [End-to-End Research](./end_to_end_research.md) | Multi-stage research lifecycle across several major phases, from formulation to reporting | 11 |
 
-Across the corpus, 370 activity memberships are assigned over the applicable work cards.
+Across the corpus, 371 activity memberships are assigned over the applicable work cards.
 
 ## Activities are multi-label
 
@@ -68,5 +68,5 @@ Each activity page follows one structure:
 - **Evidence standard.** Classification is based on the actual task the card describes (its `Overview`, `Tasks`, `Summary`, `Main Contribution`, `Domains`, `Key Design Ideas`), falling back to the verified primary source — never on title keywords.
 - **No force-assignment and no `Other`.** Genuinely non-applicable works get an explicit `N/A` reason; there is no catch-all activity.
 - **Division of responsibility.** Topics own evaluation-methodology synthesis and open questions; domains describe field-specific instantiation and scientific verification; activities describe task and workflow patterns; cards remain factual references. Detailed scoring methodology stays in cards, topics, and domains.
-- **Bilingual mirror.** Every activity page and every card's `## Activities` block is mirrored under [`../zh/activities/`](../zh/activities/README.md) and `../zh/works/`, synced after each English change.
+- **Bilingual mirror.** Every activity page and every card's `## Activities` block is mirrored under [`../zh/activities/`](../zh/activities/README.md) and `../zh/works/`, synced after each English change — not deferred. Chinese cards keep the English `##` section headings; only the activity labels are translated, and an activity's canonical Chinese label is the H1 title of its `zh/activities/` page, never a separately kept list.
 - **Taxonomy changes** require updating [`../AGENT.md`](../AGENT.md) and [`../CLAUDE.md`](../CLAUDE.md).

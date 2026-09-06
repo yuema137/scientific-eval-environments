@@ -18,10 +18,10 @@ N/A — evaluation methodology; no scientific or research activity is directly e
 
 ## Links
 
-- **Paper:** *Traxgen: Ground-Truth Trajectory Generation for AI Agent Evaluation* (Mazzolenis & Zhang)
-- **Venue:** NeurIPS 2025 Workshop on Scaling Environments for Agents (SEA)
+- **Paper:** <https://openreview.net/forum?id=sHKQbqIXGI> · *Traxgen: Ground-Truth Trajectory Generation for AI Agent Evaluation* (Maria Emilia Mazzolenis, Ruirui Zhang)
+- **Venue:** NeurIPS 2025 Workshop on Scaling Environments for Agents (SEA) · official listing <https://neurips.cc/virtual/2025/124512>
 - **License:** MIT
-- **Distribution:** PyPI package (`traxgen`)
+- **Distribution:** PyPI package `traxgen` · <https://pypi.org/project/traxgen/>
 
 ## Summary
 
