@@ -4,7 +4,7 @@
 
 > **首次公开：** 2025-05-15 · **来源：** [arXiv 首次提交](https://arxiv.org/abs/2505.10554)
 
-## 概览
+## Overview
 
 Beyond 'Aha!' 先把 deduction、induction 和 abduction 显式训练成可复用 meta-ability，再做领域 RL，不再依赖 outcome RL 偶然产生这些行为。
 
@@ -24,19 +24,19 @@ N/A — 测的是通用 reasoning transfer，不是 agent 执行科学或研究 
 - **Paper:** <https://aclanthology.org/2026.findings-acl.1981/>
 - **Venue:** Findings of ACL 2026
 
-## 摘要
+## Summary
 
 论文分别为 deduction、induction 和 abduction 构造 self-verifiable synthetic task，单独 align 三种能力，合并 parameter state，最后再做 domain-specific RL。数学、coding 和 science evaluation 用来检验：显式训练 reasoning primitive，是否比等待 self-correction、backtracking 或 verification 从 outcome reward 中随机出现更稳定。
 
-## 任务
+## Tasks
 
 三套 synthetic diagnostic training set，以及七个 unseen 数学、coding 和 science benchmark，包括 MATH-500、历史 AIME、AIME 2024 与 LiveCodeBench。
 
-## 领域
+## Domains
 
 跨数学、coding 与 science benchmark 的通用 reasoning post-training，不是 scientific-agent workflow。
 
-## 评估
+## Evaluation
 
 七个 unseen benchmark 的 pass@1、逐 meta-ability diagnostic、parameter-merging comparison，以及 7B/32B model 继续做 domain RL 后的增益。
 
@@ -44,7 +44,7 @@ N/A — 测的是通用 reasoning transfer，不是 agent 执行科学或研究 
 
 没有报告固定的逐题 wall-clock budget。
 
-## 主要贡献
+## Main Contribution
 
 用 evaluation-driven 实验检验显式、可复用的 cognitive primitive 能否成为后续 reasoning optimization 的基础。
 
@@ -58,7 +58,7 @@ N/A — 测的是通用 reasoning transfer，不是 agent 执行科学或研究 
 - 在三类 held-out task 上测 transfer，不局限于单个 dataset。
 - 用 staged experiment 分开 primitive alignment、parameter merging 与 downstream RL。
 
-## 局限
+## Limitations
 
 - Meta-ability 是 capability target，不是 interactive policy 每一步都要选择的 action。
 - 三类 taxonomy 由人定义，可能漏掉其他有用 cognitive operation。

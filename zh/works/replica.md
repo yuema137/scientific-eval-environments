@@ -15,7 +15,7 @@ Replica 是一个面向论文复现的任务空间：把一篇论文中的某张
 
 ## Activities
 
-- [科研复现与重复实验](../activities/research_reproduction_replication.md)
+- [研究复现与重复](../activities/research_reproduction_replication.md)
 
 ## Links
 
