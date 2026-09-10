@@ -2,7 +2,7 @@
   <rect width="1200" height="320" rx="28" fill="#F8FAFF"/>
   <rect x="28" y="28" width="1144" height="264" rx="22" fill="white" stroke="#D8E0F0" stroke-width="2"/>
   <text x="60" y="82" fill="#365DF0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Evaluation should tell you what to change next</text>
-  <g stroke="#7C4DFF" stroke-width="6" stroke-linecap="round">
+  <g stroke="#3D91F2" stroke-width="6" stroke-linecap="round">
     <path d="M210 163H238"/>
     <path d="M418 163H446"/>
     <path d="M626 163H654"/>

@@ -2,9 +2,9 @@
   <rect width="1200" height="760" rx="28" fill="#F8FAFF"/>
   <rect x="24" y="24" width="1152" height="712" rx="24" fill="white" stroke="#D8E0F0" stroke-width="2"/>
   <text x="70" y="92" fill="#365DF0" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">One corpus, three ways to enter it</text>
-  <path d="M370 274C454 308 494 330 516 345" stroke="#7C4DFF" stroke-width="6" stroke-linecap="round"/>
-  <path d="M830 274C742 310 700 330 682 345" stroke="#7C4DFF" stroke-width="6" stroke-linecap="round"/>
-  <path d="M600 518C600 482 600 466 600 438" stroke="#7C4DFF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M370 274C454 308 494 330 516 345" stroke="#3D91F2" stroke-width="6" stroke-linecap="round"/>
+  <path d="M830 274C742 310 700 330 682 345" stroke="#3D91F2" stroke-width="6" stroke-linecap="round"/>
+  <path d="M600 518C600 482 600 466 600 438" stroke="#3D91F2" stroke-width="6" stroke-linecap="round"/>
   <circle cx="600" cy="380" r="118" fill="#EEF3FF" stroke="#365DF0" stroke-width="4"/>
   <text x="600" y="352" text-anchor="middle" fill="#142033" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Works</text>
   <g text-anchor="middle" fill="#4E5F7A" font-family="Inter, Arial, sans-serif" font-size="16">
