@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
-    <title>Scientific Evaluation Environments</title>
+    <title>Evaluating AI Scientists</title>
     <meta name="description" content="A living map of how scientific and engineering AI agents are evaluated—and how evaluation drives improvement.">
     <link rel="canonical" href="https://yuema137.github.io/scieval/">
-    <meta name="theme-color" content="#3459e6">
+    <meta name="theme-color" content="#08111f">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Scientific Evaluation Environments">
-    <meta property="og:title" content="Scientific Evaluation Environments">
+    <meta property="og:site_name" content="Evaluating AI Scientists">
+    <meta property="og:title" content="Evaluating AI Scientists">
     <meta property="og:description" content="A living map of how scientific and engineering AI agents are evaluated—and how evaluation drives improvement.">
     <meta property="og:url" content="https://yuema137.github.io/scieval/">
     <meta property="og:image" content="https://yuema137.github.io/scieval/assets/social-preview.png">
@@ -18,12 +18,12 @@
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Scientific Evaluation Environments: measure, diagnose, and improve scientific and engineering AI agents.">
+    <meta property="og:image:alt" content="Evaluating AI Scientists: measure, diagnose, and improve scientific and engineering AI agents.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Scientific Evaluation Environments">
+    <meta name="twitter:title" content="Evaluating AI Scientists">
     <meta name="twitter:description" content="A living map of how scientific and engineering AI agents are evaluated—and how evaluation drives improvement.">
     <meta name="twitter:image" content="https://yuema137.github.io/scieval/assets/social-preview.png">
-    <meta name="twitter:image:alt" content="Scientific Evaluation Environments: measure, diagnose, and improve scientific and engineering AI agents.">
+    <meta name="twitter:image:alt" content="Evaluating AI Scientists: measure, diagnose, and improve scientific and engineering AI agents.">
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
@@ -31,7 +31,7 @@
       <header class="site-header">
         <div class="brand">
           <p class="eyebrow" id="eyebrow">Scientific Evaluation Environments</p>
-          <h1 id="hero-title">Scientific Evaluation Environments</h1>
+          <h1 id="hero-title">Evaluating AI Scientists</h1>
           <p class="hero-text" id="hero-text">
             A living knowledge base for scientific and engineering AI agent evaluation. See what each benchmark measures, what its results reveal, and what developers can improve next. Browse by topic, domain, activity, or month.
           </p>
@@ -41,6 +41,14 @@
           <a class="button" href="./documents/en/monthly/README.json" id="monthly-link" data-reader-link="true">Monthly</a>
           <a class="button" href="https://github.com/yuema137/scientific-eval-environments" id="github-link" target="_blank" rel="noopener noreferrer">GitHub repository</a>
           <button class="button ghost" id="lang-toggle" type="button">中文</button>
+          <div class="theme-switch" role="group" aria-label="Color theme">
+            <button class="theme-button" id="theme-light" type="button" aria-label="Use light theme" title="Light theme">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.75"></circle><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.55 1.55M17.52 17.52l1.55 1.55M2 12h2.2M19.8 12H22M4.93 19.07l1.55-1.55M17.52 6.48l1.55-1.55"></path></svg>
+            </button>
+            <button class="theme-button" id="theme-dark" type="button" aria-label="Use dark theme" title="Dark theme">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.15A8.4 8.4 0 0 1 8.85 3.8 8.5 8.5 0 1 0 20.2 15.15Z"></path></svg>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -64,8 +72,14 @@
               <div class="key-points" id="home-points"></div>
             </div>
             <div class="figure-stack">
-              <img src="./assets/readme-eval-loop.svg" alt="Evaluation loop from task to run to evaluation to diagnosis to intervention to new evaluation.">
-              <img class="repo-map-figure" src="./assets/readme-repo-map.svg" alt="Repository map showing works at the center and topics, domains, and activities as three reading axes.">
+              <div class="theme-figure" role="img" aria-label="Evaluation loop from task to run to evaluation to diagnosis to intervention to new evaluation.">
+                <img class="figure-light" src="./assets/readme-eval-loop.svg" alt="">
+                <img class="figure-dark" src="./assets/readme-eval-loop-dark.svg" alt="">
+              </div>
+              <div class="theme-figure repo-map-figure" role="img" aria-label="Repository map showing works at the center and topics, domains, and activities as three reading axes.">
+                <img class="figure-light" src="./assets/readme-repo-map.svg" alt="">
+                <img class="figure-dark" src="./assets/readme-repo-map-dark.svg" alt="">
+              </div>
             </div>
           </section>
 

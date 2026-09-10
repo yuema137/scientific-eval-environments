@@ -1,7 +1,7 @@
 const ui = {
   en: {
     tabs: { home: "Home", topics: "Topics", domains: "Domains", activities: "Activities", monthly: "Monthly", works: "Works" },
-    heroTitle: "Scientific Evaluation Environments",
+    heroTitle: "Evaluating AI Scientists",
     heroText: "A living knowledge base for scientific and engineering AI agent evaluation. See what each benchmark measures, what its results reveal, and what developers can improve next. Browse by topic, domain, activity, or month.",
     readmeLink: "Guide",
     monthlyLink: "Monthly",
@@ -60,10 +60,13 @@ const ui = {
     links: "Links",
     monthlyWorks: (n) => `${n} works`,
     openPage: "Open here",
+    themeGroup: "Color theme",
+    themeLight: "Use light theme",
+    themeDark: "Use dark theme",
   },
   zh: {
     tabs: { home: "首页", topics: "Topics", domains: "Domains", activities: "Activities", monthly: "月报", works: "Works" },
-    heroTitle: "Scientific Evaluation Environments",
+    heroTitle: "Evaluating AI Scientists",
     heroText: "这是一个持续更新的知识库，收集科学与工程 AI agent 的评估工作。它不只记录 benchmark 分数，还关心分数说明了什么、失败出在哪儿、下一步该改什么。你可以按 topic、domain、activity 或月份浏览。",
     readmeLink: "仓库导览",
     monthlyLink: "月报",
@@ -122,16 +125,22 @@ const ui = {
     links: "链接",
     monthlyWorks: (n) => `${n} 项工作`,
     openPage: "在这里打开",
+    themeGroup: "颜色主题",
+    themeLight: "使用浅色主题",
+    themeDark: "使用深色主题",
   }
 };
 
 let state = {
   lang: localStorage.getItem("scieval-explorer-language") || (navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en"),
+  theme: localStorage.getItem("scieval-explorer-theme") || "dark",
   data: null,
   activeTab: "home",
   filters: { search: "", topic: "", domain: "", activity: "", month: "" },
   reader: { url: "./documents/en/README.json", title: "Reader" }
 };
+
+document.documentElement.dataset.theme = state.theme;
 
 const byId = (id) => document.getElementById(id);
 
@@ -158,6 +167,8 @@ function localizedItemUrl(item) {
 
 function applyUiText() {
   const t = ui[state.lang];
+  document.documentElement.dataset.theme = state.theme;
+  document.documentElement.lang = state.lang;
   setText("hero-title", t.heroTitle);
   setText("hero-text", t.heroText);
   setText("readme-link", t.readmeLink);
@@ -196,6 +207,19 @@ function applyUiText() {
   Object.entries(t.tabs).forEach(([key, label]) => setText(`tab-${key}`, label));
   byId("search").placeholder = t.filters.search;
   byId("lang-toggle").textContent = state.lang === "en" ? "中文" : "English";
+  const themeSwitch = document.querySelector(".theme-switch");
+  themeSwitch.setAttribute("aria-label", t.themeGroup);
+  ["light", "dark"].forEach(theme => {
+    const button = byId(`theme-${theme}`);
+    const active = state.theme === theme;
+    const label = theme === "light" ? t.themeLight : t.themeDark;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+    button.setAttribute("aria-label", label);
+    button.title = label;
+  });
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  if (themeMeta) themeMeta.content = state.theme === "dark" ? "#08111f" : "#f2f6fc";
 }
 
 function renderHomeBlocks() {
@@ -620,6 +644,13 @@ function bindControls() {
     if (state.activeTab === "reader" && state.reader.url) {
       openReader(localizedDocumentUrl(state.reader.url), state.reader.title);
     }
+  });
+  ["light", "dark"].forEach(theme => {
+    byId(`theme-${theme}`).addEventListener("click", () => {
+      state.theme = theme;
+      localStorage.setItem("scieval-explorer-theme", theme);
+      applyUiText();
+    });
   });
 }
 

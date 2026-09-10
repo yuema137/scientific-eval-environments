@@ -81,9 +81,11 @@ def test_markdown_navigation_uses_the_in_page_reader():
     assert 'id="reader-subtitle"' not in index
     assert 'id="reader-source-link"' not in index
     assert '>Guide</a>' in index
-    assert "<title>Scientific Evaluation Environments</title>" in index
-    assert '<h1 id="hero-title">Scientific Evaluation Environments</h1>' in index
-    assert 'class="repo-map-figure"' in index
+    assert "<title>Evaluating AI Scientists</title>" in index
+    assert '<h1 id="hero-title">Evaluating AI Scientists</h1>' in index
+    assert "repo-map-figure" in index
+    assert "readme-eval-loop-dark.svg" in index
+    assert "readme-repo-map-dark.svg" in index
     assert "renderMarkdown(document.markdown, document.source_path)" in app
     assert "resolveDocumentLink(href, sourcePath)" in app
     assert "localizedDocumentUrl(state.reader.url)" in app
@@ -98,15 +100,22 @@ def test_markdown_navigation_uses_the_in_page_reader():
     assert '<link rel="canonical" href="https://yuema137.github.io/scieval/">' in index
     assert '<meta property="og:image" content="https://yuema137.github.io/scieval/assets/social-preview.png">' in index
     assert '<meta name="twitter:card" content="summary_large_image">' in index
+    assert 'class="theme-switch"' in index
+    assert 'id="theme-light"' in index
+    assert 'id="theme-dark"' in index
+    assert 'localStorage.getItem("scieval-explorer-theme") || "dark"' in app
+    assert 'localStorage.setItem("scieval-explorer-theme", theme)' in app
+    assert 'document.documentElement.dataset.theme = state.theme' in app
 
     styles = (ROOT / "site" / "styles.css").read_text(encoding="utf-8")
     assert ".table-scroll.is-wide" in styles
     assert "position: sticky" in styles
-    assert ".header-actions .button" in styles
-    assert "flex-wrap: nowrap" in styles
+    assert ".header-actions" in styles
     assert "--maxw: 1400px" in styles
     assert ".figure-stack .repo-map-figure" in styles
-    assert "font-size: clamp(1.3rem, 1.6vw, 1.55rem)" in styles
+    assert ':root[data-theme="light"]' in styles
+    assert "color-scheme: dark" in styles
+    assert "color-scheme: light" in styles
     assert ".hero-grid" in styles
     assert "grid-template-columns: minmax(0, 1fr)" in styles
 
@@ -122,8 +131,8 @@ def test_diagram_connectors_render_behind_nodes():
     loop = (ROOT / "site" / "assets" / "readme-eval-loop.svg").read_text(encoding="utf-8")
     repo_map = (ROOT / "site" / "assets" / "readme-repo-map.svg").read_text(encoding="utf-8")
 
-    assert loop.index('stroke="#7C4DFF"') < loop.index('<rect x="60" y="132"')
-    assert repo_map.index('stroke="#7C4DFF"') < repo_map.index('<circle cx="600" cy="380"')
+    assert loop.index('stroke="#3D91F2"') < loop.index('<rect x="60" y="132"')
+    assert repo_map.index('stroke="#3D91F2"') < repo_map.index('<circle cx="600" cy="380"')
     assert '<g text-anchor="middle" fill="#4E5F7A"' in loop
     assert repo_map.count('text-anchor="middle"') >= 5
     assert "Factual cards for individual papers," not in repo_map
