@@ -108,6 +108,8 @@ drops works already in the repo, and drops works already staged on the open auto
 branch. There is a single **rolling PR** on branch `auto/knowledge-update`; each successful run
 accumulates onto it, and new changes only become visible after that run passes the final gate.
 
+When the rolling PR is open, its branch is merged with current `main` before workers run; a conflict stops the update. When the last rolling PR is merged and its head still matches the remote branch, the next batch starts with current `main` content and retains the old branch only as merge ancestry, allowing a normal fast-forward push even after a squash merge. An unmatched branch tip or a failed PR-state lookup blocks reuse rather than discarding unreviewed changes. Merge updater code fixes into `main` before a production recovery run, because workers execute from this canonical base.
+
 ## Configuration (`config.yaml`)
 
 `lookback_days` (overlapping window; dedup, not a 1-day cutoff, prevents repeats), per-source

@@ -179,6 +179,8 @@ jobs:
       - run: pip install -q requests pyyaml
       - run: npm install -g @anthropic-ai/claude-code
       - name: Base on rolling automated branch (accumulate pending batches)
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: bash scripts/update_agent/base_branch.sh
       - uses: actions/download-artifact@v4
         with: { name: stage-runtime, path: runtime/ }
@@ -258,6 +260,8 @@ jobs:
         with: { python-version: '3.11' }
       - run: pip install -q requests pyyaml
       - name: Base on rolling automated branch
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: bash scripts/update_agent/base_branch.sh
       - uses: actions/download-artifact@v4
         with: { name: stage-review }
