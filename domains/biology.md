@@ -10,6 +10,7 @@ Life-science evaluation from molecular to population scale. Bioinformatics, geno
 
 | Work | Year | Scientific problem | Task form & scale | Domain verification | Card |
 |---|---|---|---|---|---|
+| AutoResearchEval | 2026 | Microbiome and cellular-biology investigations, including diagnostic modeling and cell-state analysis. | 24 tasks (15 open-ended + 9 optimization); six-stage research in Docker, with complete trajectories retained (Fig. 2). | ARFT judge checks reports against files and logs; pooled human agreement κ = 0.75 / 0.83, not domain-specific accuracy. | [→](../works/autoresearcheval.md) |
 | Aviary | 2024 | Molecular cloning (DNA-construct manipulation) and protein engineering: propose stabilizing mutations on real proteins; plus scientific-literature research (LitQA2). | POMDP environments with terminal rewards: SeqQA (500 train / ~140 test cloning questions), Protein Stability (mutation proposals on 40 proteins from the megascale stability dataset), LitQA2 (248 questions). | SeqQA / LitQA2 by multiple-choice accuracy; protein tasks pass iff the proposed mutation's Rosetta ΔΔG < 0 (stabilizing). | [→](../works/aviary.md) |
 | HeurekaBench | 2026 | Answer open-ended single-cell biology research questions — derived from 41 validated insights in 13 Nature and Cell papers — by autonomously designing and executing multi-step analyses on the studies' datasets. | 50 open-ended + 50 multiple-choice questions (Lite subset: 22 + 18 restricted to datasets under 750 MB), produced by a semi-automated insight-to-question pipeline. | Ground truth is the published finding; open-ended answers scored 1–5 by a G-Eval GPT-4o judge over atomic-fact overlap, multiple choice by accuracy. | [→](../works/heurekabench.md) |
 | GeneBench-Pro | 2026 | Multistage statistical analyses in genomics, quantitative biology, and translational biomedicine, with 3–13 inferential forks per problem where a plausible wrong choice changes the downstream answer. | 129 problems built on constructively simulated data-generating processes with fully known causal structure, deliberately avoiding textbook examples. | Binary grading against recoverable targets with exact-match rules and numeric tolerances; no partial credit; 10 independent attempts per model–problem pair. | [→](../works/genebench-pro.md) |
@@ -105,6 +106,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | BioXArena | GEN | ✘ | ◐ | ✘ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 3 | 1 | 3 | **9** |
 | SpatialBench | SPAT | ? | ✘ | ◐ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
 | scBench-Long | SCB, IMM | ? | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✘ | ✔ | ◐ | 2 | 1 | 3 | **7.5** |
+| AutoResearchEval | GEN | ◐ | ✔ | ✘ | ? | ◐ | ◐ | ✔ | **3.5** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | HeurekaBench | SCB | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | 2 | 3 | **7** |
 | NatureBench | SCB, PROT | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 2 | 1 | 2 | **7** |
 | Frontier LLM-based agents can overcome the ontology curation bottleneck for natural phenotypes | ECOEV, CURA | ✘ | ✘ | ◐ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✘ | 3 | 2 | 1 | **7** |
@@ -138,9 +140,12 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 
 Repository note: a suite-wide total does not establish this domain’s item count. Terminal-Bench Science 0.1 contains 70 tasks, but the reviewed release announcement does not give the count for this page’s domain, so Scale remains ?. Other ? marks likewise record an evidence gap rather than an absent capability.
 
+Repository note: AutoResearchEval counts follow the paper's source-domain labels. Network access and reference-target reproduction apply to subsets; resource limits are not a cost score. `Verif=1` describes the diagnostic judge, whose calibration is pooled across domains; `Fail=3` records quantified failures without a controlled causal intervention. `?` leaves domain-specific multimodal or real-data coverage unasserted.
+
 ## Related Works
 
 - [AgentIdeaBench](../works/agentideabench.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
 - [Apodex Discovery](../works/apodex-discovery.md)
 - [Fisher-R1 / P-Bench](../works/fisher-r1.md)
 - [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)

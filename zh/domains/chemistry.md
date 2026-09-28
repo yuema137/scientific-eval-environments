@@ -10,6 +10,7 @@
 
 | Work | 年份 | 科学问题 | 任务形式与规模 | 领域内验证 | Card |
 |---|---|---|---|---|---|
+| AutoResearchEval | 2026 | 量子化学参考结果的分歧、分子结合与化学机制。 | 14 个任务（9 个开放式 + 5 个优化）；在 Docker 中完成六阶段研究并保留完整轨迹（图 2）。 | ARFT 评判器用文件和日志核对报告；总体人工一致性 κ = 0.75 / 0.83，并非本领域单独测得的准确率。 | [→](../works/autoresearcheval.md) |
 | ScienceAgentBench | 2024 | 计算化学任务——其 102 个任务中的 20 个——提取自经同行评审的数据驱动发现工作流。 | 每个任务要求生成一个自包含的 Python 程序，复现真实论文中的分析。 | 有效执行加逐任务手写的成功检查器，对照专家标注参考（如指标阈值）；图形输出由 GPT-4o 评判。 | [→](../works/scienceagentbench.md) |
 | NatureBench | 2026 | 达到 Nature 系列 Molecular Design 研究的已发表 SOTA——其 90 个任务中的 11 个——只给目标算法的输入，不给其操作或输出。 | 经评审门控流水线与信息防火墙构建的 code-agent 任务；每任务平均约 3.7 个主指标。 | 在论文自身主指标上的 SOTA 归一化相对差距 g；报告 Match-SOTA（g ≥ 0）与 Surpass-SOTA（g > 0.1）比率，另有 judge 标记捷径运行。 | [→](../works/naturebench.md) |
 | Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Physical Sciences 分组下的化学任务。 | 容器化终端任务（0.1 版五大分组共 70 个；未报告本领域数量），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
@@ -104,6 +105,7 @@
 | SciVisAgentBench | MD | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
 | SMDD-Bench | MED | ✘ | ✘ | ✔ | ◐ | ✘ | ◐ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 2 | 2 | **8** |
 | Model Discovery Agent | GEN | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 1 | 4 | **8** |
+| AutoResearchEval | QC, BIOCHEM | ◐ | ✔ | ✘ | ? | ◐ | ? | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | MolClaw | MED, MOLDES | ✔ | ◐ | ✘ | ✘ | ✘ | ◐ | ✔ | **3** | ✘ | ✔ | ✘ | 2 | 2 | 2 | **7** |
 | Science Edge Evaluation (SEE) | ANAL | ◐ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **3** | ✘ | ✘ | ◐ | 2 | ? | 4 | **6.5** |
 | DrBencher | BIOCHEM | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 1 | 1 | **6** |
@@ -138,9 +140,12 @@
 
 Repository note: 跨领域套件的总题数不能代替本领域数量。Terminal-Bench Science 已发布 0.1 版、共 70 题，但已核对的发布说明没有给出本页细分领域的任务数，因此 Scale 保留为 ?。其他 ? 同样表示来源尚未明确说明，并非否定该项能力。
 
+Repository note: AutoResearchEval 的数量按论文原始领域标签统计。联网与参考目标复现只适用于部分任务；资源上限不等于成本评分。`Verif=1` 对应诊断评判器，其校准数据跨领域汇总；`Fail=3` 表示失败已量化，但未通过受控干预验证因果。`?` 表示尚未确立本领域的多模态或真实数据覆盖情况。
+
 ## Related Works
 
 - [AgentIdeaBench](../works/agentideabench.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)
 - [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
 - [onepot-Bench 0](../works/onepot-bench.md)

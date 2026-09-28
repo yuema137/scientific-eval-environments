@@ -15,12 +15,12 @@
 | 2026-08-18 | [ASI-Bench](./works/asi-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.17271) |
 | 2026-08-17 | [R³-Bench](./works/r3-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.16033) |
 | 2026-08-14 | [PACE-Bench](./works/pace-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.14441) |
-| 2026-08-14 | [AutoResearchEval](./works/autoresearcheval.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.14905) |
 | 2026-08-14 | [AI Research Preference Models](./works/ai-research-preference-models.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.13940) |
 | 2026-08-13 | [SkillShapley](./works/skillshapley.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.13173) |
 | 2026-08-13 | [SkillMisevo-Bench](./works/skillmisevo-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.12851) |
 | 2026-08-13 | [Replica](./works/replica.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.13331) |
 | 2026-08-13 | [Beyond Final Scores](./works/beyond-final-scores.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.13417) |
+| 2026-08-13 | [AutoResearchEval](./works/autoresearcheval.md) | [官方数据生成流水线发布](https://github.com/PrentisAI/AutoResearchEval/commit/55bb0dbf5e7a4539f22c3ef7f7d8784adb61c4b4) |
 | 2026-08-11 | [MobileJudgeBench](./works/mobilejudgebench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.11434) |
 | 2026-08-11 | [DSAgentBench](./works/dsagentbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.10366) |
 | 2026-08-11 | [Apodex Discovery](./works/apodex-discovery.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.11341) |
