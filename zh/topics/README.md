@@ -26,7 +26,7 @@ Topic 集合是固定的。新增 topic 需要更新 [`../../AGENT.md`](../../AG
 | VI | [Skill Hierarchy](./skill_hierarchy.md) | `skill_hierarchy.md` | 43 |
 | VII | [Credit Assignment](./credit_assignment.md) | `credit_assignment.md` | 25 |
 | VIII | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 28 |
-| IX | [Evaluator Reliability & Validation](./evaluator_reliability_validation.md) | `evaluator_reliability_validation.md` | 15 |
+| IX | [Evaluator Reliability & Validation](./evaluator_reliability_validation.md) | `evaluator_reliability_validation.md` | 16 |
 | X | [Benchmark Design, Validity & Contamination](./benchmark_design_validity_contamination.md) | `benchmark_design_validity_contamination.md` | 17 |
 | XI | [Skill Learning & Evolution](./skill_learning_evolution.md) | `skill_learning_evolution.md` | 7 |
 | XII | [Agent Harnesses & Scaffolding](./agent_harnesses_scaffolding.md) | `agent_harnesses_scaffolding.md` | 10 |

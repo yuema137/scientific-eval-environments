@@ -134,16 +134,16 @@ Domain pages answer a narrower question: where does the evaluated work happen? A
 
 | Domain | Works |
 |---|--:|
-| [Physics](./domains/physics.md) | 49 |
-| [Chemistry](./domains/chemistry.md) | 41 |
-| [Biology](./domains/biology.md) | 41 |
-| [Materials Science](./domains/materials_science.md) | 29 |
+| [Physics](./domains/physics.md) | 50 |
+| [Chemistry](./domains/chemistry.md) | 42 |
+| [Biology](./domains/biology.md) | 42 |
+| [Materials Science](./domains/materials_science.md) | 30 |
 | [AI & Machine Learning Research](./domains/ai_ml_research.md) | 32 |
 | [Mathematics](./domains/mathematics.md) | 19 |
-| [Medicine & Health](./domains/medicine_health.md) | 24 |
+| [Medicine & Health](./domains/medicine_health.md) | 25 |
 | [Neuroscience & Cognitive Science](./domains/neuroscience_cognitive_science.md) | 13 |
 | [Astronomy](./domains/astronomy.md) | 35 |
-| [Earth Science](./domains/earth_science.md) | 12 |
+| [Earth Science](./domains/earth_science.md) | 13 |
 | [Computer Science](./domains/computer_science.md) | 8 |
 | [Environmental Science](./domains/environmental_science.md) | 7 |
 
