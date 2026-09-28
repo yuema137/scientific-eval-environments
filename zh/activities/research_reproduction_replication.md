@@ -34,6 +34,7 @@
 | PRBench | 2026 | 复现 physics 论文，从零实现算法 | 30 个专家精选任务，11 个子领域，sandbox | 与论文匹配的定量结果（最高 34%） | [卡片](../works/prbench.md) |
 | Quantifying Reproducibility of Astrophysical Methods | 2026 | 仅凭文本重建一项已发表的天体物理方法 | 同一方法在 Title / +Abstract / +Methods 三个层级下；五个模型 | Hierarchy of Scientific Validity 0-3 级，通过阈值为 V >= 2 | [卡片](../works/quantifying-the-reproducibility-of-astrophysical-m.md) |
 | Replica | 2026 | 复现一张已从源论文中不可逆抹除的结果图 | 从 100 篇论文自动生成 310 个任务；每任务 60 分钟，算力为一张 H200 的七分之一 MIG 切片 | 五维 rubric 评判分；后训练出的 agent 在 73% 的同分布任务与 60% 的留出 AI for science 任务上胜过 Opus 4.8 与 GPT-5.5 | [卡片](../works/replica.md) |
+| [AgentActionBench](../works/agentactionbench.md) | 2026 | 重建并执行已发表实验 | 150 篇论文；Read/Write/Execute 记录操作 | 提交代码仓库与日志，按复现 rubric 加权评分 | [AgentActionBench](../works/agentactionbench.md) |
 
 ## Related Works
 
@@ -42,6 +43,7 @@
 - [Collider-Bench](../works/collider-bench.md)
 - [Quantifying the Reproducibility of Astrophysical Methods with Large Language Models and Information Theory](../works/quantifying-the-reproducibility-of-astrophysical-m.md)
 - [AutoMat](../works/automat.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [PRBench](../works/prbench.md)
 - [FIRE-Bench](../works/fire-bench.md)
 - [ReplicationBench](../works/replicationbench.md)

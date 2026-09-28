@@ -28,6 +28,8 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 - **给 judge 单独做一套 benchmark。** [PaperBench](../works/paperbench.md) 先人工判定论文部分复现结果的每一个评分叶节点，再把候选 judge 后端当作二分类器对照这些标签打分，最后按每美元换来的 F1 而不是最高 F1 来选型。
 - **同一批答案，既换人也换 judge。** [HeurekaBench](../works/heurekabench.md) 在正式使用 judge 之前验两轮：11 位领域专家对同样的 25 条开放题答案打分，另有两个前沿模型对同一批 agent 结果重新评分，于是评分者之间的分歧和 judge 模型之间的分歧被分开报告。
 
+这些新增工作验证的对象不同：[AgentIdeaBench](../works/agentideabench.md)校准评审模型，[AgentActionBench](../works/agentactionbench.md)比较自动与人工 rubric 得到的分数，[PTA-IRT](../works/pta-irt.md)检查子集能否预测全套成绩。某一层的一致性不能替另外两层提供保证。
+
 ## 方法对比
 
 | Work | 被检验的 evaluator | Ground truth | 可靠性信号 | 下游验证 |
@@ -42,6 +44,9 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 | AI-Researcher | 五个 LLM 审稿 agent，换序两两比较 | 32 组内容相近的 ICLR 论文配对（2021-2023）的录用/拒稿结果 | 录用预测准确率 65.62-90.62%；可比质量检出率（评分高于 -1.0 的配对占比）93.75-100% | Evaluator 选型：主实验剔除了最弱的模型 |
 | PaperBench | 覆盖评分叶节点的 SimpleJudge，五种后端模型 | 五篇论文部分复现结果的人工判分叶节点 | 宏平均二分类 F1（0.59-0.84），与每篇成本并列报告 | 为主排行榜选定 judge 后端 |
 | HeurekaBench | 以 GPT-4o 为后端的 G-Eval judge | 11 位单细胞专家对 25 条开放题答案打分；另有两个 judge 模型 | 与专家汇总分的 Spearman 0.93 / 0.90、Cohen's κ 0.85；judge 之间 Spearman 0.84 / 0.79 | Judge 选型与 planner 模型排名 |
+| [AgentIdeaBench](../works/agentideabench.md) | 结合文献的评审模型 | 人类代表性论文；100 对计算机科学假设的人工判断 | 与人工多数意见一致率 77%；校准对照 | Static/Active 对比 |
+| [AgentActionBench](../works/agentactionbench.md) | 自动生成的论文 rubric | 15 篇论文的人工 rubric | 两种 rubric 所得分数的 Pearson 0.93、Spearman 0.88 | 按复现阶段分解；不等于逐项判分准确率 |
+| [PTA-IRT](../works/pta-irt.md) | 从子集推算全套成绩的估计器 | 留出 agent 的全套任务结果 | MAE、Kendall tau、Spearman rho | 四折验证与轨迹消融 |
 
 ## 还没解决的问题
 
@@ -53,9 +58,12 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 
 ## 相关工作
 
+- [AgentIdeaBench](../works/agentideabench.md)
+- [PTA-IRT](../works/pta-irt.md)
 - [MobileJudgeBench](../works/mobilejudgebench.md)
 - [SkillTV-Bench](../works/skilltv-bench.md)
 - [AgentLens](../works/agentlens.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [Plan-RewardBench](../works/plan-rewardbench.md)
 - [PSE-Bench](../works/pse-bench.md)
 - [FIRE-Bench](../works/fire-bench.md)

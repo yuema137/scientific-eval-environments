@@ -14,9 +14,9 @@
 | NewtonBench | 2025 | 重新发现一条隐藏物理定律：对 12 条经典定律（万有引力、库仑、傅里叶、Snell 等）的表达式树做反事实变异得到。 | 324 个交互任务（108 条变异定律 × 3 个模型系统）；agent 通过 `run_experiment` 工具设计实验，以符号表达式提交定律。 | 与真值定律的二元符号等价（LLM judge；与人类专家一致率 98.3%），辅以所发现方程预测的 RMSLE。 | [→](../works/newtonbench.md) |
 | PRBench | 2026 | 端到端复现已发表的物理研究——理解论文方法、从零实现算法、复现其定量结果——覆盖从 QCD 到凝聚态的 11 个子领域。 | 30 个专家整理的论文复现任务，来自 20 余个课题组，在沙箱执行环境中运行，输出标准化 CSV。 | 每任务由专家撰写的加权 rubric 评分（数据复现准确性权重 0.60）；端到端成功要求每个维度 >0.9——目前所有 agent 均为零。 | [→](../works/prbench.md) |
 | Collider-Bench | 2026 | 复现 LHC 实验分析：通过公开仿真栈（MadGraph5、Pythia、Delphes）为 CMS 超对称搜索生成信号事例，并实现论文发表的事例筛选。 | 10 个 Simulation 任务，取自 13 TeV 下四项 CMS SUSY 搜索；agent 提交预测信号产额的分 bin 直方图、分析代码与方法报告。 | 与隐藏参考直方图的相对 L² 距离，通过阈值由 physicist-in-the-loop 基线设定；另有 LLM 溯源评判标记造假工作流。 | [→](../works/collider-bench.md) |
-| SimulCost | 2026 | 在 13 个物理仿真器上调节仿真参数以达到目标物理结果，并计入仿真时间与实验资源成本。 | 2,947 个单轮与 1,931 个多轮参数调优任务。 | 预算约束下的成功率，并分层报告更严格的精度要求。 | [→](../works/simulcost.md) |
+| SimulCost | 2026 | 在 11 个使用解析成本的物理模拟器上调参以达到目标结果；EPOCH 的实测耗时另行报告。 | 2,643 个单轮与 2,304 个多轮参数调优任务。 | 预算约束下的成功率，并分层报告更严格的精度要求。 | [→](../works/simulcost.md) |
 | NatureBench | 2026 | 达到 Nature 系列 Physical Modeling 研究的已发表 SOTA——其 90 个任务中的 13 个——只给目标算法的输入，不给其操作或输出。 | 经评审门控流水线与信息防火墙构建的 code-agent 任务；每任务平均约 3.7 个主指标。 | 在论文自身主指标上的 SOTA 归一化相对差距 g；报告 Match-SOTA（g ≥ 0）与 Surpass-SOTA（g > 0.1）比率，另有 judge 标记捷径运行。 | [→](../works/naturebench.md) |
-| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Physical Sciences 分组下的物理任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Physical Sciences 分组下的物理任务。 | 容器化终端任务（0.1 版五大分组共 70 个；未报告本领域数量），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Physics 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文工件的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
 | CMT-Benchmark | 2025 | 求解专家研究者水平的凝聚态理论问题——量子多体系统与经典统计力学——横跨 Hartree-Fock、精确对角化、量子/变分蒙特卡洛、DMRG 与统计力学。 | 50 道由专家研究者按其自身工作水平编写的单题理论与计算推导；非交互式 agent 设定。 | 对照专家提供的真值做程序化检验，机器判分包括对非对易算符做正规排序后的符号处理。 | [→](../works/cmt-benchmark.md) |
 | CMPhysBench | 2025 | 完成研究生水平的凝聚态物理计算，覆盖磁学、超导、强关联体系与基础理论框架。 | 520 余道精心整理的计算题，每题要求独立生成完整解答；单题推导，非交互式 agent 设定。 | 对解答表达式的 SEED（Scalable Expression Edit Distance）部分得分，加上以正确解答百分比计的准确率。 | [→](../works/cmphysbench.md) |
@@ -58,6 +58,7 @@
 | HiSciBench | 2025 | 面向文献的物理工作：对来自 arXiv 的物理论文做解析、翻译、问答与综述生成。 | 8,735 个实例中物理占 2,306 个——200 个通用科学问答、357 个文献 OCR、357 个翻译、1,025 个单语文献问答、357 个跨语文献问答与 10 个综述选题；物理不贡献数据驱动发现类实例。18 个模型受评。 | 按层级选取指标：问答层用准确率，文献 OCR 用词级准确率，翻译用 BLEU；综述层由 LLM judge 按 1–5 分 rubric 评 Coverage、Structure、Relevance、Synthesis 与 Critical Analysis，另计引文可核验性、元数据准确性、忠实性与时效性。 | [→](../works/hiscibench.md) |
 | LQCDMaster | 2026 | 从第一性原理计算格点 QCD 可观测量——介子与重子两点函数、非定域 Wilson 线关联函数、带顺序源的介子与重子三点函数，以及 Wilson 环——办法是把一条自然语言研究请求转成可执行的 PyQUDA 测量工作流。 | 70 个 LQCD 计算任务（20 个定域两点函数、10 个非定域两点函数、13 个介子三点函数、15 个重子三点函数、12 个 Wilson 环），每个都配一份专家手写的参考实现，可观测量、系综与运动学设置均与之相同；工作流经 PyQUDA/QUDA GPU 栈执行，作业由 SLURM 提交。 | 在机器精度上与专家参考直接做数值比对，标为 Matched（绝对偏差 ≲ 10⁻¹²）、Convention Mismatch（相差一个全局符号或相位）或 Failure；GPT-5.4 达到 63/70 Matched（90.0%），DeepSeek-V4-Pro 为 56/70（80.0%）。 | [→](../works/lqcdmaster.md) |
 | PACE-Bench | 2026 | 在脚下的物理被变异之后——摩擦系数、材料强度、重力或力上限——把一份可用的机构设计修好。 | 36 个基础任务衍生出 144 个源到目标对，覆盖六个物理族、每族 6 个任务；每对 20 次尝试，反馈只作诊断不给修改建议。 | Box2D 刚体仿真；约束满足比例与 [−100, 100] 区间的任务分数，报告为 Pass@2——全量 benchmark 最好成绩为 35.9%。 | [→](../works/pace-bench.md) |
+| [AgentIdeaBench](../works/agentideabench.md) | 2026 | 依据Physics文献提出可检验假设 | 本领域有八个密集评分子领域；比较固定文献与主动检索 | 评审模型依据检索到的已有研究判断原创性；不执行实验验证 | [AgentIdeaBench](../works/agentideabench.md) |
 
 ## Capability Matrix
 
@@ -125,6 +126,7 @@
 | PhysGym | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ◐ | 2 | 1 | 3 | **6.5** |
 | PRBench | HEP, AMO, NUC, PLA, CM | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ✘ | ✔ | ✘ | 2 | 1 | 2 | **6** |
 | QMP-Bench | CM, COMP | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ◐ | ✔ | ✘ | 2 | 2 | 0 | **5.5** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | LQCDMaster | HEP, NUC | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✔ | ✘ | ◐ | 3 | 1 | 3 | **8.5** |
 | SeePhys | GEN | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✔ | ✘ | ✘ | 2 | 3 | 3 | **9** |
 | MooseBench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
@@ -132,11 +134,11 @@
 | PRL-Bench | COS, CM, HEP, QI, STAT | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ◐ | **1** | ✘ | ✔ | ✔ | 0 | 2 | 3 | **7** |
 | gwBenchmarks | GR | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 3 | 0 | 3 | **6.5** |
 | SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
+| AgentIdeaBench | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **1** | ◐ | ✔ | ◐ | 0 | 0 | 4 | **6** |
 | SciConvBench | FLU, COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✔ | ◐ | 1 | ? | 3 | **5.5** |
 | AInsteinBench | GR, FLU | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 3 | ? | 2 | **5.5** |
 | FEABench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 2 | ? | 3 | **5** |
 | CodePDE | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 3 | ? | 1 | **4** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | RealPDEBench | FLU | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | CritPt | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **0.5** | ✘ | ✘ | ✔ | 3 | 1 | 3 | **8** |
 | PHYSICS | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0.5** | ✘ | ✘ | ✘ | 2 | 3 | 2 | **7** |
@@ -156,6 +158,7 @@ Repository note: 有两行不属于其余各列所预设的 agent 场景。RealP
 Repository note：`?` 表示来源没有把这一列说清楚，不是仓库推断它不存在。这个区别在 `Net` 和跨领域套件的逐领域 `Scale` 上尤其重要，因为论文经常只报总任务数。
 ## Related Works
 
+- [AgentIdeaBench](../works/agentideabench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)
 - [AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation](../works/ai-assisting-research-ii-project-planning.md)

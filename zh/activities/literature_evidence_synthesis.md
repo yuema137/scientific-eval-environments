@@ -49,9 +49,11 @@
 | MetaSyn | 2026 | 筛选符合条件的研究并综合成系统综述 | 422 项专家元分析；含干扰项的 PubMed 语料 | 正确的符合条件研究集合与忠于协议的综合 | [卡片](../works/metasyn.md) |
 | ScholarQuest | 2026 | 按研究意图进行迭代式学术论文检索 | 1,000+ 个 CS 主题，四类意图类别 | Recall@100/@All（最优 | [卡片](../works/scholarquest.md) |
 | SciExplore | 2026 | 导航数据库并整合跨来源证据 | 103 个专家任务，四种递进类型，10+ 个学科 | 正确的检索、锚定与综合 | [卡片](../works/sciexplore.md) |
+| [AgentIdeaBench](../works/agentideabench.md) | 2026 | 为科学构思收集证据 | Active 使用 Semantic Scholar search/fetch，最多十次调用 | 形成有文献依据的假设，不单独测检索准确率 | [AgentIdeaBench](../works/agentideabench.md) |
 
 ## Related Works
 
+- [AgentIdeaBench](../works/agentideabench.md)
 - [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)
 - [SciExplore](../works/sciexplore.md)
 - [ScholarQuest](../works/scholarquest.md)

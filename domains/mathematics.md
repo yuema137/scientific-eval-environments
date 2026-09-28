@@ -17,7 +17,7 @@ Mathematical reasoning and proof: olympiad and research mathematics, formal math
 | FormalRewardBench | 2026 | Prefer a correct Lean 4 proof over an incorrect variant, on olympiad-level algebra, number theory, and combinatorics from MiniF2F. | 250 preference pairs; incorrect variants produced by five expert-curated error-injection strategies. | Ground truth determined by the Lean type checker; reward models scored by pointwise and position-consistent pairwise accuracy. | [→](../works/formalrewardbench.md) |
 | MATP | 2025 | Adjudicate each step of natural-language deductive reasoning by autoformalizing it to First-Order Logic and invoking an automated theorem prover. | 10,830 reasoning instances (1,083 cases × 10 LLMs) from PrOntoQA-OOD, ProofWriter, and FOLIO, deliberately sampled from harder subsets. | Prover verdicts (True / False / Unknown) on each step and its negation; valid-proof-path existence checked against ground-truth labels. | [→](../works/matp.md) |
 | AIRS-Bench | 2026 | Frontier research-science tasks in mathematics, one of its four fields, covering the full research lifecycle with no baseline code provided. | 20 tasks total across the suite; the agent submits held-out test-split predictions as a CSV. | Execution-based, outcome-only scoring by task-specific evaluators; SOTA-normalized score with a 'march of nines' transform near the ceiling. | [→](../works/airs-bench.md) |
-| Terminal-Bench Science | 2026 | Applied and formal mathematics, operations research, and statistics tasks in the Mathematical Sciences track of its five-track suite. | Containerized terminal tasks (8 at launch across all five tracks, target 100+), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | Applied and formal mathematics, operations research, and statistics tasks in the Mathematical Sciences track of its five-track suite. | Containerized terminal tasks (70 in version 0.1 across all five tracks; per-domain counts unreported), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | Re-discover the findings of a hidden published paper from a task description, related literature, and raw data — Math is one of its ten domains (40 tasks total). | End-to-end autonomous research tasks, each grounded in a real publication kept hidden during evaluation; the agent produces a final research report. | Reference-Anchored Discovery Score (0–100; 50 = reference-level evidence) against expert-curated multimodal rubrics anchored to the hidden paper's artifacts, judged by GPT-5.1. | [→](../works/researchclawbench.md) |
 | SciCode | 2024 | Write research code for scientist-curated problems; mathematics is among the five main domains its 16 natural-science subfields span. | 80 main problems decomposed into 338 subproblems mixing knowledge recall, reasoning, and code synthesis. | Execution against scientist-annotated gold-standard solutions and test cases. | [→](../works/scicode.md) |
 | HARDMath | 2024 | Apply graduate-level analytical approximation techniques — asymptotic methods — to auto-generated applied-mathematics problems. | 366-problem HARDMath-mini test set plus 40 applied-science word problems; static solving with few-shot chain-of-thought. | Accuracy against numerically validated ground-truth solutions. | [→](../works/hardmath.md) |
@@ -79,11 +79,11 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | HiSciBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✔ | ✘ | 2 | 3 | 3 | **9** |
 | R³-Bench | OLYM | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
 | ScienceBoard | CAS, FORM | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | **2** | ✔ | ✘ | ✘ | 3 | ? | 3 | **7** |
+| Terminal-Bench Science | APP, FORM, OR, STAT | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | MATP | LOG | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ◐ | **1** | ✘ | ✘ | ✘ | 3 | 3 | 3 | **9** |
 | Pseudo-Formalization | OLYM, RES | ? | ✘ | ✘ | ✘ | ◐ | ◐ | ✘ | **1** | ✘ | ✘ | ◐ | 2 | 2 | 2 | **6.5** |
 | SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
 | TCS-Bench | TCS, RES | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | **1** | ✘ | ✘ | ✘ | 1 | 2 | 1 | **4** |
-| Terminal-Bench Science | APP, FORM, OR, STAT | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | PRMBench | OLYM | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✔ | ✘ | ◐ | 3 | 3 | 3 | **10.5** |
 | FormalRewardBench | FORM, OLYM | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 3 | 2 | 4 | **9.5** |
 | Hard2Verify | OLYM | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
@@ -92,7 +92,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SciCode | NUM, APP | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 3 | 1 | 1 | **6** |
 | PDE-Controller | PDE, CTRL | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | 1 | 2 | **6** |
 
-Repository note: `Net` is `?` on 5 of the 19 rows and `Scale` on 4. All four `Scale` unknowns are suites that publish one total and no mathematics slice: ResearchClawBench's 40 tasks, SciVisAgentBench's 108 cases across seven domains, ScienceBoard's 169 computer-use tasks, and SciVQR's 3,254 questions across six subjects. `Real` is `?` for SciVisAgentBench and Terminal-Bench Science.
+Repository note: a suite-wide total does not establish this domain’s item count. Terminal-Bench Science 0.1 contains 70 tasks, but the reviewed release announcement does not give the count for this page’s domain, so Scale remains ?. Other ? marks likewise record an evidence gap rather than an absent capability.
 
 ## Related Works
 

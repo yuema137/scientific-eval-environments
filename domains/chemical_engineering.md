@@ -10,7 +10,7 @@ Chemical process engineering — the design, simulation, optimization, operation
 
 | Work | Year | Scientific problem | Task form & scale | Domain verification | Card |
 |---|---|---|---|---|---|
-| Terminal-Bench Science | 2026 | Chemical Engineering tasks within the Engineering Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (8 at launch across all five tracks, target 100+), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | Chemical Engineering tasks within the Engineering Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (70 in version 0.1 across all five tracks; per-domain counts unreported), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
 | CeProBench | 2026 | Chemical process development across three declared pillars — knowledge (process routes, catalysts, separation techniques), concept (process flow diagram parsing, completion, and design), and parameter (operating-parameter optimization). | Six task classes spanning 243 questions and 235 specific tasks, built from 70 technical documents (4,406 entities / 4,967 relations), 113 competition-derived PFDs (986 equipment units, 1,172 connections), and 20 Aspen Plus parameter files (91 adjustable parameters, 65 objectives). | Parameter tasks scored by executing candidate settings in Aspen Plus, which validates chemical and thermodynamic feasibility; knowledge and concept tasks scored against expert graph annotations via entity F1, MEC/MED, and equipment and connection accuracy. | [→](../works/ceprobench.md) |
 | Simona | 2026 | Convert a written chemical process description into a simulation flowsheet — unit-operation topology plus operating configuration — that runs to convergence. | 1,000 process descriptions authored by chemical engineering experts, varied along unit-operation difficulty and description detail. | Simulation Convergence Rate (converged designs over total requirements) established by execution in the authors' process simulator over HTTP APIs, reported with design time against LLM, multi-agent, and human-expert baselines. | [→](../works/simona.md) |
 | CRAFTS | 2026 | Automated construction of executable IDAES/Pyomo process-simulation models: unit-operation selection, topology construction, property-package assignment, specification closure, initialization, recycle handling, and solver diagnosis. | OpenIDAES-450 — 450 user-facing requests paired with executable IDAES models and execution records, of which 82 are frozen as the held-out test split. | Staged Workflow Success contract enforced by deterministic IDAES/Pyomo promotion gates (port compatibility, degrees-of-freedom closure, initialization, accepted solver termination), plus macro-F1 on unit records, stream records, and directed connections. | [→](../works/crafts.md) |
@@ -66,9 +66,9 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | CeProBench | FLOW, OPT, DES | ✔ | ✘ | ◐ | ✔ | ✘ | ◐ | ◐ | **3.5** | ✘ | ✔ | ✘ | 2 | 2 | 2 | **7** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ? | ◐ | ◐ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | ? | 0 | **4** |
 | Can Large Language Models Automate the HAZOP Process Without Human Intervention? | SAFE | ✘ | ✘ | ✔ | ✔ | ✘ | ◐ | ✘ | **2.5** | ◐ | ✘ | ✘ | 2 | 0 | 3 | **5.5** |
 | CRAFTS | FLOW | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ◐ | 3 | 1 | 3 | **8** |
-| Terminal-Bench Science | GEN | ? | ✘ | ? | ? | ◐ | ◐ | ✔ | **2** | ✘ | ✘ | ✔ | 3 | 0 | 0 | **4** |
 | Simona | FLOW, DES | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✔ | ✔ | ✔ | 2 | 3 | 2 | **10** |
 | PEOA | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ◐ | ✘ | 2 | 3 | 3 | **9** |
 | A Tutorial on Autonomous Fault-Tolerant Control Using Knowledge-Grounded LLM Agents | CTRL, SAFE | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ◐ | 3 | ? | 0 | **3.5** |
@@ -78,7 +78,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Using Large Language Models for Solving Thermodynamic Problems | THERMO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ◐ | 1 | 1 | 3 | **6.5** |
 | ChemEBench | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✘ | 2 | ? | 1 | **4** |
 
-Repository note: the unknowns are thin on the ground and mostly attach to a few rows. `Net` is `?` on 4 of the 12 rows and `Cost` on 2, in each case because the source describes the run without saying whether the agent could reach the network or what it was allowed to spend. The two `Scale` unknowns have different causes: the fault-tolerant-control tutorial ships parameterised scenario generators instead of a fixed task list, and ChemEBench counts 101 tasks across its whole suite with no chemical-engineering slice. Terminal-Bench Science alone carries three of the page's unknowns: `Net`, `Cost`, and the only `MM` unknown here.
+Repository note: a suite-wide total does not establish this domain’s item count. Terminal-Bench Science 0.1 contains 70 tasks, but the reviewed release announcement does not give the count for this page’s domain, so Scale remains ?. Other ? marks likewise record an evidence gap rather than an absent capability.
 
 ## Related Works
 

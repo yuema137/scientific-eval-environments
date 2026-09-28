@@ -21,24 +21,25 @@ SimulCost is a cost-aware benchmark for LLM agents on physics-simulation paramet
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2603.20253>
+- **Reviewed version:** <https://arxiv.org/html/2603.20253v4> (2026-08-17)
 
 ## Summary
 
-SimulCost argues that scientific-agent evaluation has focused on token costs while ignoring tool-use costs such as simulation time and experimental resources. It provides a benchmark of parameter-tuning tasks across 13 physics simulators in both single-round and multi-round settings, and directly compares LLM agents against traditional methods under budget constraints.
+An agent chooses simulation parameters to meet an accuracy target while limiting simulator cost. SimulCost compares its initial choice and subsequent trial-and-error adjustments with traditional parameter scanning. Version 4 separates platform-independent analytical costs from the wall-clock measurements of a production plasma code.
 
 ## Tasks
 
-2,947 single-round tasks and 1,931 multi-round tasks spanning 13 simulators.
+Version 4 contains 2,643 single-round and 2,304 multi-round tasks across 11 analytically costed simulators. A twelfth simulator, EPOCH, contributes 273 tasks in each setting and is reported separately using wall-clock cost. The arXiv revision notice says CGYRO was removed because of a case-search bug.
 
 ## Domains
 
-Physics-simulation parameter tuning across 13 simulators.
+Physics-simulation parameter tuning in fluid dynamics, solid mechanics, and plasma physics.
 
 ## Evaluation
 
-- Success rate under budget constraints.
-- Single-round vs. multi-round settings.
-- Reported: frontier LLMs achieve 46–65% success initially, declining to 35–55% under strict accuracy requirements; LLM agents underperform traditional approaches by 1.5–2.5× in multi-round scenarios.
+- Compare success under budget constraints and multiple accuracy requirements, separately for single-round initial guesses and multi-round adjustment.
+- Version 4 reports 45–62% single-round success, falling to 34–50% at high accuracy. Multi-round success reaches 66–81%, but agents require 1.5–2.7 times the cost of traditional scanning, expressed as slower performance in the paper.
+- Keep the 11-simulator analytical-cost suite separate from EPOCH’s hardware-dependent wall-clock study.
 
 ## Typical Duration
 
@@ -50,20 +51,20 @@ Introduces cost-sensitive parameter tuning for physics simulations as a benchmar
 
 ## Key Design Ideas
 
-- Cost model extends beyond tokens to simulation-time and experimental-resource costs.
-- Multi-simulator breadth (13 simulators).
-- Distinct single-round and multi-round settings.
-- Direct comparison against traditional (non-LLM) approaches.
+- Charge for simulator use rather than treating model tokens as the only resource.
+- Separate an initial parameter guess from feedback-driven adjustment.
+- Compare against traditional scanning at explicit accuracy requirements.
+- Report analytical and measured wall-clock costs separately.
 
 ## Strengths
 
-- Explicitly models tool-use costs, which token-only frameworks miss.
-- Comparison against traditional methods provides a strong baseline reference.
-- Large task suite (2,947 + 1,931).
+Explicit simulator costs and a traditional scanning baseline expose whether higher success also requires more computation. The benchmark covers thousands of parameter-tuning instances.
 
 ## Limitations
 
-- Repository note: Physics-simulation-specific — cost-model transfer to other scientific workflows is not evaluated.
+- Repository note: this card follows v4; counts and results from earlier revisions are not interchangeable with the current suite.
+- Repository note: EPOCH wall-clock costs depend on the measurement platform, unlike the analytical costs of the other 11 simulators.
+- Repository note: transfer of this cost model beyond physics-simulation workflows is not established.
 
 ## Related Works
 

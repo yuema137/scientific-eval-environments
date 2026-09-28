@@ -40,6 +40,8 @@ AI and machine learning as the science under study: reproducing, rediscovering, 
 | AI Research Preference Models | 2026 | Decide which of an AI research agent's candidate ML solutions are worth spending GPU time to execute. | Two frozen-LM preference models (plan/code reasoning; and pilot experiments under a 5-minute cap) inserted into AIRA-dojo's child-creation step over 20 AIRS-Bench tasks; 24 h on one H200 per task, 10 seeds, 200 GPU-hours total. | AIRS-Bench normalized score: 0.684 unguided -> 0.711 inference-only -> 0.729 agentic, against a 0.748 validation-oracle ceiling; new SOTA on WinoGrande (94.1%) and SVAMP (95.7%). | [→](../works/ai-research-preference-models.md) |
 | InnovatorBench | 2025 | Improve on published LLM-research contributions instead of reproducing them: construct, filter and augment training data, design losses and RL rewards, and build agent scaffolds. | 20 tasks from 14 papers across six research areas, 2-36 hours each in ResearchGym on a multi-GPU cluster with asynchronous jobs and snapshots; up to four scored submissions per task. | Deterministic external scripts (accuracy, F1, BLEU, entropy) run outside the writable workspace against hidden reference data, calibrated so a baseline anchors near 0 and the paper's own reference solution near 80. | [→](../works/innovatorbench.md) |
 | AI-Researcher | 2025 | Produce a research contribution in diffusion models, vector quantization, graph neural networks or recommender systems, from references and data through implementation to a written manuscript. | 22 guided (Level-1) and 6 open-ended (Level-2) tasks built from 22 papers published 2022-2024, with method names, technical detail, dataset naming and citations anonymized in the inputs. | Code-review agent scoring implementation completeness and a 5-point correctness, plus five LLM reviewers comparing the generated manuscript against the human paper on a -3 to +3 scale with presentation order swapped. | [→](../works/ai-researcher.md) |
+| [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in ai & machine learning research | Paper-to-repository reproduction; 120 ML papers | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
+| [HarnessDev](../works/harnessdev.md) | 2026 | Construct a reusable harness for machine-learning competitions | 75 MLE-bench tasks; model training and submissions | Competition medal scores under a frozen harness | [HarnessDev](../works/harnessdev.md) |
 
 ## Capability Matrix
 
@@ -105,11 +107,13 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SUPER | CODE | ◐ | ✘ | ✘ | ✘ | ◐ | ✔ | ✔ | **3** | ◐ | ✘ | ✘ | 3 | 3 | 3 | **9.5** |
 | MLE-Dojo | MLE | ✘ | ◐ | ◐ | ✘ | ✘ | ✔ | ✔ | **3** | ✔ | ✘ | ✘ | 3 | 1 | 3 | **8** |
 | DA-Code | DS | ? | ◐ | ✘ | ◐ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
+| HarnessDev | GEN | ? | ✘ | ✔ | ? | ✘ | ✔ | ✔ | **3** | ◐ | ✘ | ◐ | 3 | 1 | 3 | **8** |
 | MLAgentBench | MLE | ✘ | ◐ | ◐ | ? | ✘ | ✔ | ✔ | **3** | ✘ | ◐ | ✔ | 2 | 1 | 3 | **7.5** |
 | RE-Bench | SYS, MLE | ? | ◐ | ✔ | ? | ✘ | ◐ | ✔ | **3** | ✔ | ✘ | ✔ | 2 | 0 | 2 | **6** |
 | ResearchCodeBench | CODE | ? | ✘ | ✘ | ? | ✔ | ✔ | ✘ | **2** | ◐ | ✘ | ✔ | 3 | 2 | 3 | **9.5** |
 | BLADE | DS | ? | ◐ | ✘ | ✘ | ✘ | ✔ | ◐ | **2** | ◐ | ◐ | ✘ | 2 | 1 | 3 | **7** |
 | IdeaBench | IDEA | ✘ | ✘ | ✘ | ? | ✔ | ✔ | ✘ | **2** | ◐ | ◐ | ✔ | 0 | 3 | 2 | **7** |
+| AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | 2 | 3 | **6** |
 | ML-Bench | CODE | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✔ | ✘ | ✔ | 3 | 3 | 3 | **11** |
 | AutoWorldModel-Bench | WM | ? | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
 | LiveIdeaBench | IDEA | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ◐ | 1 | 3 | 2 | **7.5** |
@@ -118,12 +122,14 @@ Repository note: the unknowns cluster in two columns. `Net` is `?` on 16 of the 
 
 ## Related Works
 
+- [HarnessDev](../works/harnessdev.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [AI Research Preference Models](../works/ai-research-preference-models.md)
 - [Beyond Final Scores](../works/beyond-final-scores.md)
 - [Replica](../works/replica.md)
 - [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
 - [Curation-Bench](../works/curation-bench.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [PostTrainBench](../works/posttrainbench.md)
 - [AIRS-Bench](../works/airs-bench.md)
 - [FIRE-Bench](../works/fire-bench.md)

@@ -63,6 +63,8 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - **Gold plans annotated per instance.** [AISE-Bench](../works/aise-bench.md) annotates every one of its 1,133 instances end to end — query, plan, executed API calls with validated parameters, referenced answer — so process metrics have gold references rather than heuristics: planning is scored as graph edit distance against the annotated plan, and parameter accuracy is reported as a first-class metric, which is where most evaluated methods lose ground despite high partial completion.
 - **Reference operation chains where the artifact resists inspection.** [DrafterBench](../works/drafterbench.md) scores civil-engineering drawing revision by intersection-over-union between the agent's recorded operation chain and a reference chain, using dual functions that log the operation path without modifying files — so a revised PDF never has to be inspected visually. Instruction quality is a controlled variable over its 1,920 tasks: unstructured phrasing, vague values and incomplete information are toggled independently, and results are reported per controller, making a trajectory-score drop attributable to a specific instruction defect.
 
+[AgentActionBench](../works/agentactionbench.md) uses action logs as scoring evidence; [PTA-IRT](../works/pta-irt.md) uses historical traces to reduce future evaluation cost; [FORESIGHT-9](../works/foresight-9.md) compares declared state with executed behavior. A trace can therefore support grading, sampling, or consistency diagnosis, with a different validation target in each case.
+
 ## Comparison
 
 | Work | Year | Trajectory metric | Domain | Card |
@@ -123,6 +125,9 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 | Beyond Final Scores | 2026 | Three deterministic rule-based families — Solution Framing, Execution, Feedback Control — computed from verifier outcomes and recorded execution signals rather than from any judge | AI & ML research | [→](../works/beyond-final-scores.md) |
 | Apodex Discovery | 2026 | Six process dimensions (Tools, Repair, Alternatives, Coherence, Evidence, Scope) scored blind to outcome and with solver identity withheld, plus a load-bearing-step method that re-solves critical steps in isolation | Discovery across ten industrial and scientific areas | [→](../works/apodex-discovery.md) |
 | Agents Catching Agents | 2026 | Transcript-reading judge against a referee that privately re-queries the agent; only the interventional referee transfers across modalities (77–88% precision at 13–21% false-positive rate) | Medicine & health | [→](../works/agents-catching-agents.md) |
+| [AgentActionBench](../works/agentactionbench.md) | 2026 | Importance-weighted rubric passes from Read/Write/Execute logs | ML and AI4Science | [AgentActionBench](../works/agentactionbench.md) |
+| [PTA-IRT](../works/pta-irt.md) | 2026 | Historical trace summaries inform subset selection and ability estimation | Software issue resolution | [PTA-IRT](../works/pta-irt.md) |
+| [FORESIGHT-9](../works/foresight-9.md) | 2026 | Consistency of live factors, declared decisions, and executed holdings | Synthetic market scenarios | [FORESIGHT-9](../works/foresight-9.md) |
 
 ## Open Questions
 
@@ -135,6 +140,8 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 
 ## Related Works
 
+- [FORESIGHT-9](../works/foresight-9.md)
+- [PTA-IRT](../works/pta-irt.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Beyond Final Scores](../works/beyond-final-scores.md)
 - [Replica](../works/replica.md)
@@ -167,6 +174,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - [Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md)
 - [SkillLearnBench](../works/skilllearnbench.md)
 - [SWE-chat](../works/swe-chat.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [Evaluating Plan Compliance in Autonomous Programming Agents](../works/from-plan-to-action.md)
 - [FinTrace](../works/fintrace.md)
 - [Plan-RewardBench](../works/plan-rewardbench.md)

@@ -18,7 +18,7 @@
 | NatureBench | 2026 | 达到 Nature 系列 Cellular Omics（31）与 Protein Biology（16）研究的已发表 SOTA——其 90 个任务中的 47 个——只给目标算法的输入，不给其操作或输出。 | 经评审门控流水线与信息防火墙构建的 code-agent 任务；每任务平均约 3.7 个主指标。 | 在论文自身主指标上的 SOTA 归一化相对差距 g；报告 Match-SOTA（g ≥ 0）与 Surpass-SOTA（g > 0.1）比率，另有 judge 标记捷径运行。 | [→](../works/naturebench.md) |
 | AIRS-Bench | 2026 | 其四个领域之一的生物信息学中的前沿研究任务，覆盖完整研究生命周期，不提供基线代码。 | 套件共 20 个任务；agent 以 CSV 提交留出测试集上的预测。 | 基于执行、只看结果：任务专属评估脚本计分；SOTA 归一化分数，接近上限处用 'march of nines' 变换。 | [→](../works/airs-bench.md) |
 | AstaBench | 2025 | 其 11 个 benchmark 的科研套件中的生物学领域 benchmark——如 DiscoveryBench 的数据驱动发现——与以 CS 为主的文献、代码与发现任务并列。 | 11 个 benchmark 共 2,400+ 个问题，配标准、可复现的工具环境；已为 57 个 agent 计分。 | 各 benchmark 自有指标，从精确匹配到 LLM 评判的假设匹配，随时间不变的美元成本核算与分数–成本 Pareto 前沿一并报告。 | [→](../works/astabench.md) |
-| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Life Sciences 分组下的生物学任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Life Sciences 分组下的生物学任务。 | 容器化终端任务（0.1 版五大分组共 70 个；未报告本领域数量），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Life 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文产物的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
 | MDArena | 2026 | 运行真实的生物分子模拟工作流——包括膜蛋白体系——覆盖轨迹分析、体系搭建、自由能计算与增强采样。 | 源自在研项目的 50 个容器化任务，覆盖 29 个分子体系与 14 种研究方案。 | 以 Strict-Pass@1 为主指标，另以 correctness 与过程奖励指标为部分进展计分。 | [→](../works/mdarena.md) |
 | SciCode | 2024 | 为科学家整理的问题编写科研代码；其 16 个自然科学子领域分属五大主领域，生物学是其中之一。 | 80 个主问题分解为 338 个子问题，混合知识回忆、推理与代码合成。 | 对照科学家标注的参考解与测试用例执行。 | [→](../works/scicode.md) |
@@ -49,6 +49,8 @@
 | OntoLearner | 2026 | 为生物与生命科学——它的本体集合覆盖的 22 个领域之一——构建本体结构：给术语定类型、恢复类型之间的 is-a 层级、抽取非分类关系。 | 覆盖 22 个领域的 180 个机器可读本体，为三项本体学习任务备好可直接接入流水线的 train/dev/test 切分；共评测 22 个检索模型与 12 个 LLM，设定是单次结构化预测而非 agentic 循环。 | 以归一化的成对与三元组匹配对照金标准本体结构计算 precision、recall 与 F1；卡片中逐领域、逐模型的分数为 `TODO(reference)`，因论文的结果章节无法获取。 | [→](../works/ontolearner.md) |
 | Apodex Discovery | 2026 | 腺相关病毒衣壳设计，涵盖活性预测、嗜性预测、结构预测与生成式设计。 | 20 个可执行环境之一，每个环境在固定的 episode 接口背后提供工具、数据、预算与隐藏验证器。 | 面向各项任务的实验适应度指标，对照已发表的最好水平——该系统在全部四项任务上都高出 7%。 | [→](../works/apodex-discovery.md) |
 | DiscoveryBench | 2024 | 重新得出两篇已发表的个体生物学研究的结论：南美淡水鱼在高地环境中体型演化加速是否与近期物种形成相关，以及引入途径如何影响外来植物沿环境梯度的入侵成功率。 | 239 个真实测试任务中有 16 个属于生物学；每题给出该研究的数据集、字段说明和一句自然语言发现目标，分析流程由 agent 自己写并运行。 | 与论文标准假设在 context、variables、relationship 三维上的 GPT-4 Hypothesis Matching Score；非 oracle 最佳 agent 在该领域得分为 0%。 | [→](../works/discoverybench.md) |
+| [AgentIdeaBench](../works/agentideabench.md) | 2026 | 依据Biology文献提出可检验假设 | 本领域有八个密集评分子领域；比较固定文献与主动检索 | 评审模型依据检索到的已有研究判断原创性；不执行实验验证 | [AgentIdeaBench](../works/agentideabench.md) |
+| [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现Biology的已发表实验 | 从论文重建代码并执行；属于 30 篇 AI4Science 论文的一部分；未报告本领域数量 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
 
 ## Capability Matrix
 
@@ -124,18 +126,21 @@
 | SciGym | SYSB | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
 | BioKGBench | CURA | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | BAISBench | SCB | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ✔ | ✘ | ✘ | 3 | 2 | 1 | **7** |
+| AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | GeneBench-Pro | GENOM | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
 | BiomedSQL | GENOM | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✔ | ✘ | ✘ | 2 | 2 | 4 | **9** |
 | BioProBench | PROTO | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 3 | 3 | **9** |
 | SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
+| AgentIdeaBench | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **1** | ◐ | ✔ | ◐ | 0 | 0 | 4 | **6** |
 | SciCode | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | ? | 3 | **6** |
 | OntoLearner | CURA | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | ? | 3 | **6** |
 
-Repository note: 两列的未知一样多。`Net` 在 39 行里有 11 行是 `?`，来源没交代 agent 能否连到实时网络。`Scale` 同样有 11 行是 `?`：其中十个是跨领域套件，只报整套总数、不给生物学这一块；DrBencher 连它发布版本一共多少题都还没核实清楚。另有一格是 `?`：Terminal-Bench Science 的 `Real`。这些 `?` 记的是来源的沉默，不是靠推断填出来的答案。
+Repository note: 跨领域套件的总题数不能代替本领域数量。Terminal-Bench Science 已发布 0.1 版、共 70 题，但已核对的发布说明没有给出本页细分领域的任务数，因此 Scale 保留为 ?。其他 ? 同样表示来源尚未明确说明，并非否定该项能力。
 
 ## Related Works
 
+- [AgentIdeaBench](../works/agentideabench.md)
 - [Apodex Discovery](../works/apodex-discovery.md)
 - [Fisher-R1 / P-Bench](../works/fisher-r1.md)
 - [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
@@ -150,6 +155,7 @@ Repository note: 两列的未知一样多。`Net` 在 39 行里有 11 行是 `?`
 - [Frontier LLM-based agents can overcome the ontology curation bottleneck for natural phenotypes](../works/frontier-llm-based-agents-can-overcome-the-ontolog.md)
 - [BioXArena](../works/bioxarena.md)
 - [SciVQR](../works/scivqr.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [DrBencher](../works/drbencher.md)
 - [SciVisAgentBench](../works/scivisagentbench.md)
 - [FlyAOC](../works/flyaoc.md)

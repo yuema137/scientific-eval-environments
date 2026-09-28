@@ -93,16 +93,18 @@ Covers scientific **and** engineering software or workflow artifacts — includi
 | Quantifying Reproducibility of Astrophysical Methods | 2026 | Reconstructing a published analysis pipeline as executable Python | One method at three nested text-information levels; five models | Hierarchy of Scientific Validity 0-3, with V >= 2 the stated threshold | [card](../works/quantifying-the-reproducibility-of-astrophysical-m.md) |
 | SciVisAgentBench | 2026 | Generate executable scientific-visualization code | 108 cases; ParaView/napari/MD/topology via CLI/MCP/Python | Image metrics + code checkers + rule-based verifiers | [card](../works/scivisagentbench.md) |
 | StructureClaw | 2026 | Structural-engineering workflow (model to solver to checks) | 150 scenarios; artifact workbench w/ OpenSees | Model-match + numerical agreement vs frozen refs | [card](../works/structureclaw.md) |
-| Terminal-Bench Science | 2026 | Containerized scientific-computing workflows | 8 tasks across 5 domains (target 100+); agentic | pytest deterministic programmatic verification | [card](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | Containerized scientific-computing workflows | 70 tasks across 5 tracks in version 0.1; agentic | pytest deterministic programmatic verification | [card](../works/terminal-bench-science.md) |
 | PACE-Bench | 2026 | Iteratively edit a Python program defining structure assembly and control logic | 144 pairs across six physics families, 20 attempts each | A working target design within budget, verified by rigid-body simulation | [card](../works/pace-bench.md) |
 | Beyond Final Scores | 2026 | Improve model, system and CUDA artifacts over multi-hour runs | 36 AutoLab tasks at 2–12 h wall-clock each; 756 rollouts | Normalised verifier score reported as avg@3 and best@3, with deterministic process metrics alongside | [card](../works/beyond-final-scores.md) |
 | AutoWorldModel-Bench | 2026 | Modify a single-file world-model implementation — architecture, loss, hyperparameters or training procedure | 64 sessions, 6 h per session on one H100, 10-minute cap per training run | Held-out test-score lift over the provided base; 91% of winning edits were substantive rather than hyperparameter tweaks | [card](../works/autoworldmodel-bench.md) |
 | AI4AI-Bench | 2026 | Rewrite repository training code so the learning procedure improves | Ten frozen repositories; four-hour proxy-guided exploration followed by a source-only clean run of up to twelve hours | Deterministic final metric against an identically rerun original algorithm, plus intervention-layer classification of the diff | [card](../works/ai4ai-bench.md) |
 | InnovatorBench | 2025 | Build runnable research artifacts inside a stripped research repository: data pipelines, loss and reward functions, agent scaffolds | 20 tasks over six LLM-research areas; multi-machine GPU workspace with asynchronous jobs and snapshots | A submitted artifact scored by deterministic external scripts, format failures returning 0 | [card](../works/innovatorbench.md) |
 | AI-Researcher | 2025 | Turn a research plan into an executable implementation of the proposed method | 22 Level-1 and 6 Level-2 tasks in a Docker workspace with reference repositories and datasets | Completeness (code executes within budget) and a 5-point correctness score; 93.8% and 2.65/5 with Claude-series backbones | [card](../works/ai-researcher.md) |
+| [HarnessDev](../works/harnessdev.md) | 2026 | Create reusable execution software for ML experiments | Policy-free seed; 1–3 development cases | Frozen harness evaluated on MLE-bench | [HarnessDev](../works/harnessdev.md) |
 
 ## Related Works
 
+- [HarnessDev](../works/harnessdev.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [Beyond Final Scores](../works/beyond-final-scores.md)

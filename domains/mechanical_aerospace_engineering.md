@@ -11,7 +11,7 @@ Mechanical and aerospace engineering. Computational fluid dynamics and thermal t
 | Work | Year | Scientific problem | Task form & scale | Domain verification | Card |
 |---|---|---|---|---|---|
 | CFDLLMBench | 2025 | Computational fluid dynamics at three depths: graduate-level knowledge (CFDQuery), numerical solution of stated PDEs in Python (CFDCodeBench), and end-to-end OpenFOAM case configuration and execution (FoamBench). | 240 tasks: 90 expert-curated multiple-choice questions, 24 PDE-solver coding problems, and 126 OpenFOAM cases (110 tutorial-derived + 16 expert-crafted to be unlike any tutorial). | Execution plus banded normalized error (NMSE) against reference solutions and an explicit convergence check under mesh and time-step refinement; any valid numerical method is accepted. | [→](../works/cfdllmbench.md) |
-| Terminal-Bench Science | 2026 | Mechanical Engineering tasks within the Engineering Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (8 at launch across all five tracks, target 100+), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | Mechanical Engineering tasks within the Engineering Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (70 in version 0.1 across all five tracks; per-domain counts unreported), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
 | SimBench | 2024 | Generate digital twins for multibody dynamics, FEA, vehicle dynamics, robotic dynamics, and sensor simulation in the Chrono simulator. | 102 demonstration tasks over 34 physical systems (official repository), built through multi-turn dialogue; 33+ LLMs compared. | LLM-judge scoring with predefined rules and human-in-the-loop guidance. | [→](../works/simbench.md) |
 | FEM-Bench | 2025 | Write finite-element functions and unit tests for computational-mechanics problems — forces, deformation, constraints. | 33 graduate-course-aligned tasks over two tracks, five attempts per model-task pair. | Objective verification; Average Joint Success Rate for test writing. | [→](../works/fem-bench.md) |
 | RealPDEBench | 2026 | Predict fluid and thermal engineering systems — fluid–structure interaction, cylinder and foil flows, and combustion — from real-world measurements paired with numerical simulations. | Five real-world measured datasets with paired simulations and three sim-vs-real tasks; evaluates scientific ML surrogate models rather than LLM agents. | Eight data-oriented and physics-oriented metrics over ten baselines. | [→](../works/realpdebench.md) |
@@ -65,6 +65,7 @@ Three cautions. A `?` costs exactly what a `✘` costs, so both scores are floor
 For multi-domain suites the row describes this domain's slice, as in the Comparison table.
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | CFDLLMBench | CFD, THERM | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ◐ | 3 | 2 | 3 | **9** |
 | EngDesign | MECH, SOL | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✔ | ✘ | 3 | 1 | 3 | **8** |
 | SoM-1K | SOL | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ◐ | ✘ | 3 | 3 | 4 | **10.5** |
@@ -73,14 +74,13 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SciConvBench | FLU, SOL | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✔ | ◐ | 1 | ? | 3 | **5.5** |
 | AInsteinBench | CFD | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 3 | ? | 2 | **5.5** |
 | FEABench | MULTI, FEA | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 2 | ? | 3 | **5** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | RealPDEBench | FLU, THERM | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | ERI Benchmark | GEN, AERO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✔ | 2 | 3 | 3 | **10** |
 | FEM-Bench | FEA, SOL | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ◐ | ✘ | ◐ | 3 | 1 | 2 | **7** |
 
 Repository note: one row sits outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol.
 
-Repository note: half the page is unknown on `Net` — `?` on 6 of the 12 rows, because the source never says whether the agent could reach the live network. `Scale` is `?` on 3, and here the cause is not a missing per-domain split but a missing count outright: SciConvBench, AInsteinBench and FEABench each describe their task form without publishing how many tasks there are. Terminal-Bench Science is the page's one `Real` unknown.
+Repository note: a suite-wide total does not establish this domain’s item count. Terminal-Bench Science 0.1 contains 70 tasks, but the reviewed release announcement does not give the count for this page’s domain, so Scale remains ?. Other ? marks likewise record an evidence gap rather than an absent capability.
 
 ## Related Works
 

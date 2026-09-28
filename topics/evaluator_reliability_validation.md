@@ -28,6 +28,8 @@ A score inherits the evaluator's mistakes. A judge can agree with experts on eas
 - **A judge with its own benchmark.** [PaperBench](../works/paperbench.md) hand-grades the rubric leaf nodes of partial paper replications, then scores candidate judge backends as binary classifiers against those labels and selects the one with the best F1 per dollar rather than the highest F1.
 - **Experts and alternate judges on the same answers.** [HeurekaBench](../works/heurekabench.md) checks its judge twice before using it: eleven domain experts rate the same 25 open-ended answers, and two other frontier models re-score the same agent runs, so rater disagreement and judge-model disagreement are reported separately.
 
+These additions test different measurement objects: [AgentIdeaBench](../works/agentideabench.md) calibrates critics, [AgentActionBench](../works/agentactionbench.md) compares scores from generated and human rubrics, and [PTA-IRT](../works/pta-irt.md) measures how accurately a subset predicts a full suite. Agreement at one level should not be read as validation at all three levels.
+
 ## Comparison
 
 | Work | Evaluator under test | Ground truth | Reliability signal | Downstream validation |
@@ -42,6 +44,9 @@ A score inherits the evaluator's mistakes. A judge can agree with experts on eas
 | AI-Researcher | Five LLM paper-review agents in order-swapped pairwise comparison | ICLR accept/reject decisions on 32 content-matched paper pairs (2021-2023) | Acceptance-prediction accuracy 65.62-90.62%; comparable-quality detection (share of pairs rated above -1.0) 93.75-100% | Evaluator selection: the weakest model is dropped from the main experiments |
 | PaperBench | SimpleJudge over rubric leaf nodes, five model backends | Hand-graded leaf nodes from partial replications of five papers | Macro-averaged binary F1 (0.59-0.84) reported against cost per paper | Judge backend chosen for the main leaderboard |
 | HeurekaBench | G-Eval judge with GPT-4o | 11 single-cell experts on 25 open-ended answers; two alternate judge models | Spearman 0.93 / 0.90 and Cohen's κ 0.85 against expert aggregates; inter-judge Spearman 0.84 / 0.79 | Judge selection and planner-model ranking |
+| [AgentIdeaBench](../works/agentideabench.md) | Literature-grounded critics | Landmark anchors; human judgments on 100 CS pairs | 77% human-majority agreement; calibration controls | Static/Active comparisons |
+| [AgentActionBench](../works/agentactionbench.md) | Generated paper-specific rubrics | Human rubrics on 15 papers | Pearson 0.93; Spearman 0.88 between rubric-source scores | Reproduction-stage breakdown; not item-level judge accuracy |
+| [PTA-IRT](../works/pta-irt.md) | Subset-to-full estimator | Full-suite outcomes of held-out agents | MAE; Kendall tau; Spearman rho | Four-fold validation and trajectory ablations |
 
 ## Open Questions
 
@@ -53,9 +58,12 @@ A score inherits the evaluator's mistakes. A judge can agree with experts on eas
 
 ## Related Works
 
+- [AgentIdeaBench](../works/agentideabench.md)
+- [PTA-IRT](../works/pta-irt.md)
 - [MobileJudgeBench](../works/mobilejudgebench.md)
 - [SkillTV-Bench](../works/skilltv-bench.md)
 - [AgentLens](../works/agentlens.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [Plan-RewardBench](../works/plan-rewardbench.md)
 - [PSE-Bench](../works/pse-bench.md)
 - [FIRE-Bench](../works/fire-bench.md)

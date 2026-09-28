@@ -49,7 +49,7 @@
 | PowerAgentBench-SS | 2026 | agent 筛查故障并提出电网缓解方案 | 验证预算下的 IEEE 39-bus DC 热稳定 N-2 搜索 | 隐藏评估器召回率、严重度后悔值、残余违规 | [卡片](../works/poweragentbench-ss.md) |
 | SciAgentArena | 2026 | 涵盖优化与设计的生物医学研究任务 | 横跨五个生物医学领域、逐步验证的 200 项任务 | 在数据/优化/发现/有效性维度上逐步验证 | [卡片](../works/sciagentarena.md) |
 | Simona | 2026 | 设计流程图拓扑并调整单元操作的配置 | 1,000 段专家撰写的工艺描述；通过 HTTP API 驱动仿真器 | 仿真收敛率（80.3%）与设计耗时 | [卡片](../works/simona.md) |
-| SimulCost | 2026 | 物理仿真的成本感知参数调优 | 2,947 个单轮 + 1,931 个多轮任务，13 个仿真器 | 在仿真时间/资源预算下的调优质量 | [卡片](../works/simulcost.md) |
+| SimulCost | 2026 | 物理仿真的成本感知参数调优 | 2,643 个单轮 + 2,304 个多轮任务，11 个使用解析成本的仿真器，另行报告 EPOCH | 在仿真时间/资源预算下的调优质量 | [卡片](../works/simulcost.md) |
 | SMDD-Bench | 2026 | 带预算约束的多轮小分子药物设计 | 502 个可解实例，102 个靶点，五种任务类型 | oracle 调用限制下的求解率（GPT-5.4: 40.2%） | [卡片](../works/smdd-bench.md) |
 | PACE-Bench | 2026 | 在机构的运行物理改变之后重新设计，使其恢复可用 | Box2D 中 144 个源到目标对；每对 20 次尝试，反馈只作诊断不给修改建议 | 约束满足比例下的 Pass@2；全量 benchmark 最好成绩为 35.9%（Reflexion + Qwen3-14B） | [卡片](../works/pace-bench.md) |
 | AI4AI-Bench | 2026 | 在十个 AI research repository 中重新设计 learning procedure | 单张 B300 上四小时探索，使用便宜 proxy；随后只移交 source，做最多十二小时的 clean run | 对照同条件重跑原算法的 repository 原生最终指标，并分类 patch 改的是 learning 本身还是外围 run | [卡片](../works/ai4ai-bench.md) |

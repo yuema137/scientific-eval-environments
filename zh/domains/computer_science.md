@@ -17,6 +17,7 @@
 | TCS-Bench | 2026 | 研究级理论计算机科学的证明生成——证明取自顶级 TCS 会议（FOCS、STOC、SODA）的结论。 | 300 个定理证明任务，每个由目标命题加上从 FOCS/STOC/SODA 论文（2020–2026）中提取并组织的上下文构成；模型产出一份自包含的证明。 | 证明由自动化验证 agent 检查（四次 Gemini 3.1 Flash 调用，四选三多数表决），并对照一个 100 项人类专家标注集校准，一致率超过 90%。 | [→](../works/tcs-bench.md) |
 | EngDesign | 2025 | 把操作系统设计与计算机体系结构设计写成工程设计规格：给定目标、约束与性能要求。 | 九个工程方向共 101 项设计任务、473 个可评分条目，其中操作系统设计 8 项、计算机体系结构设计 5 项；评测 12 个对话模型与推理模型。 | 模型输出结构化结果，交由逐任务的评估脚本执行，返回二元通过/不通过、0–100 的部分给分与详细日志；101 项任务中有 53 项不涉及授权限制，单独以 EngDesign-Open 发布。 | [→](../works/engdesign.md) |
 | R³-Bench | 2026 | 在六道竞赛编程题之间分配同一份共用预算。 | 50 组套题，每组 6 题，取自 LiveCodeBench Pro，共 300 题；分别在无工具与 Terminus-2 shell 两种设定下运行。 | 比赛得分对照同一条响应曲线 oracle；在中等压力下，仅靠等额分配重放就胜过 6 个模型中 4 个自己的比赛表现。 | [→](../works/r3-bench.md) |
+| [AgentIdeaBench](../works/agentideabench.md) | 2026 | 依据Computer Science文献提出可检验假设 | 本领域有八个密集评分子领域；比较固定文献与主动检索 | 评审模型依据检索到的已有研究判断原创性；不执行实验验证 | [AgentIdeaBench](../works/agentideabench.md) |
 
 ## Capability Matrix
 
@@ -66,10 +67,12 @@
 | ScholarQuest | IR, AI | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | **2.5** | ✘ | ✘ | ✘ | 3 | 3 | 3 | **9** |
 | R³-Bench | ALGO | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
 | EngDesign | OS, ARCH | ✘ | ✘ | ◐ | ? | ✘ | ✘ | ◐ | **1** | ◐ | ✔ | ✔ | 3 | 1 | 3 | **9.5** |
+| AgentIdeaBench | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **1** | ◐ | ✔ | ◐ | 1 | 0 | 4 | **7** |
 | TCS-Bench | THEO | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | **1** | ✘ | ✘ | ◐ | 1 | 2 | 2 | **5.5** |
 
 ## Related Works
 
+- [AgentIdeaBench](../works/agentideabench.md)
 - [R³-Bench](../works/r3-bench.md)
 - [TCS-Bench](../works/tcs-bench.md)
 - [ScholarQuest](../works/scholarquest.md)

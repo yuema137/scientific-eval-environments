@@ -93,16 +93,18 @@
 | Quantifying Reproducibility of Astrophysical Methods | 2026 | 把一条已发表的分析流程重建为可执行的 Python | 同一方法在三种层层嵌套的文本信息层级下；五个模型 | Hierarchy of Scientific Validity 0-3 级，明示阈值为 V >= 2 | [卡片](../works/quantifying-the-reproducibility-of-astrophysical-m.md) |
 | SciVisAgentBench | 2026 | 生成可执行的科学可视化代码 | 108 个案例；ParaView/napari/MD/拓扑，经 CLI/MCP/Python | 图像指标 + 代码检查器 + 基于规则的验证器 | [卡片](../works/scivisagentbench.md) |
 | StructureClaw | 2026 | 结构工程工作流（建模到求解器再到校核） | 150 个场景；配备 OpenSees 的产物工作台 | 模型匹配 + 相对冻结参考的数值一致 | [卡片](../works/structureclaw.md) |
-| Terminal-Bench Science | 2026 | 容器化科学计算工作流 | 5 个领域的 8 个任务（目标 100+）；agentic | pytest 确定性程序化验证 | [卡片](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | 容器化科学计算工作流 | 0.1 版 5 大分组、70 个任务；agentic | pytest 确定性程序化验证 | [卡片](../works/terminal-bench-science.md) |
 | PACE-Bench | 2026 | 反复改写一段定义结构装配与控制逻辑的 Python 程序 | 六个物理族共 144 对，每对 20 次尝试 | 在预算内做出可用的目标设计，由刚体仿真验证 | [卡片](../works/pace-bench.md) |
 | Beyond Final Scores | 2026 | 在数小时的长时程运行中改进模型、系统与 CUDA 工件 | 36 个 AutoLab 任务，每个 2–12 小时墙钟；共 756 条 rollout | 归一化验证器分数，以 avg@3 与 best@3 报告，并附确定性过程指标 | [卡片](../works/beyond-final-scores.md) |
 | AutoWorldModel-Bench | 2026 | 修改单文件的世界模型实现——架构、损失、超参或训练流程 | 64 个会话，每会话单张 H100 上 6 小时，单次训练限时 10 分钟 | 留出测试分相对给定基础模型的提升；91% 的胜出改动是实质性修改而非调参 | [卡片](../works/autoworldmodel-bench.md) |
 | AI4AI-Bench | 2026 | 改写 repository training code，让 learning procedure 真正变好 | 十个冻结 repository；四小时 proxy 引导的探索，随后只移交 source，做最多十二小时的 clean run | 对照同条件重跑原算法的确定性最终指标，并按 intervention layer 分类 diff | [卡片](../works/ai4ai-bench.md) |
 | InnovatorBench | 2025 | 在被抽掉关键实现的研究仓库里做出可运行产物：数据流水线、损失与奖励函数、agent 脚手架 | 六个 LLM 研究方向共 20 个任务；多机 GPU 工作区，支持异步任务与快照 | 提交产物由外部确定性脚本评分，格式不合格记 0 | [卡片](../works/innovatorbench.md) |
 | AI-Researcher | 2025 | 把研究方案落成该方法的一份可运行实现 | Docker 工作区中的 22 个 Level-1 与 6 个 Level-2 任务，配参考仓库与数据集 | 完整性（预算内代码可执行）与 5 分制正确性；Claude 系列 backbone 下为 93.8% 与 2.65/5 | [卡片](../works/ai-researcher.md) |
+| [HarnessDev](../works/harnessdev.md) | 2026 | 为机器学习实验构建可复用的执行软件 | 无解题策略的种子；1–3 个开发样例 | 冻结 harness 后在 MLE-bench 上评测 | [HarnessDev](../works/harnessdev.md) |
 
 ## Related Works
 
+- [HarnessDev](../works/harnessdev.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [Beyond Final Scores](../works/beyond-final-scores.md)

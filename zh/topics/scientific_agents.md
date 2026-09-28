@@ -24,7 +24,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - **端到端研究生命周期。** [AIRS-Bench](../works/airs-bench.md) 提供 20 个 frontier 研究科学任务，不提供 baseline 代码，要求 agent 在语言建模、数学、生物信息学、时间序列预测中从零构造工作流。
 - **跨尺度的真实研究场景。** [SciAgentArena](../works/sciagentarena.md) 在 agent-agnostic 环境中提供约 200 个来自真实世界科学研究场景、带逐步验证的任务，报告 agent 能处理结构化数据分析工作流，但在新颖洞见、自主探索与开放式问题上表现吃力。
 - **科学环境的 gymnasium。** [Aviary](../works/aviary.md) 提供一个可扩展的 language-agent 环境 gymnasium，其中三个为科学环境（分子克隆、科学文献研究、蛋白质工程）；其环境是可复用的评估面，尽管论文的头号贡献是训练框架而非评估贡献。
-- **Cost-aware 科学仿真。** [SimulCost](../works/simulcost.md) 把 cost-aware 评估扩展到覆盖 13 个仿真器的物理仿真参数调优，显式建模仿真时间与实验资源成本。
+- **Cost-aware 科学仿真。** [SimulCost](../works/simulcost.md) 把 cost-aware 评估扩展到覆盖 11 个使用解析成本的仿真器，另行报告 EPOCH的物理仿真参数调优，显式建模仿真时间与实验资源成本。
 - **医生共同验证的医疗评估。** [MedHELM](../works/medhelm.md) 把 Stanford CRFM 的 HELM 扩展到医疗任务：121 任务、由医生共同验证的分类体系；跨 35 benchmark 聚合；LLM-jury 方法与医生一致性（ICC = 0.47）被显式测量。
 - **生成而非编写的 benchmark。** [HeurekaBench](../works/heurekabench.md) 贡献了一条半自动流水线，从已发表研究及其代码仓库中派生开放式研究问题，并将候选答案与这些研究已报告的发现比对验证。其单细胞实例含 50 道开放题与 50 道选择题，构建自 13 篇论文中的 41 条洞见；最强的现有 agent 在开放题正确性上为 5 分制的 2.34 分。
 - **基于模拟的判分有效性。** [GeneBench-Pro](../works/genebench-pro.md) 把 129 个多阶段基因组学与定量生物学问题构建在人工模拟的数据生成过程而非真实数据集之上，从而使失败可归因于科学判断失误，而非归因于若干同样站得住脚的分析选择之一。每个问题内含 3 至 13 个相互依赖的决策点，仅以对决策相关数值的二元通过与否判分；所测得的最佳配置为 28.7%。
@@ -207,6 +207,8 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - **真实的科学数据库，真正起作用的判据却没写出来。** [BiomedSQL](../works/biomedsql.md) 把 68,000 组 question / SQL / answer 三元组落在一个存放神经退行性疾病遗传学与药物审批记录的生产级 BigQuery 库上，题目刻意写成让起决定作用的那道过滤条件——全基因组显著性、效应方向、哪些试验期算作已获批——必须由模型自己补出来；所有配置都比实测的双分析师基线低约 27 分。[AISE-Bench](../works/aise-bench.md) 瞄准的则是学术知识图谱，除答案外还标注了计划与经校验的 API 参数，于是「答案对、路子错」也会显形。
 - **用一棵 rubric 树取代一个笼统的 judge。** [RubricsTree](../works/rubricstree.md) 把开放式的个人健康 agent 评估自顶向下拆成 100 多条医生可以逐条核验的原子布尔叶节点 rubric，再由上下文感知路由器只激活与当前查询相关的那一部分；与专家组的一致性达到 ICC₃ = 0.876、κ = 0.787，而基于原则的基线只有 0.291 与 0.431；同一套 rubric 还被复用为指令、反馈与训练奖励。
 
+新增的两项工作把最终产物背后的步骤单独拿出来检查。[AgentIdeaBench](../works/agentideabench.md)改变了生成假设前由谁收集文献；[AgentActionBench](../works/agentactionbench.md)检查复现过程中实际做了哪些操作。假设写得合理、代码看起来完整，都不能单独证明实验已经成功。
+
 ## 方法对比
 
 | Benchmark | Year | 任务来源 | 科学范围 | 验证方式 | Card |
@@ -217,7 +219,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 | AIRS-Bench | 2026 | Frontier 研究科学任务 | LM / 数学 / 生物信息学 / 时间序列 | 端到端研究生命周期评分 | [→](../works/airs-bench.md) |
 | SciAgentArena | 2026 | 约 200 个真实研究场景任务 | 生物医学：5 个领域（分子 → 群体） | 按领域的逐步验证（执行 + 专家标准） | [→](../works/sciagentarena.md) |
 | Aviary | 2024 | 五环境 gymnasium（3 个科学） | 分子生物学（克隆 / 蛋白质）+ 文献 | POMDP 环境中的各环境任务成功率 | [→](../works/aviary.md) |
-| SimulCost | 2026 | 覆盖 13 个仿真器的参数调优 | 物理仿真 | 预算下成功率；与传统方法对比 | [→](../works/simulcost.md) |
+| SimulCost | 2026 | 覆盖 11 个使用解析成本的仿真器，另行报告 EPOCH的参数调优 | 物理仿真 | 预算下成功率；与传统方法对比 | [→](../works/simulcost.md) |
 | MedHELM | 2025 | 医生共同设计的分类（29 位医生） | 医疗 / 临床 | LLM-jury（与医生 ICC = 0.47）；跨 35 benchmark 聚合 | [→](../works/medhelm.md) |
 | HeurekaBench | 2026 | 基于已发表研究及其代码仓库的半自动流水线 | 单细胞生物学（流水线被主张为领域无关） | G-Eval LLM judge（GPT-4o，1–5 分）对照已发表发现 | [→](../works/heurekabench.md) |
 | GeneBench-Pro | 2026 | 人工模拟的数据生成过程 | 基因组学 / 定量生物学 / 转化医学 | 在校准容差下与可复原目标作二元匹配 | [→](../works/genebench-pro.md) |
@@ -461,6 +463,8 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 | DiscoveryBench | 2024 | DB-Real 用 Python 复现了 20 多篇已发表论文的工作流，并经作者核验；DB-Synth 由假设语义树生成 | 社会学、生物学、人文、经济学、工程与元科学中的数据驱动发现 | GPT-4 计算的 Hypothesis Matching Score，按 context、variables、relationship 三维打分；与人类偏好排序有 95% 一致（Fleiss κ = 0.91） | [→](../works/discoverybench.md) |
 | InnovatorBench | 2025 | 20 个任务取自 14 篇 NeurIPS / ICLR / COLM / EMNLP / ACL 论文，每个起始仓库都删掉了论文的关键实现 | LLM 研究：数据构建、过滤与增强，损失设计，奖励设计，脚手架构建 | 外部确定性评分脚本，标定为 baseline 落在 0 附近、论文自身参考解落在 80 附近 | [→](../works/innovatorbench.md) |
 | AI-Researcher | 2025 | 22 篇 2022-2024 年目标论文，按关键词与引用量筛出，输入中的方法名、技术细节与引用均已匿名化 | 扩散模型、向量量化、图神经网络、推荐系统 | 代码审查 agent 评实现完整性与 5 分制正确性，另由 LLM 审稿人换序两两比较生成稿与人类论文（-3 到 +3）；审稿人在 32 组 ICLR 录用/拒稿配对上验证，准确率 65.62-90.62% | [→](../works/ai-researcher.md) |
+| [AgentIdeaBench](../works/agentideabench.md) | 2026 | 整理后的研究文献 | 五个学科；生成科学假设 | 结合检索文献的模型评审 | [AgentIdeaBench](../works/agentideabench.md) |
+| [AgentActionBench](../works/agentactionbench.md) | 2026 | 150 篇已发表论文 | 120 篇 ML 与 30 篇 AI4Science 论文 | 模型依据操作日志判断加权 rubric 条目 | [AgentActionBench](../works/agentactionbench.md) |
 
 ## 还没解决的问题
 
@@ -472,6 +476,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 
 ## 相关工作
 
+- [AgentIdeaBench](../works/agentideabench.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [ASI-Bench](../works/asi-bench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
@@ -544,6 +549,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - [TRIP-Evaluate](../works/trip-evaluate.md)
 - [AutoResearchBench](../works/autoresearchbench.md)
 - [Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [Stargazer](../works/stargazer.md)
 - [PRL-Bench](../works/prl-bench.md)
 - [Frontier-Eng](../works/frontier-eng.md)

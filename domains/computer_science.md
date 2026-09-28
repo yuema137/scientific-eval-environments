@@ -17,6 +17,7 @@ Computer science as the studied field outside AI/ML research itself — see AI &
 | TCS-Bench | 2026 | Research-level theoretical computer science proof generation — proving results drawn from top TCS venues (FOCS, STOC, SODA). | 300 theorem-proving tasks, each a target statement plus assembled context extracted from FOCS/STOC/SODA papers (2020–2026); the model produces a self-contained proof. | Proofs checked by an automated verification agent (four Gemini 3.1 Flash calls, 3-of-4 majority vote), calibrated against a 100-item human-expert–labeled set at over 90% agreement. | [→](../works/tcs-bench.md) |
 | EngDesign | 2025 | Operating system design and computer architecture design posed as engineering design specifications with stated goals, constraints and performance requirements. | Operating System Design (8) and Computer Architecture Design (5) within 101 design tasks carrying 473 gradable items across nine engineering areas; 12 chat and reasoning models. | Structured model output executed by a per-task evaluation script, returning a binary pass/fail, a 0–100 partial-credit score and a detailed log; 53 of the 101 tasks are licence-free and released separately as EngDesign-Open. | [→](../works/engdesign.md) |
 | R³-Bench | 2026 | Allocate one shared budget across a six-problem competitive-programming suite. | 50 suites of 6 problems drawn from LiveCodeBench Pro, 300 problems in total, run both tool-free and inside a Terminus-2 shell. | Contest score against the same response-curve oracle; equal-allocation replay alone beats the model's own contest performance for 4 of 6 models at moderate pressure. | [→](../works/r3-bench.md) |
+| [AgentIdeaBench](../works/agentideabench.md) | 2026 | Form testable hypotheses in computer science from research literature | Eight densely scored subfields in this discipline; static and active literature access | Model critics assess originality against retrieved prior art; no experimental validation | [AgentIdeaBench](../works/agentideabench.md) |
 
 ## Capability Matrix
 
@@ -66,10 +67,12 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | ScholarQuest | IR, AI | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | **2.5** | ✘ | ✘ | ✘ | 3 | 3 | 3 | **9** |
 | R³-Bench | ALGO | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
 | EngDesign | OS, ARCH | ✘ | ✘ | ◐ | ? | ✘ | ✘ | ◐ | **1** | ◐ | ✔ | ✔ | 3 | 1 | 3 | **9.5** |
+| AgentIdeaBench | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **1** | ◐ | ✔ | ◐ | 1 | 0 | 4 | **7** |
 | TCS-Bench | THEO | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | **1** | ✘ | ✘ | ◐ | 1 | 2 | 2 | **5.5** |
 
 ## Related Works
 
+- [AgentIdeaBench](../works/agentideabench.md)
 - [R³-Bench](../works/r3-bench.md)
 - [TCS-Bench](../works/tcs-bench.md)
 - [ScholarQuest](../works/scholarquest.md)

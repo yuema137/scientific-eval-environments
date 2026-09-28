@@ -71,6 +71,8 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - **What the horizon carries besides capability.** [SkillMisevo-Bench](../works/skillmisevo-bench.md) applies the same persistent-state design to safety: malicious exposure is dosed on a fixed schedule across an episode, and a final block reloads only the agent-authored `SKILL.md` after a full reset, separating harm committed at the time from harm that survived the session.
 - **Length without an environment.** [Skill²-Bench](../works/skill2-bench.md) isolates one component of long-horizon difficulty — the cost of switching reasoning skills between consecutive dependent steps — in chains of 2 to 10 steps with no tools, no external state, and no recovery, calibrated by a directed pairwise skill-entropy measure fixed against one reference model.
 
+[FORESIGHT-9](../works/foresight-9.md) adds a distinction between simulated horizon and elapsed runtime: persistent factor state is audited over years of in-world decisions, without treating those years as wall-clock duration.
+
 ## Comparison
 
 | Benchmark | Year | Horizon signal | Environment | Card |
@@ -134,6 +136,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | BATS / Budget Tracker | 2025 | Tool-call budget as the scaling axis (10/30/50/100 per tool); performance plateaus without budget awareness | Web-search agents over live browsing, plus retail dialogue and SWE-bench Verified | [→](../works/bats-budget-aware.md) |
 | ASI-Bench | 2026 | 60 project-level research tasks; complete trajectories span 2,600+ interaction turns, 2,400+ execution steps, and 35+ hours of agent execution across the suite | Sandboxed scientific research (Docker `os` / `linux_ns`) with agent-neutral harness adapters | [→](../works/asi-bench.md) |
 | InnovatorBench | 2025 | 20 tasks of 2-36 hours each; agents reach their best score only after 11+ hours, about 6.5x the saturation time on PaperBench | ResearchGym: several GPU machines driven over HTTP, asynchronous background jobs, snapshot save and restore | [→](../works/innovatorbench.md) |
+| [FORESIGHT-9](../works/foresight-9.md) | 2026 | Approx. 2,468 simulated trading days | Nine counterfactual market paths | [FORESIGHT-9](../works/foresight-9.md) |
 
 ## Open Questions
 
@@ -144,6 +147,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 
 ## Related Works
 
+- [FORESIGHT-9](../works/foresight-9.md)
 - [ASI-Bench](../works/asi-bench.md)
 - [R³-Bench](../works/r3-bench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

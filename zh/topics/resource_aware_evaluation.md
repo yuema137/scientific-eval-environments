@@ -24,7 +24,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 ## 现有方法
 
 - **在 tool use 中把成本作为一等目标。** [CostBench](../works/costbench.md) 把成本最小化本身设为任务，在 travel-planning 场景下具有可配置的原子/组合工具成本，并通过阻断事件迫使重规划。
-- **Token 之外的 tool-use 成本，聚焦科学仿真。** [SimulCost](../works/simulcost.md) 把 cost-aware 评估扩展到物理仿真参数调优，显式建模仿真时间与实验资源成本，覆盖 13 个仿真器，并直接与传统方法对比。
+- **Token 之外的 tool-use 成本，聚焦科学仿真。** [SimulCost](../works/simulcost.md) 把 cost-aware 评估扩展到物理仿真参数调优，显式建模仿真时间与实验资源成本，覆盖 11 个使用解析成本的仿真器，另行报告 EPOCH，并直接与传统方法对比。
 - **面向 cost-aware planning 的专用数据集。** [CATP-LLM / OpenCATP](../works/catp-llm.md) 贡献了 OpenCATP——被称为首个面向 cost-aware planning 的数据集（11,100 样本），其中工具执行成本（如执行时间）与任务性能联合打分。其配对的规划方法属于本仓库范围之外的 agent 构建工作；数据集才是此处记录的 resource-aware 评估贡献。
 - **按保真度定价的测量预算。** [MaD Physics](../works/mad-physics.md) 对每次观测收取随其精度上升的成本，并对每个 trial 的总花费设上限，使 agent 必须在固定预算下分配测量，以推断一条未知的——有时被改动的——物理定律。
 - **给物理发现设观测预算。** [Gravity-Bench-v1](../works/gravity-bench.md) 限定 agent 对模拟二体引力系统可观测的次数，让实验设计本身进入评分范围；据官方项目页，最佳模型从全量数据下的 74% 跌到预算下的 49%。
@@ -55,12 +55,16 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 
 两者都没有给出规划器在方案之间做取舍时真正需要的东西：一个以动作为单位、以任务特征为条件的分布，覆盖 token、墙钟、GPU 时间、内存与费用，并带有校准过的不确定性。参见下方的 Open Questions。
 
+[PTA-IRT](../works/pta-irt.md)用历史校准数据减少新 agent 需要执行的题目；[EvoHarnessBench](../works/evoharnessbench.md)记录能力集合扩大后运行开销怎样变化。少测一些题和让 agent 跑得更省，是两种不同的节省。
+
+[HarnessDev](../works/harnessdev.md)把编写 harness 的模型与执行模型分开。隐藏任务检查依据反馈作出的修改能否泛化；token 指标只计执行，不计开发。
+
 ## 方法对比
 
 | Benchmark | Year | 资源单位 | 资源角色 | 场景 | Card |
 |---|---|---|---|---|---|
 | CostBench | 2025 | 可配置的原子/组合工具成本 | 一等目标——为成本最优做规划 | 动态（阻断事件）；报告约 40% 静态→动态下降 | [→](../works/costbench.md) |
-| SimulCost | 2026 | 仿真时间 + 实验资源 | 一等目标——预算下的参数调优 | 单轮与多轮；13 个仿真器 | [→](../works/simulcost.md) |
+| SimulCost | 2026 | 仿真时间 + 实验资源 | 一等目标——预算下的参数调优 | 单轮与多轮；11 个使用解析成本的仿真器，另行报告 EPOCH | [→](../works/simulcost.md) |
 | CATP-LLM / OpenCATP | 2024 | 归一化工具价格（USD；执行时间 + 内存） | 通过 Quality of Plan 与性能联合报告（QoP = α·perf − (1−α)·cost） | 111 个工具规划任务 / 11,100 样本 | [→](../works/catp-llm.md) |
 | MaD Physics | 2026 | 测量成本（按保真度定价的观测） | agent 分配的每个 trial 固定预算 | 模拟经典 / 流体 / 量子物理 | [→](../works/mad-physics.md) |
 | BAGEN | 2026 | Token；时间 / 占用 / 成本 | 预测目标 + 提前停止目标 | 谜题 / 检索 / 编码 / 供应链 | [→](../works/bagen.md) |
@@ -83,6 +87,9 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 | BATS / Budget Tracker | 2025 | 统一计价：token 开销加上按每次 0.001 美元固定计价的工具调用 | 预算是硬约束，但每一轮都让 agent **看得见**；scaling 曲线在统一计价下绘制 | 网页搜索 agent（BrowseComp、BrowseComp-ZH、HLE-Search），另有 τ²-bench 与 SWE-bench Verified | [→](../works/bats-budget-aware.md) |
 | InnovatorBench | 2025 | 工作时长上限、GPU 配额、墙钟小时数、美元 | 预算写进每个任务，作为操作约束；时间与费用按模型、按研究方向报告 | 20 个 2-36 小时的 LLM 研究任务；最好成绩出现在 11 小时之后，平均每次尝试 5.13 小时、32.92 美元 | [→](../works/innovatorbench.md) |
 | AstaBench | 2025 | 每道题的归一化美元成本，价格取自冻结的 `litellm` 快照并计入缓存折扣 | 只报告、不设预算：分数从分数-成本 Pareto 前沿上读出，排行榜每条记录还要声明自身的开放度与工具方式 | 科学研究辅助；11 个 benchmark、2,400+ 道题，22 个 agent 类别下的 57 个 agent | [→](../works/astabench.md) |
+| [PTA-IRT](../works/pta-irt.md) | 2026 | 实际执行的任务比例 | 校准预算；仍需离线历史数据 | 估计 SWE 全套成绩 | [PTA-IRT](../works/pta-irt.md) |
+| [EvoHarnessBench](../works/evoharnessbench.md) | 2026 | Token、工具调用、延迟 | 逐阶段记录运行开销 | 逐步扩大的 harness | [EvoHarnessBench](../works/evoharnessbench.md) |
+| [HarnessDev](../works/harnessdev.md) | 2026 | 执行模型 token | 总量与每题均值；不计开发成本 | 2,207 个下游实例 | [HarnessDev](../works/harnessdev.md) |
 
 ## 还没解决的问题
 
@@ -95,6 +102,9 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 
 ## 相关工作
 
+- [EvoHarnessBench](../works/evoharnessbench.md)
+- [HarnessDev](../works/harnessdev.md)
+- [PTA-IRT](../works/pta-irt.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [R³-Bench](../works/r3-bench.md) — 一份预算由六道题共用，并校准到各模型自己已展示出的单题水平。
 - [AI Research Preference Models](../works/ai-research-preference-models.md) — 用不到三分之二的执行预算、约 15 小时就达到未引导 agent 24 小时的分数，并同时给出验证集与测试集的 oracle 上界。
@@ -109,7 +119,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 - [MaD Physics](../works/mad-physics.md) — 模拟物理中按保真度定价的测量预算；agent 在测量的质与量之间权衡以推断被改动的物理定律。
 - [ChemCost](../works/chemcost.md) — 把反应成本计算本身作为被测任务，配无 judge 的精确定价真值。
 - [Frontier-Eng](../works/frontier-eng.md) — 固定仿真器交互预算下的迭代式工程优化。
-- [SimulCost](../works/simulcost.md) — 覆盖 13 个仿真器的 cost-aware 物理仿真参数调优。
+- [SimulCost](../works/simulcost.md) — 覆盖 11 个使用解析成本的仿真器，另行报告 EPOCH的 cost-aware 物理仿真参数调优。
 - [PostTrainBench](../works/posttrainbench.md)
 - [VeRO / VeRO-Bench](../works/vero.md) — 在门控评估调用预算下把 coding agent 作为 agent 优化器来 benchmark。
 - [BATS / Budget Tracker](../works/bats-budget-aware.md) — 把 token 与工具调用折算进同一种计价；仅仅把剩余预算告诉 agent，就能用十分之一的预算追平 ReAct 基线的准确率。

@@ -14,7 +14,7 @@
 
 有一大类工作将科学计算构建为 **PDE 求解器代码生成**任务，其中被评分的产物是求解器本身，而非求解得到的场。[CodePDE](../works/codepde.md) 确立了对 LLM 生成的数值求解器进行评估的各个维度；[PDEAgent-Bench](../works/pdeagent-bench.md) 将其扩展到横跨三个 FEM 库（DOLFINx、Firedrake、deal.II）的 645 个实例，并采用可执行性、准确性、效率逐级递进的阶梯式评估；[CFDLLMBench](../works/cfdllmbench.md) 则加入了一个三层 CFD 套件，将 PDE 求解的 Python 代码与研究生水平的知识以及 OpenFOAM 操作结合起来。[FEM-Bench](../works/fem-bench.md) 以课程级的粒度对有限元代码生成进行考察，而 [MooseBench](../works/moosebench.md) 通过确定性地重建 MOOSE 输入文件所编码的 PDE，揭示了理解与生成之间的差距，从而捕捉那些能运行却求解了错误物理的模拟。
 
-另一大类工作则**端到端地驱动真实的领域模拟器**，把专业软件本身当作评估界面。[FEABench](../works/feabench.md) 通过 API 操作 COMSOL Multiphysics；[SimBench](../works/simbench.md) 在多轮对话中构建 Chrono 数字孪生；[VASPBench](../works/vaspbench.md) 在闭环中规划、运行并修复 VASP DFT 计算；[StructureClaw](../works/structureclaw.md) 驱动以 OpenSees 为后端的结构分析工作台；[PowerAgentBench-SS](../works/poweragentbench-ss.md) 让 agent 调用电网模拟器进行 N-2 故障筛查。[HydroAgent](../works/hydroagent.md) 对运行中的 CREST 水文模型进行迭代率定，[SimulCost](../works/simulcost.md) 则在 13 个物理模拟器上对成本感知的参数调优进行基准测试。
+另一大类工作则**端到端地驱动真实的领域模拟器**，把专业软件本身当作评估界面。[FEABench](../works/feabench.md) 通过 API 操作 COMSOL Multiphysics；[SimBench](../works/simbench.md) 在多轮对话中构建 Chrono 数字孪生；[VASPBench](../works/vaspbench.md) 在闭环中规划、运行并修复 VASP DFT 计算；[StructureClaw](../works/structureclaw.md) 驱动以 OpenSees 为后端的结构分析工作台；[PowerAgentBench-SS](../works/poweragentbench-ss.md) 让 agent 调用电网模拟器进行 N-2 故障筛查。[HydroAgent](../works/hydroagent.md) 对运行中的 CREST 水文模型进行迭代率定，[SimulCost](../works/simulcost.md) 则在 11 个模拟器上按解析成本评测参数调优，并另行报告 EPOCH 的实测耗时。
 
 第三大类是**化工流程模拟建模（flowsheeting）**，被评分的产物是一份真正能够收敛的过程模拟。[Simona](../works/simona.md) 以模拟收敛率（Simulation Convergence Rate）衡量把书面工艺描述转化为流程图的效果；[CRAFTS](../works/crafts.md) 构建可执行的 IDAES/Pyomo 模型，且必须先通过一道道确定性的晋级关卡——自由度闭合、初始化、求解器终止状态；[CeProBench](../works/ceprobench.md) 的 Parameter 维度则把候选操作参数放进 Aspen Plus 里实际运行，由热力学可行性而非文本相似度来决定得分。
 
@@ -60,9 +60,9 @@
 | PowerAgentBench-SS | 2026 | 通过模拟器调用进行 agent 式稳态电网研究 | IEEE 39-bus 变体，DC 热稳定 N-2 故障搜索 | 隐藏评估器重新计算有效性；多指标打分 | [卡片](../works/poweragentbench-ss.md) |
 | QMP-Bench | 2026 | 端到端的量子多体模拟复现 | 来自 21 种高影响力期刊的 100 个研究任务 | 编码正确性外加物理有效性 | [卡片](../works/qmp-bench.md) |
 | Simona | 2026 | 把书面工艺描述转化为能够收敛的模拟流程图 | 1,000 段专家撰写的工艺描述；通过 HTTP API 驱动模拟器 | 模拟收敛率（80.3%）与设计耗时 | [卡片](../works/simona.md) |
-| SimulCost | 2026 | 成本感知的物理模拟参数调优 | 2,947 个单轮任务 + 1,931 个多轮任务，13 个模拟器 | 在模拟时间/资源预算约束下的性能 | [卡片](../works/simulcost.md) |
+| SimulCost | 2026 | 成本感知的物理模拟参数调优 | 2,643 个单轮任务 + 2,304 个多轮任务，11 个使用解析成本的模拟器，另行报告 EPOCH | 在模拟时间/资源预算约束下的性能 | [卡片](../works/simulcost.md) |
 | StructureClaw | 2026 | 操作带求解器后端的结构工程工作台 | 150 个场景：标准、交互式、多模态重建 | 相对冻结参考的模型匹配 + 数值一致性 | [卡片](../works/structureclaw.md) |
-| Terminal-Bench Science | 2026 | 容器化的自然科学计算工作流 | 横跨 5 个领域的 8 个任务（目标 100+） | 基于 pytest 的确定性程序化验证 | [卡片](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | 容器化的自然科学计算工作流 | 0.1 版横跨 5 大分组的 70 个任务 | 基于 pytest 的确定性程序化验证 | [卡片](../works/terminal-bench-science.md) |
 
 ## Related Works
 

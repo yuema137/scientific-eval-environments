@@ -13,7 +13,7 @@ Two boundaries matter. Against **Physics**, the test is the object of study rath
 | Work | Year | Scientific problem | Task form & scale | Domain verification | Card |
 |---|---|---|---|---|---|
 | Stargazer | 2026 | Infer exoplanet systems from radial-velocity time series: propose the number of planets and orbital parameters that explain the observed stellar signal, iterating on per-criterion feedback. | 120 model-fitting tasks — 100 synthetic across three difficulty tiers plus 20 real archival systems from the NASA Exoplanet Archive and VizieR, spanning one to seven planets. | Four simultaneous physical criteria: residual RMS ≤ 1.5× measurement uncertainty, positive ΔBIC vs. a constant null model, Hungarian-matched planet recovery ≥ 0.8, and exact planet count. | [→](../works/stargazer.md) |
-| Terminal-Bench Science | 2026 | Astronomy tasks within the Physical Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (8 at launch across all five tracks, target 100+), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | Astronomy tasks within the Physical Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (70 in version 0.1 across all five tracks; per-domain counts unreported), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | Re-discover the findings of a hidden published paper from a task description, related literature, and raw data — Astronomy is one of its ten domains (40 tasks total). | End-to-end autonomous research tasks, each grounded in a real publication kept hidden during evaluation; the agent produces a final research report. | Reference-Anchored Discovery Score (0–100; 50 = reference-level evidence) against expert-curated multimodal rubrics anchored to the hidden paper's artifacts, judged by GPT-5.1. | [→](../works/researchclawbench.md) |
 | gwBenchmarks | 2026 | Model gravitational-wave sources at the precision the science requires: waveform surrogates from numerical relativity, black-hole orbital dynamics, merger remnants, template banks. | 8 tasks over data representing more than 10⁸ core-hours of compute; 12 coding agents evaluated. | External pre-defined evaluation framework with per-task physics metrics against a ≲10⁻⁴ relative-error domain requirement. | [→](../works/gwbenchmarks.md) |
 | ReplicationBench | 2025 | Replicate the core contributions of astrophysics research papers: experimental setup, derivations, data analysis, and codebase. | 111 replication tasks spanning 20 papers (official repository), co-developed with the original authors and run in computational sandboxes. | Objective per-task scoring of faithfulness to the original methods and correctness of the results. | [→](../works/replicationbench.md) |
@@ -46,6 +46,7 @@ Two boundaries matter. Against **Physics**, the test is the object of study rath
 | ScienceBoard | 2025 | Astronomy workflows driven through the Celestia planetarium application — one of six professional applications instantiating its domains — requiring temporal–spatial awareness of real astronomical scenarios. | 169 human-curated computer-use tasks in a single Ubuntu virtual machine: 38 GUI-only, 33 CLI-only, 98 hybrid GUI+CLI; the per-application astronomy task count is not published and is recorded as `TODO(reference)` on the card. | Programmatic checking of key intermediate input/output and of the final virtual-machine state through evaluation templates supporting exact match, range-based assessment and numerical tolerance; binary success rate reported per domain, with astronomy among the weakest for every evaluated agent. | [→](../works/scienceboard.md) |
 | Imaging-101 | 2026 | Astronomical computational imaging: Event Horizon Telescope black-hole reconstruction from gain-corrupted visibilities, high-contrast exoplanet coronagraphic imaging, atmospheric-turbulence lucky imaging, Shack–Hartmann wavefront sensing, and shapelet source reconstruction. | Astronomy is one of six named domains within 57 paper-grounded tasks, each canonicalized into a preprocessing → forward physics → inverse solver → visualization pipeline and evaluated on planning, function-level and end-to-end tracks; per-domain task counts are `TODO(reference)`. | End-to-end reconstructions executed and scored against per-task `metrics.json` acceptance thresholds using normalized cross-correlation and NRMSE; function-level work checked by paired pytest suites synthesized from captured reference input/output. | [→](../works/imaging-101.md) |
 | PRL-Bench | 2026 | Carry out frontier physics research tasks derived from post-August-2025 Physical Review Letters papers; astrophysics is one of the five named subfields. | 100 expert-validated, long-horizon research tasks with exploration-oriented formulation; per-subfield counts are not stated. | Objectively verifiable task outcomes, expert-validated, scored on a 0–100 scale. | [→](../works/prl-bench.md) |
+| [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in astronomy | Paper-to-repository reproduction; Part of 30 AI4Science papers; per-field count unreported | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
 
 ## Capability Matrix
 
@@ -114,17 +115,18 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SimAgents | COS | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
 | AstroVisBench | COMP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 2 | 2 | 3 | **7** |
 | AstroMMBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 2 | 2 | 3 | **7** |
+| AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | CosmoPaperQA | COS | ◐ | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | **1.5** | ✘ | ✘ | ✘ | 3 | 2 | 2 | **7** |
 | AstroMLab 1 | GEN | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 3 | 3 | **9** |
 | gwBenchmarks | GW | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 3 | 0 | 3 | **6.5** |
 | SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
 | PRL-Bench | GEN | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ◐ | **1** | ✘ | ✔ | ✔ | 0 | ? | 3 | **5** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation | COS, GAL, GW | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0.5** | ✔ | ✔ | ✔ | 3 | 1 | 3 | **10** |
 | AI Cosplaying as Astrophysicists | GEN | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | **0.5** | ✘ | ✔ | ✘ | 0 | 3 | 4 | **8** |
 | From Queries to Criteria | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✘ | 1 | 1 | 2 | **5** |
 
-Repository note: the unknowns cluster in two columns. `Net` is `?` on 12 of the 34 rows, where neither the card nor the primary source says whether the agent could reach the live network. `Scale` is `?` on 7 rows: six are multi-field or multi-application suites that publish a suite-wide item count but no astronomy slice, and Gravity-Bench-v1 publishes no episode count at all. One further cell is `?` — Terminal-Bench Science on `Real`. Each mark records the source's silence rather than closing it by inference.
+Repository note: a suite-wide total does not establish this domain’s item count. Terminal-Bench Science 0.1 contains 70 tasks, but the reviewed release announcement does not give the count for this page’s domain, so Scale remains ?. Other ? marks likewise record an evidence gap rather than an absent capability.
 
 ## Related Works
 
@@ -140,6 +142,7 @@ Repository note: the unknowns cluster in two columns. `Net` is `?` on 12 of the 
 - [SciVQR](../works/scivqr.md)
 - [AstroAlertBench](../works/astroalertbench.md)
 - [Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [Stargazer](../works/stargazer.md)
 - [PRL-Bench](../works/prl-bench.md)
 - [SciVisAgentBench](../works/scivisagentbench.md)

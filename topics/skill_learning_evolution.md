@@ -24,6 +24,8 @@ Solving the acquisition example proves only that the agent solved that example. 
 - **Lifecycle safety.** [SkillMisevo-Bench](../works/skillmisevo-bench.md) separates unsafe authoring, retrieval, execution, and persistence across skill-evolution methods.
 - **Reusable capability structures.** [GATE](../works/gate.md) evolves hierarchical tool graphs rather than written skill files.
 
+[EvoHarnessBench](../works/evoharnessbench.md) tests learned artifacts after the surrounding capability set changes. Its separate retention and adaptation measures prevent improvements on new tasks from hiding losses on earlier ones.
+
 ## Comparison
 
 | Work | Learned artifact | Feedback | Transfer test | Main separation |
@@ -33,6 +35,7 @@ Solving the acquisition example proves only that the agent solved that example. 
 | SkillCoach | Evolving skill-use rubric | Rollout evidence + validation gate | Held-out task families | Process quality vs outcome |
 | SkillMisevo-Bench | Evolved potentially unsafe skills | Online evolution updates | Fresh-session persistence | Authoring vs retrieval vs harm |
 | GATE | Hierarchical tool graph | Execution experience | New tasks using evolved graph | Structured capability artifact |
+| [EvoHarnessBench](../works/evoharnessbench.md) | Persistent skills, prompts, or code | Experience from adaptation tasks | New and earlier cohorts under expanding harnesses | Adaptation gains versus retained competence |
 
 ## Open Questions
 
@@ -44,6 +47,7 @@ Solving the acquisition example proves only that the agent solved that example. 
 
 ## Related Works
 
+- [EvoHarnessBench](../works/evoharnessbench.md)
 - [SkillMisevo-Bench](../works/skillmisevo-bench.md)
 - [SkillCoach](../works/skillcoach.md)
 - [SkillEvolBench](../works/skillevolbench.md)

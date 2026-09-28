@@ -71,6 +71,8 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 - **除了能力，horizon 还会一并带上什么。** [SkillMisevo-Bench](../works/skillmisevo-bench.md) 把同一套持久状态的设计搬到安全上：恶意暴露按固定日程在一个 episode 内分次投放，最后一个区块则在彻底重置后只重新载入 agent 自己写下的 `SKILL.md`，从而把当场造成的危害与熬过整场会话留存下来的危害分开。
 - **只有长度，没有环境。** [Skill²-Bench](../works/skill2-bench.md) 单独抽出长 horizon 难度中的一个成分——在前后依赖的相邻步骤之间切换推理 skill 所付出的代价——放进 2 到 10 步的链条里考察：没有工具、没有外部状态，失败一步也无从补救；难度由一个有向的成对 skill 熵测度校准，该测度以单一参考模型为准固定下来。
 
+[FORESIGHT-9](../works/foresight-9.md)区分模拟跨度与实际耗时：它在模拟世界多年的决策中跟踪因子状态，但这些年数并不是实际运行时间。
+
 ## 方法对比
 
 | Benchmark | Year | Horizon 信号 | 环境 | Card |
@@ -134,6 +136,7 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 | BATS / Budget Tracker | 2025 | 以工具调用预算为 scaling 轴（每种工具 10/30/50/100）；不给 agent 预算意识，性能很快见顶 | 真实网页浏览环境下的搜索 agent，另有零售对话与 SWE-bench Verified | [→](../works/bats-budget-aware.md) |
 | ASI-Bench | 2026 | 60 个项目级研究任务；完整轨迹覆盖 2,600+ 次交互、2,400+ 次执行步骤，以及全套 35+ 小时 agent 执行 | 沙箱科学研究（Docker `os` / `linux_ns`），配 agent-neutral harness adapter | [→](../works/asi-bench.md) |
 | InnovatorBench | 2025 | 20 个任务，每个 2-36 小时；agent 要跑过 11 小时才拿到最好成绩，约为 PaperBench 达到饱和所需时间的 6.5 倍 | ResearchGym：通过 HTTP 驱动多台 GPU 机器，支持异步后台任务，也支持快照的保存与恢复 | [→](../works/innovatorbench.md) |
+| [FORESIGHT-9](../works/foresight-9.md) | 2026 | 约 2,468 个模拟交易日 | 九条反事实市场路径 | [FORESIGHT-9](../works/foresight-9.md) |
 
 ## 还没解决的问题
 
@@ -144,6 +147,7 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 
 ## 相关工作
 
+- [FORESIGHT-9](../works/foresight-9.md)
 - [ASI-Bench](../works/asi-bench.md)
 - [R³-Bench](../works/r3-bench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

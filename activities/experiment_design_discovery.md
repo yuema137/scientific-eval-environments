@@ -49,9 +49,11 @@ A final cluster frames discovery as **sequential information acquisition toward 
 | Apodex Discovery | 2026 | Solve real-world discovery problems inside executable environments with hidden verifiers | 20 problems selected from 423 candidates across a 561-industry survey; stateful environments with tools, data and budgets | Hidden-verifier outcome plus a blind six-dimension process score; capsid design exceeded the published state of the art by 7% | [card](../works/apodex-discovery.md) |
 | DiscoveryBench | 2024 | Search for and verify a hypothesis from data, with one dimension of the target hypothesis masked to form the goal | 264 real tasks from 20+ published papers plus 903 synthetic tasks; multi-dataset analysis workflows of up to 20+ unit actions | A declarative hypothesis matching the gold one on context, variables and relationship; biology tasks score 0% | [card](../works/discoverybench.md) |
 | InnovatorBench | 2025 | Propose a method of the agent's own, implement it, run the experiment and refine it against the returned score | 20 LLM-research tasks in ResearchGym, 2-36 hours each, up to four scored submissions | Beat a hidden reference solution anchored near 80; best model averages 24.01 | [card](../works/innovatorbench.md) |
+| [AgentIdeaBench](../works/agentideabench.md) | 2026 | Propose a literature-grounded hypothesis | Static references versus active search; 40 densely scored subfields | One paragraph scored by literature-grounded critics | [AgentIdeaBench](../works/agentideabench.md) |
 
 ## Related Works
 
+- [AgentIdeaBench](../works/agentideabench.md)
 - [Apodex Discovery](../works/apodex-discovery.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)
 - [AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation](../works/ai-assisting-research-ii-project-planning.md)

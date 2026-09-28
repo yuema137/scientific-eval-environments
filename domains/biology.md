@@ -18,7 +18,7 @@ Life-science evaluation from molecular to population scale. Bioinformatics, geno
 | NatureBench | 2026 | Match the published state of the art of Nature-family Cellular Omics (31) and Protein Biology (16) studies — 47 of its 90 tasks — given the target algorithm's inputs but none of its operations or outputs. | Code-agent tasks built by a review-gated pipeline with an information firewall; ~3.7 primary metrics per task. | SOTA-normalized relative gap g on each paper's own primary metric; Match-SOTA (g ≥ 0) and Surpass-SOTA (g > 0.1) rates, with a judge flagging shortcut runs. | [→](../works/naturebench.md) |
 | AIRS-Bench | 2026 | Frontier research-science tasks in bioinformatics, one of its four fields, covering the full research lifecycle with no baseline code provided. | 20 tasks total across the suite; the agent submits held-out test-split predictions as a CSV. | Execution-based, outcome-only scoring by task-specific evaluators; SOTA-normalized score with a 'march of nines' transform near the ceiling. | [→](../works/airs-bench.md) |
 | AstaBench | 2025 | Biology-domain benchmarks within its 11-benchmark scientific-research suite — e.g., data-driven discovery in DiscoveryBench — alongside CS-weighted literature, code, and discovery tasks. | 2,400+ problems across 11 benchmarks with a standard, reproducible tool environment; 57 agents scored. | Per-benchmark metrics from exact match to LLM-judged hypothesis matching, reported with time-invariant dollar-cost accounting and score-vs-cost Pareto frontiers. | [→](../works/astabench.md) |
-| Terminal-Bench Science | 2026 | Biology tasks within the Life Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (8 at launch across all five tracks, target 100+), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | Biology tasks within the Life Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (70 in version 0.1 across all five tracks; per-domain counts unreported), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | Re-discover the findings of a hidden published paper from a task description, related literature, and raw data — Life is one of its ten domains (40 tasks total). | End-to-end autonomous research tasks, each grounded in a real publication kept hidden during evaluation; the agent produces a final research report. | Reference-Anchored Discovery Score (0–100; 50 = reference-level evidence) against expert-curated multimodal rubrics anchored to the hidden paper's artifacts, judged by GPT-5.1. | [→](../works/researchclawbench.md) |
 | MDArena | 2026 | Run realistic biomolecular-simulation workflows — including membrane-protein systems — covering trajectory analysis, system preparation, free-energy calculations, and enhanced sampling. | 50 containerized tasks sourced from active research projects, spanning 29 molecular systems and 14 research protocols. | Strict-Pass@1 as the headline metric, with correctness and process-reward metrics crediting partial progress. | [→](../works/mdarena.md) |
 | SciCode | 2024 | Write research code for scientist-curated problems; biology is among the five main domains its 16 natural-science subfields span. | 80 main problems decomposed into 338 subproblems mixing knowledge recall, reasoning, and code synthesis. | Execution against scientist-annotated gold-standard solutions and test cases. | [→](../works/scicode.md) |
@@ -49,6 +49,8 @@ Life-science evaluation from molecular to population scale. Bioinformatics, geno
 | OntoLearner | 2026 | Construct ontology structure for biology and life sciences — one of the 22 domains its ontology collection spans — by typing terms, recovering the is-a hierarchy between types, and extracting non-taxonomic relations. | 180 machine-readable ontologies across 22 domains with pipeline-ready train/dev/test splits for three ontology-learning tasks; 22 retrieval models and 12 LLMs evaluated in single-shot structured prediction rather than an agentic setting. | Precision, recall and F1 computed by normalized pair-level and triple-level matching against the gold ontology structure; per-domain and per-model scores are `TODO(reference)` in the card, the paper's results section not being retrievable. | [→](../works/ontolearner.md) |
 | Apodex Discovery | 2026 | Adeno-associated virus capsid design across viability prediction, tropism prediction, structure prediction and generative design. | One of 20 executable environments, each supplying tools, data, budgets and a hidden verifier behind a fixed episode interface. | Task-specific experimental fitness measures against the published state of the art, which the system exceeded by 7% across all four tasks. | [→](../works/apodex-discovery.md) |
 | DiscoveryBench | 2024 | Recover the findings of two published organismal-biology studies: whether accelerated body-size evolution in upland environments tracks recent speciation in South American freshwater fishes, and how introduction pathway shapes the invasion success of non-native plants along environmental gradients. | 16 of the 239 real test tasks are biology; each supplies the study's dataset(s), column metadata and a natural-language discovery goal, and the agent writes and runs its own analysis workflow. | GPT-4 Hypothesis Matching Score against the paper's gold hypothesis over context, variables and relationship; the best non-oracle agent scores 0% on this domain. | [→](../works/discoverybench.md) |
+| [AgentIdeaBench](../works/agentideabench.md) | 2026 | Form testable hypotheses in biology from research literature | Eight densely scored subfields in this discipline; static and active literature access | Model critics assess originality against retrieved prior art; no experimental validation | [AgentIdeaBench](../works/agentideabench.md) |
+| [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in biology | Paper-to-repository reproduction; Part of 30 AI4Science papers; per-field count unreported | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
 
 ## Capability Matrix
 
@@ -124,18 +126,21 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SciGym | SYSB | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
 | BioKGBench | CURA | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | BAISBench | SCB | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ✔ | ✘ | ✘ | 3 | 2 | 1 | **7** |
+| AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | GeneBench-Pro | GENOM | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
 | BiomedSQL | GENOM | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✔ | ✘ | ✘ | 2 | 2 | 4 | **9** |
 | BioProBench | PROTO | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 3 | 3 | **9** |
 | SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
+| AgentIdeaBench | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **1** | ◐ | ✔ | ◐ | 0 | 0 | 4 | **6** |
 | SciCode | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | ? | 3 | **6** |
 | OntoLearner | CURA | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | ? | 3 | **6** |
 
-Repository note: two columns carry the unknowns in equal measure. `Net` is `?` on 11 of the 39 rows, where neither the card nor the primary source says whether the agent could reach the live network. `Scale` is also `?` on 11: ten are multi-field suites that publish a suite-wide item count but no biology slice, and DrBencher's own released item count is unresolved. One further cell is `?` — Terminal-Bench Science on `Real`. Each mark records the source's silence rather than closing it by inference.
+Repository note: a suite-wide total does not establish this domain’s item count. Terminal-Bench Science 0.1 contains 70 tasks, but the reviewed release announcement does not give the count for this page’s domain, so Scale remains ?. Other ? marks likewise record an evidence gap rather than an absent capability.
 
 ## Related Works
 
+- [AgentIdeaBench](../works/agentideabench.md)
 - [Apodex Discovery](../works/apodex-discovery.md)
 - [Fisher-R1 / P-Bench](../works/fisher-r1.md)
 - [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
@@ -150,6 +155,7 @@ Repository note: two columns carry the unknowns in equal measure. `Net` is `?` o
 - [Frontier LLM-based agents can overcome the ontology curation bottleneck for natural phenotypes](../works/frontier-llm-based-agents-can-overcome-the-ontolog.md)
 - [BioXArena](../works/bioxarena.md)
 - [SciVQR](../works/scivqr.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [DrBencher](../works/drbencher.md)
 - [SciVisAgentBench](../works/scivisagentbench.md)
 - [FlyAOC](../works/flyaoc.md)

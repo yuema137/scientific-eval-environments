@@ -40,6 +40,8 @@
 | AI Research Preference Models | 2026 | 判断 AI 研究 agent 提出的哪些候选 ML 方案值得花 GPU 时间真正跑一遍。 | 两个基于冻结预训练模型的偏好模型（一个只读方案与代码；一个先在 5 分钟上限内跑试点实验），接入 AIRA-dojo 的子节点生成环节，覆盖 20 个 AIRS-Bench 任务；每任务单张 H200 跑 24 小时、10 个随机种子，合计 200 GPU 小时。 | AIRS-Bench 归一化分数：未引导 0.684 → 只读式 0.711 → agentic 式 0.729，验证集 oracle 上界为 0.748；在 WinoGrande（94.1%）与 SVAMP（95.7%）上刷新最好水平。 | [→](../works/ai-research-preference-models.md) |
 | InnovatorBench | 2025 | 在已发表的 LLM 研究成果之上做改进而不是复现：构建、过滤与增强训练数据，设计损失与 RL 奖励，搭建 agent 脚手架。 | 六个研究方向共 20 个任务，取自 14 篇论文，每个 2-36 小时，在 ResearchGym 的多 GPU 集群上运行，支持异步任务与快照；每题最多四次计分提交。 | 外部确定性脚本（准确率、F1、BLEU、熵）在可写工作区之外、对照隐藏参考数据运行，标定为 baseline 落在 0 附近、论文自身参考解落在 80 附近。 | [→](../works/innovatorbench.md) |
 | AI-Researcher | 2025 | 在扩散模型、向量量化、图神经网络或推荐系统中做出研究贡献，从参考文献和数据一路走到实现与成稿。 | 由 22 篇 2022-2024 年论文构造的 22 个指导式（Level-1）与 6 个开放式（Level-2）任务，输入中的方法名、技术细节、数据集命名与引用均已匿名化。 | 代码审查 agent 评实现完整性与 5 分制正确性，另由五个 LLM 审稿人换序比较生成稿与人类论文，评分区间 -3 到 +3。 | [→](../works/ai-researcher.md) |
+| [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现AI & Machine Learning Research的已发表实验 | 从论文重建代码并执行；120 篇 ML 论文 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
+| [HarnessDev](../works/harnessdev.md) | 2026 | 为机器学习竞赛构建可复用 harness | 75 道 MLE-bench 任务；训练模型并提交 | 冻结 harness 后依据竞赛奖牌标准评分 | [HarnessDev](../works/harnessdev.md) |
 
 ## Capability Matrix
 
@@ -105,11 +107,13 @@
 | SUPER | CODE | ◐ | ✘ | ✘ | ✘ | ◐ | ✔ | ✔ | **3** | ◐ | ✘ | ✘ | 3 | 3 | 3 | **9.5** |
 | MLE-Dojo | MLE | ✘ | ◐ | ◐ | ✘ | ✘ | ✔ | ✔ | **3** | ✔ | ✘ | ✘ | 3 | 1 | 3 | **8** |
 | DA-Code | DS | ? | ◐ | ✘ | ◐ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
+| HarnessDev | GEN | ? | ✘ | ✔ | ? | ✘ | ✔ | ✔ | **3** | ◐ | ✘ | ◐ | 3 | 1 | 3 | **8** |
 | MLAgentBench | MLE | ✘ | ◐ | ◐ | ? | ✘ | ✔ | ✔ | **3** | ✘ | ◐ | ✔ | 2 | 1 | 3 | **7.5** |
 | RE-Bench | SYS, MLE | ? | ◐ | ✔ | ? | ✘ | ◐ | ✔ | **3** | ✔ | ✘ | ✔ | 2 | 0 | 2 | **6** |
 | ResearchCodeBench | CODE | ? | ✘ | ✘ | ? | ✔ | ✔ | ✘ | **2** | ◐ | ✘ | ✔ | 3 | 2 | 3 | **9.5** |
 | BLADE | DS | ? | ◐ | ✘ | ✘ | ✘ | ✔ | ◐ | **2** | ◐ | ◐ | ✘ | 2 | 1 | 3 | **7** |
 | IdeaBench | IDEA | ✘ | ✘ | ✘ | ? | ✔ | ✔ | ✘ | **2** | ◐ | ◐ | ✔ | 0 | 3 | 2 | **7** |
+| AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | 2 | 3 | **6** |
 | ML-Bench | CODE | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✔ | ✘ | ✔ | 3 | 3 | 3 | **11** |
 | AutoWorldModel-Bench | WM | ? | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
 | LiveIdeaBench | IDEA | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ◐ | 1 | 3 | 2 | **7.5** |
@@ -118,12 +122,14 @@ Repository note: 未知集中在两列。`Net` 在 30 行里有 16 行是 `?`：
 
 ## Related Works
 
+- [HarnessDev](../works/harnessdev.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [AI Research Preference Models](../works/ai-research-preference-models.md)
 - [Beyond Final Scores](../works/beyond-final-scores.md)
 - [Replica](../works/replica.md)
 - [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
 - [Curation-Bench](../works/curation-bench.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [PostTrainBench](../works/posttrainbench.md)
 - [AIRS-Bench](../works/airs-bench.md)
 - [FIRE-Bench](../works/fire-bench.md)

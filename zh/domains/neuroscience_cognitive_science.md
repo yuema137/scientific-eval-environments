@@ -11,7 +11,7 @@
 | Work | 年份 | 科学问题 | 任务形式与规模 | 领域内验证 | Card |
 |---|---|---|---|---|---|
 | ScienceAgentBench | 2024 | 心理学与认知科学任务——其 102 个任务中的 28 个——提取自经同行评审的数据驱动发现工作流。 | 每个任务要求生成一个自包含的 Python 程序，复现真实论文中的分析。 | 有效执行加逐任务手写的成功检查器，对照专家标注参考；图形输出由 GPT-4o 评判。 | [→](../works/scienceagentbench.md) |
-| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Life Sciences 分组下的神经科学任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Life Sciences 分组下的神经科学任务。 | 容器化终端任务（0.1 版五大分组共 70 个；未报告本领域数量），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Neuroscience 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文产物的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
 | MetaSyn | 2026 | 进行忠实于协议的系统综述与 meta 分析；心理学是其 422 个专家整理 meta 分析所覆盖的主题之一。 | 多阶段系统综述工作流：在掺入不合格干扰文献的共享 PubMed 文献库中，依据带结构化 PI/ECO 标准的研究问题找出应纳入的研究。 | 对照原综述作者实际纳入的研究集做识别评估，并以分阶段评估定位 meta 分析流程中的失败环节。 | [→](../works/metasyn.md) |
 | BrainBench | 2024 | 预测神经科学实验的结果：在 Journal of Neuroscience 五个栏目上分辨真实与改动结果的摘要。 | 200 对原始/改动摘要（官方数据集）；静态二选一强制选择。 | LLM 以困惑度作答；人类专家附信心与专长评级；校准性单独分析。 | [→](../works/brainbench.md) |
@@ -74,13 +74,13 @@
 | Rodent-Bench | BEH | ✘ | ✘ | ◐ | ✔ | ✘ | ✔ | ✘ | **2.5** | ✘ | ✘ | ◐ | 3 | 2 | 2 | **7.5** |
 | MetaSyn | PSY, MH | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | **2.5** | ◐ | ✘ | ◐ | 2 | 1 | 3 | **7** |
 | BrainBench | COG, SYS, CELL, DIS, DEV | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ✔ | ✘ | ✔ | 3 | 2 | 3 | **10** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ? | ? | ? | ✔ | **2** | ✘ | ✘ | ◐ | 3 | ? | 0 | **3.5** |
 | MiraMind | MH, CLIN | ? | ✘ | ✘ | ✘ | ◐ | ✔ | ✘ | **1.5** | ✘ | ✔ | ◐ | 2 | 3 | 2 | **8.5** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ? | ? | ? | ✔ | **1** | ✘ | ✘ | ◐ | 3 | 0 | 0 | **3.5** |
 | ConceptPsy | PSY | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 3 | 3 | 3 | **10** |
 | CPsyExam | PSY, CLIN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 2 | 3 | 2 | **7.5** |
 | PsychCounsel-Bench | CLIN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 3 | 3 | 1 | **7.5** |
 
-Repository note: 这一页的未知不多，而且大多挂在个别工作上，而不是某一列上。`Net` 在 13 行里有 4 行是 `?`。`Contam` 有 2 行是 `?`，分别是 Neuroscience Data-to-Discovery Case Study 和 BrainBench (EEG)，来源都没交代有没有什么手段能让答案不被预训练语料记住。Terminal-Bench Science 一行就占了四格：`Net`、`MM`、`Repro`、`Real`。本页唯一的 `Scale` 未知是 ResearchClawBench，它那 40 个任务从未按领域拆开。
+Repository note: 跨领域套件的总题数不能代替本领域数量。Terminal-Bench Science 已发布 0.1 版、共 70 题，但已核对的发布说明没有给出本页细分领域的任务数，因此 Scale 保留为 ?。其他 ? 同样表示来源尚未明确说明，并非否定该项能力。
 
 ## Related Works
 

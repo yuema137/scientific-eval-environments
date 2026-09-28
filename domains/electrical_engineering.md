@@ -10,7 +10,7 @@ Electrical and electronic engineering.
 
 | Work | Year | Scientific problem | Task form & scale | Domain verification | Card |
 |---|---|---|---|---|---|
-| Terminal-Bench Science | 2026 | Electrical Engineering tasks within the Engineering Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (8 at launch across all five tracks, target 100+), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | Electrical Engineering tasks within the Engineering Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (70 in version 0.1 across all five tracks; per-domain counts unreported), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
 | VerilogEval | 2023 | Generate Verilog RTL that meets a functional specification. | 156 HDLBits problems; the LLM generates RTL, checked by simulation against golden solutions. | Functional correctness via simulation vs. golden solution; pass@k. | [→](../works/verilogeval.md) |
 | RTLLM | 2023 | Generate complete design RTL from natural-language instructions. | 29 hand-crafted designs (50 in v2.0), graded on three progressive goals. | Syntax, functionality, and design-quality goals; self-planning prompting evaluated on GPT-3.5. | [→](../works/rtllm.md) |
 | RTL-Repo | 2024 | Complete Verilog code that fits a large multi-file design project. | 4,000+ Verilog samples from public GitHub, each with full-repository context. | Edit similarity and exact match against the reference completion. | [→](../works/rtl-repo.md) |
@@ -72,6 +72,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | PDAgent-Bench | EDA | ✘ | ✘ | ◐ | ◐ | ✘ | ✔ | ✔ | **3** | ✘ | ✔ | ◐ | 2 | 2 | 3 | **8.5** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | EngDesign | CTRL, DIG, ANA, SS | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ✘ | ◐ | ✔ | 3 | 1 | 3 | **8.5** |
 | AnalogXpert | ANA | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✔ | **1.5** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | ControlAgent / ControlEval | CTRL | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ✘ | 3 | 2 | 1 | **6.5** |
@@ -79,7 +80,6 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | EEE-Bench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✘ | ✘ | 2 | 3 | 4 | **9** |
 | AssertionBench | VER | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 2 | 2 | **7** |
 | AnalogCoder | ANA | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 1 | 2 | **6** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | CVDP | DIG, VER | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **0.5** | ✘ | ✘ | ✔ | 2 | 2 | 3 | **8** |
 | FVEval | VER | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | **0.5** | ◐ | ✘ | ◐ | 3 | 2 | 2 | **8** |
 | MMCircuitEval | DIG, ANA, EDA | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | **0.5** | ✘ | ✘ | ✘ | 2 | 3 | 3 | **8** |

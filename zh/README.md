@@ -134,18 +134,18 @@ Domain 页回答的问题更具体：受评工作发生在哪个学科？一个�
 
 | Domain | Works |
 |---|--:|
-| [Physics](./domains/physics.md) | 48 |
-| [Chemistry](./domains/chemistry.md) | 39 |
-| [Biology](./domains/biology.md) | 39 |
-| [Materials Science](./domains/materials_science.md) | 28 |
-| [AI & Machine Learning Research](./domains/ai_ml_research.md) | 30 |
+| [Physics](./domains/physics.md) | 49 |
+| [Chemistry](./domains/chemistry.md) | 41 |
+| [Biology](./domains/biology.md) | 41 |
+| [Materials Science](./domains/materials_science.md) | 29 |
+| [AI & Machine Learning Research](./domains/ai_ml_research.md) | 32 |
 | [Mathematics](./domains/mathematics.md) | 19 |
-| [Medicine & Health](./domains/medicine_health.md) | 22 |
+| [Medicine & Health](./domains/medicine_health.md) | 24 |
 | [Neuroscience & Cognitive Science](./domains/neuroscience_cognitive_science.md) | 13 |
-| [Astronomy](./domains/astronomy.md) | 34 |
+| [Astronomy](./domains/astronomy.md) | 35 |
 | [Earth Science](./domains/earth_science.md) | 12 |
-| [Computer Science](./domains/computer_science.md) | 7 |
-| [Environmental Science](./domains/environmental_science.md) | 6 |
+| [Computer Science](./domains/computer_science.md) | 8 |
+| [Environmental Science](./domains/environmental_science.md) | 7 |
 
 **工程**
 
@@ -153,7 +153,7 @@ Domain 页回答的问题更具体：受评工作发生在哪个学科？一个�
 |---|--:|
 | [Electrical Engineering](./domains/electrical_engineering.md) | 18 |
 | [Robotics](./domains/robotics.md) | 18 |
-| [Software & Systems Engineering](./domains/software_systems_engineering.md) | 19 |
+| [Software & Systems Engineering](./domains/software_systems_engineering.md) | 21 |
 | [Mechanical & Aerospace Engineering](./domains/mechanical_aerospace_engineering.md) | 12 |
 | [Energy Systems](./domains/energy_systems.md) | 5 |
 | [Civil & Structural Engineering](./domains/civil_structural_engineering.md) | 30 |
@@ -171,14 +171,14 @@ Activity 页跟着 agent 实际完成的工作走。它是在搜文献、跑 sim
 | Activity | 涵盖内容 | Works |
 |---|---|--:|
 | [科学问题求解与推理](./activities/scientific_problem_solving_reasoning.md) | 科学问答、推导、证明、定量与多模态问题求解、诊断推理 | 94 |
-| [科学软件与工作流工程](./activities/scientific_software_workflow_engineering.md) | 科学/工程代码、仓库与流水线工程、HDL 与形式化规约代码 | 74 |
+| [科学软件与工作流工程](./activities/scientific_software_workflow_engineering.md) | 科学/工程代码、仓库与流水线工程、HDL 与形式化规约代码 | 75 |
 | [数据分析与统计推断](./activities/data_analysis_statistical_inference.md) | 统计分析与推断、生物信息学/组学分析、数据解读 | 45 |
-| [实验设计与科学发现](./activities/experiment_design_discovery.md) | 实验与观测规划、假设生成、规律发现 | 25 |
+| [实验设计与科学发现](./activities/experiment_design_discovery.md) | 实验与观测规划、假设生成、规律发现 | 26 |
 | [模拟与科学计算](./activities/simulation_scientific_computing.md) | 数值模拟、PDE/FEM、MD/DFT、运行与构建科学模拟器 | 35 |
-| [文献检索与证据综合](./activities/literature_evidence_synthesis.md) | 文献检索、系统综述、证据综合、以文献为依托的抽取 | 23 |
-| [建模与预测](./activities/modeling_prediction.md) | 预测与代理建模、性质预测、预报 | 22 |
+| [文献检索与证据综合](./activities/literature_evidence_synthesis.md) | 文献检索、系统综述、证据综合、以文献为依托的抽取 | 24 |
+| [建模与预测](./activities/modeling_prediction.md) | 预测与代理建模、性质预测、预报 | 23 |
 | [优化与工程设计](./activities/optimization_engineering_design.md) | 参数与控制器调优、工程/逆向设计、材料与分子设计 | 27 |
-| [研究复现与重复](./activities/research_reproduction_replication.md) | 复现已发表的分析、结果与方法；匹配已报告的结论 | 12 |
+| [研究复现与重复](./activities/research_reproduction_replication.md) | 复现已发表的分析、结果与方法；匹配已报告的结论 | 13 |
 | [端到端研究](./activities/end_to_end_research.md) | 跨越多个主要阶段的多阶段研究生命周期 | 11 |
 | [实验室与仪器控制](./activities/laboratory_instrument_control.md) | 仪器、显微镜与光束线控制、实验室自动化、行为定义的控制代码 | 3 |
 
@@ -190,7 +190,7 @@ Activity 页跟着 agent 实际完成的工作走。它是在搜文献、跑 sim
 
 一篇论文有 benchmark 分数，不等于它自动进入范围。如果 evaluation 只在最后的 results table 里出现，纯 training、optimization、data、memory 或 multi-agent work 仍然不收。具体判断时看这几件事：evaluation 有没有定义 objective，提供 feedback，选择 intervention，诊断 failure，或直接成为 experiment environment。
 
-"Works" 比 "benchmarks" 更广：集合中收录 benchmark、评估方法学、评估框架、面向评估的 RL 工作、综述与立场论文的卡片，每张卡片都会显式标注类型。目前共有 **387 张卡片**、**15 个 topic 页**、**19 个 domain 页**、**11 个 activity 页**，并在 [`zh/`](./README.md) 下配有中文镜像。
+"Works" 比 "benchmarks" 更广：集合中收录 benchmark、评估方法学、评估框架、面向评估的 RL 工作、综述与立场论文的卡片，每张卡片都会显式标注类型。目前共有 **393 张卡片**、**15 个 topic 页**、**19 个 domain 页**、**11 个 activity 页**，并在 [`zh/`](./README.md) 下配有中文镜像。
 
 ---
 

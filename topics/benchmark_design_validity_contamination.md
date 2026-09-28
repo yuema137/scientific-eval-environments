@@ -28,6 +28,8 @@ Clean arithmetic does not rescue a bad measurement. Memorized tasks inflate capa
 - **Reproducible tools as a validity condition.** [AstaBench](../works/astabench.md) states five principles for benchmarking agents and builds the suite to them: corpus tools restricted to papers predating benchmark creation so later publications cannot contaminate results, one standard task interface, and a leaderboard where openness and tooling are declared alongside every score.
 - **Guarding the run, not just the task set.** [EXP-Bench](../works/exp-bench.md) screens agent logs for disallowed behavior — reading the source paper, Git operations, fabricated data — before any grading happens, and splits each task into individually gradable subtasks so per-aspect credit never stands in for end-to-end success.
 
+[FORESIGHT-9](../works/foresight-9.md) constructs alternative futures instead of replaying one realized market history. This controls the information boundary and scenario variation, but does not make its scenarios a calibrated distribution of future markets.
+
 ## Comparison
 
 | Work | Task source | Validity intervention | Verification | Refresh model |
@@ -41,6 +43,7 @@ Clean arithmetic does not rescue a bad measurement. Memorized tasks inflate capa
 | AstaBench | 11 benchmarks: 7 author-created (4 previously unreleased), the rest adapted | Five stated benchmarking principles; corpus tools cut off at benchmark-creation date; openness and tooling declared per leaderboard entry | Per-benchmark metrics with normalized cost; 6 of the 11 use LLM judges | New benchmarks and new cutoffs at each suite revision |
 | EXP-Bench | 461 tasks from 51 NeurIPS/ICLR 2024 papers and their repositories | Impact-based filtering, multi-pass extraction, human validation; run-time monitor for source-paper access and fabricated data | Containerized execution plus LLM judges over 12,737 gradable subtasks | New paper cohorts through the same pipeline |
 | HeurekaBench | Published studies paired with their code repositories | Two frontier models discard questions answerable without the data; manual pass removes hallucinations, duplicates, and non-validated components | Ground truth verified against the study's reported findings; judge checked against 11 experts | New studies re-run through the pipeline |
+| [FORESIGHT-9](../works/foresight-9.md) | Nine scenario manifests | Counterfactual futures and time-gated observations | Deterministic paths; outcome and process audits | Fixed documented scenario set |
 
 ## Open Questions
 
@@ -52,6 +55,7 @@ Clean arithmetic does not rescue a bad measurement. Memorized tasks inflate capa
 
 ## Related Works
 
+- [FORESIGHT-9](../works/foresight-9.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [ASI-Bench](../works/asi-bench.md)
 - [OnePot-Bench](../works/onepot-bench.md)

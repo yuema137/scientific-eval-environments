@@ -11,7 +11,7 @@
 | Work | 年份 | 科学问题 | 任务形式与规模 | 领域内验证 | Card |
 |---|---|---|---|---|---|
 | CFDLLMBench | 2025 | 三个深度上的计算流体力学：研究生水平知识（CFDQuery）、用 Python 数值求解给定 PDE（CFDCodeBench）、端到端 OpenFOAM 算例配置与执行（FoamBench）。 | 240 个任务：90 道专家整理的选择题、24 个 PDE 求解器编程题、126 个 OpenFOAM 算例（110 个由 tutorial 派生 + 16 个刻意不同于任何 tutorial 的专家手工算例）。 | 执行加对照参考解的分档归一化误差（NMSE），以及网格与时间步细化下的显式收敛检查；接受任何有效的数值方法。 | [→](../works/cfdllmbench.md) |
-| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Engineering Sciences 分组下的机械工程任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Engineering Sciences 分组下的机械工程任务。 | 容器化终端任务（0.1 版五大分组共 70 个；未报告本领域数量），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | SimBench | 2024 | 在 Chrono 仿真器中为多体动力学、FEA、车辆动力学、机器人动力学与传感器仿真生成数字孪生。 | 34 个物理系统上 102 个演示任务（官方仓库），经多轮对话构建；比较 33+ 个 LLM。 | 带预定义规则与人在环指导的 LLM judge 评分。 | [→](../works/simbench.md) |
 | FEM-Bench | 2025 | 为计算力学问题——力、变形、约束——编写有限元函数与单元测试。 | 与研究生课程对齐的 33 个任务、两条赛道，每个模型-任务对五次尝试。 | 客观验证；测试编写用 Average Joint Success Rate。 | [→](../works/fem-bench.md) |
 | RealPDEBench | 2026 | 基于与数值模拟配对的真实测量数据，预测流体与热工程系统——流固耦合、圆柱与翼型绕流、燃烧。 | 五个真实测量数据集配成对模拟与三类真实-模拟对比任务；评估科学 ML 代理模型而非 LLM agent。 | 十个基线上的八项数据导向与物理导向指标。 | [→](../works/realpdebench.md) |
@@ -65,6 +65,7 @@
 跨领域套件的行按本领域的切片来写，与上面的 Comparison 表一致。
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | CFDLLMBench | CFD, THERM | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ◐ | 3 | 2 | 3 | **9** |
 | EngDesign | MECH, SOL | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✔ | ✘ | 3 | 1 | 3 | **8** |
 | SoM-1K | SOL | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ◐ | ✘ | 3 | 3 | 4 | **10.5** |
@@ -73,14 +74,13 @@
 | SciConvBench | FLU, SOL | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✔ | ◐ | 1 | ? | 3 | **5.5** |
 | AInsteinBench | CFD | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 3 | ? | 2 | **5.5** |
 | FEABench | MULTI, FEA | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 2 | ? | 3 | **5** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | RealPDEBench | FLU, THERM | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | ERI Benchmark | GEN, AERO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✔ | 2 | 3 | 3 | **10** |
 | FEM-Bench | FEA, SOL | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ◐ | ✘ | ◐ | 3 | 1 | 2 | **7** |
 
 Repository note: 有一行不属于其余各列所预设的 agent 场景。RealPDEBench 评的是科学机器学习代理模型而非 agent，其"任务设定"几列描述的是一套离线训练与评测流程。
 
-Repository note: 本页有一半的行在 `Net` 上是未知，12 行里占 6 行，因为来源始终没说 agent 能否连到实时网络。`Scale` 有 3 行是 `?`，成因和别的页不同：不是缺少逐领域拆分，而是压根没有数量。SciConvBench、AInsteinBench、FEABench 都只描述了任务形态，没说一共有多少个任务。本页 `Real` 上唯一的未知是 Terminal-Bench Science。
+Repository note: 跨领域套件的总题数不能代替本领域数量。Terminal-Bench Science 已发布 0.1 版、共 70 题，但已核对的发布说明没有给出本页细分领域的任务数，因此 Scale 保留为 ?。其他 ? 同样表示来源尚未明确说明，并非否定该项能力。
 
 ## Related Works
 

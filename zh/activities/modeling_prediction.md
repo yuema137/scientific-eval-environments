@@ -44,9 +44,11 @@
 | Stargazer | 2026 | 迭代式为 RV 序列拟合 Keplerian 轨道模型 | 120 个任务（100 个合成 3 个层级 + 20 个真实），REPL 反馈 | 逐项通过/未通过；Easy 80% 到 Hard 5.8%，真实数据 0% | [卡片](../works/stargazer.md) |
 | VESTA / DAWN | 2026 | 对分布模型与时间序列模型提出假设、拟合并修正 | 400 个任务；工具箱在回合中逐步扩充，图件以视觉方式回读 | 拟合用 Jensen–Shannon 散度，时间序列用 ELPD-LOO | [卡片](../works/vesta-dawn.md) |
 | AutoWorldModel-Bench | 2026 | 改进一个学习得到的世界模型对实体动力学的前向预测 | 八个游戏环境统一采用共享的结构化状态张量格式，感知被移除 | 留出集上 Position L1 与 Alive F1 在 1/10/20 三个时程上的组合，权重 0.1/0.2/0.7 | [卡片](../works/autoworldmodel-bench.md) |
+| [HarnessDev](../works/harnessdev.md) | 2026 | 构建能训练竞赛模型的 harness | 75 个 MLE-bench 竞赛；冻结生成的 harness | 按竞赛奖牌标准评估提交 | [HarnessDev](../works/harnessdev.md) |
 
 ## Related Works
 
+- [HarnessDev](../works/harnessdev.md)
 - [DSAgentBench](../works/dsagentbench.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)
 - [onepot-Bench 0](../works/onepot-bench.md)

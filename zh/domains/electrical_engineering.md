@@ -10,7 +10,7 @@
 
 | Work | 年份 | 科学问题 | 任务形式与规模 | 领域内验证 | Card |
 |---|---|---|---|---|---|
-| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Engineering Sciences 分组下的电气工程任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Engineering Sciences 分组下的电气工程任务。 | 容器化终端任务（0.1 版五大分组共 70 个；未报告本领域数量），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | VerilogEval | 2023 | 生成满足功能规格的 Verilog RTL。 | 156 个 HDLBits 问题；LLM 生成 RTL，经与参考解仿真检验。 | 与参考解仿真对比的功能正确性；pass@k。 | [→](../works/verilogeval.md) |
 | RTLLM | 2023 | 从自然语言指令生成完整设计级 RTL。 | 29 个手工设计（v2.0 为 50 个），按三个递进目标判分。 | 语法、功能、设计质量目标；在 GPT-3.5 上评估 self-planning 提示。 | [→](../works/rtllm.md) |
 | RTL-Repo | 2024 | 补全契合大型多文件设计项目的 Verilog 代码。 | 4,000+ 来自公开 GitHub 的 Verilog 样本，每个附完整仓库上下文。 | 相对参考补全的编辑相似度与精确匹配。 | [→](../works/rtl-repo.md) |
@@ -72,6 +72,7 @@
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | PDAgent-Bench | EDA | ✘ | ✘ | ◐ | ◐ | ✘ | ✔ | ✔ | **3** | ✘ | ✔ | ◐ | 2 | 2 | 3 | **8.5** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | EngDesign | CTRL, DIG, ANA, SS | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ✘ | ◐ | ✔ | 3 | 1 | 3 | **8.5** |
 | AnalogXpert | ANA | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✔ | **1.5** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | ControlAgent / ControlEval | CTRL | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ✘ | 3 | 2 | 1 | **6.5** |
@@ -79,7 +80,6 @@
 | EEE-Bench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✘ | ✘ | 2 | 3 | 4 | **9** |
 | AssertionBench | VER | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 2 | 2 | **7** |
 | AnalogCoder | ANA | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 1 | 2 | **6** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | CVDP | DIG, VER | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **0.5** | ✘ | ✘ | ✔ | 2 | 2 | 3 | **8** |
 | FVEval | VER | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | **0.5** | ◐ | ✘ | ◐ | 3 | 2 | 2 | **8** |
 | MMCircuitEval | DIG, ANA, EDA | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | **0.5** | ✘ | ✘ | ✘ | 2 | 3 | 3 | **8** |

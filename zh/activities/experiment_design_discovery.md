@@ -49,9 +49,11 @@
 | Apodex Discovery | 2026 | 在带隐藏验证器的可执行环境中求解真实世界的发现问题 | 覆盖 561 个行业的调研从 423 个候选中选出 20 个问题；环境有状态，自带工具、数据与预算 | 隐藏验证器给出的结果，外加盲评的六维过程分；衣壳设计比已发表的最好水平高出 7% | [卡片](../works/apodex-discovery.md) |
 | DiscoveryBench | 2024 | 从数据中搜索并验证假设；发现目标由标准假设遮掉一个维度得到 | 取自 20 多篇已发表论文的 264 个真实任务外加 903 个合成任务；多数据集分析流程最长超过 20 步 | 一句在 context、variables、relationship 上与标准假设吻合的陈述句；生物学任务得分为 0% | [卡片](../works/discoverybench.md) |
 | InnovatorBench | 2025 | 自己提出方法、实现出来、跑实验，再依据返回的分数改进 | ResearchGym 中的 20 个 LLM 研究任务，每个 2-36 小时，最多四次计分提交 | 要超过锚定在 80 附近的隐藏参考解；最佳模型平均 24.01 | [卡片](../works/innovatorbench.md) |
+| [AgentIdeaBench](../works/agentideabench.md) | 2026 | 依据文献提出科学假设 | 固定参考文献与主动检索对比；40 个密集评分子领域 | 一段假设，由结合文献的评审模型评分 | [AgentIdeaBench](../works/agentideabench.md) |
 
 ## Related Works
 
+- [AgentIdeaBench](../works/agentideabench.md)
 - [Apodex Discovery](../works/apodex-discovery.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)
 - [AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation](../works/ai-assisting-research-ii-project-planning.md)

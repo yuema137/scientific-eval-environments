@@ -25,6 +25,10 @@ A benchmark observes the whole model–harness configuration. If two systems use
 - **Post-training configurations.** [PostTrainBench](../works/posttrainbench.md) compares agents through multiple CLI scaffolds under the same GPU-time protocol.
 - **Tooling held fixed, and declared when it is not.** [AstaBench](../works/astabench.md) serves every agent the same date-restricted literature tools and the same sandboxed notebook, puts 16 agent classes behind one Inspect-compatible task interface so a general agent needs no per-benchmark adaptation, and labels each leaderboard entry as using the standard tools, an equivalent custom interface, or fully custom tooling. A score gap can then be read against what the harness supplied rather than credited to the model by default.
 
+[EvoHarnessBench](../works/evoharnessbench.md) holds earlier task instances fixed while expanding the available harness. Retesting them distinguishes loss caused by a larger capability menu from the separate question of whether adaptation helps with newly introduced tasks.
+
+[HarnessDev](../works/harnessdev.md) separates the model that writes a harness from the model that runs it. Hidden tasks test whether feedback-driven changes generalize; its token metric counts execution, not development.
+
 ## Comparison
 
 | Work | Harness role | Controlled variables | Evaluation feedback | Outcome |
@@ -36,6 +40,8 @@ A benchmark observes the whole model–harness configuration. If two systems use
 | VeRO | Arbitrary programmatic harness | Permissions, versions, budgets | Standardized observation interface | Expected lift |
 | Curation-Bench | Research scaffold | Model, recipe, evaluator | Per-iteration benchmark results | Better data policy |
 | AstaBench | Confounder to standardize and declare | Tools, corpus date cutoffs, task interface, cost accounting | Suite score with cost, openness and tooling category | Model-harness comparison at stated tool parity |
+| [EvoHarnessBench](../works/evoharnessbench.md) | Cumulative tools, skills, specialist pools | Earlier tasks fixed; model weights fixed | Held-out verifiers; separate adaptation split | Retention and adaptation tracked separately |
+| [HarnessDev](../works/harnessdev.md) | Created and evolved runnable artifact | Separate creator/executor; frozen harness | Feedback sets versus hidden tasks | Creation quality, regression, executor transfer |
 
 ## Open Questions
 
@@ -47,6 +53,8 @@ A benchmark observes the whole model–harness configuration. If two systems use
 
 ## Related Works
 
+- [EvoHarnessBench](../works/evoharnessbench.md)
+- [HarnessDev](../works/harnessdev.md)
 - [Evo-Bench](../works/evo-bench.md)
 - [HarnessOpt-Bench](../works/harnessopt-bench.md)
 - [RigorBench](../works/rigorbench.md)

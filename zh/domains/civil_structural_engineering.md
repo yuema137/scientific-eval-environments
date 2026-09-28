@@ -10,7 +10,7 @@
 
 | Work | 年份 | 科学问题 | 任务形式与规模 | 领域内验证 | Card |
 |---|---|---|---|---|---|
-| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Engineering Sciences 分组下的土木工程任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Engineering Sciences 分组下的土木工程任务。 | 容器化终端任务（0.1 版五大分组共 70 个；未报告本领域数量），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | StructureClaw | 2026 | 把结构工程任务从建模一路做到验证、求解与规范校核。 | 以工件为中心的 agent 工作台上的 150 个受控场景（标准、交互、多模态重构）。 | 严格结构模型匹配加与冻结参考求解器响应的数值一致；所有断言须通过（E2E Success）。 | [→](../works/structureclaw.md) |
 | ERI Benchmark | 2026 | 土木工程是其覆盖的九个领域之一，下设七个子领域：静力学、材料力学、结构分析、钢结构与混凝土设计、岩土工程、结构动力学与施工管理。 | 按「领域 × 子领域 × 意图 × 难度」的受控组合生成 57,750 条指令–回答记录（共 1,155 种组合，每种 50 对），各领域的均分单独报告。 | 先由自动检查筛出拒答、缺最终答案与可机器解析的约束违规，再由三家厂商的模型组成评审团（Claude Haiku 4.5、GPT-4.1 Mini、Mistral Small 3）按 rubric 打分并逐题取均值。 | [→](../works/eri-benchmark.md) |
 | A Large Language Model-Empowered Agent for Reliable and Robust Structural Analysis | 2026 | 静定梁的静力平衡分析——支座反力的大小与方向，扩展任务还要求给出剪力图与弯矩图。 | 8 道题：两种 10 m 梁型（简支梁；跨中带滚轴的外伸梁）与四种荷载工况交叉组合，另加三道留出的扩展梁题；每种配置采样 500 次。 | 可靠性（500 次相同运行中答对的比例）与鲁棒性（荷载沿梁以 1 m 为步长扫掠时的 (1 + CV)⁻¹），在同一批题目上分别对裸 LLM 和生成 OpenSeesPy 代码的 agent 计算。 | [→](../works/a-large-language-model-empowered-agent-for-reliabl.md) |
@@ -92,6 +92,7 @@
 | StructureClaw | STRUC, CODE | ? | ✘ | ◐ | ◐ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ✘ | 3 | 2 | 3 | **8.5** |
 | MMArch | STRUC, SEIS, INSP, BIM | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✔ | ✘ | ◐ | 3 | ? | 3 | **7.5** |
 | Large Language Model-Based Multi-Agent Systems for Automated Foundation Design | GEO | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✘ | 0 | 1 | 3 | **5** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | Agentic Large Language Models for Automated Structural Analysis of 3D Frame Systems | STRUC | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ✘ | 3 | 1 | 4 | **8.5** |
 | LLM-EPANET | HYD | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ✘ | 3 | 1 | 4 | **8.5** |
 | EngDesign | STRUC, SDES | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✔ | ✘ | 3 | 1 | 3 | **8** |
@@ -101,7 +102,6 @@
 | A Lightweight Large Language Model-Based Multi-Agent System for 2D Frame Structural Analysis | STRUC | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 1 | 4 | **8** |
 | TRIP-Evaluate | TRAN | ✘ | ✘ | ✘ | ✔ | ✘ | ? | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
 | PE Civil Bench | GEN, SDES | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 2 | 2 | 1 | **5.5** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | AutoBM / BMEval | STRUC, SEIS, CODE | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **0.5** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
 | Automating Structural Reliability Analysis with a Multi-Agent Large Language Model Framework | REL, STRUC, GEO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **0.5** | ◐ | ✘ | ✘ | 3 | 1 | 4 | **8.5** |
 | A Large Language Model-Empowered Agent for Reliable and Robust Structural Analysis | STRUC | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **0.5** | ✘ | ✘ | ✘ | 3 | 1 | 4 | **8** |

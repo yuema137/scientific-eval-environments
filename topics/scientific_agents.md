@@ -24,7 +24,7 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 - **End-to-end research lifecycle.** [AIRS-Bench](../works/airs-bench.md) provides 20 frontier research-science tasks without baseline code, requiring agents to construct workflows from scratch across language modeling, mathematics, bioinformatics, and time-series forecasting.
 - **Real research scenarios across scales.** [SciAgentArena](../works/sciagentarena.md) provides ~200 tasks from real-world scientific research scenarios with stepwise verification in an agent-agnostic environment, reporting that agents handle structured data-analysis workflows but struggle with novel insights, self-directed exploration, and open-ended questions.
 - **A gymnasium of scientific environments.** [Aviary](../works/aviary.md) provides an extensible gymnasium of language-agent environments, three of them scientific (molecular cloning, scientific-literature research, protein engineering); its environments are reusable evaluation surfaces, though the paper's headline is a training framework rather than an evaluation contribution.
-- **Cost-aware scientific simulation.** [SimulCost](../works/simulcost.md) extends cost-aware evaluation to physics-simulation parameter tuning across 13 simulators, explicitly accounting for simulation-time and experimental-resource costs.
+- **Cost-aware scientific simulation.** [SimulCost](../works/simulcost.md) extends cost-aware evaluation to physics-simulation parameter tuning across 11 analytically costed simulators, plus a separate EPOCH wall-clock study, explicitly accounting for simulation-time and experimental-resource costs.
 - **Clinician-validated medical evaluation.** [MedHELM](../works/medhelm.md) extends Stanford CRFM's HELM to medical tasks with a 121-task clinician-validated taxonomy, aggregation across 35 benchmarks, and an LLM-jury evaluation methodology whose agreement against clinician ratings (ICC = 0.47) is explicitly measured.
 - **Generated rather than authored benchmarks.** [HeurekaBench](../works/heurekabench.md) contributes a semi-automated pipeline that derives open-ended research questions from published studies and their code repositories, verifying candidate answers against the findings those studies reported. Its single-cell instantiation holds 50 open-ended and 50 multiple-choice questions from 41 insights across 13 papers, and the strongest existing agent reaches 2.34 out of 5 on open-ended correctness.
 - **Simulation-grounded grading validity.** [GeneBench-Pro](../works/genebench-pro.md) builds 129 multistage genomics and quantitative-biology problems on constructively simulated data-generating processes rather than real datasets, so that a failure is attributable to a scientific error rather than to one of several defensible analyst choices. Each problem hides 3 to 13 dependent decision points and is graded by a single binary pass on the decision-relevant number; the best configuration measured reaches 28.7%.
@@ -207,6 +207,8 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 - **Real scientific databases where the operative criterion is unstated.** [BiomedSQL](../works/biomedsql.md) grounds 68,000 question / SQL / answer triples in a production BigQuery store of neurodegenerative-disease genetics and drug-approval records, writing questions so that the binding filter — genome-wide significance, effect direction, which trial phases count as approved — must be supplied by the model; every configuration falls roughly 27 points short of a measured two-analyst baseline. [AISE-Bench](../works/aise-bench.md) targets the scholarly graph instead, and annotates the plan and the validated API parameters alongside the answer, so a correct answer reached through a wrong plan is visible.
 - **A rubric tree in place of a monolithic judge.** [RubricsTree](../works/rubricstree.md) decomposes open-ended personal-health-agent evaluation top-down into more than 100 atomic Boolean leaf rubrics that a physician can verify individually, activating only the query-relevant subset through a context-aware router; agreement with an expert panel is ICC₃ = 0.876 and κ = 0.787 against 0.291 and 0.431 for a principle-based baseline, and the same rubrics are re-used as instructions, feedback, and training rewards.
 
+Two additions expose stages hidden by a final research artifact. [AgentIdeaBench](../works/agentideabench.md) changes who gathers literature before a hypothesis is written; [AgentActionBench](../works/agentactionbench.md) checks the actions that produced a reproduction. Neither a plausible proposal nor a plausible repository alone establishes a successful experiment.
+
 ## Comparison
 
 | Benchmark | Year | Task source | Scientific scope | Verification | Card |
@@ -217,7 +219,7 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 | AIRS-Bench | 2026 | Frontier research-science tasks | LM / math / bioinformatics / time-series | End-to-end research-lifecycle scoring | [→](../works/airs-bench.md) |
 | SciAgentArena | 2026 | ~200 real research-scenario tasks | Biomedical: 5 fields (molecular → population) | Per-domain stepwise verification (execution + expert criteria) | [→](../works/sciagentarena.md) |
 | Aviary | 2024 | 5-environment gymnasium (3 scientific) | Molecular biology (cloning / protein) + literature | Per-environment task success in POMDP environments | [→](../works/aviary.md) |
-| SimulCost | 2026 | Parameter tuning across 13 simulators | Physics simulation | Success rate under budget; comparison against traditional methods | [→](../works/simulcost.md) |
+| SimulCost | 2026 | Parameter tuning across 11 analytically costed simulators, plus a separate EPOCH wall-clock study | Physics simulation | Success rate under budget; comparison against traditional methods | [→](../works/simulcost.md) |
 | MedHELM | 2025 | Clinician-designed taxonomy (29 clinicians) | Medical / clinical | LLM-jury (ICC = 0.47 vs clinicians); aggregation across 35 benchmarks | [→](../works/medhelm.md) |
 | HeurekaBench | 2026 | Semi-automated pipeline over published studies and their code repositories | Single-cell biology (pipeline presented as domain-general) | G-Eval LLM judge (GPT-4o, 1–5) against published findings | [→](../works/heurekabench.md) |
 | GeneBench-Pro | 2026 | Constructively simulated data-generating processes | Genomics / quantitative biology / translational biomedicine | Binary match to recoverable targets under calibrated tolerances | [→](../works/genebench-pro.md) |
@@ -461,6 +463,8 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 | DiscoveryBench | 2024 | DB-Real replicated in Python from 20+ published papers and author-verified; DB-Synth generated from hypothesis semantic trees | Data-driven discovery across sociology, biology, humanities, economics, engineering and meta-science | GPT-4 Hypothesis Matching Score over context, variables and relationship; agrees with human preference rankings 95% of the time (Fleiss κ = 0.91) | [→](../works/discoverybench.md) |
 | InnovatorBench | 2025 | 20 tasks from 14 NeurIPS / ICLR / COLM / EMNLP / ACL papers, each starter repository stripped of the paper's key implementation | LLM research: data construction, filtering and augmentation, loss design, reward design, scaffold construction | Deterministic external scoring scripts calibrated so a baseline anchors near 0 and the paper's own reference solution near 80 | [→](../works/innovatorbench.md) |
 | AI-Researcher | 2025 | 22 target papers (2022-2024) chosen by keyword and citation filtering, with method names, technical detail and citations anonymized | Diffusion models, vector quantization, graph neural networks, recommender systems | Code-review agent for completeness and 5-point correctness, plus order-swapped pairwise LLM review against the human paper (-3 to +3); reviewer validated at 65.62-90.62% on 32 ICLR accept/reject pairs | [→](../works/ai-researcher.md) |
+| [AgentIdeaBench](../works/agentideabench.md) | 2026 | Curated research literature | Five disciplines; hypothesis generation | Literature-grounded model critics | [AgentIdeaBench](../works/agentideabench.md) |
+| [AgentActionBench](../works/agentactionbench.md) | 2026 | 150 published papers | 120 ML + 30 AI4Science papers | Weighted rubrics judged against action logs | [AgentActionBench](../works/agentactionbench.md) |
 
 ## Open Questions
 
@@ -472,6 +476,7 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 
 ## Related Works
 
+- [AgentIdeaBench](../works/agentideabench.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [ASI-Bench](../works/asi-bench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
@@ -544,6 +549,7 @@ Scientific work changes both the task and the evaluator. A simulation or experim
 - [TRIP-Evaluate](../works/trip-evaluate.md)
 - [AutoResearchBench](../works/autoresearchbench.md)
 - [Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [Stargazer](../works/stargazer.md)
 - [PRL-Bench](../works/prl-bench.md)
 - [Frontier-Eng](../works/frontier-eng.md)

@@ -11,7 +11,7 @@ Neuroscience together with psychology and cognitive science.
 | Work | Year | Scientific problem | Task form & scale | Domain verification | Card |
 |---|---|---|---|---|---|
 | ScienceAgentBench | 2024 | Psychology & Cognitive Science tasks — 28 of its 102 — extracted from peer-reviewed data-driven discovery workflows. | Each task requires generating a self-contained Python program reproducing an analysis from a real publication. | Valid execution plus task-specific hand-written success checkers against expert-annotated references; figure outputs judged by GPT-4o. | [→](../works/scienceagentbench.md) |
-| Terminal-Bench Science | 2026 | Neuroscience tasks within the Life Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (8 at launch across all five tracks, target 100+), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | Neuroscience tasks within the Life Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (70 in version 0.1 across all five tracks; per-domain counts unreported), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | Re-discover the findings of a hidden published paper from a task description, related literature, and raw data — Neuroscience is one of its ten domains (40 tasks total). | End-to-end autonomous research tasks, each grounded in a real publication kept hidden during evaluation; the agent produces a final research report. | Reference-Anchored Discovery Score (0–100; 50 = reference-level evidence) against expert-curated multimodal rubrics anchored to the hidden paper's artifacts, judged by GPT-5.1. | [→](../works/researchclawbench.md) |
 | MetaSyn | 2026 | Conduct protocol-faithful systematic review and meta-analysis; psychology is among the subjects its 422 expert-curated meta-analyses span. | Multi-stage systematic-review workflows: identify the eligible studies for a research question with structured PI/ECO criteria within a shared PubMed-anchored corpus containing ineligible distractors. | Study identification against the original expert reviewers' included set, with stage-wise evaluation locating failures along the meta-analysis pipeline. | [→](../works/metasyn.md) |
 | BrainBench | 2024 | Predict the outcomes of neuroscience experiments: distinguish real from result-altered abstracts across five Journal of Neuroscience sections. | 200 original-vs-altered abstract pairs (official dataset); static two-alternative forced choice. | Perplexity-based choice for LLMs; human experts with confidence and expertise ratings; calibration analyzed. | [→](../works/brainbench.md) |
@@ -74,13 +74,13 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Rodent-Bench | BEH | ✘ | ✘ | ◐ | ✔ | ✘ | ✔ | ✘ | **2.5** | ✘ | ✘ | ◐ | 3 | 2 | 2 | **7.5** |
 | MetaSyn | PSY, MH | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | **2.5** | ◐ | ✘ | ◐ | 2 | 1 | 3 | **7** |
 | BrainBench | COG, SYS, CELL, DIS, DEV | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ✔ | ✘ | ✔ | 3 | 2 | 3 | **10** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ? | ? | ? | ✔ | **2** | ✘ | ✘ | ◐ | 3 | ? | 0 | **3.5** |
 | MiraMind | MH, CLIN | ? | ✘ | ✘ | ✘ | ◐ | ✔ | ✘ | **1.5** | ✘ | ✔ | ◐ | 2 | 3 | 2 | **8.5** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ? | ? | ? | ✔ | **1** | ✘ | ✘ | ◐ | 3 | 0 | 0 | **3.5** |
 | ConceptPsy | PSY | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 3 | 3 | 3 | **10** |
 | CPsyExam | PSY, CLIN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 2 | 3 | 2 | **7.5** |
 | PsychCounsel-Bench | CLIN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 3 | 3 | 1 | **7.5** |
 
-Repository note: the unknowns are few, and they attach to individual works rather than to a column. `Net` is `?` on 4 of the 13 rows. `Contam` is `?` on two, the Neuroscience Data-to-Discovery Case Study and BrainBench (EEG), where the source does not say whether anything keeps the answer out of a pretraining corpus. Terminal-Bench Science alone accounts for four cells — `Net`, `MM`, `Repro` and `Real` — and the page's only `Scale` unknown is ResearchClawBench, whose 40 tasks are never broken down by field.
+Repository note: a suite-wide total does not establish this domain’s item count. Terminal-Bench Science 0.1 contains 70 tasks, but the reviewed release announcement does not give the count for this page’s domain, so Scale remains ?. Other ? marks likewise record an evidence gap rather than an absent capability.
 
 ## Related Works
 

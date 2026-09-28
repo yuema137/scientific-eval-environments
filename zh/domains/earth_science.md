@@ -12,7 +12,7 @@
 |---|---|---|---|---|---|
 | GeoNatureAgent Benchmark | 2026 | 通过对生产级 API 的结构化工具调用，对西班牙与葡萄牙做环境地理空间分析；API 经 16 个工具提供三类环境指标。 | 93 个任务、18 个类别：市镇分析、空间推理、跨指标综合、多语言查询，以及必须婉拒的刻意不可解任务。 | 每案例八项机械检查——期望的工具调用、必含/禁含关键词、数值容差（±2 个百分点）、图表产出、轮次预算——不用 LLM judge。 | [→](../works/geonatureagent-benchmark.md) |
 | ScienceAgentBench | 2024 | 地理信息科学任务——其 102 个任务中的 27 个——提取自经同行评审的数据驱动发现工作流。 | 每个任务要求生成一个自包含的 Python 程序，复现真实论文中的分析。 | 有效执行加逐任务手写的成功检查器，对照专家标注参考；图形输出由 GPT-4o 评判。 | [→](../works/scienceagentbench.md) |
-| Terminal-Bench Science | 2026 | 其五大分组中 Earth Sciences 分组下的大气、环境、地质与海洋科学任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | 其五大分组中 Earth Sciences 分组下的大气、环境、地质与海洋科学任务。 | 容器化终端任务（0.1 版五大分组共 70 个；未报告本领域数量），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Earth 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文工件的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
 | HydroAgent | 2026 | 率定美国国家气象局用于山洪预报的业务化 CREST 分布式水文模型。 | 在流域面积 329–40,792 km² 的四个留出测站上迭代「模拟-调整」率定，二十轮取最优；九个前沿 agent。 | 留出测站上对照人类专家率定参照的 Nash–Sutcliffe 效率。 | [→](../works/hydroagent.md) |
 | SciVisAgentBench | 2026 | 地球系统科学数据的科学可视化与数据分析——其七个应用领域之一——把自然语言意图翻译为对多变量场及时变场的可执行可视化操作。 | 108 个专家精心设计的 SciVis 案例，横跨七个科学领域与 15 类可视化操作，通过 CLI、MCP 服务器与 Python API 在 ParaView、napari 等平台上运行。 | 以结果为中心的多模态管线，结合一个 MLLM judge（报告为 Claude-Opus-4.6；与人类评分 Pearson 0.808）与确定性评估器——图像指标（PSNR、SSIM、LPIPS）、代码检查器，以及基于规则/逐案例的验证器。 | [→](../works/scivisagentbench.md) |
@@ -73,12 +73,12 @@
 | DrBencher | GPH | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 1 | 1 | **6** |
 | HydroAgent | HYD | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✔ | ✘ | ✘ | 3 | 0 | 2 | **6** |
 | ScienceBoard | GIS | ? | ✘ | ✘ | ✔ | ✘ | ? | ✔ | **2** | ✔ | ✘ | ✘ | 3 | ? | 2 | **6** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | HiSciBench | GEN | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | ✘ | **1.5** | ✘ | ✔ | ✘ | 2 | 2 | 3 | **8** |
 | SciVQR | GEOL, HYD, CLI | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | Hydro-SE Bench | HYD, ATM | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 2 | ? | 3 | **5** |
 
-Repository note: 这一页只有 12 行，未知却很集中：`Net` 有 5 行是 `?`，`Scale` 也有 5 行。每一个 `Scale` 未知都是只报一个总数、不报地球科学那一块的套件：ResearchClawBench 的 40 个任务、SciVisAgentBench 横跨七个领域的 108 个案例、ScienceBoard 的 169 个计算机操作任务、SciVQR 覆盖六个学科的 3,254 道题，以及 Hydro-SE Bench 的 4,000 道题，后者按子领域的拆分只以图的形式给出。`Real` 上 ScienceBoard 和 Terminal-Bench Science 是 `?`。
+Repository note: 跨领域套件的总题数不能代替本领域数量。Terminal-Bench Science 已发布 0.1 版、共 70 题，但已核对的发布说明没有给出本页细分领域的任务数，因此 Scale 保留为 ?。其他 ? 同样表示来源尚未明确说明，并非否定该项能力。
 
 ## Related Works
 

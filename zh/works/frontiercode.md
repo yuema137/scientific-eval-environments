@@ -6,7 +6,7 @@
 
 ## Overview
 
-FrontierCode 是 Cognition 推出的业界 benchmark，自称首个测量「可合并性」（mergeability）的评测——维护者真的会合并这个 PR 吗？——任务由 20 余位资深开发者构建，每个任务投入超过 40 小时。目前没有配套论文（见 Limitations 中的 repository note）。
+FrontierCode 是 Cognition 的代码评测，检查 agent 提交的 pull request 是否达到维护者愿意合并的标准。来自 36 个开源仓库的维护者参与制定要求，评判范围超出测试是否通过。
 
 ## Topics
 
@@ -19,16 +19,19 @@ N/A — 通用型 agent 基准，未直接评估任何科学或研究活动。
 
 ## Links
 
-- **Project:** <https://cognition.com/frontiercode>
-- **Venue:** 业界 benchmark（Cognition）；无论文；当前版本 FrontierCode 1.1（2026-07-07）
+- **Project and leaderboard:** <https://cognition.com/frontiercode>
+- **Initial methodology:** <https://cognition.com/blog/frontier-code>
+- **Revision 1.1 (2026-07-07):** <https://cognition.com/blog/frontier-code-1.1>
+- **Opus 5.5 evaluation settings:** <https://www.anthropic.com/claude-opus-5-5>
+- **Venue:** 业界 benchmark；有官方方法说明，未找到配套论文。
 
 ## Summary
 
-FrontierCode 在真实开源仓库中由维护者撰写任务，对端到端代码质量打分——正确性、测试质量、范围克制、代码风格与对代码库规范的遵循——评分采用单元测试、评分标准与新型验证器的组合。联网访问仅限文档：凡查阅原始 pull request 等含解的来源的运行，都会被检测并记零分。
+Agent 收到代码仓库、简洁的任务描述和代码库规范，提交补丁后，由测试和审阅标准检查正确性、测试质量、改动范围及代码风格。1.1 版允许正常联网查资料，同时检测对含解上游材料的访问；团队还审计了超过 1,000 条 blocker 标准，放宽其中过严的 75 条。
 
 ## Tasks
 
-跨多个真实开源仓库、由维护者撰写的任务，由 20 余位资深开发者以每任务 40 小时以上的投入构建；具体任务数为 TODO(reference)。
+Extended 共 150 题，Main 取其中最难的 100 题。原来的 Diamond 含 50 题，1.1 版已将其停用：修订后它不再对应最难的任务，且过低的解出率使结果噪声较大。20 余位资深开发者参与任务编写和审阅，每题投入超过 40 小时。
 
 ## Domains
 
@@ -36,13 +39,15 @@ FrontierCode 在真实开源仓库中由维护者撰写任务，对端到端代�
 
 ## Evaluation
 
-- 以可合并性作为待测目标；用单元测试、评分标准与新型验证器的组合，对正确性、测试质量、范围克制、风格与代码库规范遵循打分。
-- 泄漏检测：查阅原始 pull request 等含解来源的运行记零分。
-- 具体分数只发布在交互式排行榜上；TODO(reference)。
+- 同时报告 blocker 通过率和加权 rubric 分数；初始协议规定未满足 blocker 要求的解得零分。单元测试及其他验证器与 rubric 结合，并经过对抗检查、校准和人工质量审阅。
+- 允许查询文档、API 和背景知识。公平联网提示与程序化扫描器检查含解的 PR、补丁、镜像及上游文件，违规运行记零分。
+- 初始协议在每个可用 reasoning effort 下运行五次，报告成绩最好的 effort 的均值；排行榜同时比较成本与速度。
+- 2026-09-27 核查：官方 Main 榜发布的数据中，Opus 5.5 以 54.6% 排第一，Opus 5 为 53.4%，GPT-6 Astra 为 53.3%。Changelog 于 9 月 22 日加入 Opus 5.5，方法版本仍为 1.1。
+- Anthropic 另行报告 Opus 5.5 在 max effort 下为 54.4%、medium 下为 54.6%；其 max-effort 表中 Opus 5 为 48.0%。不能把这个基线替换进取最佳 effort 的官方榜单比较。
 
 ## Typical Duration
 
-Pull request 量级的端到端编码任务；预算为 TODO(reference)。
+任务规模相当于一个 pull request。上述 40+ 小时是任务编写投入，不是 agent 运行时间；统一的单次运行时间预算为 TODO(reference)。
 
 ## Main Contribution
 
@@ -56,12 +61,13 @@ Pull request 量级的端到端编码任务；预算为 TODO(reference)。
 
 ## Strengths
 
-- 评估的是与部署直接相关的目标本身——维护者是否接受——而非代理指标。
-- 评估阶段有显式的防泄漏强制机制。
+维护者制定的接受标准能检查功能正确性之外的代码质量。明确的联网规则保留正常资料查询，同时检查解答泄漏。
 
 ## Limitations
 
-- Repository note: 卡片仅依据官方网站编写（2026 年 8 月）；FrontierCode 无配套论文，任务数、分数与方法学细节均为 TODO(reference)，本仓库对论文实施的两级内容校验在此无法完整执行。
+- Repository note: 分数受方法版本、reasoning effort 和执行设置影响；官方排行榜与模型厂商的结果表是不同快照。
+- Anthropic 的发布评测启用生产环境防护；相关任务触发防护时会使用旧模型接替。因此，不能把它理解为每一题都完全由 Opus 5.5 独立完成。
+- Repository note: 虽未找到常规论文，官方方法文章已提供任务规模与判分细节，不能据此把这些信息标成未知。
 
 ## Related Works
 

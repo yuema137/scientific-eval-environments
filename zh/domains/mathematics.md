@@ -17,7 +17,7 @@
 | FormalRewardBench | 2026 | 在源自 MiniF2F 的奥赛级代数、数论与组合上，判断偏好正确的 Lean 4 证明而非错误变体。 | 250 个偏好对；错误变体由五种专家整理的错误注入策略生成。 | 真值由 Lean 类型检查器确定；reward model 按 pointwise 与位置一致的 pairwise 准确率计分。 | [→](../works/formalrewardbench.md) |
 | MATP | 2025 | 把自然语言演绎推理的每一步自动形式化为一阶逻辑并交由自动定理证明器裁决。 | 10,830 个推理实例（1,083 个案例 × 10 个 LLM），取自 PrOntoQA-OOD、ProofWriter 与 FOLIO 的较难子集。 | 证明器对每一步及其否定给出 True / False / Unknown 判定；有效证明路径的存在性对照真值标签检验。 | [→](../works/matp.md) |
 | AIRS-Bench | 2026 | 其四个领域之一的数学中的前沿研究任务，覆盖完整研究生命周期，不提供基线代码。 | 套件共 20 个任务；agent 以 CSV 提交留出测试集上的预测。 | 基于执行、只看结果：任务专属评估脚本计分；SOTA 归一化分数，接近上限处用 'march of nines' 变换。 | [→](../works/airs-bench.md) |
-| Terminal-Bench Science | 2026 | 其五大分组中 Mathematical Sciences 分组下的应用数学、形式化数学、运筹学与统计任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | 其五大分组中 Mathematical Sciences 分组下的应用数学、形式化数学、运筹学与统计任务。 | 容器化终端任务（0.1 版五大分组共 70 个；未报告本领域数量），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Math 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文工件的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
 | SciCode | 2024 | 为科学家整理的问题编写科研代码；其 16 个自然科学子领域分属五大主领域，数学是其中之一。 | 80 个主问题分解为 338 个子问题，混合知识回忆、推理与代码合成。 | 对照科学家标注的金标准解与测试用例执行。 | [→](../works/scicode.md) |
 | HARDMath | 2024 | 在自动生成的应用数学问题上运用研究生水平的解析近似技术——渐近方法。 | 366 题的 HARDMath-mini 测试集加 40 道应用科学应用题；少样本思维链下的静态解题。 | 对照经数值验证的真值解计算准确率。 | [→](../works/hardmath.md) |
@@ -79,11 +79,11 @@
 | HiSciBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✔ | ✘ | 2 | 3 | 3 | **9** |
 | R³-Bench | OLYM | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
 | ScienceBoard | CAS, FORM | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | **2** | ✔ | ✘ | ✘ | 3 | ? | 3 | **7** |
+| Terminal-Bench Science | APP, FORM, OR, STAT | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | MATP | LOG | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ◐ | **1** | ✘ | ✘ | ✘ | 3 | 3 | 3 | **9** |
 | Pseudo-Formalization | OLYM, RES | ? | ✘ | ✘ | ✘ | ◐ | ◐ | ✘ | **1** | ✘ | ✘ | ◐ | 2 | 2 | 2 | **6.5** |
 | SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
 | TCS-Bench | TCS, RES | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | **1** | ✘ | ✘ | ✘ | 1 | 2 | 1 | **4** |
-| Terminal-Bench Science | APP, FORM, OR, STAT | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | PRMBench | OLYM | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✔ | ✘ | ◐ | 3 | 3 | 3 | **10.5** |
 | FormalRewardBench | FORM, OLYM | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 3 | 2 | 4 | **9.5** |
 | Hard2Verify | OLYM | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
@@ -92,7 +92,7 @@
 | SciCode | NUM, APP | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 3 | 1 | 1 | **6** |
 | PDE-Controller | PDE, CTRL | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | 1 | 2 | **6** |
 
-Repository note: `Net` 在 19 行里有 5 行是 `?`，`Scale` 有 4 行。这 4 个 `Scale` 未知全是只报一个总数、不给数学这一块的套件：ResearchClawBench 的 40 个任务、SciVisAgentBench 横跨七个领域的 108 个案例、ScienceBoard 的 169 个计算机操作任务，以及 SciVQR 覆盖六个学科的 3,254 道题。`Real` 上 SciVisAgentBench 和 Terminal-Bench Science 是 `?`。
+Repository note: 跨领域套件的总题数不能代替本领域数量。Terminal-Bench Science 已发布 0.1 版、共 70 题，但已核对的发布说明没有给出本页细分领域的任务数，因此 Scale 保留为 ?。其他 ? 同样表示来源尚未明确说明，并非否定该项能力。
 
 ## Related Works
 

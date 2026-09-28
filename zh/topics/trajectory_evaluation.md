@@ -63,6 +63,8 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - **每个实例都标注了金标准计划。** [AISE-Bench](../works/aise-bench.md) 把全部 1,133 个实例端到端地标注了一遍——查询、计划、实际执行的 API 调用及其经校验的参数、参考答案——于是过程指标有了金标准可依，而不必靠启发式：计划按与标注计划之间的图编辑距离评分，参数准确率则作为一等指标报告；多数被评方法虽然部分完成度很高，恰恰是在这里失分。
 - **当产物本身难以检查时，改用参考操作链。** [DrafterBench](../works/drafterbench.md) 为土木工程图纸修改评分的办法，是计算 agent 记录下来的操作链与参考操作链之间的交并比；配套的 dual function 只记录操作路径而不改动文件，因此修改后的 PDF 根本无需人眼查看。在它的 1,920 个任务里，指令质量是一个受控变量：措辞无结构、取值含糊、信息不全这三种情况可以各自独立开关，结果也按控制变量分别报告，于是轨迹得分的下滑能被归因到某一种具体的指令缺陷上。
 
+[AgentActionBench](../works/agentactionbench.md)把操作日志用作判分证据；[PTA-IRT](../works/pta-irt.md)利用历史轨迹减少后续评测量；[FORESIGHT-9](../works/foresight-9.md)核对系统声称的状态与实际执行。轨迹在这里分别服务于判分、选题和一致性诊断，各自需要验证的对象也不同。
+
 ## 方法对比
 
 | Work | Year | Trajectory 指标 | Domain | Card |
@@ -123,6 +125,9 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | Beyond Final Scores | 2026 | 三组确定性规则化指标——方案构思、执行、反馈控制——全部由验证器结果与记录下来的执行信号算出，不经任何评判器 | AI & ML research | [→](../works/beyond-final-scores.md) |
 | Apodex Discovery | 2026 | 六个过程维度（Tools、Repair、Alternatives、Coherence、Evidence、Scope）在不知结果、隐去求解者身份的条件下打分，另有承重步骤法把关键步骤单独重解 | 十个工业与科学领域的发现任务 | [→](../works/apodex-discovery.md) |
 | Agents Catching Agents | 2026 | 只读记录的评判者对照私下重新询问 agent 的仲裁者，比较二者检出捷径采纳的能力；只有介入式仲裁者能跨模态迁移（精确率 77–88%，假阳性率 13–21%） | Medicine & health | [→](../works/agents-catching-agents.md) |
+| [AgentActionBench](../works/agentactionbench.md) | 2026 | 依据 Read/Write/Execute 日志判断 rubric，按重要性加权 | ML 与 AI4Science | [AgentActionBench](../works/agentactionbench.md) |
+| [PTA-IRT](../works/pta-irt.md) | 2026 | 用历史轨迹摘要选择评测子集并估计能力 | 软件问题修复 | [PTA-IRT](../works/pta-irt.md) |
+| [FORESIGHT-9](../works/foresight-9.md) | 2026 | 核对存活因子、声明决策和实际持仓是否一致 | 合成市场情景 | [FORESIGHT-9](../works/foresight-9.md) |
 
 ## 还没解决的问题
 
@@ -135,6 +140,8 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 
 ## 相关工作
 
+- [FORESIGHT-9](../works/foresight-9.md)
+- [PTA-IRT](../works/pta-irt.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Beyond Final Scores](../works/beyond-final-scores.md)
 - [Replica](../works/replica.md)
@@ -167,6 +174,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - [Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md)
 - [SkillLearnBench](../works/skilllearnbench.md)
 - [SWE-chat](../works/swe-chat.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [Evaluating Plan Compliance in Autonomous Programming Agents](../works/from-plan-to-action.md)
 - [FinTrace](../works/fintrace.md)
 - [Plan-RewardBench](../works/plan-rewardbench.md)

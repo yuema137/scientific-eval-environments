@@ -6,7 +6,7 @@
 
 ## Overview
 
-FrontierCode is an industry benchmark from Cognition presented as the first to measure mergeability — would the maintainer actually merge this pull request? — on realistic open-source programming tasks built by 20+ experienced developers spending more than 40 hours per task. No accompanying paper has been released (see the repository note under Limitations).
+FrontierCode is Cognition’s benchmark for whether a coding agent produces a pull request that a maintainer would merge. Maintainers of 36 open-source repositories helped define requirements beyond passing tests.
 
 ## Topics
 
@@ -19,16 +19,19 @@ N/A — general-purpose agent benchmark; no scientific or research activity is d
 
 ## Links
 
-- **Project:** <https://cognition.com/frontiercode>
-- **Venue:** Industry benchmark (Cognition); no paper; current revision FrontierCode 1.1 (2026-07-07)
+- **Project and leaderboard:** <https://cognition.com/frontiercode>
+- **Initial methodology:** <https://cognition.com/blog/frontier-code>
+- **Revision 1.1 (2026-07-07):** <https://cognition.com/blog/frontier-code-1.1>
+- **Opus 5.5 evaluation settings:** <https://www.anthropic.com/claude-opus-5-5>
+- **Venue:** Industry benchmark; official methodology posts, no accompanying paper located.
 
 ## Summary
 
-FrontierCode scores end-to-end code quality — correctness, test quality, scope discipline, style, and adherence to codebase standards — on maintainer-written tasks in real open-source repositories, using an ensemble of grading techniques including unit tests, rubrics, and new types of verifiers. Internet access is restricted to documentation: runs that consult solution-bearing sources such as the original pull request are detected and scored zero.
+An agent receives a repository, a concise task description, and codebase guidelines. Tests and reviewer-defined criteria assess the resulting patch for correctness, testing, scope, and style. Version 1.1 preserves legitimate web research while detecting access to solution-bearing upstream material; it also relaxes 75 overly strict blocker criteria after an audit of more than 1,000.
 
 ## Tasks
 
-Maintainer-written tasks across multiple real open-source repositories, authored by 20+ experienced developers at over 40 hours per task; exact task counts are TODO(reference).
+Extended contains 150 tasks; Main contains the 100 hardest. The former 50-task Diamond subset was deprecated in 1.1 because its membership no longer represented the hardest tasks and its low solve rates made results noisy. More than 20 experienced developers invested over 40 hours per task in authoring and review.
 
 ## Domains
 
@@ -36,13 +39,15 @@ Open-source software engineering; no science domain.
 
 ## Evaluation
 
-- Mergeability as the target construct; graded by an ensemble of unit tests, rubrics, and new verifier types over correctness, test quality, scope discipline, style, and codebase-standard adherence.
-- Solution-leak detection: runs consulting sources such as the original pull request are scored zero.
-- Headline numbers are published only on the interactive leaderboard; TODO(reference).
+- Report both blocker pass rate and a weighted rubric score; the original protocol assigns zero score when blocker requirements fail. Tests and other verifiers are combined with rubric grading and adversarial, calibration, and manual quality checks.
+- Legitimate documentation, API, and background searches are allowed. A fair-use prompt and programmatic scanner penalize solution-bearing PRs, patches, mirrors, or upstream files with zero scores.
+- The initial protocol runs five trials at each available reasoning effort and reports the best effort’s mean. The leaderboard also compares cost and speed.
+- Snapshot checked 2026-09-27: the official Main leaderboard’s published data places Opus 5.5 first at 54.6%, with Opus 5 at 53.4% and GPT-6 Astra at 53.3%. Its changelog added Opus 5.5 on September 22; the methodology remains 1.1.
+- Anthropic separately reports Opus 5.5 at 54.4% with max effort and 54.6% with medium effort. Its max-effort table lists Opus 5 at 48.0%; do not substitute that baseline into the best-effort leaderboard comparison.
 
 ## Typical Duration
 
-End-to-end pull-request-scale coding tasks; budgets are TODO(reference).
+Pull-request-scale tasks. The 40+ hours above measure task-authoring effort, not agent runtime; a common per-run wall-clock budget is TODO(reference).
 
 ## Main Contribution
 
@@ -56,12 +61,13 @@ Shifts the coding-agent target from "tests pass" to "a maintainer would merge th
 
 ## Strengths
 
-- Evaluates the deployment-relevant construct — acceptance by a maintainer — rather than a proxy.
-- Explicit anti-leak enforcement at evaluation time.
+Maintainer-defined acceptance criteria assess code quality beyond functional correctness. Explicit internet-use rules preserve legitimate research while checking solution leakage.
 
 ## Limitations
 
-- Repository note: card compiled from the official website only (August 2026); FrontierCode has no accompanying paper, so task counts, scores, and methodology details beyond the site's claims are TODO(reference) and the two-level content validation this repository applies to papers cannot be fully performed.
+- Repository note: scores depend on methodology revision, reasoning effort, and evaluation setup; the official leaderboard and a model vendor’s table are distinct snapshots.
+- Anthropic’s release evaluation enables production safeguards and uses older-model fallbacks on affected task categories. It should not be interpreted as an unconditional, pure Opus 5.5 run on every task.
+- Repository note: official methodology posts provide substantive task and grading evidence despite the absence of a conventional paper.
 
 ## Related Works
 

@@ -13,7 +13,7 @@
 | Work | 年份 | 科学问题 | 任务形式与规模 | 领域内验证 | Card |
 |---|---|---|---|---|---|
 | Stargazer | 2026 | 从径向速度时间序列推断系外行星系统：提出能解释观测恒星信号的行星数量与轨道参数，并基于逐项反馈迭代。 | 120 个模型拟合任务——100 个合成任务分三个难度层，另有 20 个来自 NASA Exoplanet Archive 与 VizieR 的真实档案系统，行星数 1–7。 | 四项物理判据须同时满足：残差 RMS ≤ 1.5× 测量不确定度、相对常数零模型的 ΔBIC 为正、匈牙利算法匹配的行星恢复 ≥ 0.8、行星数完全正确。 | [→](../works/stargazer.md) |
-| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Physical Sciences 分组下的天文任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Physical Sciences 分组下的天文任务。 | 容器化终端任务（0.1 版五大分组共 70 个；未报告本领域数量），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Astronomy 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文工件的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
 | gwBenchmarks | 2026 | 以引力波科学实际要求的精度建模引力波源：数值相对论波形代理模型、黑洞轨道动力学、并合遗迹、模板库。 | 8 个任务，底层数据代表 10⁸ 核时以上的计算；12 个 coding agent 受评。 | 外部预定义评估框架配单任务物理指标，对照 ≲10⁻⁴ 的相对误差领域要求。 | [→](../works/gwbenchmarks.md) |
 | ReplicationBench | 2025 | 复现天体物理研究论文的核心贡献：实验设置、推导、数据分析与代码库。 | 111 个复现任务覆盖 20 篇论文（官方仓库），与原作者共同开发，在计算沙箱中运行。 | 逐任务客观评分：对原方法的忠实性与结果的正确性。 | [→](../works/replicationbench.md) |
@@ -46,6 +46,7 @@
 | ScienceBoard | 2025 | 通过 Celestia 天象软件驱动的天文工作流——它是承载各领域的六款专业软件之一——要求对真实天文场景具备时空感知。 | 单台 Ubuntu 虚拟机中 169 个人工整理的计算机使用任务：38 个纯 GUI、33 个纯 CLI、98 个 GUI+CLI 混合；天文一项的逐软件任务数未公布，卡片上记为 `TODO(reference)`。 | 通过支持精确匹配、区间判定与数值容差的评估模板，程序化检查关键中间输入/输出与虚拟机的最终状态；按领域报告二元成功率，天文在所有受评 agent 上都属最弱之列。 | [→](../works/scienceboard.md) |
 | Imaging-101 | 2026 | 天文计算成像：由增益污染的可见度数据做 Event Horizon Telescope 黑洞重建、高对比度系外行星日冕仪成像、大气湍流下的幸运成像、Shack–Hartmann 波前探测，以及 shapelet 源重建。 | 天文是 57 个以论文为依据的任务所覆盖的六个具名领域之一，每个任务都规整为预处理 → 正向物理 → 逆问题求解 → 可视化的流水线，并在规划、函数级与端到端三条赛道上评测；逐领域任务数为 `TODO(reference)`。 | 端到端重建实际执行，用归一化互相关与 NRMSE 对照各任务 `metrics.json` 中的验收阈值评分；函数级工作由从捕获的参考输入/输出合成的配套 pytest 测试集检查。 | [→](../works/imaging-101.md) |
 | PRL-Bench | 2026 | 完成源自 2025 年 8 月之后 Physical Review Letters 论文的前沿物理研究任务；天体物理是其明列的五个子领域之一。 | 100 个经专家验证的长程研究任务，以探索性方式设问；各子领域的任务数未说明。 | 客观可验证的任务结果，经专家验证，按 0–100 分制评分。 | [→](../works/prl-bench.md) |
+| [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现Astronomy的已发表实验 | 从论文重建代码并执行；属于 30 篇 AI4Science 论文的一部分；未报告本领域数量 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
 
 ## Capability Matrix
 
@@ -114,17 +115,18 @@
 | SimAgents | COS | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
 | AstroVisBench | COMP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 2 | 2 | 3 | **7** |
 | AstroMMBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 2 | 2 | 3 | **7** |
+| AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | CosmoPaperQA | COS | ◐ | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | **1.5** | ✘ | ✘ | ✘ | 3 | 2 | 2 | **7** |
 | AstroMLab 1 | GEN | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 3 | 3 | **9** |
 | gwBenchmarks | GW | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 3 | 0 | 3 | **6.5** |
 | SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
 | PRL-Bench | GEN | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ◐ | **1** | ✘ | ✔ | ✔ | 0 | ? | 3 | **5** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation | COS, GAL, GW | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0.5** | ✔ | ✔ | ✔ | 3 | 1 | 3 | **10** |
 | AI Cosplaying as Astrophysicists | GEN | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | **0.5** | ✘ | ✔ | ✘ | 0 | 3 | 4 | **8** |
 | From Queries to Criteria | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✘ | 1 | 1 | 2 | **5** |
 
-Repository note: 未知集中在两列。`Net` 在 34 行里有 12 行是 `?`，卡片和原始论文都没交代 agent 能否连到实时网络。`Scale` 有 7 行是 `?`：其中六个是跨领域或跨应用的套件，只给了整套的题目总数，却没有天文学这一块的数量；Gravity-Bench-v1 干脆没公布过任务数。另有一格是 `?`：Terminal-Bench Science 的 `Real`。这些 `?` 记的是来源的沉默，不是靠推断填出来的答案。
+Repository note: 跨领域套件的总题数不能代替本领域数量。Terminal-Bench Science 已发布 0.1 版、共 70 题，但已核对的发布说明没有给出本页细分领域的任务数，因此 Scale 保留为 ?。其他 ? 同样表示来源尚未明确说明，并非否定该项能力。
 
 ## Related Works
 
@@ -140,6 +142,7 @@ Repository note: 未知集中在两列。`Net` 在 34 行里有 12 行是 `?`，
 - [SciVQR](../works/scivqr.md)
 - [AstroAlertBench](../works/astroalertbench.md)
 - [Plausible but Wrong: A Case Study on Agentic Failures in Astrophysical Workflows](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [Stargazer](../works/stargazer.md)
 - [PRL-Bench](../works/prl-bench.md)
 - [SciVisAgentBench](../works/scivisagentbench.md)

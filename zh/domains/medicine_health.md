@@ -13,7 +13,7 @@
 | MedHELM | 2025 | 在经临床医生验证的 5 大类、22 子类分类法下的医学与临床语言任务——从临床病历生成到管理与工作流。 | 121 个任务，聚合自 35 个 benchmark（17 个既有 + 18 个新构），与 29 名临床医生共同开发。 | LLM 陪审团评估，与临床医生一致性经过实测（ICC = 0.47），报告优于 ROUGE-L 与 BERTScore 基线。 | [→](../works/medhelm.md) |
 | SciAgentArena | 2026 | 其五个生物医学研究领域中的计算药物发现与 EHR 建模——如 hERG 毒性预测与 FHIR 查询构造。 | 约 200 个任务，分四类（Data Analysis、Optimization、Discovery、Validity），在交互式、agent 无关的环境中运行。 | 按领域的逐步验证：专家设计的二元标准、EHR 任务的动作级 F1、以及在独立运行上取平均的任务原生指标（如 AUROC）；不用 LLM judge。 | [→](../works/sciagentarena.md) |
 | NatureBench | 2026 | 达到 Nature 系列 Biomedical Modeling 研究的已发表 SOTA——其 90 个任务中的 14 个——只给目标算法的输入，不给其操作或输出。 | 经评审门控流水线与信息防火墙构建的 code-agent 任务；每任务平均约 3.7 个主指标。 | 在论文自身主指标上的 SOTA 归一化相对差距 g；报告 Match-SOTA（g ≥ 0）与 Surpass-SOTA（g > 0.1）比率，另有 judge 标记捷径运行。 | [→](../works/naturebench.md) |
-| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Life Sciences 分组下的医学任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Life Sciences 分组下的医学任务。 | 容器化终端任务（0.1 版五大分组共 70 个；未报告本领域数量），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | MetaSyn | 2026 | 进行忠实于协议的系统综述与 meta 分析；医学是其 422 个专家整理 meta 分析所覆盖的主题之一。 | 多阶段系统综述工作流：在掺入不合格干扰文献的共享 PubMed 文献库中，依据带结构化 PI/ECO 标准的研究问题找出应纳入的研究。 | 对照原综述作者实际纳入的研究集做识别评估，并以分阶段评估定位 meta 分析流程中的失败环节。 | [→](../works/metasyn.md) |
 | CORE-Bench | 2024 | 用论文自带的代码与数据重现已发表的计算结果；医学是其三个学科之一。 | 90 篇论文的 270 个任务，分三档难度，含纯语言与视觉-语言两种形式。 | 重现结果的准确率，由快速、可并行的评估系统校验。 | [→](../works/core-bench.md) |
 | MedAgentGym | 2025 | 解决以代码为中心的生物医学数据科学任务，含 EHR 场景（据官方仓库为 MIMIC-III、eICU）。 | 12 个真实场景的 72,413 个任务实例、129 类，在带交互反馈的可执行沙箱中。 | 沙箱中检验的可验证真值标注；29 个 LLM 受评。 | [→](../works/medagentgym.md) |
@@ -32,6 +32,8 @@
 | OntoLearner | 2026 | 为医学——它的本体集合覆盖的 22 个领域之一，官方 hub 上另有一份医学数据集——构建本体结构：给术语定类型、恢复类型之间的 is-a 层级、抽取非分类关系。 | 覆盖 22 个领域的 180 个机器可读本体，为三项本体学习任务备好可直接接入流水线的 train/dev/test 切分；共评测 22 个检索模型与 12 个 LLM，设定是单次结构化预测而非 agentic 循环。 | 以归一化的成对与三元组匹配对照金标准本体结构计算 precision、recall 与 F1；卡片中逐领域、逐模型的分数为 `TODO(reference)`，因论文的结果章节无法获取。 | [→](../works/ontolearner.md) |
 | Apodex Discovery | 2026 | 药物重定位与再制剂化。 | 一个可执行的生物医学环境为前沿骨干模型提供工具与数据，对照同一骨干模型的闭卷条件。 | 相对闭卷对照的平均归一化预测分：GPT-5.5 高出 2.5 分，GPT-5.6-sol 高出 7.6 分。 | [→](../works/apodex-discovery.md) |
 | Agents Catching Agents | 2026 | 临床决策支持 agent 组成的委员会，会不会采纳那些 benchmark 给分、临床医生却会无视的捷径线索。 | 六个公开数据集上的七个 cohort——MedQA-USMLE、MedMCQA、MIMIC-CXR 报告、NIH ChestX-ray14、MIMIC-CXR-JPG、CheXpert 与 SUPPORT2——采用三 agent 共享黑板。 | 采纳率对照孤立条件下的翻转率（单独面对时 5–16%，两个同伴发声时 38%）；三种监督检测器以精确率、召回率与假阳性率计分。 | [→](../works/agents-catching-agents.md) |
+| [AgentIdeaBench](../works/agentideabench.md) | 2026 | 依据Medicine & Health文献提出可检验假设 | 本领域有八个密集评分子领域；比较固定文献与主动检索 | 评审模型依据检索到的已有研究判断原创性；不执行实验验证 | [AgentIdeaBench](../works/agentideabench.md) |
+| [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现Medicine & Health的已发表实验 | 从论文重建代码并执行；属于 30 篇 AI4Science 论文的一部分；未报告本领域数量 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
 
 ## Capability Matrix
 
@@ -91,17 +93,20 @@
 | MolClaw | DRUG | ? | ◐ | ✘ | ✘ | ✘ | ◐ | ✔ | **2** | ✘ | ✔ | ✘ | 2 | 2 | 3 | **8** |
 | SMDD-Bench | DRUG | ✘ | ✘ | ◐ | ✘ | ✘ | ◐ | ✔ | **2** | ✘ | ✘ | ◐ | 3 | 2 | 2 | **7.5** |
 | MedAgentBench | EHR | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✘ | ✘ | ◐ | 3 | 2 | 2 | **7.5** |
+| AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | BiomedSQL | PHARM | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✔ | ✘ | ✘ | 2 | 2 | 4 | **9** |
 | MedHELM | CLIN, EHR, HPOL | ? | ✘ | ◐ | ✘ | ✘ | ✔ | ✘ | **1.5** | ✘ | ✔ | ◐ | 2 | 2 | 1 | **6.5** |
 | MiraMind | PSY | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✔ | ◐ | 2 | 2 | 3 | **8.5** |
 | RubricsTree | PH, CLIN | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✔ | ✘ | 1 | 2 | 3 | **7** |
+| AgentIdeaBench | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **1** | ◐ | ✔ | ◐ | 0 | 0 | 4 | **6** |
 | OntoLearner | KR | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | ? | 1 | **4** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 
-Repository note: 未知最多的一列是 `Net`，22 行里有 9 行是 `?`：来源讲了怎么跑，却没说 agent 能不能连到实时网络。4 个 `Scale` 未知都是跨领域套件，只报总数、不给医学这一块，分别是 Imaging-101、SciVisAgentBench、Fisher-R1 / P-Bench 和 OntoLearner。另有三格孤立的未知：Apodex Discovery 的 `MM`、MedAgentGym 的 `Human`、Terminal-Bench Science 的 `Real`。
+Repository note: 跨领域套件的总题数不能代替本领域数量。Terminal-Bench Science 已发布 0.1 版、共 70 题，但已核对的发布说明没有给出本页细分领域的任务数，因此 Scale 保留为 ?。其他 ? 同样表示来源尚未明确说明，并非否定该项能力。
 
 ## Related Works
 
+- [AgentIdeaBench](../works/agentideabench.md)
 - [Apodex Discovery](../works/apodex-discovery.md)
 - [Fisher-R1 / P-Bench](../works/fisher-r1.md)
 - [Agents Catching Agents](../works/agents-catching-agents.md)
@@ -112,6 +117,7 @@ Repository note: 未知最多的一列是 `Net`，22 行里有 9 行是 `?`：�
 - [MetaSyn](../works/metasyn.md)
 - [SciAgentArena](../works/sciagentarena.md)
 - [SMDD-Bench](../works/smdd-bench.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [MolClaw](../works/molclaw.md)
 - [SciVisAgentBench](../works/scivisagentbench.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)

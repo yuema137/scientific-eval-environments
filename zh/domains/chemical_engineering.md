@@ -10,7 +10,7 @@
 
 | Work | 年份 | 科学问题 | 任务形式与规模 | 领域内验证 | Card |
 |---|---|---|---|---|---|
-| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Engineering Sciences 分组下的化学工程任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Engineering Sciences 分组下的化学工程任务。 | 容器化终端任务（0.1 版五大分组共 70 个；未报告本领域数量），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | CeProBench | 2026 | 围绕三大支柱评测化工过程开发：知识（工艺路线、催化剂、分离技术）、概念（工艺流程图的解析、补全与设计）与参数（操作参数优化）。 | 六类任务，含 243 道问题与 235 项具体任务；素材来自 70 份技术文档（4,406 个实体 / 4,967 条关系）、113 张竞赛来源的 PFD（986 个设备单元、1,172 条连接）与 20 个 Aspen Plus 参数文件（91 个可调参数、65 个目标）。 | 参数类任务把候选设定放进 Aspen Plus 实际运行来评分，借此校验化学与热力学可行性；知识与概念类任务则对照专家标注的图谱，用实体 F1、MEC/MED 及设备与连接准确率评分。 | [→](../works/ceprobench.md) |
 | Simona | 2026 | 把文字描述的化工过程转成能收敛运行的仿真流程图——既要给出单元操作拓扑，也要给出操作配置。 | 由化学工程专家撰写的 1,000 份过程描述，在单元操作难度与描述详略两个维度上有梯度变化。 | 以 Simulation Convergence Rate（收敛设计数占需求总数之比）为准，由作者的过程仿真器经 HTTP API 实际运行判定；结果连同设计耗时一并报告，并与 LLM、多 agent 及人类专家基线比较。 | [→](../works/simona.md) |
 | CRAFTS | 2026 | 自动搭建可执行的 IDAES/Pyomo 过程仿真模型：选取单元操作、构建拓扑、指定物性包、补齐规格、初始化、处理循环物流与诊断求解器。 | OpenIDAES-450：450 条面向用户的请求，各自配有可执行的 IDAES 模型与运行记录，其中 82 条冻结为留出测试集。 | 以 Staged Workflow Success 契约为准，由确定性的 IDAES/Pyomo 晋级关卡把关（接口兼容、自由度闭合、初始化通过、求解器终止状态可接受）；另在单元记录、物流记录与有向连接上计宏平均 F1。 | [→](../works/crafts.md) |
@@ -66,9 +66,9 @@
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | CeProBench | FLOW, OPT, DES | ✔ | ✘ | ◐ | ✔ | ✘ | ◐ | ◐ | **3.5** | ✘ | ✔ | ✘ | 2 | 2 | 2 | **7** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ? | ◐ | ◐ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | ? | 0 | **4** |
 | Can Large Language Models Automate the HAZOP Process Without Human Intervention? | SAFE | ✘ | ✘ | ✔ | ✔ | ✘ | ◐ | ✘ | **2.5** | ◐ | ✘ | ✘ | 2 | 0 | 3 | **5.5** |
 | CRAFTS | FLOW | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ◐ | 3 | 1 | 3 | **8** |
-| Terminal-Bench Science | GEN | ? | ✘ | ? | ? | ◐ | ◐ | ✔ | **2** | ✘ | ✘ | ✔ | 3 | 0 | 0 | **4** |
 | Simona | FLOW, DES | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✔ | ✔ | ✔ | 2 | 3 | 2 | **10** |
 | PEOA | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ◐ | ✘ | 2 | 3 | 3 | **9** |
 | A Tutorial on Autonomous Fault-Tolerant Control Using Knowledge-Grounded LLM Agents | CTRL, SAFE | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ◐ | 3 | ? | 0 | **3.5** |
@@ -78,7 +78,7 @@
 | Using Large Language Models for Solving Thermodynamic Problems | THERMO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ◐ | 1 | 1 | 3 | **6.5** |
 | ChemEBench | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✘ | 2 | ? | 1 | **4** |
 
-Repository note: 这一页的未知不多，而且大多集中在少数几行上。`Net` 在 12 行里有 4 行是 `?`，`Cost` 有 2 行，原因都一样：来源描述了怎么跑，却没说 agent 能不能联网，也没说一次运行允许花多少。两处 `Scale` 的 `?` 成因不同：那篇容错控制教程给的是可参数化的场景生成器，本来就没有固定任务清单；ChemEBench 只报了全套 101 个任务，没有单列化学工程这一块。Terminal-Bench Science 一行就占了本页三格未知：`Net`、`Cost`，以及本页唯一一个 `MM` 未知。
+Repository note: 跨领域套件的总题数不能代替本领域数量。Terminal-Bench Science 已发布 0.1 版、共 70 题，但已核对的发布说明没有给出本页细分领域的任务数，因此 Scale 保留为 ?。其他 ? 同样表示来源尚未明确说明，并非否定该项能力。
 
 ## Related Works
 

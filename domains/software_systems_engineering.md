@@ -17,7 +17,7 @@ Building and verifying software as engineering: code generation on real reposito
 | SysMoBench | 2025 | Write formal TLA+ models of real concurrent and distributed systems — OS synchronization primitives, Raft implementations, ZooKeeper leader election — at a granularity fixed by the task. | 11 system artifacts spanning 175–5,360 source lines in Rust, Go, C, and Java; each task requires a TLA+ model plus its TLC configuration. | Four machine-checked, sequentially gated metrics: SANY syntax, TLC runtime, trace conformance against instrumented executions, and invariant model checking; explicitly no LLM judge. | [→](../works/sysmobench.md) |
 | VCoT-Bench | 2026 | Complete deliberately removed blocks — lemmas, loop invariants, assertions — of the verification chain-of-thought behind verified Rust programs in Verus. | 1,988 completion tasks derived from 150 verified Verus programs, stratified by removal ratio, proof type, and proof location. | Verus syntax check plus semantic equivalence to the ground-truth chain judged by a protocol-guided LLM (94% agreement with author consensus), combined into a weighted accuracy. | [→](../works/vcot-bench.md) |
 | Long-Horizon-Terminal-Bench | 2026 | Long-horizon terminal workflows including software engineering and scientific computing, alongside experiment reproduction, multimodal analysis, and interactive games. | 46 tasks across nine categories, each decomposed into fine-grained graded subtasks. | Dense graded subtask rewards with configurable pass thresholds (best model: 15.2% pass@1 at a 0.95 threshold, 10.9% at 1.0). | [→](../works/long-horizon-terminal-bench.md) |
-| FrontierCode | 2026 | Produce maintainer-mergeable pull requests in real open-source repositories — an industry benchmark with no accompanying paper. | Maintainer-written tasks authored by 20+ experienced developers at 40+ hours per task; task counts unpublished. | Mergeability graded by an ensemble of unit tests, rubrics, and verifiers over correctness, test quality, scope discipline, and style; solution-consulting runs scored zero. | [→](../works/frontiercode.md) |
+| FrontierCode | 2026 | Produce maintainer-mergeable pull requests in real open-source repositories — an industry benchmark with no accompanying paper. | 150 tasks in Extended; 100 in Main; Diamond deprecated in 1.1. Authoring takes 40+ hours per task. | Mergeability graded by an ensemble of unit tests, rubrics, and verifiers over correctness, test quality, scope discipline, and style; solution-consulting runs scored zero. | [→](../works/frontiercode.md) |
 | SWE-Interact | 2026 | Complete software-engineering tasks whose requirements arrive progressively from a simulated user. | Multi-turn user-driven sessions paired with single-turn baselines on the same tasks. | Task success under the interactive protocol versus single-turn (~50% vs. ~25% for top models). | [→](../works/swe-interact.md) |
 | SWE-Together | 2026 | Collaborate with a user on repository-level coding tasks reconstructed from real sessions. | 109 tasks curated from 11,260 recorded sessions, replayed via an intent-preserving user simulator. | Final repository correctness plus the number of corrective feedback turns required. | [→](../works/swe-together.md) |
 | AInsteinBench | 2025 | Maintain production-grade scientific software: resolve maintainer-PR-derived tasks in six widely used codebases. | Repository-level coding-agent tasks curated by multi-stage filtering and expert review. | Test-driven verification in executable environments with scientifically meaningful failure modes. | [→](../works/ainsteinbench.md) |
@@ -29,6 +29,8 @@ Building and verifying software as engineering: code generation on real reposito
 | EngDesign | 2025 | Operating system and computer architecture design delivered as a functional artifact — a system design that must work under its stated constraints rather than match a reference answer. | Operating System Design (8) and Computer Architecture Design (5) of 101 design tasks / 473 gradable items across nine engineering areas; single-turn by default plus an iterative protocol of up to 10 revision rounds on simulator feedback. | Per-task evaluation scripts execute the produced design and return a binary pass, a 0–100 partial-credit score and a log; over the whole benchmark the best model rises from a 34.38% first-attempt pass rate to almost 60% after ten iterations. | [→](../works/engdesign.md) |
 | RigorBench | 2026 | Engineering process discipline in software work — multi-file feature implementation, diagnosis and repair of subtle bugs, recovery from failing first attempts, abstention on impossible or ambiguous specifications, and checkpointed multi-step refactoring — measured over how the solution was reached rather than by outcome alone. | 100 tasks, 20 in each of five categories, each shipping a starter repository in Node.js/Express, Python, Rust or Django; roughly 410 task executions across four agentic harnesses running on the same foundation model. | Trajectory-based scoring of seven pillars with published sub-metric formulas — planning fidelity, verification coverage, recovery efficiency, abstention quality, atomic transition integrity, test assertion density, exploration efficiency — combined into a composite RigorScore, with build and test health checked programmatically in an isolated Docker environment and only qualitative sub-metrics left to an LLM judge; an outcome score is measured separately on the same runs. | [→](../works/rigorbench.md) |
 | DiscoveryBench | 2024 | Recover the findings of a published survey of industrial requirements-engineering practice for ML-enabled systems — what practitioners report about how requirements are handled in ML projects — from the raw survey responses. | 15 of the 239 real test tasks are engineering; each supplies the survey dataset, its column metadata, background knowledge and a natural-language discovery goal, and the agent writes and runs its own cleaning and statistical workflow. | GPT-4 Hypothesis Matching Score against the source paper's gold hypothesis over context, variables and relationship; the best non-oracle agent scores 7% on this domain. | [→](../works/discoverybench.md) |
+| [PTA-IRT](../works/pta-irt.md) | 2026 | Estimate software issue-resolution scores without running every task | SWE-bench Lite / Verified / Full / Pro: 300 / 500 / 2,294 / 730 tasks; overlapping variants | Score error and rank correlation against full-suite execution outcomes | [PTA-IRT](../works/pta-irt.md) |
+| [HarnessDev](../works/harnessdev.md) | 2026 | Build and maintain coding-agent execution software | 731 SWE-Pro + 89 Terminal-Bench tasks; Evolution has separate feedback/hidden sets | Native execution checks on repository diffs or final environment state | [HarnessDev](../works/harnessdev.md) |
 
 ## Capability Matrix
 
@@ -75,13 +77,15 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SWE-chat | HAI, MAINT | ✔ | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ | **4.5** | ✔ | ◐ | ◐ | 2 | 3 | 3 | **10** |
 | DiscoveryBench | REQ, EMP | ? | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ✘ | ✔ | 1 | 1 | 3 | **6.5** |
 | Long-Horizon-Terminal-Bench | GEN | ? | ✘ | ◐ | ◐ | ◐ | ◐ | ✔ | **3** | ✘ | ✔ | ◐ | 3 | 1 | 3 | **8.5** |
+| FrontierCode | MAINT, TEST | ✔ | ✘ | ✔ | ? | ✘ | ✘ | ✔ | **3** | ◐ | ✔ | ✔ | 2 | 2 | 0 | **6.5** |
 | AgentLens | TEST, MAINT, HAI | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✔ | ◐ | 2 | 1 | 3 | **7.5** |
+| HarnessDev | MAINT, TEST | ? | ✘ | ✔ | ? | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ◐ | 3 | 2 | 4 | **10** |
 | Enconda-bench | CFG | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ✔ | 2 | 3 | 3 | **9.5** |
 | LoopsBench | FEAT, PROC | ✘ | ✘ | ◐ | ✘ | ◐ | ✘ | ✔ | **2** | ◐ | ✘ | ✔ | 3 | 2 | 3 | **9.5** |
 | SWE-Together | HAI | ✘ | ◐ | ◐ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ✔ | ✘ | 2 | 2 | 2 | **7.5** |
 | RigorBench | PROC, MAINT, TEST | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ◐ | 2 | 2 | 2 | **7.5** |
 | SWE-Interact | HAI, REQ | ? | ◐ | ◐ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ◐ | ✘ | 2 | 1 | 3 | **7** |
-| FrontierCode | MAINT, TEST | ✔ | ✘ | ? | ? | ✘ | ✘ | ✔ | **2** | ◐ | ✔ | ✔ | 2 | ? | 0 | **4.5** |
+| PTA-IRT | MAINT | ? | ✘ | ✔ | ? | ✘ | ? | ◐ | **1.5** | ? | ✘ | ? | 3 | 3 | 4 | **10** |
 | SWE-Bench ProMax | MAINT | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ✔ | 3 | 2 | 3 | **9.5** |
 | SWE-RPG | MAINT, FEAT, REQ | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✔ | ◐ | 2 | 2 | 3 | **9** |
 | EngDesign | OS, ARCH | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✔ | ◐ | 3 | 1 | 3 | **8.5** |
@@ -92,10 +96,12 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SWE-bench | MAINT | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | **0.5** | ◐ | ✘ | ◐ | 3 | 3 | 3 | **10** |
 | VCoT-Bench | FV | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 2 | 3 | 3 | **8.5** |
 
-Repository note: one column holds nearly every unknown. `Net` is `?` on 7 of the 19 rows, where the source describes the task environment without saying whether the agent could reach the live network. The three remaining unknowns all belong to FrontierCode — `Cost`, `MM` and `Scale` — which has no accompanying paper and publishes neither a task count nor a budget.
+Repository note: FrontierCode’s official methodology establishes the 150/100-task counts, and its leaderboard compares cost and speed. This refresh updates Cost and Scale; MM remains unverified.
 
 ## Related Works
 
+- [HarnessDev](../works/harnessdev.md)
+- [PTA-IRT](../works/pta-irt.md)
 - [SWE-Bench ProMax](../works/swe-bench-promax.md)
 - [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md)
 - [LoopsBench](../works/loopsbench.md)

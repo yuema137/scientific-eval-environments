@@ -13,7 +13,7 @@ Clinical and biomedical-application evaluation: medical tasks, drug discovery, E
 | MedHELM | 2025 | Medical and clinical language tasks under a clinician-validated taxonomy of 5 categories and 22 subcategories — from clinical note generation to administration and workflow. | 121 tasks aggregated across 35 benchmarks (17 existing + 18 newly formulated), developed with 29 clinicians. | LLM-jury evaluation with measured clinician agreement (ICC = 0.47), reported to outperform ROUGE-L and BERTScore baselines. | [→](../works/medhelm.md) |
 | SciAgentArena | 2026 | Computational drug discovery and EHR modeling among its five biomedical research fields — e.g., hERG toxicity prediction and FHIR query construction. | ~200 tasks in four categories (Data Analysis, Optimization, Discovery, Validity) in an interactive, agent-agnostic environment. | Per-domain stepwise verification: expert-designed binary criteria, action-level F1 for EHR tasks, and task-native metrics such as AUROC averaged over independent runs; no LLM judge. | [→](../works/sciagentarena.md) |
 | NatureBench | 2026 | Match the published state of the art of Nature-family Biomedical Modeling studies — 14 of its 90 tasks — given the target algorithm's inputs but none of its operations or outputs. | Code-agent tasks built by a review-gated pipeline with an information firewall; ~3.7 primary metrics per task. | SOTA-normalized relative gap g on each paper's own primary metric; Match-SOTA (g ≥ 0) and Surpass-SOTA (g > 0.1) rates, with a judge flagging shortcut runs. | [→](../works/naturebench.md) |
-| Terminal-Bench Science | 2026 | Medicine tasks within the Life Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (8 at launch across all five tracks, target 100+), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | Medicine tasks within the Life Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (70 in version 0.1 across all five tracks; per-domain counts unreported), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
 | MetaSyn | 2026 | Conduct protocol-faithful systematic review and meta-analysis; medical science is among the subjects its 422 expert-curated meta-analyses span. | Multi-stage systematic-review workflows: identify the eligible studies for a research question with structured PI/ECO criteria within a shared PubMed-anchored corpus containing ineligible distractors. | Study identification against the original expert reviewers' included set, with stage-wise evaluation locating failures along the meta-analysis pipeline. | [→](../works/metasyn.md) |
 | CORE-Bench | 2024 | Reproduce published computational results from each paper's own code and data; medicine is one of its three disciplines. | 270 tasks from 90 papers at three difficulty levels, in language-only and vision-language forms. | Accuracy of reproduced results, checked by a fast, parallelizable evaluation harness. | [→](../works/core-bench.md) |
 | MedAgentGym | 2025 | Solve code-centric biomedical data-science tasks, including EHR-derived scenarios (MIMIC-III, eICU per the official repository). | 72,413 task instances across 129 categories from 12 real scenarios, in executable sandboxes with interactive feedback. | Verifiable ground-truth annotations checked in sandboxes; 29 LLMs benchmarked. | [→](../works/medagentgym.md) |
@@ -32,6 +32,8 @@ Clinical and biomedical-application evaluation: medical tasks, drug discovery, E
 | OntoLearner | 2026 | Construct ontology structure for medicine — one of the 22 domains its ontology collection spans, with a medicine dataset published on the official hub — by typing terms, recovering the is-a hierarchy between types, and extracting non-taxonomic relations. | 180 machine-readable ontologies across 22 domains with pipeline-ready train/dev/test splits for three ontology-learning tasks; 22 retrieval models and 12 LLMs evaluated in single-shot structured prediction rather than an agentic setting. | Precision, recall and F1 computed by normalized pair-level and triple-level matching against the gold ontology structure; per-domain and per-model scores are `TODO(reference)` in the card, the paper's results section not being retrievable. | [→](../works/ontolearner.md) |
 | Apodex Discovery | 2026 | Drug repurposing and reformulation. | An executable biomedical environment supplying tools and data to a frontier backbone, compared against the same backbone closed-book. | Mean normalized prediction score over the closed-book control: +2.5 points for GPT-5.5 and +7.6 points for GPT-5.6-sol. | [→](../works/apodex-discovery.md) |
 | Agents Catching Agents | 2026 | Whether committees of clinical decision-support agents adopt shortcut cues that a benchmark rewards but a clinician would ignore. | Seven cohorts over six public datasets — MedQA-USMLE, MedMCQA, MIMIC-CXR reports, NIH ChestX-ray14, MIMIC-CXR-JPG, CheXpert and SUPPORT2 — with a three-agent shared blackboard. | Adoption rate against the isolated-condition flip rate (5–16% solo against 38% with two asserting peers); three oversight detectors scored on precision, recall and false-positive rate. | [→](../works/agents-catching-agents.md) |
+| [AgentIdeaBench](../works/agentideabench.md) | 2026 | Form testable hypotheses in medicine & health from research literature | Eight densely scored subfields in this discipline; static and active literature access | Model critics assess originality against retrieved prior art; no experimental validation | [AgentIdeaBench](../works/agentideabench.md) |
+| [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in medicine & health | Paper-to-repository reproduction; Part of 30 AI4Science papers; per-field count unreported | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
 
 ## Capability Matrix
 
@@ -91,17 +93,20 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | MolClaw | DRUG | ? | ◐ | ✘ | ✘ | ✘ | ◐ | ✔ | **2** | ✘ | ✔ | ✘ | 2 | 2 | 3 | **8** |
 | SMDD-Bench | DRUG | ✘ | ✘ | ◐ | ✘ | ✘ | ◐ | ✔ | **2** | ✘ | ✘ | ◐ | 3 | 2 | 2 | **7.5** |
 | MedAgentBench | EHR | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✘ | ✘ | ◐ | 3 | 2 | 2 | **7.5** |
+| AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | BiomedSQL | PHARM | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✔ | ✘ | ✘ | 2 | 2 | 4 | **9** |
 | MedHELM | CLIN, EHR, HPOL | ? | ✘ | ◐ | ✘ | ✘ | ✔ | ✘ | **1.5** | ✘ | ✔ | ◐ | 2 | 2 | 1 | **6.5** |
 | MiraMind | PSY | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✔ | ◐ | 2 | 2 | 3 | **8.5** |
 | RubricsTree | PH, CLIN | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✔ | ✘ | 1 | 2 | 3 | **7** |
+| AgentIdeaBench | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **1** | ◐ | ✔ | ◐ | 0 | 0 | 4 | **6** |
 | OntoLearner | KR | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | ? | 1 | **4** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 
-Repository note: `Net` holds the largest block of unknowns, `?` on 9 of the 22 rows, where the source describes the run without saying whether the agent could reach the live network. All four `Scale` unknowns are multi-field suites reporting a total with no medicine slice: Imaging-101, SciVisAgentBench, Fisher-R1 / P-Bench and OntoLearner. Three single cells remain — Apodex Discovery on `MM`, MedAgentGym on `Human`, Terminal-Bench Science on `Real`.
+Repository note: a suite-wide total does not establish this domain’s item count. Terminal-Bench Science 0.1 contains 70 tasks, but the reviewed release announcement does not give the count for this page’s domain, so Scale remains ?. Other ? marks likewise record an evidence gap rather than an absent capability.
 
 ## Related Works
 
+- [AgentIdeaBench](../works/agentideabench.md)
 - [Apodex Discovery](../works/apodex-discovery.md)
 - [Fisher-R1 / P-Bench](../works/fisher-r1.md)
 - [Agents Catching Agents](../works/agents-catching-agents.md)
@@ -112,6 +117,7 @@ Repository note: `Net` holds the largest block of unknowns, `?` on 9 of the 22 r
 - [MetaSyn](../works/metasyn.md)
 - [SciAgentArena](../works/sciagentarena.md)
 - [SMDD-Bench](../works/smdd-bench.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [MolClaw](../works/molclaw.md)
 - [SciVisAgentBench](../works/scivisagentbench.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)

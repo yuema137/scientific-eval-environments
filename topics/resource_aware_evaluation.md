@@ -24,7 +24,7 @@ Two distinctions keep different claims apart:
 ## Existing Approaches
 
 - **Cost as a first-class objective in tool-use.** [CostBench](../works/costbench.md) makes cost minimization the task itself in a travel-planning domain with configurable per-tool costs and blocking events that force replanning.
-- **Tool-use cost beyond tokens, in scientific simulation.** [SimulCost](../works/simulcost.md) extends cost-aware evaluation to physics-simulation parameter tuning, explicitly modeling simulation time and experimental-resource costs across 13 simulators, with direct comparison against traditional methods.
+- **Tool-use cost beyond tokens, in scientific simulation.** [SimulCost](../works/simulcost.md) extends cost-aware evaluation to physics-simulation parameter tuning, explicitly modeling simulation time and experimental-resource costs across 11 analytically costed simulators, plus a separate EPOCH wall-clock study, with direct comparison against traditional methods.
 - **A dedicated dataset for cost-aware planning.** [CATP-LLM / OpenCATP](../works/catp-llm.md) contributes OpenCATP, described as the first dataset for cost-aware planning (11,100 samples), where tool execution cost (e.g., execution time) is scored jointly with task performance. Its paired planning method is agent-construction work outside this repository's scope; the dataset is the resource-aware evaluation contribution documented here.
 - **Fidelity-priced measurement budgets.** [MaD Physics](../works/mad-physics.md) charges each observation a cost that rises with its precision and caps total spend per trial, so agents must allocate a fixed budget across measurements to infer an unknown — and sometimes altered — physical law.
 - **Observation budgets on physics discovery.** [Gravity-Bench-v1](../works/gravity-bench.md) caps how many observations an agent may take of a simulated two-body gravitational system, so experimental design becomes part of what is scored; per the official project page, the top model falls from 74% with full data access to 49% under the budget.
@@ -54,12 +54,16 @@ Every approach above supplies the budget as a *constraint the agent must respect
 
 Neither yields what a planner would need to choose between plans: a per-action, task-conditioned distribution over tokens, wall-clock, GPU time, memory and dollars, with calibrated uncertainty. See the Open Questions below.
 
+[PTA-IRT](../works/pta-irt.md) trades new-agent executions for historical calibration data. [EvoHarnessBench](../works/evoharnessbench.md) instead measures how operating overhead changes as capabilities accumulate. A smaller evaluation subset and a cheaper agent run are distinct forms of savings.
+
+[HarnessDev](../works/harnessdev.md) separates the model that writes a harness from the model that runs it. Hidden tasks test whether feedback-driven changes generalize; its token metric counts execution, not development.
+
 ## Comparison
 
 | Benchmark | Year | Resource currency | Resource role | Setting | Card |
 |---|---|---|---|---|---|
 | CostBench | 2025 | Configurable per-tool costs (atomic and composite) | First-class objective — plan for cost-optimality | Dynamic (blocking events); ~40% static→dynamic drop | [→](../works/costbench.md) |
-| SimulCost | 2026 | Simulation time + experimental resources | First-class objective — parameter tuning under budget | Single-round and multi-round; 13 simulators | [→](../works/simulcost.md) |
+| SimulCost | 2026 | Simulation time + experimental resources | First-class objective — parameter tuning under budget | Single-round and multi-round; 11 analytically costed simulators, plus a separate EPOCH wall-clock study | [→](../works/simulcost.md) |
 | CATP-LLM / OpenCATP | 2024 | Normalized tool price (USD; execution time + memory) | Reported jointly with performance via Quality of Plan (QoP = α·perf − (1−α)·cost) | 111 tool-planning tasks / 11,100 samples | [→](../works/catp-llm.md) |
 | MaD Physics | 2026 | Measurement cost (fidelity-priced observations) | Fixed per-trial budget the agent allocates | Simulated classical / fluid / quantum physics | [→](../works/mad-physics.md) |
 | BAGEN | 2026 | Tokens; time / occupancy / cost | Prediction target + early-stop objective | Puzzle / retrieval / coding / supply-chain | [→](../works/bagen.md) |
@@ -82,6 +86,9 @@ Neither yields what a planner would need to choose between plans: a per-action, 
 | BATS / Budget Tracker | 2025 | Unified currency: token cost + tool invocations priced at a flat $0.001 each | Budget is a hard constraint made VISIBLE to the agent each turn; scaling curves are drawn in the unified currency | Web-search agents (BrowseComp, BrowseComp-ZH, HLE-Search), plus τ²-bench and SWE-bench Verified | [→](../works/bats-budget-aware.md) |
 | InnovatorBench | 2025 | Working-time limit, GPU quota, wall-clock hours, dollars | Budget written into every task as an operational constraint; time and dollar cost reported per model and research area | 20 LLM-research tasks of 2-36 hours; best score after 11+ hours, averaging 5.13 hours and $32.92 per attempt | [→](../works/innovatorbench.md) |
 | AstaBench | 2025 | Normalized dollar cost per problem, priced from a frozen `litellm` snapshot with cache discounts | Reported measure, not a budget — scores are read off a score-versus-cost Pareto frontier, and every leaderboard entry also declares its openness and tooling | Scientific research assistance; 11 benchmarks, 2,400+ problems, 57 agents across 22 agent classes | [→](../works/astabench.md) |
+| [PTA-IRT](../works/pta-irt.md) | 2026 | Executed task fraction | Calibration budget; offline history still required | Estimate full SWE-suite scores | [PTA-IRT](../works/pta-irt.md) |
+| [EvoHarnessBench](../works/evoharnessbench.md) | 2026 | Tokens, tool calls, latency | Stage-wise operating overhead | Growing harness streams | [EvoHarnessBench](../works/evoharnessbench.md) |
+| [HarnessDev](../works/harnessdev.md) | 2026 | Executor tokens | Total and mean per task; development excluded | 2,207 downstream instances | [HarnessDev](../works/harnessdev.md) |
 
 ## Open Questions
 
@@ -94,6 +101,9 @@ Neither yields what a planner would need to choose between plans: a per-action, 
 
 ## Related Works
 
+- [EvoHarnessBench](../works/evoharnessbench.md)
+- [HarnessDev](../works/harnessdev.md)
+- [PTA-IRT](../works/pta-irt.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [R³-Bench](../works/r3-bench.md) — One budget shared across a six-problem suite, calibrated against each model's own demonstrated single-problem competence.
 - [AI Research Preference Models](../works/ai-research-preference-models.md) — Matches the unguided agent's 24-hour score in ~15 hours on under two-thirds of its execution budget, with validation- and test-oracle ceilings reported alongside.
@@ -108,7 +118,7 @@ Neither yields what a planner would need to choose between plans: a per-action, 
 - [MaD Physics](../works/mad-physics.md) — Fidelity-priced measurement budgets in simulated physics; agents trade measurement quality against quantity to infer altered physical laws.
 - [ChemCost](../works/chemcost.md) — Reaction-cost computation as the measured task, with judge-free exact pricing ground truth.
 - [Frontier-Eng](../works/frontier-eng.md) — Iterative engineering optimization under a fixed simulator-interaction budget.
-- [SimulCost](../works/simulcost.md) — Cost-aware physics-simulation parameter tuning across 13 simulators.
+- [SimulCost](../works/simulcost.md) — Cost-aware physics-simulation parameter tuning across 11 analytically costed simulators, plus a separate EPOCH wall-clock study.
 - [PostTrainBench](../works/posttrainbench.md)
 - [VeRO / VeRO-Bench](../works/vero.md) — Benchmarking coding agents as agent optimizers under a gated evaluation-call budget.
 - [BATS / Budget Tracker](../works/bats-budget-aware.md) — Prices tokens and tool calls in one currency; injecting remaining budget alone matches a ReAct baseline's accuracy at one-tenth the budget.

@@ -20,18 +20,20 @@ Terminal-Bench Science extends the Terminal-Bench framework to natural-science d
 
 ## Links
 
-- **Project:** <https://www.tbench.ai/news/tb-science-announcement>
+- **Release 0.1:** <https://www.tbench.ai/news/terminal-bench-science-0-1>
+- **Leaderboard:** <https://www.terminal-bench-science.ai/>
 - **Code:** <https://github.com/harbor-framework/terminal-bench-science>
-- **Task Dashboard:** <https://stevendillmann.github.io/tb-science-task-dashboard/>
+- **Initial call:** <https://www.tbench.ai/news/tb-science-announcement>
+- **Opus 5.5 evaluation:** <https://www.anthropic.com/claude-opus-5-5>
 - **License:** Apache 2.0
 
 ## Summary
 
-Terminal-Bench Science is a scientist-driven benchmark for evaluating AI agents on real computational workflows drawn from natural-sciences research. Tasks run in containerized environments and are validated with pytest-based deterministic checks. The project is hosted by Stanford University and the Laude Institute, and follows a structured Propose → Build → Review contribution model.
+Researchers contribute executable scientific workflows through proposal, implementation, and review. Agents produce analyses, simulations, proofs, code, or data products in containerized environments; task-specific tests check the artifacts. Version 0.1 replaces the early task-collection snapshot with a released suite, and reports resolution alongside dollar and token costs.
 
 ## Tasks
 
-8 tasks currently across 5 scientific domains, with a target of 100+ tasks. PR deadline for the initial task-contribution round is 2026-08-17.
+Version 0.1 contains 70 tasks across five broad scientific tracks. Work includes data analysis, statistical inference, simulation, optimization, theorem proving, image reconstruction, signal processing, inverse problems, sensor calibration, model fitting, classification, and scientific machine learning. The release selected 70 tasks from 386 implementation pull requests.
 
 ## Domains
 
@@ -45,10 +47,11 @@ Five scientific domains:
 
 ## Evaluation
 
-- Containerized execution environments.
-- Deterministic pytest-based verification.
-- Stated target: 10–20% solve rate at release (deliberately hard tasks).
-- Task validation gate: three approvals (domain reviewer, general reviewer, bar-raiser) plus CI checks.
+- Containerized execution with task-specific programmatic verification, including pytest checks.
+- Domain review checks scientific validity; technical review checks task construction and verification; a bar raiser provides the final review.
+- The 0.1 launch evaluation runs three independent trials per task across all 70 tasks. Opus 5 with Claude Code resolves 30.0%; GPT-5.6 Sol with Codex resolves 22.4%. Cost and token Pareto comparisons accompany resolution rates.
+- Anthropic’s September 22 Opus 5.5 report gives 58.7% at max effort, versus its reproduced Opus 5 baseline of 29.0%. It quotes GPT-6 Astra at 64.6% from OpenAI; Opus 5.5 is therefore not the highest score in that comparison. Reported standard errors are 3.5–5 percentage points per model.
+- That vendor setup allows older-model fallbacks when production safeguards intervene on biology or frontier-model-development tasks. Keep it distinct from the launch leaderboard’s 30.0% baseline and three-trial protocol.
 
 ## Typical Duration
 
@@ -60,10 +63,10 @@ A scientist-driven extension of Terminal-Bench to natural-science computational 
 
 ## Key Design Ideas
 
-- Domain-expert-authored tasks under a structured Propose → Build → Review protocol.
-- Programmatic verification via pytest inside containers.
-- Explicit difficulty target (10–20% solve rate) at release.
-- Cross-domain scientific breadth under a shared execution framework.
+- Researchers supply workflows and concrete artifacts to verify.
+- Scientific, technical, and final quality reviews precede inclusion.
+- Versioned tasks permit reuse, regrading, or rerunning of trials.
+- Later releases can add workflows and retire saturated or underspecified tasks.
 
 ## Strengths
 
@@ -73,8 +76,9 @@ A scientist-driven extension of Terminal-Bench to natural-science computational 
 
 ## Limitations
 
-- Repository note: 8 tasks in the current release — the 100+ task target is aspirational; results at time of writing rest on a small task set.
-- Repository note: Reference is the project announcement and GitHub repository — no peer-reviewed paper accompanies the release yet.
+- Repository note: the 70-task total covers all five broad tracks; it does not establish a count for each canonical domain in this repository.
+- Repository note: launch scores and later vendor evaluations use different setups and must retain their source and version labels.
+- The project describes 0.1 as the first release of a continuing benchmark, rather than a fixed, final task distribution.
 
 ## Related Works
 

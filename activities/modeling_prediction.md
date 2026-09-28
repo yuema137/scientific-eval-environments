@@ -44,9 +44,11 @@ A third cluster is **physics-grounded forecasting and model-fitting**, where the
 | Stargazer | 2026 | Iteratively fit Keplerian orbital models to RV series | 120 tasks (100 synthetic 3 tiers + 20 real), REPL feedback | Per-criterion pass/fail; Easy 80% to Hard 5.8%, real 0% | [card](../works/stargazer.md) |
 | VESTA / DAWN | 2026 | Hypothesise, fit and revise distribution and time-series models | 400 tasks; toolkit expands during the episode, plots read back visually | Jensen-Shannon divergence on fits and ELPD-LOO on time series | [card](../works/vesta-dawn.md) |
 | AutoWorldModel-Bench | 2026 | Improve a learned world model's forward prediction of entity dynamics | Eight game environments under a shared structured-state tensor format, perception removed | Composite of Position L1 and Alive F1 at horizons 1/10/20, weighted 0.1/0.2/0.7 on a held-out split | [card](../works/autoworldmodel-bench.md) |
+| [HarnessDev](../works/harnessdev.md) | 2026 | Build a harness that trains competition models | 75 MLE-bench competitions; frozen generated harness | Submissions graded by medal score | [HarnessDev](../works/harnessdev.md) |
 
 ## Related Works
 
+- [HarnessDev](../works/harnessdev.md)
 - [DSAgentBench](../works/dsagentbench.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)
 - [onepot-Bench 0](../works/onepot-bench.md)

@@ -24,6 +24,8 @@ Skill learning 问 agent 能不能把经验变成可复用流程。经验可以�
 - **生命周期安全。** [SkillMisevo-Bench](../works/skillmisevo-bench.md) 分开测量不安全 skill 的写入、检索、执行和跨 session 保留。
 - **可复用能力结构。** [GATE](../works/gate.md) 演化的是分层 tool graph，而不是文字 skill 文件。
 
+[EvoHarnessBench](../works/evoharnessbench.md)在外围能力集合变化后继续测试已学到的产物。分别计算旧能力保留和新任务适应，可以避免新题进步掩盖旧题退步。
+
 ## 方法对比
 
 | Work | 学到的 artifact | Feedback | 迁移测试 | 关键区分 |
@@ -33,6 +35,7 @@ Skill learning 问 agent 能不能把经验变成可复用流程。经验可以�
 | SkillCoach | 持续修订的 skill-use rubric | Rollout 证据与 validation gate | 留出的任务族 | 过程质量与结果 |
 | SkillMisevo-Bench | 可能不安全的演化 skill | 在线 evolution 更新 | 新 session persistence | 写入、检索与伤害 |
 | GATE | 分层 tool graph | 执行经验 | 使用演化 graph 的新任务 | 结构化能力 artifact |
+| [EvoHarnessBench](../works/evoharnessbench.md) | 持久保存的技能、提示词或代码 | 适应集任务的执行经验 | 在扩大的 harness 下测试新旧任务 | 新任务收益与旧能力保留分开计算 |
 
 ## 还没解决的问题
 
@@ -44,6 +47,7 @@ Skill learning 问 agent 能不能把经验变成可复用流程。经验可以�
 
 ## 相关工作
 
+- [EvoHarnessBench](../works/evoharnessbench.md)
 - [SkillMisevo-Bench](../works/skillmisevo-bench.md)
 - [SkillCoach](../works/skillcoach.md)
 - [SkillEvolBench](../works/skillevolbench.md)

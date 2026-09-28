@@ -17,7 +17,7 @@
 | SysMoBench | 2025 | 为真实的并发与分布式系统——操作系统同步原语、Raft 实现、ZooKeeper 领导者选举——编写 TLA+ 形式化模型，粒度由任务固定。 | 11 个系统产物，源代码 175–5,360 行，覆盖 Rust、Go、C 与 Java；每个任务要求 TLA+ 模型及其 TLC 配置。 | 四项机器检查、逐级设卡的指标：SANY 语法、TLC 运行时、对照插桩执行轨迹的一致性、不变式模型检查；明确不用 LLM judge。 | [→](../works/sysmobench.md) |
 | VCoT-Bench | 2026 | 补全经过验证的 Verus Rust 程序背后验证思维链中被刻意移除的块——引理、循环不变式、断言。 | 1,988 个补全任务，派生自 150 个已验证 Verus 程序，按移除比例、证明类型与位置分层。 | Verus 语法检查，加由协议引导的 LLM 判定与真值链的语义等价（与作者共识一致率 94%），合并为加权准确率。 | [→](../works/vcot-bench.md) |
 | Long-Horizon-Terminal-Bench | 2026 | 长 horizon 终端工作流，包括软件工程与科学计算，另有实验复现、多模态分析与交互游戏。 | 46 个任务、九个类别，每个任务分解为细粒度的分级子任务。 | 稠密的分级子任务奖励，配可调通过阈值（最佳模型：阈值 0.95 下 pass@1 为 15.2%，阈值 1.0 下为 10.9%）。 | [→](../works/long-horizon-terminal-bench.md) |
-| FrontierCode | 2026 | 在真实开源仓库中产出维护者愿意合并的 pull request——无配套论文的业界 benchmark。 | 由 20 余位资深开发者以每任务 40+ 小时撰写的维护者任务；任务数未公布。 | 以单元测试、评分标准与验证器的组合评判可合并性，覆盖正确性、测试质量、范围克制与风格；查阅含解来源的运行记零分。 | [→](../works/frontiercode.md) |
+| FrontierCode | 2026 | 在真实开源仓库中产出维护者愿意合并的 pull request——无配套论文的业界 benchmark。 | Extended 150 题、Main 100 题；1.1 已停用 Diamond。每题编写投入 40+ 小时。 | 以单元测试、评分标准与验证器的组合评判可合并性，覆盖正确性、测试质量、范围克制与风格；查阅含解来源的运行记零分。 | [→](../works/frontiercode.md) |
 | SWE-Interact | 2026 | 完成需求由模拟用户逐步披露的软件工程任务。 | 多轮用户驱动会话，与同批任务的单轮基线成对比较。 | 交互协议下的任务成功率对比单轮（顶级模型约 50% vs. 约 25%）。 | [→](../works/swe-interact.md) |
 | SWE-Together | 2026 | 在从真实会话重建的仓库级编码任务上与用户协作。 | 从 11,260 条录制会话整理出的 109 个任务，经保持原意的用户模拟器回放。 | 最终仓库正确性，加上所需的纠正反馈轮数。 | [→](../works/swe-together.md) |
 | AInsteinBench | 2025 | 维护生产级科学软件：解决六个广泛使用代码库中派生自维护者 PR 的任务。 | 经多阶段筛选与专家评审整理的仓库级 coding agent 任务。 | 可执行环境中的测试驱动验证，失败模式按科学意义归类。 | [→](../works/ainsteinbench.md) |
@@ -29,6 +29,8 @@
 | EngDesign | 2025 | 操作系统与计算机体系结构设计，交付物是一件真正能用的产物——设计须在给定约束下跑得通，而不是去对上某个参考答案。 | 九个工程方向共 101 项设计任务 / 473 个可评分条目，其中操作系统设计 8 项、计算机体系结构设计 5 项；默认单轮，另有一套依据仿真器反馈最多修改 10 轮的迭代协议。 | 逐任务的评估脚本执行所生成的设计，返回二元通过、0–100 的部分给分与日志；就整个基准而言，最佳模型首次尝试的通过率为 34.38%，十轮迭代后升至接近 60%。 | [→](../works/engdesign.md) |
 | RigorBench | 2026 | 软件工作中的工程过程纪律——跨多文件实现功能、诊断并修复隐蔽缺陷、首次尝试失败后的恢复、面对不可能或含糊的规格时的弃权，以及带检查点的多步重构——衡量的是解法是怎么得到的，而不只是结果本身。 | 100 个任务，五个类别各 20 个，每个都附带一个 Node.js/Express、Python、Rust 或 Django 的起始仓库；四种 agentic harness 在同一个基础模型上共执行约 410 次任务。 | 基于轨迹为七根支柱——计划忠实度、验证覆盖率、恢复效率、弃权质量、原子转换完整性、测试断言密度、探索效率——打分，各子指标公式均已公开，再合成为综合的 RigorScore；构建与测试健康度在隔离的 Docker 环境中以程序方式检查，只有定性子指标交给 LLM 评审；结果分数在同一批运行上单独衡量。 | [→](../works/rigorbench.md) |
 | DiscoveryBench | 2024 | 从原始问卷回答出发，重新得出一篇已发表研究的结论：业界为 ML 系统做需求工程时，实际是怎么处理需求的。 | 239 个真实测试任务中有 15 个属于工程；每题给出问卷数据集、字段说明、背景知识和一句自然语言发现目标，清洗与统计流程由 agent 自己写并运行。 | 与来源论文标准假设在 context、variables、relationship 三维上的 GPT-4 Hypothesis Matching Score；非 oracle 最佳 agent 在该领域得分为 7%。 | [→](../works/discoverybench.md) |
+| [PTA-IRT](../works/pta-irt.md) | 2026 | 不运行全部题目，估计软件问题修复成绩 | SWE-bench Lite / Verified / Full / Pro：300 / 500 / 2,294 / 730 题；各版本有重叠 | 与全套执行结果比较分数误差和排名相关性 | [PTA-IRT](../works/pta-irt.md) |
+| [HarnessDev](../works/harnessdev.md) | 2026 | 构建并维护 coding agent 执行软件 | 731 道 SWE-Pro 与 89 道 Terminal-Bench；Evolution 分开反馈集与隐藏集 | 依据仓库 diff 或最终环境状态执行原有检查 | [HarnessDev](../works/harnessdev.md) |
 
 ## Capability Matrix
 
@@ -75,13 +77,15 @@
 | SWE-chat | HAI, MAINT | ✔ | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ | **4.5** | ✔ | ◐ | ◐ | 2 | 3 | 3 | **10** |
 | DiscoveryBench | REQ, EMP | ? | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ✘ | ✔ | 1 | 1 | 3 | **6.5** |
 | Long-Horizon-Terminal-Bench | GEN | ? | ✘ | ◐ | ◐ | ◐ | ◐ | ✔ | **3** | ✘ | ✔ | ◐ | 3 | 1 | 3 | **8.5** |
+| FrontierCode | MAINT, TEST | ✔ | ✘ | ✔ | ? | ✘ | ✘ | ✔ | **3** | ◐ | ✔ | ✔ | 2 | 2 | 0 | **6.5** |
 | AgentLens | TEST, MAINT, HAI | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✔ | ◐ | 2 | 1 | 3 | **7.5** |
+| HarnessDev | MAINT, TEST | ? | ✘ | ✔ | ? | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ◐ | 3 | 2 | 4 | **10** |
 | Enconda-bench | CFG | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ✔ | 2 | 3 | 3 | **9.5** |
 | LoopsBench | FEAT, PROC | ✘ | ✘ | ◐ | ✘ | ◐ | ✘ | ✔ | **2** | ◐ | ✘ | ✔ | 3 | 2 | 3 | **9.5** |
 | SWE-Together | HAI | ✘ | ◐ | ◐ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ✔ | ✘ | 2 | 2 | 2 | **7.5** |
 | RigorBench | PROC, MAINT, TEST | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ◐ | 2 | 2 | 2 | **7.5** |
 | SWE-Interact | HAI, REQ | ? | ◐ | ◐ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ◐ | ✘ | 2 | 1 | 3 | **7** |
-| FrontierCode | MAINT, TEST | ✔ | ✘ | ? | ? | ✘ | ✘ | ✔ | **2** | ◐ | ✔ | ✔ | 2 | ? | 0 | **4.5** |
+| PTA-IRT | MAINT | ? | ✘ | ✔ | ? | ✘ | ? | ◐ | **1.5** | ? | ✘ | ? | 3 | 3 | 4 | **10** |
 | SWE-Bench ProMax | MAINT | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ✔ | 3 | 2 | 3 | **9.5** |
 | SWE-RPG | MAINT, FEAT, REQ | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✔ | ◐ | 2 | 2 | 3 | **9** |
 | EngDesign | OS, ARCH | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✔ | ◐ | 3 | 1 | 3 | **8.5** |
@@ -92,10 +96,12 @@
 | SWE-bench | MAINT | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | **0.5** | ◐ | ✘ | ◐ | 3 | 3 | 3 | **10** |
 | VCoT-Bench | FV | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 2 | 3 | 3 | **8.5** |
 
-Repository note: 未知几乎都压在一列上。`Net` 在 19 行里有 7 行是 `?`，来源描述了任务环境，却没说 agent 能否连到实时网络。剩下三格全属于 FrontierCode：`Cost`、`MM`、`Scale`。它没有配套论文，既没公布任务数量，也没公布预算。
+Repository note: FrontierCode 的官方方法说明已给出 150/100 题的规模，排行榜比较成本与速度；本次修正了 Cost 和 Scale。MM 仍缺少明确证据。
 
 ## Related Works
 
+- [HarnessDev](../works/harnessdev.md)
+- [PTA-IRT](../works/pta-irt.md)
 - [SWE-Bench ProMax](../works/swe-bench-promax.md)
 - [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md)
 - [LoopsBench](../works/loopsbench.md)

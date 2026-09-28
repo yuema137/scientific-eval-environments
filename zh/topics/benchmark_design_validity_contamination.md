@@ -28,6 +28,8 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 - **可复现的工具本身就是有效性条件。** [AstaBench](../works/astabench.md) 明确写出五条 agent benchmark 设计原则，并按这些原则搭建套件：语料检索工具只返回 benchmark 构建之前发表的论文，之后发表的论文因此污染不到结果；所有任务共用一个标准接口；排行榜上每个分数都要同时声明 agent 的开放度与工具方式。
 - **不只管题目，也管运行过程。** [EXP-Bench](../works/exp-bench.md) 在判分之前先扫一遍 agent 的日志，查有没有读源论文、动 Git、伪造数据这类被禁止的行为，并把每个任务拆成可单独判分的子任务，使分项得分不会替代端到端成功。
 
+[FORESIGHT-9](../works/foresight-9.md)构造多种未来路径，代替对同一段已发生行情反复回测。这样可以控制信息边界和情景差异，但不能把这些情景当成经过校准的未来市场概率分布。
+
 ## 方法对比
 
 | Work | 任务来源 | 有效性措施 | Verification | 刷新方式 |
@@ -41,6 +43,7 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 | AstaBench | 11 个 benchmark：7 个由作者构建（其中 4 个此前未发布），其余改编自已有数据集 | 五条明确的 benchmark 设计原则；语料工具按 benchmark 构建日期截断；排行榜逐条声明开放度与工具方式 | 各 benchmark 自有指标并附归一化成本；11 个中有 6 个使用 LLM judge | 套件每次修订时加入新 benchmark 与新截断日期 |
 | EXP-Bench | 51 篇 NeurIPS/ICLR 2024 论文及其代码仓库中的 461 个任务 | 按影响力筛选、多轮抽取、人工校验；运行期用 monitor 监测读源论文与伪造数据 | 容器化执行加 LLM judge，覆盖 12,737 个可判分子任务 | 用同一条流水线处理新的论文批次 |
 | HeurekaBench | 已发表研究及其配套代码仓库 | 两个前沿模型剔除不看数据也能答对的题；人工再筛掉幻觉、重复以及未通过验证的部分 | Ground truth 对照该研究已报告的发现核验；judge 与 11 位专家比对过 | 新研究重新过一遍流水线 |
+| [FORESIGHT-9](../works/foresight-9.md) | 九份情景配置 | 反事实未来与按模拟时间开放的观测 | 确定性路径；同时检查结果和过程 | 固定且有记录的情景集合 |
 
 ## 还没解决的问题
 
@@ -52,6 +55,7 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 
 ## 相关工作
 
+- [FORESIGHT-9](../works/foresight-9.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [ASI-Bench](../works/asi-bench.md)
 - [OnePot-Bench](../works/onepot-bench.md)

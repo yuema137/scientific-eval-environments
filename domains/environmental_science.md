@@ -11,11 +11,12 @@ Environmental prediction and monitoring. Ecology folds here.
 | Work | Year | Scientific problem | Task form & scale | Domain verification | Card |
 |---|---|---|---|---|---|
 | GeoNatureAgent Benchmark | 2026 | Environmental prediction over real territories: CO2 absorption suitability (Spain), gully erosion probability, and habitat analysis, served through a production-style geospatial API. | 93 tasks in 18 categories with per-task expected tool calls, content constraints, round budgets, and domain-expert ground truth. | Eight mechanistic checks per case — expected tool calls, required/forbidden keywords, numeric tolerance (±2 pp), chart production, round budget — with no LLM judge. | [→](../works/geonatureagent-benchmark.md) |
-| Terminal-Bench Science | 2026 | Ecology (Life Sciences track) and environmental science (Earth Sciences track) tasks of its five-track suite. | Containerized terminal tasks (8 at launch across all five tracks, target 100+), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | Ecology (Life Sciences track) and environmental science (Earth Sciences track) tasks of its five-track suite. | Containerized terminal tasks (70 in version 0.1 across all five tracks; per-domain counts unreported), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
 | ERI Benchmark | 2026 | Environmental engineering as one of nine covered fields, with five subdomains: water treatment, air quality, hydrology, waste management, and environmental impact. | 57,750 instruction–response records generated over a controlled field × subdomain × intent × difficulty cross-product (1,155 cells, 50 pairs per cell), with per-field means reported separately. | Automatic checks for refusals, missing final answers, and machine-parsable constraint violations, beneath rubric scoring by a three-provider judge panel (Claude Haiku 4.5, GPT-4.1 Mini, Mistral Small 3) averaged per item. | [→](../works/eri-benchmark.md) |
 | LLM-EPANET | 2025 | Water-quality behaviour in municipal water distribution systems — chlorine transport, water age and source tracing — alongside the hydraulic simulation of the same networks. | 69 natural-language queries over the standard Net1, Net3 and L-Town networks in five complexity categories, of which the Quality category requires a water-quality simulation; every query paired with a hand-written deterministic reference script. | Functional correctness of the returned value against the executed EPyT reference implementation, with execution failures, aggregation, indexing and unit errors counted incorrect; accuracy reported per category over seven models, 56–81% overall. | [→](../works/llm-epanet.md) |
 | Hydro-SE Bench | 2025 | Water-resource management within hydro-science and engineering, sitting alongside the benchmark's hydrology, river-dynamics and meteorology subfields. | 4,000 Chinese-language single- and multi-choice questions across nine subfields, each labelled by cognitive level, drawn from textbooks, industry standards, laws and regulations and statistical yearbooks, with at least three independent expert reviews per item; 16 models. | Accuracy reported overall and by subfield, question type and cognitive level, queried zero-shot with chain-of-thought at temperature 0 and the choice letter extracted by a separate LLM; models score higher on the science-grounded subfields than on the codified engineering ones. | [→](../works/hydro-se-bench.md) |
 | OntoLearner | 2026 | Construct ontology structure for ecology and environment — one of the 22 domains its ontology collection spans — by typing terms, recovering the is-a hierarchy between types, and extracting non-taxonomic relations. | 180 machine-readable ontologies across 22 domains with pipeline-ready train/dev/test splits for three ontology-learning tasks; 22 retrieval models and 12 LLMs evaluated in single-shot structured prediction rather than an agentic setting. | Precision, recall and F1 computed by normalized pair-level and triple-level matching against the gold ontology structure; per-domain and per-model scores are `TODO(reference)` in the card, the paper's results section not being retrievable. | [→](../works/ontolearner.md) |
+| [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in environmental science | Paper-to-repository reproduction; Part of 30 AI4Science papers; per-field count unreported | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
 
 ## Capability Matrix
 
@@ -60,18 +61,20 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | GeoNatureAgent Benchmark | GEO, CARB, SOIL, ECO | ✘ | ✘ | ◐ | ◐ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
+| AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
+| Terminal-Bench Science | ECO, GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | LLM-EPANET | WQ | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ✘ | 3 | ? | 4 | **7.5** |
-| Terminal-Bench Science | ECO, GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | ERI Benchmark | WQ, AIR, WRM, WASTE, EIA | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✘ | 2 | 2 | 3 | **8** |
 | Hydro-SE Bench | WRM | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 2 | ? | 3 | **5** |
 | OntoLearner | ECO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | ? | 1 | **4** |
 
-Repository note: `Scale` is `?` on 3 of the 6 rows, each time because the work publishes a total but not the environmental slice of it: LLM-EPANET's 69 queries across five complexity categories, Hydro-SE Bench's 4,000 questions across nine subfields, OntoLearner's 180 ontologies across 22 domains. The page's two other unknowns both belong to Terminal-Bench Science, on `Net` and `Real`.
+Repository note: a suite-wide total does not establish this domain’s item count. Terminal-Bench Science 0.1 contains 70 tasks, but the reviewed release announcement does not give the count for this page’s domain, so Scale remains ?. Other ? marks likewise record an evidence gap rather than an absent capability.
 
 ## Related Works
 
 - [OntoLearner](../works/ontolearner.md)
 - [GeoNatureAgent Benchmark](../works/geonatureagent-benchmark.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [ERI Benchmark](../works/eri-benchmark.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)
 - [Hydro-SE Bench](../works/hydro-se-bench.md)

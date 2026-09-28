@@ -12,7 +12,7 @@
 |---|---|---|---|---|---|
 | ScienceAgentBench | 2024 | 计算化学任务——其 102 个任务中的 20 个——提取自经同行评审的数据驱动发现工作流。 | 每个任务要求生成一个自包含的 Python 程序，复现真实论文中的分析。 | 有效执行加逐任务手写的成功检查器，对照专家标注参考（如指标阈值）；图形输出由 GPT-4o 评判。 | [→](../works/scienceagentbench.md) |
 | NatureBench | 2026 | 达到 Nature 系列 Molecular Design 研究的已发表 SOTA——其 90 个任务中的 11 个——只给目标算法的输入，不给其操作或输出。 | 经评审门控流水线与信息防火墙构建的 code-agent 任务；每任务平均约 3.7 个主指标。 | 在论文自身主指标上的 SOTA 归一化相对差距 g；报告 Match-SOTA（g ≥ 0）与 Surpass-SOTA（g > 0.1）比率，另有 judge 标记捷径运行。 | [→](../works/naturebench.md) |
-| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Physical Sciences 分组下的化学任务。 | 容器化终端任务（发布时五大分组共 8 个，目标 100+），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
+| Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Physical Sciences 分组下的化学任务。 | 容器化终端任务（0.1 版五大分组共 70 个；未报告本领域数量），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
 | ResearchClawBench | 2026 | 从任务描述、相关文献与原始数据中重新发现一篇隐藏已发表论文的结论——Chemistry 是其 10 个领域之一（共 40 个任务）。 | 端到端自主研究任务，每个任务锚定一篇评估期间保持隐藏的真实论文；agent 产出最终研究报告。 | Reference-Anchored Discovery Score（0–100；50 为参考文献级证据），对照锚定隐藏论文产物的专家多模态 rubric，由 GPT-5.1 评判。 | [→](../works/researchclawbench.md) |
 | MDArena | 2026 | 运行真实的分子动力学计算化学工作流：轨迹分析、体系搭建、炼金术式（alchemical）自由能计算与增强采样。 | 源自在研项目的 50 个容器化任务，覆盖 29 个分子体系与 14 种研究方案。 | 以 Strict-Pass@1 为主指标，另以 correctness 与过程奖励指标为部分进展计分。 | [→](../works/mdarena.md) |
 | PhySciBench | 2026 | 在物理与化学各半的题集中回答化学侧的专家 deep-research 问题，针对推理链脆弱、跨步骤知识迁移有限与缺少自我验证。 | 200 道专家整理的问题，物理与化学各半，组织为呼应真实科研工作流的六类任务。 | 基于准确率比较最先进模型与 agent 系统，并在准确率之外报告成本。 | [→](../works/physcibench.md) |
@@ -49,6 +49,8 @@
 | MolClaw | 2026 | 药物分子的计算化学：基于 RDKit 描述符的性质筛选、结合亲和力比较、分子对接与虚拟筛选、官能团改造，以及朝 QED、LogP 与 LogS 目标做的理化性质优化。 | MolBench 分三层——筛选（50 道性质筛选、37 道结合亲和力、25 道对接）、优化（39 道官能团题，外加一项性质优化子任务，其题量为 `TODO(reference)`），以及三项端到端发现挑战，需要 8 到 50 次以上的连续工具调用；题目取自 CARA/ChEMBL、ACNet 与 ChemCoTBench。 | 性质筛选与结合亲和力比较用 Accuracy，对接筛选用 Hits@3，优化用操作准确率、性质变化量与成功率，端到端一层用任务专属的加权 rubric（rubric 权重与评审身份为 `TODO(reference)`）。 | [→](../works/molclaw.md) |
 | CASCADE | 2025 | SciSkillBench 中的化学研究任务：检索、处理与分析化学数据，并借助专用化学工具包与仿真代码完成计算。 | 116 个材料科学与化学任务——76 个数据类、40 个计算类，再按说明详细程度分为 58 个点明关键函数的 Level 0 任务与 58 个只给出高层目标的 Level 1 任务；每种配置重复三次，共 16,008 次实验运行。 | 以结果为准的自动打分：在预设容差阈值内比对 agent 处理后的输出与标准答案，报告为成功率（GPT-5 下 DeepSolver 为 93.26%，Native 配置为 35.36%）。 | [→](../works/cascade.md) |
 | OntoLearner | 2026 | 为化学——它的本体集合覆盖的 22 个领域之一，官方 hub 上另有一份化学数据集——构建本体结构：给术语定类型、恢复类型之间的 is-a 层级、抽取非分类关系。 | 覆盖 22 个领域的 180 个机器可读本体，为三项本体学习任务备好可直接接入流水线的 train/dev/test 切分；共评测 22 个检索模型与 12 个 LLM，设定是单次结构化预测而非 agentic 循环。 | 以归一化的成对与三元组匹配对照金标准本体结构计算 precision、recall 与 F1；卡片中逐领域、逐模型的分数为 `TODO(reference)`，因论文的结果章节无法获取。 | [→](../works/ontolearner.md) |
+| [AgentIdeaBench](../works/agentideabench.md) | 2026 | 依据Chemistry文献提出可检验假设 | 本领域有八个密集评分子领域；比较固定文献与主动检索 | 评审模型依据检索到的已有研究判断原创性；不执行实验验证 | [AgentIdeaBench](../works/agentideabench.md) |
+| [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现Chemistry的已发表实验 | 从论文重建代码并执行；属于 30 篇 AI4Science 论文的一部分；未报告本领域数量 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
 
 ## Capability Matrix
 
@@ -111,13 +113,15 @@
 | MDArena | MD, BIOCHEM | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **2.5** | ◐ | ✔ | ✘ | 2 | 1 | 2 | **6.5** |
 | MOOSE-Chem | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | **2.5** | ◐ | ◐ | ✔ | 1 | 1 | 2 | **6** |
 | MaCBench | ANAL, NANO | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ◐ | 2 | ? | 4 | **6.5** |
+| AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
+| Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | HiSciBench | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✘ | ✔ | ✘ | 2 | 3 | 3 | **9** |
 | MolLangBench | CHEMINF, MOLDES | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✘ | ✔ | 3 | 3 | 3 | **10** |
 | ChemCensor / CREED | SYN | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ◐ | ✘ | ✔ | 3 | 3 | 2 | **9.5** |
 | MolPuzzle | ANAL, ORG | ✘ | ✘ | ✘ | ✔ | ✘ | ? | ✘ | **1** | ✔ | ✘ | ✘ | 3 | 3 | 2 | **9** |
 | SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
+| AgentIdeaBench | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **1** | ◐ | ✔ | ◐ | 0 | 0 | 4 | **6** |
 | AInsteinBench | QC, CHEMINF | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 3 | ? | 2 | **5.5** |
-| Terminal-Bench Science | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 0 | 0 | **3** |
 | onepot-Bench 0 | SYN, CHEMINF | ? | ✘ | ? | ? | ✘ | ✔ | ✘ | **1** | ? | ? | ✔ | 2 | ? | 0 | **3** |
 | ChemBench | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0.5** | ✔ | ✘ | ◐ | 2 | 3 | 2 | **8.5** |
 | FGBench | CHEMINF | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✘ | **0.5** | ✘ | ✘ | ✘ | 3 | 3 | 1 | **7** |
@@ -132,10 +136,11 @@
 | OntoLearner | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 3 | ? | 0 | **3.5** |
 | ChemEBench | CHEMINF, ORG | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ◐ | ✘ | 2 | ? | 0 | **2.5** |
 
-Repository note: 未知主要压在 `Scale` 上，39 行里有 13 行是 `?`。其中九个是跨领域套件，只给整套题目总数、不给化学这一块；另外四个（MetaSyn、MaCBench、AInsteinBench、onepot-Bench 0）根本没公布过固定的题目数量。`Net` 有 7 行是 `?`，来源始终没说 agent 能否连到实时网络；`Real` 有 3 行（MolPuzzle、Terminal-Bench Science、SciCode）。onepot-Bench 0 自己又多占四格未知：`Cost`、`MM`、`Human`、`Rubric`。它的卡片只能依据一份摘要写成，那份摘要只点了三个子套件的名字，这几列一个也没交代。
+Repository note: 跨领域套件的总题数不能代替本领域数量。Terminal-Bench Science 已发布 0.1 版、共 70 题，但已核对的发布说明没有给出本页细分领域的任务数，因此 Scale 保留为 ?。其他 ? 同样表示来源尚未明确说明，并非否定该项能力。
 
 ## Related Works
 
+- [AgentIdeaBench](../works/agentideabench.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)
 - [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
 - [onepot-Bench 0](../works/onepot-bench.md)
@@ -150,6 +155,7 @@ Repository note: 未知主要压在 `Scale` 上，39 行里有 13 行是 `?`。�
 - [SMDD-Bench](../works/smdd-bench.md)
 - [SciVQR](../works/scivqr.md)
 - [ChemCost](../works/chemcost.md)
+- [AgentActionBench](../works/agentactionbench.md)
 - [DrBencher](../works/drbencher.md)
 - [MolClaw](../works/molclaw.md)
 - [SciVisAgentBench](../works/scivisagentbench.md)

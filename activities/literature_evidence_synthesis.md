@@ -49,9 +49,11 @@ Boundary cases: Aviary, LAB-Bench, LABBench2, AstaBench, and [HiSciBench](../wor
 | MetaSyn | 2026 | Select eligible studies and synthesize systematic review | 422 expert meta-analyses; PubMed corpus with distractors | Correct eligible set and protocol-faithful synthesis | [card](../works/metasyn.md) |
 | ScholarQuest | 2026 | Iterative academic paper search by research intent | 1,000+ CS topics, four intent categories | Recall@100/@All (best | [card](../works/scholarquest.md) |
 | SciExplore | 2026 | Navigate databases and integrate cross-source evidence | 103 expert tasks, four progressive types, 10+ disciplines | Correct retrieval, grounding, and synthesis | [card](../works/sciexplore.md) |
+| [AgentIdeaBench](../works/agentideabench.md) | 2026 | Gather evidence before scientific ideation | Semantic Scholar search/fetch; ten-call cap in Active | Evidence-informed hypothesis, not standalone retrieval accuracy | [AgentIdeaBench](../works/agentideabench.md) |
 
 ## Related Works
 
+- [AgentIdeaBench](../works/agentideabench.md)
 - [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)
 - [SciExplore](../works/sciexplore.md)
 - [ScholarQuest](../works/scholarquest.md)

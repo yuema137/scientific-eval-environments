@@ -6,6 +6,11 @@ Sorted by `First appeared`, newest first; titles provide a stable tie-breaker wi
 
 | First appeared | Work | Source |
 |---|---|---|
+| 2026-09-07 | [AgentIdeaBench](./works/agentideabench.md) | [arXiv initial submission](https://arxiv.org/abs/2609.07611) |
+| 2026-09-03 | [EvoHarnessBench](./works/evoharnessbench.md) | [arXiv initial submission](https://arxiv.org/abs/2609.04280) |
+| 2026-09-01 | [HarnessDev](./works/harnessdev.md) | [arXiv initial submission](https://arxiv.org/abs/2609.01437) |
+| 2026-08-29 | [PTA-IRT](./works/pta-irt.md) | [official code and data release commit](https://github.com/DeepSoftwareAnalytics/PTA-IRT/commit/b38263b72f3c4a52fcc8fe478e1eae385ba423a6) |
+| 2026-08-29 | [FORESIGHT-9](./works/foresight-9.md) | [arXiv initial submission](https://arxiv.org/abs/2608.29372) |
 | 2026-08-20 | [AI4AI-Bench](./works/ai4ai-bench.md) | [arXiv initial submission](https://arxiv.org/abs/2608.20318) |
 | 2026-08-18 | [ASI-Bench](./works/asi-bench.md) | [arXiv:2608.17271v1](https://arxiv.org/abs/2608.17271) |
 | 2026-08-17 | [R³-Bench](./works/r3-bench.md) | [arXiv initial submission](https://arxiv.org/abs/2608.16033) |
@@ -142,6 +147,7 @@ Sorted by `First appeared`, newest first; titles provide a stable tie-breaker wi
 | 2026-04-24 | [PG-HAP: Policy-Guided Stepwise Action Planning for Controllable LLM Reasoning](./works/pg-hap.md) | [arXiv initial submission](https://arxiv.org/abs/2604.22748) |
 | 2026-04-22 | [SWE-chat](./works/swe-chat.md) | [arXiv initial submission](https://arxiv.org/abs/2604.20779) |
 | 2026-04-22 | [SkillLearnBench](./works/skilllearnbench.md) | [arXiv initial submission](https://arxiv.org/abs/2604.20087) |
+| 2026-04-19 | [AgentActionBench](./works/agentactionbench.md) | [official task-material release commit](https://github.com/KOU-199024/NLPCC-2026-Shared-Task-11/commit/4dabe5fdd22a28a24d72dc31d77ba3c2e11c0892) |
 | 2026-04-17 | [Stargazer](./works/stargazer.md) | [arXiv initial submission](https://arxiv.org/abs/2604.15664) |
 | 2026-04-16 | [PRL-Bench](./works/prl-bench.md) | [arXiv initial submission](https://arxiv.org/abs/2604.15411) |
 | 2026-04-16 | [HarmfulSkillBench](./works/harmfulskillbench.md) | [arXiv initial submission](https://arxiv.org/abs/2604.15415) |

@@ -25,6 +25,10 @@ Benchmark 看到的是整套 model–harness configuration。如果两套系统�
 - **Post-training 配置。** [PostTrainBench](../works/posttrainbench.md) 在同一 GPU 时间协议下比较多种 CLI scaffold。
 - **工具统一发放，用了别的就必须声明。** [AstaBench](../works/astabench.md) 给每个 agent 发同一套按日期截断的文献检索工具和同一个沙箱 notebook，又把 16 个 agent 类别接到同一个 Inspect 任务接口上，通用 agent 因此不用为每个 benchmark 单独改造。排行榜上每条记录还要标明它用的是标准工具、等价的自定义接口，还是完全自定义的工具。这样一来，分数差可以对照 harness 到底提供了什么来读，而不是默认记在模型头上。
 
+[EvoHarnessBench](../works/evoharnessbench.md)保留旧任务，同时扩大可用 harness。重测旧任务可以观察能力菜单变大是否导致退步，再另行检查适应过程有没有帮助新任务。
+
+[HarnessDev](../works/harnessdev.md)把编写 harness 的模型与执行模型分开。隐藏任务检查依据反馈作出的修改能否泛化；token 指标只计执行，不计开发。
+
 ## 方法对比
 
 | Work | Harness 的角色 | 固定项 | Evaluation feedback | 结果 |
@@ -36,6 +40,8 @@ Benchmark 看到的是整套 model–harness configuration。如果两套系统�
 | VeRO | 任意程序化 harness | 权限、版本和预算 | 标准 observation interface | Expected lift |
 | Curation-Bench | 研究 scaffold | 模型、recipe、evaluator | 每轮 benchmark 结果 | 更好的数据策略 |
 | AstaBench | 需要标准化并公开声明的混杂因素 | 工具、语料日期截断、任务接口、成本核算 | 套件分数，附成本与开放度/工具方式分类 | 在声明过的工具对等条件下比较 model-harness |
+| [EvoHarnessBench](../works/evoharnessbench.md) | 逐步累加的工具、技能和专家池 | 旧任务与模型权重固定 | 留出任务验证器；独立适应集 | 分别报告旧能力保留与新能力适应 |
+| [HarnessDev](../works/harnessdev.md) | 创建和持续修改的可执行产物 | 编写者与执行者分开；冻结 harness | 反馈集与隐藏任务分开 | 创建质量、退步和执行模型迁移 |
 
 ## 还没解决的问题
 
@@ -47,6 +53,8 @@ Benchmark 看到的是整套 model–harness configuration。如果两套系统�
 
 ## 相关工作
 
+- [EvoHarnessBench](../works/evoharnessbench.md)
+- [HarnessDev](../works/harnessdev.md)
 - [Evo-Bench](../works/evo-bench.md)
 - [HarnessOpt-Bench](../works/harnessopt-bench.md)
 - [RigorBench](../works/rigorbench.md)
