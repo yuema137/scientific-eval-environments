@@ -1,4 +1,4 @@
-"""Bounded authentication probe with diagnostics that never print worker output."""
+"""Bounded authentication probe with classified, redacted failure diagnostics."""
 import json
 import os
 import re
@@ -10,6 +10,7 @@ from pathlib import Path
 def diagnose(result, stderr=""):
     text = (json.dumps(result) + " " + stderr).lower()
     for category, markers in (
+        ("organization_subscription_disabled", ("disabled claude subscription access",)),
         ("oauth_expired", ("token has expired", "token expired", "oauth token expired", "expired oauth")),
         ("authentication_rejected", ("401", "invalid token", "invalid api key", "authentication_error", "not logged in")),
         ("model_unavailable", ("model_not_found", "does not exist", "invalid model", "not have access to model")),

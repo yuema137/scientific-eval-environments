@@ -25,3 +25,8 @@ def test_success_exit_with_api_error_is_rejected(monkeypatch):
     monkeypatch.setattr(auth_smoke.subprocess, 'run', lambda *a, **kw: SimpleNamespace(
         returncode=0, stdout=json.dumps({'is_error': True, 'result': '401 authentication_error'}), stderr=''))
     assert auth_smoke.main() == 1
+
+
+def test_organization_policy_failure_is_distinct_from_expired_token():
+    result = {'result': 'Your organization has disabled Claude subscription access for Claude Code'}
+    assert auth_smoke.diagnose(result) == 'organization_subscription_disabled'

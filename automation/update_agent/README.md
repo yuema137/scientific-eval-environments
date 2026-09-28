@@ -137,6 +137,12 @@ invoked headless via `run_claude_worker.py` (`claude -p --output-format json`, b
 
 ## Failure behavior & debugging
 
+The authentication probe uses the configured production model, exits on failure, and reports a classified error plus a bounded, redacted error excerpt. Raw worker output and credentials are not uploaded as artifacts. `organization_subscription_disabled` means the organization has disabled Claude Code access through the subscription: an administrator must enable that access before the existing OAuth secret can work. Rotating the token alone does not override the organization policy. `oauth_expired` and `authentication_rejected` are separate credential failures.
+
+To verify recovery, manually run `auth-smoke` first, then `validators-only`, before attempting `full`. The daily wake-up is not a promise of a new PR every three days: successful eligible runs update one rolling PR, and a run with no accepted cards produces no PR. Failed runs preserve the watermark and retry the uncovered interval.
+
+On 2026-09-27, scheduled runs were reaching GitHub Actions but failing before discovery. The latest run failed both the authentication probe and historical monthly-index checks; commit `fe8cdc3` repaired the missing report entries. A diagnostic run on 2026-09-28 UTC confirmed the organization subscription restriction. The durable watermark was still `2026-08-12T03:16:39+00:00`. After restoring access, inspect discovery coverage and admission limits during catch-up; do not advance the watermark manually or raise safety limits merely to make a run pass.
+
 A failed phase blocks the PR, uploads `runtime/` artifacts, and writes a job summary. The
 overlapping lookback lets the next day's run recover. To debug: open the failed run, download the
 `runtime`/`stage-*` artifacts, and inspect `state/*.json` and the phase manifests.
