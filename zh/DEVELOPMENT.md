@@ -8,9 +8,7 @@
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements-dev.txt
-python -m pytest tests/ -q
-python scripts/update_counts.py --check
-python scripts/monthly_report.py validate-all
+python scripts/validate_repository.py
 node --check site/app.js
 ```
 
