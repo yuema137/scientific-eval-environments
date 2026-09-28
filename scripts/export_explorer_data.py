@@ -14,6 +14,12 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 
+try:
+    from scripts.repo_markdown import FIRST_APPEARED_RE as STAMP_RE, sections as _sections
+except ModuleNotFoundError:  # Direct script execution
+    from repo_markdown import FIRST_APPEARED_RE as STAMP_RE, sections as _sections
+
+
 ROOT = Path(__file__).resolve().parents[1]
 WORKS = ROOT / "works"
 ZH_WORKS = ROOT / "zh" / "works"
@@ -23,13 +29,7 @@ ACTIVITIES = ROOT / "activities"
 MONTHLY = ROOT / "monthly"
 DOCUMENT_FOLDERS = ("topics", "domains", "activities", "monthly", "works")
 
-SECTION_RE = re.compile(r"^##\s+(.+?)\s*\n(.*?)(?=^##\s|\Z)", re.M | re.S)
 TITLE_RE = re.compile(r"^#\s+(.+?)\s+\((\d{4})\)\s*$", re.M)
-STAMP_RE = re.compile(
-    r"^> \*\*First appeared:\*\* (\d{4}-\d{2}-\d{2}) · "
-    r"\*\*Source:\*\* \[([^]]+)\]\((https?://[^)]+)\)$",
-    re.M,
-)
 AXIS_LINK_RE = re.compile(r"\[([^]]+)\]\(\.\./([a-z_]+)/([^)]+)\.md\)")
 MONTHLY_COVERAGE_RE = re.compile(r"^> \*\*Coverage:\*\* (.+)$", re.M)
 MONTHLY_ROW_RE = re.compile(r"^\|\s*\[([^]]+)\]\(\.\./works/([a-z0-9-]+)\.md\)\s*\|", re.M)
@@ -58,10 +58,6 @@ def _document_links(source_path: str) -> dict[str, str]:
 
 def _read(path: Path) -> str:
     return path.read_text(encoding="utf-8")
-
-
-def _sections(text: str) -> dict[str, str]:
-    return {heading.strip(): body.strip() for heading, body in SECTION_RE.findall(text)}
 
 
 def _first_paragraph(text: str) -> str:
