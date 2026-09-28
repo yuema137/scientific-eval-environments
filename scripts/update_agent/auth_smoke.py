@@ -8,13 +8,14 @@ from pathlib import Path
 
 
 def diagnose(result, stderr=""):
-    text = (json.dumps(result) + " " + stderr).lower()
+    text = (str(result.get("result") or "") + " " + str(result.get("errors") or "") + " " + stderr).lower()
     for category, markers in (
+        ("workspace_required", ("not scoped to a workspace", "anthropic-workspace-id")),
         ("organization_subscription_disabled", ("disabled claude subscription access",)),
         ("oauth_expired", ("token has expired", "token expired", "oauth token expired", "expired oauth")),
-        ("authentication_rejected", ("401", "invalid token", "invalid api key", "authentication_error", "not logged in")),
+        ("authentication_rejected", ("api error: 401", "invalid token", "invalid api key", "authentication_error", "not logged in")),
         ("model_unavailable", ("model_not_found", "does not exist", "invalid model", "not have access to model")),
-        ("rate_or_quota_limit", ("429", "rate_limit", "usage limit", "credit balance")),
+        ("rate_or_quota_limit", ("api error: 429", "rate_limit", "usage limit", "credit balance")),
         ("network_error", ("connection", "timed out", "fetch failed")),
     ):
         if any(marker in text for marker in markers):
