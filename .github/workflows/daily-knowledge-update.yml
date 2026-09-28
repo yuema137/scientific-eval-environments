@@ -72,27 +72,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install Claude Code CLI
         run: npm install -g @anthropic-ai/claude-code
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: python -m pip install -r requirements.txt
       - name: Bounded Claude authentication smoke
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-        run: |
-          set -e
-          if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ]; then
-            echo "::error::CLAUDE_CODE_OAUTH_TOKEN secret is not set — auth smoke BLOCKED"; exit 1
-          fi
-          claude -p "Read AGENT.md. Return the requested JSON only; do not include the file contents." \
-            --output-format json --allowedTools "Read" --max-turns 4 --model claude-opus-4-8 \
-            --json-schema '{"type":"object","properties":{"auth_smoke":{"type":"string"},"can_read_constitution":{"type":"boolean"}},"required":["auth_smoke","can_read_constitution"]}' \
-            > result.json
-          python - <<'PY'
-          import json
-          d = json.load(open("result.json"))
-          so = d.get("structured_output") or {}
-          ok = bool(d.get("result") is not None) and so.get("can_read_constitution") is True
-          print("auth_smoke marker:", json.dumps({"auth_smoke": so.get("auth_smoke", "pass"),
-                "can_read_constitution": so.get("can_read_constitution")}))
-          raise SystemExit(0 if ok else 1)
-          PY
+        run: python scripts/update_agent/auth_smoke.py
       - name: Summary
         if: always()
         run: |
