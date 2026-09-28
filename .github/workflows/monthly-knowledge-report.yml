@@ -31,6 +31,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - run: python -m pip install -r requirements.txt
       - run: npm install -g @anthropic-ai/claude-code
       - name: Resolve report month
         id: report-month
@@ -67,8 +68,7 @@ jobs:
         if: ${{ steps.generate-report.outputs.has_work == 'true' }}
         run: |
           python3 scripts/monthly_report.py validate --month "${{ steps.report-month.outputs.month }}"
-          python3 scripts/monthly_report.py validate-all
-          python3 scripts/update_counts.py --check
+          python3 scripts/validate_repository.py --skip-tests
       - name: Open report PR for human review
         if: ${{ steps.generate-report.outputs.has_work == 'true' }}
         env:

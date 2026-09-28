@@ -30,46 +30,10 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
       - run: python -m pip install -r requirements-dev.txt
 
-      # Every check runs even after an earlier one fails, so one push reports the whole
-      # backlog instead of one defect per round trip.
-      - name: Search profiles cover the taxonomy
-        if: ${{ !cancelled() }}
-        run: python scripts/update_agent/validators.py profiles
-
-      - name: Axis reverse indexes agree (topics, activities, domains; en + zh)
-        if: ${{ !cancelled() }}
-        run: python scripts/update_agent/validators.py axes
-
-      - name: Derived counts are current
-        if: ${{ !cancelled() }}
-        run: python scripts/update_counts.py --check
-
-      - name: Every card in works/ (template, links, first-appearance stamp)
-        if: ${{ !cancelled() }}
-        run: python scripts/update_agent/validators.py cards-all
-
-      - name: Every card has a conforming Chinese mirror
-        if: ${{ !cancelled() }}
-        run: python scripts/update_agent/validators.py bilingual-all
-
-      - name: Chinese cards use the canonical activity labels
-        if: ${{ !cancelled() }}
-        run: python scripts/update_agent/validators.py zh-activity-labels
-
-      - name: Chinese cards keep the English section headings
-        if: ${{ !cancelled() }}
-        run: python scripts/update_agent/validators.py zh-headings
-
-      - name: Domain Capability Matrices are ranked correctly (en + zh)
-        if: ${{ !cancelled() }}
-        run: python scripts/update_agent/validators.py matrix-ordering
-
-      # Offline and self-contained: the two live-network cases opt in via RUN_LIVE_SMOKE=1
-      # and stay skipped here.
-      - name: Deterministic test suite
-        if: ${{ !cancelled() }}
-        run: python -m pytest tests/ -q
+      - name: Complete offline repository gate
+        run: python scripts/validate_repository.py

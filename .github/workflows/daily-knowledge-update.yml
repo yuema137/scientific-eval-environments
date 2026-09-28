@@ -55,14 +55,8 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
       - run: python -m pip install -r requirements-dev.txt
-      - name: Deterministic unit/fixture tests
-        run: python -m pytest tests/update_agent -q
-      - name: Repo validators (profiles, axes, counts)
-        run: |
-          python scripts/update_agent/validators.py profiles
-          python scripts/update_agent/validators.py axes
-          python scripts/monthly_report.py validate-all
-          python scripts/update_counts.py --check
+      - name: Complete offline repository gate
+        run: python scripts/validate_repository.py
 
   # ----------------------------------------------------------------- Claude auth smoke (Test Layer C)
   auth-smoke:

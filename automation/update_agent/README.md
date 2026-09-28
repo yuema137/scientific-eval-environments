@@ -143,6 +143,8 @@ overlapping lookback lets the next day's run recover. To debug: open the failed 
 
 ## Tests
 
+Run `python3 scripts/validate_repository.py` from the repository root for the complete offline gate, including all monthly reports and the entire test suite. PR validation and the daily updater use the same entry point. `--skip-tests` runs every content check without pytest; monthly generation uses this after validating its new report. Git checkouts need full history for reports based on main-branch additions.
+
 - `tests/update_agent/` — deterministic unit/fixture tests (inventory, dedup, phase gate,
   profile coverage, axis/bilingual validators, empty-run, failure-injection, and the
   repo-wide sweeps + Chinese-card conventions in `test_repo_wide_validators.py`).
