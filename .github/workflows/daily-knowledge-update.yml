@@ -171,6 +171,9 @@ jobs:
     if: ${{ (github.event_name == 'schedule' || github.event.inputs.mode == 'full') && needs.discovery.outputs.candidates != '0' }}
     needs: discovery
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
