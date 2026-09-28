@@ -16,6 +16,11 @@ Run from the repository root.
 """
 import re, sys, glob, os
 
+try:
+    from scripts.repo_markdown import section
+except ModuleNotFoundError:
+    from repo_markdown import section
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 
@@ -23,8 +28,7 @@ def cards():
     return [p for p in glob.glob("works/*.md") if not p.endswith("README.md")]
 
 def block(text, heading):
-    m = re.search(r'^## ' + heading + r'\s*\n(.*?)(?=^## |\Z)', text, re.S | re.M)
-    return m.group(1) if m else ""
+    return section(text, heading) or ""
 
 def compute():
     counts = {}                     # key filename (no .md) -> count

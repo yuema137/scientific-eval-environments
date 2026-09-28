@@ -7,9 +7,14 @@ Security posture:
     supplied via --append-system-prompt so external source text can only be *data*.
   * Structured JSON output is required; downstream never greps prose.
 """
-import json
 import os
-import subprocess
+import sys
+
+try:
+    from scripts.claude_worker import invoke
+except ModuleNotFoundError:
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from claude_worker import invoke
 
 from common import config, log, AUTOMATION, REPO_ROOT
 
@@ -28,47 +33,16 @@ TOOLSETS = {
 
 def run_worker(agent, kind, prompt, cwd, max_turns, schema=None, model=None):
     """Invoke a headless Claude worker. Returns dict with keys:
-    {ok, result, structured_output, cost_usd, raw}."""
+    {ok, result, structured_output, cost_usd, session_id}."""
     if not os.environ.get("CLAUDE_CODE_OAUTH_TOKEN"):
         return {"ok": False, "error": "CLAUDE_CODE_OAUTH_TOKEN not set", "result": "",
                 "structured_output": None}
     cfg = config()
     agent_file = os.path.join(AGENTS_DIR, "%s.md" % agent)
     system = open(agent_file).read() if os.path.exists(agent_file) else ""
-    cmd = [
-        "claude", "-p", prompt,
-        "--output-format", "json",
-        "--max-turns", str(max_turns),
-        "--permission-mode", "dontAsk",        # deny-by-default: only allowed tools run
-        "--allowedTools", TOOLSETS[kind],
-        "--model", model or cfg["claude"]["model"],
-    ]
-    if system:
-        cmd += ["--append-system-prompt", system]
-    if schema:
-        cmd += ["--json-schema", json.dumps(schema)]
     log("  claude worker: agent=%s kind=%s turns<=%d cwd=%s" % (agent, kind, max_turns, cwd))
-    try:
-        proc = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, timeout=60 * 30)
-    except subprocess.TimeoutExpired:
-        return {"ok": False, "error": "worker timeout", "result": "", "structured_output": None}
-    if proc.returncode != 0:
-        # never echo full stderr (could contain context); surface a short tail only
-        tail = (proc.stderr or "")[-400:]
-        return {"ok": False, "error": "claude exit %d: %s" % (proc.returncode, tail),
-                "result": "", "structured_output": None}
-    try:
-        data = json.loads(proc.stdout)
-    except json.JSONDecodeError:
-        return {"ok": False, "error": "non-JSON worker output", "result": proc.stdout[-400:],
-                "structured_output": None}
-    return {
-        "ok": True,
-        "result": data.get("result", ""),
-        "structured_output": data.get("structured_output"),
-        "cost_usd": data.get("total_cost_usd"),
-        "session_id": data.get("session_id"),
-    }
+    return invoke(prompt, cwd=cwd, model=model or cfg["claude"]["model"],
+                  tools=TOOLSETS[kind], max_turns=max_turns, system=system, schema=schema)
 
 
 def parallel(tasks, max_workers):
