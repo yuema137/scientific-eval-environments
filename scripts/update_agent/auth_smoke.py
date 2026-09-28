@@ -1,6 +1,7 @@
 """Bounded authentication probe with diagnostics that never print worker output."""
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -18,6 +19,16 @@ def diagnose(result, stderr=""):
         if any(marker in text for marker in markers):
             return category
     return "worker_failed"
+
+
+def safe_error_excerpt(result, stderr):
+    message = str(result.get("result") or result.get("errors") or stderr or "No error detail returned")
+    secret = os.environ.get("CLAUDE_CODE_OAUTH_TOKEN", "")
+    if secret:
+        message = message.replace(secret, "[REDACTED]")
+    message = re.sub(r"(?i)(?:sk-[a-z0-9_-]+|bearer\s+\S+)", "[REDACTED]", message)
+    message = re.sub(r"[A-Za-z0-9_+/=-]{32,}", "[REDACTED]", message)
+    return " ".join(message.split())[:500]
 
 
 def main():
@@ -51,6 +62,8 @@ def main():
     category = "pass" if ok else diagnose(result, proc.stderr)
     message = "Claude auth smoke: " + category
     print(message if ok else "::error::" + message)
+    if not ok:
+        print("Sanitized error: " + safe_error_excerpt(result, proc.stderr))
     if summary := os.environ.get("GITHUB_STEP_SUMMARY"):
         with open(summary, "a") as f:
             f.write("### Claude authentication\n- Result: " + category + "\n")
