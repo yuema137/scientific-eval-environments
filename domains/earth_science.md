@@ -10,6 +10,7 @@ Geosciences: atmospheric, ocean, and geological sciences. GIS and geospatial ana
 
 | Work | Year | Scientific problem | Task form & scale | Domain verification | Card |
 |---|---|---|---|---|---|
+| AutoResearchEval | 2026 | Seismic and climate investigations, including permeability scaling and climate-response explanations. | 10 tasks (9 open-ended + 1 optimization); six-stage research in Docker, with complete trajectories retained (Fig. 2). | ARFT judge checks reports against files and logs; pooled human agreement κ = 0.75 / 0.83, not domain-specific accuracy. | [→](../works/autoresearcheval.md) |
 | GeoNatureAgent Benchmark | 2026 | Environmental geospatial analysis over Spain and Portugal through structured tool calls to a production-style API serving three environmental indicators via 16 tools. | 93 tasks in 18 categories: municipality analysis, spatial reasoning, cross-indicator synthesis, multilingual queries, and deliberately unsolvable tasks that must be declined. | Eight mechanistic checks per case — expected tool calls, required/forbidden keywords, numeric tolerance (±2 pp), chart production, round budget — with no LLM judge. | [→](../works/geonatureagent-benchmark.md) |
 | ScienceAgentBench | 2024 | Geographical Information Science tasks — 27 of its 102 — extracted from peer-reviewed data-driven discovery workflows. | Each task requires generating a self-contained Python program reproducing an analysis from a real publication. | Valid execution plus task-specific hand-written success checkers against expert-annotated references; figure outputs judged by GPT-4o. | [→](../works/scienceagentbench.md) |
 | Terminal-Bench Science | 2026 | Atmospheric, environmental, geo-, and ocean science tasks in the Earth Sciences track of its five-track suite. | Containerized terminal tasks (70 in version 0.1 across all five tracks; per-domain counts unreported), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
@@ -70,6 +71,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | ScienceAgentBench | GIS | ✘ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✔ | ✔ | 2 | 1 | 2 | **7.5** |
 | GeoNatureAgent Benchmark | GIS, ENV, RS | ✘ | ✘ | ✔ | ◐ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 3 | 1 | 2 | **6** |
 | SciVisAgentBench | ESM | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
+| AutoResearchEval | GPH, CLI | ◐ | ✔ | ✘ | ? | ◐ | ? | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | DrBencher | GPH | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 1 | 1 | **6** |
 | HydroAgent | HYD | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✔ | ✘ | ✘ | 3 | 0 | 2 | **6** |
 | ScienceBoard | GIS | ? | ✘ | ✘ | ✔ | ✘ | ? | ✔ | **2** | ✔ | ✘ | ✘ | 3 | ? | 2 | **6** |
@@ -80,8 +82,11 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 
 Repository note: a suite-wide total does not establish this domain’s item count. Terminal-Bench Science 0.1 contains 70 tasks, but the reviewed release announcement does not give the count for this page’s domain, so Scale remains ?. Other ? marks likewise record an evidence gap rather than an absent capability.
 
+Repository note: AutoResearchEval counts follow the paper's source-domain labels. Network access and reference-target reproduction apply to subsets; resource limits are not a cost score. `Verif=1` describes the diagnostic judge, whose calibration is pooled across domains; `Fail=3` records quantified failures without a controlled causal intervention. `?` leaves domain-specific multimodal or real-data coverage unasserted.
+
 ## Related Works
 
+- [AutoResearchEval](../works/autoresearcheval.md)
 - [Imaging-101](../works/imaging-101.md)
 - [GeoNatureAgent Benchmark](../works/geonatureagent-benchmark.md)
 - [ResearchClawBench](../works/researchclawbench.md)

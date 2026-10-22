@@ -10,6 +10,7 @@
 
 | Work | 年份 | 科学问题 | 任务形式与规模 | 领域内验证 | Card |
 |---|---|---|---|---|---|
+| AutoResearchEval | 2026 | 晶体结构弛豫、材料性质预测与加工机制。 | 12 个任务（7 个开放式 + 5 个优化）；在 Docker 中完成六阶段研究并保留完整轨迹（图 2）。 | ARFT 评判器用文件和日志核对报告；总体人工一致性 κ = 0.75 / 0.83，并非本领域单独测得的准确率。 | [→](../works/autoresearcheval.md) |
 | AFMBench | 2025 | 操作真实的原子力显微镜——校准、特征检测、力学性质测量、石墨烯层数计数、压头检测——从实验设计到结果分析。 | 在 Nanosurf DriveAFM 上经 Python API 完成 100 个专家整理的任务；69% 需多工具，按复杂度与功能领域分层，每模型–任务对三次试验。 | 在真实硬件上物理执行；按功能领域的任务完成率，加一套命名失败分类（如 'sleepwalking'——超出指令的越权操作）。 | [→](../works/afmbench.md) |
 | AutoMat | 2026 | 端到端复现计算材料科学论文中的论断，覆盖统计/ML 方法、密度泛函理论、分子动力学与离散位错动力学。 | 85 个专家整理的论断复现任务，分三类（from-paper、from-artifact 复现、from-artifact 解读），在资源受控的 HPC 式环境中运行。 | 可浏览工件的 LLM 评估 agent 对照隐藏的专家复现步骤打 1–5 分（≥4 为成功），与盲评专家评分的二次加权 kappa 校准为 0.69。 | [→](../works/automat.md) |
 | Terminal-Bench Science | 2026 | 五大分组的终端科学工作流套件中，Physical Sciences 分组下的材料科学任务。 | 容器化终端任务（0.1 版五大分组共 70 个；未报告本领域数量），社区贡献并经三重审批验证门。 | 容器化执行环境中的确定性 pytest 验证。 | [→](../works/terminal-bench-science.md) |
@@ -84,6 +85,7 @@
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
 | Imaging-101 | CHAR, COMP | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
+| AutoResearchEval | STRUCT, COMP | ◐ | ✔ | ✘ | ? | ◐ | ? | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | Agentic Self-Driving Microscopy Benchmarks | INSTR, CHAR | ✘ | ✘ | ✔ | ◐ | ✘ | ◐ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
 | AFMBench | INSTR, CHAR | ? | ✘ | ◐ | ◐ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✘ | 0 | 2 | 4 | **6** |
 | Science Edge Evaluation (SEE) | CHAR, STRUCT | ◐ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **3** | ✘ | ✘ | ◐ | 2 | ? | 3 | **5.5** |
@@ -114,8 +116,11 @@
 
 Repository note: 跨领域套件的总题数不能代替本领域数量。Terminal-Bench Science 已发布 0.1 版、共 70 题，但已核对的发布说明没有给出本页细分领域的任务数，因此 Scale 保留为 ?。其他 ? 同样表示来源尚未明确说明，并非否定该项能力。
 
+Repository note: AutoResearchEval 的数量按论文原始领域标签统计。联网与参考目标复现只适用于部分任务；资源上限不等于成本评分。`Verif=1` 对应诊断评判器，其校准数据跨领域汇总；`Fail=3` 表示失败已量化，但未通过受控干预验证因果。`?` 表示尚未确立本领域的多模态或真实数据覆盖情况。
+
 ## Related Works
 
+- [AutoResearchEval](../works/autoresearcheval.md)
 - [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
 - [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md)
 - [Imaging-101](../works/imaging-101.md)

@@ -2,17 +2,18 @@
 
 > **English** | [简体中文](../zh/works/autoresearcheval.md)
 
-> **First appeared:** 2026-08-14 · **Source:** [arXiv initial submission](https://arxiv.org/abs/2608.14905)
+> **First appeared:** 2026-08-13 · **Source:** [official data-generation pipeline release](https://github.com/PrentisAI/AutoResearchEval/commit/55bb0dbf5e7a4539f22c3ef7f7d8784adb61c4b4)
 
 ## Overview
 
-AutoResearchEval is a diagnostic evaluation of end-to-end autonomous research agents over 100 tasks grounded in published frontier science, spanning the full research lifecycle from ideation to review. Rather than ranking systems by a final score, it annotates 800 complete trajectories at the process level and organises the results into ARFT, a taxonomy of 45 empirically grounded failure patterns.
+AutoResearchEval checks whether a research agent's claims agree with the code, data, and execution logs it actually produced. It diagnoses 800 trajectories from 100 scientific tasks using ARFT, a taxonomy of 45 failure patterns across research stages and four root-cause categories.
 
 ## Topics
 
 - [Scientific Agent Benchmarks](../topics/scientific_agents.md)
 - [Trajectory Evaluation](../topics/trajectory_evaluation.md)
 - [General Long-Horizon Agent Benchmarks](../topics/long_horizon_evaluation.md)
+- [Evaluator Reliability & Validation](../topics/evaluator_reliability_validation.md)
 
 ## Activities
 
@@ -20,70 +21,65 @@ AutoResearchEval is a diagnostic evaluation of end-to-end autonomous research ag
 
 ## Links
 
-- **Paper:** <https://arxiv.org/abs/2608.14905>
-- **Code:** `TODO(reference)` — the paper states that AutoResearchEval and ARFT are publicly released but gives no repository URL in the main text.
-- **Venue:** arXiv preprint (August 2026).
+- **Paper:** [How Do Agents Fail on AutoResearch: End-to-End Diagnostic Evaluation on 100 Real-World Frontier Research Tasks](https://arxiv.org/abs/2608.14905), first submitted August 14, 2026; v3 revised August 25.
+- **Full text:** <https://arxiv.org/html/2608.14905v3>
+- **Code:** <https://github.com/PrentisAI/AutoResearchEval>
+- **Data:** <https://huggingface.co/datasets/PrentisAI/AutoResearchEval>
+- **Venue:** arXiv preprint. The official task-generation pipeline predates the paper by one day.
 
 ## Summary
 
-The authors observe that existing AutoResearch evaluations report performance without revealing process: tasks are narrowly scoped, scores say nothing about where an agent broke down, and failure diagnoses lack systematic coverage or visibility into intermediate artifacts. AutoResearchEval is built to answer the diagnostic question instead. Tasks are grounded in published frontier science and cover six lifecycle stages, and each of eight harness–model combinations is run over all 100 tasks to produce 800 trajectories with process-level annotation. Those annotations are consolidated into ARFT, which cross-classifies failures by lifecycle stage and by root cause. To make fine-grained attribution affordable at this scale, the authors build a human-calibrated agent-as-a-judge pipeline that inspects complete trajectories and intermediate artifacts rather than final answers. The headline finding is convergent: failure patterns across every configuration point to a missing metacognitive loop — the ability to check produced output against gathered evidence, revise when it does not hold, and question whether the chosen path was sound.
+A polished report can conceal an unexecuted experiment or a claim contradicted by the agent's own files. The judge therefore inspects the complete artifact set and attaches evidence to each diagnosed failure. Three experts refined the taxonomy through five agreement rounds; an agent judge scales this inspection to eight harness-model combinations. The study reports recurring failures in checking evidence, revising conclusions, and reconsidering a research plan, rather than a leaderboard of scientific success.
 
 ## Tasks
 
-**100 tasks**, filtered down from **5,878 initial candidates** across nine domains, retaining seven scientific domains. Tasks split into **open-ended discovery (n = 70)** and **target-anchored optimization (n = 30)**. Each task exercises the full research lifecycle across six stages: **A — Ideation & Planning**, **B — Retrieval & Synthesis**, **C — Execution & Implementation**, **D — Analysis & Interpretation**, **E — Writing & Documentation**, and **F — Self-Verification & Review**. `TODO(reference)` — the per-domain task counts appear only in a figure and are not stated numerically in the main text, so the size of each domain slice cannot be quoted.
+From 5,878 candidate papers, the authors construct 70 open-ended discovery tasks and 30 target-anchored optimization tasks. An agent receives the prior scientific context and unresolved question, while the source paper's method and conclusions are withheld. It proceeds through ideation, retrieval, execution, analysis, writing, and self-review, producing `decision.json`, a report, and intermediate artifacts. Live web retrieval is available only in the open-ended subset; optimization containers disable it. The two subsets differ in domain and contribution type and are analyzed separately.
+
+For example, Appendix C.9 traces an echocardiography task in which the agent starts training in the background but ends its session before predictions are delivered. The judge checks the files and logs instead of treating a successful container exit as a successful research result.
 
 ## Domains
 
-The benchmark spans **seven scientific domains**, but the paper reports their distribution only graphically and gives no per-domain task counts. Because a multi-field benchmark earns a domain on this repository's domain axis only when the slice is both identifiable and sized, **no canonical domain is assigned** pending a numeric breakdown from the authors.
+Figure 2 explicitly gives the source-domain counts: biology **24** (15 discovery + 9 optimization), medicine **15** (12 + 3), chemistry **14** (9 + 5), scientific computing **13** (11 + 2), materials science **12** (7 + 5), physics **12** (7 + 5), and geophysics **10** (9 + 1).
+
+Appendix G includes microbiome and cellular biology, clinical prediction and biomedical modeling, quantum chemistry and biomolecular binding, crystal structure and materials processing, condensed-matter and gravitational physics, and seismic and climate investigations. Repository note: geophysics maps to Earth Science. The heterogeneous scientific-computing label is retained as a source category, not automatically assigned wholesale to Computer Science.
 
 ## Evaluation
 
-**Eight harness–model combinations** produce **800 trajectories**: Claude Code paired with opus-4.8, claude-sonnet-5, qwen3.7-max, glm-5.2, minimax-m3 and deepseek-v4-pro; Codex with gpt-5-mini; and Gemini CLI with gemini-3.5-flash.
+Each task runs once under eight harness-model combinations: six backbones in Claude Code, gpt-5-mini in Codex, and gemini-3.5-flash in Gemini CLI (Table 1). ARFT labels failures by six lifecycle stages plus a cross-stage layer, and by grounding, cognitive depth, scientific integrity, or engineering robustness.
 
-Scoring is diagnostic rather than comparative — **no per-model performance table is reported**. Trajectories are labelled against **ARFT**, which organises **45 failure patterns** on two orthogonal axes: the lifecycle stage (A–F plus a cross-stage layer X) and a root-cause pillar, each pattern mapping to exactly one pillar — **R1 Grounding & Faithfulness (12 patterns)**, **R2 Cognitive Depth & Adaptability (13)**, **R3 Scientific Integrity & Alignment (13)**, **R4 Engineering Robustness (7)**.
-
-Attribution is performed by an **agent-as-a-judge** pipeline calibrated on **50 validation trajectories**, reaching **κ = 0.75** at the pattern level and **κ = 0.83** at the taxonomy level, against **κ = 0.53 / 0.62** for a single-call LLM-as-a-judge baseline, with a **+17.2** recall gain at the pattern level. Across the 800 analyses the annotation records **12,712 total pattern hits**; the single most frequent pattern, **F.4 (uncorrected self-awareness), appears in 82.5%** of analyses, and the three cognitive pillars R1–R3 account for **92.1%** of all hits.
+The artifact-aware judge is calibrated on **50 human-labeled trajectories**. Table 2 reports pattern-level Cohen's **κ = 0.75** and root-category **κ = 0.83**, versus **0.53 / 0.62** for a single-call transcript-only judge; pattern recall rises from **63.5% to 80.7%**. A quality checker rejects insufficiently supported analyses and requests revision before pattern labeling. Across 800 analyses, the paper reports **12,712 pattern hits**, including uncorrected self-awareness in **82.5%** of analyses. These are failure-label frequencies, not task success rates.
 
 ## Typical Duration
 
-Fixed wall-clock and token budgets are applied per run, but the paper does not state their values. `TODO(reference)` — the specific budgets are not reported.
+Appendix F.3 specifies a **four-hour rollout limit**, plus **one hour for environment setup**. Judge analysis has a separate **90-minute nominal budget**, extended to **210 minutes** for verification reruns (Appendix C.3). These are budget ceilings, not measured typical runtimes; a numeric rollout token cap is not specified.
 
 ## Main Contribution
 
-A shift from scoring autonomous research agents to diagnosing them: a lifecycle-spanning task set, an empirically derived failure taxonomy with root-cause attribution, and a validated judge that makes trajectory-level annotation affordable — yielding the finding that the same failure patterns recur across all eight configurations including the strongest models, which locates the deficit at the model level rather than in any particular scaffold.
+A released task and trajectory corpus, a failure taxonomy, and a human-calibrated evaluator that checks research claims against executable artifacts.
 
 ## Key Design Ideas
 
-- Tasks are organised by research lifecycle stage rather than by capability, so a failure can be attributed to where in the research process it occurred.
-- ARFT's two-axis structure separates *where* a failure happened (stage) from *why* (root-cause pillar), and each pattern is forced to exactly one pillar so hit counts remain interpretable.
-- The judge reads complete trajectories and intermediate artifacts rather than final outputs, which is what makes process-level attribution possible.
-- Judge calibration is reported against human annotation with a same-task LLM-as-a-judge control, so the gain from artifact-aware judging is isolated rather than asserted.
-- Holding the task set fixed while varying eight harness–model pairs is what licenses the model-level conclusion: a scaffold-specific deficit would not recur across all of them.
-- The paper marks the limit of its own inference, stating that whether orchestration-level interventions could close the metacognitive gap is an open question this work does not test.
+- Separate the stage where a failure appears from the category used to explain it.
+- Require concrete evidence from files and logs for the judge's findings.
+- Retain open-ended tasks whose process can be inspected even without a single correct final answer.
 
 ## Strengths
 
-- Diagnostic depth is unusual at this scale: 800 fully annotated trajectories with artifact-level visibility, rather than aggregate scores over a larger task set.
-- The failure taxonomy is derived from observed trajectories rather than posited in advance, and its category sizes are reported.
-- The judge is calibrated against humans with a control condition, and the recall gain over the baseline is quantified.
-- Varying harness and model together across eight configurations supports a claim about where the deficit lives that a single-configuration study could not make.
-- The authors state plainly what their design cannot establish, separating the model-level attribution they support from the orchestration question they did not test.
-- Task selection funnels 5,878 candidates to 100, so the retained set reflects explicit filtering rather than convenience.
+- Links scientific reports to the intermediate evidence needed to audit them.
+- Reports judge agreement and recall against human labels.
+- Publishes task-construction and judging code alongside a separately hosted dataset.
 
 ## Limitations
 
-- No repository URL appears in the main text despite the stated public release, so the artifact is not currently locatable (recorded above as `TODO(reference)`).
-- Per-domain task counts are not given numerically, which prevents assigning the work to any domain page and makes the "seven scientific domains" claim unverifiable in detail.
-- No comparative performance table is reported, so the work cannot be used to rank systems — by design, but it limits reuse as a leaderboard.
-- ARFT is grounded in eight systems, and the authors note the patterns may not exhaust the failure space.
-- Fixed wall-clock and token budgets mean resource pressure cannot be separated from failure causation.
-- The authors state that data contamination cannot be fully excluded despite de-identification, a risk shared with other benchmarks built on real published science.
-- Judge agreement is reported in aggregate only; the authors state that per-pattern and per-pillar agreement is not reported at this time.
+- Agreement is reported in aggregate; per-pattern and per-category judge error remain unquantified.
+- The paper does not separate failure incidence from remaining resource budget, and cannot exclude contamination from published source papers.
+- Repository note: Table 1 does not cross the same models across all harnesses. Recurring failures support a descriptive finding across the tested systems, but do not by themselves isolate a model-only causal mechanism; orchestration interventions are not tested.
+- Repository note: the judge comparison changes both artifact access and the judging procedure, so it does not isolate artifact access alone.
+- The official code repository excludes the Docker/SLURM rollout orchestration used for the experiments.
 
 ## Related Works
 
-- [AutoResearchBench](./autoresearchbench.md) — Also evaluates end-to-end autonomous research, scoring outcomes where AutoResearchEval annotates process.
-- [Autonomous Research Agents: A Survey of AI Scientists and the Verification Gap](./ara-survey.md) — Surveys the same class of systems along a verifiability axis, and supplies the framing this work's failure taxonomy fills in empirically.
-- [Beyond Final Scores](./beyond-final-scores.md) — The same "final scores hide the process" argument applied to long-horizon AI R&D, using deterministic rule-based process metrics rather than a judge.
-- [Replica](./replica.md) — Narrows the target to reproducing one redacted figure, trading lifecycle coverage for a checkable end state.
-- [ScienceAgentBench](./scienceagentbench.md) — Task-level scientific agent evaluation with per-task validated outputs, complementary to trajectory-level failure attribution.
+- [AutoResearchBench](./autoresearchbench.md)
+- [Beyond Final Scores](./beyond-final-scores.md)
+- [ScienceAgentBench](./scienceagentbench.md)
+- [Autonomous Research Agents: A Survey of AI Scientists and the Verification Gap](./ara-survey.md)

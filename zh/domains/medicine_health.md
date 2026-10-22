@@ -10,6 +10,7 @@
 
 | Work | 年份 | 科学问题 | 任务形式与规模 | 领域内验证 | Card |
 |---|---|---|---|---|---|
+| AutoResearchEval | 2026 | 临床预测与生物医学建模，包括超声心动图和临床试验结局。 | 15 个任务（12 个开放式 + 3 个优化）；在 Docker 中完成六阶段研究并保留完整轨迹（图 2）。 | ARFT 评判器用文件和日志核对报告；总体人工一致性 κ = 0.75 / 0.83，并非本领域单独测得的准确率。 | [→](../works/autoresearcheval.md) |
 | MedHELM | 2025 | 在经临床医生验证的 5 大类、22 子类分类法下的医学与临床语言任务——从临床病历生成到管理与工作流。 | 121 个任务，聚合自 35 个 benchmark（17 个既有 + 18 个新构），与 29 名临床医生共同开发。 | LLM 陪审团评估，与临床医生一致性经过实测（ICC = 0.47），报告优于 ROUGE-L 与 BERTScore 基线。 | [→](../works/medhelm.md) |
 | SciAgentArena | 2026 | 其五个生物医学研究领域中的计算药物发现与 EHR 建模——如 hERG 毒性预测与 FHIR 查询构造。 | 约 200 个任务，分四类（Data Analysis、Optimization、Discovery、Validity），在交互式、agent 无关的环境中运行。 | 按领域的逐步验证：专家设计的二元标准、EHR 任务的动作级 F1、以及在独立运行上取平均的任务原生指标（如 AUROC）；不用 LLM judge。 | [→](../works/sciagentarena.md) |
 | NatureBench | 2026 | 达到 Nature 系列 Biomedical Modeling 研究的已发表 SOTA——其 90 个任务中的 14 个——只给目标算法的输入，不给其操作或输出。 | 经评审门控流水线与信息防火墙构建的 code-agent 任务；每任务平均约 3.7 个主指标。 | 在论文自身主指标上的 SOTA 归一化相对差距 g；报告 Match-SOTA（g ≥ 0）与 Surpass-SOTA（g > 0.1）比率，另有 judge 标记捷径运行。 | [→](../works/naturebench.md) |
@@ -83,6 +84,7 @@
 | MedBrowseComp | PHARM, HPOL | ✔ | ✘ | ◐ | ◐ | ✘ | ✔ | ✔ | **4** | ✘ | ✘ | ✔ | 1 | 3 | 3 | **8** |
 | SDBench | CLIN, HPOL | ✘ | ✔ | ✔ | ✘ | ✘ | ✔ | ✔ | **4** | ✔ | ✔ | ✔ | 1 | 2 | 1 | **7** |
 | SciAgentArena | DRUG, EHR | ? | ◐ | ◐ | ✔ | ✘ | ◐ | ✔ | **3.5** | ◐ | ✔ | ✘ | 3 | 1 | 3 | **8.5** |
+| AutoResearchEval | BMOD, CLIN | ◐ | ✔ | ✘ | ? | ◐ | ◐ | ✔ | **3.5** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | Apodex Discovery | DRUG | ? | ✔ | ◐ | ? | ✘ | ✔ | ✔ | **3.5** | ✘ | ✔ | ◐ | 2 | 0 | 3 | **6.5** |
 | NatureBench | BMOD | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ✘ | ◐ | 2 | 1 | 2 | **6** |
 | SciVisAgentBench | IMG | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
@@ -104,9 +106,12 @@
 
 Repository note: 跨领域套件的总题数不能代替本领域数量。Terminal-Bench Science 已发布 0.1 版、共 70 题，但已核对的发布说明没有给出本页细分领域的任务数，因此 Scale 保留为 ?。其他 ? 同样表示来源尚未明确说明，并非否定该项能力。
 
+Repository note: AutoResearchEval 的数量按论文原始领域标签统计。联网与参考目标复现只适用于部分任务；资源上限不等于成本评分。`Verif=1` 对应诊断评判器，其校准数据跨领域汇总；`Fail=3` 表示失败已量化，但未通过受控干预验证因果。`?` 表示尚未确立本领域的多模态或真实数据覆盖情况。
+
 ## Related Works
 
 - [AgentIdeaBench](../works/agentideabench.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
 - [Apodex Discovery](../works/apodex-discovery.md)
 - [Fisher-R1 / P-Bench](../works/fisher-r1.md)
 - [Agents Catching Agents](../works/agents-catching-agents.md)

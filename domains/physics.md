@@ -10,6 +10,7 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 
 | Work | Year | Scientific problem | Task form & scale | Domain verification | Card |
 |---|---|---|---|---|---|
+| AutoResearchEval | 2026 | Condensed-matter and gravitational-physics investigations, including spin waves and waveform modeling. | 12 tasks (7 open-ended + 5 optimization); six-stage research in Docker, with complete trajectories retained (Fig. 2). | ARFT judge checks reports against files and logs; pooled human agreement κ = 0.75 / 0.83, not domain-specific accuracy. | [→](../works/autoresearcheval.md) |
 | MaD Physics | 2026 | Infer an unknown — and sometimes deliberately altered — physical law governing a simulated system, across classical mechanics (N particles in D dimensions), a 2D incompressible viscous fluid, and two quantum particles in a 2D box. | Interactive experimentation in three simulated environments; each observation costs 2 / 5 / 10 by fidelity level under a fixed per-trial budget. | Prediction error against the true future state: normalized RMSE (classical) and L2 error on vorticity / probability density (fluid / quantum), averaged over 33 random initializations. | [→](../works/mad-physics.md) |
 | NewtonBench | 2025 | Rediscover a hidden physical law that has been counterfactually shifted from one of 12 canonical laws (gravitation, Coulomb, Fourier, Snell, …) by mutating its expression tree. | 324 interactive tasks (108 shifted laws × 3 model systems); the agent designs experiments via a `run_experiment` tool and submits the law as a symbolic expression. | Binary symbolic equivalence to the ground-truth law (LLM judge; 98.3% agreement with human experts) plus RMSLE of the discovered equation's predictions. | [→](../works/newtonbench.md) |
 | PRBench | 2026 | Reproduce published physics research end to end — comprehend a paper's methodology, implement its algorithms from scratch, and match its quantitative results — across 11 subfields from QCD to condensed matter. | 30 expert-curated paper-reproduction tasks contributed by 20+ research groups, run in a sandboxed execution environment with standardized CSV outputs. | Expert-written weighted rubric per task (Data Reproduction Accuracy weighted 0.60); end-to-end success requires >0.9 on every dimension — currently zero for all agents. | [→](../works/prbench.md) |
@@ -113,6 +114,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SciVisAgentBench | GEN | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
 | Gravity-Bench-v1 | GR, CLA | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✔ | ✘ | ✔ | 3 | ? | 4 | **9** |
 | Model Discovery Agent | CLA | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 4 | **8** |
+| AutoResearchEval | CM, GR | ◐ | ✔ | ✘ | ? | ◐ | ? | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | MaD Physics | CLA, FLU, QM | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 1 | **5** |
 | PACE-Bench | CLA, FLU | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✘ | ✔ | 3 | 2 | 4 | **10** |
 | AI's Capability in Assisting Scientific Research I: Literature Review | GR, HEP, INSTR | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **2.5** | ✔ | ✘ | ✔ | 2 | 0 | 4 | **8** |
@@ -156,10 +158,13 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 Repository note: two rows sit outside the agent setting the other columns assume. RealPDEBench evaluates scientific ML surrogate models rather than agents, so its task-setup marks describe an offline training-and-evaluation protocol. SciVQR is static multimodal question answering with no agent, tool use, or environment interaction.
 
 Repository note: `?` records a source that does not settle the column, not an inferred absence. This matters most for `Net` and for per-domain `Scale` in multi-domain suites, where papers often report only a total task count.
+Repository note: AutoResearchEval counts follow the paper's source-domain labels. Network access and reference-target reproduction apply to subsets; resource limits are not a cost score. `Verif=1` describes the diagnostic judge, whose calibration is pooled across domains; `Fail=3` records quantified failures without a controlled causal intervention. `?` leaves domain-specific multimodal or real-data coverage unasserted.
+
 ## Related Works
 
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PACE-Bench](../works/pace-bench.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)
 - [AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation](../works/ai-assisting-research-ii-project-planning.md)
 - [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)

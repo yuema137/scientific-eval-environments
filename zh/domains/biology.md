@@ -10,6 +10,7 @@
 
 | Work | 年份 | 科学问题 | 任务形式与规模 | 领域内验证 | Card |
 |---|---|---|---|---|---|
+| AutoResearchEval | 2026 | 微生物组与细胞生物学研究，包括诊断建模和细胞状态分析。 | 24 个任务（15 个开放式 + 9 个优化）；在 Docker 中完成六阶段研究并保留完整轨迹（图 2）。 | ARFT 评判器用文件和日志核对报告；总体人工一致性 κ = 0.75 / 0.83，并非本领域单独测得的准确率。 | [→](../works/autoresearcheval.md) |
 | Aviary | 2024 | 分子克隆（DNA 构建体操作）与蛋白质工程：为真实蛋白提出稳定化突变；另含科学文献研究（LitQA2）。 | 带终末奖励的 POMDP 环境：SeqQA（500 训练 / 约 140 测试克隆问题）、Protein Stability（在 megascale 稳定性数据集的 40 个蛋白上提出突变）、LitQA2（248 题）。 | SeqQA / LitQA2 按选择题准确率计分；蛋白任务当且仅当所提突变的 Rosetta ΔΔG < 0（稳定化）记为通过。 | [→](../works/aviary.md) |
 | HeurekaBench | 2026 | 回答开放式单细胞生物学研究问题——派生自 13 篇 Nature 与 Cell 论文中的 41 条已验证洞见——agent 需在原研究数据集上自主设计并执行多步分析。 | 50 道开放题 + 50 道选择题（Lite 子集：22 + 18，限 750 MB 以下数据集），由半自动的洞见到问题流水线产出。 | 真值是已发表的研究发现；开放题由 G-Eval GPT-4o judge 按原子事实重合度打 1–5 分，选择题按准确率。 | [→](../works/heurekabench.md) |
 | GeneBench-Pro | 2026 | 基因组学、数量生物学与转化生物医学中的多阶段统计分析，每题含 3–13 个推断岔路，貌似合理的错误选择会改变下游答案。 | 129 个问题，构建于因果结构完全已知的构造性模拟数据生成过程之上，刻意避开教科书案例。 | 对照可恢复目标的二元评分，含精确匹配规则与数值容差；无部分得分；每个模型–问题对独立尝试 10 次。 | [→](../works/genebench-pro.md) |
@@ -105,6 +106,7 @@
 | BioXArena | GEN | ✘ | ◐ | ✘ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 3 | 1 | 3 | **9** |
 | SpatialBench | SPAT | ? | ✘ | ◐ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
 | scBench-Long | SCB, IMM | ? | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✘ | ✔ | ◐ | 2 | 1 | 3 | **7.5** |
+| AutoResearchEval | GEN | ◐ | ✔ | ✘ | ? | ◐ | ◐ | ✔ | **3.5** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | HeurekaBench | SCB | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | 2 | 3 | **7** |
 | NatureBench | SCB, PROT | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 2 | 1 | 2 | **7** |
 | Frontier LLM-based agents can overcome the ontology curation bottleneck for natural phenotypes | ECOEV, CURA | ✘ | ✘ | ◐ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✘ | 3 | 2 | 1 | **7** |
@@ -138,9 +140,12 @@
 
 Repository note: 跨领域套件的总题数不能代替本领域数量。Terminal-Bench Science 已发布 0.1 版、共 70 题，但已核对的发布说明没有给出本页细分领域的任务数，因此 Scale 保留为 ?。其他 ? 同样表示来源尚未明确说明，并非否定该项能力。
 
+Repository note: AutoResearchEval 的数量按论文原始领域标签统计。联网与参考目标复现只适用于部分任务；资源上限不等于成本评分。`Verif=1` 对应诊断评判器，其校准数据跨领域汇总；`Fail=3` 表示失败已量化，但未通过受控干预验证因果。`?` 表示尚未确立本领域的多模态或真实数据覆盖情况。
+
 ## Related Works
 
 - [AgentIdeaBench](../works/agentideabench.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
 - [Apodex Discovery](../works/apodex-discovery.md)
 - [Fisher-R1 / P-Bench](../works/fisher-r1.md)
 - [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)

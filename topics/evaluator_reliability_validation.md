@@ -34,6 +34,7 @@ These additions test different measurement objects: [AgentIdeaBench](../works/ag
 
 | Work | Evaluator under test | Ground truth | Reliability signal | Downstream validation |
 |---|---|---|---|---|
+| [AutoResearchEval](../works/autoresearcheval.md) | Artifact-aware agent judge versus a single-call transcript-only judge | 50 human-labeled research trajectories | Pattern κ 0.75 vs. 0.53; root-category κ 0.83 vs. 0.62; recall 80.7% vs. 63.5% | Failure annotation across 800 trajectories; no per-pattern agreement or isolated artifact-access ablation |
 | AgentRewardBench | LLM and rule-based web-agent evaluators | Expert trajectory labels | Precision, recall, agreement across benchmarks | Agent evaluation |
 | MobileJudgeBench | Six mobile-agent judge methods × five backends | 931 human-labeled trajectories | Classification metrics, ranking correlation, rate error | Agent ranking and on-policy reward |
 | Plan-RewardBench | Reward models and LLM judges | Validated pairwise preferences | Order-swapped pairwise accuracy | No |
@@ -60,6 +61,7 @@ These additions test different measurement objects: [AgentIdeaBench](../works/ag
 
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PTA-IRT](../works/pta-irt.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
 - [MobileJudgeBench](../works/mobilejudgebench.md)
 - [SkillTV-Bench](../works/skilltv-bench.md)
 - [AgentLens](../works/agentlens.md)

@@ -34,6 +34,7 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 
 | Work | 被检验的 evaluator | Ground truth | 可靠性信号 | 下游验证 |
 |---|---|---|---|---|
+| [AutoResearchEval](../works/autoresearcheval.md) | 能检查产物的 agent 评判器，对比只读对话记录的单次调用评判器 | 50 条人工标注研究轨迹 | 模式 κ 0.75 对 0.53；根因类别 κ 0.83 对 0.62；召回率 80.7% 对 63.5% | 标注 800 条轨迹的失败；没有分模式一致性或单独隔离产物访问的消融实验 |
 | AgentRewardBench | web-agent 的 LLM 与规则 evaluator | 专家 trajectory 标签 | 多 benchmark 上的 precision、recall 与一致性 | Agent 评估 |
 | MobileJudgeBench | 六种 mobile judge 方法 × 五个 backbone | 931 条人工标注 trajectory | 分类指标、排名相关、成功率误差 | Agent 排名与 on-policy reward |
 | Plan-RewardBench | Reward model 与 LLM judge | 经验证的成对偏好 | 交换顺序后的 pairwise accuracy | 无 |
@@ -60,6 +61,7 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PTA-IRT](../works/pta-irt.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
 - [MobileJudgeBench](../works/mobilejudgebench.md)
 - [SkillTV-Bench](../works/skilltv-bench.md)
 - [AgentLens](../works/agentlens.md)

@@ -10,6 +10,7 @@ Chemistry as the science, including computational chemistry and molecular design
 
 | Work | Year | Scientific problem | Task form & scale | Domain verification | Card |
 |---|---|---|---|---|---|
+| AutoResearchEval | 2026 | Quantum-chemistry reference disagreements, molecular binding and chemical mechanisms. | 14 tasks (9 open-ended + 5 optimization); six-stage research in Docker, with complete trajectories retained (Fig. 2). | ARFT judge checks reports against files and logs; pooled human agreement κ = 0.75 / 0.83, not domain-specific accuracy. | [→](../works/autoresearcheval.md) |
 | ScienceAgentBench | 2024 | Computational Chemistry tasks — 20 of its 102 — extracted from peer-reviewed data-driven discovery workflows. | Each task requires generating a self-contained Python program reproducing an analysis from a real publication. | Valid execution plus task-specific hand-written success checkers against expert-annotated references (e.g., metric thresholds); figure outputs judged by GPT-4o. | [→](../works/scienceagentbench.md) |
 | NatureBench | 2026 | Match the published state of the art of Nature-family Molecular Design studies — 11 of its 90 tasks — given the target algorithm's inputs but none of its operations or outputs. | Code-agent tasks built by a review-gated pipeline with an information firewall; ~3.7 primary metrics per task. | SOTA-normalized relative gap g on each paper's own primary metric; Match-SOTA (g ≥ 0) and Surpass-SOTA (g > 0.1) rates, with a judge flagging shortcut runs. | [→](../works/naturebench.md) |
 | Terminal-Bench Science | 2026 | Chemistry tasks within the Physical Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (70 in version 0.1 across all five tracks; per-domain counts unreported), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
@@ -104,6 +105,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SciVisAgentBench | MD | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
 | SMDD-Bench | MED | ✘ | ✘ | ✔ | ◐ | ✘ | ◐ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 2 | 2 | **8** |
 | Model Discovery Agent | GEN | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 1 | 4 | **8** |
+| AutoResearchEval | QC, BIOCHEM | ◐ | ✔ | ✘ | ? | ◐ | ? | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | MolClaw | MED, MOLDES | ✔ | ◐ | ✘ | ✘ | ✘ | ◐ | ✔ | **3** | ✘ | ✔ | ✘ | 2 | 2 | 2 | **7** |
 | Science Edge Evaluation (SEE) | ANAL | ◐ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **3** | ✘ | ✘ | ◐ | 2 | ? | 4 | **6.5** |
 | DrBencher | BIOCHEM | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 1 | 1 | **6** |
@@ -138,9 +140,12 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 
 Repository note: a suite-wide total does not establish this domain’s item count. Terminal-Bench Science 0.1 contains 70 tasks, but the reviewed release announcement does not give the count for this page’s domain, so Scale remains ?. Other ? marks likewise record an evidence gap rather than an absent capability.
 
+Repository note: AutoResearchEval counts follow the paper's source-domain labels. Network access and reference-target reproduction apply to subsets; resource limits are not a cost score. `Verif=1` describes the diagnostic judge, whose calibration is pooled across domains; `Fail=3` records quantified failures without a controlled causal intervention. `?` leaves domain-specific multimodal or real-data coverage unasserted.
+
 ## Related Works
 
 - [AgentIdeaBench](../works/agentideabench.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)
 - [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
 - [onepot-Bench 0](../works/onepot-bench.md)

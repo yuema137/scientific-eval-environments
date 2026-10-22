@@ -10,6 +10,7 @@
 
 | Work | 年份 | 科学问题 | 任务形式与规模 | 领域内验证 | Card |
 |---|---|---|---|---|---|
+| AutoResearchEval | 2026 | 凝聚态与引力物理研究，包括自旋波和波形建模。 | 12 个任务（7 个开放式 + 5 个优化）；在 Docker 中完成六阶段研究并保留完整轨迹（图 2）。 | ARFT 评判器用文件和日志核对报告；总体人工一致性 κ = 0.75 / 0.83，并非本领域单独测得的准确率。 | [→](../works/autoresearcheval.md) |
 | MaD Physics | 2026 | 推断支配模拟系统的未知——有时被刻意改变的——物理定律，覆盖经典力学（D 维中的 N 粒子）、2D 不可压缩粘性流体与 2D 势箱中的两个量子粒子。 | 在三个模拟环境中交互实验；每次观测按保真度级别花费 2 / 5 / 10，受固定的单 trial 预算约束。 | 相对真实未来状态的预测误差：经典力学用归一化 RMSE，流体/量子用涡量/概率密度上的 L2 误差，在 33 个随机初始化上取平均。 | [→](../works/mad-physics.md) |
 | NewtonBench | 2025 | 重新发现一条隐藏物理定律：对 12 条经典定律（万有引力、库仑、傅里叶、Snell 等）的表达式树做反事实变异得到。 | 324 个交互任务（108 条变异定律 × 3 个模型系统）；agent 通过 `run_experiment` 工具设计实验，以符号表达式提交定律。 | 与真值定律的二元符号等价（LLM judge；与人类专家一致率 98.3%），辅以所发现方程预测的 RMSLE。 | [→](../works/newtonbench.md) |
 | PRBench | 2026 | 端到端复现已发表的物理研究——理解论文方法、从零实现算法、复现其定量结果——覆盖从 QCD 到凝聚态的 11 个子领域。 | 30 个专家整理的论文复现任务，来自 20 余个课题组，在沙箱执行环境中运行，输出标准化 CSV。 | 每任务由专家撰写的加权 rubric 评分（数据复现准确性权重 0.60）；端到端成功要求每个维度 >0.9——目前所有 agent 均为零。 | [→](../works/prbench.md) |
@@ -113,6 +114,7 @@
 | SciVisAgentBench | GEN | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
 | Gravity-Bench-v1 | GR, CLA | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✔ | ✘ | ✔ | 3 | ? | 4 | **9** |
 | Model Discovery Agent | CLA | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 4 | **8** |
+| AutoResearchEval | CM, GR | ◐ | ✔ | ✘ | ? | ◐ | ? | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | MaD Physics | CLA, FLU, QM | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 1 | **5** |
 | PACE-Bench | CLA, FLU | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✘ | ✔ | 3 | 2 | 4 | **10** |
 | AI's Capability in Assisting Scientific Research I: Literature Review | GR, HEP, INSTR | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **2.5** | ✔ | ✘ | ✔ | 2 | 0 | 4 | **8** |
@@ -156,10 +158,13 @@
 Repository note: 有两行不属于其余各列所预设的 agent 场景。RealPDEBench 评的是科学机器学习代理模型而非 agent，其"任务设定"几列描述的是一套离线训练与评测流程。SciVQR 是静态多模态问答，没有 agent、工具调用或环境交互。
 
 Repository note：`?` 表示来源没有把这一列说清楚，不是仓库推断它不存在。这个区别在 `Net` 和跨领域套件的逐领域 `Scale` 上尤其重要，因为论文经常只报总任务数。
+Repository note: AutoResearchEval 的数量按论文原始领域标签统计。联网与参考目标复现只适用于部分任务；资源上限不等于成本评分。`Verif=1` 对应诊断评判器，其校准数据跨领域汇总；`Fail=3` 表示失败已量化，但未通过受控干预验证因果。`?` 表示尚未确立本领域的多模态或真实数据覆盖情况。
+
 ## Related Works
 
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PACE-Bench](../works/pace-bench.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)
 - [AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation](../works/ai-assisting-research-ii-project-planning.md)
 - [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)

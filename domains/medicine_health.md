@@ -10,6 +10,7 @@ Clinical and biomedical-application evaluation: medical tasks, drug discovery, E
 
 | Work | Year | Scientific problem | Task form & scale | Domain verification | Card |
 |---|---|---|---|---|---|
+| AutoResearchEval | 2026 | Clinical prediction and biomedical modeling, including echocardiography and clinical-trial outcomes. | 15 tasks (12 open-ended + 3 optimization); six-stage research in Docker, with complete trajectories retained (Fig. 2). | ARFT judge checks reports against files and logs; pooled human agreement κ = 0.75 / 0.83, not domain-specific accuracy. | [→](../works/autoresearcheval.md) |
 | MedHELM | 2025 | Medical and clinical language tasks under a clinician-validated taxonomy of 5 categories and 22 subcategories — from clinical note generation to administration and workflow. | 121 tasks aggregated across 35 benchmarks (17 existing + 18 newly formulated), developed with 29 clinicians. | LLM-jury evaluation with measured clinician agreement (ICC = 0.47), reported to outperform ROUGE-L and BERTScore baselines. | [→](../works/medhelm.md) |
 | SciAgentArena | 2026 | Computational drug discovery and EHR modeling among its five biomedical research fields — e.g., hERG toxicity prediction and FHIR query construction. | ~200 tasks in four categories (Data Analysis, Optimization, Discovery, Validity) in an interactive, agent-agnostic environment. | Per-domain stepwise verification: expert-designed binary criteria, action-level F1 for EHR tasks, and task-native metrics such as AUROC averaged over independent runs; no LLM judge. | [→](../works/sciagentarena.md) |
 | NatureBench | 2026 | Match the published state of the art of Nature-family Biomedical Modeling studies — 14 of its 90 tasks — given the target algorithm's inputs but none of its operations or outputs. | Code-agent tasks built by a review-gated pipeline with an information firewall; ~3.7 primary metrics per task. | SOTA-normalized relative gap g on each paper's own primary metric; Match-SOTA (g ≥ 0) and Surpass-SOTA (g > 0.1) rates, with a judge flagging shortcut runs. | [→](../works/naturebench.md) |
@@ -83,6 +84,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | MedBrowseComp | PHARM, HPOL | ✔ | ✘ | ◐ | ◐ | ✘ | ✔ | ✔ | **4** | ✘ | ✘ | ✔ | 1 | 3 | 3 | **8** |
 | SDBench | CLIN, HPOL | ✘ | ✔ | ✔ | ✘ | ✘ | ✔ | ✔ | **4** | ✔ | ✔ | ✔ | 1 | 2 | 1 | **7** |
 | SciAgentArena | DRUG, EHR | ? | ◐ | ◐ | ✔ | ✘ | ◐ | ✔ | **3.5** | ◐ | ✔ | ✘ | 3 | 1 | 3 | **8.5** |
+| AutoResearchEval | BMOD, CLIN | ◐ | ✔ | ✘ | ? | ◐ | ◐ | ✔ | **3.5** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | Apodex Discovery | DRUG | ? | ✔ | ◐ | ? | ✘ | ✔ | ✔ | **3.5** | ✘ | ✔ | ◐ | 2 | 0 | 3 | **6.5** |
 | NatureBench | BMOD | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ✘ | ◐ | 2 | 1 | 2 | **6** |
 | SciVisAgentBench | IMG | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
@@ -104,9 +106,12 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 
 Repository note: a suite-wide total does not establish this domain’s item count. Terminal-Bench Science 0.1 contains 70 tasks, but the reviewed release announcement does not give the count for this page’s domain, so Scale remains ?. Other ? marks likewise record an evidence gap rather than an absent capability.
 
+Repository note: AutoResearchEval counts follow the paper's source-domain labels. Network access and reference-target reproduction apply to subsets; resource limits are not a cost score. `Verif=1` describes the diagnostic judge, whose calibration is pooled across domains; `Fail=3` records quantified failures without a controlled causal intervention. `?` leaves domain-specific multimodal or real-data coverage unasserted.
+
 ## Related Works
 
 - [AgentIdeaBench](../works/agentideabench.md)
+- [AutoResearchEval](../works/autoresearcheval.md)
 - [Apodex Discovery](../works/apodex-discovery.md)
 - [Fisher-R1 / P-Bench](../works/fisher-r1.md)
 - [Agents Catching Agents](../works/agents-catching-agents.md)

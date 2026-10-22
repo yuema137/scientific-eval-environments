@@ -10,6 +10,7 @@ Materials characterization and computational materials science, spanning physica
 
 | Work | Year | Scientific problem | Task form & scale | Domain verification | Card |
 |---|---|---|---|---|---|
+| AutoResearchEval | 2026 | Crystal structure relaxation, material-property prediction and processing mechanisms. | 12 tasks (7 open-ended + 5 optimization); six-stage research in Docker, with complete trajectories retained (Fig. 2). | ARFT judge checks reports against files and logs; pooled human agreement κ = 0.75 / 0.83, not domain-specific accuracy. | [→](../works/autoresearcheval.md) |
 | AFMBench | 2025 | Operate a real atomic force microscope — calibration, feature detection, mechanical-property measurement, graphene layer counting, indenter detection — from experimental design through results analysis. | 100 expert-curated tasks on a Nanosurf DriveAFM via a Python API; 69% multi-tool, stratified by complexity and functional domain, three trials per model–task pair. | Physical execution on real hardware; per-domain task completion rate plus a named failure taxonomy (e.g., 'sleepwalking' — unauthorized actions beyond instructions). | [→](../works/afmbench.md) |
 | AutoMat | 2026 | Reproduce claims from computational materials science papers end to end, across Stat/ML methods, Density Functional Theory, Molecular Dynamics, and Discrete Dislocation Dynamics. | 85 SME-curated claim-reproduction tasks in three types (from-paper, from-artifact reproduction, from-artifact interpretation), run in a resource-controlled HPC-style environment. | An artifact-navigating LLM evaluator agent scores 1–5 against hidden SME reproduction procedures (success = ≥4), calibrated at quadratic-weighted kappa 0.69 against blind SME scoring. | [→](../works/automat.md) |
 | Terminal-Bench Science | 2026 | Materials Science tasks within the Physical Sciences track of a five-track suite of terminal-based scientific workflows. | Containerized terminal tasks (70 in version 0.1 across all five tracks; per-domain counts unreported), community-contributed under a three-approval validation gate. | Deterministic pytest-based verification in containerized execution environments. | [→](../works/terminal-bench-science.md) |
@@ -84,6 +85,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
 | Imaging-101 | CHAR, COMP | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
+| AutoResearchEval | STRUCT, COMP | ◐ | ✔ | ✘ | ? | ◐ | ? | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | Agentic Self-Driving Microscopy Benchmarks | INSTR, CHAR | ✘ | ✘ | ✔ | ◐ | ✘ | ◐ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
 | AFMBench | INSTR, CHAR | ? | ✘ | ◐ | ◐ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✘ | 0 | 2 | 4 | **6** |
 | Science Edge Evaluation (SEE) | CHAR, STRUCT | ◐ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **3** | ✘ | ✘ | ◐ | 2 | ? | 3 | **5.5** |
@@ -114,8 +116,11 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 
 Repository note: a suite-wide total does not establish this domain’s item count. Terminal-Bench Science 0.1 contains 70 tasks, but the reviewed release announcement does not give the count for this page’s domain, so Scale remains ?. Other ? marks likewise record an evidence gap rather than an absent capability.
 
+Repository note: AutoResearchEval counts follow the paper's source-domain labels. Network access and reference-target reproduction apply to subsets; resource limits are not a cost score. `Verif=1` describes the diagnostic judge, whose calibration is pooled across domains; `Fail=3` records quantified failures without a controlled causal intervention. `?` leaves domain-specific multimodal or real-data coverage unasserted.
+
 ## Related Works
 
+- [AutoResearchEval](../works/autoresearcheval.md)
 - [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
 - [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md)
 - [Imaging-101](../works/imaging-101.md)
