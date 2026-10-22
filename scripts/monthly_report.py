@@ -16,15 +16,20 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 
+try:
+    from scripts.repo_markdown import FIRST_APPEARED_RE as STAMP, section
+    from scripts.claude_worker import invoke
+except ModuleNotFoundError:  # Direct script execution
+    from repo_markdown import FIRST_APPEARED_RE as STAMP, section
+    from claude_worker import invoke
+
+
 ROOT = Path(__file__).resolve().parents[1]
 RUNTIME = ROOT / "runtime" / "monthly-report"
 AGENTS = ROOT / "automation" / "monthly_report" / "agents"
 os.environ.setdefault("TZ", "America/Los_Angeles")
 if hasattr(time, "tzset"):
     time.tzset()
-STAMP = re.compile(
-    r"^> \*\*First appeared:\*\* (\d{4}-\d{2}-\d{2}) · "
-    r"\*\*Source:\*\* \[([^]]+)\]\((https?://[^)]+)\)$", re.M)
 
 
 def _run(cmd, check=True):
@@ -42,9 +47,7 @@ def _month(value=None):
 
 
 def _section(text, heading):
-    match = re.search(r"^##\s+" + re.escape(heading) + r"\s*\n(.*?)(?=^##\s|\Z)",
-                      text, re.S | re.M)
-    return match.group(1).strip() if match else ""
+    return (section(text, heading) or "").strip()
 
 
 def _axis(text, heading, folder):
@@ -142,21 +145,11 @@ def build_manifest(month, basis="main-addition"):
 
 def _worker(agent, prompt, max_turns=35):
     system = (AGENTS / (agent + ".md")).read_text()
-    cmd = [
-        "claude", "-p", prompt, "--output-format", "json", "--max-turns", str(max_turns),
-        "--permission-mode", "dontAsk", "--allowedTools", "Read,Write,Edit",
-        "--model", os.environ.get("MONTHLY_REPORT_MODEL", "claude-opus-4-8"),
-        "--append-system-prompt", system,
-    ]
-    proc = subprocess.run(cmd, cwd=ROOT, text=True, capture_output=True, timeout=60 * 30)
-    if proc.returncode:
-        raise RuntimeError("%s failed: %s" % (agent, (proc.stderr or "")[-500:]))
-    try:
-        result = json.loads(proc.stdout)
-    except json.JSONDecodeError as exc:
-        raise RuntimeError("%s returned invalid JSON" % agent) from exc
-    if result.get("result") is None:
-        raise RuntimeError("%s returned no result" % agent)
+    result = invoke(prompt, cwd=ROOT, system=system, tools="Read,Write,Edit",
+                    max_turns=max_turns,
+                    model=os.environ.get("MONTHLY_REPORT_MODEL", "claude-opus-4-8"))
+    if not result["ok"]:
+        raise RuntimeError("%s failed: %s" % (agent, result["error"]))
 
 
 def _report_paths(month):

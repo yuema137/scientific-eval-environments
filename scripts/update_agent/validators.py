@@ -9,6 +9,12 @@ import os
 import re
 import sys
 
+try:
+    from scripts.repo_markdown import section as _section
+except ModuleNotFoundError:
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from repo_markdown import section as _section
+
 from common import taxonomy, search_profiles, read_json, REPO_ROOT
 from related_works import card_order, expected_slug_order
 
@@ -88,11 +94,6 @@ def _template_headings(repo_root):
     m = re.search(r"```markdown\n(.*?)```", txt, re.S)
     block = m.group(1) if m else ""
     return [h.strip() for h in re.findall(r"^##\s+(.*)$", block, re.M)]
-
-
-def _section(txt, heading):
-    m = re.search(r"^##\s+" + re.escape(heading) + r"\s*\n(.*?)(?=^##\s|\Z)", txt, re.S | re.M)
-    return m.group(1) if m else None
 
 
 def _first_appeared(txt, chinese=False):
