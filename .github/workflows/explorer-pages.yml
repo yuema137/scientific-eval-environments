@@ -39,7 +39,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install test dependencies
-        run: python3 -m pip install pytest
+        run: python3 -m pip install -r requirements-dev.txt
       - name: Test the explorer compiler
         run: python3 -m pytest tests/test_export_explorer_data.py -q
 

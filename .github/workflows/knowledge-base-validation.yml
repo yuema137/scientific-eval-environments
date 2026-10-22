@@ -32,7 +32,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
-      - run: pip install -q requests pyyaml pytest
+      - run: python -m pip install -r requirements-dev.txt
 
       # Every check runs even after an earlier one fails, so one push reports the whole
       # backlog instead of one defect per round trip.

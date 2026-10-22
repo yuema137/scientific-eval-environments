@@ -13,3 +13,7 @@
 runtime/
 __pycache__/
 *.pyc
+
+# Local Python development environment
+.venv/
+.pytest_cache/

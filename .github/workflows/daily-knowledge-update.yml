@@ -54,7 +54,7 @@ jobs:
         with: { fetch-depth: 0 }
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
-      - run: pip install -q requests pyyaml pytest
+      - run: python -m pip install -r requirements-dev.txt
       - name: Deterministic unit/fixture tests
         run: python -m pytest tests/update_agent -q
       - name: Repo validators (profiles, axes, counts)
@@ -106,7 +106,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
-      - run: pip install -q requests pyyaml
+      - run: python -m pip install -r requirements.txt
       - run: npm install -g @anthropic-ai/claude-code
       - name: Bounded live discovery (real sources + relevance scorer; no writes, no branch, no PR)
         env:
@@ -127,7 +127,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
-      - run: pip install -q requests pyyaml
+      - run: python -m pip install -r requirements.txt
       - run: npm install -g @anthropic-ai/claude-code
       - name: Fixture five-phase E2E (isolated workspace, no PR)
         env:
@@ -157,7 +157,7 @@ jobs:
         with: { fetch-depth: 0 }
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
-      - run: pip install -q requests pyyaml
+      - run: python -m pip install -r requirements.txt
       - run: npm install -g @anthropic-ai/claude-code
       - id: disc
         env:
@@ -176,7 +176,7 @@ jobs:
         with: { fetch-depth: 0 }
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
-      - run: pip install -q requests pyyaml
+      - run: python -m pip install -r requirements.txt
       - run: npm install -g @anthropic-ai/claude-code
       - name: Base on rolling automated branch (accumulate pending batches)
         run: bash scripts/update_agent/base_branch.sh
@@ -202,7 +202,7 @@ jobs:
         with: { fetch-depth: 0 }
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
-      - run: pip install -q requests pyyaml
+      - run: python -m pip install -r requirements.txt
       - run: npm install -g @anthropic-ai/claude-code
       - uses: actions/download-artifact@v4
         with: { name: stage-english }
@@ -231,7 +231,7 @@ jobs:
         with: { fetch-depth: 0 }
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
-      - run: pip install -q requests pyyaml
+      - run: python -m pip install -r requirements.txt
       - run: npm install -g @anthropic-ai/claude-code
       - uses: actions/download-artifact@v4
         with: { name: stage-chinese }
@@ -256,7 +256,7 @@ jobs:
         with: { fetch-depth: 0 }
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
-      - run: pip install -q requests pyyaml
+      - run: python -m pip install -r requirements.txt
       - name: Base on rolling automated branch
         run: bash scripts/update_agent/base_branch.sh
       - uses: actions/download-artifact@v4
@@ -291,7 +291,7 @@ jobs:
         with: { fetch-depth: 0 }
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
-      - run: pip install -q requests pyyaml
+      - run: python -m pip install -r requirements.txt
       - uses: actions/download-artifact@v4
         with: { name: stage-runtime, path: runtime/ }
       - name: Advance discovery watermark to this run's window end
