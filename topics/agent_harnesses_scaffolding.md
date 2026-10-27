@@ -29,6 +29,8 @@ A benchmark observes the whole model–harness configuration. If two systems use
 
 [HarnessDev](../works/harnessdev.md) separates the model that writes a harness from the model that runs it. Hidden tasks test whether feedback-driven changes generalize; its token metric counts execution, not development.
 
+[Astro2Method](../works/astro2method.md) holds its questions and models fixed while switching retrieval and agent scaffolds. ReAct, Self-Ask, and CRITIC over a historical corpus score 1.4–6.2 points below direct prompting overall, and counting source-paper hits shows that most web-search gains come from finding the answer's source.
+
 ## Comparison
 
 | Work | Harness role | Controlled variables | Evaluation feedback | Outcome |
@@ -42,6 +44,7 @@ A benchmark observes the whole model–harness configuration. If two systems use
 | AstaBench | Confounder to standardize and declare | Tools, corpus date cutoffs, task interface, cost accounting | Suite score with cost, openness and tooling category | Model-harness comparison at stated tool parity |
 | [EvoHarnessBench](../works/evoharnessbench.md) | Cumulative tools, skills, specialist pools | Earlier tasks fixed; model weights fixed | Held-out verifiers; separate adaptation split | Retention and adaptation tracked separately |
 | [HarnessDev](../works/harnessdev.md) | Created and evolved runnable artifact | Separate creator/executor; frozen harness | Feedback sets versus hidden tasks | Creation quality, regression, executor transfer |
+| [Astro2Method](../works/astro2method.md) | Compared condition: RAG, ReAct, Self-Ask, CRITIC, skills, web search, masked source pipeline | Same 500 questions and three models | Accuracy per condition; per-question source-paper hit counts | No consistent scaffold gain; web-search gains mainly when the source paper is found |
 
 ## Open Questions
 
@@ -53,6 +56,7 @@ A benchmark observes the whole model–harness configuration. If two systems use
 
 ## Related Works
 
+- [Astro2Method](../works/astro2method.md)
 - [EvoHarnessBench](../works/evoharnessbench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [Evo-Bench](../works/evo-bench.md)

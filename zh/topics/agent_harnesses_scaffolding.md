@@ -29,6 +29,8 @@ Benchmark 看到的是整套 model–harness configuration。如果两套系统�
 
 [HarnessDev](../works/harnessdev.md)把编写 harness 的模型与执行模型分开。隐藏任务检查依据反馈作出的修改能否泛化；token 指标只计执行，不计开发。
 
+[Astro2Method](../works/astro2method.md)固定题目和模型，只更换检索方式和 agent scaffold。只在历史语料上检索的 ReAct、Self-Ask 和 CRITIC，总体准确率比直接提问低 1.4–6.2 个百分点。逐题统计是否检索到原论文后可以看到，联网搜索带来的提升大多来自找到了答案的出处。
+
 ## 方法对比
 
 | Work | Harness 的角色 | 固定项 | Evaluation feedback | 结果 |
@@ -42,6 +44,7 @@ Benchmark 看到的是整套 model–harness configuration。如果两套系统�
 | AstaBench | 需要标准化并公开声明的混杂因素 | 工具、语料日期截断、任务接口、成本核算 | 套件分数，附成本与开放度/工具方式分类 | 在声明过的工具对等条件下比较 model-harness |
 | [EvoHarnessBench](../works/evoharnessbench.md) | 逐步累加的工具、技能和专家池 | 旧任务与模型权重固定 | 留出任务验证器；独立适应集 | 分别报告旧能力保留与新能力适应 |
 | [HarnessDev](../works/harnessdev.md) | 创建和持续修改的可执行产物 | 编写者与执行者分开；冻结 harness | 反馈集与隐藏任务分开 | 创建质量、退步和执行模型迁移 |
+| [Astro2Method](../works/astro2method.md) | 被比较的条件：RAG、ReAct、Self-Ask、CRITIC、技能、联网搜索、遮蔽方法名的原论文流程 | 相同的 500 道题和三个模型 | 各条件下的准确率；逐题统计是否检索到原论文 | scaffold 没有稳定提升；联网搜索的提升主要出现在找到原论文的题上 |
 
 ## 还没解决的问题
 
@@ -53,6 +56,7 @@ Benchmark 看到的是整套 model–harness configuration。如果两套系统�
 
 ## 相关工作
 
+- [Astro2Method](../works/astro2method.md)
 - [EvoHarnessBench](../works/evoharnessbench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [Evo-Bench](../works/evo-bench.md)

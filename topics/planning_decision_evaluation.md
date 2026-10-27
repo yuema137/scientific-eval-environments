@@ -30,6 +30,7 @@ The literature progresses from controlled plan validity toward realistic, agent-
 - **Reference-plan and process comparison.** [AISE-Bench](../works/aise-bench.md) measures graph edit distance from annotated gold plans; [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) supplies validated implementation-planning ground truth; and [RigorBench](../works/rigorbench.md) scores planning fidelity separately from engineering outcomes.
 - **Plan and trajectory preference.** [Plan-RewardBench](../works/plan-rewardbench.md) asks evaluators to choose between preferred and confusable tool-use trajectories, including single- and multi-turn planning splits. This line evaluates the judge of a plan rather than the planner itself.
 - **Scientific project planning.** [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) holds the research goal fixed and uses expert and model panels to score methods, resources, feasibility, timelines, and risks in proposals for real physics and astronomy projects.
+- **Next-operation choice in embodied laboratory work.** [Labference](../works/labference.md) scores a lab robot's first identifiable operation against the legal next operations implied by the observed state, separately from whether the robot executes it.
 
 ## Comparison
 
@@ -46,6 +47,7 @@ The literature progresses from controlled plan validity toward realistic, agent-
 | RigorBench | Engineering plan and adherence during execution | Repository state and execution trace | Planning-fidelity pillar, reported separately from outcome | No | No |
 | Plan-RewardBench | Pair of tool-use trajectories | Full recorded conversations, tools, calls, and outputs | Gold pairwise preference | Evaluates the judge, not execution | One confusable alternative per pair |
 | AI's Capability in Assisting Scientific Research II | One-page research proposal | Fixed expert-written title, background, and goal | Human and LLM rubric scores | Yes | Human and three model proposals per project |
+| Labference | Next laboratory operation chosen from a contract-defined legal set | Camera observations, robot state, and authorized evidence such as balance readings or rotor occupancy | Legal-set membership of the first identifiable choice (`B_next`, `C_id`); physically confirmed subgoals and terminal predicates | Yes; choice, fixed-subgoal execution, and completion are scored separately | Answer-changing evidence pairs defined (`P_state`); not yet run in reported experiments |
 
 ## Open Questions
 
@@ -59,6 +61,7 @@ The literature progresses from controlled plan validity toward realistic, agent-
 
 ## Related Works
 
+- [Labference](../works/labference.md)
 - [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) — validated implementation-planning ground truth in repository issue resolution.
 - [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) — expert-rubric evaluation of plans for real research projects.
 - [RigorBench](../works/rigorbench.md) — planning fidelity scored separately from engineering outcome.

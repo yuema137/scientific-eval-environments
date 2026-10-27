@@ -60,6 +60,8 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 | LQCDMaster | 2026 | Compute lattice-QCD observables from first principles — meson and baryon two-point functions, nonlocal Wilson-line correlators, meson and baryon three-point functions with sequential sources, and Wilson loops — by turning a natural-language research request into an executable PyQUDA measurement workflow. | 70 LQCD computing tasks (20 local 2PTs, 10 nonlocal 2PTs, 13 meson 3PTs, 15 baryon 3PTs, 12 Wilson loops), each paired with a hand-written expert reference implementation for the same observable, ensemble and kinematic setup; workflows executed through the PyQUDA/QUDA GPU stack with SLURM job submission. | Direct numerical comparison against the expert reference at machine precision, labelled Matched (absolute deviation ≲ 10⁻¹²), Convention Mismatch (a global sign or phase difference), or Failure; GPT-5.4 reaches 63/70 Matched (90.0%), DeepSeek-V4-Pro 56/70 (80.0%). | [→](../works/lqcdmaster.md) |
 | PACE-Bench | 2026 | Repair a working mechanism design after the physics underneath it is mutated — friction, material strength, gravity or force limits. | 144 source-to-target pairs from 36 base tasks over six physics families at 6 tasks each; 20 attempts per pair with non-prescriptive diagnostic feedback. | Box2D rigid-body simulation; constraint-satisfaction fraction and task score in [−100, 100], reported as Pass@2 — best full-benchmark result 35.9%. | [→](../works/pace-bench.md) |
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | Form testable hypotheses in physics from research literature | Eight densely scored subfields in this discipline; static and active literature access | Model critics assess originality against retrieved prior art; no experimental validation | [AgentIdeaBench](../works/agentideabench.md) |
+| PHYRD | 2026 | Re-derive published theoretical-physics results and derive the consequences of a changed operator, coupling, symmetry, or boundary condition, across five subfields led by high-energy physics. | 106 problems (63 Reproduce, 43 Discover) with 504 public subquestions; Reproduce closed-book, Discover closed-book and with Python/arXiv tools. | Binary per-subquestion scoring that requires conclusions, derivations, and applicability conditions; reference derivations reviewed against a blind solver's attempt before release. | [→](../works/phyrd.md) |
+| QFT-Bench | 2026 | Carry out quantum field theory derivations, from classical field theory and QED through renormalization, gauge theories, supersymmetry, and conformal field theory. | 75 problems with closed-form reference answers and reference solutions; single-problem derivations, not an interactive agent setting. | SymPy symbolic-equivalence check, with an Opus-5 judge when inconclusive; judge agreement with three QFT experts reported (98% correctness). | [→](../works/qft-bench.md) |
 
 ## Capability Matrix
 
@@ -130,6 +132,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | QMP-Bench | CM, COMP | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ◐ | ✔ | ✘ | 2 | 2 | 0 | **5.5** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | LQCDMaster | HEP, NUC | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✔ | ✘ | ◐ | 3 | 1 | 3 | **8.5** |
+| PHYRD | COS, CM, HEP, QI, STAT | ◐ | ✘ | ✘ | ✘ | ◐ | ✘ | ◐ | **1.5** | ✘ | ✔ | ◐ | ? | 2 | 3 | **6.5** |
 | SeePhys | GEN | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✔ | ✘ | ✘ | 2 | 3 | 3 | **9** |
 | MooseBench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
 | PDEAgent-Bench | COMP | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
@@ -150,6 +153,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | UGPhysics | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 2 | 3 | 3 | **9** |
 | CMPhysBench | CM | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
 | TPBench | HEP, COS | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 3 | 1 | 2 | **7** |
+| QFT-Bench | HEP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ◐ | ◐ | 2 | 1 | 3 | **7** |
 | CMT-Benchmark | CM, STAT | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 3 | 1 | 2 | **6.5** |
 | SciCode | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✘ | **0** | ✘ | ✘ | ✘ | 3 | ? | 3 | **6** |
 | EnvTrace | INSTR | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✔ | ✘ | ✘ | 3 | ? | 1 | **5** |
@@ -162,6 +166,8 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 
 ## Related Works
 
+- [PHYRD](../works/phyrd.md)
+- [QFT-Bench](../works/qft-bench.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

@@ -122,9 +122,15 @@ Finally, a **clinical-diagnosis and interactive biology-research** cluster treat
 | TRIP-Evaluate | 2026 | Answer transportation items across text, images and point clouds | 837 single-choice items, 4 roles, 16 task domains, 226 knowledge points | Accuracy by role, capability, difficulty and modality (best 88.8%) | [card](../works/trip-evaluate.md) |
 | VCoT-Bench | 2026 | Complete Verus verification chain-of-thought | 1,988 tasks from 150 Verus programs | Proof-block completion accuracy | [card](../works/vcot-bench.md) |
 | R³-Bench | 2026 | Solve a six-problem suite under one shared budget, deciding how much effort each problem receives | 150 suites over mathematics, competitive programming and abstract reasoning; tool-free and Terminus-2 shell settings | Contest score against an empirical allocation oracle, which is strictly higher in 71 of 72 cells | [card](../works/r3-bench.md) |
+| PHYRD | 2026 | Derive published and premise-modified theoretical-physics results | 106 problems (63 Reproduce, 43 Discover), 504 subquestions, 5 subfields; Discover also with tools | Whole-problem accuracy: every subquestion correct | [card](../works/phyrd.md) |
+| QFT-Bench | 2026 | Solve graduate-to-research-level QFT derivation problems | 75 problems across 8 QFT areas, closed-form targets, single response per problem | Boxed answer equivalent to the reference (best 100.0%); faithfulness audited separately | [card](../works/qft-bench.md) |
+| Astro2Method | 2026 | Choose which of two machine-learning methods performed better on a stated astronomy problem | 500 binary questions from 346 papers; direct prompting, RAG, agent scaffolds, web search | Accuracy against the source paper's reported comparison (Easy 87.50–92.55%, Hard 58.87–64.52% under direct prompting) | [card](../works/astro2method.md) |
 
 ## Related Works
 
+- [PHYRD](../works/phyrd.md)
+- [QFT-Bench](../works/qft-bench.md)
+- [Astro2Method](../works/astro2method.md)
 - [R³-Bench](../works/r3-bench.md)
 - [MMArch](../works/mmarch.md)
 - [TCS-Bench](../works/tcs-bench.md)

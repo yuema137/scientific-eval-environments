@@ -23,9 +23,11 @@
 | AFMBench | 2025 | LLM agent 端到端操作一台真实的原子力显微镜 | 通过 Python API 在 Nanosurf DriveAFM 上执行 100 项精选任务，运行 3 次 | 任务完成度；最佳模型整体 65%，文档+分析环节 23.3% | [卡片](../works/afmbench.md) |
 | EnvTrace | 2025 | 评估 LLM 生成的光束线仪器控制代码 | 相对同步辐射光束线数字孪生进行轨迹对齐；覆盖 30 多个 LLM | 多维度的功能正确性评分；顶尖模型接近人类水平 | [卡片](../works/envtrace.md) |
 | Agentic Self-Driving Microscopy Benchmarks | 2026 | 对 agentic 自动驾驶显微镜控制进行基准测试并记录轨迹日志 | 53 项测试 x 105 种 agent 配置，共 1,949 次运行（Zeiss 研究） | 支持资格认证/回归测试；无法实现与任务无关的配置预测 | [卡片](../works/agentic-microscopy-benchmarks.md) |
+| Labference | 2026 | 根据当前状态，在模拟实验室设备（离心机、天平、试管架）上选出操作并实际执行 | Isaac Sim 5.1 中的 Franka Panda；3 类核心任务，各有基础和扩展条件；已报告的实验是简单称量：每个 VLA 策略 50 个回合，GPT 驱动的对照方案 10 次试验 | 经物理确认的任务完成（如天平读数与目标相差不超过 1 g 并保持 3 s），操作选择与执行分别打分 | [卡片](../works/labference.md) |
 
 ## Related Works
 
+- [Labference](../works/labference.md)
 - [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md)
 - [EnvTrace](../works/envtrace.md)
 - [AFMBench](../works/afmbench.md)

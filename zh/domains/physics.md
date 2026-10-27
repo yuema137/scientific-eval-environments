@@ -60,6 +60,8 @@
 | LQCDMaster | 2026 | 从第一性原理计算格点 QCD 可观测量——介子与重子两点函数、非定域 Wilson 线关联函数、带顺序源的介子与重子三点函数，以及 Wilson 环——办法是把一条自然语言研究请求转成可执行的 PyQUDA 测量工作流。 | 70 个 LQCD 计算任务（20 个定域两点函数、10 个非定域两点函数、13 个介子三点函数、15 个重子三点函数、12 个 Wilson 环），每个都配一份专家手写的参考实现，可观测量、系综与运动学设置均与之相同；工作流经 PyQUDA/QUDA GPU 栈执行，作业由 SLURM 提交。 | 在机器精度上与专家参考直接做数值比对，标为 Matched（绝对偏差 ≲ 10⁻¹²）、Convention Mismatch（相差一个全局符号或相位）或 Failure；GPT-5.4 达到 63/70 Matched（90.0%），DeepSeek-V4-Pro 为 56/70（80.0%）。 | [→](../works/lqcdmaster.md) |
 | PACE-Bench | 2026 | 在脚下的物理被变异之后——摩擦系数、材料强度、重力或力上限——把一份可用的机构设计修好。 | 36 个基础任务衍生出 144 个源到目标对，覆盖六个物理族、每族 6 个任务；每对 20 次尝试，反馈只作诊断不给修改建议。 | Box2D 刚体仿真；约束满足比例与 [−100, 100] 区间的任务分数，报告为 Pass@2——全量 benchmark 最好成绩为 35.9%。 | [→](../works/pace-bench.md) |
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | 依据Physics文献提出可检验假设 | 本领域有八个密集评分子领域；比较固定文献与主动检索 | 评审模型依据检索到的已有研究判断原创性；不执行实验验证 | [AgentIdeaBench](../works/agentideabench.md) |
+| PHYRD | 2026 | 重新推出已发表的理论物理结果，并推导算符、耦合、对称性或边界条件改动后的结论，覆盖以高能物理为主的五个子领域。 | 106 道题（63 道 Reproduce、43 道 Discover），504 个公开小问；Reproduce 闭卷，Discover 分闭卷和可用 Python/arXiv 工具两种设置。 | 逐小问二值评分，要求结论、推导和适用条件都正确；发布前把盲解结果与参考解答和评分标准一起审核。 | [→](../works/phyrd.md) |
+| QFT-Bench | 2026 | 完成量子场论推导，从经典场论和 QED，到重整化、规范理论、超对称与共形场论。 | 75 道题，都有闭式参考答案和参考解答；逐题推导，不是交互式 agent 设置。 | SymPy 符号等价检查，判不了时由 Opus-5 judge 判分；报告了 judge 与三位 QFT 专家的一致率（正确性 98%）。 | [→](../works/qft-bench.md) |
 
 ## Capability Matrix
 
@@ -130,6 +132,7 @@
 | QMP-Bench | CM, COMP | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ◐ | ✔ | ✘ | 2 | 2 | 0 | **5.5** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | LQCDMaster | HEP, NUC | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✔ | ✘ | ◐ | 3 | 1 | 3 | **8.5** |
+| PHYRD | COS, CM, HEP, QI, STAT | ◐ | ✘ | ✘ | ✘ | ◐ | ✘ | ◐ | **1.5** | ✘ | ✔ | ◐ | ? | 2 | 3 | **6.5** |
 | SeePhys | GEN | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✔ | ✘ | ✘ | 2 | 3 | 3 | **9** |
 | MooseBench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
 | PDEAgent-Bench | COMP | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
@@ -150,6 +153,7 @@
 | UGPhysics | GEN | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 2 | 3 | 3 | **9** |
 | CMPhysBench | CM | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
 | TPBench | HEP, COS | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 3 | 1 | 2 | **7** |
+| QFT-Bench | HEP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ◐ | ◐ | 2 | 1 | 3 | **7** |
 | CMT-Benchmark | CM, STAT | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ◐ | 3 | 1 | 2 | **6.5** |
 | SciCode | GEN | ? | ✘ | ✘ | ✘ | ✘ | ? | ✘ | **0** | ✘ | ✘ | ✘ | 3 | ? | 3 | **6** |
 | EnvTrace | INSTR | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✔ | ✘ | ✘ | 3 | ? | 1 | **5** |
@@ -162,6 +166,8 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 
 ## Related Works
 
+- [PHYRD](../works/phyrd.md)
+- [QFT-Bench](../works/qft-bench.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

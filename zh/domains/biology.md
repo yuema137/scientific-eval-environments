@@ -52,6 +52,7 @@
 | DiscoveryBench | 2024 | 重新得出两篇已发表的个体生物学研究的结论：南美淡水鱼在高地环境中体型演化加速是否与近期物种形成相关，以及引入途径如何影响外来植物沿环境梯度的入侵成功率。 | 239 个真实测试任务中有 16 个属于生物学；每题给出该研究的数据集、字段说明和一句自然语言发现目标，分析流程由 agent 自己写并运行。 | 与论文标准假设在 context、variables、relationship 三维上的 GPT-4 Hypothesis Matching Score；非 oracle 最佳 agent 在该领域得分为 0%。 | [→](../works/discoverybench.md) |
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | 依据Biology文献提出可检验假设 | 本领域有八个密集评分子领域；比较固定文献与主动检索 | 评审模型依据检索到的已有研究判断原创性；不执行实验验证 | [AgentIdeaBench](../works/agentideabench.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现Biology的已发表实验 | 从论文重建代码并执行；属于 30 篇 AI4Science 论文的一部分；未报告本领域数量 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
+| DISCERN | 2026 | 在 GWAS、临床变异解读、bulk 与单细胞 RNA-seq、CRISPR 筛选、增强子活性、染色质调控以及蛋白质稳定性与结构等方向上审核数据、核查分析并提出假设。 | 203 个任务：79 个数据完整性任务（含配对的干净对照），102 个分析核查任务（24 个分析类别），22 个假设证据包；在封闭且不能联网的沙箱中运行。 | L1–L2 确定性评分，由 LLM 验证器复核，分歧由人裁定；L3 经三轮对抗评审后由 LLM judge 评分，并由作者逐条核验；不做实验证实。 | [→](../works/discern.md) |
 
 ## Capability Matrix
 
@@ -116,6 +117,7 @@
 | SciVisAgentBench | IMG | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
 | SciAgentArena | SCB, SPAT, GENOM, DRUG | ? | ◐ | ◐ | ✘ | ✘ | ✔ | ✔ | **3** | ◐ | ✔ | ✘ | 3 | 2 | 3 | **9.5** |
 | GenoTEX | GENOM, BIOINF | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ✔ | **3** | ✔ | ✘ | ✘ | 3 | 3 | 2 | **9** |
+| DISCERN | GENOM, SCB, PROT | ✘ | ✘ | ✔ | ? | ✘ | ✔ | ✔ | **3** | ? | ✔ | ◐ | 2 | 2 | 3 | **8.5** |
 | LABBench2 | GEN | ◐ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **3** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | ScienceBoard | STRB | ? | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | **3** | ✔ | ✘ | ✘ | 3 | ? | 3 | **7** |
 | Science Edge Evaluation (SEE) | STRB, IMG | ◐ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **3** | ✘ | ✘ | ✔ | 2 | ? | 3 | **6** |
@@ -144,6 +146,7 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 
 ## Related Works
 
+- [DISCERN](../works/discern.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Apodex Discovery](../works/apodex-discovery.md)

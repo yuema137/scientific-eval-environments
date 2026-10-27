@@ -50,9 +50,15 @@
 | DiscoveryBench | 2024 | 从数据中搜索并验证假设；发现目标由标准假设遮掉一个维度得到 | 取自 20 多篇已发表论文的 264 个真实任务外加 903 个合成任务；多数据集分析流程最长超过 20 步 | 一句在 context、variables、relationship 上与标准假设吻合的陈述句；生物学任务得分为 0% | [卡片](../works/discoverybench.md) |
 | InnovatorBench | 2025 | 自己提出方法、实现出来、跑实验，再依据返回的分数改进 | ResearchGym 中的 20 个 LLM 研究任务，每个 2-36 小时，最多四次计分提交 | 要超过锚定在 80 附近的隐藏参考解；最佳模型平均 24.01 | [卡片](../works/innovatorbench.md) |
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | 依据文献提出科学假设 | 固定参考文献与主动检索对比；40 个密集评分子领域 | 一段假设，由结合文献的评审模型评分 | [AgentIdeaBench](../works/agentideabench.md) |
+| SlowLab | 2026 | 决定做哪些缓慢且无法撤回的作物实验，用来摸清站点的隐藏参数 | 四个模拟温室隔间，一轮 365 天；最多 16 次实验，每茬作物 180 天；48 个未见站点 | 推荐一套气候策略，由不公开的评估器在未见过的天气年份中打分 | [卡片](../works/slowlab.md) |
+| DISCERN | 2026 | 先说出预期，再依据证据包提出并修正假设 | 22 个证据包（8 个真实对照，6 个原生反事实，8 个注入反事实）；三到六步，三轮对抗评审 | LLM judge 按证据忠实度、推理和新颖性为假设评分；未经实验证实 | [卡片](../works/discern.md) |
+| AlphaIdeaBench | 2026 | 在给定预算内提出包含实验方案和资源计划的研究想法 | 100 个来自机器学习 workshop 征稿和综述的任务；八个 harness，八个基础模型 | 一份 JSON 提案，由 LLM judge 按有效性、新颖性和可行性评分；不执行 | [卡片](../works/alphaideabench.md) |
 
 ## Related Works
 
+- [SlowLab](../works/slowlab.md)
+- [AlphaIdeaBench](../works/alphaideabench.md)
+- [DISCERN](../works/discern.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [Apodex Discovery](../works/apodex-discovery.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)

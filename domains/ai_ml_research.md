@@ -42,6 +42,7 @@ AI and machine learning as the science under study: reproducing, rediscovering, 
 | AI-Researcher | 2025 | Produce a research contribution in diffusion models, vector quantization, graph neural networks or recommender systems, from references and data through implementation to a written manuscript. | 22 guided (Level-1) and 6 open-ended (Level-2) tasks built from 22 papers published 2022-2024, with method names, technical detail, dataset naming and citations anonymized in the inputs. | Code-review agent scoring implementation completeness and a 5-point correctness, plus five LLM reviewers comparing the generated manuscript against the human paper on a -3 to +3 scale with presentation order swapped. | [→](../works/ai-researcher.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in ai & machine learning research | Paper-to-repository reproduction; 120 ML papers | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
 | [HarnessDev](../works/harnessdev.md) | 2026 | Construct a reusable harness for machine-learning competitions | 75 MLE-bench tasks; model training and submissions | Competition medal scores under a frozen harness | [HarnessDev](../works/harnessdev.md) |
+| AlphaIdeaBench | 2026 | Propose machine-learning research ideas whose plans fit a stated compute, API, time, and annotation budget. | 100 tasks (50 workshop calls, 50 survey open problems) across nine ML fields; one JSON proposal per task from eight harnesses and eight backbones. | Gemini 3.7 Flash judge on 12 dimensions; novelty axes compared with reviewer-derived scores on 600 papers; proposals not executed. | [→](../works/alphaideabench.md) |
 
 ## Capability Matrix
 
@@ -116,12 +117,14 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | 2 | 3 | **6** |
 | ML-Bench | CODE | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✔ | ✘ | ✔ | 3 | 3 | 3 | **11** |
 | AutoWorldModel-Bench | WM | ? | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
+| AlphaIdeaBench | IDEA | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ? | **0.5** | ? | ✔ | ? | 1 | 2 | 1 | **5** |
 | LiveIdeaBench | IDEA | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ◐ | 1 | 3 | 2 | **7.5** |
 
 Repository note: the unknowns cluster in two columns. `Net` is `?` on 16 of the 30 rows — neither the card nor the primary source says whether the agent could reach the live network during a run. `MM` is `?` on 7 rows, where nothing in the source establishes that an image, plot, or other non-text artifact is load-bearing. Two single cells remain: AstaBench on `Scale`, since its 2,400+ problems span eleven constituent benchmarks with no AI-research-only count, and AI-Researcher on `Cost`. Each mark records the source's silence rather than closing it by inference.
 
 ## Related Works
 
+- [AlphaIdeaBench](../works/alphaideabench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [AI Research Preference Models](../works/ai-research-preference-models.md)

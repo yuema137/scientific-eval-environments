@@ -20,13 +20,14 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 
 - **动态、近期来源。** [CODE2BENCH](../works/code2bench.md)、[PRL-Bench](../works/prl-bench.md) 和 [MedBrowseComp](../works/medbrowsecomp.md) 从近期 repository、论文或实时来源刷新题目。
 - **私有或新写答案。** [CritPt](../works/critpt.md)、[OnePot-Bench](../works/onepot-bench.md) 和 [GeneBench-Pro](../works/genebench-pro.md) 使用未发表、私有或留出的材料。
-- **程序生成与反事实构造。** [DiscoverPhysics](../works/discoverphysics.md) 按需生成物理世界，[Robotouille](../works/robotouille.md) 则程序化生成具身任务。
+- **程序生成与反事实构造。** [DiscoverPhysics](../works/discoverphysics.md) 按需生成物理世界，[Robotouille](../works/robotouille.md) 则程序化生成具身任务。[PHYRD](../works/phyrd.md) 改动已发表推导中的一个前提，要求推出由此带来的结果；它的 Reproduce 部分以已发表结果为目标，源论文可能已进入训练数据，这部分仍有污染风险。
 - **Verifier 严谨度。** CODE2BENCH 要求 property-based tests 达到 branch-coverage gate；[FrontierCode](../works/frontiercode.md) 同时做执行检查与 contamination 检测。
 - **开放 exploration 之后做封闭 replay。** [AI4AI-Bench](../works/ai4ai-bench.md) 允许 agent 在开发时使用便宜 proxy，随后只把 source code 送入 fresh run，由固定 final evaluator 打分；原算法也在相同条件下重跑。
 - **近期研究实现。** [ResearchCodeBench](../works/researchcodebench.md) 从近期研究贡献构造实现任务，并单独发布 contamination-safe 子集。
 - **先把模型已经会的题筛掉。** [HeurekaBench](../works/heurekabench.md) 让 GPT-4o 和 Claude-4-Sonnet 在拿不到数据集的条件下回答每一道候选题，只保留它们答错的题，留下来的题就不可能光靠预训练知识答出来；它的判分 rubric 还会对主要依赖模型知识、而没去分析数据的回答扣分。
 - **可复现的工具本身就是有效性条件。** [AstaBench](../works/astabench.md) 明确写出五条 agent benchmark 设计原则，并按这些原则搭建套件：语料检索工具只返回 benchmark 构建之前发表的论文，之后发表的论文因此污染不到结果；所有任务共用一个标准接口；排行榜上每个分数都要同时声明 agent 的开放度与工具方式。
 - **不只管题目，也管运行过程。** [EXP-Bench](../works/exp-bench.md) 在判分之前先扫一遍 agent 的日志，查有没有读源论文、动 Git、伪造数据这类被禁止的行为，并把每个任务拆成可单独判分的子任务，使分项得分不会替代端到端成功。
+- **agent 看不到的样本外评分。** [SlowLab](../works/slowlab.md) 把 agent 推荐的策略放到实验期间没出现过的天气年份和种植日期下打分，从不把分数返回给 agent，并在正式运行前用哈希锁定样本量、检验方法、提示词和代码。
 
 [FORESIGHT-9](../works/foresight-9.md)构造多种未来路径，代替对同一段已发生行情反复回测。这样可以控制信息边界和情景差异，但不能把这些情景当成经过校准的未来市场概率分布。
 
@@ -44,6 +45,8 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 | EXP-Bench | 51 篇 NeurIPS/ICLR 2024 论文及其代码仓库中的 461 个任务 | 按影响力筛选、多轮抽取、人工校验；运行期用 monitor 监测读源论文与伪造数据 | 容器化执行加 LLM judge，覆盖 12,737 个可判分子任务 | 用同一条流水线处理新的论文批次 |
 | HeurekaBench | 已发表研究及其配套代码仓库 | 两个前沿模型剔除不看数据也能答对的题；人工再筛掉幻觉、重复以及未通过验证的部分 | Ground truth 对照该研究已报告的发现核验；judge 与 11 位专家比对过 | 新研究重新过一遍流水线 |
 | [FORESIGHT-9](../works/foresight-9.md) | 九份情景配置 | 反事实未来与按模拟时间开放的观测 | 确定性路径；同时检查结果和过程 | 固定且有记录的情景集合 |
+| [PHYRD](../works/phyrd.md) | 把已发表的理论物理论文整理成关系图 | Discover 改动源论文的前提，答案不在原论文里；发布前先做盲解，并用哈希值标记版本 | 对照参考推导逐小问二值评分 | 计划按时间戳从新论文追加题目，并保留此前的题目和成绩版本 |
+| [SlowLab](../works/slowlab.md) | 隐藏品种与设施参数的模拟温室站点；天气取自 11 个经过审核的 KNMI Cabauw 年份 | 隐藏站点参数；不公开的评估器在留出天气年份和种植日期上打分，agent 始终看不到分数；正式运行前用哈希锁定预注册内容 | 模拟器确定性评分（边际贡献，EUR/m²） | 固定的预注册测试集，共 48 个站点 |
 
 ## 还没解决的问题
 
@@ -55,6 +58,8 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 
 ## 相关工作
 
+- [SlowLab](../works/slowlab.md)
+- [PHYRD](../works/phyrd.md)
 - [FORESIGHT-9](../works/foresight-9.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [ASI-Bench](../works/asi-bench.md)

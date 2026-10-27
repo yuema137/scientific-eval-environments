@@ -44,6 +44,7 @@ Two distinctions keep different claims apart:
 - **Cost-performance frontier reporting.** Other work reports accuracy alongside token or dollar cost so that agents can be compared on a Pareto frontier rather than a single accuracy number. This is analysis-time resource-awareness rather than benchmark-time resource-awareness.
 - **Separate exploration from verification compute.** [AI4AI-Bench](../works/ai4ai-bench.md) gives the agent four hours on one B300 to explore, then spends up to twelve additional hours rerunning the submitted source from scratch. It reports API spend and output-token scaling by reasoning effort, while keeping formal-training GPU cost outside the dollar total.
 - **Time limit and GPU quota as stated task constraints.** [InnovatorBench](../works/innovatorbench.md) writes a working-time limit and a GPU quota into each of its 20 LLM-research task descriptions, so an agent that spends its hours on a training run it later abandons has nothing left to submit with. The paper reports wall-clock hours and dollars per model and per research area beside the score, and its test-time-scaling curve shows agents reaching their best score only after 11 hours. Its documented failures are resource failures: killing a training job with 21 hours of budget left, and launching a full-GPU training script while an inference job still holds the GPUs.
+- **Experiment time as the scarce resource.** [SlowLab](../works/slowlab.md) caps each campaign at 16 experiments, but the binding resource is compartment time: each crop occupies a compartment for 180 days and can only be continued or destroyed, so a poor early design cannot be cheaply repaired.
 
 ### A gap: budgets are given, not predicted
 
@@ -51,6 +52,7 @@ Every approach above supplies the budget as a *constraint the agent must respect
 
 - [BAGEN](../works/bagen.md) makes the agent predict upper and lower bounds on its *remaining* budget each turn and flag infeasibility — prediction over the aggregate, scored per step.
 - [AI Research Preference Models](../works/ai-research-preference-models.md) predicts which *candidate solutions* are worth executing before paying for them, but predicts relative worth rather than a resource quantity, and does so inside one search scaffold rather than as a reusable interface.
+- [AlphaIdeaBench](../works/alphaideabench.md) asks an ideation harness to write a resource plan for a proposed project and has a judge check it against a stated GPU, API, time, and annotation budget. The estimate concerns the proposed research rather than the agent's own run, and it is never compared with actual spend.
 
 Neither yields what a planner would need to choose between plans: a per-action, task-conditioned distribution over tokens, wall-clock, GPU time, memory and dollars, with calibrated uncertainty. See the Open Questions below.
 
@@ -89,6 +91,9 @@ Neither yields what a planner would need to choose between plans: a per-action, 
 | [PTA-IRT](../works/pta-irt.md) | 2026 | Executed task fraction | Calibration budget; offline history still required | Estimate full SWE-suite scores | [PTA-IRT](../works/pta-irt.md) |
 | [EvoHarnessBench](../works/evoharnessbench.md) | 2026 | Tokens, tool calls, latency | Stage-wise operating overhead | Growing harness streams | [EvoHarnessBench](../works/evoharnessbench.md) |
 | [HarnessDev](../works/harnessdev.md) | 2026 | Executor tokens | Total and mean per task; development excluded | 2,207 downstream instances | [HarnessDev](../works/harnessdev.md) |
+| SlowLab | 2026 | Experiments (16 per campaign, each occupying a compartment for 180 days) plus caps on decision, interface, and model calls; API dollars per campaign reported | Enforced hard constraint — slow, irreversible experiments make allocating scarce compartment time the evaluated skill | One-year simulated greenhouse campaign over 48 unseen sites | [→](../works/slowlab.md) |
+| DISCERN | 2026 | Input/output tokens, API calls, estimated USD (upper bounds; grading and review excluded) | Reported measure, not a budget; token efficiency = Overall Score per million tokens | Life-science research workflow; 203 tasks, eight ranked models | [→](../works/discern.md) |
+| AlphaIdeaBench | 2026 | GPUs and GPU hours, API dollars, calendar weeks, annotation hours of the proposed research | Stated per-task envelope (student / academic / lab tiers); the judge scores the proposal's budget feasibility | 100 ML ideation tasks; eight harnesses, eight backbones | [→](../works/alphaideabench.md) |
 
 ## Open Questions
 
@@ -101,6 +106,9 @@ Neither yields what a planner would need to choose between plans: a per-action, 
 
 ## Related Works
 
+- [SlowLab](../works/slowlab.md)
+- [AlphaIdeaBench](../works/alphaideabench.md)
+- [DISCERN](../works/discern.md)
 - [EvoHarnessBench](../works/evoharnessbench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [PTA-IRT](../works/pta-irt.md)

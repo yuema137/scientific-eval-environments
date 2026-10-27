@@ -122,9 +122,15 @@
 | TRIP-Evaluate | 2026 | 回答横跨文本、图像与点云的交通题目 | 837 道单选题，4 类角色，16 个任务领域，226 个知识点 | 按角色、能力、难度与模态统计的准确率（最佳 88.8%） | [卡片](../works/trip-evaluate.md) |
 | VCoT-Bench | 2026 | 完成 Verus 验证的思维链 | 1,988 项任务，源自 150 个 Verus 程序 | 证明块补全准确率 | [卡片](../works/vcot-bench.md) |
 | R³-Bench | 2026 | 在一份共用预算下求解六道题，并决定每道题分到多少算力 | 数学、竞赛编程与抽象推理共 150 组套题；分无工具与 Terminus-2 shell 两种设定 | 比赛得分对照经验分配 oracle，后者在 72 个单元格中的 71 个严格更高 | [卡片](../works/r3-bench.md) |
+| PHYRD | 2026 | 推导已发表的理论物理结果，以及前提改动后的结果 | 106 道题（63 道 Reproduce、43 道 Discover），504 个小问，5 个子领域；Discover 另有可用工具的设置 | 整题准确率：所有小问全部答对 | [卡片](../works/phyrd.md) |
+| QFT-Bench | 2026 | 求解研究生到研究入门水平的 QFT 推导题 | 75 道题，覆盖 8 个 QFT 方向，目标为闭式结果，每题作答一次 | 框出的答案与参考答案等价（最高 100.0%）；另行检查推导忠实度 | [卡片](../works/qft-bench.md) |
+| Astro2Method | 2026 | 针对给定的天文问题，判断两种机器学习方法中哪一种效果更好 | 来自 346 篇论文的 500 道二选一题；直接提问、RAG、agent scaffold、联网搜索 | 以原论文报告的对比结果为准计算准确率（直接提问时 Easy 87.50–92.55%，Hard 58.87–64.52%） | [卡片](../works/astro2method.md) |
 
 ## Related Works
 
+- [PHYRD](../works/phyrd.md)
+- [QFT-Bench](../works/qft-bench.md)
+- [Astro2Method](../works/astro2method.md)
 - [R³-Bench](../works/r3-bench.md)
 - [MMArch](../works/mmarch.md)
 - [TCS-Bench](../works/tcs-bench.md)

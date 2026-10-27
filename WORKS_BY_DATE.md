@@ -6,6 +6,14 @@ Sorted by `First appeared`, newest first; titles provide a stable tie-breaker wi
 
 | First appeared | Work | Source |
 |---|---|---|
+| 2026-10-26 | [SlowLab](./works/slowlab.md) | [arXiv initial submission](https://arxiv.org/abs/2610.34644) |
+| 2026-10-26 | [Labference](./works/labference.md) | [arXiv initial submission](https://arxiv.org/abs/2610.35252) |
+| 2026-10-25 | [AgentProofBench](./works/agentproofbench.md) | [arXiv initial submission](https://arxiv.org/abs/2610.34634) |
+| 2026-10-24 | [AlphaIdeaBench](./works/alphaideabench.md) | [arXiv initial submission](https://arxiv.org/abs/2610.33644) |
+| 2026-10-23 | [QFT-Bench](./works/qft-bench.md) | [arXiv initial submission](https://arxiv.org/abs/2610.33134) |
+| 2026-10-23 | [PHYRD](./works/phyrd.md) | [arXiv initial submission](https://arxiv.org/abs/2610.32575) |
+| 2026-10-21 | [Astro2Method](./works/astro2method.md) | [arXiv initial submission](https://arxiv.org/abs/2610.30282) |
+| 2026-09-27 | [DISCERN](./works/discern.md) | [arXiv initial submission](https://arxiv.org/abs/2609.33357) |
 | 2026-09-07 | [AgentIdeaBench](./works/agentideabench.md) | [arXiv initial submission](https://arxiv.org/abs/2609.07611) |
 | 2026-09-03 | [EvoHarnessBench](./works/evoharnessbench.md) | [arXiv initial submission](https://arxiv.org/abs/2609.04280) |
 | 2026-09-01 | [HarnessDev](./works/harnessdev.md) | [arXiv initial submission](https://arxiv.org/abs/2609.01437) |
