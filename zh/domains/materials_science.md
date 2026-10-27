@@ -40,6 +40,8 @@
 | CASCADE | 2025 | SciSkillBench 中的材料科学研究任务：检索与处理材料数据，并借助专用材料工具包运行仿真；论文归档于 cond-mat.mtrl-sci。 | 116 个材料科学与化学任务——76 个数据类、40 个计算类，再按说明详细程度分为 58 个点明关键函数的 Level 0 任务与 58 个只给出高层目标的 Level 1 任务；每种配置重复三次，共 16,008 次实验运行。 | 以结果为准的自动打分：在预设容差阈值内比对 agent 处理后的输出与标准答案，报告为成功率（GPT-5 下 DeepSolver 为 93.26%，Native 配置为 35.36%）。 | [→](../works/cascade.md) |
 | OntoLearner | 2026 | 为材料科学与工程——它的本体集合覆盖的 22 个领域之一，官方 hub 上另有一份材料数据集——构建本体结构：给术语定类型、恢复类型之间的 is-a 层级、抽取非分类关系。 | 覆盖 22 个领域的 180 个机器可读本体，为三项本体学习任务备好可直接接入流水线的 train/dev/test 切分；共评测 22 个检索模型与 12 个 LLM，设定是单次结构化预测而非 agentic 循环。 | 以归一化的成对与三元组匹配对照金标准本体结构计算 precision、recall 与 F1；卡片中逐领域、逐模型的分数为 `TODO(reference)`，因论文的结果章节无法获取。 | [→](../works/ontolearner.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现Materials Science的已发表实验 | 从论文重建代码并执行；属于 30 篇 AI4Science 论文的一部分；未报告本领域数量 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
+| Into the Unknown | 2026 | 沿作者设定的方向延伸原子间势研究：用学习得到的描述符替换 SNAP 的双谱分量，并检验精度、数据效率和跨材料迁移；用有物理依据的切换函数替换分层势中的启发式函数。 | 15 题中的 2 题；写出后续论文并附代码和日志，不设时限。 | GPT-6-Astra agent judge 按作者指定的诚信和方向细则评分；没有一份提交有效。 | [→](../works/into-the-unknown.md) |
+| SCI-AGENT-EXAM | 2026 | 跨领域套件中的材料科学工作流任务。 | 120 道题中的 10 道；离线 Docker，每题交答案、代码和报告。 | 在隐藏输入上重跑的程序化检查，加上 GPT-5.6 Sol 对报告的细则评分。 | [→](../works/sci-agent-exam.md) |
 
 ## Capability Matrix
 
@@ -94,9 +96,11 @@
 | ChemX | NANO, INFO | ? | ✘ | ✘ | ◐ | ✘ | ✔ | ◐ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | MatVQA | CHAR, STRUCT | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | MatViX | POLY, INFO | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
+| SCI-AGENT-EXAM | GEN | ✘ | ✘ | ✔ | ✘ | ? | ? | ✔ | **2** | ◐ | ✔ | ◐ | 2 | 1 | 3 | **8** |
 | AlchemyBench | SYN | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ◐ | ✔ | ✔ | 1 | 3 | 1 | **7.5** |
 | MatQnA | CHAR | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 1 | **7** |
 | MaCBench | CHAR, INSTR | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 2 | ? | 4 | **6** |
+| Into the Unknown | COMP | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 1 | 0 | 3 | **6** |
 | AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | CASCADE | COMP, INFO | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
@@ -120,6 +124,8 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 
 ## Related Works
 
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [Into the Unknown](../works/into-the-unknown.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
 - [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md)

@@ -33,6 +33,8 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 
 [AlphaIdeaBench](../works/alphaideabench.md)只校验 judge 的新颖性评分，而且评审意见是由担任 judge 的同一个模型转换成分数的；在场景新颖性上，一致率明显下降。它的有效性和可行性分数没有人工参照。
 
+[Into the Unknown](../works/into-the-unknown.md) 用写细则的科学家本人来检验开放研究的细则评分。每位原作者盲审三篇后续论文，他们的批评被拆成单条。关于是否达成研究方向的 41 条判断，细则全部覆盖，judge 也全部判对。到了审稿式的缺陷，一致率降到 80.34%；到了科学质量和影响，降到 68.68%。所以细则可以用来检查必要条件，却不能用来评判科学价值。另一项四次重复评判的实验按稳定性选定了 GPT-6-Astra judge（总评相同的比例为 86.5%，对比 57.7%），而 GPT-6-Astra 本身也是被评测的 agent 之一。
+
 ## 方法对比
 
 | Work | 被检验的 evaluator | Ground truth | 可靠性信号 | 下游验证 |
@@ -54,6 +56,7 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 | [QFT-Bench](../works/qft-bench.md) | 判断答案正确性和推导忠实度的 Opus-5 与 GPT-5.6 judge | 三位 QFT 专家审阅 15 个模型的 60 份回答 | 正确性一致率 98% / 92%；忠实度一致率 73% / 67% | Opus-5 用于正确性兜底判分、忠实度统计和错误分类 |
 | [AgentProofBench](../works/agentproofbench.md) | DeepSeek Flash/Pro 编写的冻结 Web agent 验收程序，分复用与重建两种；另用新跑的在线判定作对比 | 556 个自然终止状态，以及 Source、Background、Related 三种初始条件下 558 个状态上的参考规则；LLM 审核在 192 个标签中与 191 个一致 | balanced accuracy；完整面板与 decision-replay 的 joint pass；按任务族 bootstrap 的复用减重建 BA | 从相同的保存起点出发交付：面板全对的分配 32/33 正确交付，面板有错的只有 1/11；程序把关不如中性继续 |
 | [AlphaIdeaBench](../works/alphaideabench.md) | Gemini 3.7 Flash judge 的四项新颖性评分 | 600 篇 ICLR 2026 / NeurIPS 2025 / ICML 2025 论文的评审意见，由 Gemini 3.7 Flash 转换为 1–5 分 | ±1 分以内的一致率：问题约 94.5–97.4%，方法 95.9–96.8%，场景 80.6–87.5%；GPT-5 mini 重新评分的 Spearman ρ 为 0.81 / 0.83 | harness 与基础模型排名；有效性和可行性没有人工参照 |
+| [Into the Unknown](../works/into-the-unknown.md) | GPT-6-Astra agent judge，按作者指定的诚信和方向细则评分（Codex SDK，四次运行，按节点多数） | 每篇原论文作者对三篇盲审后续论文的批评；稳定性对比另用一个 Claude-Opus-5.5 judge | 覆盖率 / 一致率：是否达成方向 100% / 100%，审稿式缺陷 96.97% / 80.34%，质量与影响 89.05% / 68.68%；四次重复中总评相同 86.5% 对 57.7% | 选定 GPT-6-Astra 为全部 135 份提交的默认 judge |
 
 ## 还没解决的问题
 
@@ -68,6 +71,7 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 - [AgentProofBench](../works/agentproofbench.md)
 - [AlphaIdeaBench](../works/alphaideabench.md)
 - [QFT-Bench](../works/qft-bench.md)
+- [Into the Unknown](../works/into-the-unknown.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PTA-IRT](../works/pta-irt.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

@@ -29,6 +29,7 @@
 | SciVQR | 2026 | 数学中的多模态科学推理，六个顶层计分学科之一，也与物理并列为最难的两个。 | 3,254 道配图的竞赛与考试题目，横跨六个学科、54 个子领域（2,545 道选择题、709 道自由作答；分 easy/medium/hard 三档）；15 个多模态模型零样本受评，并对比用与不用 CoT。各学科的题目数量未公布。 | 按学科报告零样本准确率，另有五维 rubric（忠实性、信息量、冗余、幻觉、步骤缺失）对照专家撰写的解题过程为生成的推理打分。 | [→](../works/scivqr.md) |
 | HiSciBench | 2025 | 面向文献的数学工作：对来自 arXiv 的数学论文做解析、翻译、问答与综述生成。 | 8,735 个实例中数学占 1,655 个——200 个通用科学问答、208 个文献 OCR、208 个翻译、821 个单语文献问答、208 个跨语文献问答与 10 个综述选题；数学不贡献数据驱动发现类实例。18 个模型受评。 | 按层级选取指标：问答层用准确率，文献 OCR 用词级准确率，翻译用 BLEU；综述层由 LLM judge 按 1–5 分 rubric 评 Coverage、Structure、Relevance、Synthesis 与 Critical Analysis，另计引文可核验性、元数据准确性、忠实性与时效性。 | [→](../works/hiscibench.md) |
 | R³-Bench | 2026 | 在六道数学题之间分配一份共用预算，而不是逐题孤立求解。 | 50 组套题，每组 6 题（3 易 / 2 中 / 1 难），取自 Omni-MATH 与 MathNet，共 300 题。 | 比赛得分对照由匹配的单题响应曲线（每个预算档跑 5 次）构造的经验 oracle；oracle 在 72 个主表单元格中的 71 个严格更高。 | [→](../works/r3-bench.md) |
+| SCI-AGENT-EXAM | 2026 | 跨领域套件中的数学工作流任务。 | 120 道题中的 9 道；离线 Docker，每题交答案、代码和报告。 | 在隐藏输入上重跑的程序化检查，加上 GPT-5.6 Sol 对报告的细则评分。 | [→](../works/sci-agent-exam.md) |
 
 ## Capability Matrix
 
@@ -79,6 +80,7 @@
 | HiSciBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✔ | ✘ | 2 | 3 | 3 | **9** |
 | R³-Bench | OLYM | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
 | ScienceBoard | CAS, FORM | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | **2** | ✔ | ✘ | ✘ | 3 | ? | 3 | **7** |
+| SCI-AGENT-EXAM | GEN | ✘ | ✘ | ✔ | ✘ | ? | ? | ✔ | **2** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | Terminal-Bench Science | APP, FORM, OR, STAT | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | MATP | LOG | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ◐ | **1** | ✘ | ✘ | ✘ | 3 | 3 | 3 | **9** |
 | Pseudo-Formalization | OLYM, RES | ? | ✘ | ✘ | ✘ | ◐ | ◐ | ✘ | **1** | ✘ | ✘ | ◐ | 2 | 2 | 2 | **6.5** |
@@ -96,6 +98,7 @@ Repository note: 跨领域套件的总题数不能代替本领域数量。Termin
 
 ## Related Works
 
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [R³-Bench](../works/r3-bench.md)
 - [TCS-Bench](../works/tcs-bench.md)
 - [VESTA / DAWN](../works/vesta-dawn.md)

@@ -48,6 +48,7 @@
 | PRL-Bench | 2026 | 完成源自 2025 年 8 月之后 Physical Review Letters 论文的前沿物理研究任务；天体物理是其明列的五个子领域之一。 | 100 个经专家验证的长程研究任务，以探索性方式设问；各子领域的任务数未说明。 | 客观可验证的任务结果，经专家验证，按 0–100 分制评分。 | [→](../works/prl-bench.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现Astronomy的已发表实验 | 从论文重建代码并执行；属于 30 篇 AI4Science 论文的一部分；未报告本领域数量 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
 | Astro2Method | 2026 | 为已发表的天文问题挑出更好的机器学习方法，例如根据光变曲线估计恒星表面重力时，哪种网络误差更低；主题包括恒星天体物理、星系测光红移以及高能与时域天文。 | 500 道二选一题，来自 2024-01 至 2026-06 发表的 346 篇论文（按原论文解释是否完整，分为 Easy 376 题、Hard 124 题）；五个模型直接作答，三个模型在 RAG、agent 和联网搜索设置下测试。各主题题量只在图中给出。 | 与原论文的对比结果精确匹配；只保留差距 ≥ 2σ 的对比，没有不确定度时要求相对提升 ≥ 10%；每道题都经过人工审阅。 | [→](../works/astro2method.md) |
+| EurekaBench | 2026 | 用符合已知天体物理约束的机制解释星系、星系环境、引力波、银河系、重子反馈，以及温暗物质并合树和星系族群的观测性质。 | 26 道题中的 7 道，基于 CAMELS 和 DREAMS 模拟套件；一块 H100、最多 4 小时；提交机制说明、代码和实验日志。 | 约束测试作为得分门槛；在保留的模拟数据上测预测准确度；洞见问题由两个 agent 形式的 LLM judge 评判。 | [→](../works/eurekabench.md) |
 
 ## Capability Matrix
 
@@ -93,6 +94,7 @@
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
 | Imaging-101 | INSTR | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
+| EurekaBench | GAL, GW, COS | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 4 | **8** |
 | Mephisto | GAL | ✘ | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 3 | 2 | 1 | **6** |
 | An LLM-driven framework for cosmological model-building and exploration | COS | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | SciVisAgentBench | COMP | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
@@ -133,6 +135,7 @@ Repository note: 跨领域套件的总题数不能代替本领域数量。Termin
 ## Related Works
 
 - [Astro2Method](../works/astro2method.md)
+- [EurekaBench](../works/eurekabench.md)
 - [AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation](../works/ai-assisting-research-ii-project-planning.md)
 - [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)
 - [Imaging-101](../works/imaging-101.md)

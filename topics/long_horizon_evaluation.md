@@ -73,6 +73,9 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 
 [FORESIGHT-9](../works/foresight-9.md) adds a distinction between simulated horizon and elapsed runtime: persistent factor state is audited over years of in-world decisions, without treating those years as wall-clock duration.
 
+- **Hours-long discovery runs.** [EurekaBench](../works/eurekabench.md) gives an agent up to four hours and 1,000 iterations on one H100 to run experiments in a scientific simulator before it submits a mechanism.
+- **Open-ended research with no time cap.** [Into the Unknown](../works/into-the-unknown.md) lets agents run until they end their own session, with up to five relaunches. Median execution time per agent ranges from 1.3 to 19.5 hours, and a bootstrap analysis finds no evidence that longer runs produce better follow-up papers.
+
 ## Comparison
 
 | Benchmark | Year | Horizon signal | Environment | Card |
@@ -137,6 +140,8 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | ASI-Bench | 2026 | 60 project-level research tasks; complete trajectories span 2,600+ interaction turns, 2,400+ execution steps, and 35+ hours of agent execution across the suite | Sandboxed scientific research (Docker `os` / `linux_ns`) with agent-neutral harness adapters | [→](../works/asi-bench.md) |
 | InnovatorBench | 2025 | 20 tasks of 2-36 hours each; agents reach their best score only after 11+ hours, about 6.5x the saturation time on PaperBench | ResearchGym: several GPU machines driven over HTTP, asynchronous background jobs, snapshot save and restore | [→](../works/innovatorbench.md) |
 | [FORESIGHT-9](../works/foresight-9.md) | 2026 | Approx. 2,468 simulated trading days | Nine counterfactual market paths | [FORESIGHT-9](../works/foresight-9.md) |
+| EurekaBench | 2026 | Up to 4 hours and 1,000 iterations per problem on one H100 | Apptainer-packaged scientific simulators behind a CLI; web search with source papers blocked | [→](../works/eurekabench.md) |
+| Into the Unknown | 2026 | No time limit, up to five relaunches; per-agent median execution 1.3–19.5 hours; 1,942.81 hours for 135 submissions | Native agent SDK harnesses on 8×H200 or 32-vCPU nodes; unrestricted internet | [→](../works/into-the-unknown.md) |
 
 ## Open Questions
 
@@ -147,6 +152,8 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 
 ## Related Works
 
+- [Into the Unknown](../works/into-the-unknown.md)
+- [EurekaBench](../works/eurekabench.md)
 - [FORESIGHT-9](../works/foresight-9.md)
 - [ASI-Bench](../works/asi-bench.md)
 - [R³-Bench](../works/r3-bench.md)

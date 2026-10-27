@@ -101,9 +101,11 @@
 | InnovatorBench | 2025 | 在被抽掉关键实现的研究仓库里做出可运行产物：数据流水线、损失与奖励函数、agent 脚手架 | 六个 LLM 研究方向共 20 个任务；多机 GPU 工作区，支持异步任务与快照 | 提交产物由外部确定性脚本评分，格式不合格记 0 | [卡片](../works/innovatorbench.md) |
 | AI-Researcher | 2025 | 把研究方案落成该方法的一份可运行实现 | Docker 工作区中的 22 个 Level-1 与 6 个 Level-2 任务，配参考仓库与数据集 | 完整性（预算内代码可执行）与 5 分制正确性；Claude 系列 backbone 下为 93.8% 与 2.65/5 | [卡片](../works/ai-researcher.md) |
 | [HarnessDev](../works/harnessdev.md) | 2026 | 为机器学习实验构建可复用的执行软件 | 无解题策略的种子；1–3 个开发样例 | 冻结 harness 后在 MLE-bench 上评测 | [HarnessDev](../works/harnessdev.md) |
+| SCI-AGENT-EXAM | 2026 | 按接口约定写代码，跨依赖组合工具，修复能运行但科学结果有隐性错误的项目（Code Generation 20 道、Tool Orchestration 28 道、Error Diagnosis 11 道） | 离线 Docker 任务包；检查器导入生成的代码，在隐藏数据上重跑 | 这几类题的程序化检查权重为 0.55–0.70；Pass@0.95 最高 26.0% | [卡片](../works/sci-agent-exam.md) |
 
 ## Related Works
 
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [HarnessDev](../works/harnessdev.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [PACE-Bench](../works/pace-bench.md)

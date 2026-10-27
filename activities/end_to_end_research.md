@@ -31,9 +31,13 @@ What distinguishes these from single-stage tasks is that success depends on chai
 | PostTrainBench | 2026 | Autonomously choose data, training method, compute allocation and experiments to post-train a base LLM | Seven targets; four base models; one H100 for 10 hours per task | Highest held-out benchmark score from the submitted trained model | [card](../works/posttrainbench.md) |
 | ASI-Bench | 2026 | Select the method, build the workflow, run it and produce verifiable results within one research project, at four guidance levels (B1-B4) | 60 project-level tasks across 11 scientific domains; sandboxed, agent-neutral harnesses | Task score 0-100 at each guidance level; macro means B1 50.91 / B2 29.10 / B3 26.62 across 18 agent-model configurations | [card](../works/asi-bench.md) |
 | AI-Researcher | 2025 | Literature review, idea generation, algorithm design, implementation, experiments and manuscript writing in one run | 22 guided and 6 open-ended tasks built from 22 papers in four AI subfields; references, instruction (Level-1 only) and datasets as input | Implementation completeness and correctness, plus an order-swapped pairwise review against the human paper on a -3 to +3 scale | [card](../works/ai-researcher.md) |
+| Into the Unknown | 2026 | Carry an author-proposed, unpublished follow-up direction from experiments to a written paper | 15 papers with code and data; no time limit, up to five relaunches, unrestricted internet | Follow-up paper, code, and logs passing every integrity, completeness, and sufficiency node; 0 of 135 valid | [card](../works/into-the-unknown.md) |
+| PhysClosureBench | 2026 | Organize a physics investigation from a stated goal to a supported conclusion: setup, observables, feature identification, mechanism, validation | 50 tasks in network-disabled containers with per-case CPU and wall-time limits; three runs per model | Report reaching RC4 complete closure; best 32.7% of attempts (Claude-Opus-5) | [card](../works/physclosurebench.md) |
 
 ## Related Works
 
+- [PhysClosureBench](../works/physclosurebench.md)
+- [Into the Unknown](../works/into-the-unknown.md)
 - [ASI-Bench](../works/asi-bench.md)
 - [AI Research Preference Models](../works/ai-research-preference-models.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

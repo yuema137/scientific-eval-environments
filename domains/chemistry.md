@@ -52,6 +52,9 @@ Chemistry as the science, including computational chemistry and molecular design
 | OntoLearner | 2026 | Construct ontology structure for chemistry — one of the 22 domains its ontology collection spans, with a chemistry dataset published on the official hub — by typing terms, recovering the is-a hierarchy between types, and extracting non-taxonomic relations. | 180 machine-readable ontologies across 22 domains with pipeline-ready train/dev/test splits for three ontology-learning tasks; 22 retrieval models and 12 LLMs evaluated in single-shot structured prediction rather than an agentic setting. | Precision, recall and F1 computed by normalized pair-level and triple-level matching against the gold ontology structure; per-domain and per-model scores are `TODO(reference)` in the card, the paper's results section not being retrievable. | [→](../works/ontolearner.md) |
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | Form testable hypotheses in chemistry from research literature | Eight densely scored subfields in this discipline; static and active literature access | Model critics assess originality against retrieved prior art; no experimental validation | [AgentIdeaBench](../works/agentideabench.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in chemistry | Paper-to-repository reproduction; Part of 30 AI4Science papers; per-field count unreported | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
+| EurekaBench | 2026 | Discover reaction mechanisms with a reactive machine-learned potential. | 1 of 26 problems, on AIMNet2-rxn; up to 4 h on one H100. | Constraint tests gate the score; predictive accuracy on held-out data; insight questions judged by two agentic LLM judges. | [→](../works/eurekabench.md) |
+| Into the Unknown | 2026 | Extend machine-learned molecular-energy models along author-set directions: use HIP-NN's hierarchy signal to find failure motifs and calibrate uncertainty, and cut the stochastic probes Projected Hessian Learning needs. | 2 of 15 problems (computational chemistry); follow-up paper with code and logs, GPU node, no time limit. | GPT-6-Astra agentic judge on author-specified integrity and direction rubrics; no submission is valid. | [→](../works/into-the-unknown.md) |
+| SCI-AGENT-EXAM | 2026 | Chemistry workflow tasks within a cross-field suite. | 11 of 120 tasks; offline Docker, answer, code, and report per task. | Programmatic checks rerun on hidden inputs, plus a GPT-5.6 Sol rubric judge on the report. | [→](../works/sci-agent-exam.md) |
 
 ## Capability Matrix
 
@@ -98,6 +101,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
 | ScienceAgentBench | CHEMINF | ◐ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✔ | 2 | 1 | 2 | **7.5** |
 | Imaging-101 | ANAL, NANO | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
+| EurekaBench | ORG | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 4 | **8** |
 | PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **4.5** | ✘ | ✔ | ✘ | 2 | 2 | 1 | **6** |
 | MolQuest | ANAL | ? | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
 | NatureBench | MOLDES | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 2 | 1 | 2 | **7** |
@@ -114,7 +118,9 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | ChemX | NANO, MED | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **2.5** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | MDArena | MD, BIOCHEM | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **2.5** | ◐ | ✔ | ✘ | 2 | 1 | 2 | **6.5** |
 | MOOSE-Chem | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | **2.5** | ◐ | ◐ | ✔ | 1 | 1 | 2 | **6** |
+| SCI-AGENT-EXAM | GEN | ✘ | ✘ | ✔ | ✘ | ? | ? | ✔ | **2** | ◐ | ✔ | ◐ | 2 | 1 | 3 | **8** |
 | MaCBench | ANAL, NANO | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ◐ | 2 | ? | 4 | **6.5** |
+| Into the Unknown | QC | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 1 | 0 | 3 | **6** |
 | AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | HiSciBench | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✘ | ✔ | ✘ | 2 | 3 | 3 | **9** |
@@ -144,6 +150,9 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 
 ## Related Works
 
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [Into the Unknown](../works/into-the-unknown.md)
+- [EurekaBench](../works/eurekabench.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)

@@ -134,17 +134,17 @@ Domain pages answer a narrower question: where does the evaluated work happen? A
 
 | Domain | Works |
 |---|--:|
-| [Physics](./domains/physics.md) | 52 |
-| [Chemistry](./domains/chemistry.md) | 42 |
-| [Biology](./domains/biology.md) | 43 |
-| [Materials Science](./domains/materials_science.md) | 30 |
-| [AI & Machine Learning Research](./domains/ai_ml_research.md) | 33 |
-| [Mathematics](./domains/mathematics.md) | 19 |
+| [Physics](./domains/physics.md) | 56 |
+| [Chemistry](./domains/chemistry.md) | 45 |
+| [Biology](./domains/biology.md) | 44 |
+| [Materials Science](./domains/materials_science.md) | 32 |
+| [AI & Machine Learning Research](./domains/ai_ml_research.md) | 34 |
+| [Mathematics](./domains/mathematics.md) | 20 |
 | [Medicine & Health](./domains/medicine_health.md) | 25 |
-| [Neuroscience & Cognitive Science](./domains/neuroscience_cognitive_science.md) | 13 |
-| [Astronomy](./domains/astronomy.md) | 36 |
-| [Earth Science](./domains/earth_science.md) | 13 |
-| [Computer Science](./domains/computer_science.md) | 8 |
+| [Neuroscience & Cognitive Science](./domains/neuroscience_cognitive_science.md) | 14 |
+| [Astronomy](./domains/astronomy.md) | 37 |
+| [Earth Science](./domains/earth_science.md) | 14 |
+| [Computer Science](./domains/computer_science.md) | 9 |
 | [Environmental Science](./domains/environmental_science.md) | 7 |
 
 **Engineering**
@@ -170,15 +170,15 @@ Activity pages follow the work itself. Does the agent search literature, run a s
 | Activity | What it covers | Works |
 |---|---|--:|
 | [Scientific Problem Solving & Reasoning](./activities/scientific_problem_solving_reasoning.md) | Scientific QA, derivations, proofs, quantitative and multimodal problem solving, diagnostic reasoning | 97 |
-| [Scientific Software & Workflow Engineering](./activities/scientific_software_workflow_engineering.md) | Scientific/engineering code, repository and pipeline engineering, HDL and formal-spec code | 75 |
-| [Data Analysis & Statistical Inference](./activities/data_analysis_statistical_inference.md) | Statistical analysis and inference, bioinformatics/omics analysis, data interpretation | 46 |
-| [Experiment Design & Scientific Discovery](./activities/experiment_design_discovery.md) | Experiment and observation planning, hypothesis generation, law discovery | 29 |
-| [Simulation & Scientific Computing](./activities/simulation_scientific_computing.md) | Numerical simulation, PDE/FEM, MD/DFT, running and building scientific simulators | 35 |
-| [Modeling & Prediction](./activities/modeling_prediction.md) | Predictive and surrogate modelling, property prediction, forecasting | 23 |
+| [Scientific Software & Workflow Engineering](./activities/scientific_software_workflow_engineering.md) | Scientific/engineering code, repository and pipeline engineering, HDL and formal-spec code | 76 |
+| [Data Analysis & Statistical Inference](./activities/data_analysis_statistical_inference.md) | Statistical analysis and inference, bioinformatics/omics analysis, data interpretation | 47 |
+| [Experiment Design & Scientific Discovery](./activities/experiment_design_discovery.md) | Experiment and observation planning, hypothesis generation, law discovery | 30 |
+| [Simulation & Scientific Computing](./activities/simulation_scientific_computing.md) | Numerical simulation, PDE/FEM, MD/DFT, running and building scientific simulators | 36 |
+| [Modeling & Prediction](./activities/modeling_prediction.md) | Predictive and surrogate modelling, property prediction, forecasting | 24 |
 | [Optimization & Engineering Design](./activities/optimization_engineering_design.md) | Parameter and controller tuning, engineering/inverse design, materials and molecular design | 28 |
-| [Literature Search & Evidence Synthesis](./activities/literature_evidence_synthesis.md) | Literature retrieval, systematic review, evidence synthesis, literature-grounded extraction | 24 |
+| [Literature Search & Evidence Synthesis](./activities/literature_evidence_synthesis.md) | Literature retrieval, systematic review, evidence synthesis, literature-grounded extraction | 25 |
 | [Research Reproduction & Replication](./activities/research_reproduction_replication.md) | Reproducing published analyses, results, and methods; matching reported findings | 14 |
-| [End-to-End Research](./activities/end_to_end_research.md) | Multi-stage research lifecycle across several major phases | 11 |
+| [End-to-End Research](./activities/end_to_end_research.md) | Multi-stage research lifecycle across several major phases | 13 |
 | [Laboratory & Instrument Control](./activities/laboratory_instrument_control.md) | Instrument, microscope, and beamline control; lab automation; behaviour-defined control code | 4 |
 
 ---
@@ -189,7 +189,7 @@ Work is in scope when evaluation changes what we know or what the development lo
 
 A paper is not in scope merely because it reports benchmark scores. Pure training, optimization, data, memory, or multi-agent work stays out when evaluation appears only in the final results table. The test is operational: does evaluation define the objective, supply feedback, select an intervention, diagnose a failure, or serve as the experiment environment?
 
-"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **401 work cards**, **15 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
+"Works" is broader than "benchmarks": the collection holds cards for benchmarks, evaluation methodologies, evaluation frameworks, evaluation-focused RL contributions, surveys, and position papers. Each card notes its type explicitly. The collection currently holds **405 work cards**, **15 topic pages**, **19 domain pages**, and **11 activity pages**, each mirrored in Chinese under [`zh/`](./zh/README.md).
 
 ---
 

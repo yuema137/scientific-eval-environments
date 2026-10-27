@@ -65,6 +65,8 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 
 [AgentActionBench](../works/agentactionbench.md)把操作日志用作判分证据；[PTA-IRT](../works/pta-irt.md)利用历史轨迹减少后续评测量；[FORESIGHT-9](../works/foresight-9.md)核对系统声称的状态与实际执行。轨迹在这里分别服务于判分、选题和一致性诊断，各自需要验证的对象也不同。
 
+[SCI-AGENT-EXAM](../works/sci-agent-exam.md) 回放每个 agent 的工作区，在每次读写文件之后取一张快照，用程序化检查器和细则 judge 重新打分。一条标准先通过、后来又不通过，记为一次下滑；到最后仍不通过，记为遗憾。GPT-5.6 Sol 在细则维度上的平均下滑率是 27.0%，GPT-6 Astra 是 18.3%，这种差别光看最终分是看不出来的。
+
 ## 方法对比
 
 | Work | Year | Trajectory 指标 | Domain | Card |
@@ -128,6 +130,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | 依据 Read/Write/Execute 日志判断 rubric，按重要性加权 | ML 与 AI4Science | [AgentActionBench](../works/agentactionbench.md) |
 | [PTA-IRT](../works/pta-irt.md) | 2026 | 用历史轨迹摘要选择评测子集并估计能力 | 软件问题修复 | [PTA-IRT](../works/pta-irt.md) |
 | [FORESIGHT-9](../works/foresight-9.md) | 2026 | 核对存活因子、声明决策和实际持仓是否一致 | 合成市场情景 | [FORESIGHT-9](../works/foresight-9.md) |
+| SCI-AGENT-EXAM | 2026 | 每次读写文件后的快照由程序化检查和细则 judge 重新打分；统计提前完成、下滑、恢复和遗憾的比例 | 11 个科学领域 | [→](../works/sci-agent-exam.md) |
 
 ## 还没解决的问题
 
@@ -140,6 +143,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 
 ## 相关工作
 
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [FORESIGHT-9](../works/foresight-9.md)
 - [PTA-IRT](../works/pta-irt.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

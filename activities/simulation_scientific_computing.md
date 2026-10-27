@@ -63,9 +63,11 @@ A fifth cluster runs **structural analysis against a civil-engineering solver**,
 | SimulCost | 2026 | Cost-aware physics-simulation parameter tuning | 2,643 single-round + 2,304 multi-round tasks, 11 analytically costed simulators, plus a separate EPOCH wall-clock study | Performance under simulation-time/resource budget constraints | [card](../works/simulcost.md) |
 | StructureClaw | 2026 | Operating structural-engineering workbench with solver backends | 150 scenarios: standard, interactive, multimodal reconstruction | Model matching + numerical agreement vs frozen references | [card](../works/structureclaw.md) |
 | Terminal-Bench Science | 2026 | Containerized natural-science computational workflows | 70 tasks across 5 tracks in version 0.1 | Deterministic pytest-based programmatic verification | [card](../works/terminal-bench-science.md) |
+| PhysClosureBench | 2026 | Write and run its own numerical simulations of strong-field, attosecond, and related physics to generate the evidence | OpenCode with Bash in an offline container; 8–96 CPU cores and 30–720 min per case | Required observables and mechanism criteria in a 20-atom rubric; best mean Atomic Score 6.29/10 | [card](../works/physclosurebench.md) |
 
 ## Related Works
 
+- [PhysClosureBench](../works/physclosurebench.md)
 - [CRAFTS](../works/crafts.md)
 - [MDArena](../works/mdarena.md)
 - [Automating Structural Reliability Analysis with a Multi-Agent Large Language Model Framework](../works/automating-structural-reliability-analysis-with-a.md)

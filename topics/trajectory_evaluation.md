@@ -65,6 +65,8 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 
 [AgentActionBench](../works/agentactionbench.md) uses action logs as scoring evidence; [PTA-IRT](../works/pta-irt.md) uses historical traces to reduce future evaluation cost; [FORESIGHT-9](../works/foresight-9.md) compares declared state with executed behavior. A trace can therefore support grading, sampling, or consistency diagnosis, with a different validation target in each case.
 
+[SCI-AGENT-EXAM](../works/sci-agent-exam.md) replays each agent workspace and rescores a snapshot after every file read or write with both its programmatic checker and its rubric judge. A criterion that passes and later fails counts as a dip; one that is still failing at the end counts as regret. GPT-5.6 Sol's mean rubric dip rate is 27.0% against 18.3% for GPT-6 Astra, a difference the final score does not show.
+
 ## Comparison
 
 | Work | Year | Trajectory metric | Domain | Card |
@@ -128,6 +130,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | Importance-weighted rubric passes from Read/Write/Execute logs | ML and AI4Science | [AgentActionBench](../works/agentactionbench.md) |
 | [PTA-IRT](../works/pta-irt.md) | 2026 | Historical trace summaries inform subset selection and ability estimation | Software issue resolution | [PTA-IRT](../works/pta-irt.md) |
 | [FORESIGHT-9](../works/foresight-9.md) | 2026 | Consistency of live factors, declared decisions, and executed holdings | Synthetic market scenarios | [FORESIGHT-9](../works/foresight-9.md) |
+| SCI-AGENT-EXAM | 2026 | Snapshots after each file read or write rescored by programmatic checks and rubric judge; early-completion, dip, recover, and regret rates | 11 scientific fields | [→](../works/sci-agent-exam.md) |
 
 ## Open Questions
 
@@ -140,6 +143,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 
 ## Related Works
 
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [FORESIGHT-9](../works/foresight-9.md)
 - [PTA-IRT](../works/pta-irt.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

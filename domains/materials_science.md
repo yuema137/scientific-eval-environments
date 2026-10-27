@@ -40,6 +40,8 @@ Materials characterization and computational materials science, spanning physica
 | CASCADE | 2025 | Materials-science research tasks in SciSkillBench: retrieving and processing materials data and running simulations through specialized materials toolkits, with the paper filed under cond-mat.mtrl-sci. | 116 materials-science and chemistry tasks — 76 data-oriented and 40 computation-oriented, split again into 58 Level 0 tasks naming the key functions and 58 Level 1 tasks giving only a high-level objective; three repetitions per configuration over 16,008 experiment runs. | Outcome-based automated scoring: the agent's processed output is compared against the ground-truth answer within a predefined tolerance threshold, reported as success rate (GPT-5 DeepSolver 93.26% against 35.36% for the Native configuration). | [→](../works/cascade.md) |
 | OntoLearner | 2026 | Construct ontology structure for materials science and engineering — one of the 22 domains its ontology collection spans, with a materials dataset published on the official hub — by typing terms, recovering the is-a hierarchy between types, and extracting non-taxonomic relations. | 180 machine-readable ontologies across 22 domains with pipeline-ready train/dev/test splits for three ontology-learning tasks; 22 retrieval models and 12 LLMs evaluated in single-shot structured prediction rather than an agentic setting. | Precision, recall and F1 computed by normalized pair-level and triple-level matching against the gold ontology structure; per-domain and per-model scores are `TODO(reference)` in the card, the paper's results section not being retrievable. | [→](../works/ontolearner.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in materials science | Paper-to-repository reproduction; Part of 30 AI4Science papers; per-field count unreported | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
+| Into the Unknown | 2026 | Extend interatomic-potential research along author-set directions: replace SNAP bispectrum components with a learned descriptor tested for accuracy, data efficiency, and transfer, and replace a heuristic switching function in a layered potential. | 2 of 15 problems; follow-up paper with code and logs, no time limit. | GPT-6-Astra agentic judge on author-specified integrity and direction rubrics; no submission is valid. | [→](../works/into-the-unknown.md) |
+| SCI-AGENT-EXAM | 2026 | Materials-science workflow tasks within a cross-field suite. | 10 of 120 tasks; offline Docker, answer, code, and report per task. | Programmatic checks rerun on hidden inputs, plus a GPT-5.6 Sol rubric judge on the report. | [→](../works/sci-agent-exam.md) |
 
 ## Capability Matrix
 
@@ -94,9 +96,11 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | ChemX | NANO, INFO | ? | ✘ | ✘ | ◐ | ✘ | ✔ | ◐ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | MatVQA | CHAR, STRUCT | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | MatViX | POLY, INFO | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
+| SCI-AGENT-EXAM | GEN | ✘ | ✘ | ✔ | ✘ | ? | ? | ✔ | **2** | ◐ | ✔ | ◐ | 2 | 1 | 3 | **8** |
 | AlchemyBench | SYN | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ◐ | ✔ | ✔ | 1 | 3 | 1 | **7.5** |
 | MatQnA | CHAR | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 1 | **7** |
 | MaCBench | CHAR, INSTR | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 2 | ? | 4 | **6** |
+| Into the Unknown | COMP | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 1 | 0 | 3 | **6** |
 | AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | CASCADE | COMP, INFO | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
@@ -120,6 +124,8 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 
 ## Related Works
 
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [Into the Unknown](../works/into-the-unknown.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
 - [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md)

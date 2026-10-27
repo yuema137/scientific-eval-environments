@@ -23,6 +23,7 @@ Geosciences: atmospheric, ocean, and geological sciences. GIS and geospatial ana
 | Imaging-101 | 2026 | Earth-science computational imaging — one of its six named domains — recovering hidden signals from indirect, noisy measurements through a full reconstruction pipeline. | 57 paper-grounded tasks across six domains, each canonicalized into preprocessing → forward physics modeling → inverse solver → visualization and evaluated on planning, function-level and end-to-end tracks; per-domain task counts are `TODO(reference)`. | End-to-end reconstructions executed and scored against per-task `metrics.json` acceptance thresholds using normalized cross-correlation and NRMSE; function-level work checked by paired pytest suites synthesized from captured reference input/output. | [→](../works/imaging-101.md) |
 | SciVQR | 2026 | Multimodal scientific reasoning in the geography subject — one of six top-level scored subjects — whose subfields include geology, geomorphology, hydrology, climatology and cartography. | 3,254 image-paired competition and exam questions across six subjects and 54 subfields (2,545 multiple-choice, 709 free-form; easy/medium/hard tiers); 15 multimodal models zero-shot, with and without CoT. Per-subject item counts are not published. | Zero-shot accuracy reported per subject, plus a five-dimension rubric (faithfulness, informativeness, redundancy, hallucination, missing steps) scoring the generated reasoning against expert-authored solution traces. | [→](../works/scivqr.md) |
 | HiSciBench | 2025 | The geography discipline across the hierarchy: literature question answering over geoscience papers, plus data-driven discovery in which the model writes and executes Python analysis code. | 737 geography instances within 8,735 — 200 general scientific QA, 500 monolingual literature QA, 10 review topics and 27 data-driven discovery tasks; 18 models evaluated. | Level-appropriate metrics: accuracy at the QA levels, word-level accuracy for literature OCR, BLEU for translation, at the review level an LLM-judge 1–5 rubric over Coverage, Structure, Relevance, Synthesis and Critical Analysis plus citation verifiability, metadata accuracy, faithfulness and recency, and at the discovery level an execution-based Success Rate zeroed when the generated program fails to execute. | [→](../works/hiscibench.md) |
+| EurekaBench | 2026 | Recover ice-shelf flow laws and hydrological catchment properties as mechanisms consistent with known physical constraints. | 2 of 26 problems: a FEniCSx shallow-shelf solver, and an HBV model driven by CAMELS-US forcing with noise added to simulated streamflow; up to 4 h on one H100. | Constraint tests gate the score; predictive accuracy on held-out data; insight questions judged by two agentic LLM judges. | [→](../works/eurekabench.md) |
 
 ## Capability Matrix
 
@@ -67,6 +68,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
+| EurekaBench | GPH, HYD | ✔ | ✔ | ✔ | ✘ | ◐ | ◐ | ✔ | **5** | ◐ | ✔ | ◐ | 2 | 0 | 4 | **8** |
 | Imaging-101 | GPH, RS, ATM | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | 0 | 3 | **6.5** |
 | ScienceAgentBench | GIS | ✘ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✔ | ✔ | 2 | 1 | 2 | **7.5** |
 | GeoNatureAgent Benchmark | GIS, ENV, RS | ✘ | ✘ | ✔ | ◐ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 3 | 1 | 2 | **6** |
@@ -86,6 +88,7 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 
 ## Related Works
 
+- [EurekaBench](../works/eurekabench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Imaging-101](../works/imaging-101.md)
 - [GeoNatureAgent Benchmark](../works/geonatureagent-benchmark.md)

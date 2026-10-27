@@ -43,6 +43,7 @@ AI and machine learning as the science under study: reproducing, rediscovering, 
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in ai & machine learning research | Paper-to-repository reproduction; 120 ML papers | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
 | [HarnessDev](../works/harnessdev.md) | 2026 | Construct a reusable harness for machine-learning competitions | 75 MLE-bench tasks; model training and submissions | Competition medal scores under a frozen harness | [HarnessDev](../works/harnessdev.md) |
 | AlphaIdeaBench | 2026 | Propose machine-learning research ideas whose plans fit a stated compute, API, time, and annotation budget. | 100 tasks (50 workshop calls, 50 survey open problems) across nine ML fields; one JSON proposal per task from eight harnesses and eight backbones. | Gemini 3.7 Flash judge on 12 dimensions; novelty axes compared with reviewer-derived scores on 600 papers; proposals not executed. | [→](../works/alphaideabench.md) |
+| EurekaBench | 2026 | Explain language-model behaviour as a scientific object: stated belief shift, subliminal learning, and circuit discovery. | 3 of 26 problems, run through LoRA fine-tuning of open-weight language models and TransformerLens; up to 4 h on one H100. | Constraint tests gate the score; predictive accuracy on held-out data; insight questions judged by two agentic LLM judges. | [→](../works/eurekabench.md) |
 
 ## Capability Matrix
 
@@ -95,6 +96,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Curation-Bench | CV, MLE | ? | ✔ | ✔ | ✔ | ✘ | ✔ | ✔ | **5** | ✘ | ✘ | ✘ | 3 | 0 | 4 | **7** |
 | Replica | GEN | ? | ✘ | ✔ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ◐ | 1 | 2 | 2 | **7** |
 | DevAI / Agent-as-a-Judge | MLE | ✔ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **5** | ✘ | ✔ | ◐ | 1 | 1 | 3 | **6.5** |
+| EurekaBench | LM, INTERP | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 4 | **8** |
 | AI-Researcher | CV, VQ, GNN, IR | ✔ | ◐ | ? | ◐ | ◐ | ✔ | ✔ | **4.5** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | FIRE-Bench | LM, CV, INTERP | ? | ✔ | ◐ | ? | ✔ | ✔ | ✔ | **4.5** | ◐ | ✘ | ◐ | 1 | 1 | 3 | **6** |
 | AstaBench | GEN | ◐ | ◐ | ✔ | ? | ◐ | ✔ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | ? | 1 | **5** |
@@ -125,6 +127,7 @@ Repository note: the unknowns cluster in two columns. `Net` is `?` on 16 of the 
 ## Related Works
 
 - [AlphaIdeaBench](../works/alphaideabench.md)
+- [EurekaBench](../works/eurekabench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [AI Research Preference Models](../works/ai-research-preference-models.md)
