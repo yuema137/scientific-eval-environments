@@ -62,6 +62,10 @@
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | 依据Physics文献提出可检验假设 | 本领域有八个密集评分子领域；比较固定文献与主动检索 | 评审模型依据检索到的已有研究判断原创性；不执行实验验证 | [AgentIdeaBench](../works/agentideabench.md) |
 | PHYRD | 2026 | 重新推出已发表的理论物理结果，并推导算符、耦合、对称性或边界条件改动后的结论，覆盖以高能物理为主的五个子领域。 | 106 道题（63 道 Reproduce、43 道 Discover），504 个公开小问；Reproduce 闭卷，Discover 分闭卷和可用 Python/arXiv 工具两种设置。 | 逐小问二值评分，要求结论、推导和适用条件都正确；发布前把盲解结果与参考解答和评分标准一起审核。 | [→](../works/phyrd.md) |
 | QFT-Bench | 2026 | 完成量子场论推导，从经典场论和 QED，到重整化、规范理论、超对称与共形场论。 | 75 道题，都有闭式参考答案和参考解答；逐题推导，不是交互式 agent 设置。 | SymPy 符号等价检查，判不了时由 Opus-5 judge 判分；报告了 judge 与三位 QFT 专家的一致率（正确性 98%）。 | [→](../works/qft-bench.md) |
+| EurekaBench | 2026 | 在已知物理约束下，找出 ARC 托卡马克以及负三角度位形芯部和边缘等离子体场景中观测行为背后的输运机制。 | 26 道题中的 3 道；agent 通过命令行运行 TORAX（边缘题另加 TokaMaker 和 GPEC），一块 H100、最多 4 小时，提交机制说明、代码和实验日志。 | 约束测试作为得分门槛；在保留数据上运行机制得到预测准确度；洞见问题由两个 agent 形式的 LLM judge 评判。 | [→](../works/eurekabench.md) |
+| Into the Unknown | 2026 | 沿原作者设定、尚未发表的方向延伸已发表的量子计算和等离子体物理工作：自适应变分量子动力学在硬件拓扑和噪声下的极限、更好的 LCHS 核函数、在自旋链等离子体模型中加入 ZZ 相互作用，以及格点标量 QED 和 Vlasov 理论在 MagCBET 上的适用边界。 | 15 题中的 6 题（量子计算 4、等离子体物理 2）；agent 写出后续论文并附代码和日志，不设时限，网络不受限。 | GPT-6-Astra agent judge 按作者指定的诚信和方向细则评分；没有一份提交有效。 | [→](../works/into-the-unknown.md) |
+| PhysClosureBench | 2026 | 在强场、阿秒及相邻物理中完成一项目标明确的研究（如电离后的散射如何决定阿秒钟角偏移），得出机制和适用范围都有自生成证据支撑的结论。 | 50 道题（强场原子分子与阿秒 24、强场凝聚态 12、量子光学 8、强场 QED 4、物质波 2）；离线容器，8–96 核、30–720 分钟；每个模型跑三次。 | GPT-5.6-Sol 分阶段评 20 条半分原子标准和研究闭合等级 RC0–RC4；在挑选的标准上与五位物理专家一致 81.8%。 | [→](../works/physclosurebench.md) |
+| SCI-AGENT-EXAM | 2026 | 跨领域科学工作流套件中的物理模拟类任务。 | 120 道题中有 11 道物理模拟题（另有 12 道只标为“物理科学”）；离线 Docker，每题交答案、代码和报告。 | 在隐藏输入上重跑的程序化检查，加上 GPT-5.6 Sol 对报告的细则评分。 | [→](../works/sci-agent-exam.md) |
 
 ## Capability Matrix
 
@@ -108,6 +112,7 @@
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
 | Imaging-101 | COMP | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
+| EurekaBench | PLA | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **4.5** | ✘ | ✔ | ✘ | 2 | 2 | 1 | **6** |
 | Collider-Bench | HEP | ? | ✘ | ✔ | ✘ | ✔ | ◐ | ✔ | **3.5** | ✔ | ✘ | ◐ | 2 | 1 | 4 | **8.5** |
 | NatureBench | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 2 | 1 | 2 | **7** |
@@ -117,6 +122,7 @@
 | Gravity-Bench-v1 | GR, CLA | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✔ | ✘ | ✔ | 3 | ? | 4 | **9** |
 | Model Discovery Agent | CLA | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 4 | **8** |
 | AutoResearchEval | CM, GR | ◐ | ✔ | ✘ | ? | ◐ | ? | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
+| PhysClosureBench | AMO, CM, HEP | ✘ | ✔ | ✘ | ✘ | ✔ | ✘ | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | MaD Physics | CLA, FLU, QM | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 1 | **5** |
 | PACE-Bench | CLA, FLU | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✘ | ✔ | 3 | 2 | 4 | **10** |
 | AI's Capability in Assisting Scientific Research I: Literature Review | GR, HEP, INSTR | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **2.5** | ✔ | ✘ | ✔ | 2 | 0 | 4 | **8** |
@@ -125,10 +131,12 @@
 | NewtonBench | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✔ | 2 | 2 | 4 | **9** |
 | HiSciBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✔ | ✘ | 2 | 3 | 3 | **9** |
 | SimulCost | GEN | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
+| SCI-AGENT-EXAM | COMP | ✘ | ✘ | ✔ | ✘ | ? | ? | ✔ | **2** | ◐ | ✔ | ◐ | 2 | 1 | 3 | **8** |
 | SimAgents | COS | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
 | DiscoverPhysics | CLA, GR | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 2 | 1 | 2 | **7** |
 | PhysGym | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ◐ | 2 | 1 | 3 | **6.5** |
 | PRBench | HEP, AMO, NUC, PLA, CM | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ✘ | ✔ | ✘ | 2 | 1 | 2 | **6** |
+| Into the Unknown | QI, PLA | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 1 | 0 | 3 | **6** |
 | QMP-Bench | CM, COMP | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ◐ | ✔ | ✘ | 2 | 2 | 0 | **5.5** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | LQCDMaster | HEP, NUC | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✔ | ✘ | ◐ | 3 | 1 | 3 | **8.5** |
@@ -168,6 +176,10 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 
 - [PHYRD](../works/phyrd.md)
 - [QFT-Bench](../works/qft-bench.md)
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [PhysClosureBench](../works/physclosurebench.md)
+- [Into the Unknown](../works/into-the-unknown.md)
+- [EurekaBench](../works/eurekabench.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

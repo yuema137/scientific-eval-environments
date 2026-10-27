@@ -32,18 +32,18 @@ Domain 页是**事实性参考页，不是文献综述**——作为入口与 to
 
 | 分组 | Domain | Works |
 |---|---|---|
-| Science | [Physics](./physics.md) | 52 |
-| Science | [Astronomy](./astronomy.md) | 36 |
-| Science | [Mathematics](./mathematics.md) | 19 |
-| Science | [Chemistry](./chemistry.md) | 42 |
-| Science | [Biology](./biology.md) | 43 |
-| Science | [Neuroscience & Cognitive Science](./neuroscience_cognitive_science.md) | 13 |
+| Science | [Physics](./physics.md) | 56 |
+| Science | [Astronomy](./astronomy.md) | 37 |
+| Science | [Mathematics](./mathematics.md) | 20 |
+| Science | [Chemistry](./chemistry.md) | 45 |
+| Science | [Biology](./biology.md) | 44 |
+| Science | [Neuroscience & Cognitive Science](./neuroscience_cognitive_science.md) | 14 |
 | Science | [Medicine & Health](./medicine_health.md) | 25 |
-| Science | [Earth Science](./earth_science.md) | 13 |
+| Science | [Earth Science](./earth_science.md) | 14 |
 | Science | [Environmental Science](./environmental_science.md) | 7 |
-| Science | [Materials Science](./materials_science.md) | 30 |
-| Science | [Computer Science](./computer_science.md) | 8 |
-| Science | [AI & Machine Learning Research](./ai_ml_research.md) | 33 |
+| Science | [Materials Science](./materials_science.md) | 32 |
+| Science | [Computer Science](./computer_science.md) | 9 |
+| Science | [AI & Machine Learning Research](./ai_ml_research.md) | 34 |
 | Engineering | [Mechanical & Aerospace Engineering](./mechanical_aerospace_engineering.md) | 12 |
 | Engineering | [Electrical Engineering](./electrical_engineering.md) | 18 |
 | Engineering | [Energy Systems](./energy_systems.md) | 5 |

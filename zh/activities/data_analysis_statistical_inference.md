@@ -72,9 +72,11 @@
 | VESTA / DAWN | 2026 | 带残差检视的迭代式分布与时间序列拟合 | 400 个实例，含恒星 IMF 与引力波啁啾切分 | 对照真值的 Jensen–Shannon 散度与 ELPD-LOO | [卡片](../works/vesta-dawn.md) |
 | DiscoveryBench | 2024 | 清洗、合并并统计分析给定数据集，导出一句自然语言假设 | 六个领域的 264 个真实任务（训练 25 / 测试 239）外加 903 个合成任务；每题给数据集、字段说明与一句发现目标 | 与标准假设在 context、variables、relationship 三维上的 Hypothesis Matching Score；最佳系统 25% | [卡片](../works/discoverybench.md) |
 | DISCERN | 2026 | 在埋有混杂因素、工具陷阱和统计陷阱的情况下审核生命科学数据并核查分析 | 封闭 Python 沙箱，20 步上限，不能联网；79 个数据完整性任务和 102 个分析核查任务 | 正确接受或拒收数据并给出处理办法，分析结果校准得当；依据代码、输出和报告评分 | [卡片](../works/discern.md) |
+| SCI-AGENT-EXAM | 2026 | 完成数据分析，对照其他解释检验假设，并在证据允许的范围内解读结果（End-to-End Analysis 25 道、Hypothesis Validation 16 道、Result Interpretation 10 道） | 离线 Docker 任务包，附可见数据；设有陷阱，比如由有泄漏的流程生成的现成看板 | 结构化答案、代码和报告；隐藏输入重跑加细则 judge；最高最终分 80.9（GPT-6 Astra） | [卡片](../works/sci-agent-exam.md) |
 
 ## Related Works
 
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [DISCERN](../works/discern.md)
 - [DSAgentBench](../works/dsagentbench.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)

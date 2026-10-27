@@ -53,6 +53,7 @@ Life-science evaluation from molecular to population scale. Bioinformatics, geno
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | Form testable hypotheses in biology from research literature | Eight densely scored subfields in this discipline; static and active literature access | Model critics assess originality against retrieved prior art; no experimental validation | [AgentIdeaBench](../works/agentideabench.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in biology | Paper-to-repository reproduction; Part of 30 AI4Science papers; per-field count unreported | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
 | DISCERN | 2026 | Vet data, verify analyses, and propose hypotheses across GWAS, clinical variant interpretation, bulk and single-cell RNA-seq, CRISPR screens, enhancer activity, chromatin regulation, and protein stability/structure. | 203 tasks: 79 data-integrity (with matched clean controls), 102 analysis-verification in 24 families, 22 hypothesis dossiers; sealed no-network sandbox. | Deterministic L1–L2 grading cross-checked by an LLM verifier with human adjudication; L3 LLM judge after three adversarial reviews, author-validated; no experimental confirmation. | [→](../works/discern.md) |
+| SCI-AGENT-EXAM | 2026 | Biology and bioinformatics workflow tasks, e.g. selecting a metagenomic assembly-and-binning pipeline robust across four stress axes, or a survival analysis testing four conclusions. | 26 of 120 tasks (biology 15, bioinformatics 11); offline Docker, answer, code, and report per task. | Programmatic checks rerun on hidden inputs (including relabelled-identifier replays), plus a GPT-5.6 Sol rubric judge on the report. | [→](../works/sci-agent-exam.md) |
 
 ## Capability Matrix
 
@@ -124,6 +125,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | DrBencher | MOLB | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | ? | 1 | **5** |
 | BioAgent Bench | BIOINF, GENOM | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **3** | ✘ | ◐ | ✘ | 0 | 0 | 3 | **3.5** |
 | LAB-Bench | GEN | ◐ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2.5** | ✔ | ✘ | ✔ | 3 | 3 | 1 | **9** |
+| SCI-AGENT-EXAM | BIOINF, GEN | ✘ | ✘ | ✔ | ✘ | ◐ | ? | ✔ | **2.5** | ◐ | ✔ | ◐ | 2 | 1 | 3 | **8** |
 | Aviary | MOLB, PROT | ✘ | ✘ | ✔ | ✘ | ✘ | ◐ | ✔ | **2.5** | ✔ | ✘ | ✘ | 3 | 2 | 1 | **7** |
 | MDArena | STRB | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✔ | ✘ | 2 | 1 | 3 | **7** |
 | HiSciBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✔ | ✘ | 2 | 3 | 3 | **9** |
@@ -146,6 +148,7 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 
 ## Related Works
 
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [DISCERN](../works/discern.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

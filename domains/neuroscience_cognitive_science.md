@@ -23,6 +23,7 @@ Neuroscience together with psychology and cognitive science.
 | PsychCounsel-Bench | 2025 | Answer professional counseling-psychology certification questions. | ~2,252 single-choice questions from the U.S. National Counselor Certification Exam; static QA. | Accuracy against the exam's ~70% passing threshold across models. | [→](../works/psychcounsel-bench.md) |
 | Neuroscience Data-to-Discovery Case Study | 2026 | Automate the computational stages of a real fly-optogenetics data-to-discovery pipeline — video-based body/keypoint tracking, walking-behavior classification, gait segmentation, and statistical comparison across GAL4 driver lines versus a genetic control. | Seven ordered single-stage tasks plus end-to-end pipeline variants (nine computational tasks total) over ~47 GB of released fly-behavior data; agents produce runnable code, three trials per agent–task pair. | Stage-level success criteria grounded in domain-expert standards, compared against expert human annotations and trusted legacy scientist-authored codebases; the statistical stage uses Mann–Whitney U tests against a genetic control. | [→](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md) |
 | MiraMind | 2025 | Evidence-constrained mental-health and clinical-psychology reasoning — cognitive-pattern appraisal, counseling-strategy selection, and psychiatric judgment — where the warranted specificity and certainty of interpretations is itself evaluated (folds into Neuroscience & Cognitive Science). | Six task families over 13 datasets (appraisal, diagnosis, intervention, multi-step psychiatry QA, abstraction, verification) spanning informal user narratives, counseling dialogues, psychiatric board-style QA, and Cochrane review abstracts; 20 LLMs. | Per-family outcome metrics (Micro-F1, Jaccard, expert-scoring-point recall, Macro-F1) plus an LLM-as-judge trajectory rubric (usability, logical structure, informational contribution) validated on 100 human-annotated trajectories. | [→](../works/miramind.md) |
+| EurekaBench | 2026 | Discover mechanisms behind C. elegans premotor states, foraging, navigation, and neural dynamics, and behind human brain responses to visual and language input. | 10 of 26 problems: six on the c302 C. elegans simulator and four on the TRIBE v2 brain-response model; up to 4 h on one H100. | Constraint tests gate the score; predictive accuracy on held-out data from original studies or simulators; insight questions judged by two agentic LLM judges. | [→](../works/eurekabench.md) |
 
 ## Capability Matrix
 
@@ -69,6 +70,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | ResearchClawBench | BEH, SYS, CELL | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
 | ScienceAgentBench | PSY, COG | ✘ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✔ | ✔ | 2 | 1 | 3 | **8.5** |
 | Neuroscience Data-to-Discovery Case Study | BEH, SYS | ? | ◐ | ◐ | ✔ | ◐ | ✔ | ✔ | **4.5** | ◐ | ✔ | ? | 3 | 0 | 4 | **8.5** |
+| EurekaBench | SYS, BEH, CNEU | ✔ | ✔ | ✔ | ✘ | ◐ | ? | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 1 | 3 | **8** |
 | BrainBench (EEG) | EPHYS, SLEEP, COG | ? | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | **3** | ✘ | ◐ | ? | 2 | 3 | 3 | **8.5** |
 | Model Discovery Agent | EPHYS, CELL, CNEU | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 4 | **8** |
 | Rodent-Bench | BEH | ✘ | ✘ | ◐ | ✔ | ✘ | ✔ | ✘ | **2.5** | ✘ | ✘ | ◐ | 3 | 2 | 2 | **7.5** |
@@ -84,6 +86,7 @@ Repository note: a suite-wide total does not establish this domain’s item coun
 
 ## Related Works
 
+- [EurekaBench](../works/eurekabench.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)
 - [BrainBench (EEG)](../works/brainbench-eeg.md)
 - [MetaSyn](../works/metasyn.md)

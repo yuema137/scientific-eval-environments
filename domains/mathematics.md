@@ -29,6 +29,7 @@ Mathematical reasoning and proof: olympiad and research mathematics, formal math
 | SciVQR | 2026 | Multimodal scientific reasoning in mathematics, one of six top-level scored subjects and — with physics — one of the two hardest. | 3,254 image-paired competition and exam questions across six subjects and 54 subfields (2,545 multiple-choice, 709 free-form; easy/medium/hard tiers); 15 multimodal models zero-shot, with and without CoT. Per-subject item counts are not published. | Zero-shot accuracy reported per subject, plus a five-dimension rubric (faithfulness, informativeness, redundancy, hallucination, missing steps) scoring the generated reasoning against expert-authored solution traces. | [→](../works/scivqr.md) |
 | HiSciBench | 2025 | Literature-facing mathematics work: parsing, translating, answering questions about and generating reviews from mathematics papers sourced from arXiv. | 1,655 mathematics instances within 8,735 — 200 general scientific QA, 208 literature OCR, 208 translation, 821 monolingual literature QA, 208 cross-lingual literature QA and 10 review topics; mathematics contributes no data-driven-discovery instances. 18 models evaluated. | Level-appropriate metrics: accuracy at the QA levels, word-level accuracy for literature OCR, BLEU for translation, and at the review level an LLM-judge 1–5 rubric over Coverage, Structure, Relevance, Synthesis and Critical Analysis plus citation verifiability, metadata accuracy, faithfulness and recency. | [→](../works/hiscibench.md) |
 | R³-Bench | 2026 | Allocate one shared budget across a six-problem mathematics suite rather than solving each problem in isolation. | 50 suites of 6 problems each (3 Easy / 2 Medium / 1 Hard) drawn from Omni-MATH and MathNet, 300 problems in total. | Contest score against an empirical oracle built from matched single-problem response curves at 5 runs per budget level; the oracle is strictly higher in 71 of 72 main-table cells. | [→](../works/r3-bench.md) |
+| SCI-AGENT-EXAM | 2026 | Mathematics workflow tasks within a cross-field suite. | 9 of 120 tasks; offline Docker, answer, code, and report per task. | Programmatic checks rerun on hidden inputs, plus a GPT-5.6 Sol rubric judge on the report. | [→](../works/sci-agent-exam.md) |
 
 ## Capability Matrix
 
@@ -79,6 +80,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | HiSciBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✔ | ✘ | 2 | 3 | 3 | **9** |
 | R³-Bench | OLYM | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
 | ScienceBoard | CAS, FORM | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | **2** | ✔ | ✘ | ✘ | 3 | ? | 3 | **7** |
+| SCI-AGENT-EXAM | GEN | ✘ | ✘ | ✔ | ✘ | ? | ? | ✔ | **2** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | Terminal-Bench Science | APP, FORM, OR, STAT | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | MATP | LOG | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ◐ | **1** | ✘ | ✘ | ✘ | 3 | 3 | 3 | **9** |
 | Pseudo-Formalization | OLYM, RES | ? | ✘ | ✘ | ✘ | ◐ | ◐ | ✘ | **1** | ✘ | ✘ | ◐ | 2 | 2 | 2 | **6.5** |
@@ -96,6 +98,7 @@ Repository note: a suite-wide total does not establish this domain’s item coun
 
 ## Related Works
 
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [R³-Bench](../works/r3-bench.md)
 - [TCS-Bench](../works/tcs-bench.md)
 - [VESTA / DAWN](../works/vesta-dawn.md)

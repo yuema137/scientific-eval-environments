@@ -216,6 +216,8 @@ Two additions expose stages hidden by a final research artifact. [AgentIdeaBench
 
 [DISCERN](../works/discern.md) scores data vetting, analysis verification, and hypothesis generation as separate levels on the same life-science tracks. Matched clean controls make over-rejection visible: only 19 of 64 clean-control evaluations correctly accept the data.
 
+Four additions grade research that has no single reference answer, each with a different bound. [EurekaBench](../works/eurekabench.md) gates accuracy and insight credit on known scientific constraints across 26 simulator-based problems. The best agents come close to the human reference on predictive accuracy (47.4% against 48.8%) but reach at most 42.4% on insights against 69.7%. [Into the Unknown](../works/into-the-unknown.md) asks for follow-up papers on 15 unpublished directions proposed by DOE national-laboratory scientists and checks them against the authors' own conditions; none of 135 submissions passes, and 114 fail the integrity rubric. [PhysClosureBench](../works/physclosurebench.md) scores local accomplishment and research closure separately on 50 strong-field and attosecond physics tasks, and 36.2% of attempts scoring at least 8/10 still fall short of complete closure. [SCI-AGENT-EXAM](../works/sci-agent-exam.md) reports execution and report scores separately on 120 workflow tasks, so a convincing report over code that fails the hidden checks stays visible.
+
 ## Comparison
 
 | Benchmark | Year | Task source | Scientific scope | Verification | Card |
@@ -479,6 +481,10 @@ Two additions expose stages hidden by a final research artifact. [AgentIdeaBench
 | Astro2Method | 2026 | 500 expert-reviewed binary questions from method comparisons in 346 astronomy papers (2024-01 to 2026-06) | Astronomy: machine-learning method selection; 376 Easy / 124 Hard by completeness of the source explanation | Exact match against the source paper's significance-filtered comparison; accuracy vs. 50% chance | [→](../works/astro2method.md) |
 | DISCERN | 2026 | Public life-science datasets with controlled defects, matched clean controls, and counterfactual dossiers | Eight life-science tracks; data integrity, analysis verification, hypothesis generation | Deterministic L1–L2 grading cross-checked by an LLM verifier; L3 LLM judge after three adversarial reviews | [→](../works/discern.md) |
 | AlphaIdeaBench | 2026 | NeurIPS/ICML/ICLR workshop calls (2023–2025) and survey open problems | Machine-learning research ideation under resource budgets | LLM judge on 12 dimensions; novelty axes compared with reviewer-derived scores | [→](../works/alphaideabench.md) |
+| EurekaBench | 2026 | 26 expert-verified problems with 306 insight questions, built on simulators such as c302, TORAX, and CAMELS | Neuroscience, astrophysics, plasma physics, language-model behaviour, geophysics, chemistry | Two agentic LLM judges; held-out predictive accuracy and insight credit count only if every constraint test passes | [→](../works/eurekabench.md) |
+| Into the Unknown | 2026 | 15 papers from DOE national-laboratory scientists, each with an unpublished follow-up direction and author-specified conditions | Quantum computing, plasma physics, computational chemistry, materials science, scientific ML | GPT-6-Astra agentic judge on integrity and direction rubrics (four runs, node majority); rubric coverage and agreement measured against author criticisms | [→](../works/into-the-unknown.md) |
+| PhysClosureBench | 2026 | 50 goal-specified tasks derived from published studies (e.g., PRL, PRA), each source result reproduced by hand | Strong-field and attosecond AMO physics, strong-field condensed matter, quantum optics, strong-field QED | GPT-5.6-Sol staged grading of 20 half-point atoms and RC0–RC4 closure; 81.8% agreement with five physics experts on 192 criterion decisions | [→](../works/physclosurebench.md) |
+| SCI-AGENT-EXAM | 2026 | 120 expert-built task packages from recent papers, competitions, datasets, and open-source projects | 11 fields across seven workflow task types | Weighted programmatic checks rerun on hidden inputs plus a GPT-5.6 Sol rubric judge; weights fixed per task type | [→](../works/sci-agent-exam.md) |
 
 ## Open Questions
 
@@ -495,7 +501,11 @@ Two additions expose stages hidden by a final research artifact. [AgentIdeaBench
 - [AlphaIdeaBench](../works/alphaideabench.md)
 - [PHYRD](../works/phyrd.md)
 - [QFT-Bench](../works/qft-bench.md)
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [Astro2Method](../works/astro2method.md)
+- [PhysClosureBench](../works/physclosurebench.md)
+- [Into the Unknown](../works/into-the-unknown.md)
+- [EurekaBench](../works/eurekabench.md)
 - [DISCERN](../works/discern.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)

@@ -72,9 +72,11 @@ A final cluster addresses **neuroscience and behavioral signal analysis**: [Brai
 | VESTA / DAWN | 2026 | Iterative distribution and time-series fitting with residual inspection | 400 instances including stellar-IMF and gravitational-wave chirp splits | Jensen-Shannon divergence and ELPD-LOO against ground truth | [card](../works/vesta-dawn.md) |
 | DiscoveryBench | 2024 | Clean, join and statistically analyse supplied datasets to derive a hypothesis stated in natural language | 264 real tasks (25 train / 239 test) over six domains plus 903 synthetic tasks; dataset, column metadata and a discovery goal per task | Hypothesis Matching Score against the gold hypothesis over context, variables and relationship; best system 25% | [card](../works/discoverybench.md) |
 | DISCERN | 2026 | Vet life-science datasets and verify analyses under planted confounds, tool traps, and statistical pitfalls | Sealed Python sandbox, 20-step budget, no network; 79 data-integrity and 102 analysis-verification tasks | Correct accept/reject and remedy, plus calibrated analysis results, graded on code, output, and report | [card](../works/discern.md) |
+| SCI-AGENT-EXAM | 2026 | Carry out analyses, test hypotheses against alternatives, and interpret results within their evidential scope (End-to-End Analysis 25, Hypothesis Validation 16, Result Interpretation 10 tasks) | Offline Docker task packages with visible data; traps such as leaky precomputed dashboards | Structured answer, code, and report; hidden-input reruns plus rubric judge; best final score 80.9 (GPT-6 Astra) | [card](../works/sci-agent-exam.md) |
 
 ## Related Works
 
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [DISCERN](../works/discern.md)
 - [DSAgentBench](../works/dsagentbench.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)

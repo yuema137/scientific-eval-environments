@@ -45,9 +45,11 @@
 | VESTA / DAWN | 2026 | 对分布模型与时间序列模型提出假设、拟合并修正 | 400 个任务；工具箱在回合中逐步扩充，图件以视觉方式回读 | 拟合用 Jensen–Shannon 散度，时间序列用 ELPD-LOO | [卡片](../works/vesta-dawn.md) |
 | AutoWorldModel-Bench | 2026 | 改进一个学习得到的世界模型对实体动力学的前向预测 | 八个游戏环境统一采用共享的结构化状态张量格式，感知被移除 | 留出集上 Position L1 与 Alive F1 在 1/10/20 三个时程上的组合，权重 0.1/0.2/0.7 | [卡片](../works/autoworldmodel-bench.md) |
 | [HarnessDev](../works/harnessdev.md) | 2026 | 构建能训练竞赛模型的 harness | 75 个 MLE-bench 竞赛；冻结生成的 harness | 按竞赛奖牌标准评估提交 | [HarnessDev](../works/harnessdev.md) |
+| EurekaBench | 2026 | 把提出的机制写成可执行代码，预测保留的观测 | 在来自原始研究或任务模拟器的保留测试数据上运行 `mechanism.py` | 每条标准的预测准确度取值 [0, 1]；最好 47.4%，人类参考 48.8% | [卡片](../works/eurekabench.md) |
 
 ## Related Works
 
+- [EurekaBench](../works/eurekabench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [DSAgentBench](../works/dsagentbench.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)

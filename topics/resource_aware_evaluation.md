@@ -60,6 +60,8 @@ Neither yields what a planner would need to choose between plans: a per-action, 
 
 [HarnessDev](../works/harnessdev.md) separates the model that writes a harness from the model that runs it. Hidden tasks test whether feedback-driven changes generalize; its token metric counts execution, not development.
 
+[SCI-AGENT-EXAM](../works/sci-agent-exam.md) reports mean dollar cost, runtime, and turns per run next to the score for ten models under one harness. GLM-5.3 is the most expensive ($57.96 and 102.4 turns per run) while scoring 55.9; GPT-6 Astra scores 80.9 at $20.79. Unit token price therefore does not predict the cost of a completed run. Cost is reported, not scored.
+
 ## Comparison
 
 | Benchmark | Year | Resource currency | Resource role | Setting | Card |
@@ -94,6 +96,7 @@ Neither yields what a planner would need to choose between plans: a per-action, 
 | SlowLab | 2026 | Experiments (16 per campaign, each occupying a compartment for 180 days) plus caps on decision, interface, and model calls; API dollars per campaign reported | Enforced hard constraint — slow, irreversible experiments make allocating scarce compartment time the evaluated skill | One-year simulated greenhouse campaign over 48 unseen sites | [→](../works/slowlab.md) |
 | DISCERN | 2026 | Input/output tokens, API calls, estimated USD (upper bounds; grading and review excluded) | Reported measure, not a budget; token efficiency = Overall Score per million tokens | Life-science research workflow; 203 tasks, eight ranked models | [→](../works/discern.md) |
 | AlphaIdeaBench | 2026 | GPUs and GPU hours, API dollars, calendar weeks, annotation hours of the proposed research | Stated per-task envelope (student / academic / lab tiers); the judge scores the proposal's budget feasibility | 100 ML ideation tasks; eight harnesses, eight backbones | [→](../works/alphaideabench.md) |
+| SCI-AGENT-EXAM | 2026 | Mean USD cost, runtime, and turns per run | Reported beside score with a cost–score Pareto frontier; not part of the score | 120 scientific workflow tasks in offline Docker, Claude Code harness | [→](../works/sci-agent-exam.md) |
 
 ## Open Questions
 
@@ -108,6 +111,7 @@ Neither yields what a planner would need to choose between plans: a per-action, 
 
 - [SlowLab](../works/slowlab.md)
 - [AlphaIdeaBench](../works/alphaideabench.md)
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [DISCERN](../works/discern.md)
 - [EvoHarnessBench](../works/evoharnessbench.md)
 - [HarnessDev](../works/harnessdev.md)

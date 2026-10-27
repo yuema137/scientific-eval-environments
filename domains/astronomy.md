@@ -48,6 +48,7 @@ Two boundaries matter. Against **Physics**, the test is the object of study rath
 | PRL-Bench | 2026 | Carry out frontier physics research tasks derived from post-August-2025 Physical Review Letters papers; astrophysics is one of the five named subfields. | 100 expert-validated, long-horizon research tasks with exploration-oriented formulation; per-subfield counts are not stated. | Objectively verifiable task outcomes, expert-validated, scored on a 0–100 scale. | [→](../works/prl-bench.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in astronomy | Paper-to-repository reproduction; Part of 30 AI4Science papers; per-field count unreported | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
 | Astro2Method | 2026 | Choose the better machine-learning method for a published astronomy problem, e.g. which network gives lower error when estimating stellar surface gravity from light curves; topics include stellar astrophysics, galaxy photometric redshift, and high-energy and time-domain astronomy. | 500 binary questions from 346 papers published 2024-01 to 2026-06 (376 Easy, 124 Hard by completeness of the source explanation); five models direct, three under RAG, agent and web-search settings. Per-topic counts are given only in a figure. | Exact match against the source paper's comparison, kept only if the gap is ≥ 2σ or, without uncertainties, ≥ 10% relative improvement; every question human-reviewed. | [→](../works/astro2method.md) |
+| EurekaBench | 2026 | Explain observed properties of galaxies, galaxy environments, gravitational waves, the Milky Way, baryonic feedback, and warm-dark-matter merger trees and populations with mechanisms that respect known astrophysical constraints. | 7 of 26 problems on the CAMELS and DREAMS simulation suites; up to 4 h on one H100; mechanism as prose, code, and experiment log. | Constraint tests gate the score; predictive accuracy on held-out simulation data; insight questions judged by two agentic LLM judges. | [→](../works/eurekabench.md) |
 
 ## Capability Matrix
 
@@ -93,6 +94,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
 | Imaging-101 | INSTR | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
+| EurekaBench | GAL, GW, COS | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | Mephisto | GAL | ✘ | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 3 | 2 | 1 | **6** |
 | An LLM-driven framework for cosmological model-building and exploration | COS | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | SciVisAgentBench | COMP | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
@@ -133,6 +135,7 @@ Repository note: a suite-wide total does not establish this domain’s item coun
 ## Related Works
 
 - [Astro2Method](../works/astro2method.md)
+- [EurekaBench](../works/eurekabench.md)
 - [AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation](../works/ai-assisting-research-ii-project-planning.md)
 - [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)
 - [Imaging-101](../works/imaging-101.md)

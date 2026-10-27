@@ -23,6 +23,7 @@
 | PsychCounsel-Bench | 2025 | 回答专业咨询心理学的认证考试题。 | 约 2,252 道来自美国国家咨询师认证考试的单选题；静态问答。 | 各模型对照该考试约 70% 及格线的准确率。 | [→](../works/psychcounsel-bench.md) |
 | Neuroscience Data-to-Discovery Case Study | 2026 | 自动化一条真实果蝇光遗传学数据到发现流水线的计算阶段——基于视频的身体/关键点追踪、行走行为分类、步态分割，以及各 GAL4 驱动品系相对遗传对照的统计比较。 | 七个有序的单阶段任务外加端到端流水线变体（共九个计算任务），基于约 47 GB 已发布的果蝇行为数据；agent 产出可运行代码，每个 agent–任务对三次试验。 | 阶段级成功标准锚定领域专家规范，对照专家人工标注与可信的旧有科学家编写代码库；统计阶段用 Mann–Whitney U 检验对照遗传对照组。 | [→](../works/a-case-study-of-evaluating-ai-agents-on-a-neurosci.md) |
 | MiraMind | 2025 | 证据受限的心理健康与临床心理学推理——认知模式评估、咨询策略选择与精神科判断——其中解读所应有的具体程度与确定程度本身也在评估之列（归入 Neuroscience & Cognitive Science）。 | 覆盖 13 个数据集的六大任务族（评估、诊断、干预、多步精神科问答、抽象、核验），横跨非正式用户叙述、咨询对话、精神科执照式问答与 Cochrane 综述摘要；20 个 LLM。 | 各任务族的结果指标（Micro-F1、Jaccard、专家评分点召回、Macro-F1），外加在 100 条人工标注轨迹上验证的 LLM-as-judge 轨迹 rubric（可用性、逻辑结构、信息贡献）。 | [→](../works/miramind.md) |
+| EurekaBench | 2026 | 找出线虫 C. elegans 运动前状态、觅食、导航和神经动力学背后的机制，以及人脑对视觉和语言输入的响应机制。 | 26 道题中的 10 道：六道用 c302 线虫模拟器，四道用 TRIBE v2 脑响应模型；一块 H100、最多 4 小时。 | 约束测试作为得分门槛；在来自原始研究或模拟器的保留数据上测预测准确度；洞见问题由两个 agent 形式的 LLM judge 评判。 | [→](../works/eurekabench.md) |
 
 ## Capability Matrix
 
@@ -69,6 +70,7 @@
 | ResearchClawBench | BEH, SYS, CELL | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
 | ScienceAgentBench | PSY, COG | ✘ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✔ | ✔ | 2 | 1 | 3 | **8.5** |
 | Neuroscience Data-to-Discovery Case Study | BEH, SYS | ? | ◐ | ◐ | ✔ | ◐ | ✔ | ✔ | **4.5** | ◐ | ✔ | ? | 3 | 0 | 4 | **8.5** |
+| EurekaBench | SYS, BEH, CNEU | ✔ | ✔ | ✔ | ✘ | ◐ | ? | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 1 | 3 | **8** |
 | BrainBench (EEG) | EPHYS, SLEEP, COG | ? | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | **3** | ✘ | ◐ | ? | 2 | 3 | 3 | **8.5** |
 | Model Discovery Agent | EPHYS, CELL, CNEU | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 4 | **8** |
 | Rodent-Bench | BEH | ✘ | ✘ | ◐ | ✔ | ✘ | ✔ | ✘ | **2.5** | ✘ | ✘ | ◐ | 3 | 2 | 2 | **7.5** |
@@ -84,6 +86,7 @@ Repository note: 跨领域套件的总题数不能代替本领域数量。Termin
 
 ## Related Works
 
+- [EurekaBench](../works/eurekabench.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)
 - [BrainBench (EEG)](../works/brainbench-eeg.md)
 - [MetaSyn](../works/metasyn.md)

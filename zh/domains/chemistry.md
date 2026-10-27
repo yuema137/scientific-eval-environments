@@ -52,6 +52,9 @@
 | OntoLearner | 2026 | 为化学——它的本体集合覆盖的 22 个领域之一，官方 hub 上另有一份化学数据集——构建本体结构：给术语定类型、恢复类型之间的 is-a 层级、抽取非分类关系。 | 覆盖 22 个领域的 180 个机器可读本体，为三项本体学习任务备好可直接接入流水线的 train/dev/test 切分；共评测 22 个检索模型与 12 个 LLM，设定是单次结构化预测而非 agentic 循环。 | 以归一化的成对与三元组匹配对照金标准本体结构计算 precision、recall 与 F1；卡片中逐领域、逐模型的分数为 `TODO(reference)`，因论文的结果章节无法获取。 | [→](../works/ontolearner.md) |
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | 依据Chemistry文献提出可检验假设 | 本领域有八个密集评分子领域；比较固定文献与主动检索 | 评审模型依据检索到的已有研究判断原创性；不执行实验验证 | [AgentIdeaBench](../works/agentideabench.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现Chemistry的已发表实验 | 从论文重建代码并执行；属于 30 篇 AI4Science 论文的一部分；未报告本领域数量 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
+| EurekaBench | 2026 | 借助反应型机器学习势发现反应机理。 | 26 道题中的 1 道，基于 AIMNet2-rxn；一块 H100、最多 4 小时。 | 约束测试作为得分门槛；在保留数据上测预测准确度；洞见问题由两个 agent 形式的 LLM judge 评判。 | [→](../works/eurekabench.md) |
+| Into the Unknown | 2026 | 沿作者设定的方向延伸机器学习分子能量模型：用 HIP-NN 的层级分解信号找出失效模式并校准不确定度，以及减少 Projected Hessian Learning 所需的随机探针。 | 15 题中的 2 题（计算化学）；写出后续论文并附代码和日志，GPU 节点，不设时限。 | GPT-6-Astra agent judge 按作者指定的诚信和方向细则评分；没有一份提交有效。 | [→](../works/into-the-unknown.md) |
+| SCI-AGENT-EXAM | 2026 | 跨领域套件中的化学工作流任务。 | 120 道题中的 11 道；离线 Docker，每题交答案、代码和报告。 | 在隐藏输入上重跑的程序化检查，加上 GPT-5.6 Sol 对报告的细则评分。 | [→](../works/sci-agent-exam.md) |
 
 ## Capability Matrix
 
@@ -98,6 +101,7 @@
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
 | ScienceAgentBench | CHEMINF | ◐ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✔ | 2 | 1 | 2 | **7.5** |
 | Imaging-101 | ANAL, NANO | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
+| EurekaBench | ORG | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **4.5** | ✘ | ✔ | ✘ | 2 | 2 | 1 | **6** |
 | MolQuest | ANAL | ? | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
 | NatureBench | MOLDES | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 2 | 1 | 2 | **7** |
@@ -114,7 +118,9 @@
 | ChemX | NANO, MED | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **2.5** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | MDArena | MD, BIOCHEM | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **2.5** | ◐ | ✔ | ✘ | 2 | 1 | 2 | **6.5** |
 | MOOSE-Chem | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | **2.5** | ◐ | ◐ | ✔ | 1 | 1 | 2 | **6** |
+| SCI-AGENT-EXAM | GEN | ✘ | ✘ | ✔ | ✘ | ? | ? | ✔ | **2** | ◐ | ✔ | ◐ | 2 | 1 | 3 | **8** |
 | MaCBench | ANAL, NANO | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ◐ | 2 | ? | 4 | **6.5** |
+| Into the Unknown | QC | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 1 | 0 | 3 | **6** |
 | AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | HiSciBench | GEN | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✘ | ✔ | ✘ | 2 | 3 | 3 | **9** |
@@ -144,6 +150,9 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 
 ## Related Works
 
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [Into the Unknown](../works/into-the-unknown.md)
+- [EurekaBench](../works/eurekabench.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)

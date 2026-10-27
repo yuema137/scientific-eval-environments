@@ -216,6 +216,8 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 
 [DISCERN](../works/discern.md)在同一组生命科学方向上，把数据审核、分析核查和假设生成分成不同 Level 分别评分。配对的干净对照让过度拒收也能被看到：64 次干净对照评测中，只有 19 次正确接受了数据。
 
+[EurekaBench](../works/eurekabench.md)、[Into the Unknown](../works/into-the-unknown.md)、[PhysClosureBench](../works/physclosurebench.md) 和 [SCI-AGENT-EXAM](../works/sci-agent-exam.md) 这四项新工作评的都是没有唯一参考答案的研究，但各自划定边界的方式不同。EurekaBench 在 26 道基于模拟器的题上，把已知科学约束设为门槛：约束不全过，准确度和洞见都不给分。最好的 agent 在预测准确度上接近人类参考（47.4% 对 48.8%），洞见最高却只有 42.4%，人类是 69.7%。Into the Unknown 让 agent 沿美国能源部国家实验室科学家提出的 15 个未发表方向写后续论文，再按作者自己定的条件检查；135 份提交没有一份通过，114 份没过诚信细则。PhysClosureBench 在 50 道强场与阿秒物理题上，把局部完成度和研究闭合分开打分；得分不低于 8/10 的尝试中，仍有 36.2% 没有完全闭合。SCI-AGENT-EXAM 在 120 道工作流题上分别报告执行分和报告分，因此一份写得很好、代码却过不了隐藏检查的提交不会被掩盖。
+
 ## 方法对比
 
 | Benchmark | Year | 任务来源 | 科学范围 | 验证方式 | Card |
@@ -479,6 +481,10 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 | Astro2Method | 2026 | 从 346 篇天文论文（2024-01 至 2026-06）的方法对比中构建 500 道经专家审阅的二选一题 | 天文学：机器学习方法选择；按原论文解释是否完整，分为 Easy 376 题、Hard 124 题 | 与原论文中经显著性筛选的对比结果精确匹配；准确率对照 50% 的随机水平 | [→](../works/astro2method.md) |
 | DISCERN | 2026 | 公开生命科学数据集，含受控缺陷、配对的干净对照和反事实证据包 | 八个生命科学方向；数据完整性、分析核查、假设生成 | L1–L2 确定性评分，并由 LLM 验证器复核；L3 经三轮对抗评审后由 LLM judge 评分 | [→](../works/discern.md) |
 | AlphaIdeaBench | 2026 | NeurIPS/ICML/ICLR workshop 征稿说明（2023–2025）和综述中的开放问题 | 资源预算约束下的机器学习研究构思 | LLM judge 评 12 个维度；新颖性各项与由评审意见得出的分数对比 | [→](../works/alphaideabench.md) |
+| EurekaBench | 2026 | 26 道经专家核验的题和 306 个洞见问题，建立在 c302、TORAX、CAMELS 等模拟器之上 | 神经科学、天体物理、等离子体物理、语言模型行为、地球物理、化学 | 两个 agent 形式的 LLM judge；只有所有约束测试都通过，保留数据上的预测准确度和洞见才计分 | [→](../works/eurekabench.md) |
+| Into the Unknown | 2026 | 美国能源部国家实验室科学家的 15 篇论文，每篇配一个未发表的后续方向和作者指定的条件 | 量子计算、等离子体物理、计算化学、材料科学、科学机器学习 | GPT-6-Astra agent judge 按诚信与方向两套细则评分（四次运行，按节点多数）；对照作者的批评测量细则覆盖率和一致率 | [→](../works/into-the-unknown.md) |
+| PhysClosureBench | 2026 | 50 道目标明确的题，改编自已发表研究（如 PRL、PRA），每个源结果都经人工复现 | 强场与阿秒原子分子物理、强场凝聚态、量子光学、强场 QED | GPT-5.6-Sol 分阶段评 20 条半分原子标准和 RC0–RC4 闭合等级；在 192 条标准判定上与五位物理专家一致 81.8% | [→](../works/physclosurebench.md) |
+| SCI-AGENT-EXAM | 2026 | 120 个由专家搭建的任务包，取材于近期论文、竞赛、数据集和开源项目 | 11 个领域，七类工作流任务 | 在隐藏输入上重跑的加权程序化检查，加上 GPT-5.6 Sol 细则 judge；权重按任务类型固定 | [→](../works/sci-agent-exam.md) |
 
 ## 还没解决的问题
 
@@ -495,7 +501,11 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - [AlphaIdeaBench](../works/alphaideabench.md)
 - [PHYRD](../works/phyrd.md)
 - [QFT-Bench](../works/qft-bench.md)
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [Astro2Method](../works/astro2method.md)
+- [PhysClosureBench](../works/physclosurebench.md)
+- [Into the Unknown](../works/into-the-unknown.md)
+- [EurekaBench](../works/eurekabench.md)
 - [DISCERN](../works/discern.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)

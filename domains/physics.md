@@ -62,6 +62,10 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | Form testable hypotheses in physics from research literature | Eight densely scored subfields in this discipline; static and active literature access | Model critics assess originality against retrieved prior art; no experimental validation | [AgentIdeaBench](../works/agentideabench.md) |
 | PHYRD | 2026 | Re-derive published theoretical-physics results and derive the consequences of a changed operator, coupling, symmetry, or boundary condition, across five subfields led by high-energy physics. | 106 problems (63 Reproduce, 43 Discover) with 504 public subquestions; Reproduce closed-book, Discover closed-book and with Python/arXiv tools. | Binary per-subquestion scoring that requires conclusions, derivations, and applicability conditions; reference derivations reviewed against a blind solver's attempt before release. | [→](../works/phyrd.md) |
 | QFT-Bench | 2026 | Carry out quantum field theory derivations, from classical field theory and QED through renormalization, gauge theories, supersymmetry, and conformal field theory. | 75 problems with closed-form reference answers and reference solutions; single-problem derivations, not an interactive agent setting. | SymPy symbolic-equivalence check, with an Opus-5 judge when inconclusive; judge agreement with three QFT experts reported (98% correctness). | [→](../works/qft-bench.md) |
+| EurekaBench | 2026 | Find the transport mechanisms behind observed behaviour in ARC tokamak and negative-triangularity core and edge plasma scenarios, under known physical constraints. | 3 of 26 problems; the agent runs TORAX (with TokaMaker and GPEC for the edge case) through a CLI for up to 4 h on one H100 and submits a mechanism as prose, code, and an experiment log. | Constraint tests gate the score; predictive accuracy from running the mechanism on held-out data; insight questions judged by two agentic LLM judges. | [→](../works/eurekabench.md) |
+| Into the Unknown | 2026 | Extend published quantum-computing and plasma-physics work along unpublished directions set by the original authors: hardware-topology and noise limits of adaptive variational quantum dynamics, a better LCHS kernel, ZZ interactions in a spin-chain plasma model, and the validity limits of lattice scalar QED and Vlasov theory for MagCBET. | 6 of 15 problems (4 quantum computing, 2 plasma physics); agent writes a follow-up paper with code and logs, no time limit, unrestricted internet. | GPT-6-Astra agentic judge on author-specified integrity and direction rubrics; no submission is valid. | [→](../works/into-the-unknown.md) |
+| PhysClosureBench | 2026 | Carry a goal-specified investigation in strong-field, attosecond, and neighbouring physics (e.g., how post-release scattering shapes the attoclock offset) to a conclusion whose mechanism and validity range are supported by self-generated evidence. | 50 tasks (24 strong-field AMO/attosecond, 12 strong-field condensed matter, 8 quantum optics, 4 strong-field QED, 2 matter-wave); offline containers with 8–96 cores and 30–720 min; 3 runs per model. | GPT-5.6-Sol staged grading of 20 half-point atoms and Research Closure RC0–RC4; 81.8% agreement with five physics experts on selected criteria. | [→](../works/physclosurebench.md) |
+| SCI-AGENT-EXAM | 2026 | Physics-simulation workflow tasks within a cross-field scientific workflow suite. | 11 physics-simulation tasks (plus 12 tasks labelled only 'physical science') of 120; offline Docker, answer, code, and report per task. | Programmatic checks rerun on hidden inputs, plus a GPT-5.6 Sol rubric judge on the report. | [→](../works/sci-agent-exam.md) |
 
 ## Capability Matrix
 
@@ -108,6 +112,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
 | Imaging-101 | COMP | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
+| EurekaBench | PLA | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **4.5** | ✘ | ✔ | ✘ | 2 | 2 | 1 | **6** |
 | Collider-Bench | HEP | ? | ✘ | ✔ | ✘ | ✔ | ◐ | ✔ | **3.5** | ✔ | ✘ | ◐ | 2 | 1 | 4 | **8.5** |
 | NatureBench | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 2 | 1 | 2 | **7** |
@@ -117,6 +122,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Gravity-Bench-v1 | GR, CLA | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✔ | ✘ | ✔ | 3 | ? | 4 | **9** |
 | Model Discovery Agent | CLA | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 4 | **8** |
 | AutoResearchEval | CM, GR | ◐ | ✔ | ✘ | ? | ◐ | ? | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
+| PhysClosureBench | AMO, CM, HEP | ✘ | ✔ | ✘ | ✘ | ✔ | ✘ | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | MaD Physics | CLA, FLU, QM | ? | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 1 | **5** |
 | PACE-Bench | CLA, FLU | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✘ | ✔ | 3 | 2 | 4 | **10** |
 | AI's Capability in Assisting Scientific Research I: Literature Review | GR, HEP, INSTR | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **2.5** | ✔ | ✘ | ✔ | 2 | 0 | 4 | **8** |
@@ -125,10 +131,12 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | NewtonBench | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✔ | 2 | 2 | 4 | **9** |
 | HiSciBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✔ | ✘ | 2 | 3 | 3 | **9** |
 | SimulCost | GEN | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
+| SCI-AGENT-EXAM | COMP | ✘ | ✘ | ✔ | ✘ | ? | ? | ✔ | **2** | ◐ | ✔ | ◐ | 2 | 1 | 3 | **8** |
 | SimAgents | COS | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
 | DiscoverPhysics | CLA, GR | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 2 | 1 | 2 | **7** |
 | PhysGym | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ◐ | 2 | 1 | 3 | **6.5** |
 | PRBench | HEP, AMO, NUC, PLA, CM | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ✘ | ✔ | ✘ | 2 | 1 | 2 | **6** |
+| Into the Unknown | QI, PLA | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 1 | 0 | 3 | **6** |
 | QMP-Bench | CM, COMP | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ◐ | ✔ | ✘ | 2 | 2 | 0 | **5.5** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | LQCDMaster | HEP, NUC | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✔ | ✘ | ◐ | 3 | 1 | 3 | **8.5** |
@@ -168,6 +176,10 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 
 - [PHYRD](../works/phyrd.md)
 - [QFT-Bench](../works/qft-bench.md)
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [PhysClosureBench](../works/physclosurebench.md)
+- [Into the Unknown](../works/into-the-unknown.md)
+- [EurekaBench](../works/eurekabench.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

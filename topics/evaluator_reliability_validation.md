@@ -33,6 +33,8 @@ These additions test different measurement objects: [AgentIdeaBench](../works/ag
 
 [AlphaIdeaBench](../works/alphaideabench.md) checks only the novelty half of its judge: reviewer comments are converted into scores by the same model that serves as judge, and agreement drops on scenario novelty. Its validity and feasibility scores have no human reference.
 
+[Into the Unknown](../works/into-the-unknown.md) validates rubric grading of open research against the scientists who wrote the rubrics. Each original author reviews three blind follow-up papers, and their criticisms are split into items. The rubrics cover all 41 judgments on whether the direction was met, and the judge agrees with every one. Agreement falls to 80.34% on reviewer-style weaknesses and 68.68% on scientific quality and impact, so the rubrics are trusted for necessary conditions, not for merit. A separate four-run study picks the GPT-6-Astra judge for consistency (86.5% against 57.7% same overall grade), although GPT-6-Astra is also one of the evaluated agents.
+
 ## Comparison
 
 | Work | Evaluator under test | Ground truth | Reliability signal | Downstream validation |
@@ -54,6 +56,7 @@ These additions test different measurement objects: [AgentIdeaBench](../works/ag
 | [QFT-Bench](../works/qft-bench.md) | Opus-5 and GPT-5.6 judges for answer correctness and derivation faithfulness | Three QFT experts on 60 responses from 15 models | Correctness agreement 98% / 92%; faithfulness agreement 73% / 67% | Opus-5 used for correctness fallback, faithfulness rates, and error categories |
 | [AgentProofBench](../works/agentproofbench.md) | Frozen Web-agent acceptance programs written by DeepSeek Flash/Pro, reused or rebuilt; fresh online judgments for comparison | Reference rules over 556 natural terminal states and 558 states from source, background, and related initial conditions; LLM audit agrees on 191/192 | Balanced accuracy; complete-panel and decision-replay joint pass; reuse-minus-rebuild BA with family bootstrap | Delivery from identical saved openings: 32/33 panel-correct vs. 1/11 panel-error assignments deliver correctly; program gate below neutral continuation |
 | [AlphaIdeaBench](../works/alphaideabench.md) | Gemini 3.7 Flash judge on four novelty axes | Reviewer comments on 600 ICLR 2026 / NeurIPS 2025 / ICML 2025 papers, mapped to 1–5 scores by Gemini 3.7 Flash | Within-±1 agreement ~94.5–97.4% (problem), 95.9–96.8% (method), 80.6–87.5% (scenario); GPT-5 mini re-score Spearman ρ 0.81 / 0.83 | Harness and backbone rankings; validity and feasibility have no human reference |
+| [Into the Unknown](../works/into-the-unknown.md) | GPT-6-Astra agentic judge applying author-specified integrity and direction rubrics (Codex SDK, four runs, node majority) | Criticisms from each original paper's author on three blind follow-ups; a Claude-Opus-5.5 judge for the consistency comparison | Coverage / matching 100% / 100% (direction met), 96.97% / 80.34% (reviewer weaknesses), 89.05% / 68.68% (quality and impact); same overall grade in 86.5% vs. 57.7% of four-run repeats | GPT-6-Astra chosen as default judge for all 135 submissions |
 
 ## Open Questions
 
@@ -68,6 +71,7 @@ These additions test different measurement objects: [AgentIdeaBench](../works/ag
 - [AgentProofBench](../works/agentproofbench.md)
 - [AlphaIdeaBench](../works/alphaideabench.md)
 - [QFT-Bench](../works/qft-bench.md)
+- [Into the Unknown](../works/into-the-unknown.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PTA-IRT](../works/pta-irt.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

@@ -63,9 +63,11 @@
 | SimulCost | 2026 | 成本感知的物理模拟参数调优 | 2,643 个单轮任务 + 2,304 个多轮任务，11 个使用解析成本的模拟器，另行报告 EPOCH | 在模拟时间/资源预算约束下的性能 | [卡片](../works/simulcost.md) |
 | StructureClaw | 2026 | 操作带求解器后端的结构工程工作台 | 150 个场景：标准、交互式、多模态重建 | 相对冻结参考的模型匹配 + 数值一致性 | [卡片](../works/structureclaw.md) |
 | Terminal-Bench Science | 2026 | 容器化的自然科学计算工作流 | 0.1 版横跨 5 大分组的 70 个任务 | 基于 pytest 的确定性程序化验证 | [卡片](../works/terminal-bench-science.md) |
+| PhysClosureBench | 2026 | 自己编写并运行强场、阿秒及相关物理的数值模拟，用来产生证据 | OpenCode 加 Bash，在离线容器中运行；每个案例 8–96 个 CPU 核、30–720 分钟 | 20 条原子标准细则中的观测量和机制条目；最高平均 Atomic Score 为 6.29/10 | [卡片](../works/physclosurebench.md) |
 
 ## Related Works
 
+- [PhysClosureBench](../works/physclosurebench.md)
 - [CRAFTS](../works/crafts.md)
 - [MDArena](../works/mdarena.md)
 - [Automating Structural Reliability Analysis with a Multi-Agent Large Language Model Framework](../works/automating-structural-reliability-analysis-with-a.md)

@@ -50,9 +50,11 @@
 | ScholarQuest | 2026 | 按研究意图进行迭代式学术论文检索 | 1,000+ 个 CS 主题，四类意图类别 | Recall@100/@All（最优 | [卡片](../works/scholarquest.md) |
 | SciExplore | 2026 | 导航数据库并整合跨来源证据 | 103 个专家任务，四种递进类型，10+ 个学科 | 正确的检索、锚定与综合 | [卡片](../works/sciexplore.md) |
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | 为科学构思收集证据 | Active 使用 Semantic Scholar search/fetch，最多十次调用 | 形成有文献依据的假设，不单独测检索准确率 | [AgentIdeaBench](../works/agentideabench.md) |
+| SCI-AGENT-EXAM | 2026 | 把所给论文或源快照中的证据整合成有依据的建议（Literature Synthesis，10 道题） | 离线任务包，来源事先提供；不能实时检索 | 报告由细则 judge 计 0.80、程序化检查计 0.20 | [卡片](../works/sci-agent-exam.md) |
 
 ## Related Works
 
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)
 - [SciExplore](../works/sciexplore.md)

@@ -43,6 +43,7 @@
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现AI & Machine Learning Research的已发表实验 | 从论文重建代码并执行；120 篇 ML 论文 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
 | [HarnessDev](../works/harnessdev.md) | 2026 | 为机器学习竞赛构建可复用 harness | 75 道 MLE-bench 任务；训练模型并提交 | 冻结 harness 后依据竞赛奖牌标准评分 | [HarnessDev](../works/harnessdev.md) |
 | AlphaIdeaBench | 2026 | 提出机器学习研究想法，并让研究计划符合给定的算力、API、时间和标注预算。 | 100 个任务（50 个 workshop 征稿说明，50 个综述开放问题），覆盖九个机器学习方向；八个 harness 和八个基础模型各为每个任务生成一份 JSON 提案。 | Gemini 3.7 Flash judge 评 12 个维度；新颖性各项与 600 篇论文评审意见得出的分数对比；提案不执行。 | [→](../works/alphaideabench.md) |
+| EurekaBench | 2026 | 把语言模型行为当作科学对象来解释：陈述信念偏移、潜意识学习和电路发现。 | 26 道题中的 3 道，通过对开放权重语言模型做 LoRA 微调和用 TransformerLens 分析来完成；一块 H100、最多 4 小时。 | 约束测试作为得分门槛；在保留数据上测预测准确度；洞见问题由两个 agent 形式的 LLM judge 评判。 | [→](../works/eurekabench.md) |
 
 ## Capability Matrix
 
@@ -95,6 +96,7 @@
 | Curation-Bench | CV, MLE | ? | ✔ | ✔ | ✔ | ✘ | ✔ | ✔ | **5** | ✘ | ✘ | ✘ | 3 | 0 | 4 | **7** |
 | Replica | GEN | ? | ✘ | ✔ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ◐ | 1 | 2 | 2 | **7** |
 | DevAI / Agent-as-a-Judge | MLE | ✔ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **5** | ✘ | ✔ | ◐ | 1 | 1 | 3 | **6.5** |
+| EurekaBench | LM, INTERP | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | AI-Researcher | CV, VQ, GNN, IR | ✔ | ◐ | ? | ◐ | ◐ | ✔ | ✔ | **4.5** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | FIRE-Bench | LM, CV, INTERP | ? | ✔ | ◐ | ? | ✔ | ✔ | ✔ | **4.5** | ◐ | ✘ | ◐ | 1 | 1 | 3 | **6** |
 | AstaBench | GEN | ◐ | ◐ | ✔ | ? | ◐ | ✔ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | ? | 1 | **5** |
@@ -125,6 +127,7 @@ Repository note: 未知集中在两列。`Net` 在 30 行里有 16 行是 `?`：
 ## Related Works
 
 - [AlphaIdeaBench](../works/alphaideabench.md)
+- [EurekaBench](../works/eurekabench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [AI Research Preference Models](../works/ai-research-preference-models.md)

@@ -61,6 +61,8 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 
 [HarnessDev](../works/harnessdev.md)把编写 harness 的模型与执行模型分开。隐藏任务检查依据反馈作出的修改能否泛化；token 指标只计执行，不计开发。
 
+[SCI-AGENT-EXAM](../works/sci-agent-exam.md) 在同一个 harness 下给十个模型报告每次运行的平均美元成本、运行时间和交互轮数，并和分数并列。GLM-5.3 最贵（每次 57.96 美元、102.4 轮），得分却只有 55.9；GPT-6 Astra 花 20.79 美元拿到 80.9。可见单价高低预测不了跑完一次要花多少钱。这里的成本只报告，不计入分数。
+
 ## 方法对比
 
 | Benchmark | Year | 资源单位 | 资源角色 | 场景 | Card |
@@ -95,6 +97,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 | SlowLab | 2026 | 实验次数（每轮 16 次，每次占用一个隔间 180 天），另限制决策、接口和模型调用次数；报告每轮实验的 API 美元成本 | 强制的硬约束：实验缓慢且无法撤回，怎样分配稀缺的隔间时间本身就是被评估的能力 | 在 48 个未见站点上进行的一年期模拟温室实验 | [→](../works/slowlab.md) |
 | DISCERN | 2026 | 输入/输出 token、API 调用次数、估算美元费用（为上限；不含评分与评审） | 只报告，不设预算；token 效率为每百万 token 对应的 Overall Score | 生命科学研究工作流；203 个任务，八个参与排名的模型 | [→](../works/discern.md) |
 | AlphaIdeaBench | 2026 | 提案中研究计划所需的 GPU 与 GPU 小时、API 费用、日历周数、标注工时 | 每个任务写明预算（学生 / 学术 / 实验室三档）；judge 评判提案的预算可行性 | 100 个机器学习构思任务；八个 harness，八个基础模型 | [→](../works/alphaideabench.md) |
+| SCI-AGENT-EXAM | 2026 | 每次运行的平均美元成本、运行时间和交互轮数 | 与分数并列报告，并画出成本–得分的 Pareto 前沿；不计入分数 | 离线 Docker 中的 120 道科学工作流题，Claude Code harness | [→](../works/sci-agent-exam.md) |
 
 ## 还没解决的问题
 
@@ -109,6 +112,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 
 - [SlowLab](../works/slowlab.md)
 - [AlphaIdeaBench](../works/alphaideabench.md)
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [DISCERN](../works/discern.md)
 - [EvoHarnessBench](../works/evoharnessbench.md)
 - [HarnessDev](../works/harnessdev.md)

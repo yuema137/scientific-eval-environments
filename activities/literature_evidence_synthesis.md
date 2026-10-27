@@ -50,9 +50,11 @@ Boundary cases: Aviary, LAB-Bench, LABBench2, AstaBench, and [HiSciBench](../wor
 | ScholarQuest | 2026 | Iterative academic paper search by research intent | 1,000+ CS topics, four intent categories | Recall@100/@All (best | [card](../works/scholarquest.md) |
 | SciExplore | 2026 | Navigate databases and integrate cross-source evidence | 103 expert tasks, four progressive types, 10+ disciplines | Correct retrieval, grounding, and synthesis | [card](../works/sciexplore.md) |
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | Gather evidence before scientific ideation | Semantic Scholar search/fetch; ten-call cap in Active | Evidence-informed hypothesis, not standalone retrieval accuracy | [AgentIdeaBench](../works/agentideabench.md) |
+| SCI-AGENT-EXAM | 2026 | Reconcile evidence from supplied papers or source snapshots into a grounded recommendation (Literature Synthesis, 10 tasks) | Offline task packages with supplied sources; no live search | Report scored 0.80 by the rubric judge and 0.20 by programmatic checks | [card](../works/sci-agent-exam.md) |
 
 ## Related Works
 
+- [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)
 - [SciExplore](../works/sciexplore.md)
