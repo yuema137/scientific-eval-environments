@@ -30,7 +30,7 @@ The prose is selective; the index is exhaustive. A work may have several taxonom
 ## Archive Highlights
 
 <!-- MONTHLY_ARCHIVE_OVERVIEW_START -->
-- `32` reports currently cover `373` works from `2024-01` through `2026-08`.
+- `34` reports currently cover `384` works from `2024-01` through `2026-10`.
 - The busiest report so far is [2026-08](./2026-08.md) with `44` works.
 - The archive is most consistently concentrated around `Scientific Agent Benchmarks, Trajectory Evaluation`.
 <!-- MONTHLY_ARCHIVE_OVERVIEW_END -->
@@ -42,6 +42,8 @@ Reports are listed newest first. Each row gives the size of the month, the main 
 <!-- MONTHLY_REPORTS_START -->
 | Month | Works | Primary topics | Why revisit it |
 |---|---:|---|---|
+| [2026-10](./2026-10.md) | 8 | Scientific Agent Benchmarks, Evaluator Reliability & Validation | October's additions keep pulling apart what a single success number used to merge: the derivation behind a correct formula, the stage of a workflow behind an overall score, the cost of an experiment behind a recommendation, and the evidence behind a verifier's verdict. |
+| [2026-09](./2026-09.md) | 3 | Agent Harnesses & Scaffolding, Resource-aware Evaluation | September's additions move the object under test away from a single agent run and toward the artifact that surrounds it: the harness an agent works inside, and the literature an agent gathers before it proposes an idea. |
 | [2026-08](./2026-08.md) | 44 | Scientific Agent Benchmarks, Trajectory Evaluation | August 2026 is the densest month in the archive so far, with 42 first appearances, and it reads less like a single trend than like a field splitting into clearly differentiated subproblems. |
 | [2026-07](./2026-07.md) | 23 | Scientific Agent Benchmarks, Skill Hierarchy | July 2026 is smaller than June by raw count, but more coherent. |
 | [2026-06](./2026-06.md) | 36 | Scientific Agent Benchmarks, Skill Hierarchy | June 2026 is the month where this repository's expanded scope starts to look structurally justified rather than aspirational. |
