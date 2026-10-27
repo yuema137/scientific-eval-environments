@@ -26,6 +26,8 @@ Solving the acquisition example proves only that the agent solved that example. 
 
 [EvoHarnessBench](../works/evoharnessbench.md) tests learned artifacts after the surrounding capability set changes. Its separate retention and adaptation measures prevent improvements on new tasks from hiding losses on earlier ones.
 
+Three embodied works test learning from earlier attempts in simulated household and robot-manipulation tasks. [EmbodiedCLBench](../works/embodiedclbench.md) compares no experience, full trajectories from two basic tasks, and a written skill summary of them on an unseen advanced task; either form of experience lifts success from 3–12% to 16–52%, but more than one learning sample brings no consistent further gain. [PhysRSI-eval](../works/physrsi-eval.md) gives an agent a persistent workspace of code, tools, skills, and notes over up to 17 graded robot attempts per task. In an ablation with GPT-6 Astra on six tasks, removing the history drops late-round success from 15/36 to 3/36, and frozen workspaces still solve 25/60 attempts on unseen layouts. [RobotAgentBench](../works/robotagentbench.md) runs a coding agent that keeps and refines its own control tools over ten iterations; its household-task average rises from 31.0 to 42.3.
+
 ## Comparison
 
 | Work | Learned artifact | Feedback | Transfer test | Main separation |
@@ -36,6 +38,9 @@ Solving the acquisition example proves only that the agent solved that example. 
 | SkillMisevo-Bench | Evolved potentially unsafe skills | Online evolution updates | Fresh-session persistence | Authoring vs retrieval vs harm |
 | GATE | Hierarchical tool graph | Execution experience | New tasks using evolved graph | Structured capability artifact |
 | [EvoHarnessBench](../works/evoharnessbench.md) | Persistent skills, prompts, or code | Experience from adaptation tasks | New and earlier cohorts under expanding harnesses | Adaptation gains versus retained competence |
+| [EmbodiedCLBench](../works/embodiedclbench.md) | Full trajectories in context, or a written Markdown skill summary | Interaction on two related basic tasks | Unseen advanced tasks composing 2–4 basic-task categories | Trajectory vs skill summary vs no experience |
+| [PhysRSI-eval](../works/physrsi-eval.md) | Persistent workspace of policy code, tools, skills, and notes | Native grader score, success flag, and failure reason after each physical attempt | Frozen workspaces on unseen layouts; three cross-task cases | First attempt vs improvement after failure |
+| [RobotAgentBench](../works/robotagentbench.md) | Reusable robot-control tools created and refined by a coding agent | Execution feedback across ten iterations | None reported beyond the same tasks and scenarios | Code-only agent with vs without self-improvement |
 
 ## Open Questions
 
@@ -47,6 +52,9 @@ Solving the acquisition example proves only that the agent solved that example. 
 
 ## Related Works
 
+- [RobotAgentBench](../works/robotagentbench.md)
+- [PhysRSI-eval](../works/physrsi-eval.md)
+- [EmbodiedCLBench](../works/embodiedclbench.md)
 - [EvoHarnessBench](../works/evoharnessbench.md)
 - [SkillMisevo-Bench](../works/skillmisevo-bench.md)
 - [SkillCoach](../works/skillcoach.md)

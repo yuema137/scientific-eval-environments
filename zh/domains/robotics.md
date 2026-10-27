@@ -29,6 +29,8 @@
 | EngDesign | 2025 | 把机器人设计与规划写成带明确目标、约束与性能要求的设计题，而非有参考答案的问答题。 | Robotics 方向，取自九个工程方向共 101 项设计任务（473 个可评分条目）中的 10 项；默认单轮生成，另有一套迭代协议，允许最多 10 轮仿真器反馈。 | 模型输出结构化结果，由逐任务的评估脚本调用相应仿真器执行，返回二元通过/不通过、0–100 的部分给分与详细日志。Repository note: 均为仿真验证的设计任务，未评估任何实体机器人平台或控制策略。 | [→](../works/engdesign.md) |
 | ATOM-Bench | 2026 | 执行真机桌面操作，并把它分解为动作原子（取放、重定向、推动、堆叠、倾倒、开合关节物体）与指令原子（颜色、形状、大小、计数、排除、空间关系、目标位置），再把它们重新组合成留出的组合任务。 | 单臂（Franka Panda）与双臂（Agilex Cobot Magic）两条配对赛道上的 30 个原子任务与 24 个留出的组合任务；用 3,000 条人类遥操作演示做原子层面的微调，五个 VLA 策略在每个任务 10 个共享测试种子下共完成 2,700 次实机 rollout。 | 在真实硬件上跑实机 rollout，物体摆放由掩码引导以保证初始状态可复现；除任务成功率外，还有人工标注的逐原子 Process Success Rate，二者聚合为 Atomic Score 与 Compositional Failure Share，把「原子太弱」与「组合失败」区分开。Repository note: 未报告任何仿真结果。 | [→](../works/atom-bench.md) |
 | Labference | 2026 | 在机器人实验室中根据观察到的物理结果选出下一步合法操作，并把它执行出来（离心机装载、反馈称量、放置回忆）。 | 模拟 Franka Panda（Isaac Sim 5.1）上的 3 类核心任务，各有基础和扩展条件，另列 24 个任务；已报告的实验只覆盖简单反馈称量（π0.5 与 GR00T-N1.5 各 50 个回合，GPT 驱动的对照方案 10 次试验）。 | 物理确认判据（天平读数与目标相差不超过 1 g 并保持 3 s；插管轴向误差不超过 10°、插入深度至少 60%）；选择、执行、完成分别打分。已报告的结果都来自模拟，真实机器人的试运行只给出关键帧。 | [→](../works/labference.md) |
+| RobotAgentBench | 2026 | 家居移动操作中的自主能力：找到目标、根据情境选对物体、从人为制造的失败中恢复，以及在人为干预和光照变化下保持稳健；对比单独运行的 VLA/WAM 策略和 coding agent 的规划器–执行器–验证器配置。 | 由 90 个原子任务组合成的 18 个短程任务和 8 个长程任务，加上发现、推理、恢复和鲁棒性变体以及 4 个开放式场景，位于由同一套真实住宅重建的 50 种 Isaac Sim 布局中；每个任务 30 个实例；共 18 种配置。 | 各任务专用的评分规则根据仿真物理状态打分（接触事件和进度检查点），没有评审模型；部分任务在实体 AgiBot G1 上做 sim-to-real 对比。 | [→](../works/robotagentbench.md) |
+| PhysRSI-eval | 2026 | 物理递归自我改进：控制双臂机器人的 LLM agent 在失败后修改自己的策略代码、工具、技能和笔记，能否把操作任务越做越好。 | 18 个 RoboDojo 双臂任务（D1–D6 每个难度层三个），每个任务一次首次尝试，加最多 17 轮完整物理尝试的改进；6 个系统跑全部任务，Gemini 4 跑 10 个。 | RoboDojo 原生评分器（[0, 1] 分数加成功判据），没有评审模型；五维画像由各轮分数算出。Repository note: 仅在仿真中评测。 | [→](../works/physrsi-eval.md) |
 
 ## Capability Matrix
 
@@ -76,6 +78,8 @@
 | RoboFAC | DIAG, MANIP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **2.5** | ✘ | ◐ | ◐ | 2 | 3 | 3 | **9** |
 | PAC Bench | PERC, MANIP | ✘ | ✘ | ◐ | ✔ | ✘ | ✔ | ✘ | **2.5** | ✘ | ✘ | ✘ | 3 | 3 | 3 | **9** |
 | CaP-X | MANIP, CTRL | ✘ | ✘ | ✘ | ✔ | ✘ | ◐ | ✔ | **2.5** | ✔ | ✘ | ✘ | 3 | 1 | 4 | **9** |
+| RobotAgentBench | MANIP, NAV, PLAN, VLA | ? | ✘ | ✘ | ✔ | ✘ | ◐ | ✔ | **2.5** | ✘ | ✘ | ◐ | 3 | 1 | 3 | **7.5** |
+| PhysRSI-eval | MANIP, CTRL | ? | ✘ | ◐ | ✔ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
 | ManipBench | MANIP, CTRL | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✔ | ✘ | ◐ | 3 | 3 | 3 | **10.5** |
 | VLA-Arena | VLA, MANIP | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✔ | 3 | 2 | 4 | **10** |
 | Robo2VLM | PERC, MANIP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✔ | ✘ | ✘ | 3 | 3 | 1 | **8** |
@@ -95,6 +99,8 @@
 ## Related Works
 
 - [Labference](../works/labference.md)
+- [RobotAgentBench](../works/robotagentbench.md)
+- [PhysRSI-eval](../works/physrsi-eval.md)
 - [RoboGraphBench](../works/compiling-and-benchmarking-task-state-horizons-for.md)
 - [LabRobFail](../works/labrobfail.md)
 - [ATOM-Bench](../works/atom-bench.md)

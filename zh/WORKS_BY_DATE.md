@@ -7,6 +7,7 @@
 | 首次公开 | Work | 来源 |
 |---|---|---|
 | 2026-10-26 | [SlowLab](./works/slowlab.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.34644) |
+| 2026-10-26 | [RobotAgentBench](./works/robotagentbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.34649) |
 | 2026-10-26 | [Labference](./works/labference.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.35252) |
 | 2026-10-25 | [AgentProofBench](./works/agentproofbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.34634) |
 | 2026-10-24 | [AlphaIdeaBench](./works/alphaideabench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.33644) |
@@ -14,8 +15,10 @@
 | 2026-10-23 | [QFT-Bench](./works/qft-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.33134) |
 | 2026-10-23 | [PHYRD](./works/phyrd.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.32575) |
 | 2026-10-21 | [Astro2Method](./works/astro2method.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.30282) |
+| 2026-10-19 | [PhysRSI-eval](./works/physrsi-eval.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.26848) |
 | 2026-10-15 | [PhysClosureBench](./works/physclosurebench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.21767) |
 | 2026-10-13 | [Into the Unknown](./works/into-the-unknown.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.19159) |
+| 2026-10-09 | [EmbodiedCLBench](./works/embodiedclbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.13021) |
 | 2026-09-30 | [EurekaBench](./works/eurekabench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.00492) |
 | 2026-09-27 | [DISCERN](./works/discern.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.33357) |
 | 2026-09-07 | [AgentIdeaBench](./works/agentideabench.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.07611) |

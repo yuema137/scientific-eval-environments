@@ -31,6 +31,8 @@ Benchmark 看到的是整套 model–harness configuration。如果两套系统�
 
 [Astro2Method](../works/astro2method.md)固定题目和模型，只更换检索方式和 agent scaffold。只在历史语料上检索的 ReAct、Self-Ask 和 CRITIC，总体准确率比直接提问低 1.4–6.2 个百分点。逐题统计是否检索到原论文后可以看到，联网搜索带来的提升大多来自找到了答案的出处。
 
+[RobotAgentBench](../works/robotagentbench.md)把每个机器人系统按规划器、执行器、验证器的类型来描述。在同一批家务任务上，由 Codex 担任规划器和验证器时，执行器同时调用代码和学习策略的混合配置平均得 48.5 分，完全基于代码的控制是 31.0 分，单独运行学习策略是 18.0 分。每个 coding agent 只搭配一个基座模型，所以三行完全基于代码的结果分不开 harness 和模型的影响。
+
 ## 方法对比
 
 | Work | Harness 的角色 | 固定项 | Evaluation feedback | 结果 |
@@ -45,6 +47,7 @@ Benchmark 看到的是整套 model–harness configuration。如果两套系统�
 | [EvoHarnessBench](../works/evoharnessbench.md) | 逐步累加的工具、技能和专家池 | 旧任务与模型权重固定 | 留出任务验证器；独立适应集 | 分别报告旧能力保留与新能力适应 |
 | [HarnessDev](../works/harnessdev.md) | 创建和持续修改的可执行产物 | 编写者与执行者分开；冻结 harness | 反馈集与隐藏任务分开 | 创建质量、退步和执行模型迁移 |
 | [Astro2Method](../works/astro2method.md) | 被比较的条件：RAG、ReAct、Self-Ask、CRITIC、技能、联网搜索、遮蔽方法名的原论文流程 | 相同的 500 道题和三个模型 | 各条件下的准确率；逐题统计是否检索到原论文 | scaffold 没有稳定提升；联网搜索的提升主要出现在找到原论文的题上 |
+| [RobotAgentBench](../works/robotagentbench.md) | 规划器、执行器、验证器，各自可以是代码、学习策略、混合或不存在 | 家务任务、实例和步数上限 | 任务层能力分和开放式场景进度 | 混合执行器领先纯代码和纯策略配置 |
 
 ## 还没解决的问题
 
@@ -56,6 +59,7 @@ Benchmark 看到的是整套 model–harness configuration。如果两套系统�
 
 ## 相关工作
 
+- [RobotAgentBench](../works/robotagentbench.md)
 - [Astro2Method](../works/astro2method.md)
 - [EvoHarnessBench](../works/evoharnessbench.md)
 - [HarnessDev](../works/harnessdev.md)

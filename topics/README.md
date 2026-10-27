@@ -18,7 +18,7 @@ Every topic opens with `Start Here`, but the explanation must continue through t
 
 | # | Topic | File | Related works |
 |---|---|---|---|
-| I | [General Long-Horizon Agent Benchmarks](./long_horizon_evaluation.md) | `long_horizon_evaluation.md` | 64 |
+| I | [General Long-Horizon Agent Benchmarks](./long_horizon_evaluation.md) | `long_horizon_evaluation.md` | 65 |
 | II | [Scientific Agent Benchmarks](./scientific_agents.md) | `scientific_agents.md` | 265 |
 | III | [Planning & Decision-Making Evaluation](./planning_decision_evaluation.md) | `planning_decision_evaluation.md` | 15 |
 | IV | [Hierarchical Decision Abstraction](./hierarchical_decision_abstraction.md) | `hierarchical_decision_abstraction.md` | 7 |
@@ -28,8 +28,8 @@ Every topic opens with `Start Here`, but the explanation must continue through t
 | VIII | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 32 |
 | IX | [Evaluator Reliability & Validation](./evaluator_reliability_validation.md) | `evaluator_reliability_validation.md` | 20 |
 | X | [Benchmark Design, Validity & Contamination](./benchmark_design_validity_contamination.md) | `benchmark_design_validity_contamination.md` | 19 |
-| XI | [Skill Learning & Evolution](./skill_learning_evolution.md) | `skill_learning_evolution.md` | 7 |
-| XII | [Agent Harnesses & Scaffolding](./agent_harnesses_scaffolding.md) | `agent_harnesses_scaffolding.md` | 11 |
+| XI | [Skill Learning & Evolution](./skill_learning_evolution.md) | `skill_learning_evolution.md` | 10 |
+| XII | [Agent Harnesses & Scaffolding](./agent_harnesses_scaffolding.md) | `agent_harnesses_scaffolding.md` | 12 |
 | XIII | [Evaluation-Driven Data Curation](./evaluation_driven_data_curation.md) | `evaluation_driven_data_curation.md` | 3 |
 | XIV | [Evaluation-Driven Post-Training](./evaluation_driven_post_training.md) | `evaluation_driven_post_training.md` | 12 |
 | XV | [Survey](./survey.md) | `survey.md` | 9 |

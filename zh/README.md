@@ -152,7 +152,7 @@ Domain 页回答的问题更具体：受评工作发生在哪个学科？一个�
 | Domain | Works |
 |---|--:|
 | [Electrical Engineering](./domains/electrical_engineering.md) | 18 |
-| [Robotics](./domains/robotics.md) | 19 |
+| [Robotics](./domains/robotics.md) | 21 |
 | [Software & Systems Engineering](./domains/software_systems_engineering.md) | 21 |
 | [Mechanical & Aerospace Engineering](./domains/mechanical_aerospace_engineering.md) | 12 |
 | [Energy Systems](./domains/energy_systems.md) | 5 |
@@ -190,7 +190,7 @@ Activity 页跟着 agent 实际完成的工作走。它是在搜文献、跑 sim
 
 一篇论文有 benchmark 分数，不等于它自动进入范围。如果 evaluation 只在最后的 results table 里出现，纯 training、optimization、data、memory 或 multi-agent work 仍然不收。具体判断时看这几件事：evaluation 有没有定义 objective，提供 feedback，选择 intervention，诊断 failure，或直接成为 experiment environment。
 
-"Works" 比 "benchmarks" 更广：集合中收录 benchmark、评估方法学、评估框架、面向评估的 RL 工作、综述与立场论文的卡片，每张卡片都会显式标注类型。目前共有 **405 张卡片**、**15 个 topic 页**、**19 个 domain 页**、**11 个 activity 页**，并在 [`zh/`](./README.md) 下配有中文镜像。
+"Works" 比 "benchmarks" 更广：集合中收录 benchmark、评估方法学、评估框架、面向评估的 RL 工作、综述与立场论文的卡片，每张卡片都会显式标注类型。目前共有 **408 张卡片**、**15 个 topic 页**、**19 个 domain 页**、**11 个 activity 页**，并在 [`zh/`](./README.md) 下配有中文镜像。
 
 ---
 

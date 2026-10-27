@@ -26,6 +26,8 @@ Skill learning 问 agent 能不能把经验变成可复用流程。经验可以�
 
 [EvoHarnessBench](../works/evoharnessbench.md)在外围能力集合变化后继续测试已学到的产物。分别计算旧能力保留和新任务适应，可以避免新题进步掩盖旧题退步。
 
+有三项具身工作测试 agent 能不能从先前的尝试中学习，任务在仿真的家务和机器人操作场景里。[EmbodiedCLBench](../works/embodiedclbench.md)在一个没见过的进阶任务上比较三种情况：没有经验、保留两个基础任务的完整轨迹、保留这些轨迹的书面技能摘要。任一种经验都能把成功率从 3–12% 提到 16–52%，但学习样本超过一个之后，再多也没有稳定的额外提升。[PhysRSI-eval](../works/physrsi-eval.md)给 agent 一个持久工作区，里面有代码、工具、技能和笔记，每个任务最多做 17 次带评分的机器人尝试。在 GPT-6 Astra 六个任务的消融实验中，去掉历史后，后期轮次的成功次数从 15/36 降到 3/36；冻结的工作区放到没见过的布局上，60 次尝试仍有 25 次成功。[RobotAgentBench](../works/robotagentbench.md)让一个 coding agent 在十轮迭代中保留并改进自己的控制工具，它在家务任务上的平均分从 31.0 升到 42.3。
+
 ## 方法对比
 
 | Work | 学到的 artifact | Feedback | 迁移测试 | 关键区分 |
@@ -36,6 +38,9 @@ Skill learning 问 agent 能不能把经验变成可复用流程。经验可以�
 | SkillMisevo-Bench | 可能不安全的演化 skill | 在线 evolution 更新 | 新 session persistence | 写入、检索与伤害 |
 | GATE | 分层 tool graph | 执行经验 | 使用演化 graph 的新任务 | 结构化能力 artifact |
 | [EvoHarnessBench](../works/evoharnessbench.md) | 持久保存的技能、提示词或代码 | 适应集任务的执行经验 | 在扩大的 harness 下测试新旧任务 | 新任务收益与旧能力保留分开计算 |
+| [EmbodiedCLBench](../works/embodiedclbench.md) | 上下文内的完整轨迹，或一份书面 Markdown 技能摘要 | 在两个相关基础任务上的交互经验 | 组合 2–4 个基础任务类别的未见进阶任务 | 轨迹、技能摘要与无经验三者对比 |
+| [PhysRSI-eval](../works/physrsi-eval.md) | 由策略代码、工具、技能和笔记组成的持久工作区 | 每次物理尝试后的原生评分、成功标记和失败原因 | 冻结工作区放到未见布局；三个跨任务案例 | 首次尝试与失败后的改进分开 |
+| [RobotAgentBench](../works/robotagentbench.md) | coding agent 创建并改进的可复用机器人控制工具 | 十轮迭代中的执行反馈 | 除同一批任务和场景外没有报告 | 纯代码 agent 有无自我改进的对比 |
 
 ## 还没解决的问题
 
@@ -47,6 +52,9 @@ Skill learning 问 agent 能不能把经验变成可复用流程。经验可以�
 
 ## 相关工作
 
+- [RobotAgentBench](../works/robotagentbench.md)
+- [PhysRSI-eval](../works/physrsi-eval.md)
+- [EmbodiedCLBench](../works/embodiedclbench.md)
 - [EvoHarnessBench](../works/evoharnessbench.md)
 - [SkillMisevo-Bench](../works/skillmisevo-bench.md)
 - [SkillCoach](../works/skillcoach.md)

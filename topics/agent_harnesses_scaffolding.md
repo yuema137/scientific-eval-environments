@@ -31,6 +31,8 @@ A benchmark observes the whole model–harness configuration. If two systems use
 
 [Astro2Method](../works/astro2method.md) holds its questions and models fixed while switching retrieval and agent scaffolds. ReAct, Self-Ask, and CRITIC over a historical corpus score 1.4–6.2 points below direct prompting overall, and counting source-paper hits shows that most web-search gains come from finding the answer's source.
 
+[RobotAgentBench](../works/robotagentbench.md) describes every robot system by the type of its planner, executor, and verifier. With Codex as planner and verifier on the same household tasks, a hybrid executor that calls both code and a learned policy averages 48.5, against 31.0 for fully code-based control and 18.0 for the learned policy alone. Each coding agent runs one backbone model, so the three fully code-based rows do not separate harness from model.
+
 ## Comparison
 
 | Work | Harness role | Controlled variables | Evaluation feedback | Outcome |
@@ -45,6 +47,7 @@ A benchmark observes the whole model–harness configuration. If two systems use
 | [EvoHarnessBench](../works/evoharnessbench.md) | Cumulative tools, skills, specialist pools | Earlier tasks fixed; model weights fixed | Held-out verifiers; separate adaptation split | Retention and adaptation tracked separately |
 | [HarnessDev](../works/harnessdev.md) | Created and evolved runnable artifact | Separate creator/executor; frozen harness | Feedback sets versus hidden tasks | Creation quality, regression, executor transfer |
 | [Astro2Method](../works/astro2method.md) | Compared condition: RAG, ReAct, Self-Ask, CRITIC, skills, web search, masked source pipeline | Same 500 questions and three models | Accuracy per condition; per-question source-paper hit counts | No consistent scaffold gain; web-search gains mainly when the source paper is found |
+| [RobotAgentBench](../works/robotagentbench.md) | Planner, executor, and verifier, each code-based, learned, hybrid, or absent | Household tasks, instances, and step limits | Task-level ability scores and open-ended scenario progress | Hybrid executor ahead of code-only and policy-only configurations |
 
 ## Open Questions
 
@@ -56,6 +59,7 @@ A benchmark observes the whole model–harness configuration. If two systems use
 
 ## Related Works
 
+- [RobotAgentBench](../works/robotagentbench.md)
 - [Astro2Method](../works/astro2method.md)
 - [EvoHarnessBench](../works/evoharnessbench.md)
 - [HarnessDev](../works/harnessdev.md)
