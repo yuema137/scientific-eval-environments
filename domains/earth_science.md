@@ -68,7 +68,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
-| EurekaBench | GPH, HYD | ✔ | ✔ | ✔ | ✘ | ◐ | ◐ | ✔ | **5** | ◐ | ✔ | ◐ | 2 | 0 | 4 | **8** |
+| EurekaBench | GPH, HYD | ✔ | ✔ | ✔ | ✘ | ◐ | ◐ | ✔ | **5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | Imaging-101 | GPH, RS, ATM | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | 0 | 3 | **6.5** |
 | ScienceAgentBench | GIS | ✘ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✔ | ✔ | 2 | 1 | 2 | **7.5** |
 | GeoNatureAgent Benchmark | GIS, ENV, RS | ✘ | ✘ | ✔ | ◐ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 3 | 1 | 2 | **6** |

@@ -96,7 +96,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Curation-Bench | CV, MLE | ? | ✔ | ✔ | ✔ | ✘ | ✔ | ✔ | **5** | ✘ | ✘ | ✘ | 3 | 0 | 4 | **7** |
 | Replica | GEN | ? | ✘ | ✔ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ◐ | 1 | 2 | 2 | **7** |
 | DevAI / Agent-as-a-Judge | MLE | ✔ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **5** | ✘ | ✔ | ◐ | 1 | 1 | 3 | **6.5** |
-| EurekaBench | LM, INTERP | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 4 | **8** |
+| EurekaBench | LM, INTERP | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | AI-Researcher | CV, VQ, GNN, IR | ✔ | ◐ | ? | ◐ | ◐ | ✔ | ✔ | **4.5** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | FIRE-Bench | LM, CV, INTERP | ? | ✔ | ◐ | ? | ✔ | ✔ | ✔ | **4.5** | ◐ | ✘ | ◐ | 1 | 1 | 3 | **6** |
 | AstaBench | GEN | ◐ | ◐ | ✔ | ? | ◐ | ✔ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | ? | 1 | **5** |

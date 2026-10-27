@@ -68,9 +68,9 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | ResearchClawBench | BEH, SYS, CELL | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
-| EurekaBench | SYS, BEH, CNEU | ✔ | ✔ | ✔ | ✘ | ◐ | ? | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 1 | 4 | **9** |
 | ScienceAgentBench | PSY, COG | ✘ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✔ | ✔ | 2 | 1 | 3 | **8.5** |
 | Neuroscience Data-to-Discovery Case Study | BEH, SYS | ? | ◐ | ◐ | ✔ | ◐ | ✔ | ✔ | **4.5** | ◐ | ✔ | ? | 3 | 0 | 4 | **8.5** |
+| EurekaBench | SYS, BEH, CNEU | ✔ | ✔ | ✔ | ✘ | ◐ | ? | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 1 | 3 | **8** |
 | BrainBench (EEG) | EPHYS, SLEEP, COG | ? | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | **3** | ✘ | ◐ | ? | 2 | 3 | 3 | **8.5** |
 | Model Discovery Agent | EPHYS, CELL, CNEU | ✘ | ✔ | ✔ | ✘ | ✘ | ✘ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 0 | 4 | **8** |
 | Rodent-Bench | BEH | ✘ | ✘ | ◐ | ✔ | ✘ | ✔ | ✘ | **2.5** | ✘ | ✘ | ◐ | 3 | 2 | 2 | **7.5** |

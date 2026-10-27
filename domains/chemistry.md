@@ -101,7 +101,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
 | ScienceAgentBench | CHEMINF | ◐ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✔ | 2 | 1 | 2 | **7.5** |
 | Imaging-101 | ANAL, NANO | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
-| EurekaBench | ORG | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 4 | **8** |
+| EurekaBench | ORG | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **4.5** | ✘ | ✔ | ✘ | 2 | 2 | 1 | **6** |
 | MolQuest | ANAL | ? | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
 | NatureBench | MOLDES | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 2 | 1 | 2 | **7** |
