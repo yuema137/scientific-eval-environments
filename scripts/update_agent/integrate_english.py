@@ -39,13 +39,15 @@ def _set_block(text, heading, body):
 def _ensure_related(page_path, slug, title):
     """Idempotently ensure `- [title](../works/slug.md)` appears once in the page's Related Works
     SECTION. The presence check is scoped to that section — a comparison-table Card link elsewhere
-    on the page must NOT suppress the Related Works entry (that mismatch fails the axis gate)."""
+    on the page must NOT suppress the Related Works entry (that mismatch fails the axis gate).
+    Chinese topic mirrors title the section `## 相关工作`; it is the same section, so a second
+    English-titled one must never be appended to them (that unsorted duplicate failed the gate)."""
     if not os.path.exists(page_path):
         return
     t = open(page_path).read()
     line = "- [%s](../works/%s.md)\n" % (title, slug)
     link_re = r"\]\(\.\./works/%s\.md\)" % re.escape(slug)
-    m = re.search(r"(^##\s+Related Works\s*\n)(.*?)(?=^##\s|\Z)", t, re.S | re.M)
+    m = re.search(r"(^##\s+(?:Related Works|相关工作)\s*\n)(.*?)(?=^##\s|\Z)", t, re.S | re.M)
     if m:
         if re.search(link_re, m.group(2)):
             return  # already listed IN the Related Works section

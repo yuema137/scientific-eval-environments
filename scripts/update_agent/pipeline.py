@@ -201,7 +201,21 @@ def phase3(run_dir, repo_root, accepted_slugs, cfg):
         return lambda: run_worker(agent, "axis", prompt, repo_root,
                                   cfg["claude"]["axis_worker_max_turns"])
 
-    parallel([make(a, x) for a, x in specs], len(specs))
+    results = parallel([make(a, x) for a, x in specs], len(specs))
+    # Fail closed when an axis worker failed or wrote no assignment JSON. Integrating without it
+    # would silently stamp every new card `N/A` for activities and leave domains unassigned.
+    worker_errors = []
+    for (agent, axis), result in zip(specs, results):
+        if not (result or {}).get("ok"):
+            worker_errors.append("%s failed: %s" % (agent, (result or {}).get("error") or "no result"))
+        if not os.path.exists(os.path.join(run_dir, "phase3", fnames[axis])):
+            worker_errors.append("%s wrote no runtime/phase3/%s" % (agent, fnames[axis]))
+    if worker_errors:
+        log("  ! axis workers incomplete: %s" % "; ".join(worker_errors))
+        write_phase_result(run_dir, "english_axes", "fail",
+                           {"axis_errors": worker_errors[:20], "card_errors": [],
+                            "changed": changed_files(repo_root)})
+        return False, {"changed": changed_files(repo_root)}
     integrate_english.run(run_dir, repo_root)
     ok_axes, axe_errs = validators.validate_axes(repo_root)
     ok_cards, card_errs = validators.validate_cards(repo_root, accepted_slugs)
