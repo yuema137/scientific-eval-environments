@@ -29,6 +29,8 @@ Evaluation on physical robot platforms and robot control. Embodied household sim
 | EngDesign | 2025 | Robot design and planning posed as design problems with stated goals, constraints and performance requirements rather than as questions with reference answers. | Robotics, 10 of 101 design tasks (473 gradable items) across nine engineering areas; single-turn generation by default, with an iterative protocol allowing up to 10 rounds of simulator feedback. | Structured model output executed by a task-specific evaluation script running the relevant simulator, returning a binary pass/fail, a 0–100 partial-credit score and a detailed log. Repository note: simulation-verified design tasks; no physical robot platform or control policy is evaluated. | [→](../works/engdesign.md) |
 | ATOM-Bench | 2026 | Execute real-robot tabletop manipulation factorized into motor atoms (pick-place, reorientation, pushing, stacking, pouring, articulated-object access) and instruction atoms (color, shape, size, counting, exclusion, spatial relations, goal destination), then recombine them into held-out compositional tasks. | 30 atomic and 24 held-out compositional tasks on paired single-arm (Franka Panda) and dual-arm (Agilex Cobot Magic) tracks; 3,000 human teleoperation demonstrations for atomic fine-tuning, and five VLA policies evaluated over 2,700 physical rollouts at 10 shared test seeds per task. | Physical rollouts on real hardware with mask-guided object placement for reproducible initial states; task success rate plus human-annotated per-atom Process Success Rate, aggregated into Atomic Score and Compositional Failure Share to separate weak atoms from failed composition. Repository note: no simulation results are reported. | [→](../works/atom-bench.md) |
 | Labference | 2026 | Use observed physical outcomes in a robotic laboratory to choose the next legal operation, then execute it (centrifuge loading, feedback weighing, placement recall). | 3 core task families with basic and extended conditions on a simulated Franka Panda (Isaac Sim 5.1), plus a 24-task catalog; reported runs cover only easy feedback weighing (50 episodes each for π0.5 and GR00T-N1.5, 10 GPT-driven trials). | Physical-confirmation predicates (balance reading within 1 g held 3 s; ≤10° axial error and ≥60% socket depth for insertion); selection, execution, and completion scored separately. Reported results are simulated; physical-robot pilots appear only as keyframes. | [→](../works/labference.md) |
+| RobotAgentBench | 2026 | Autonomous household mobile manipulation: finding targets, choosing objects from context, recovering from induced failures, and staying robust to human interventions and lighting changes, compared across standalone VLA/WAM policies and coding-agent planner–executor–verifier configurations. | 18 short-horizon and 8 long-horizon tasks composed from 90 atomic tasks, plus discovery, reasoning, recovery, and robustness variants and 4 open-ended scenarios, in 50 Isaac Sim layouts reconstructed from one real home; 30 instances per task; 18 configurations. | Task-specific scoring rules over the simulated physical state (contact events and progress checkpoints), no judge; a sim-to-real subset on a physical AgiBot G1. | [→](../works/robotagentbench.md) |
+| PhysRSI-eval | 2026 | Physical recursive self-improvement: whether an LLM agent controlling a dual-arm robot improves on a manipulation task by revising its own policy code, tools, skills, and notes after failed attempts. | 18 RoboDojo dual-arm tasks (three per difficulty stratum D1–D6), each a first attempt plus up to 17 refinement rounds of full physical attempts; 6 systems on all tasks, Gemini 4 on 10. | Native RoboDojo graders (score in [0, 1] plus a success criterion), no judge; five-axis profile from the per-round scores. Repository note: simulation only. | [→](../works/physrsi-eval.md) |
 
 ## Capability Matrix
 
@@ -76,6 +78,8 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | RoboFAC | DIAG, MANIP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **2.5** | ✘ | ◐ | ◐ | 2 | 3 | 3 | **9** |
 | PAC Bench | PERC, MANIP | ✘ | ✘ | ◐ | ✔ | ✘ | ✔ | ✘ | **2.5** | ✘ | ✘ | ✘ | 3 | 3 | 3 | **9** |
 | CaP-X | MANIP, CTRL | ✘ | ✘ | ✘ | ✔ | ✘ | ◐ | ✔ | **2.5** | ✔ | ✘ | ✘ | 3 | 1 | 4 | **9** |
+| RobotAgentBench | MANIP, NAV, PLAN, VLA | ? | ✘ | ✘ | ✔ | ✘ | ◐ | ✔ | **2.5** | ✘ | ✘ | ◐ | 3 | 1 | 3 | **7.5** |
+| PhysRSI-eval | MANIP, CTRL | ? | ✘ | ◐ | ✔ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
 | ManipBench | MANIP, CTRL | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✔ | ✘ | ◐ | 3 | 3 | 3 | **10.5** |
 | VLA-Arena | VLA, MANIP | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✔ | 3 | 2 | 4 | **10** |
 | Robo2VLM | PERC, MANIP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✔ | ✘ | ✘ | 3 | 3 | 1 | **8** |
@@ -95,6 +99,8 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 ## Related Works
 
 - [Labference](../works/labference.md)
+- [RobotAgentBench](../works/robotagentbench.md)
+- [PhysRSI-eval](../works/physrsi-eval.md)
 - [RoboGraphBench](../works/compiling-and-benchmarking-task-state-horizons-for.md)
 - [LabRobFail](../works/labrobfail.md)
 - [ATOM-Bench](../works/atom-bench.md)

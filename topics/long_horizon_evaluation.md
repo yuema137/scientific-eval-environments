@@ -75,6 +75,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 
 - **Hours-long discovery runs.** [EurekaBench](../works/eurekabench.md) gives an agent up to four hours and 1,000 iterations on one H100 to run experiments in a scientific simulator before it submits a mechanism.
 - **Open-ended research with no time cap.** [Into the Unknown](../works/into-the-unknown.md) lets agents run until they end their own session, with up to five relaunches. Median execution time per agent ranges from 1.3 to 19.5 hours, and a bootstrap analysis finds no evidence that longer runs produce better follow-up papers.
+- **Household autonomy beyond manipulation.** [RobotAgentBench](../works/robotagentbench.md) composes 90 atomic household tasks into 18 short-horizon and 8 long-horizon tasks and four open-ended scenarios on a simulated mobile manipulator, scoring discovery, context reasoning, recovery, and robustness alongside manipulation. The best agent configuration reaches 15.4 on the open-ended scenarios.
 
 ## Comparison
 
@@ -142,6 +143,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | [FORESIGHT-9](../works/foresight-9.md) | 2026 | Approx. 2,468 simulated trading days | Nine counterfactual market paths | [FORESIGHT-9](../works/foresight-9.md) |
 | EurekaBench | 2026 | Up to 4 hours and 1,000 iterations per problem on one H100 | Apptainer-packaged scientific simulators behind a CLI; web search with source papers blocked | [→](../works/eurekabench.md) |
 | Into the Unknown | 2026 | No time limit, up to five relaunches; per-agent median execution 1.3–19.5 hours; 1,942.81 hours for 135 submissions | Native agent SDK harnesses on 8×H200 or 32-vCPU nodes; unrestricted internet | [→](../works/into-the-unknown.md) |
+| RobotAgentBench | 2026 | 18 short- and 8 long-horizon tasks plus 4 open-ended scenarios; episodes end after 120 s of simulated time without progress; Stagnation and Recovery Rate reported | Isaac Sim household layouts (50, from one real home) with a sim-to-real subset on a physical AgiBot G1 | [→](../works/robotagentbench.md) |
 
 ## Open Questions
 
@@ -152,6 +154,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 
 ## Related Works
 
+- [RobotAgentBench](../works/robotagentbench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [EurekaBench](../works/eurekabench.md)
 - [FORESIGHT-9](../works/foresight-9.md)

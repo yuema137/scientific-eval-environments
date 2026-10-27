@@ -75,6 +75,7 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 
 - **长达数小时的发现实验。** [EurekaBench](../works/eurekabench.md) 在每道题上给 agent 一块 H100、最多四小时和 1,000 次迭代，让它先在科学模拟器里做实验，再提交机制。
 - **不设时限的开放研究。** [Into the Unknown](../works/into-the-unknown.md) 让 agent 一直运行到自己结束会话，最多重新启动五次。各 agent 运行时长的中位数在 1.3 到 19.5 小时之间；bootstrap 分析没有发现运行越久、后续论文越好的证据。
+- **超出操作本身的家务自主。** [RobotAgentBench](../works/robotagentbench.md) 在仿真移动操作机器人上，把 90 个原子家务任务组合成 18 个短程任务、8 个长程任务和四个开放式场景，除了操作，还给任务发现、情境推理、恢复和鲁棒性打分。表现最好的 agent 配置在开放式场景上只有 15.4 分。
 
 ## 方法对比
 
@@ -142,6 +143,7 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 | [FORESIGHT-9](../works/foresight-9.md) | 2026 | 约 2,468 个模拟交易日 | 九条反事实市场路径 | [FORESIGHT-9](../works/foresight-9.md) |
 | EurekaBench | 2026 | 每题最多 4 小时、1,000 次迭代，一块 H100 | 打包成 Apptainer 镜像、通过命令行访问的科学模拟器；可联网搜索，但屏蔽源论文 | [→](../works/eurekabench.md) |
 | Into the Unknown | 2026 | 不设时限，最多重启五次；各 agent 运行时长中位数 1.3–19.5 小时；135 份提交共 1,942.81 小时 | 原生 agent SDK harness，8×H200 或 32 vCPU 节点；网络不受限 | [→](../works/into-the-unknown.md) |
+| RobotAgentBench | 2026 | 18 个短程、8 个长程任务和 4 个开放式场景；仿真时间连续 120 s 没有进度时回合结束；报告 Stagnation 和 Recovery Rate | Isaac Sim 家居布局（50 种，来自同一套真实住宅），部分任务在实体 AgiBot G1 上做 sim-to-real 对比 | [→](../works/robotagentbench.md) |
 
 ## 还没解决的问题
 
@@ -152,6 +154,7 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 
 ## 相关工作
 
+- [RobotAgentBench](../works/robotagentbench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [EurekaBench](../works/eurekabench.md)
 - [FORESIGHT-9](../works/foresight-9.md)
