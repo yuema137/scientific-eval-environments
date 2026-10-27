@@ -52,17 +52,17 @@
         </div>
       </header>
 
-      <nav class="tabs" aria-label="Explorer sections">
-        <button class="tab is-active" type="button" data-tab="home" id="tab-home">Home</button>
-        <button class="tab" type="button" data-tab="topics" id="tab-topics">Topics</button>
-        <button class="tab" type="button" data-tab="domains" id="tab-domains">Domains</button>
-        <button class="tab" type="button" data-tab="activities" id="tab-activities">Activities</button>
-        <button class="tab" type="button" data-tab="monthly" id="tab-monthly">Monthly</button>
-        <button class="tab" type="button" data-tab="works" id="tab-works">Works</button>
+      <nav class="tabs" role="tablist" aria-label="Explorer sections">
+        <button class="tab is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-home" tabindex="0" data-tab="home" id="tab-home">Home</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="panel-topics" tabindex="-1" data-tab="topics" id="tab-topics">Topics</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="panel-domains" tabindex="-1" data-tab="domains" id="tab-domains">Domains</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="panel-activities" tabindex="-1" data-tab="activities" id="tab-activities">Activities</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="panel-monthly" tabindex="-1" data-tab="monthly" id="tab-monthly">Monthly</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="panel-works" tabindex="-1" data-tab="works" id="tab-works">Works</button>
       </nav>
 
       <main class="tab-panels">
-        <section class="tab-panel is-active" data-panel="home">
+        <section class="tab-panel is-active" role="tabpanel" id="panel-home" aria-labelledby="tab-home" data-panel="home">
           <section class="hero-grid">
             <div class="panel intro-panel">
               <h2 id="home-why-title">What this repository is for</h2>
@@ -117,7 +117,7 @@
           </section>
         </section>
 
-        <section class="tab-panel" data-panel="topics">
+        <section class="tab-panel" role="tabpanel" id="panel-topics" aria-labelledby="tab-topics" data-panel="topics">
           <section class="panel">
             <div class="section-head">
               <div>
@@ -130,7 +130,7 @@
           </section>
         </section>
 
-        <section class="tab-panel" data-panel="domains">
+        <section class="tab-panel" role="tabpanel" id="panel-domains" aria-labelledby="tab-domains" data-panel="domains">
           <section class="panel">
             <div class="section-head">
               <div>
@@ -143,7 +143,7 @@
           </section>
         </section>
 
-        <section class="tab-panel" data-panel="activities">
+        <section class="tab-panel" role="tabpanel" id="panel-activities" aria-labelledby="tab-activities" data-panel="activities">
           <section class="panel">
             <div class="section-head">
               <div>
@@ -156,7 +156,7 @@
           </section>
         </section>
 
-        <section class="tab-panel" data-panel="monthly">
+        <section class="tab-panel" role="tabpanel" id="panel-monthly" aria-labelledby="tab-monthly" data-panel="monthly">
           <section class="panel">
             <div class="section-head">
               <div>
@@ -178,7 +178,7 @@
           </section>
         </section>
 
-        <section class="tab-panel" data-panel="works">
+        <section class="tab-panel" role="tabpanel" id="panel-works" aria-labelledby="tab-works" data-panel="works">
           <section class="panel">
             <div class="section-head">
               <div>
@@ -189,11 +189,11 @@
             </div>
 
             <div class="controls">
-              <input id="search" type="search" placeholder="Search works">
-              <select id="topic-filter"><option value="">All topics</option></select>
-              <select id="domain-filter"><option value="">All domains</option></select>
-              <select id="activity-filter"><option value="">All activities</option></select>
-              <select id="month-filter"><option value="">All months</option></select>
+              <input id="search" type="search" placeholder="Search works" aria-label="Search works">
+              <select id="topic-filter" aria-label="Filter by topic"><option value="">All topics</option></select>
+              <select id="domain-filter" aria-label="Filter by domain"><option value="">All domains</option></select>
+              <select id="activity-filter" aria-label="Filter by activity"><option value="">All activities</option></select>
+              <select id="month-filter" aria-label="Filter by first-appearance month"><option value="">All months</option></select>
             </div>
 
             <div class="results-head">
@@ -204,7 +204,7 @@
           </section>
         </section>
 
-        <section class="tab-panel" data-panel="reader">
+        <section class="tab-panel" id="panel-reader" data-panel="reader">
           <section class="panel">
             <article id="reader-content" class="markdown-body reader-empty">
               <p>Select any topic, domain, activity, monthly report, or work card to render it here as HTML.</p>

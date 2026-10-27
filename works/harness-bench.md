@@ -20,7 +20,7 @@ N/A — evaluation methodology; no scientific or research activity is directly e
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.27922>
-- **Project:** <http://www.harness-bench.ai/>
+- **Project:** <https://www.harness-bench.ai/>
 - **Code:** <https://github.com/Qihoo360/harness-bench>
 
 ## Summary

@@ -24,7 +24,7 @@ PostTrainBench evaluates whether CLI agents can autonomously post-train small ba
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2603.08640>
-- **Project:** <http://posttrainbench.com/>
+- **Project:** <https://posttrainbench.com/>
 - **Code:** <https://github.com/aisa-group/PostTrainBench>
 - **Venue:** arXiv preprint (2026)
 

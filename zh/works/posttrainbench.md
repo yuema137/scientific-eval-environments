@@ -24,7 +24,7 @@ PostTrainBench 测试 CLI agent 能否在单张 H100、十小时预算内自主 
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2603.08640>
-- **Project:** <http://posttrainbench.com/>
+- **Project:** <https://posttrainbench.com/>
 - **Code:** <https://github.com/aisa-group/PostTrainBench>
 - **Venue:** arXiv preprint (2026)
 

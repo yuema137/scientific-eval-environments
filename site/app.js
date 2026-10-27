@@ -50,6 +50,8 @@ const ui = {
     footerText: "Generated from Markdown source files in the repository. If content disagrees, trust the Markdown.",
     stats: { works: "Work cards", topics: "Topics", domains: "Domains", activities: "Activities", monthlyReports: "Monthly reports" },
     filters: { search: "Search works", allTopics: "All topics", allDomains: "All domains", allActivities: "All activities", allMonths: "All months" },
+    filterLabels: { topic: "Filter by topic", domain: "Filter by domain", activity: "Filter by activity", month: "Filter by first-appearance month" },
+    loadError: "The explorer data could not be loaded. Please reload the page.",
     resultsTitle: "Works",
     resultsCount: (n) => `${n} works shown`,
     firstAppeared: "First appeared",
@@ -115,6 +117,8 @@ const ui = {
     footerText: "本页由仓库 Markdown 自动生成。如果页面内容和 Markdown 冲突，以 Markdown 为准。",
     stats: { works: "工作卡片", topics: "Topics", domains: "Domains", activities: "Activities", monthlyReports: "月报" },
     filters: { search: "搜索 works", allTopics: "全部 topics", allDomains: "全部 domains", allActivities: "全部 activities", allMonths: "全部月份" },
+    filterLabels: { topic: "按 topic 筛选", domain: "按 domain 筛选", activity: "按 activity 筛选", month: "按首次公开月份筛选" },
+    loadError: "数据没能加载出来，请刷新页面再试。",
     resultsTitle: "Works",
     resultsCount: (n) => `当前显示 ${n} 项 work`,
     firstAppeared: "首次公开",
@@ -131,11 +135,30 @@ const ui = {
   }
 };
 
+// Storage can be unavailable (privacy modes, disabled cookies, full quota);
+// a failed read or write must never stop the explorer from rendering.
+function readPreference(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch (error) {
+    return null;
+  }
+}
+
+function savePreference(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch (error) {
+    // Preference is kept for this page view only.
+  }
+}
+
 let state = {
-  lang: localStorage.getItem("scieval-explorer-language") || (navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en"),
-  theme: localStorage.getItem("scieval-explorer-theme") || "dark",
+  lang: readPreference("scieval-explorer-language") || (navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en"),
+  theme: readPreference("scieval-explorer-theme") || "dark",
   data: null,
   activeTab: "home",
+  focusTab: "home",
   filters: { search: "", topic: "", domain: "", activity: "", month: "" },
   reader: { url: "./documents/en/README.json", title: "Reader" }
 };
@@ -206,6 +229,8 @@ function applyUiText() {
   setText("footer-text", t.footerText);
   Object.entries(t.tabs).forEach(([key, label]) => setText(`tab-${key}`, label));
   byId("search").placeholder = t.filters.search;
+  byId("search").setAttribute("aria-label", t.filters.search);
+  Object.entries(t.filterLabels).forEach(([key, label]) => byId(`${key}-filter`).setAttribute("aria-label", label));
   byId("lang-toggle").textContent = state.lang === "en" ? "中文" : "English";
   const themeSwitch = document.querySelector(".theme-switch");
   themeSwitch.setAttribute("aria-label", t.themeGroup);
@@ -267,8 +292,8 @@ function fillSelect(id, label, items) {
   const key = id.replace("-filter", "");
   const current = state.filters[key] || "";
   const t = ui[state.lang];
-  select.innerHTML = `<option value="">${t.filters[label]}</option>` + items.map(item => `
-    <option value="${item.slug || item.month}">${item.name ? localizedItemName(item) : item.month}</option>
+  select.innerHTML = `<option value="">${escapeHtml(t.filters[label])}</option>` + items.map(item => `
+    <option value="${escapeHtml(item.slug || item.month)}">${escapeHtml(item.name ? localizedItemName(item) : item.month)}</option>
   `).join("");
   select.value = current;
 }
@@ -276,13 +301,13 @@ function fillSelect(id, label, items) {
 function axisCard(item, kind) {
   const label = state.lang === "en" ? `${item.count} works` : `${item.count} 项 work`;
   const name = localizedItemName(item);
-  const href = localizedItemUrl(item);
+  const href = escapeHtml(safeHref(localizedItemUrl(item)));
   return `
     <article class="axis-card">
-      <h3><a href="${href}" data-reader-link="true" data-reader-title="${escapeHtml(name)}">${name}</a></h3>
-      <p class="metric">${label}</p>
-      <p class="mini-note">${kind}</p>
-      <a href="${href}" data-reader-link="true" data-reader-title="${escapeHtml(name)}">${ui[state.lang].openPage}</a>
+      <h3><a href="${href}" data-reader-link="true" data-reader-title="${escapeHtml(name)}">${escapeHtml(name)}</a></h3>
+      <p class="metric">${escapeHtml(label)}</p>
+      <p class="mini-note">${escapeHtml(kind)}</p>
+      <a href="${href}" data-reader-link="true" data-reader-title="${escapeHtml(name)}">${escapeHtml(ui[state.lang].openPage)}</a>
     </article>
   `;
 }
@@ -308,10 +333,10 @@ function renderActivities() {
 function renderTimeline() {
   const max = Math.max(...state.data.timeline.map(item => item.count), 1);
   byId("timeline").innerHTML = state.data.timeline.slice().reverse().map(item => `
-    <button class="timeline-row ${state.filters.month === item.month ? "is-active" : ""}" data-month="${item.month}" type="button">
-      <span>${item.month}</span>
-      <span class="bar-wrap"><span class="bar" style="width:${(item.count / max) * 100}%"></span></span>
-      <span>${item.count}</span>
+    <button class="timeline-row ${state.filters.month === item.month ? "is-active" : ""}" data-month="${escapeHtml(item.month)}" type="button">
+      <span>${escapeHtml(item.month)}</span>
+      <span class="bar-wrap"><span class="bar" style="width:${(Number(item.count) / max) * 100}%"></span></span>
+      <span>${escapeHtml(item.count)}</span>
     </button>
   `).join("");
   byId("timeline").querySelectorAll("button").forEach(button => {
@@ -329,12 +354,12 @@ function renderTimeline() {
 function monthlyCard(item) {
   const title = state.lang === "en" ? item.title : (item.zh_title || item.title);
   const summary = state.lang === "en" ? item.summary : (item.zh_summary || item.summary);
-  const href = state.lang === "en" ? item.url : item.zh_url;
+  const href = escapeHtml(safeHref(state.lang === "en" ? item.url : item.zh_url));
   return `
     <article class="monthly-card">
-      <h3><a href="${href}" data-reader-link="true" data-reader-title="${escapeHtml(title)}">${title}</a></h3>
-      <p class="metric">${ui[state.lang].monthlyWorks(item.works_count)}</p>
-      <p>${summary}</p>
+      <h3><a href="${href}" data-reader-link="true" data-reader-title="${escapeHtml(title)}">${escapeHtml(title)}</a></h3>
+      <p class="metric">${escapeHtml(ui[state.lang].monthlyWorks(item.works_count))}</p>
+      <p>${escapeHtml(summary)}</p>
     </article>
   `;
 }
@@ -371,10 +396,10 @@ function tagRow(label, items) {
   if (!items.length) return "";
   return `
     <div class="tag-row">
-      <span class="tag"><strong>${ui[state.lang][label]}:</strong></span>
+      <span class="tag"><strong>${escapeHtml(ui[state.lang][label])}:</strong></span>
       ${items.map(item => {
         const name = localizedItemName(item);
-        return `<a class="tag" href="${localizedItemUrl(item)}" data-reader-link="true" data-reader-title="${escapeHtml(name)}">${name}</a>`;
+        return `<a class="tag" href="${escapeHtml(safeHref(localizedItemUrl(item)))}" data-reader-link="true" data-reader-title="${escapeHtml(name)}">${escapeHtml(name)}</a>`;
       }).join("")}
     </div>
   `;
@@ -387,22 +412,23 @@ function renderResults() {
   byId("results").innerHTML = works.slice(0, 40).map(work => {
     const blurb = state.lang === "en" ? work.overview : (((work.zh && work.zh.overview) || work.overview));
     const summary = state.lang === "en" ? work.summary : (((work.zh && work.zh.summary) || work.summary));
-    const href = state.lang === "en" ? work.card_url : work.zh_card_url;
-    const links = work.links.map(link => `<a class="tag" href="${link.url}" target="_blank" rel="noopener noreferrer">${link.label}</a>`).join("");
+    const href = escapeHtml(safeHref(state.lang === "en" ? work.card_url : work.zh_card_url));
+    const links = work.links.map(link => `<a class="tag" href="${escapeHtml(safeHref(link.url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)}</a>`).join("");
+    const sourceHref = escapeHtml(safeHref(localizedDocumentUrl(work.first_appeared_source.url)));
     return `
       <article class="work-card">
-        <h3><a href="${href}" data-reader-link="true" data-reader-title="${escapeHtml(work.title)}">${work.title}</a></h3>
+        <h3><a href="${href}" data-reader-link="true" data-reader-title="${escapeHtml(work.title)}">${escapeHtml(work.title)}</a></h3>
         <div class="card-meta">
-          <span>${t.firstAppeared}: ${work.first_appeared}</span>
-          <span>${t.source}: <a href="${localizedDocumentUrl(work.first_appeared_source.url)}">${work.first_appeared_source.label}</a></span>
+          <span>${escapeHtml(t.firstAppeared)}: ${escapeHtml(work.first_appeared)}</span>
+          <span>${escapeHtml(t.source)}: <a href="${sourceHref}">${escapeHtml(work.first_appeared_source.label)}</a></span>
         </div>
-        <p>${blurb}</p>
-        <p>${summary}</p>
+        <p>${escapeHtml(blurb)}</p>
+        <p>${escapeHtml(summary)}</p>
         ${tagRow("topics", work.topics)}
         ${tagRow("domains", work.domains)}
         ${tagRow("activities", work.activities)}
         <div class="tag-row">
-          <span class="tag"><strong>${t.links}:</strong></span>
+          <span class="tag"><strong>${escapeHtml(t.links)}:</strong></span>
           ${links}
         </div>
       </article>
@@ -412,8 +438,16 @@ function renderResults() {
 
 function setActiveTab(tab) {
   state.activeTab = tab;
-  document.querySelectorAll(".tab").forEach(node => {
-    node.classList.toggle("is-active", node.dataset.tab === tab);
+  const tabs = Array.from(document.querySelectorAll(".tab"));
+  const hasTab = tabs.some(node => node.dataset.tab === tab);
+  if (hasTab) state.focusTab = tab;
+  tabs.forEach(node => {
+    const active = node.dataset.tab === tab;
+    node.classList.toggle("is-active", active);
+    node.setAttribute("aria-selected", String(active));
+    // Roving tabindex: exactly one tab stays in the Tab order, even while the
+    // reader (which has no tab of its own) is showing.
+    node.tabIndex = node.dataset.tab === state.focusTab ? 0 : -1;
   });
   document.querySelectorAll(".tab-panel").forEach(node => {
     node.classList.toggle("is-active", node.dataset.panel === tab);
@@ -427,6 +461,30 @@ function escapeHtml(text) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+
+// Allow only http(s) and same-site relative URLs (including fragments). Any
+// other scheme (javascript:, data:, vbscript:, ...) is replaced by an inert
+// fragment. Valid repository data never uses another scheme.
+function isSafeHref(href) {
+  const value = String(href || "").trim();
+  if (!value) return false;
+  const scheme = value.match(/^([a-zA-Z][a-zA-Z0-9+.-]*):/);
+  if (scheme) return /^https?$/i.test(scheme[1]);
+  return !/^[\\/]{2}/.test(value) && !/[\u0000-\u001f]/.test(value);
+}
+
+function safeHref(href) {
+  return isSafeHref(href) ? href : "#";
+}
+
+function unescapeHtml(text) {
+  return String(text)
+    .replace(/&#39;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&gt;/g, ">")
+    .replace(/&lt;/g, "<")
+    .replace(/&amp;/g, "&");
 }
 
 function isLocalDocumentLink(href) {
@@ -452,12 +510,14 @@ function renderInline(text, sourcePath) {
   html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, label, href) => {
     const safeLabel = label;
     const resolvedHref = resolveDocumentLink(href, sourcePath);
-    const safeHref = isLocalDocumentLink(resolvedHref) ? localizedDocumentUrl(resolvedHref) : resolvedHref;
-    if (isLocalDocumentLink(safeHref)) {
-      return `<a href="${safeHref}" data-reader-link="true" data-reader-title="${escapeHtml(safeLabel)}">${safeLabel}</a>`;
+    // `text` was escaped above, so the decoded href is checked for its scheme.
+    if (!isSafeHref(unescapeHtml(resolvedHref))) return safeLabel;
+    const localHref = isLocalDocumentLink(resolvedHref) ? localizedDocumentUrl(resolvedHref) : resolvedHref;
+    if (isLocalDocumentLink(localHref)) {
+      return `<a href="${localHref}" data-reader-link="true" data-reader-title="${escapeHtml(safeLabel)}">${safeLabel}</a>`;
     }
-    const attrs = /^https?:\/\//.test(safeHref) ? ' target="_blank" rel="noopener noreferrer"' : "";
-    return `<a href="${safeHref}"${attrs}>${safeLabel}</a>`;
+    const attrs = /^https?:\/\//.test(localHref) ? ' target="_blank" rel="noopener noreferrer"' : "";
+    return `<a href="${localHref}"${attrs}>${safeLabel}</a>`;
   });
   return html;
 }
@@ -579,7 +639,12 @@ function renderMarkdown(md, sourcePath) {
 }
 
 async function openReader(url, title) {
-  const response = await fetch(url);
+  let response;
+  try {
+    response = await fetch(url);
+  } catch (error) {
+    response = { ok: false, status: "network error" };
+  }
   if (!response.ok) {
     byId("reader-content").innerHTML = `<p>Failed to load ${escapeHtml(url)} (${response.status}).</p>`;
     state.reader = { url, title: title || url };
@@ -587,7 +652,15 @@ async function openReader(url, title) {
     applyUiText();
     return;
   }
-  const document = await response.json();
+  let document;
+  try {
+    document = await response.json();
+  } catch (error) {
+    byId("reader-content").innerHTML = `<p>Failed to load ${escapeHtml(url)} (invalid JSON).</p>`;
+    state.reader = { url, title: title || url };
+    setActiveTab("reader");
+    return;
+  }
   state.reader = { url, title: title || url };
   byId("reader-content").classList.remove("reader-empty");
   byId("reader-content").innerHTML = renderMarkdown(document.markdown, document.source_path);
@@ -608,8 +681,17 @@ function handleReaderClick(event) {
 
 function bindControls() {
   document.addEventListener("click", handleReaderClick);
-  document.querySelectorAll(".tab").forEach(button => {
+  const tabs = Array.from(document.querySelectorAll(".tab"));
+  tabs.forEach((button, index) => {
     button.addEventListener("click", () => setActiveTab(button.dataset.tab));
+    button.addEventListener("keydown", (event) => {
+      const moves = { ArrowRight: index + 1, ArrowLeft: index - 1, Home: 0, End: tabs.length - 1 };
+      if (!(event.key in moves)) return;
+      event.preventDefault();
+      const next = tabs[(moves[event.key] + tabs.length) % tabs.length];
+      setActiveTab(next.dataset.tab);
+      next.focus();
+    });
   });
   byId("search").addEventListener("input", (event) => {
     state.filters.search = event.target.value;
@@ -627,7 +709,7 @@ function bindControls() {
   });
   byId("lang-toggle").addEventListener("click", () => {
     state.lang = state.lang === "en" ? "zh" : "en";
-    localStorage.setItem("scieval-explorer-language", state.lang);
+    savePreference("scieval-explorer-language", state.lang);
     applyUiText();
     renderHomeBlocks();
     renderStats();
@@ -648,7 +730,7 @@ function bindControls() {
   ["light", "dark"].forEach(theme => {
     byId(`theme-${theme}`).addEventListener("click", () => {
       state.theme = theme;
-      localStorage.setItem("scieval-explorer-theme", theme);
+      savePreference("scieval-explorer-theme", theme);
       applyUiText();
     });
   });
@@ -656,6 +738,7 @@ function bindControls() {
 
 async function main() {
   const response = await fetch("./data/index.json");
+  if (!response.ok) throw new Error(`Failed to load ./data/index.json (${response.status})`);
   state.data = await response.json();
   applyUiText();
   renderHomeBlocks();
@@ -674,4 +757,13 @@ async function main() {
   byId("reader-content").innerHTML = `<p>${ui[state.lang].readerEmpty}</p>`;
 }
 
-main();
+function showLoadError(error) {
+  console.error(error);
+  const reader = byId("reader-content");
+  if (reader) {
+    reader.innerHTML = `<p>${escapeHtml(ui[state.lang].loadError)}</p>`;
+    setActiveTab("reader");
+  }
+}
+
+main().catch(showLoadError);

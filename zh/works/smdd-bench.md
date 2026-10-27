@@ -20,7 +20,7 @@ SMDD-Bench 追问 LLM 能否解决真实世界的小分子药物设计任务：5
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.21740>
-- **Leaderboard:** <http://smddbench.com>
+- **Leaderboard:** <https://smddbench.com>
 - **Venue:** arXiv preprint (cs.AI), 2026
 
 ## Summary

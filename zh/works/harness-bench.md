@@ -20,7 +20,7 @@ N/A — 评估方法学，未直接评估任何科学或研究活动。
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.27922>
-- **Project:** <http://www.harness-bench.ai/>
+- **Project:** <https://www.harness-bench.ai/>
 - **Code:** <https://github.com/Qihoo360/harness-bench>
 
 ## Summary

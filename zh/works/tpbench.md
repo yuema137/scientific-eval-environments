@@ -19,7 +19,7 @@ TPBench（Theoretical Physics Benchmark）是关于 AI 理论物理推理能力�
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2502.15815>
-- **Project:** <http://tpbench.org>
+- **Project:** <https://tpbench.org>
 - **Venue:** Machine Learning: Science and Technology, 2025
 
 ## Summary
