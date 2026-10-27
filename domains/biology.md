@@ -52,6 +52,7 @@ Life-science evaluation from molecular to population scale. Bioinformatics, geno
 | DiscoveryBench | 2024 | Recover the findings of two published organismal-biology studies: whether accelerated body-size evolution in upland environments tracks recent speciation in South American freshwater fishes, and how introduction pathway shapes the invasion success of non-native plants along environmental gradients. | 16 of the 239 real test tasks are biology; each supplies the study's dataset(s), column metadata and a natural-language discovery goal, and the agent writes and runs its own analysis workflow. | GPT-4 Hypothesis Matching Score against the paper's gold hypothesis over context, variables and relationship; the best non-oracle agent scores 0% on this domain. | [→](../works/discoverybench.md) |
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | Form testable hypotheses in biology from research literature | Eight densely scored subfields in this discipline; static and active literature access | Model critics assess originality against retrieved prior art; no experimental validation | [AgentIdeaBench](../works/agentideabench.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in biology | Paper-to-repository reproduction; Part of 30 AI4Science papers; per-field count unreported | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
+| DISCERN | 2026 | Vet data, verify analyses, and propose hypotheses across GWAS, clinical variant interpretation, bulk and single-cell RNA-seq, CRISPR screens, enhancer activity, chromatin regulation, and protein stability/structure. | 203 tasks: 79 data-integrity (with matched clean controls), 102 analysis-verification in 24 families, 22 hypothesis dossiers; sealed no-network sandbox. | Deterministic L1–L2 grading cross-checked by an LLM verifier with human adjudication; L3 LLM judge after three adversarial reviews, author-validated; no experimental confirmation. | [→](../works/discern.md) |
 
 ## Capability Matrix
 
@@ -116,6 +117,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SciVisAgentBench | IMG | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
 | SciAgentArena | SCB, SPAT, GENOM, DRUG | ? | ◐ | ◐ | ✘ | ✘ | ✔ | ✔ | **3** | ◐ | ✔ | ✘ | 3 | 2 | 3 | **9.5** |
 | GenoTEX | GENOM, BIOINF | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ✔ | **3** | ✔ | ✘ | ✘ | 3 | 3 | 2 | **9** |
+| DISCERN | GENOM, SCB, PROT | ✘ | ✘ | ✔ | ? | ✘ | ✔ | ✔ | **3** | ? | ✔ | ◐ | 2 | 2 | 3 | **8.5** |
 | LABBench2 | GEN | ◐ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **3** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | ScienceBoard | STRB | ? | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | **3** | ✔ | ✘ | ✘ | 3 | ? | 3 | **7** |
 | Science Edge Evaluation (SEE) | STRB, IMG | ◐ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **3** | ✘ | ✘ | ✔ | 2 | ? | 3 | **6** |
@@ -144,6 +146,7 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 
 ## Related Works
 
+- [DISCERN](../works/discern.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Apodex Discovery](../works/apodex-discovery.md)

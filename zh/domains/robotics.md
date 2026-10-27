@@ -28,6 +28,7 @@
 | RoboGraphBench | 2026 | 把 agentic 基础模型作为长时程具身任务（桌面操作与室内导航）的高层规划器来评估，以任务状态视野——agent 必须追踪、探索并更新的任务相关状态转移的跨度——刻画难度。 | 84 个家居场景上的 588 个 episode（399 个桌面 + 189 个室内导航），每个含一个基线加六种干预条件；RoboGraph 把任务编译为符号场景图（平均 18.4 个节点、14.3 个子目标）；15 个 agentic 模型。 | 统一闭环 harness（最多 100 步；目标谓词 + 停止动作），在语义与视觉两种模式（RoboTwin 2.0、RoboCasa）下运行；成功率与 SSAL，加上状态管理（维护/探索/更新）与恢复检测/grounding 指标。Repository note: 评估高层规划而非底层控制；仅限模拟。 | [→](../works/compiling-and-benchmarking-task-state-horizons-for.md) |
 | EngDesign | 2025 | 把机器人设计与规划写成带明确目标、约束与性能要求的设计题，而非有参考答案的问答题。 | Robotics 方向，取自九个工程方向共 101 项设计任务（473 个可评分条目）中的 10 项；默认单轮生成，另有一套迭代协议，允许最多 10 轮仿真器反馈。 | 模型输出结构化结果，由逐任务的评估脚本调用相应仿真器执行，返回二元通过/不通过、0–100 的部分给分与详细日志。Repository note: 均为仿真验证的设计任务，未评估任何实体机器人平台或控制策略。 | [→](../works/engdesign.md) |
 | ATOM-Bench | 2026 | 执行真机桌面操作，并把它分解为动作原子（取放、重定向、推动、堆叠、倾倒、开合关节物体）与指令原子（颜色、形状、大小、计数、排除、空间关系、目标位置），再把它们重新组合成留出的组合任务。 | 单臂（Franka Panda）与双臂（Agilex Cobot Magic）两条配对赛道上的 30 个原子任务与 24 个留出的组合任务；用 3,000 条人类遥操作演示做原子层面的微调，五个 VLA 策略在每个任务 10 个共享测试种子下共完成 2,700 次实机 rollout。 | 在真实硬件上跑实机 rollout，物体摆放由掩码引导以保证初始状态可复现；除任务成功率外，还有人工标注的逐原子 Process Success Rate，二者聚合为 Atomic Score 与 Compositional Failure Share，把「原子太弱」与「组合失败」区分开。Repository note: 未报告任何仿真结果。 | [→](../works/atom-bench.md) |
+| Labference | 2026 | 在机器人实验室中根据观察到的物理结果选出下一步合法操作，并把它执行出来（离心机装载、反馈称量、放置回忆）。 | 模拟 Franka Panda（Isaac Sim 5.1）上的 3 类核心任务，各有基础和扩展条件，另列 24 个任务；已报告的实验只覆盖简单反馈称量（π0.5 与 GR00T-N1.5 各 50 个回合，GPT 驱动的对照方案 10 次试验）。 | 物理确认判据（天平读数与目标相差不超过 1 g 并保持 3 s；插管轴向误差不超过 10°、插入深度至少 60%）；选择、执行、完成分别打分。已报告的结果都来自模拟，真实机器人的试运行只给出关键帧。 | [→](../works/labference.md) |
 
 ## Capability Matrix
 
@@ -82,6 +83,7 @@
 | RoboSpatial | PERC, MANIP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ◐ | 3 | 3 | 1 | **7.5** |
 | RoCo / RoCoBench | MULTI, MANIP | ✘ | ✘ | ◐ | ✘ | ✘ | ◐ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 2 | 2 | **7** |
 | REFLECT / RoboFail | DIAG, MANIP | ✘ | ✘ | ✘ | ✔ | ✘ | ◐ | ◐ | **2** | ✘ | ◐ | ✘ | 2 | 2 | 2 | **6.5** |
+| Labference | LAB, MANIP, VLA | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ◐ | 3 | 0 | 2 | **5.5** |
 | PhysBench | PERC | ✘ | ✘ | ✘ | ✔ | ✘ | ◐ | ✘ | **1.5** | ✔ | ✘ | ✔ | 3 | 3 | 3 | **11** |
 | RoboGraphBench | PLAN, NAV, MANIP | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ◐ | 3 | 2 | 4 | **10** |
 | LabRobFail | DIAG, LAB | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ◐ | **1.5** | ✘ | ✘ | ◐ | 3 | 3 | 3 | **9.5** |
@@ -92,6 +94,7 @@
 
 ## Related Works
 
+- [Labference](../works/labference.md)
 - [RoboGraphBench](../works/compiling-and-benchmarking-task-state-horizons-for.md)
 - [LabRobFail](../works/labrobfail.md)
 - [ATOM-Bench](../works/atom-bench.md)

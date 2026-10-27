@@ -45,6 +45,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 - **把 exploration 与 verification compute 分开。** [AI4AI-Bench](../works/ai4ai-bench.md) 先给 agent 一张 B300、四小时做探索，再花最多十二小时从头运行提交的 source。它按 reasoning effort 报告 API spend 和 output-token scaling，但 formal training 的 GPU 成本没有计入 dollar total。
 
 - **把时长上限和 GPU 配额写成任务约束。** [InnovatorBench](../works/innovatorbench.md) 在 20 个 LLM 研究任务的描述里都写明了工作时长上限和 GPU 配额。所以 agent 如果把时间全花在一次自己后来又放弃的训练上，到该提交的时候就拿不出东西了。论文按模型和研究方向报告墙钟小时数与美元花费，和分数列在一起；其 test-time scaling 曲线显示，agent 要跑过 11 小时才拿到最好成绩。论文记录的失败也都是资源上的失败：预算还剩 21 小时就把训练任务停掉，以及推理任务还占着 GPU 就启动整卡训练脚本。
+- **把实验时间当作稀缺资源。** [SlowLab](../works/slowlab.md) 每轮最多允许 16 次实验，但真正卡住 agent 的是隔间时间：每茬作物要占用一个隔间 180 天，中途只能继续或毁掉，早期设计一旦没做好，就没有便宜的补救办法。
 
 ### 一处缺口：预算是给定的，不是预测出来的
 
@@ -52,6 +53,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 
 - [BAGEN](../works/bagen.md) 要求 agent 每一轮预测**剩余**预算的上下界并标记不可行——预测的是总量，且按步计分。
 - [AI Research Preference Models](../works/ai-research-preference-models.md) 在付出代价之前预测哪些**候选方案**值得执行，但它预测的是相对优劣而非资源数量，而且只作用在一个搜索脚手架内部，并非可复用的接口。
+- [AlphaIdeaBench](../works/alphaideabench.md) 要求构思 harness 为提出的项目写一份资源计划，再由 judge 对照任务给定的 GPU、API、时间和标注预算检查。这里估算的是提案里的研究要花多少，不是 agent 这次运行本身的开销，也从未拿去和实际花费对照。
 
 两者都没有给出规划器在方案之间做取舍时真正需要的东西：一个以动作为单位、以任务特征为条件的分布，覆盖 token、墙钟、GPU 时间、内存与费用，并带有校准过的不确定性。参见下方的 Open Questions。
 
@@ -90,6 +92,9 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 | [PTA-IRT](../works/pta-irt.md) | 2026 | 实际执行的任务比例 | 校准预算；仍需离线历史数据 | 估计 SWE 全套成绩 | [PTA-IRT](../works/pta-irt.md) |
 | [EvoHarnessBench](../works/evoharnessbench.md) | 2026 | Token、工具调用、延迟 | 逐阶段记录运行开销 | 逐步扩大的 harness | [EvoHarnessBench](../works/evoharnessbench.md) |
 | [HarnessDev](../works/harnessdev.md) | 2026 | 执行模型 token | 总量与每题均值；不计开发成本 | 2,207 个下游实例 | [HarnessDev](../works/harnessdev.md) |
+| SlowLab | 2026 | 实验次数（每轮 16 次，每次占用一个隔间 180 天），另限制决策、接口和模型调用次数；报告每轮实验的 API 美元成本 | 强制的硬约束：实验缓慢且无法撤回，怎样分配稀缺的隔间时间本身就是被评估的能力 | 在 48 个未见站点上进行的一年期模拟温室实验 | [→](../works/slowlab.md) |
+| DISCERN | 2026 | 输入/输出 token、API 调用次数、估算美元费用（为上限；不含评分与评审） | 只报告，不设预算；token 效率为每百万 token 对应的 Overall Score | 生命科学研究工作流；203 个任务，八个参与排名的模型 | [→](../works/discern.md) |
+| AlphaIdeaBench | 2026 | 提案中研究计划所需的 GPU 与 GPU 小时、API 费用、日历周数、标注工时 | 每个任务写明预算（学生 / 学术 / 实验室三档）；judge 评判提案的预算可行性 | 100 个机器学习构思任务；八个 harness，八个基础模型 | [→](../works/alphaideabench.md) |
 
 ## 还没解决的问题
 
@@ -102,6 +107,9 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 
 ## 相关工作
 
+- [SlowLab](../works/slowlab.md)
+- [AlphaIdeaBench](../works/alphaideabench.md)
+- [DISCERN](../works/discern.md)
 - [EvoHarnessBench](../works/evoharnessbench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [PTA-IRT](../works/pta-irt.md)

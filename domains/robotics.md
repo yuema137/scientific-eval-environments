@@ -28,6 +28,7 @@ Evaluation on physical robot platforms and robot control. Embodied household sim
 | RoboGraphBench | 2026 | Evaluate agentic foundation models as high-level planners for long-horizon embodied tasks (tabletop manipulation and indoor navigation), characterizing difficulty by the task-state horizon — the span of task-relevant state transitions an agent must track, explore, and update. | 588 episodes across 84 household scenes (399 tabletop + 189 indoor-navigation), each a baseline plus six intervention conditions; RoboGraph compiles tasks into symbolic scene graphs (avg. 18.4 nodes, 14.3 subgoals); 15 agentic models. | Unified closed-loop harness (100-step max; goal predicates + stop action) in semantic and visual modes (RoboTwin 2.0, RoboCasa); Success Rate and SSAL plus state-management (maintenance/exploration/updating) and recovery-detection/grounding metrics. Repository note: evaluates high-level planning, not low-level control; simulation only. | [→](../works/compiling-and-benchmarking-task-state-horizons-for.md) |
 | EngDesign | 2025 | Robot design and planning posed as design problems with stated goals, constraints and performance requirements rather than as questions with reference answers. | Robotics, 10 of 101 design tasks (473 gradable items) across nine engineering areas; single-turn generation by default, with an iterative protocol allowing up to 10 rounds of simulator feedback. | Structured model output executed by a task-specific evaluation script running the relevant simulator, returning a binary pass/fail, a 0–100 partial-credit score and a detailed log. Repository note: simulation-verified design tasks; no physical robot platform or control policy is evaluated. | [→](../works/engdesign.md) |
 | ATOM-Bench | 2026 | Execute real-robot tabletop manipulation factorized into motor atoms (pick-place, reorientation, pushing, stacking, pouring, articulated-object access) and instruction atoms (color, shape, size, counting, exclusion, spatial relations, goal destination), then recombine them into held-out compositional tasks. | 30 atomic and 24 held-out compositional tasks on paired single-arm (Franka Panda) and dual-arm (Agilex Cobot Magic) tracks; 3,000 human teleoperation demonstrations for atomic fine-tuning, and five VLA policies evaluated over 2,700 physical rollouts at 10 shared test seeds per task. | Physical rollouts on real hardware with mask-guided object placement for reproducible initial states; task success rate plus human-annotated per-atom Process Success Rate, aggregated into Atomic Score and Compositional Failure Share to separate weak atoms from failed composition. Repository note: no simulation results are reported. | [→](../works/atom-bench.md) |
+| Labference | 2026 | Use observed physical outcomes in a robotic laboratory to choose the next legal operation, then execute it (centrifuge loading, feedback weighing, placement recall). | 3 core task families with basic and extended conditions on a simulated Franka Panda (Isaac Sim 5.1), plus a 24-task catalog; reported runs cover only easy feedback weighing (50 episodes each for π0.5 and GR00T-N1.5, 10 GPT-driven trials). | Physical-confirmation predicates (balance reading within 1 g held 3 s; ≤10° axial error and ≥60% socket depth for insertion); selection, execution, and completion scored separately. Reported results are simulated; physical-robot pilots appear only as keyframes. | [→](../works/labference.md) |
 
 ## Capability Matrix
 
@@ -82,6 +83,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | RoboSpatial | PERC, MANIP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ◐ | 3 | 3 | 1 | **7.5** |
 | RoCo / RoCoBench | MULTI, MANIP | ✘ | ✘ | ◐ | ✘ | ✘ | ◐ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 2 | 2 | **7** |
 | REFLECT / RoboFail | DIAG, MANIP | ✘ | ✘ | ✘ | ✔ | ✘ | ◐ | ◐ | **2** | ✘ | ◐ | ✘ | 2 | 2 | 2 | **6.5** |
+| Labference | LAB, MANIP, VLA | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ◐ | 3 | 0 | 2 | **5.5** |
 | PhysBench | PERC | ✘ | ✘ | ✘ | ✔ | ✘ | ◐ | ✘ | **1.5** | ✔ | ✘ | ✔ | 3 | 3 | 3 | **11** |
 | RoboGraphBench | PLAN, NAV, MANIP | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ◐ | 3 | 2 | 4 | **10** |
 | LabRobFail | DIAG, LAB | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ◐ | **1.5** | ✘ | ✘ | ◐ | 3 | 3 | 3 | **9.5** |
@@ -92,6 +94,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 
 ## Related Works
 
+- [Labference](../works/labference.md)
 - [RoboGraphBench](../works/compiling-and-benchmarking-task-state-horizons-for.md)
 - [LabRobFail](../works/labrobfail.md)
 - [ATOM-Bench](../works/atom-bench.md)

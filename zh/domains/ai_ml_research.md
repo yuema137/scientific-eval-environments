@@ -42,6 +42,7 @@
 | AI-Researcher | 2025 | 在扩散模型、向量量化、图神经网络或推荐系统中做出研究贡献，从参考文献和数据一路走到实现与成稿。 | 由 22 篇 2022-2024 年论文构造的 22 个指导式（Level-1）与 6 个开放式（Level-2）任务，输入中的方法名、技术细节、数据集命名与引用均已匿名化。 | 代码审查 agent 评实现完整性与 5 分制正确性，另由五个 LLM 审稿人换序比较生成稿与人类论文，评分区间 -3 到 +3。 | [→](../works/ai-researcher.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现AI & Machine Learning Research的已发表实验 | 从论文重建代码并执行；120 篇 ML 论文 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
 | [HarnessDev](../works/harnessdev.md) | 2026 | 为机器学习竞赛构建可复用 harness | 75 道 MLE-bench 任务；训练模型并提交 | 冻结 harness 后依据竞赛奖牌标准评分 | [HarnessDev](../works/harnessdev.md) |
+| AlphaIdeaBench | 2026 | 提出机器学习研究想法，并让研究计划符合给定的算力、API、时间和标注预算。 | 100 个任务（50 个 workshop 征稿说明，50 个综述开放问题），覆盖九个机器学习方向；八个 harness 和八个基础模型各为每个任务生成一份 JSON 提案。 | Gemini 3.7 Flash judge 评 12 个维度；新颖性各项与 600 篇论文评审意见得出的分数对比；提案不执行。 | [→](../works/alphaideabench.md) |
 
 ## Capability Matrix
 
@@ -116,12 +117,14 @@
 | AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | 2 | 3 | **6** |
 | ML-Bench | CODE | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✔ | ✘ | ✔ | 3 | 3 | 3 | **11** |
 | AutoWorldModel-Bench | WM | ? | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
+| AlphaIdeaBench | IDEA | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ? | **0.5** | ? | ✔ | ? | 1 | 2 | 1 | **5** |
 | LiveIdeaBench | IDEA | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ◐ | 1 | 3 | 2 | **7.5** |
 
 Repository note: 未知集中在两列。`Net` 在 30 行里有 16 行是 `?`：卡片和原始论文都没说 agent 运行时能不能连到实时网络。`MM` 有 7 行是 `?`，来源里找不到依据说明图像、图表这类非文本内容在任务里不可或缺。另有两格未知各自孤立：AstaBench 的 `Scale`（那 2,400 多道题分布在十一个子 benchmark 上，没有单列 AI 研究这一块的题量），以及 AI-Researcher 的 `Cost`。这些 `?` 记的是来源的沉默，不是靠推断填出来的答案。
 
 ## Related Works
 
+- [AlphaIdeaBench](../works/alphaideabench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [AI Research Preference Models](../works/ai-research-preference-models.md)

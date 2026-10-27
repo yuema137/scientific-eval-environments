@@ -1,3 +1,4 @@
+import json
 import struct
 from pathlib import Path
 
@@ -67,7 +68,62 @@ def test_production_bundle_is_self_contained(tmp_path):
     assert (output / "documents" / "zh" / "monthly" / "README.json").exists()
     assert (output / "assets" / "social-preview.png").exists()
     assert not list(output.rglob("*.md"))
-    assert '"source_sha": "test-sha"' in (output / "manifest.json").read_text(encoding="utf-8")
+    manifest = json.loads((output / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["source_sha"] == "test-sha"
+    assert manifest["source_committed_at"] == "unknown"
+    assert manifest["latest_first_appeared"]
+    assert manifest["latest_monthly_report"]
+
+
+def test_manifest_records_explicit_snapshot_date(tmp_path):
+    output = tmp_path / "scieval"
+    build_site(output, "test-sha", "2026-10-01T00:00:00+00:00")
+    manifest = json.loads((output / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["source_committed_at"] == "2026-10-01T00:00:00+00:00"
+
+
+def test_axis_lists_contain_only_their_own_pages():
+    data = build_dataset(ROOT)
+    for kind in ("topics", "domains", "activities"):
+        assert len(data[kind]) <= data["stats"][kind], kind
+        for item in data[kind]:
+            assert item["url"] == f"./documents/en/{kind}/{item['slug']}.json", item
+            assert item["zh_url"] == f"./documents/zh/{kind}/{item['slug']}.json", item
+            assert (ROOT / "zh" / kind / f"{item['slug']}.md").exists(), item
+    for work in data["works"]:
+        for kind in ("topics", "activities"):
+            for item in work[kind]:
+                assert item["url"].startswith(f"./documents/en/{kind}/"), (work["slug"], item)
+    # A Topics block that only cross-references a domain is not a topic membership.
+    pac_bench = next(work for work in data["works"] if work["slug"] == "pac-bench")
+    assert pac_bench["topics"] == []
+    assert any(domain["slug"] == "robotics" for domain in pac_bench["domains"])
+
+
+def test_explorer_escapes_data_and_checks_link_schemes():
+    app = (ROOT / "site" / "app.js").read_text(encoding="utf-8")
+    index = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+    for fragment in (
+        "${escapeHtml(work.title)}</a>",
+        "<p>${escapeHtml(blurb)}</p>",
+        "<p>${escapeHtml(summary)}</p>",
+        "escapeHtml(safeHref(link.url))",
+        "${escapeHtml(link.label)}</a>",
+        "${escapeHtml(name)}</a>",
+        "${escapeHtml(title)}</a>",
+        "if (!isSafeHref(unescapeHtml(resolvedHref))) return safeLabel;",
+        "if (!response.ok) throw new Error",
+        "main().catch(showLoadError);",
+    ):
+        assert fragment in app, fragment
+    assert "localStorage.setItem" in app and app.count("localStorage.setItem") == 1
+    assert 'role="tablist"' in index
+    assert index.count('role="tab" aria-selected=') == 6
+    assert index.count('role="tabpanel"') == 6
+    for control in ("search", "topic-filter", "domain-filter", "activity-filter", "month-filter"):
+        assert f'id="{control}"' in index
+        tag = index.split(f'id="{control}"', 1)[1].split(">", 1)[0]
+        assert "aria-label=" in tag, control
 
 
 def test_markdown_navigation_uses_the_in_page_reader():
@@ -90,7 +146,7 @@ def test_markdown_navigation_uses_the_in_page_reader():
     assert "resolveDocumentLink(href, sourcePath)" in app
     assert "localizedDocumentUrl(state.reader.url)" in app
     assert "right.first_appeared.localeCompare(left.first_appeared)" in app
-    assert 'localStorage.setItem("scieval-explorer-language", state.lang)' in app
+    assert 'savePreference("scieval-explorer-language", state.lang)' in app
     assert "languageSwitcher.test(line.trim())" in app
     assert 'link.dataset.readerLink !== "true" && !isLocalDocumentLink(href)' in app
     assert 'class="table-scroll${wideClass}"' in app
@@ -103,8 +159,8 @@ def test_markdown_navigation_uses_the_in_page_reader():
     assert 'class="theme-switch"' in index
     assert 'id="theme-light"' in index
     assert 'id="theme-dark"' in index
-    assert 'localStorage.getItem("scieval-explorer-theme") || "dark"' in app
-    assert 'localStorage.setItem("scieval-explorer-theme", theme)' in app
+    assert 'readPreference("scieval-explorer-theme") || "dark"' in app
+    assert 'savePreference("scieval-explorer-theme", theme)' in app
     assert 'document.documentElement.dataset.theme = state.theme' in app
 
     styles = (ROOT / "site" / "styles.css").read_text(encoding="utf-8")

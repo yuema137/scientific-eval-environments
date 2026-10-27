@@ -23,9 +23,11 @@ The second form evaluates instrument-control *code* against a high-fidelity digi
 | AFMBench | 2025 | LLM agents operate a real atomic force microscope end-to-end | 100 curated tasks on Nanosurf DriveAFM via Python API, run 3x | Task completion; best model 65% overall, 23.3% on doc+analysis | [card](../works/afmbench.md) |
 | EnvTrace | 2025 | Evaluate LLM-generated beamline instrument-control code | Trace alignment vs synchrotron beamline digital twin; over 30 LLMs | Multi-faceted functional-correctness score; top models near human-level | [card](../works/envtrace.md) |
 | Agentic Self-Driving Microscopy Benchmarks | 2026 | Benchmark and trace-log agentic self-driving microscopy control | 53 tests x 105 agent configs, 1,949 runs (Zeiss study) | Qualification/regression support; no task-independent config prediction | [card](../works/agentic-microscopy-benchmarks.md) |
+| Labference | 2026 | Choose and physically execute state-dependent operations on simulated laboratory equipment (centrifuge, balance, sample rack) | Franka Panda in Isaac Sim 5.1; 3 core task families with basic and extended conditions; reported runs are 50 episodes per VLA policy and 10 GPT-driven trials on easy weighing | Physically confirmed completion (e.g., balance reading within 1 g of target held 3 s), with operation selection and execution scored separately | [card](../works/labference.md) |
 
 ## Related Works
 
+- [Labference](../works/labference.md)
 - [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md)
 - [EnvTrace](../works/envtrace.md)
 - [AFMBench](../works/afmbench.md)

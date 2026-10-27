@@ -54,6 +54,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - **先验受控的物理发现。** [PhysGym](../works/physgym.md) 把 97 个交互式物理发现问题布置在四个受控的先验层级下，把「agent 发现了什么」与「agent 被告知了什么」分开；据官方仓库，先验逐级撤去时 o4-mini 从 62.89% 跌至 31%。
 - **反事实世界的定律发现。** [DiscoverPhysics](../works/discoverphysics.md) 让 agent 在 22 个物理刻意偏离现实的模拟世界中做实验，并同时提交解释与定律的 Python 实现，以留出粒子上的轨迹 MSE 加按评分标准的 LLM 解释分评判；最强 agent 也只通过一半的世界。
 - **实验预算下的 Bayesian model discovery。** [Model Discovery Agent](../works/model-discovery-agent.md) 用同一套「选实验—更新 belief—提出新模型」循环，横跨化学、反事实物理、probabilistic program 和 electrophysiology。每次 intervention 以后都重测 held-out prediction 和 structural recovery，所以它看的不是最后蒙没蒙对，而是有用的机制多快浮出来。
+- **缓慢且无法撤回的实验。** [SlowLab](../works/slowlab.md) 给 agent 一个模拟年份、四个温室隔间和 16 次实验机会，每次实验都要占用一个隔间 180 天；最后只为它推荐的一套策略打分，打分用的是它没见过的天气。在 48 个预注册站点上，三个低成本语言模型 agent 的成绩接近固定的种植者设定，低于带先验信息的贝叶斯优化基线。
 - **操作专业 FEA 软件。** [FEABench](../works/feabench.md) 让 LLM agent 通过 API 驱动 COMSOL Multiphysics 端到端求解多物理场问题；最佳策略生成的 API 调用有 88% 可执行。
 - **量子多体复现。** [QMP-Bench](../works/qmp-bench.md) 从 21 种高影响力期刊提取 100 个研究级端到端量子多体模拟任务，由编程验证器与科学验证器成对验证。
 - **以精度为参照的引力波任务。** [gwBenchmarks](../works/gwbenchmarks.md) 在八个底层数据超过 10⁸ 核时的引力波任务上压力测试 12 个 coding agent，并因 agent 会伪造或只做部分评估而改用外部框架计分；较难任务上所有 agent 距 ≲10⁻⁴ 的领域要求差 1–2 个数量级。
@@ -63,6 +64,8 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - **Agent benchmark 能泛化多远？** [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md) 在 53 个显微术 benchmark 测试与 105 种 agent 配置上共运行 1,949 次，发现用这些结果训练的代理模型无法可靠预测未见任务上的表现。
 - **未发表的研究级挑战。** [CritPt](../works/critpt.md) 由 50 余位物理学家在 11 个以上子领域创作 71 个未发表、防猜测的研究挑战（分解为 190 个检查点任务），由针对物理定制的流水线自动判分；最佳基础模型 5.7%，配编码工具约 10%。
 - **全新理论问题。** [TPBench](../works/tpbench.md) 给出 57 道全新、可自动验证的理论物理问题，从本科到研究级，覆盖高能理论与宇宙学；研究级问题大多未被受评模型解出。
+- **复现推导与延伸推导。** [PHYRD](../works/phyrd.md) 用 63 道题要求重新推出已发表的理论物理结果，另用 43 道题改动源论文的一个前提，要求推出由此带来的结果；每个小问连同适用条件一起判对错。五个模型的整题准确率在 Reproduce 上为 49.21% 到 68.25%，在闭卷 Discover 上为 18.60% 到 74.42%。
+- **先做符号检查的 QFT 推导。** [QFT-Bench](../works/qft-bench.md) 给出 75 道有闭式答案的量子场论题，先用 SymPy 检查框出的最终答案，判不了时再交给 LLM judge，并另外标出推导撑不起正确答案的回答；39 个模型中有 12 个准确率超过 95%，平均不忠实率为 7.2%。
 - **科学家整理的科研代码。** [SciCode](../works/scicode.md) 把 80 个真实科研编码问题分解为 338 个子问题，横跨 16 个自然科学子领域；受评模型中最好的在最接近真实的设定下只解出 4.6% 的主问题。
 - **内核校验的形式化物理。** [Lean4Physics](../works/lean4physics.md) 贡献 LeanPhysBench——200 条经同行评审的 Lean4 物理命题——外加 PhysLib 基础库；最佳成绩为专业证明器 16%、Claude Sonnet 4 35%，PhysLib 平均带来 +11.75%。
 - **防记忆的方程发现。** [LLM-SRBench](../works/llm-srbench.md) 构建 239 个方程发现问题：或把已知物理模型变换到陌生表征，或直接合成发现型问题；最好的系统符号准确率仅 31.5%。
@@ -125,6 +128,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - **靠数据不公开来防泄漏。** [onepot-Bench 0](../works/onepot-bench.md) 把反应结果与催化剂选择的评估锚定在实验室私有数据上，另配化学信息学素养与拒答两个子组件。
 - **实验室里的 VLM 瓶颈。** [MaCBench](../works/macbench.md) 发现视觉-语言模型在设备识别与数据抽取上近乎完美，但在空间推理与跨模态综合上存在根本性局限。
 - **自主实验室的失败分析。** [LabRobFail](../works/labrobfail.md) 为化学自主实验室搭建失败中心的 benchmark——20,000+ 条轨迹，含控制级、物理级与语义级失败注入——领域专用 VLM 检测率达 90.83%，作为实时监督者提升下游任务成功率。
+- **把实验室机器人的选择和物理执行分开评估。** [Labference](../works/labference.md) 把实验室机器人选了哪一步操作、这一步有没有真正做成、整个任务是否完成分成三项打分；在模拟的简单称量中，两个微调后的 VLA 策略各跑 50 个回合，只有 20% 和 18% 的回合选对了所需砝码，由 GPT 驱动的对照方案 10 次试验全部选对，但只完成 8 次。
 - **材料知识考试问答。** [MaScQA](../works/mascqa.md) 用 650 个 GATE 考题测 LLM 的材料知识，GPT-4 约 62%，概念性错误多于计算性错误。
 - **大学水平的材料推理。** [MatSciBench](../works/matscibench.md) 出 1,340 个带参考解与图像的问题；DeepSeek-R1 文本达 75.22%，而图像最好仅 53.02%，把多模态推理标记为更难的前沿。
 - **LLM 作为性质预测器。** [LLM4Mat-Bench](../works/llm4mat-bench.md) 在约 190 万晶体、45 种性质上评测生成式对话 LLM 与微调模型，发现任务专用模型仍占主导。
@@ -198,6 +202,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - **天文原生的科学计算，以职业天文学家为评判尺度。** [AstroVisBench](../works/astrovisbench.md) 把 110 份真实的天文教程 notebook 切成 setup、processing、visualization 三段，处理段按它产出的内存变量评分，图则看它有没有传达出正确的科学洞见——所用的视觉语言 judge 不是想当然指定的，而是依据与五位天文学家标注面板的实测相关性选出（ρ = 0.822，而天文学家彼此之间的 Fleiss' κ 为 0.53）；八个模型中最强的一个，也只有 15.7% 的可视化任务被判为 No Error。[gammapyGPT](../works/gammapygpt.md) 把靶子收窄到一个文档稀薄的仪器分析库，验的是数值分析结果——观测数量、区域显著性、能流、谱指数——而不是代码看上去合不合理，并记下验证是在第几次尝试通过的，从而把一次到位与事后补救区分开来。[Imaging-101](../works/imaging-101.md) 把 57 个以论文为依据的计算成像任务规整成同一条四阶段流水线，在规划、函数级与端到端三条赛道上评分，其天文切片覆盖 Event Horizon Telescope 重建、日冕仪系外行星成像与 Shack–Hartmann 波前探测；端到端最好成绩是 57 中的 17。
 - **及格线由领域早已认可的天文软件划定。** 有一批天文工作不肯把「成功」的定义交给语言模型，而是把它锚在领域一直信任的软件上。[Mephisto](../works/mephisto.md) 只有当 agent 给出某个 χ² < 1.2 × 穷举 3.6 亿点 CIGALE 网格搜索所得 χ² 的 SED 模型时，才算这个星系被解释清楚；同一套 256 星系流程还在七种底座上重跑，并对照相对 API 成本。[An LLM-driven framework for cosmological model-building](../works/an-llm-driven-framework-for-cosmological-model-bui.md) 让 agent 去改容器化的 CLASS 3.3.0，并叠了三层检查——二元的执行里程碑、算得的可观测量相对标准实现的最大相对偏差，再到对照 DESI、Planck、Pantheon+ 与 SH0ES 数据的似然、BIC、Hubble 张力与 CMB 自洽性奖励——因此能编译通过的实现并不自动等于成功的实现。[SimAgents](../works/simagents.md) 把还原出的模拟配置，对照 40 余项已发表宇宙学模拟的人工标注做参数级评分，并把 Type Error（软件层面非法的取值）与 Value Error、幻觉分开计数，好让那些物理上说得通、却根本跑不起来的输出不被埋没。
 - **准确率、推理与诚实度，评在同一个观测判断上。** [AstroAlertBench](../works/astroalertbench.md) 把 1,500 条真实 ZTF 警报按人类审核者看到的样子呈现——broker 元数据加上 science/reference/difference 三联图——并把元数据感知、结构化的天体物理论证，以及伪迹 → 起源 → 子类的层级判断分开评分；再加一条诚实度轴，衡量模型的自我评估跟不跟得上它的正确率，具体通过群体层面的谦逊度、实例层面的校准度，以及第二轮 rollout 重试这一行为学探针来考察；13 个模型中最好的端到端成绩为 60.60 ± 1.26%，而实测的人类集成基线是 30.67%。[Spec-o3 / SpecVI-Bench](../works/spec-o3.md) 则刻意去搭建同一问题中更难的那一半：负样本按 0.8 的分类器概率做拒绝采样，因而正是部署中的分类器真会推到人跟前的那些光谱；测试集保持不均衡，以正类 F1 为头号指标；LAMOST → SDSS/DESI 的划分用来考察巡天迁移；另有六位天文学家在标签准确率之外，依公开的 0–5 分 rubric 为 100 条推理轨迹打分。
+- **以已发表对比结果为答案的方法选择。** [Astro2Method](../works/astro2method.md) 让模型判断两种机器学习方法中，哪一种在原天文论文里实测效果更好。原论文完整解释了原因的对比题，直接提问的准确率为 87.50–92.55%；只解释了一部分的，准确率只有 58.87–64.52%。把原论文的流程描述（方法名已遮蔽）提供给模型后，后一类题的准确率提高 12.1–14.5 个百分点。
 - **先由专家评分，再据此校准 judge。** [CosmoPaperQA](../works/cosmopaperqa.md) 让一位博士级宇宙学家，把九种 RAG 配置在 105 组专家撰写问答对上产生的全部 945 条回答逐条手工评分，并在报告 LLM judge 时一并附上它们的偏差方式——o3-mini 比人类专家低 2–8 分，Gemini 2.5 Pro 高 5–15 分，因此只有排序（Pearson r > 0.99）被认为可以迁移。[From Queries to Criteria](../works/from-queries-to-criteria-understanding-how-astrono.md) 的评判标准来自实践而非 benchmark 设计者的直觉——取自在 STScI 面向天文学家四周部署中的 368 条查询与 11 次访谈——并把公开的 40 题 benchmark 的自动相关性分数，对照部署期间真实的赞/踩评分做了验证，Pearson 相关为 0.82。[AI's Capability in Assisting Scientific Research I](../works/ai-assisting-research-i-literature-review.md) 把八位领域专家与三个 AI 系统摆在同样八个前沿课题上，发现主要失效并不是编造：641 条仅由 AI 给出的参考文献中，33% 元数据完全正确，64% 至少有一个字段出错，3% 属凭空捏造，而人机重合率对每个系统都低于 6%。
 - **把「静默地错得很像样」的结果本身当作被测对象。** [Plausible but Wrong](../works/plausible-but-wrong-a-case-study-on-agentic-failur.md) 把评分拆成执行成功、参数准确度与数值准确度，并把后两者相乘合成，使配置上的功力无法掩盖物理上的错误；四类失败模式也正是由这几项分数上的阈值定义的。剩下的主导失败模式不是崩溃，而是 Mode C——程序跑通了，求解器参数看着也合理，数字却是错的——在没有文档上下文时约占 47% 的运行，四个开放式 Deep Research 任务更是全部静默失败。[First head-to-head comparison of agentic AI on Einstein Telescope data](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) 从过程一侧触及同一忧虑：两个 agent 拿到相同的规格说明、跑在相同的硬件上，最终收敛到相同的探测效率，可其中一个悄悄把目标信噪比下限从 7 改成了 8；重启、静默偏离、显式自我纠正与未经要求的优化，都是从日志里数出来的，而不是靠轶事描述。[Quantifying the Reproducibility of Astrophysical Methods](../works/quantifying-the-reproducibility-of-astrophysical-m.md) 则把同一道缺口定位到源文本上：重建出的流程按四级 Hierarchy of Scientific Validity 评分，一旦给出 Methods 部分，三个前沿模型都能还原显式的框架（V = 2），却没有一个能还原那些让结果得以校准的隐含统计约束（V = 3）。
 - **以天文学家本人为对照的受控实验。** [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) 让科学问题在 32 份格式统一的盲评一页纸计划书中保持固定，再把同一套四方面 rubric 同时交给一个由教师与资深博后组成的四人评审组和两位 LLM 评审：人类给人写的和 AI 写的打分大体相当（3.52 对 3.25–3.74），两位 LLM 评审却都给 AI 撰写的文本多打了大约一整分；而 AI 的优势恰恰集中在人类投入最弱的地方（r ≈ −0.95）。[AI Cosplaying as Astrophysicists](../works/ai-cosplaying-as-astrophysicists-a-controlled-synt.md) 干脆用角色化人设替换真人被试，使每一项指派都能在其他条件全不变的前提下跑遍五种辅助策略，12,960 个回合的评分中还把灾难性失败单列成一条与任务质量分开的通道；平均效用是中性的（+0.0017），灾难性失败率却上升（+0.0112），且集中在推导与推理上——而论文报告的角色互换复现，把这一主结论的正负号翻了过来。
@@ -208,6 +213,8 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - **用一棵 rubric 树取代一个笼统的 judge。** [RubricsTree](../works/rubricstree.md) 把开放式的个人健康 agent 评估自顶向下拆成 100 多条医生可以逐条核验的原子布尔叶节点 rubric，再由上下文感知路由器只激活与当前查询相关的那一部分；与专家组的一致性达到 ICC₃ = 0.876、κ = 0.787，而基于原则的基线只有 0.291 与 0.431；同一套 rubric 还被复用为指令、反馈与训练奖励。
 
 新增的两项工作把最终产物背后的步骤单独拿出来检查。[AgentIdeaBench](../works/agentideabench.md)改变了生成假设前由谁收集文献；[AgentActionBench](../works/agentactionbench.md)检查复现过程中实际做了哪些操作。假设写得合理、代码看起来完整，都不能单独证明实验已经成功。
+
+[DISCERN](../works/discern.md)在同一组生命科学方向上，把数据审核、分析核查和假设生成分成不同 Level 分别评分。配对的干净对照让过度拒收也能被看到：64 次干净对照评测中，只有 19 次正确接受了数据。
 
 ## 方法对比
 
@@ -465,6 +472,13 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 | AI-Researcher | 2025 | 22 篇 2022-2024 年目标论文，按关键词与引用量筛出，输入中的方法名、技术细节与引用均已匿名化 | 扩散模型、向量量化、图神经网络、推荐系统 | 代码审查 agent 评实现完整性与 5 分制正确性，另由 LLM 审稿人换序两两比较生成稿与人类论文（-3 到 +3）；审稿人在 32 组 ICLR 录用/拒稿配对上验证，准确率 65.62-90.62% | [→](../works/ai-researcher.md) |
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | 整理后的研究文献 | 五个学科；生成科学假设 | 结合检索文献的模型评审 | [AgentIdeaBench](../works/agentideabench.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | 150 篇已发表论文 | 120 篇 ML 与 30 篇 AI4Science 论文 | 模型依据操作日志判断加权 rubric 条目 | [AgentActionBench](../works/agentactionbench.md) |
+| PHYRD | 2026 | 由 FormulaForest 从源论文构造的 63 道 Reproduce 题和 43 道 Discover 题 | 五个子领域的理论物理（以高能物理为主） | 逐小问二值评分，要求覆盖推导和适用条件；报告 SAcc 与 WAcc | [→](../works/phyrd.md) |
+| QFT-Bench | 2026 | 75 道新编或改编题，难度从研究生高难题到研究入门 | 量子场论：8 个方向，包括超对称与共形场论 | SymPy 符号等价检查，判不了时由 Opus-5 judge 判分；另设忠实度 judge | [→](../works/qft-bench.md) |
+| Labference | 2026 | 作者为 3 类核心实验室任务编写的任务契约（附录另列 24 个任务）；已报告的实验只覆盖简单反馈称量 | 机器人实验室操作（离心机装载、天平称量、试管架取放） | Isaac Sim 5.1 中的物理确认判据（如读数与目标相差不超过 1 g 并保持 3 s）；选择、执行、完成分别打分；不用 judge | [→](../works/labference.md) |
+| SlowLab | 2026 | 隐藏品种与设施参数的模拟温室站点（48 个测试站点），使用 KNMI Cabauw 天气数据 | 设施环境作物生产（在缓慢且无法撤回的实验中确定温室气候策略） | 不公开的评估器：3 个留出天气年份 × 2 个种植日期上的平均边际贡献（EUR/m²）；不用 judge | [→](../works/slowlab.md) |
+| Astro2Method | 2026 | 从 346 篇天文论文（2024-01 至 2026-06）的方法对比中构建 500 道经专家审阅的二选一题 | 天文学：机器学习方法选择；按原论文解释是否完整，分为 Easy 376 题、Hard 124 题 | 与原论文中经显著性筛选的对比结果精确匹配；准确率对照 50% 的随机水平 | [→](../works/astro2method.md) |
+| DISCERN | 2026 | 公开生命科学数据集，含受控缺陷、配对的干净对照和反事实证据包 | 八个生命科学方向；数据完整性、分析核查、假设生成 | L1–L2 确定性评分，并由 LLM 验证器复核；L3 经三轮对抗评审后由 LLM judge 评分 | [→](../works/discern.md) |
+| AlphaIdeaBench | 2026 | NeurIPS/ICML/ICLR workshop 征稿说明（2023–2025）和综述中的开放问题 | 资源预算约束下的机器学习研究构思 | LLM judge 评 12 个维度；新颖性各项与由评审意见得出的分数对比 | [→](../works/alphaideabench.md) |
 
 ## 还没解决的问题
 
@@ -476,6 +490,13 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 
 ## 相关工作
 
+- [Labference](../works/labference.md)
+- [SlowLab](../works/slowlab.md)
+- [AlphaIdeaBench](../works/alphaideabench.md)
+- [PHYRD](../works/phyrd.md)
+- [QFT-Bench](../works/qft-bench.md)
+- [Astro2Method](../works/astro2method.md)
+- [DISCERN](../works/discern.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [ASI-Bench](../works/asi-bench.md)

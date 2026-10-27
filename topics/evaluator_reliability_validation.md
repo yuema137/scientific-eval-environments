@@ -22,13 +22,16 @@ A score inherits the evaluator's mistakes. A judge can agree with experts on eas
 - **Pairwise preference validation.** [Plan-RewardBench](../works/plan-rewardbench.md) controls candidate order and asks evaluators to distinguish preferred tool-use trajectories from confusable negatives.
 - **Skill-aware judging.** [SkillTV-Bench](../works/skilltv-bench.md) tests whether judges can verify trajectories whose correctness depends on task-specific skill knowledge.
 - **Hybrid verification.** [AgentLens](../works/agentlens.md) combines formal checks with multiple judge dimensions and evidence-linked reviews.
-- **Domain calibration.** [AstroVisBench](../works/astrovisbench.md), [PSE-Bench](../works/pse-bench.md), and [FIRE-Bench](../works/fire-bench.md) report human agreement for judges used on scientific outputs. [DiscoveryBench](../works/discoverybench.md) audits its hypothesis-matching evaluator twice: step by step on 200 extraction and matching decisions, then end to end against three annotators ranking predicted hypotheses.
+- **Domain calibration.** [AstroVisBench](../works/astrovisbench.md), [PSE-Bench](../works/pse-bench.md), and [FIRE-Bench](../works/fire-bench.md) report human agreement for judges used on scientific outputs. [DiscoveryBench](../works/discoverybench.md) audits its hypothesis-matching evaluator twice: step by step on 200 extraction and matching decisions, then end to end against three annotators ranking predicted hypotheses. [QFT-Bench](../works/qft-bench.md) checks two judge tasks against the same three QFT experts: answer correctness reaches 98% agreement for Opus-5, while derivation faithfulness reaches 73%, so the faithfulness rates rest on a weaker check than the accuracy scores.
 - **Conference decisions as the anchor.** [AI-Researcher](../works/ai-researcher.md) tests its paper-review agent on content-matched pairs of accepted and rejected ICLR submissions, and drops the evaluator that separates them worst before rating any generated paper.
 - **Domain calibration.** [AstroVisBench](../works/astrovisbench.md), [PSE-Bench](../works/pse-bench.md), and [FIRE-Bench](../works/fire-bench.md) report human agreement for judges used on scientific outputs.
 - **A judge with its own benchmark.** [PaperBench](../works/paperbench.md) hand-grades the rubric leaf nodes of partial paper replications, then scores candidate judge backends as binary classifiers against those labels and selects the one with the best F1 per dollar rather than the highest F1.
 - **Experts and alternate judges on the same answers.** [HeurekaBench](../works/heurekabench.md) checks its judge twice before using it: eleven domain experts rate the same 25 open-ended answers, and two other frontier models re-score the same agent runs, so rater disagreement and judge-model disagreement are reported separately.
+- **Reusable verifiers under shifted requirements.** [AgentProofBench](../works/agentproofbench.md) freezes a Web-agent acceptance program and reruns it on initial states that change what the same instruction requires, comparing reuse against rebuilding. It then branches delivery policies from identical saved openings, so a verifier's panel errors can be read against what the agent finally delivers.
 
 These additions test different measurement objects: [AgentIdeaBench](../works/agentideabench.md) calibrates critics, [AgentActionBench](../works/agentactionbench.md) compares scores from generated and human rubrics, and [PTA-IRT](../works/pta-irt.md) measures how accurately a subset predicts a full suite. Agreement at one level should not be read as validation at all three levels.
+
+[AlphaIdeaBench](../works/alphaideabench.md) checks only the novelty half of its judge: reviewer comments are converted into scores by the same model that serves as judge, and agreement drops on scenario novelty. Its validity and feasibility scores have no human reference.
 
 ## Comparison
 
@@ -48,6 +51,9 @@ These additions test different measurement objects: [AgentIdeaBench](../works/ag
 | [AgentIdeaBench](../works/agentideabench.md) | Literature-grounded critics | Landmark anchors; human judgments on 100 CS pairs | 77% human-majority agreement; calibration controls | Static/Active comparisons |
 | [AgentActionBench](../works/agentactionbench.md) | Generated paper-specific rubrics | Human rubrics on 15 papers | Pearson 0.93; Spearman 0.88 between rubric-source scores | Reproduction-stage breakdown; not item-level judge accuracy |
 | [PTA-IRT](../works/pta-irt.md) | Subset-to-full estimator | Full-suite outcomes of held-out agents | MAE; Kendall tau; Spearman rho | Four-fold validation and trajectory ablations |
+| [QFT-Bench](../works/qft-bench.md) | Opus-5 and GPT-5.6 judges for answer correctness and derivation faithfulness | Three QFT experts on 60 responses from 15 models | Correctness agreement 98% / 92%; faithfulness agreement 73% / 67% | Opus-5 used for correctness fallback, faithfulness rates, and error categories |
+| [AgentProofBench](../works/agentproofbench.md) | Frozen Web-agent acceptance programs written by DeepSeek Flash/Pro, reused or rebuilt; fresh online judgments for comparison | Reference rules over 556 natural terminal states and 558 states from source, background, and related initial conditions; LLM audit agrees on 191/192 | Balanced accuracy; complete-panel and decision-replay joint pass; reuse-minus-rebuild BA with family bootstrap | Delivery from identical saved openings: 32/33 panel-correct vs. 1/11 panel-error assignments deliver correctly; program gate below neutral continuation |
+| [AlphaIdeaBench](../works/alphaideabench.md) | Gemini 3.7 Flash judge on four novelty axes | Reviewer comments on 600 ICLR 2026 / NeurIPS 2025 / ICML 2025 papers, mapped to 1–5 scores by Gemini 3.7 Flash | Within-±1 agreement ~94.5–97.4% (problem), 95.9–96.8% (method), 80.6–87.5% (scenario); GPT-5 mini re-score Spearman ρ 0.81 / 0.83 | Harness and backbone rankings; validity and feasibility have no human reference |
 
 ## Open Questions
 
@@ -59,6 +65,9 @@ These additions test different measurement objects: [AgentIdeaBench](../works/ag
 
 ## Related Works
 
+- [AgentProofBench](../works/agentproofbench.md)
+- [AlphaIdeaBench](../works/alphaideabench.md)
+- [QFT-Bench](../works/qft-bench.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PTA-IRT](../works/pta-irt.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

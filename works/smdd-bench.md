@@ -20,7 +20,7 @@ SMDD-Bench asks whether LLMs can solve real-world small-molecule drug design tas
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2605.21740>
-- **Leaderboard:** <http://smddbench.com>
+- **Leaderboard:** <https://smddbench.com>
 - **Venue:** arXiv preprint (cs.AI), 2026
 
 ## Summary

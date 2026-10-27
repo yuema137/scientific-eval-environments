@@ -53,9 +53,11 @@
 | SMDD-Bench | 2026 | 带预算约束的多轮小分子药物设计 | 502 个可解实例，102 个靶点，五种任务类型 | oracle 调用限制下的求解率（GPT-5.4: 40.2%） | [卡片](../works/smdd-bench.md) |
 | PACE-Bench | 2026 | 在机构的运行物理改变之后重新设计，使其恢复可用 | Box2D 中 144 个源到目标对；每对 20 次尝试，反馈只作诊断不给修改建议 | 约束满足比例下的 Pass@2；全量 benchmark 最好成绩为 35.9%（Reflexion + Qwen3-14B） | [卡片](../works/pace-bench.md) |
 | AI4AI-Bench | 2026 | 在十个 AI research repository 中重新设计 learning procedure | 单张 B300 上四小时探索，使用便宜 proxy；随后只移交 source，做最多十二小时的 clean run | 对照同条件重跑原算法的 repository 原生最终指标，并分类 patch 改的是 learning 本身还是外围 run | [卡片](../works/ai4ai-bench.md) |
+| SlowLab | 2026 | 以经济收益为目标，优化包含六个设定值的温室气候策略（温度、CO₂、补光、通风） | 基于 GreenLight 的模拟温室；一年期实验，最多 16 次实验；48 个未见站点 | 3 个留出天气年份 × 2 个种植日期上的平均边际贡献（EUR/m²）；Full 反馈下基线为 33.62，模型为 28.02–29.62 | [卡片](../works/slowlab.md) |
 
 ## Related Works
 
+- [SlowLab](../works/slowlab.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [EnergyBridge](../works/energybridge.md)

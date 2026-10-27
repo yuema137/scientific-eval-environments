@@ -35,9 +35,11 @@ A third grouping reproduces **study results from provided code and data** or ben
 | Quantifying Reproducibility of Astrophysical Methods | 2026 | Reconstruct a published astrophysics method from its text alone | One method at Title / +Abstract / +Methods levels; five models | Hierarchy of Scientific Validity 0-3, with V >= 2 the pass threshold | [card](../works/quantifying-the-reproducibility-of-astrophysical-m.md) |
 | Replica | 2026 | Reproduce a results figure that has been irreversibly redacted from the source paper | 310 auto-generated tasks from 100 papers; 60 min on a one-seventh H200 MIG slice | Rubric-judge score across five dimensions; the post-trained agent beats Opus 4.8 and GPT-5.5 on 73% of in-distribution and 60% of held-out AI-for-science tasks | [card](../works/replica.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | Reconstruct and execute published experiments | 150 papers; instrumented Read/Write/Execute environment | Repository and action log; importance-weighted reproduction rubric | [AgentActionBench](../works/agentactionbench.md) |
+| PHYRD | 2026 | Re-derive published theoretical-physics results from stated premises | 63 closed-book Reproduce problems from 16 source papers, 279 subquestions | Every subquestion correct, including derivations and applicability conditions (best WAcc 68.25%) | [card](../works/phyrd.md) |
 
 ## Related Works
 
+- [PHYRD](../works/phyrd.md)
 - [Replica](../works/replica.md)
 - [NatureBench](../works/naturebench.md)
 - [Collider-Bench](../works/collider-bench.md)

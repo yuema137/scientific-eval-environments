@@ -157,9 +157,17 @@ def _localized_axis_title(folder: str, slug: str, fallback: str) -> str:
     return match.group(1).strip() if match else fallback
 
 
-def _axis(block: str) -> list[dict[str, str]]:
+def _axis(block: str, folder: str) -> list[dict[str, str]]:
+    """Return the axis memberships a card's metadata block links to.
+
+    Only links into ``folder`` count. A block may also cross-reference another
+    axis in prose (for example, a card with no methodology topic pointing to its
+    Robotics domain page); such links are navigation, not membership.
+    """
     out = []
-    for name, folder, slug in AXIS_LINK_RE.findall(block):
+    for name, link_folder, slug in AXIS_LINK_RE.findall(block):
+        if link_folder != folder:
+            continue
         out.append({
             "name": name,
             "zh_name": _localized_axis_title(folder, slug, name),
@@ -191,8 +199,8 @@ def _card(path: Path, monthly_map: dict[str, str]) -> dict:
         "overview": sections.get("Overview", ""),
         "summary": sections.get("Summary", ""),
         "domains_text": sections.get("Domains", ""),
-        "topics": _axis(sections.get("Topics", "")),
-        "activities": _axis(sections.get("Activities", "")),
+        "topics": _axis(sections.get("Topics", ""), "topics"),
+        "activities": _axis(sections.get("Activities", ""), "activities"),
         "links": _links(sections.get("Links", "")),
         "zh": {
             "overview": zh_sections.get("Overview", ""),

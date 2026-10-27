@@ -6,6 +6,7 @@ control flow, phase gates, English integration, bilingual parity, independent re
 the smoke final-gate ("all phases pass -> would_open_pr, but no PR is created") WITHOUT a live
 model or network — complementary to the live auth / fixture smokes that run on the GitHub runner.
 """
+import json
 import os
 import re
 
@@ -166,6 +167,29 @@ def test_phase5_handles_null_structured_output(tmp_path, monkeypatch):
     assert ok is True and r["edited"] == 0
 
 
+def test_phase3_fails_closed_when_an_axis_worker_writes_no_assignments(tmp_path, monkeypatch):
+    """A domain/activity worker that ends without its assignment JSON must fail Phase 3 instead
+    of letting integration stamp every new card `N/A` for activities (seen in production)."""
+    from conftest import build_mini_repo
+    root = build_mini_repo(str(tmp_path / "ws"), [{"slug": "newcard", "title": "NewCard"}])
+    run_dir = os.path.join(root, "runtime")
+
+    def worker(agent, kind, prompt, cwd, max_turns, schema=None, model=None):
+        if "topic" in agent:
+            _write(cwd, "runtime/phase3/topic_assignments.json",
+                   {"assignments": [{"slug": "newcard", "topics": ["trajectory_evaluation"]}]})
+        return {"ok": True, "structured_output": {"status": "ok"}}
+
+    monkeypatch.setattr(pipeline, "run_worker", worker)
+    before = open(os.path.join(root, "works", "newcard.md")).read()
+    ok, _ = pipeline.phase3(run_dir, root, ["newcard"], pipeline.config())
+    assert ok is False
+    state = json.load(open(os.path.join(run_dir, "state", "english_axes.json")))
+    assert state["status"] == "fail"
+    assert any("domain_assignments.json" in e for e in state["summary"]["axis_errors"])
+    assert open(os.path.join(root, "works", "newcard.md")).read() == before
+
+
 def test_full_five_phase_orchestration_stubbed(tmp_path, monkeypatch):
     monkeypatch.setattr(pipeline, "run_worker", _stub_worker)
     ws = str(tmp_path / "ws")
@@ -249,6 +273,36 @@ def test_integrator_adds_related_works_even_when_table_links_the_card(tmp_path):
     integrate_english.run(str(tmp_path / "rt"), root)
     rw = open(os.path.join(root, "topics", "long_horizon_evaluation.md")).read().split("## Related Works")[1]
     assert "../works/crest.md" in rw, "card not added to Related Works section"
+    ok, errs = validators.validate_axes(root)
+    assert ok, errs
+
+
+def test_integrator_uses_the_chinese_related_works_heading(tmp_path):
+    """Chinese topic mirrors title the section `## 相关工作`. The integrator must add the card
+    there, in chronological order, instead of appending an unsorted `## Related Works` copy
+    (which made the English gate fail on every zh/topics page a new card touched)."""
+    import json
+    import integrate_english
+    import validators
+    from conftest import build_mini_repo
+    root = build_mini_repo(str(tmp_path), [
+        {"slug": "older", "title": "Older", "topics": ["trajectory_evaluation"]},
+        {"slug": "newcard", "title": "NewCard"}])
+    p = os.path.join(root, "works", "newcard.md")
+    t = open(p).read().replace("2025-01-02", "2026-10-01")
+    t = re.sub(r"(## Topics\n).*?(\n## )", r"\1TODO(axis)\2", t, flags=re.S)
+    open(p, "w").write(t)
+    zh_page = os.path.join(root, "zh", "topics", "trajectory_evaluation.md")
+    open(zh_page, "w").write("# trajectory_evaluation\n\n## 相关工作\n\n- [Older](../works/older.md)\n")
+    rd = tmp_path / "rt" / "phase3"
+    rd.mkdir(parents=True)
+    (rd / "topic_assignments.json").write_text(json.dumps(
+        {"assignments": [{"slug": "newcard", "topics": ["trajectory_evaluation"]}]}))
+    integrate_english.run(str(tmp_path / "rt"), root)
+    zh_text = open(zh_page).read()
+    assert "## Related Works" not in zh_text
+    rw = zh_text.split("## 相关工作")[1]
+    assert rw.index("../works/newcard.md") < rw.index("../works/older.md")
     ok, errs = validators.validate_axes(root)
     assert ok, errs
 

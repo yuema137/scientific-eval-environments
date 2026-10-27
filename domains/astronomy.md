@@ -47,6 +47,7 @@ Two boundaries matter. Against **Physics**, the test is the object of study rath
 | Imaging-101 | 2026 | Astronomical computational imaging: Event Horizon Telescope black-hole reconstruction from gain-corrupted visibilities, high-contrast exoplanet coronagraphic imaging, atmospheric-turbulence lucky imaging, Shack–Hartmann wavefront sensing, and shapelet source reconstruction. | Astronomy is one of six named domains within 57 paper-grounded tasks, each canonicalized into a preprocessing → forward physics → inverse solver → visualization pipeline and evaluated on planning, function-level and end-to-end tracks; per-domain task counts are `TODO(reference)`. | End-to-end reconstructions executed and scored against per-task `metrics.json` acceptance thresholds using normalized cross-correlation and NRMSE; function-level work checked by paired pytest suites synthesized from captured reference input/output. | [→](../works/imaging-101.md) |
 | PRL-Bench | 2026 | Carry out frontier physics research tasks derived from post-August-2025 Physical Review Letters papers; astrophysics is one of the five named subfields. | 100 expert-validated, long-horizon research tasks with exploration-oriented formulation; per-subfield counts are not stated. | Objectively verifiable task outcomes, expert-validated, scored on a 0–100 scale. | [→](../works/prl-bench.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in astronomy | Paper-to-repository reproduction; Part of 30 AI4Science papers; per-field count unreported | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
+| Astro2Method | 2026 | Choose the better machine-learning method for a published astronomy problem, e.g. which network gives lower error when estimating stellar surface gravity from light curves; topics include stellar astrophysics, galaxy photometric redshift, and high-energy and time-domain astronomy. | 500 binary questions from 346 papers published 2024-01 to 2026-06 (376 Easy, 124 Hard by completeness of the source explanation); five models direct, three under RAG, agent and web-search settings. Per-topic counts are given only in a figure. | Exact match against the source paper's comparison, kept only if the gap is ≥ 2σ or, without uncertainties, ≥ 10% relative improvement; every question human-reviewed. | [→](../works/astro2method.md) |
 
 ## Capability Matrix
 
@@ -111,6 +112,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | DomainCQA / AstroChart | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✔ | ✔ | ✘ | 2 | 3 | 3 | **10** |
 | Quantifying the Reproducibility of Astrophysical Methods with Large Language Models and Information Theory | SSB | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ◐ | ✔ | ✔ | 3 | 0 | 4 | **9.5** |
 | LLM-IOAA | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✔ | ✔ | ✘ | 3 | 1 | 3 | **9** |
+| Astro2Method | STEL, GAL, HEA, TD | ◐ | ✘ | ✘ | ✘ | ✔ | ✘ | ◐ | **2** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
 | HiSciBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✔ | ✘ | 2 | 2 | 3 | **8** |
 | SimAgents | COS | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
 | AstroVisBench | COMP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 2 | 2 | 3 | **7** |
@@ -130,6 +132,7 @@ Repository note: a suite-wide total does not establish this domain’s item coun
 
 ## Related Works
 
+- [Astro2Method](../works/astro2method.md)
 - [AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation](../works/ai-assisting-research-ii-project-planning.md)
 - [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)
 - [Imaging-101](../works/imaging-101.md)

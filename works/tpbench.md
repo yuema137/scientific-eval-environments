@@ -19,7 +19,7 @@ TPBench (Theoretical Physics Benchmark) is a dataset and study of AI reasoning i
 ## Links
 
 - **Paper:** <https://arxiv.org/abs/2502.15815>
-- **Project:** <http://tpbench.org>
+- **Project:** <https://tpbench.org>
 - **Venue:** Machine Learning: Science and Technology, 2025
 
 ## Summary

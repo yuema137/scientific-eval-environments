@@ -53,9 +53,11 @@ A fifth cluster is **civil and structural component design against codes and sol
 | SMDD-Bench | 2026 | Budgeted multi-turn small-molecule drug design | 502 solvable instances, 102 targets, five task types | Solve rate under oracle-call limit (GPT-5.4: 40.2%) | [card](../works/smdd-bench.md) |
 | PACE-Bench | 2026 | Redesign a mechanism so that it works again after its operating physics changes | 144 source-to-target pairs in Box2D; 20 attempts per pair with non-prescriptive diagnostic feedback | Pass@2 under a constraint-satisfaction fraction; best full-benchmark result 35.9% (Reflexion + Qwen3-14B) | [card](../works/pace-bench.md) |
 | AI4AI-Bench | 2026 | Redesign learning procedures across ten AI research repositories | Four hours on one B300 to explore against a cheap proxy; source-only handoff into a clean run of up to twelve hours | Repository-native final metric relative to an identically rerun original algorithm, plus classification of whether the patch changed learning or only the surrounding run | [card](../works/ai4ai-bench.md) |
+| SlowLab | 2026 | Optimize a six-set-point greenhouse climate policy (temperatures, CO₂, supplemental light, ventilation) for economic margin | Simulated greenhouse built on GreenLight; one-year campaign under a 16-experiment budget; 48 unseen sites | Mean contribution margin (EUR/m²) over 3 held-out weather years × 2 planting dates; baseline 33.62 vs. models 28.02–29.62 under Full feedback | [card](../works/slowlab.md) |
 
 ## Related Works
 
+- [SlowLab](../works/slowlab.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [EnergyBridge](../works/energybridge.md)
