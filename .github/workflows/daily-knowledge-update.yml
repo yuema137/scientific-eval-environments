@@ -25,6 +25,20 @@ on:
         type: choice
         default: full
         options: [full, validators-only, discovery-smoke, auth-smoke, fixture-e2e-smoke]
+      # Optional explicit discovery window for `full` mode (ISO dates, UTC; end inclusive, empty =
+      # now). Backfills a bounded range, e.g. 7 days at a time, and is the bootstrap path when the
+      # auto/updater-state watermark is absent. An override run never advances an existing
+      # watermark (it only seeds an absent one), so it can never move the schedule backwards.
+      window_start:
+        description: 'Backfill window start, YYYY-MM-DD (full mode only; empty = use watermark)'
+        type: string
+        required: false
+        default: ''
+      window_end:
+        description: 'Backfill window end, YYYY-MM-DD inclusive (empty = now)'
+        type: string
+        required: false
+        default: ''
 
 # Only one production update mutates state at a time; never cancel an in-progress run.
 concurrency:
@@ -170,6 +184,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          WINDOW_START: ${{ github.event.inputs.window_start }}
+          WINDOW_END: ${{ github.event.inputs.window_end }}
         run: python scripts/update_agent/run_phase.py discover --mode full
       - uses: actions/upload-artifact@v4
         with: { name: stage-runtime, path: runtime/ }
@@ -291,6 +307,8 @@ jobs:
   # Advance the durable discovery watermark ONLY on production success (a legitimate PR, or a
   # genuine no-op that searched and found nothing). Never on failure, needs_attention, or a
   # not-due no-op — so a failed run's window is automatically re-covered by the next run.
+  # run_phase.py advance-watermark further refuses to move it backwards, and a window-override
+  # (backfill) run only seeds an ABSENT watermark (bootstrap); it never advances an existing one.
   watermark:
     if: >-
       ${{ always() && (github.event_name == 'schedule' || github.event.inputs.mode == 'full')

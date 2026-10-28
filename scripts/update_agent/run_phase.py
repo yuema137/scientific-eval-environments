@@ -55,13 +55,41 @@ def _pending_index(rolling_branch):
     return p
 
 
+def _needs_attention(reason, lines, **detail):
+    phase_state.write_phase_result(RUN_DIR, "discovery", "fail",
+                                   dict({"needs_attention": reason}, **detail))
+    _gh_output(candidates=0, discovery="fail")
+    _summary("Discovery", ["needs_attention: %s" % lines[0]] + lines[1:])
+    sys.exit(1)
+
+
 def cmd_discover(a):
     cfg = config()
     # ---- watermark-driven window + scheduled due-check (production only) ----
-    since_override = None
+    since_override = until_override = None
+    window_info = {}
     now_iso = watermark.now_iso()
     if a.mode == "full":
-        wm_iso = watermark.read_watermark_iso()
+        # A manual window override (workflow_dispatch inputs window_start/window_end) backfills a
+        # bounded range and is also the bootstrap path when the state branch is absent.
+        try:
+            override = watermark.parse_override(os.environ.get("WINDOW_START"),
+                                                os.environ.get("WINDOW_END"), now_iso,
+                                                cfg["watermark"]["max_catchup_days"])
+        except ValueError as e:
+            _needs_attention("invalid window override", ["invalid window override: %s" % e],
+                             window_start=os.environ.get("WINDOW_START"),
+                             window_end=os.environ.get("WINDOW_END"))
+        wm = watermark.read_watermark()
+        wm_iso = wm["last_success"]
+        window_info = {"watermark_before": wm_iso, "watermark_state": wm["state"],
+                       "override": bool(override)}
+        if override:
+            since_override, until_override = override["start_iso"], override["end_iso"]
+            window_info["basis"] = "override"
+            log("discovery window %s -> %s (basis=override; watermark %s: %s)"
+                % (since_override, until_override, wm["state"], wm_iso))
+    if a.mode == "full" and not since_override:
         event = os.environ.get("GITHUB_EVENT_NAME", "workflow_dispatch")
         if event == "schedule" and not watermark.is_due(now_iso, wm_iso,
                                                          cfg["watermark"]["min_interval_hours"]):
@@ -72,7 +100,16 @@ def cmd_discover(a):
                                    % cfg["watermark"]["min_interval_hours"]])
             sys.exit(0)
         win = watermark.compute_window(now_iso, wm_iso, cfg["watermark"]["overlap_hours"],
-                                       cfg["watermark"]["max_catchup_days"], cfg["lookback_days"])
+                                       cfg["watermark"]["max_catchup_days"], cfg["lookback_days"],
+                                       require_watermark=True)
+        if win.get("missing_watermark"):
+            _needs_attention("watermark state missing",
+                             ["watermark state %s -- %s%s" % (
+                                 wm["state"],
+                                 "the state branch could not be read (git/network error); re-run "
+                                 "first. If it persists: " if wm["state"] == "fetch_failed" else "",
+                                 watermark.MISSING_STATE_HELP)],
+                             watermark_state=wm["state"], state_branch=watermark.STATE_BRANCH)
         if win["catch_up_exceeded"]:
             phase_state.write_phase_result(RUN_DIR, "discovery", "fail",
                                            {"needs_attention": "catch-up window exceeded",
@@ -84,8 +121,10 @@ def cmd_discover(a):
                                    % (win.get("backlog_days", 0), cfg["watermark"]["max_catchup_days"])])
             sys.exit(1)
         since_override = win["start_iso"]
+        window_info["basis"] = win["basis"]
         log("discovery window %s -> %s (basis=%s)" % (since_override, now_iso, win["basis"]))
-    cov = discovery.run(a.mode, RUN_DIR, now_iso=now_iso, since_iso=since_override)
+    cov = discovery.run(a.mode, RUN_DIR, now_iso=now_iso, since_iso=since_override,
+                        until_iso=until_override, window_info=window_info)
     tm = dict(cov.get("timing", {}))
     # 1) deterministic source-aware prefilter
     _t = time.monotonic()
@@ -125,10 +164,20 @@ def cmd_discover(a):
     _gh_output(candidates=n, discovery=("pass" if ok else "fail"))
     rbs = cov.get("raw_by_source", {})
     win = cov.get("search_window", {})
+    ah = cov.get("arxiv_harvest") or {}
+    warn = cov.get("source_warnings") or {}
     _summary("Discovery funnel", [
-        "Window: %s -> %s" % (win.get("start", "?")[:10], win.get("end", "?")[:10]),
-        "Raw: arXiv %d, OpenReview %d, GitHub %d (total %d)"
-        % (rbs.get("arxiv", 0), rbs.get("openreview", 0), rbs.get("github", 0), cov["raw_hit_count"]),
+        "Window: %s -> %s (basis=%s%s)" % (
+            win.get("start", "?")[:10], win.get("end", "?")[:10], win.get("basis", "?"),
+            "; manual override, watermark is not advanced unless absent" if win.get("override") else ""),
+        "arXiv OAI: %d chunk(s), complete through %s, %d harvested, %d revisions of older papers "
+        "dropped (%d would have matched), %d new records failed the local gate"
+        % (len(ah.get("chunks", [])), ah.get("complete_through"), ah.get("raw_harvested", 0),
+           ah.get("revisions_dropped_total", 0), ah.get("revisions_dropped_matching", 0),
+           ah.get("local_unmatched", 0)),
+        "Raw: arXiv %d, OpenReview %d, HuggingFace %d, GitHub %d (total %d)"
+        % (rbs.get("arxiv", 0), rbs.get("openreview", 0), rbs.get("huggingface", 0),
+           rbs.get("github", 0), cov["raw_hit_count"]),
         "Deterministic prefilter -> %d" % len(kept),
         "Cross-source merged: %d" % cross_merged,
         "Relevance: deep_review=%d, uncertain=%d (admitted %d, github-only excluded %d), rejected=%d"
@@ -143,11 +192,12 @@ def cmd_discover(a):
                          (" (%s)" % cov.get("source_status_detail", {}).get(s, ""))
                          if cov.get("sources", {}).get(s) in ("degraded_success", "suspicious_empty")
                          else "")
-            for s in ("arxiv", "openreview", "github")),
+            for s in ("arxiv", "openreview", "huggingface", "github")),
         "Discovery credible: %s%s" % (
             cov.get("discovery_credible", True),
             "" if cov.get("discovery_credible", True)
             else " — suspicious_empty: %s (watermark will NOT advance)" % ",".join(cov.get("suspicious_empty", []))),
+    ] + ["WARNING %s: %s" % (s, w) for s in sorted(warn) for w in warn[s]] + [
         "",
         "Timing:",
         "  arXiv     %5ss (%s req, %s raw)" % (tm.get("arxiv", {}).get("wall_s", "?"),
@@ -171,11 +221,16 @@ def cmd_advance_watermark(a):
     # source coverage is credible. An operationally-green run with an unresolved suspicious_empty source
     # must NOT advance the watermark — otherwise a silent source outage would permanently skip the
     # interval it failed to ingest. (Absent key -> treat as credible, for backward compatibility.)
-    if not watermark.should_advance(cov):
-        print("watermark NOT advanced: discovery not credible (suspicious_empty: %s)"
-              % ",".join(cov.get("suspicious_empty", []) or ["?"]))
+    # It also never moves backwards, and a manual override (backfill) run only seeds an ABSENT
+    # watermark; see watermark.advance_decision. The current value is re-read here, not trusted from
+    # discovery time, because another run may have advanced it meanwhile.
+    cur = watermark.read_watermark()
+    ok, ts, reason = watermark.advance_decision(cov, cur["last_success"], cur["state"])
+    _summary("Watermark", ["%s: %s (current %s: %s)"
+                           % ("advance to %s" % ts if ok else "NOT advanced", reason,
+                              cur["state"], cur["last_success"])])
+    if not ok:
         return
-    ts = (cov.get("search_window") or {}).get("end") or cov.get("started_at") or watermark.now_iso()
     subprocess.run(["bash", os.path.join(CWD, "scripts", "update_agent", "advance_watermark.sh"), ts],
                    check=False)
     print("watermark advance requested for", ts)

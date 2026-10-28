@@ -1,6 +1,10 @@
 """Discovery source adapters (Phase 1 — lightweight metadata only).
 
 Each adapter exposes .name and .search(query, since_iso, limit) -> list[record].
+search_many(queries, since_iso, limit, until_iso=None) takes an optional window END; adapters that
+can bound a window above honour it (a bounded backfill must not fan out to today), the rest ignore
+it and dedup absorbs the newer records. warnings() returns coverage notes that do not fail the
+source (a truncated daily feed, unreachable days) so discovery can surface them in its report.
 A record is a dict:
     {source, id, url, title, abstract_or_description, authors, date}
 Adapters NEVER download full papers or clone/execute repositories.
@@ -34,7 +38,10 @@ class Source:
     def search(self, query, since_iso, limit):  # pragma: no cover - interface
         raise NotImplementedError
 
-    def search_many(self, queries, since_iso, limit):
+    def warnings(self):
+        return list(getattr(self, "_warnings", []))
+
+    def search_many(self, queries, since_iso, limit, until_iso=None):
         """Issue queries for one taxonomy item. Default: one request per query (fallback).
         Adapters override to consolidate synonym queries into a single request. Returns
         (records, requests_issued)."""
@@ -54,7 +61,7 @@ class ArxivSource(Source):
     def search(self, query, since_iso, limit):
         return self._fetch("all:%s" % query, since_iso, limit)
 
-    def search_many(self, queries, since_iso, limit):
+    def search_many(self, queries, since_iso, limit, until_iso=None):
         # ONE consolidated request: (all:q1) OR (all:q2) ... — the union of the per-item synonym
         # queries in a single API call (arXiv supports boolean OR). matched_profiles stays at the
         # item granularity the caller tags. Raise max_results since one call returns the union.
@@ -105,9 +112,11 @@ class ArxivOAISource(Source):
     Instead of fanning out ~38 Search-API queries (one per taxonomy item — which trips arXiv's
     request-volume throttle from shared-cloud runners, yielding empty-200 feeds), we do a small
     number of paginated OAI-PMH harvests over a date window and match the taxonomy LOCALLY. The OAI
-    `datestamp` (metadata last-modified) is the harvest cursor, NOT the paper date; the canonical
-    submission date comes from the record's <created> field. Old papers resurfacing on a metadata
-    update are harmless — existing-work dedup drops them.
+    `datestamp` (metadata last-modified) is the harvest cursor, NOT the paper date. Neither is
+    <created> reliable: on oaipmh.arxiv.org it can carry the LATEST version's date (live-checked
+    2026-10-27: 2312.10986 reports created=2026-10-23). Every revised old paper therefore resurfaces
+    in the harvest looking new; discovery drops them with first_submission_estimate() below, which
+    trusts the new-style id's YYMM over <created>.
     """
     name = "arxiv"
     ENDPOINT = "https://oaipmh.arxiv.org/oai"
@@ -173,6 +182,32 @@ class ArxivOAISource(Source):
         }
 
 
+_NEW_ID = re.compile(r"^(\d{2})(\d{2})\.\d{4,5}$")            # 2609.12345 (2007-04 onward)
+_OLD_ID = re.compile(r"^[a-z\-]+(?:\.[A-Z]{2})?/(\d{2})(\d{2})\d{3}$")   # hep-th/0101001
+
+
+def first_submission_estimate(arxiv_id, created=""):
+    """Latest plausible v1 (first-submission) date for an arXiv record -> (date | None, basis).
+
+    The id's YYMM is fixed when v1 is submitted, so v1 falls in that month (or the last few days
+    before it, near a month boundary). <created> refines that ONLY when it is consistent with the
+    id month; an inconsistent <created> is a revision date and is ignored. Without a parseable id
+    the estimate is None and the caller keeps the record (unknown is never a silent drop)."""
+    m = _NEW_ID.match(arxiv_id or "") or _OLD_ID.match(arxiv_id or "")
+    if not m:
+        return None, "unknown"
+    yy, mm = int(m.group(1)), int(m.group(2))
+    if not 1 <= mm <= 12:
+        return None, "unknown"
+    year = (2000 + yy) if yy < 90 else (1900 + yy)
+    month_start = dt.date(year, mm, 1)
+    month_end = (dt.date(year + (mm == 12), mm % 12 + 1, 1) - dt.timedelta(days=1))
+    c = _parse_iso(created)
+    if c is not None and month_start - dt.timedelta(days=5) <= c.date() <= month_end:
+        return c.date(), "created"
+    return month_end, "id_month"
+
+
 class OpenReviewSource(Source):
     name = "openreview"
     ENDPOINT = "https://api2.openreview.net/notes/search"
@@ -191,17 +226,26 @@ class OpenReviewSource(Source):
     # Because submissions arrive in venue-deadline BURSTS (ICLR/NeurIPS windows), a short window
     # legitimately yields few/zero hits — expected, not a failure (arXiv is the primary recency source).
     # `source=forum` also drops reviews/comments/decision notes, which have no title and are discarded.
-    def search_many(self, queries, since_iso, limit):
+    #
+    # Re-audited 2026-10-27 after both 10-27 runs returned 0 notes from 46 requests: the endpoint,
+    # `source=forum` and the odate/cdate parsing all work (a live query returns 100 titled forum
+    # notes), but the newest odate in that relevance top-100 was 2026-10-13, two weeks old. A 3-day
+    # window therefore legitimately filters everything out. That is this documented limitation, not
+    # a parsing bug; discovery reports a zero-hit warning so the gap stays visible.
+    def search_many(self, queries, since_iso, limit, until_iso=None):
         # one request per item using an OR term; the endpoint treats the whole term as full-text.
         # Scan a bounded-depth relevance page so recent matches present in the ranking survive the
         # client-side cdate filter.
         term = " OR ".join(queries) if queries else ""
-        recs = self.search(term, since_iso, min(limit * 2, 100))
+        kw = {"until_iso": until_iso} if until_iso else {}
+        recs = self.search(term, since_iso, min(limit * 2, 100), **kw)
         return recs, 1
 
-    def search(self, query, since_iso, limit):
+    def search(self, query, since_iso, limit, until_iso=None):
         r = http_get(self.ENDPOINT, params={"term": query, "limit": limit, "source": "forum"})
         since = _parse_iso(since_iso)
+        until = _parse_iso(until_iso)
+        until = until.replace(tzinfo=None) if (until and until.tzinfo) else until
         out = []
         for n in (r.json().get("notes") or []):
             c = n.get("content") or {}
@@ -216,6 +260,8 @@ class OpenReviewSource(Source):
             pubdate = n.get("odate") or n.get("cdate") or n.get("tcdate")
             d = dt.datetime.utcfromtimestamp(pubdate / 1000.0) if pubdate else None
             if since and d and d < (since.replace(tzinfo=None) if since.tzinfo else since):
+                continue
+            if until and d and d > until:
                 continue
             nid = n.get("id", "")
             title = _v("title") or ""
@@ -253,45 +299,62 @@ class HuggingFaceSource(Source):
     # Expect heavy overlap with arXiv; that is intended, and dedup collapses it for free.
     #
     # The daily-feed harvest depends only on the window, not on the query, so it is memoized per
-    # `since_iso`: discovery calls search_many once per taxonomy item, and without memoization the
-    # same handful of day requests would be re-issued dozens of times.
+    # (since, until) window: discovery calls search_many once per taxonomy item, and without
+    # memoization the same handful of day requests would be re-issued dozens of times.
     def __init__(self):
         self._daily_cache = {}
+        self._warnings = []
 
     def _max_days(self):
         try:
-            return int(config().get("huggingface", {}).get("max_days", 14))
+            return int(config().get("huggingface", {}).get("max_days", 70))
         except Exception:
-            return 14
+            return 70
 
-    def _daily_window(self, since_iso):
-        """Harvest the curated daily feed for every date in [since, today]. Memoized per window."""
-        if since_iso in self._daily_cache:
-            return self._daily_cache[since_iso], 0
+    def _daily_window(self, since_iso, until_iso=None):
+        """Harvest the curated daily feed for every date in [since, until or today]. Memoized per
+        window. Covers the WHOLE window up to huggingface.max_days; a longer window keeps the most
+        recent max_days days and records a warning instead of skipping days silently."""
+        key = (since_iso, until_iso)
+        if key in self._daily_cache:
+            return self._daily_cache[key], 0
         since = _parse_iso(since_iso)
+        until = _parse_iso(until_iso)
         today = dt.datetime.utcnow().date()
-        start = (since.date() if since else today)
-        span = (today - start).days
-        # Bound the harvest. The watermark's max_catchup_days already fails the run on a larger
-        # backlog; this is a second, local guard so a bad watermark cannot fan out unboundedly.
-        span = max(0, min(span, self._max_days()))
-        out, reqs = {}, 0
+        end = min(until.date(), today) if until else today
+        start = (since.date() if since else end)
+        span = max(0, (end - start).days)
+        # Local guard so a bad window cannot fan out unboundedly. max_days is set above the longest
+        # window the watermark allows (max_catchup_days + overlap), so it should never bind in a
+        # valid run; if it does, the skipped days are named in the discovery report.
+        cap = self._max_days()
+        if span > cap:
+            self._warnings.append("daily feed limited to the last %d of %d days; %s..%s not fetched"
+                                  % (cap + 1, span + 1, start.isoformat(),
+                                     (end - dt.timedelta(days=cap + 1)).isoformat()))
+            span = cap
+        out, reqs, failed = {}, 0, []
         for i in range(span + 1):
-            day = (today - dt.timedelta(days=span - i)).isoformat()
+            day = (end - dt.timedelta(days=span - i)).isoformat()
             try:
                 r = http_get(self.ENDPOINT, params={"date": day})
                 reqs += 1
             except Exception as e:
                 # A single unreachable day must not sink the whole source; the term search and the
-                # remaining days still run. Surfaced in the log so a systematic outage is visible.
+                # remaining days still run. Surfaced in the log and the report so a systematic
+                # outage is visible.
                 log("  ! huggingface daily feed %s failed: %s" % (day, e))
+                failed.append(day)
                 continue
             for rec in self._records(r.json(), None):
                 out.setdefault(rec["id"], rec)
-        self._daily_cache[since_iso] = list(out.values())
-        return self._daily_cache[since_iso], reqs
+        if failed:
+            self._warnings.append("daily feed unreachable for %d day(s): %s"
+                                  % (len(failed), ",".join(failed)))
+        self._daily_cache[key] = list(out.values())
+        return self._daily_cache[key], reqs
 
-    def _records(self, payload, since):
+    def _records(self, payload, since, until=None):
         out = []
         for item in (payload or []):
             p = (item.get("paper") or {}) if isinstance(item, dict) else {}
@@ -304,6 +367,10 @@ class HuggingFaceSource(Source):
                 dd = d.replace(tzinfo=None) if d.tzinfo else d
                 ss = since.replace(tzinfo=None) if since.tzinfo else since
                 if dd < ss:
+                    continue
+            if until and d:
+                dd = d.replace(tzinfo=None) if d.tzinfo else d
+                if dd > (until.replace(tzinfo=None) if until.tzinfo else until):
                     continue
             authors = [a.get("name", "") for a in (p.get("authors") or []) if isinstance(a, dict)]
             out.append({
@@ -321,17 +388,17 @@ class HuggingFaceSource(Source):
             })
         return out
 
-    def search(self, query, since_iso, limit):
+    def search(self, query, since_iso, limit, until_iso=None):
         r = http_get(self.ENDPOINT, params={"q": query, "limit": limit})
-        return self._records(r.json(), _parse_iso(since_iso))
+        return self._records(r.json(), _parse_iso(since_iso), _parse_iso(until_iso))
 
-    def search_many(self, queries, since_iso, limit):
+    def search_many(self, queries, since_iso, limit, until_iso=None):
         # Daily feed (memoized, window-scoped) unioned with ONE consolidated term search.
-        recs, reqs = self._daily_window(since_iso)
+        recs, reqs = self._daily_window(since_iso, until_iso)
         out = {r["id"]: r for r in recs}
         term = " ".join(queries) if queries else ""
         if term:
-            for r in self.search(term, since_iso, limit):
+            for r in self.search(term, since_iso, limit, until_iso=until_iso):
                 out.setdefault(r["id"], r)
             reqs += 1
         return list(out.values()), reqs
@@ -348,12 +415,23 @@ class GitHubSource(Source):
             h["Authorization"] = "Bearer %s" % tok
         return h
 
-    def search(self, query, since_iso, limit):
+    def search_many(self, queries, since_iso, limit, until_iso=None):
+        out, reqs = {}, 0
+        for q in queries:
+            for r in self.search(q, since_iso, limit, until_iso=until_iso):
+                out.setdefault(r["id"], r)
+            reqs += 1
+        return list(out.values()), reqs
+
+    def search(self, query, since_iso, limit, until_iso=None):
         # new-work discovery keys on repository CREATION date (a standalone repo), not pushed/updated,
         # so an old repo with a recent commit is not surfaced as a new work.
         since_day = (since_iso or "")[:10]
+        until_day = (until_iso or "")[:10]
         q = query
-        if since_day:
+        if since_day and until_day:
+            q = "%s created:%s..%s" % (query, since_day, until_day)
+        elif since_day:
             q = "%s created:>=%s" % (query, since_day)
         r = http_get(self.ENDPOINT, params={
             "q": q, "sort": "updated", "order": "desc", "per_page": min(limit, 50),
