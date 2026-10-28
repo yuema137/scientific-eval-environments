@@ -64,10 +64,16 @@
 | StructureClaw | 2026 | 操作带求解器后端的结构工程工作台 | 150 个场景：标准、交互式、多模态重建 | 相对冻结参考的模型匹配 + 数值一致性 | [卡片](../works/structureclaw.md) |
 | Terminal-Bench Science | 2026 | 容器化的自然科学计算工作流 | 0.1 版横跨 5 大分组的 70 个任务 | 基于 pytest 的确定性程序化验证 | [卡片](../works/terminal-bench-science.md) |
 | PhysClosureBench | 2026 | 自己编写并运行强场、阿秒及相关物理的数值模拟，用来产生证据 | OpenCode 加 Bash，在离线容器中运行；每个案例 8–96 个 CPU 核、30–720 分钟 | 20 条原子标准细则中的观测量和机制条目；最高平均 Atomic Score 为 6.29/10 | [卡片](../works/physclosurebench.md) |
+| ScienceIDE | 2026 | 让模拟模块（如 PLUTO、Athena++、MITgcm）重现参考输出并满足物理不变量 | 容器化工作区，保留官方测试作为检查项 | 容差和不变量检查；修复得分以带缺陷的起点为基准归一化 | [卡片](../works/scienceide.md) |
+| EngiWorld | 2026 | 在专业软件里（ANSYS、Abaqus、OpenFOAM、CalculiX、FEniCS 等）搭建并运行 CAE 分析 | 通过 GUI 或 CLI 操作软件；属于 1,301 个任务的一部分 | 仿真输出在误差范围内，材料、载荷和边界条件设置正确 | [卡片](../works/engiworld.md) |
+| SimuVerity | 2026 | 根据文字需求为工程系统搭建可执行的 Simulink 模型 | 101 个任务，在 MATLAB/Simulink R2025a 中通过 MATLAB MCP server 完成 | 先过交付、可执行和资格门槛，再在不公开的场景下原生仿真打分；最好 42.86，参考模型 96.01 | [卡片](../works/simuverity.md) |
 
 ## Related Works
 
 - [PhysClosureBench](../works/physclosurebench.md)
+- [SimuVerity](../works/simuverity.md)
+- [EngiWorld](../works/engiworld.md)
+- [ScienceIDE](../works/scienceide.md)
 - [CRAFTS](../works/crafts.md)
 - [MDArena](../works/mdarena.md)
 - [Automating Structural Reliability Analysis with a Multi-Agent Large Language Model Framework](../works/automating-structural-reliability-analysis-with-a.md)

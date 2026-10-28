@@ -15,6 +15,7 @@ Energy systems engineering: power, renewables, and energy research.
 | ElecBench | 2024 | Reason about power-grid operation and dispatch under stability, security, and economic constraints. | Power-dispatch evaluation across general-knowledge and professional-business scenarios; 8 LLMs. | Six metrics (factuality, logicality, stability, security, fairness, expressiveness) / 24 sub-metrics. | [→](../works/elecbench.md) |
 | EnergyBridge | 2026 | Residential virtual-power-plant operation and demand response — convert household physical flexibility into dependable, authorized grid capacity by coupling capacity reporting, household authorization, and physical execution of HVAC/EV/appliance load shifting. | 50 seven-day EnergyPlus building-energy simulations across five households, two regions (Tianjin, Berlin), and five methods (350 household-day episodes; one 18:00–19:00 demand-response event each), plus a held-out capacity-reporting audit; an LLM User Participation Simulator decides authorization. | Physical outcomes metered from EnergyPlus 24.1.0 — gate-acceptance (authorization) rate, event-window energy, and capacity-commitment reliability (accepted ∧ delivery within ±20% of the commitment); the authorization simulator validated against 584 human role-play responses (5.3-pp mean absolute acceptance error). | [→](../works/energybridge.md) |
 | Hydro-SE Bench | 2025 | Power systems as one of the nine subfields of hydro-science and engineering, reflecting the hydropower side of water-conservancy works. | 4,000 Chinese-language single- and multi-choice questions across nine subfields including Power Systems, each labelled by cognitive level (conceptual / engineering application / reasoning and calculation); 16 models, ten commercial and six open-source. Per-subfield question counts are given only as a figure in the paper. | Accuracy reported overall and by subfield, question type and cognitive level, queried zero-shot with chain-of-thought at temperature 0 and the choice letter extracted by a separate LLM; commercial models fall in the 0.74–0.80 band and open-source models in 0.41–0.68. | [→](../works/hydro-se-bench.md) |
+| SimuVerity | 2026 | Model battery systems as executable Simulink models. | 10 of 101 tasks (battery systems). | Native simulation over withheld scenarios behind executability and expert qualification gates. | [→](../works/simuverity.md) |
 
 ## Capability Matrix
 
@@ -61,6 +62,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
 | EnergyBridge | DR, BLDG | ✘ | ✘ | ◐ | ✘ | ✘ | ◐ | ✔ | **2** | ✘ | ✘ | ✘ | 2 | 2 | 4 | **8** |
 | PowerAgentBench-SS | PWR, GRID | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ◐ | 3 | 0 | 2 | **5.5** |
+| SimuVerity | STOR | ✘ | ✘ | ? | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✔ | ◐ | 3 | 1 | 3 | **9** |
 | Hydro-SE Bench | HYD, PWR | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✔ | 2 | ? | 3 | **6** |
 | ElecBench | PWR | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✔ | ✘ | 1 | ? | 0 | **2** |
 
@@ -68,6 +70,7 @@ Repository note: on a five-row page only `Scale` shows a pattern, `?` on 3 rows.
 
 ## Related Works
 
+- [SimuVerity](../works/simuverity.md)
 - [EnergyBridge](../works/energybridge.md)
 - [PowerAgentBench-SS](../works/poweragentbench-ss.md)
 - [ResearchClawBench](../works/researchclawbench.md)

@@ -28,6 +28,8 @@
 | PDAgent-Bench | 2026 | VLSI 物理设计 / 电子设计自动化——芯片后端实现，涵盖布图规划、供电规划、布局、时钟树综合、布线、静态时序分析与工程变更单。 | 353 个精选的任务级问题，横跨五个能力维度（基础知识、报告理解、根因分析、静态时序分析、脚本生成），另加 10 个全流程设计项目，使用 TSMC 28nm / Nangate 45nm 及 Cadence Innovus、Synopsys ICC2/PrimeTime、OpenROAD 等工具；11 个模型。 | 任务级 pass@1/pass@5：脚本解经执行检查、概念性答案对照三位专家验证的参考评分；工作流级全流程运行则按 TinyRISCV、AES-256、Ethernet MAC 等设计上的时序收敛与 DRC 违规结果评估。 | [→](../works/pdagent-bench.md) |
 | ERI Benchmark | 2026 | 电气工程是其覆盖的九个领域之一，下设六个子领域：电路、电子学、信号与系统、电力系统、电磁学与控制系统。 | 按「领域 × 子领域 × 意图 × 难度」的受控组合生成 57,750 条指令–回答记录（共 1,155 种组合，每种 50 对），各领域的均分单独报告。 | 先由自动检查筛出拒答、缺最终答案与可机器解析的约束违规，再由三家厂商的模型组成评审团（Claude Haiku 4.5、GPT-4.1 Mini、Mistral Small 3）按 rubric 打分并逐题取均值。 | [→](../works/eri-benchmark.md) |
 | EngDesign | 2025 | 把电气与电子设计写成带目标、约束与性能要求的规格——控制设计、数字硬件设计、模拟 IC 设计与信号处理。 | 九个工程方向共 101 项设计任务、473 个可评分条目，其中控制设计 18 项、信号处理 18 项、数字硬件设计 17 项、模拟 IC 设计 5 项；101 项中有 48 项需要 MATLAB、Cadence 等商业领域软件。 | 模型输出结构化结果，由逐任务脚本调用相应仿真器（MATLAB、SPICE/Cadence）执行，返回二元通过/不通过、0–100 的部分给分与评估日志；模拟 IC 设计被报告为九个方向中最弱的一个。 | [→](../works/engdesign.md) |
+| EngiWorld | 2026 | 在专业 EDA 软件里完成电路和电路板设计。 | 1,301 个任务中在 Cadence OrCAD、EAGLE、Altium Designer 和 KiCad 上完成的 EDA 任务；未给出各领域题数。 | 程序化检查设计文件，包括设计规则和连接关系。 | [→](../works/engiworld.md) |
+| SimuVerity | 2026 | 把电力电子与控制系统、通信系统建成可执行的 Simulink 模型。 | 101 个任务中的 18 个（电力电子与控制 9、通信系统 9）。 | 先过可执行性和专家资格门槛，再在不公开的场景下原生仿真打分。 | [→](../works/simuverity.md) |
 
 ## Capability Matrix
 
@@ -72,12 +74,14 @@
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | PDAgent-Bench | EDA | ✘ | ✘ | ◐ | ◐ | ✘ | ✔ | ✔ | **3** | ✘ | ✔ | ◐ | 2 | 2 | 3 | **8.5** |
+| EngiWorld | EDA | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ | **2.5** | ? | ✘ | ? | 3 | ? | 3 | **6** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | EngDesign | CTRL, DIG, ANA, SS | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ✘ | ◐ | ✔ | 3 | 1 | 3 | **8.5** |
 | AnalogXpert | ANA | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✔ | **1.5** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | ControlAgent / ControlEval | CTRL | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ✘ | 3 | 2 | 1 | **6.5** |
 | RTL-Repo | DIG | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✔ | 3 | 3 | 3 | **10** |
 | EEE-Bench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✘ | ✘ | 2 | 3 | 4 | **9** |
+| SimuVerity | CTRL, COMM | ✘ | ✘ | ? | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✔ | ◐ | 3 | 1 | 3 | **9** |
 | AssertionBench | VER | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 2 | 2 | **7** |
 | AnalogCoder | ANA | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 1 | 2 | **6** |
 | CVDP | DIG, VER | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **0.5** | ✘ | ✘ | ✔ | 2 | 2 | 3 | **8** |
@@ -92,6 +96,8 @@
 
 ## Related Works
 
+- [SimuVerity](../works/simuverity.md)
+- [EngiWorld](../works/engiworld.md)
 - [PDAgent-Bench](../works/pdagent-bench.md)
 - [ERI Benchmark](../works/eri-benchmark.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)

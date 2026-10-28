@@ -29,6 +29,7 @@ Nearly every training paper reports a final score. That alone does not close a l
 | Curation-Bench | Executable selection policy and selected subset | Downstream VLM benchmark suite | Up to 10 rounds | Fixed model and recipe |
 | SkillCoach | Filter agent trajectories for SFT | Validated process rubric + task verifier | Offline selection and retraining | Same task families and base model |
 | PostTrainBench | Data sourcing, generation, filtering, formatting | Target benchmark score | Open-ended within 10 hours | Fixed base model, evaluator, GPU budget |
+| AutoDataBench | Repair, organize, or construct training data for three fixed models | In-distribution score after each training run; hidden OOD score reported | Up to 20 train-and-evaluate rounds in 24 hours | Fixed base model, training pipeline, and evaluation; baseline and expert pipelines |
 
 ## Open Questions
 
@@ -40,6 +41,7 @@ Nearly every training paper reports a final score. That alone does not close a l
 
 ## Related Works
 
+- [AutoDataBench](../works/autodatabench-auto-research.md)
 - [SkillCoach](../works/skillcoach.md)
 - [Curation-Bench](../works/curation-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)

@@ -66,6 +66,7 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 | Into the Unknown | 2026 | Extend published quantum-computing and plasma-physics work along unpublished directions set by the original authors: hardware-topology and noise limits of adaptive variational quantum dynamics, a better LCHS kernel, ZZ interactions in a spin-chain plasma model, and the validity limits of lattice scalar QED and Vlasov theory for MagCBET. | 6 of 15 problems (4 quantum computing, 2 plasma physics); agent writes a follow-up paper with code and logs, no time limit, unrestricted internet. | GPT-6-Astra agentic judge on author-specified integrity and direction rubrics; no submission is valid. | [→](../works/into-the-unknown.md) |
 | PhysClosureBench | 2026 | Carry a goal-specified investigation in strong-field, attosecond, and neighbouring physics (e.g., how post-release scattering shapes the attoclock offset) to a conclusion whose mechanism and validity range are supported by self-generated evidence. | 50 tasks (24 strong-field AMO/attosecond, 12 strong-field condensed matter, 8 quantum optics, 4 strong-field QED, 2 matter-wave); offline containers with 8–96 cores and 30–720 min; 3 runs per model. | GPT-5.6-Sol staged grading of 20 half-point atoms and Research Closure RC0–RC4; 81.8% agreement with five physics experts on selected criteria. | [→](../works/physclosurebench.md) |
 | SCI-AGENT-EXAM | 2026 | Physics-simulation workflow tasks within a cross-field scientific workflow suite. | 11 physics-simulation tasks (plus 12 tasks labelled only 'physical science') of 120; offline Docker, answer, code, and report per task. | Programmatic checks rerun on hidden inputs, plus a GPT-5.6 Sol rubric judge on the report. | [→](../works/sci-agent-exam.md) |
+| ScienceIDE | 2026 | Keep scientific simulation codes for astrophysical flows, plasma physics, and particle simulation numerically correct when modules are repaired or reimplemented. | Modules of codes such as PLUTO, Athena++, and PHANTOM; part of 2,812 tasks and an 85-task hard subset (per-domain counts not stated). | Deterministic comparison with private scientific references under pointwise tolerances and physical-invariant checks. | [→](../works/scienceide.md) |
 
 ## Capability Matrix
 
@@ -135,6 +136,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SimAgents | COS | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
 | DiscoverPhysics | CLA, GR | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 2 | 1 | 2 | **7** |
 | PhysGym | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ◐ | 2 | 1 | 3 | **6.5** |
+| ScienceIDE | PLA, COS, FLU, COMP | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ? | ✘ | ◐ | 3 | ? | 3 | **6.5** |
 | PRBench | HEP, AMO, NUC, PLA, CM | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ✘ | ✔ | ✘ | 2 | 1 | 2 | **6** |
 | Into the Unknown | QI, PLA | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 1 | 0 | 3 | **6** |
 | QMP-Bench | CM, COMP | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ◐ | ✔ | ✘ | 2 | 2 | 0 | **5.5** |
@@ -180,6 +182,7 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 - [PhysClosureBench](../works/physclosurebench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [EurekaBench](../works/eurekabench.md)
+- [ScienceIDE](../works/scienceide.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

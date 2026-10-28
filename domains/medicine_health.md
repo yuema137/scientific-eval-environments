@@ -35,6 +35,7 @@ Clinical and biomedical-application evaluation: medical tasks, drug discovery, E
 | Agents Catching Agents | 2026 | Whether committees of clinical decision-support agents adopt shortcut cues that a benchmark rewards but a clinician would ignore. | Seven cohorts over six public datasets — MedQA-USMLE, MedMCQA, MIMIC-CXR reports, NIH ChestX-ray14, MIMIC-CXR-JPG, CheXpert and SUPPORT2 — with a three-agent shared blackboard. | Adoption rate against the isolated-condition flip rate (5–16% solo against 38% with two asserting peers); three oversight detectors scored on precision, recall and false-positive rate. | [→](../works/agents-catching-agents.md) |
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | Form testable hypotheses in medicine & health from research literature | Eight densely scored subfields in this discipline; static and active literature access | Model critics assess originality against retrieved prior art; no experimental validation | [AgentIdeaBench](../works/agentideabench.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in medicine & health | Paper-to-repository reproduction; Part of 30 AI4Science papers; per-field count unreported | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
+| AutoSciBench | 2026 | Clinical-imaging questions generated from MedCTA seeds. | 50 generated tasks per generator; ten solver models. | Single reference answer; the seed benchmark is scored by an LLM evaluator; task quality rated by LLM judges. | [→](../works/autoscibench.md) |
 
 ## Capability Matrix
 
@@ -97,6 +98,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | MedAgentBench | EHR | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✘ | ✘ | ◐ | 3 | 2 | 2 | **7.5** |
 | AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
+| AutoSciBench | IMG | ? | ✘ | ? | ✔ | ✘ | ? | ✔ | **2** | ? | ✘ | ✔ | ? | 1 | 1 | **3** |
 | BiomedSQL | PHARM | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✔ | ✘ | ✘ | 2 | 2 | 4 | **9** |
 | MedHELM | CLIN, EHR, HPOL | ? | ✘ | ◐ | ✘ | ✘ | ✔ | ✘ | **1.5** | ✘ | ✔ | ◐ | 2 | 2 | 1 | **6.5** |
 | MiraMind | PSY | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✔ | ◐ | 2 | 2 | 3 | **8.5** |
@@ -110,6 +112,7 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 
 ## Related Works
 
+- [AutoSciBench](../works/autoscibench.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Apodex Discovery](../works/apodex-discovery.md)

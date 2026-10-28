@@ -33,6 +33,7 @@ The useful signal is not just whether the final model is better. It is which mea
 | Curation-Bench | Data policy and trained VLM | Selection policy | Per-iteration downstream feedback | Fixed model, recipe, and suite |
 | SkillCoach | Agent model via SFT | Trajectory selection | Process-quality filter | Validation-gated rubric evolution |
 | MobileJudgeBench | Mobile agent via RL | Reward evaluator choice | Judge as on-policy reward | Human-grounded judge benchmark |
+| [ScienceIDE](../works/scienceide.md) | Qwen-based models (4B, 9B, 72B) on scientific code | SFT on verifier-filtered demonstrations; RL on repair tasks | Numerical verifier filters demonstrations and supplies RL reward; also scores agents | Private references; admission requires a passing witness and baseline headroom; RL held-out tasks share training environments |
 
 ## Open Questions
 
@@ -44,6 +45,7 @@ The useful signal is not just whether the final model is better. It is which mea
 
 ## Related Works
 
+- [ScienceIDE](../works/scienceide.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [MobileJudgeBench](../works/mobilejudgebench.md)
 - [SkillCoach](../works/skillcoach.md)

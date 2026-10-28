@@ -54,10 +54,14 @@ A fifth cluster is **civil and structural component design against codes and sol
 | PACE-Bench | 2026 | Redesign a mechanism so that it works again after its operating physics changes | 144 source-to-target pairs in Box2D; 20 attempts per pair with non-prescriptive diagnostic feedback | Pass@2 under a constraint-satisfaction fraction; best full-benchmark result 35.9% (Reflexion + Qwen3-14B) | [card](../works/pace-bench.md) |
 | AI4AI-Bench | 2026 | Redesign learning procedures across ten AI research repositories | Four hours on one B300 to explore against a cheap proxy; source-only handoff into a clean run of up to twelve hours | Repository-native final metric relative to an identically rerun original algorithm, plus classification of whether the patch changed learning or only the surrounding run | [card](../works/ai4ai-bench.md) |
 | SlowLab | 2026 | Optimize a six-set-point greenhouse climate policy (temperatures, CO₂, supplemental light, ventilation) for economic margin | Simulated greenhouse built on GreenLight; one-year campaign under a 16-experiment budget; 48 unseen sites | Mean contribution margin (EUR/m²) over 3 held-out weather years × 2 planting dates; baseline 33.62 vs. models 28.02–29.62 under Full feedback | [card](../works/slowlab.md) |
+| EngiWorld | 2026 | Produce engineering design artifacts (solid models, toolpaths, building models, board layouts) that meet acceptance criteria, including 40 quantitative design tasks | 26 professional applications through GUI or CLI; 300-task evaluation subset | All acceptance criteria pass, or feasibility-gated partial credit; best EngiScore 44.3 | [card](../works/engiworld.md) |
+| SimuVerity | 2026 | Design system models that satisfy functional roles, signal paths, and dynamic-response requirements | 101 Simulink tasks across ten engineering domains | Weighted geometric mean of six engineering dimensions after qualification; best 42.86 | [card](../works/simuverity.md) |
 
 ## Related Works
 
 - [SlowLab](../works/slowlab.md)
+- [SimuVerity](../works/simuverity.md)
+- [EngiWorld](../works/engiworld.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [EnergyBridge](../works/energybridge.md)

@@ -47,6 +47,8 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 | [FORESIGHT-9](../works/foresight-9.md) | 九份情景配置 | 反事实未来与按模拟时间开放的观测 | 确定性路径；同时检查结果和过程 | 固定且有记录的情景集合 |
 | [PHYRD](../works/phyrd.md) | 把已发表的理论物理论文整理成关系图 | Discover 改动源论文的前提，答案不在原论文里；发布前先做盲解，并用哈希值标记版本 | 对照参考推导逐小问二值评分 | 计划按时间戳从新论文追加题目，并保留此前的题目和成绩版本 |
 | [SlowLab](../works/slowlab.md) | 隐藏品种与设施参数的模拟温室站点；天气取自 11 个经过审核的 KNMI Cabauw 年份 | 隐藏站点参数；不公开的评估器在留出天气年份和种植日期上打分，agent 始终看不到分数；正式运行前用哈希锁定预注册内容 | 模拟器确定性评分（边际贡献，EUR/m²） | 固定的预注册测试集，共 48 个站点 |
+| [Predictive Credit](../works/predictive-credit.md) | 研究型 agent 的解释卡片，覆盖合成、Tox21 和 OpenML 三类设置下的 336 个状态 | 解释只有在预测损失低于普通描述和 donor 解释时才算有贡献；判定规则在结果揭晓前冻结 | 留出的干预实测效果 | 固定协议，应用到新状态上 |
+| [AutoSciBench](../works/autoscibench.md) | 由 agent 生成的任务，种子为 CompBioBench、MatTools 和 MedCTA | 按需生成；根据轨迹检出捷径；反复修改到可验证且够难 | 与单个参考答案精确匹配 | 求解模型进步后由循环重新生成 |
 
 ## 还没解决的问题
 
@@ -60,6 +62,8 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 
 - [SlowLab](../works/slowlab.md)
 - [PHYRD](../works/phyrd.md)
+- [AutoSciBench](../works/autoscibench.md)
+- [Predictive Credit](../works/predictive-credit.md)
 - [FORESIGHT-9](../works/foresight-9.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [ASI-Bench](../works/asi-bench.md)

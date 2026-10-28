@@ -19,8 +19,14 @@ Sorted by `First appeared`, newest first; titles provide a stable tie-breaker wi
 | 2026-10-15 | [PhysClosureBench](./works/physclosurebench.md) | [arXiv initial submission](https://arxiv.org/abs/2610.21767) |
 | 2026-10-13 | [Into the Unknown](./works/into-the-unknown.md) | [arXiv initial submission](https://arxiv.org/abs/2610.19159) |
 | 2026-10-09 | [EmbodiedCLBench](./works/embodiedclbench.md) | [arXiv initial submission](https://arxiv.org/abs/2610.13021) |
+| 2026-10-04 | [AutoSciBench](./works/autoscibench.md) | [arXiv initial submission](https://arxiv.org/abs/2610.05140) |
+| 2026-10-01 | [SimuVerity](./works/simuverity.md) | [arXiv initial submission](https://arxiv.org/abs/2610.02304) |
 | 2026-09-30 | [EurekaBench](./works/eurekabench.md) | [arXiv initial submission](https://arxiv.org/abs/2610.00492) |
+| 2026-09-30 | [AutoDataBench](./works/autodatabench-auto-research.md) | [arXiv initial submission](https://arxiv.org/abs/2609.40097) |
+| 2026-09-29 | [Predictive Credit](./works/predictive-credit.md) | [arXiv initial submission](https://arxiv.org/abs/2610.00314) |
+| 2026-09-29 | [EngiWorld](./works/engiworld.md) | [arXiv initial submission](https://arxiv.org/abs/2609.37686) |
 | 2026-09-27 | [DISCERN](./works/discern.md) | [arXiv initial submission](https://arxiv.org/abs/2609.33357) |
+| 2026-09-16 | [ScienceIDE](./works/scienceide.md) | [arXiv initial submission](https://arxiv.org/abs/2609.19134) |
 | 2026-09-07 | [AgentIdeaBench](./works/agentideabench.md) | [arXiv initial submission](https://arxiv.org/abs/2609.07611) |
 | 2026-09-03 | [EvoHarnessBench](./works/evoharnessbench.md) | [arXiv initial submission](https://arxiv.org/abs/2609.04280) |
 | 2026-09-01 | [HarnessDev](./works/harnessdev.md) | [arXiv initial submission](https://arxiv.org/abs/2609.01437) |

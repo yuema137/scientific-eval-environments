@@ -46,9 +46,11 @@ A third cluster is **physics-grounded forecasting and model-fitting**, where the
 | AutoWorldModel-Bench | 2026 | Improve a learned world model's forward prediction of entity dynamics | Eight game environments under a shared structured-state tensor format, perception removed | Composite of Position L1 and Alive F1 at horizons 1/10/20, weighted 0.1/0.2/0.7 on a held-out split | [card](../works/autoworldmodel-bench.md) |
 | [HarnessDev](../works/harnessdev.md) | 2026 | Build a harness that trains competition models | 75 MLE-bench competitions; frozen generated harness | Submissions graded by medal score | [HarnessDev](../works/harnessdev.md) |
 | EurekaBench | 2026 | Implement the proposed mechanism as executable code that predicts held-out observations | `mechanism.py` run on held-out test data from original studies or task simulators | Predictive accuracy per criterion in [0, 1]; best 47.4% vs. human reference 48.8% | [card](../works/eurekabench.md) |
+| AutoDataBench | 2026 | Improve a fixed model's target metric by changing only its training data | Three tasks (tool calling, retrieval, knowledge injection); up to 20 train-and-evaluate rounds in 24 hours on one A800 | ID score as feedback, hidden OOD score reported; best Overall 60.68 vs. expert 56.89 | [card](../works/autodatabench-auto-research.md) |
 
 ## Related Works
 
+- [AutoDataBench](../works/autodatabench-auto-research.md)
 - [EurekaBench](../works/eurekabench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [DSAgentBench](../works/dsagentbench.md)

@@ -31,6 +31,7 @@
 | Labference | 2026 | 在机器人实验室中根据观察到的物理结果选出下一步合法操作，并把它执行出来（离心机装载、反馈称量、放置回忆）。 | 模拟 Franka Panda（Isaac Sim 5.1）上的 3 类核心任务，各有基础和扩展条件，另列 24 个任务；已报告的实验只覆盖简单反馈称量（π0.5 与 GR00T-N1.5 各 50 个回合，GPT 驱动的对照方案 10 次试验）。 | 物理确认判据（天平读数与目标相差不超过 1 g 并保持 3 s；插管轴向误差不超过 10°、插入深度至少 60%）；选择、执行、完成分别打分。已报告的结果都来自模拟，真实机器人的试运行只给出关键帧。 | [→](../works/labference.md) |
 | RobotAgentBench | 2026 | 家居移动操作中的自主能力：找到目标、根据情境选对物体、从人为制造的失败中恢复，以及在人为干预和光照变化下保持稳健；对比单独运行的 VLA/WAM 策略和 coding agent 的规划器–执行器–验证器配置。 | 由 90 个原子任务组合成的 18 个短程任务和 8 个长程任务，加上发现、推理、恢复和鲁棒性变体以及 4 个开放式场景，位于由同一套真实住宅重建的 50 种 Isaac Sim 布局中；每个任务 30 个实例；共 18 种配置。 | 各任务专用的评分规则根据仿真物理状态打分（接触事件和进度检查点），没有评审模型；部分任务在实体 AgiBot G1 上做 sim-to-real 对比。 | [→](../works/robotagentbench.md) |
 | PhysRSI-eval | 2026 | 物理递归自我改进：控制双臂机器人的 LLM agent 在失败后修改自己的策略代码、工具、技能和笔记，能否把操作任务越做越好。 | 18 个 RoboDojo 双臂任务（D1–D6 每个难度层三个），每个任务一次首次尝试，加最多 17 轮完整物理尝试的改进；6 个系统跑全部任务，Gemini 4 跑 10 个。 | RoboDojo 原生评分器（[0, 1] 分数加成功判据），没有评审模型；五维画像由各轮分数算出。Repository note: 仅在仿真中评测。 | [→](../works/physrsi-eval.md) |
+| SimuVerity | 2026 | 把机器人系统建成可执行的 Simulink 模型。 | 101 个任务中的 10 个（机器人）。 | 先过可执行性和专家资格门槛，再在不公开的场景下原生仿真打分。 | [→](../works/simuverity.md) |
 
 ## Capability Matrix
 
@@ -92,6 +93,7 @@
 | RoboGraphBench | PLAN, NAV, MANIP | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ◐ | 3 | 2 | 4 | **10** |
 | LabRobFail | DIAG, LAB | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ◐ | **1.5** | ✘ | ✘ | ◐ | 3 | 3 | 3 | **9.5** |
 | ASIMOV | SAFE | ✘ | ✘ | ✘ | ◐ | ✘ | ✔ | ✘ | **1.5** | ✘ | ✔ | ✔ | 3 | 3 | 1 | **9** |
+| SimuVerity | GEN | ✘ | ✘ | ? | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✔ | ◐ | 3 | 1 | 3 | **9** |
 | VIKI-Bench | MULTI, PLAN, PERC | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✘ | ◐ | 3 | 3 | 1 | **7.5** |
 | BadRobot | SAFE, MANIP | ✘ | ✘ | ✘ | ◐ | ✘ | ◐ | ✘ | **1** | ✘ | ◐ | ✘ | 2 | 2 | 3 | **7.5** |
 | EngDesign | DESIGN, PLAN | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ◐ | **0.5** | ✘ | ✔ | ◐ | 3 | 1 | 3 | **8.5** |
@@ -101,6 +103,7 @@
 - [Labference](../works/labference.md)
 - [RobotAgentBench](../works/robotagentbench.md)
 - [PhysRSI-eval](../works/physrsi-eval.md)
+- [SimuVerity](../works/simuverity.md)
 - [RoboGraphBench](../works/compiling-and-benchmarking-task-state-horizons-for.md)
 - [LabRobFail](../works/labrobfail.md)
 - [ATOM-Bench](../works/atom-bench.md)

@@ -40,6 +40,7 @@ Civil and structural engineering — the analysis, design, verification, constru
 | TRIP-Evaluate | 2026 | Transportation infrastructure planning, design and operation: geometric design review, capacity evaluation, demand forecasting and traffic safety audit, alongside signal control, signs and markings standards, roadside devices and regulatory interpretation. | 837 single-choice items (596 text, 198 image, 43 point-cloud) organized by a role–task–knowledge taxonomy of 4 roles, 16 task domains and 226 knowledge points; the planning-and-design role holds 194 items and traffic management 281. | Accuracy under a unified prompt with fixed decoding and the model constrained to a single option letter, abnormal outputs handled by one logged rule set, reported per role, task domain, knowledge point, capability, difficulty and modality with benchmark and prompt versions recorded. | [→](../works/trip-evaluate.md) |
 | LLM-EPANET | 2025 | Hydraulic modelling of municipal water distribution networks: pressures, flows, pump energy, network modification and scenario analysis. | 69 natural-language queries over Net1, Net3 and L-Town in five complexity categories (Static, Hydraulics, Quality, Hydraulics Scenario, Iterative), each paired with a hand-written deterministic reference script; seven models compared. | Functional correctness of the returned value against the executed EPyT reference implementation — never text or code similarity — with execution failures, aggregation, indexing and unit errors counted incorrect and near-misses adjudicated by a hydraulic modelling expert; accuracy reported per category, 56–81% overall. | [→](../works/llm-epanet.md) |
 | Hydro-SE Bench | 2025 | Hydro-science and hydraulic engineering knowledge, whose civil core is hydraulic structures and equipment (dams, spillways, gates), geotechnical engineering, industry design standards, and engineering safety and management. | 4,000 Chinese-language questions (roughly 2,700 single-choice and 1,300 multi-choice) across nine subfields, each labelled by cognitive level, drawn from textbooks, industry standards, laws and regulations and statistical yearbooks and reviewed independently by at least three experts; 16 models. | Accuracy reported overall and by subfield, question type and cognitive level, queried zero-shot with chain-of-thought at temperature 0 and the final choice extracted by a separate LLM; commercial models reach 0.74–0.80 and open-source models 0.41–0.68, weakest on industry standards and hydraulic structures. | [→](../works/hydro-se-bench.md) |
+| EngiWorld | 2026 | Produce building information models in professional BIM software. | BIM tasks in Archicad, Bonsai, OpenStudio, and Revit within 1,301; per-domain counts not stated. | Programmatic verifiers on the model file (e.g., IfcOpenShell checks of structure and cross-file consistency). | [→](../works/engiworld.md) |
 
 ## Capability Matrix
 
@@ -87,6 +88,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | MASSE | STRUC, SEIS | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ✔ | **3** | ✔ | ✔ | ◐ | 0 | 2 | 4 | **8.5** |
 | BridgeEQA | INSP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | **3** | ◐ | ✘ | ✘ | 2 | 3 | 2 | **7.5** |
 | DefectBench | INSP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **2.5** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
+| EngiWorld | BIM | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ | **2.5** | ? | ✘ | ? | 3 | ? | 3 | **6** |
 | SGR-BIM | CODE, BIM | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✘ | ✔ | ✘ | 3 | 2 | 4 | **10** |
 | DrafterBench | CONST | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 4 | **10** |
 | StructureClaw | STRUC, CODE | ? | ✘ | ◐ | ◐ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ✘ | 3 | 2 | 3 | **8.5** |
@@ -116,6 +118,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 
 ## Related Works
 
+- [EngiWorld](../works/engiworld.md)
 - [MMArch](../works/mmarch.md)
 - [Cognitive Agents for Bridge Inspection Prioritization](../works/cognitive-agents-for-bridge-inspection-prioritizat.md)
 - [Automating Structural Reliability Analysis with a Multi-Agent Large Language Model Framework](../works/automating-structural-reliability-analysis-with-a.md)

@@ -29,6 +29,7 @@ Evaluation-driven data curation 用下游评估结果决定下一轮训练数据
 | Curation-Bench | 可执行选择策略与选中子集 | Downstream VLM benchmark suite | 最多 10 轮 | 模型与 recipe |
 | SkillCoach | 为 SFT 筛选 agent trajectory | 经验证的过程 rubric 与 task verifier | 离线筛选并重训 | 相同任务族和 base model |
 | PostTrainBench | 数据获取、生成、过滤和格式化 | 目标 benchmark 分数 | 10 小时内开放迭代 | Base model、evaluator、GPU budget |
+| AutoDataBench | 为三个固定模型修复、组织或构造训练数据 | 每次训练后的分布内得分；最终报告隐藏的分布外得分 | 24 小时内最多 20 轮训练加评测 | 基础模型、训练流程和评测固定；另设基线和专家流程 |
 
 ## 还没解决的问题
 
@@ -40,6 +41,7 @@ Evaluation-driven data curation 用下游评估结果决定下一轮训练数据
 
 ## 相关工作
 
+- [AutoDataBench](../works/autodatabench-auto-research.md)
 - [SkillCoach](../works/skillcoach.md)
 - [Curation-Bench](../works/curation-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)

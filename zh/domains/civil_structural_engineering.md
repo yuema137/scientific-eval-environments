@@ -40,6 +40,7 @@
 | TRIP-Evaluate | 2026 | 交通基础设施的规划、设计与运营：几何设计审查、通行能力评价、需求预测与交通安全审计，以及信号控制、标志标线标准、路侧设备与法规解读。 | 837 道单选题（文本 596、图像 198、点云 43），按「角色–任务–知识」分类体系组织，含 4 类角色、16 个任务领域与 226 个知识点；规划设计角色 194 题，交通管理 281 题。 | 统一提示词、固定解码，模型只能输出一个选项字母，异常输出按一套有日志记录的规则统一处理；准确率按角色、任务领域、知识点、能力、难度与模态分别报告，并记录基准与提示词的版本。 | [→](../works/trip-evaluate.md) |
 | LLM-EPANET | 2025 | 市政供水管网的水力建模：压力、流量、水泵能耗、管网改造与情景分析。 | 在 Net1、Net3 与 L-Town 上提出 69 条自然语言查询，分五个复杂度类别（Static、Hydraulics、Quality、Hydraulics Scenario、Iterative），每条都配一份手写的确定性参考脚本；对比七个模型。 | 以返回数值与执行后的 EPyT 参考实现是否功能等价为准——绝不比对文本或代码相似度——执行失败以及聚合、索引、单位错误一律判错，接近正确的情形由水力建模专家裁定；准确率按类别报告，总体 56–81%。 | [→](../works/llm-epanet.md) |
 | Hydro-SE Bench | 2025 | 水科学与水利工程知识，其土木内核是水工建筑物与设备（大坝、溢洪道、闸门）、岩土工程、行业设计标准，以及工程安全与管理。 | 覆盖九个子领域的 4,000 道中文题（约 2,700 道单选、1,300 道多选），每题标注认知层级，取材于教科书、行业标准、法律法规与统计年鉴，每题至少经三位专家独立审核；16 个模型。 | 零样本思维链、温度 0 提问，最终选项由另一个 LLM 抽取；准确率按总体以及子领域、题型、认知层级分别报告，商业模型达到 0.74–0.80，开源模型 0.41–0.68，在行业标准与水工建筑物两项上最弱。 | [→](../works/hydro-se-bench.md) |
+| EngiWorld | 2026 | 在专业 BIM 软件里做出建筑信息模型。 | 1,301 个任务中在 Archicad、Bonsai、OpenStudio 和 Revit 上完成的 BIM 任务；未给出各领域题数。 | 程序化检查模型文件（比如用 IfcOpenShell 检查结构关系和文件间一致性）。 | [→](../works/engiworld.md) |
 
 ## Capability Matrix
 
@@ -87,6 +88,7 @@
 | MASSE | STRUC, SEIS | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | ✔ | **3** | ✔ | ✔ | ◐ | 0 | 2 | 4 | **8.5** |
 | BridgeEQA | INSP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✔ | **3** | ◐ | ✘ | ✘ | 2 | 3 | 2 | **7.5** |
 | DefectBench | INSP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **2.5** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
+| EngiWorld | BIM | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ | **2.5** | ? | ✘ | ? | 3 | ? | 3 | **6** |
 | SGR-BIM | CODE, BIM | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✘ | ✔ | ✘ | 3 | 2 | 4 | **10** |
 | DrafterBench | CONST | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 4 | **10** |
 | StructureClaw | STRUC, CODE | ? | ✘ | ◐ | ◐ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ✘ | 3 | 2 | 3 | **8.5** |
@@ -116,6 +118,7 @@
 
 ## Related Works
 
+- [EngiWorld](../works/engiworld.md)
 - [MMArch](../works/mmarch.md)
 - [Cognitive Agents for Bridge Inspection Prioritization](../works/cognitive-agents-for-bridge-inspection-prioritizat.md)
 - [Automating Structural Reliability Analysis with a Multi-Agent Large Language Model Framework](../works/automating-structural-reliability-analysis-with-a.md)

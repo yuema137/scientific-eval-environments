@@ -44,6 +44,7 @@ AI and machine learning as the science under study: reproducing, rediscovering, 
 | [HarnessDev](../works/harnessdev.md) | 2026 | Construct a reusable harness for machine-learning competitions | 75 MLE-bench tasks; model training and submissions | Competition medal scores under a frozen harness | [HarnessDev](../works/harnessdev.md) |
 | AlphaIdeaBench | 2026 | Propose machine-learning research ideas whose plans fit a stated compute, API, time, and annotation budget. | 100 tasks (50 workshop calls, 50 survey open problems) across nine ML fields; one JSON proposal per task from eight harnesses and eight backbones. | Gemini 3.7 Flash judge on 12 dimensions; novelty axes compared with reviewer-derived scores on 600 papers; proposals not executed. | [→](../works/alphaideabench.md) |
 | EurekaBench | 2026 | Explain language-model behaviour as a scientific object: stated belief shift, subliminal learning, and circuit discovery. | 3 of 26 problems, run through LoRA fine-tuning of open-weight language models and TransformerLens; up to 4 h on one H100. | Constraint tests gate the score; predictive accuracy on held-out data; insight questions judged by two agentic LLM judges. | [→](../works/eurekabench.md) |
+| AutoDataBench | 2026 | Improve training data, holding model and recipe fixed: repair corrupted function-calling data, mine hard negatives for an embedding model, and construct examples that inject post-cutoff knowledge. | 3 tasks; 7 LLMs × 3 runs; up to 20 train-and-evaluate rounds in 24 hours on one A800. | Retrained model scored on ID feedback sets and hidden OOD sets (AST accuracy, nDCG@10, multiple-choice accuracy). | [→](../works/autodatabench-auto-research.md) |
 
 ## Capability Matrix
 
@@ -117,6 +118,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | BLADE | DS | ? | ◐ | ✘ | ✘ | ✘ | ✔ | ◐ | **2** | ◐ | ◐ | ✘ | 2 | 1 | 3 | **7** |
 | IdeaBench | IDEA | ✘ | ✘ | ✘ | ? | ✔ | ✔ | ✘ | **2** | ◐ | ◐ | ✔ | 0 | 3 | 2 | **7** |
 | AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | 2 | 3 | **6** |
+| AutoDataBench | LM, IR, MLE | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ◐ | ✘ | ◐ | 3 | 0 | 1 | **5** |
 | ML-Bench | CODE | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✔ | ✘ | ✔ | 3 | 3 | 3 | **11** |
 | AutoWorldModel-Bench | WM | ? | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
 | AlphaIdeaBench | IDEA | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ? | **0.5** | ? | ✔ | ? | 1 | 2 | 1 | **5** |
@@ -127,6 +129,7 @@ Repository note: the unknowns cluster in two columns. `Net` is `?` on 16 of the 
 ## Related Works
 
 - [AlphaIdeaBench](../works/alphaideabench.md)
+- [AutoDataBench](../works/autodatabench-auto-research.md)
 - [EurekaBench](../works/eurekabench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)

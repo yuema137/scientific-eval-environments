@@ -102,10 +102,12 @@ Covers scientific **and** engineering software or workflow artifacts — includi
 | AI-Researcher | 2025 | Turn a research plan into an executable implementation of the proposed method | 22 Level-1 and 6 Level-2 tasks in a Docker workspace with reference repositories and datasets | Completeness (code executes within budget) and a 5-point correctness score; 93.8% and 2.65/5 with Claude-series backbones | [card](../works/ai-researcher.md) |
 | [HarnessDev](../works/harnessdev.md) | 2026 | Create reusable execution software for ML experiments | Policy-free seed; 1–3 development cases | Frozen harness evaluated on MLE-bench | [HarnessDev](../works/harnessdev.md) |
 | SCI-AGENT-EXAM | 2026 | Write code to an interface contract, compose tools across dependencies, and repair runnable projects with silent scientific errors (Code Generation 20, Tool Orchestration 28, Error Diagnosis 11 tasks) | Offline Docker task packages; the checker imports generated code and reruns it on hidden data | Programmatic checks weighted 0.55–0.70 for these types; Pass@0.95 at most 26.0% | [card](../works/sci-agent-exam.md) |
+| ScienceIDE | 2026 | Repair injected defects in, or reimplement removed parts of, modules of scientific simulation codes | 64 environments from 27 codebases; 85-task hard subset with a one-hour budget | Numerical outputs within tolerance of private references; best strict success 67.1% (Fable 5.1) | [card](../works/scienceide.md) |
 
 ## Related Works
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [ScienceIDE](../works/scienceide.md)
 - [HarnessDev](../works/harnessdev.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [PACE-Bench](../works/pace-bench.md)

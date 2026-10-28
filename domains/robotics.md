@@ -31,6 +31,7 @@ Evaluation on physical robot platforms and robot control. Embodied household sim
 | Labference | 2026 | Use observed physical outcomes in a robotic laboratory to choose the next legal operation, then execute it (centrifuge loading, feedback weighing, placement recall). | 3 core task families with basic and extended conditions on a simulated Franka Panda (Isaac Sim 5.1), plus a 24-task catalog; reported runs cover only easy feedback weighing (50 episodes each for π0.5 and GR00T-N1.5, 10 GPT-driven trials). | Physical-confirmation predicates (balance reading within 1 g held 3 s; ≤10° axial error and ≥60% socket depth for insertion); selection, execution, and completion scored separately. Reported results are simulated; physical-robot pilots appear only as keyframes. | [→](../works/labference.md) |
 | RobotAgentBench | 2026 | Autonomous household mobile manipulation: finding targets, choosing objects from context, recovering from induced failures, and staying robust to human interventions and lighting changes, compared across standalone VLA/WAM policies and coding-agent planner–executor–verifier configurations. | 18 short-horizon and 8 long-horizon tasks composed from 90 atomic tasks, plus discovery, reasoning, recovery, and robustness variants and 4 open-ended scenarios, in 50 Isaac Sim layouts reconstructed from one real home; 30 instances per task; 18 configurations. | Task-specific scoring rules over the simulated physical state (contact events and progress checkpoints), no judge; a sim-to-real subset on a physical AgiBot G1. | [→](../works/robotagentbench.md) |
 | PhysRSI-eval | 2026 | Physical recursive self-improvement: whether an LLM agent controlling a dual-arm robot improves on a manipulation task by revising its own policy code, tools, skills, and notes after failed attempts. | 18 RoboDojo dual-arm tasks (three per difficulty stratum D1–D6), each a first attempt plus up to 17 refinement rounds of full physical attempts; 6 systems on all tasks, Gemini 4 on 10. | Native RoboDojo graders (score in [0, 1] plus a success criterion), no judge; five-axis profile from the per-round scores. Repository note: simulation only. | [→](../works/physrsi-eval.md) |
+| SimuVerity | 2026 | Model robotic systems as executable Simulink models. | 10 of 101 tasks (robotics). | Native simulation over withheld scenarios behind executability and expert qualification gates. | [→](../works/simuverity.md) |
 
 ## Capability Matrix
 
@@ -92,6 +93,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | RoboGraphBench | PLAN, NAV, MANIP | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ◐ | 3 | 2 | 4 | **10** |
 | LabRobFail | DIAG, LAB | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ◐ | **1.5** | ✘ | ✘ | ◐ | 3 | 3 | 3 | **9.5** |
 | ASIMOV | SAFE | ✘ | ✘ | ✘ | ◐ | ✘ | ✔ | ✘ | **1.5** | ✘ | ✔ | ✔ | 3 | 3 | 1 | **9** |
+| SimuVerity | GEN | ✘ | ✘ | ? | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✔ | ◐ | 3 | 1 | 3 | **9** |
 | VIKI-Bench | MULTI, PLAN, PERC | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✘ | ◐ | 3 | 3 | 1 | **7.5** |
 | BadRobot | SAFE, MANIP | ✘ | ✘ | ✘ | ◐ | ✘ | ◐ | ✘ | **1** | ✘ | ◐ | ✘ | 2 | 2 | 3 | **7.5** |
 | EngDesign | DESIGN, PLAN | ✘ | ✘ | ✘ | ? | ✘ | ✘ | ◐ | **0.5** | ✘ | ✔ | ◐ | 3 | 1 | 3 | **8.5** |
@@ -101,6 +103,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 - [Labference](../works/labference.md)
 - [RobotAgentBench](../works/robotagentbench.md)
 - [PhysRSI-eval](../works/physrsi-eval.md)
+- [SimuVerity](../works/simuverity.md)
 - [RoboGraphBench](../works/compiling-and-benchmarking-task-state-horizons-for.md)
 - [LabRobFail](../works/labrobfail.md)
 - [ATOM-Bench](../works/atom-bench.md)

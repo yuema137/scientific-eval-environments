@@ -32,22 +32,22 @@ Domain pages are **factual reference pages, not literature reviews** — co-equa
 
 | Group | Domain | Works |
 |---|---|---|
-| Science | [Physics](./physics.md) | 56 |
+| Science | [Physics](./physics.md) | 57 |
 | Science | [Astronomy](./astronomy.md) | 37 |
 | Science | [Mathematics](./mathematics.md) | 20 |
 | Science | [Chemistry](./chemistry.md) | 45 |
-| Science | [Biology](./biology.md) | 44 |
+| Science | [Biology](./biology.md) | 45 |
 | Science | [Neuroscience & Cognitive Science](./neuroscience_cognitive_science.md) | 14 |
-| Science | [Medicine & Health](./medicine_health.md) | 25 |
-| Science | [Earth Science](./earth_science.md) | 14 |
+| Science | [Medicine & Health](./medicine_health.md) | 26 |
+| Science | [Earth Science](./earth_science.md) | 15 |
 | Science | [Environmental Science](./environmental_science.md) | 7 |
-| Science | [Materials Science](./materials_science.md) | 32 |
+| Science | [Materials Science](./materials_science.md) | 33 |
 | Science | [Computer Science](./computer_science.md) | 9 |
-| Science | [AI & Machine Learning Research](./ai_ml_research.md) | 34 |
-| Engineering | [Mechanical & Aerospace Engineering](./mechanical_aerospace_engineering.md) | 12 |
-| Engineering | [Electrical Engineering](./electrical_engineering.md) | 18 |
-| Engineering | [Energy Systems](./energy_systems.md) | 5 |
+| Science | [AI & Machine Learning Research](./ai_ml_research.md) | 35 |
+| Engineering | [Mechanical & Aerospace Engineering](./mechanical_aerospace_engineering.md) | 14 |
+| Engineering | [Electrical Engineering](./electrical_engineering.md) | 20 |
+| Engineering | [Energy Systems](./energy_systems.md) | 6 |
 | Engineering | [Chemical Engineering](./chemical_engineering.md) | 12 |
-| Engineering | [Civil & Structural Engineering](./civil_structural_engineering.md) | 30 |
-| Engineering | [Robotics](./robotics.md) | 21 |
+| Engineering | [Civil & Structural Engineering](./civil_structural_engineering.md) | 31 |
+| Engineering | [Robotics](./robotics.md) | 22 |
 | Engineering | [Software & Systems Engineering](./software_systems_engineering.md) | 21 |

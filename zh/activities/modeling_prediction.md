@@ -46,9 +46,11 @@
 | AutoWorldModel-Bench | 2026 | 改进一个学习得到的世界模型对实体动力学的前向预测 | 八个游戏环境统一采用共享的结构化状态张量格式，感知被移除 | 留出集上 Position L1 与 Alive F1 在 1/10/20 三个时程上的组合，权重 0.1/0.2/0.7 | [卡片](../works/autoworldmodel-bench.md) |
 | [HarnessDev](../works/harnessdev.md) | 2026 | 构建能训练竞赛模型的 harness | 75 个 MLE-bench 竞赛；冻结生成的 harness | 按竞赛奖牌标准评估提交 | [HarnessDev](../works/harnessdev.md) |
 | EurekaBench | 2026 | 把提出的机制写成可执行代码，预测保留的观测 | 在来自原始研究或任务模拟器的保留测试数据上运行 `mechanism.py` | 每条标准的预测准确度取值 [0, 1]；最好 47.4%，人类参考 48.8% | [卡片](../works/eurekabench.md) |
+| AutoDataBench | 2026 | 只改训练数据，提升一个固定模型的目标指标 | 三个任务（工具调用、检索、知识注入）；一块 A800、24 小时内最多 20 轮训练加评测 | 以分布内得分为反馈，报告隐藏的分布外得分；Overall 最高 60.68，专家 56.89 | [卡片](../works/autodatabench-auto-research.md) |
 
 ## Related Works
 
+- [AutoDataBench](../works/autodatabench-auto-research.md)
 - [EurekaBench](../works/eurekabench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [DSAgentBench](../works/dsagentbench.md)

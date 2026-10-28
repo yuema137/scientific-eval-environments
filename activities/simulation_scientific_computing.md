@@ -64,10 +64,16 @@ A fifth cluster runs **structural analysis against a civil-engineering solver**,
 | StructureClaw | 2026 | Operating structural-engineering workbench with solver backends | 150 scenarios: standard, interactive, multimodal reconstruction | Model matching + numerical agreement vs frozen references | [card](../works/structureclaw.md) |
 | Terminal-Bench Science | 2026 | Containerized natural-science computational workflows | 70 tasks across 5 tracks in version 0.1 | Deterministic pytest-based programmatic verification | [card](../works/terminal-bench-science.md) |
 | PhysClosureBench | 2026 | Write and run its own numerical simulations of strong-field, attosecond, and related physics to generate the evidence | OpenCode with Bash in an offline container; 8–96 CPU cores and 30–720 min per case | Required observables and mechanism criteria in a 20-atom rubric; best mean Atomic Score 6.29/10 | [card](../works/physclosurebench.md) |
+| ScienceIDE | 2026 | Make simulation modules (e.g., PLUTO, Athena++, MITgcm) reproduce reference outputs and physical invariants | Containerized workspaces with official tests kept as checks | Tolerance and invariant checks; repair score normalized against the defective start | [card](../works/scienceide.md) |
+| EngiWorld | 2026 | Set up and run CAE analyses (ANSYS, Abaqus, OpenFOAM, CalculiX, FEniCS, and others) inside professional software | GUI or CLI control of the applications; part of 1,301 tasks | Simulation outputs within error bounds and correct material, load, and boundary assignments | [card](../works/engiworld.md) |
+| SimuVerity | 2026 | Build executable Simulink models of engineering systems from text specifications | 101 tasks in MATLAB/Simulink R2025a via the MATLAB MCP server | Native simulation over withheld scenarios behind delivery, executability, and qualification gates; best 42.86 vs. reference 96.01 | [card](../works/simuverity.md) |
 
 ## Related Works
 
 - [PhysClosureBench](../works/physclosurebench.md)
+- [SimuVerity](../works/simuverity.md)
+- [EngiWorld](../works/engiworld.md)
+- [ScienceIDE](../works/scienceide.md)
 - [CRAFTS](../works/crafts.md)
 - [MDArena](../works/mdarena.md)
 - [Automating Structural Reliability Analysis with a Multi-Agent Large Language Model Framework](../works/automating-structural-reliability-analysis-with-a.md)

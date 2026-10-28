@@ -42,6 +42,7 @@
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现Materials Science的已发表实验 | 从论文重建代码并执行；属于 30 篇 AI4Science 论文的一部分；未报告本领域数量 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
 | Into the Unknown | 2026 | 沿作者设定的方向延伸原子间势研究：用学习得到的描述符替换 SNAP 的双谱分量，并检验精度、数据效率和跨材料迁移；用有物理依据的切换函数替换分层势中的启发式函数。 | 15 题中的 2 题；写出后续论文并附代码和日志，不设时限。 | GPT-6-Astra agent judge 按作者指定的诚信和方向细则评分；没有一份提交有效。 | [→](../works/into-the-unknown.md) |
 | SCI-AGENT-EXAM | 2026 | 跨领域套件中的材料科学工作流任务。 | 120 道题中的 10 道；离线 Docker，每题交答案、代码和报告。 | 在隐藏输入上重跑的程序化检查，加上 GPT-5.6 Sol 对报告的细则评分。 | [→](../works/sci-agent-exam.md) |
+| AutoSciBench | 2026 | 以 MatTools 为种子生成的材料科学题，需要在原始数据上使用计算材料工具。 | 每个生成器 50 题；十个求解模型。 | 与单个参考答案精确匹配；任务质量由 LLM judge 评分。 | [→](../works/autoscibench.md) |
 
 ## Capability Matrix
 
@@ -107,6 +108,7 @@
 | Materials Hypothesis Generation | DISC | ✘ | ◐ | ✘ | ✘ | ✔ | ✘ | ✘ | **1.5** | ◐ | ✔ | ✔ | 1 | 1 | 1 | **5.5** |
 | AutoDFT / VASPBench | COMP | ? | ✘ | ✘ | ✘ | ◐ | ✘ | ✔ | **1.5** | ✘ | ✘ | ✘ | 3 | 1 | 1 | **5** |
 | MatTools | COMP, INFO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 3 | 1 | **7** |
+| AutoSciBench | COMP, INFO | ? | ✘ | ? | ? | ✘ | ? | ✔ | **1** | ? | ✘ | ✔ | 3 | 1 | 1 | **6** |
 | SciConvBench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✔ | ◐ | 1 | ? | 3 | **5.5** |
 | MatSciBench | GEN | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | **0.5** | ✘ | ✘ | ◐ | 2 | 3 | 3 | **8.5** |
 | MatText | INFO, STRUCT | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | 3 | 4 | **10** |
@@ -126,6 +128,7 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [Into the Unknown](../works/into-the-unknown.md)
+- [AutoSciBench](../works/autoscibench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
 - [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md)

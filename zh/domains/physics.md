@@ -66,6 +66,7 @@
 | Into the Unknown | 2026 | 沿原作者设定、尚未发表的方向延伸已发表的量子计算和等离子体物理工作：自适应变分量子动力学在硬件拓扑和噪声下的极限、更好的 LCHS 核函数、在自旋链等离子体模型中加入 ZZ 相互作用，以及格点标量 QED 和 Vlasov 理论在 MagCBET 上的适用边界。 | 15 题中的 6 题（量子计算 4、等离子体物理 2）；agent 写出后续论文并附代码和日志，不设时限，网络不受限。 | GPT-6-Astra agent judge 按作者指定的诚信和方向细则评分；没有一份提交有效。 | [→](../works/into-the-unknown.md) |
 | PhysClosureBench | 2026 | 在强场、阿秒及相邻物理中完成一项目标明确的研究（如电离后的散射如何决定阿秒钟角偏移），得出机制和适用范围都有自生成证据支撑的结论。 | 50 道题（强场原子分子与阿秒 24、强场凝聚态 12、量子光学 8、强场 QED 4、物质波 2）；离线容器，8–96 核、30–720 分钟；每个模型跑三次。 | GPT-5.6-Sol 分阶段评 20 条半分原子标准和研究闭合等级 RC0–RC4；在挑选的标准上与五位物理专家一致 81.8%。 | [→](../works/physclosurebench.md) |
 | SCI-AGENT-EXAM | 2026 | 跨领域科学工作流套件中的物理模拟类任务。 | 120 道题中有 11 道物理模拟题（另有 12 道只标为“物理科学”）；离线 Docker，每题交答案、代码和报告。 | 在隐藏输入上重跑的程序化检查，加上 GPT-5.6 Sol 对报告的细则评分。 | [→](../works/sci-agent-exam.md) |
+| ScienceIDE | 2026 | 修复或重写天体物理流体、等离子体物理和粒子模拟代码的模块时，保证数值结果依然正确。 | PLUTO、Athena++、PHANTOM 等代码的模块；属于 2,812 个任务和 85 题难题子集的一部分（未给出各领域题数）。 | 按逐点容差与私有科学参考值做确定性比较，并检查物理不变量。 | [→](../works/scienceide.md) |
 
 ## Capability Matrix
 
@@ -135,6 +136,7 @@
 | SimAgents | COS | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
 | DiscoverPhysics | CLA, GR | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 2 | 1 | 2 | **7** |
 | PhysGym | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ◐ | 2 | 1 | 3 | **6.5** |
+| ScienceIDE | PLA, COS, FLU, COMP | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ? | ✘ | ◐ | 3 | ? | 3 | **6.5** |
 | PRBench | HEP, AMO, NUC, PLA, CM | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ✘ | ✔ | ✘ | 2 | 1 | 2 | **6** |
 | Into the Unknown | QI, PLA | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 1 | 0 | 3 | **6** |
 | QMP-Bench | CM, COMP | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ◐ | ✔ | ✘ | 2 | 2 | 0 | **5.5** |
@@ -180,6 +182,7 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 - [PhysClosureBench](../works/physclosurebench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [EurekaBench](../works/eurekabench.md)
+- [ScienceIDE](../works/scienceide.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
