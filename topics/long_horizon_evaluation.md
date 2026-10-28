@@ -144,6 +144,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | EurekaBench | 2026 | Up to 4 hours and 1,000 iterations per problem on one H100 | Apptainer-packaged scientific simulators behind a CLI; web search with source papers blocked | [→](../works/eurekabench.md) |
 | Into the Unknown | 2026 | No time limit, up to five relaunches; per-agent median execution 1.3–19.5 hours; 1,942.81 hours for 135 submissions | Native agent SDK harnesses on 8×H200 or 32-vCPU nodes; unrestricted internet | [→](../works/into-the-unknown.md) |
 | RobotAgentBench | 2026 | 18 short- and 8 long-horizon tasks plus 4 open-ended scenarios; episodes end after 120 s of simulated time without progress; Stagnation and Recovery Rate reported | Isaac Sim household layouts (50, from one real home) with a sim-to-real subset on a physical AgiBot G1 | [→](../works/robotagentbench.md) |
+| EngiWorld | 2026 | Up to 200 GUI or 100 CLI decision rounds (300/150 for multi-software tasks) and a five-hour runtime limit; 54.9–120.5 steps per task | 26 professional engineering applications driven by PyAutoGUI or terminal | [→](../works/engiworld.md) |
 
 ## Open Questions
 
@@ -157,6 +158,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - [RobotAgentBench](../works/robotagentbench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [EurekaBench](../works/eurekabench.md)
+- [EngiWorld](../works/engiworld.md)
 - [FORESIGHT-9](../works/foresight-9.md)
 - [ASI-Bench](../works/asi-bench.md)
 - [R³-Bench](../works/r3-bench.md)

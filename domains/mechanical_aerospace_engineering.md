@@ -22,6 +22,8 @@ Mechanical and aerospace engineering. Computational fluid dynamics and thermal t
 | ERI Benchmark | 2026 | Mechanical and aerospace engineering, two of the benchmark's nine covered fields, spanning thermodynamics, fluid mechanics, heat transfer, machine design, dynamics and vibrations, manufacturing and HVAC, plus aerodynamics, flight mechanics, propulsion, aerospace structures, and orbital mechanics. | 57,750 instruction–response records generated over a controlled field × subdomain × intent × difficulty cross-product (1,155 cells, 50 pairs per cell), with per-field means reported separately. | Automatic checks for refusals, missing final answers, and machine-parsable constraint violations, beneath rubric scoring by a three-provider judge panel (Claude Haiku 4.5, GPT-4.1 Mini, Mistral Small 3) averaged per item; aerospace engineering is among the hardest fields for every model scored. | [→](../works/eri-benchmark.md) |
 | SoM-1K | 2025 | Strength of materials as the solid-mechanics foundation the paper states is shared across civil, mechanical, aerospace and materials engineering — axial loading of bars, torsion of shafts, bending, and integrated problems combining static analysis with vibration, impact and rigid-body motion. | 1,065 annotated problems (bending 630, axial 201, torsion of shafts 137, frames 54, integrated 43; 148 statically indeterminate) drawn from university textbooks and mechanics competitions, each pairing a statement, a schematic, an expert-verified Description of the Image and a worked solution; 8 models over 3 prompting strategies. | Manual grading of every response by mechanics educators, awarding a point only when the reasoning sequence is valid and the final answer correct, over a majority vote of five samples; best result 56.6%. | [→](../works/som-1k.md) |
 | EngDesign | 2025 | Mechanical systems design, together with the solid-mechanics content shared with the benchmark's Structure Design area, posed as design specifications with goals, constraints and performance requirements rather than questions with reference answers. | Mechanical Systems (7 tasks) and Structure Design (13) within 101 design tasks carrying 473 gradable items across nine engineering areas; 12 chat and reasoning models, with an iterative protocol allowing up to 10 simulator-feedback rounds. | Structured model output executed by a per-task evaluation script driving the domain's own tools — MATLAB, finite element analysis, topology-optimisation solvers — returning a binary pass/fail, a 0–100 partial-credit score and an evaluation log. | [→](../works/engdesign.md) |
+| EngiWorld | 2026 | Produce mechanical design, manufacturing, and analysis artifacts in professional CAD, CAM, and CAE software, e.g. solid models, toolpaths, and finite-element or CFD analyses. | CAD (7 applications), CAE (7), and CAM (2) tasks within 1,301; GUI or CLI control; per-domain counts not stated. | Programmatic verifiers on the artifact: dimensions, topology, solid validity, load and boundary assignments, simulation outputs within error bounds. | [→](../works/engiworld.md) |
+| SimuVerity | 2026 | Model the dynamics of automotive, mechanical, aerospace, thermal, and fluid systems as executable Simulink models. | 54 of 101 tasks (automotive 11, mechanical 11, aerospace 10, thermal 11, fluid 11). | Native simulation over withheld scenarios behind executability and expert qualification gates. | [→](../works/simuverity.md) |
 
 ## Capability Matrix
 
@@ -65,11 +67,13 @@ Three cautions. A `?` costs exactly what a `✘` costs, so both scores are floor
 For multi-domain suites the row describes this domain's slice, as in the Comparison table.
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| EngiWorld | MECH, FEA, CFD | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ | **2.5** | ? | ✘ | ? | 3 | ? | 3 | **6** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | CFDLLMBench | CFD, THERM | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ◐ | 3 | 2 | 3 | **9** |
 | EngDesign | MECH, SOL | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✔ | ✘ | 3 | 1 | 3 | **8** |
 | SoM-1K | SOL | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ◐ | ✘ | 3 | 3 | 4 | **10.5** |
 | MooseBench | MULTI, FEA | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 2 | 4 | **9** |
+| SimuVerity | DYN, MECH, AERO, THERM, FLU | ✘ | ✘ | ? | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✔ | ◐ | 3 | 1 | 3 | **9** |
 | SimBench | DYN, FEA | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✔ | ✘ | 2 | 2 | 1 | **6.5** |
 | SciConvBench | FLU, SOL | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✔ | ◐ | 1 | ? | 3 | **5.5** |
 | AInsteinBench | CFD | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 3 | ? | 2 | **5.5** |
@@ -84,6 +88,8 @@ Repository note: a suite-wide total does not establish this domain’s item coun
 
 ## Related Works
 
+- [SimuVerity](../works/simuverity.md)
+- [EngiWorld](../works/engiworld.md)
 - [SciConvBench](../works/sciconvbench.md)
 - [MooseBench](../works/moosebench.md)
 - [ERI Benchmark](../works/eri-benchmark.md)

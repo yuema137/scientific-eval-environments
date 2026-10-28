@@ -485,6 +485,11 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 | Into the Unknown | 2026 | 美国能源部国家实验室科学家的 15 篇论文，每篇配一个未发表的后续方向和作者指定的条件 | 量子计算、等离子体物理、计算化学、材料科学、科学机器学习 | GPT-6-Astra agent judge 按诚信与方向两套细则评分（四次运行，按节点多数）；对照作者的批评测量细则覆盖率和一致率 | [→](../works/into-the-unknown.md) |
 | PhysClosureBench | 2026 | 50 道目标明确的题，改编自已发表研究（如 PRL、PRA），每个源结果都经人工复现 | 强场与阿秒原子分子物理、强场凝聚态、量子光学、强场 QED | GPT-5.6-Sol 分阶段评 20 条半分原子标准和 RC0–RC4 闭合等级；在 192 条标准判定上与五位物理专家一致 81.8% | [→](../works/physclosurebench.md) |
 | SCI-AGENT-EXAM | 2026 | 120 个由专家搭建的任务包，取材于近期论文、竞赛、数据集和开源项目 | 11 个领域，七类工作流任务 | 在隐藏输入上重跑的加权程序化检查，加上 GPT-5.6 Sol 细则 judge；权重按任务类型固定 | [→](../works/sci-agent-exam.md) |
+| ScienceIDE | 2026 | 27 个科学代码库，经专家审核拆成模块；任务工厂注入缺陷或删掉实现（2,812 个任务，难题子集 85 个） | 计算物理和地球科学：天体物理流体、等离子体、海洋与大气模型 | 确定性私有 verifier：按容差和不变量对照科学参考值检查；不用 judge | [→](../works/scienceide.md) |
+| EngiWorld | 2026 | 专家从专业软件工作流中整理的 1,301 个任务，涉及 26 款软件 | CAD、CAE、CAM、BIM、EDA、3D 可视化 | 程序化检查产出文件（几何、可行性、设计规则）；不用 judge | [→](../works/engiworld.md) |
+| AutoDataBench | 2026 | 三个改进数据的任务，模型、训练流程和评测固定不变 | ML 研究：工具调用、检索和知识注入的训练数据 | 训练后在分布内反馈集上评测；最佳 checkpoint 在隐藏的分布外测试集上打分 | [→](../works/autodatabench-auto-research.md) |
+| SimuVerity | 2026 | 101 个从文字生成 Simulink 模型的任务，来源包括公开示例、研究成果和专家模型 | 十个工程系统领域（从电力电子到生物医学） | 分门槛的原生仿真，在 595 个不公开场景下打分；与两位专家的 κ = 0.90 | [→](../works/simuverity.md) |
+| AutoSciBench | 2026 | 由 agent 循环根据概念和配方生成，反复修改到可验证、够难、没有捷径（每个领域每个生成器 50 题） | 计算生物学、材料科学、临床影像 | 与单个参考答案精确匹配；任务质量由 LLM judge 评分 | [→](../works/autoscibench.md) |
 
 ## 还没解决的问题
 
@@ -505,8 +510,13 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - [Astro2Method](../works/astro2method.md)
 - [PhysClosureBench](../works/physclosurebench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
+- [AutoSciBench](../works/autoscibench.md)
+- [SimuVerity](../works/simuverity.md)
+- [AutoDataBench](../works/autodatabench-auto-research.md)
 - [EurekaBench](../works/eurekabench.md)
+- [EngiWorld](../works/engiworld.md)
 - [DISCERN](../works/discern.md)
+- [ScienceIDE](../works/scienceide.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [ASI-Bench](../works/asi-bench.md)

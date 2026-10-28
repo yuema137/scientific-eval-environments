@@ -28,6 +28,8 @@ Electrical and electronic engineering.
 | PDAgent-Bench | 2026 | VLSI physical design / Electronic Design Automation — chip back-end implementation spanning floorplanning, power planning, placement, clock-tree synthesis, routing, static timing analysis, and engineering change orders. | 353 curated task-level problems across five capability dimensions (foundational knowledge, report comprehension, root-cause analysis, static timing analysis, script generation) plus 10 full-flow design projects, using TSMC 28nm / Nangate 45nm and tools including Cadence Innovus, Synopsys ICC2/PrimeTime, and OpenROAD; 11 models. | Task-level pass@1/pass@5 with script solutions checked by execution and conceptual answers scored against three-expert-validated references; workflow-level full-flow runs assessed by timing closure and DRC-violation outcomes on designs such as TinyRISCV, AES-256, and Ethernet MAC. | [→](../works/pdagent-bench.md) |
 | ERI Benchmark | 2026 | Electrical engineering as one of nine covered fields, with six subdomains: circuits, electronics, signals and systems, power systems, electromagnetics, and control systems. | 57,750 instruction–response records generated over a controlled field × subdomain × intent × difficulty cross-product (1,155 cells, 50 pairs per cell), with per-field means reported separately. | Automatic checks for refusals, missing final answers, and machine-parsable constraint violations, beneath rubric scoring by a three-provider judge panel (Claude Haiku 4.5, GPT-4.1 Mini, Mistral Small 3) averaged per item. | [→](../works/eri-benchmark.md) |
 | EngDesign | 2025 | Electrical and electronic design posed as specifications with goals, constraints and performance requirements — control design, digital hardware design, analog IC design and signal processing. | Control Design (18), Signal Processing (18), Digital Hardware Design (17) and Analog IC Design (5) within 101 design tasks carrying 473 gradable items across nine engineering areas; 48 of the 101 tasks require proprietary domain software such as MATLAB or Cadence. | Structured model output executed by a task-specific script running the relevant simulator (MATLAB, SPICE/Cadence), returning a binary pass/fail, a 0–100 partial-credit score and an evaluation log; analog IC design is reported as the weakest of the nine areas. | [→](../works/engdesign.md) |
+| EngiWorld | 2026 | Produce circuit and board designs in professional EDA software. | EDA tasks in Cadence OrCAD, EAGLE, Altium Designer, and KiCad within 1,301; per-domain counts not stated. | Programmatic verifiers on the design files, including design-rule compliance and connectivity. | [→](../works/engiworld.md) |
+| SimuVerity | 2026 | Model power-electronics and control systems and communication systems as executable Simulink models. | 18 of 101 tasks (power electronics & control 9, communication systems 9). | Native simulation over withheld scenarios behind executability and expert qualification gates. | [→](../works/simuverity.md) |
 
 ## Capability Matrix
 
@@ -72,12 +74,14 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | PDAgent-Bench | EDA | ✘ | ✘ | ◐ | ◐ | ✘ | ✔ | ✔ | **3** | ✘ | ✔ | ◐ | 2 | 2 | 3 | **8.5** |
+| EngiWorld | EDA | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ | **2.5** | ? | ✘ | ? | 3 | ? | 3 | **6** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | EngDesign | CTRL, DIG, ANA, SS | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ✘ | ◐ | ✔ | 3 | 1 | 3 | **8.5** |
 | AnalogXpert | ANA | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ✔ | **1.5** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | ControlAgent / ControlEval | CTRL | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ✘ | 3 | 2 | 1 | **6.5** |
 | RTL-Repo | DIG | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✔ | 3 | 3 | 3 | **10** |
 | EEE-Bench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✘ | ✘ | 2 | 3 | 4 | **9** |
+| SimuVerity | CTRL, COMM | ✘ | ✘ | ? | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✔ | ◐ | 3 | 1 | 3 | **9** |
 | AssertionBench | VER | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 2 | 2 | **7** |
 | AnalogCoder | ANA | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 1 | 2 | **6** |
 | CVDP | DIG, VER | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **0.5** | ✘ | ✘ | ✔ | 2 | 2 | 3 | **8** |
@@ -92,6 +96,8 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 
 ## Related Works
 
+- [SimuVerity](../works/simuverity.md)
+- [EngiWorld](../works/engiworld.md)
 - [PDAgent-Bench](../works/pdagent-bench.md)
 - [ERI Benchmark](../works/eri-benchmark.md)
 - [Terminal-Bench Science](../works/terminal-bench-science.md)

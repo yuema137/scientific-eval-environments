@@ -42,6 +42,7 @@ Materials characterization and computational materials science, spanning physica
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in materials science | Paper-to-repository reproduction; Part of 30 AI4Science papers; per-field count unreported | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
 | Into the Unknown | 2026 | Extend interatomic-potential research along author-set directions: replace SNAP bispectrum components with a learned descriptor tested for accuracy, data efficiency, and transfer, and replace a heuristic switching function in a layered potential. | 2 of 15 problems; follow-up paper with code and logs, no time limit. | GPT-6-Astra agentic judge on author-specified integrity and direction rubrics; no submission is valid. | [→](../works/into-the-unknown.md) |
 | SCI-AGENT-EXAM | 2026 | Materials-science workflow tasks within a cross-field suite. | 10 of 120 tasks; offline Docker, answer, code, and report per task. | Programmatic checks rerun on hidden inputs, plus a GPT-5.6 Sol rubric judge on the report. | [→](../works/sci-agent-exam.md) |
+| AutoSciBench | 2026 | Materials-science questions generated from MatTools seeds that require using computational materials tools on raw data. | 50 generated tasks per generator; ten solver models. | Exact match to a single reference answer; task quality rated by LLM judges. | [→](../works/autoscibench.md) |
 
 ## Capability Matrix
 
@@ -107,6 +108,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Materials Hypothesis Generation | DISC | ✘ | ◐ | ✘ | ✘ | ✔ | ✘ | ✘ | **1.5** | ◐ | ✔ | ✔ | 1 | 1 | 1 | **5.5** |
 | AutoDFT / VASPBench | COMP | ? | ✘ | ✘ | ✘ | ◐ | ✘ | ✔ | **1.5** | ✘ | ✘ | ✘ | 3 | 1 | 1 | **5** |
 | MatTools | COMP, INFO | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✘ | ✘ | 3 | 3 | 1 | **7** |
+| AutoSciBench | COMP, INFO | ? | ✘ | ? | ? | ✘ | ? | ✔ | **1** | ? | ✘ | ✔ | 3 | 1 | 1 | **6** |
 | SciConvBench | COMP | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ✘ | ✔ | ◐ | 1 | ? | 3 | **5.5** |
 | MatSciBench | GEN | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | **0.5** | ✘ | ✘ | ◐ | 2 | 3 | 3 | **8.5** |
 | MatText | INFO, STRUCT | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 3 | 3 | 4 | **10** |
@@ -126,6 +128,7 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [Into the Unknown](../works/into-the-unknown.md)
+- [AutoSciBench](../works/autoscibench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Science Edge Evaluation (SEE)](../works/science-edge-evaluation.md)
 - [Agentic Self-Driving Microscopy Benchmarks](../works/agentic-microscopy-benchmarks.md)

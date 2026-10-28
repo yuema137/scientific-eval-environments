@@ -35,6 +35,7 @@
 | Agents Catching Agents | 2026 | 临床决策支持 agent 组成的委员会，会不会采纳那些 benchmark 给分、临床医生却会无视的捷径线索。 | 六个公开数据集上的七个 cohort——MedQA-USMLE、MedMCQA、MIMIC-CXR 报告、NIH ChestX-ray14、MIMIC-CXR-JPG、CheXpert 与 SUPPORT2——采用三 agent 共享黑板。 | 采纳率对照孤立条件下的翻转率（单独面对时 5–16%，两个同伴发声时 38%）；三种监督检测器以精确率、召回率与假阳性率计分。 | [→](../works/agents-catching-agents.md) |
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | 依据Medicine & Health文献提出可检验假设 | 本领域有八个密集评分子领域；比较固定文献与主动检索 | 评审模型依据检索到的已有研究判断原创性；不执行实验验证 | [AgentIdeaBench](../works/agentideabench.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现Medicine & Health的已发表实验 | 从论文重建代码并执行；属于 30 篇 AI4Science 论文的一部分；未报告本领域数量 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
+| AutoSciBench | 2026 | 以 MedCTA 为种子生成的临床影像题。 | 每个生成器 50 题；十个求解模型。 | 单个参考答案；种子 benchmark 由 LLM 评估器打分；任务质量由 LLM judge 评分。 | [→](../works/autoscibench.md) |
 
 ## Capability Matrix
 
@@ -97,6 +98,7 @@
 | MedAgentBench | EHR | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✘ | ✘ | ◐ | 3 | 2 | 2 | **7.5** |
 | AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
+| AutoSciBench | IMG | ? | ✘ | ? | ✔ | ✘ | ? | ✔ | **2** | ? | ✘ | ✔ | ? | 1 | 1 | **3** |
 | BiomedSQL | PHARM | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✔ | ✘ | ✘ | 2 | 2 | 4 | **9** |
 | MedHELM | CLIN, EHR, HPOL | ? | ✘ | ◐ | ✘ | ✘ | ✔ | ✘ | **1.5** | ✘ | ✔ | ◐ | 2 | 2 | 1 | **6.5** |
 | MiraMind | PSY | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✔ | ◐ | 2 | 2 | 3 | **8.5** |
@@ -110,6 +112,7 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 
 ## Related Works
 
+- [AutoSciBench](../works/autoscibench.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Apodex Discovery](../works/apodex-discovery.md)

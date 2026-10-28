@@ -134,16 +134,16 @@ Domain 页回答的问题更具体：受评工作发生在哪个学科？一个�
 
 | Domain | Works |
 |---|--:|
-| [Physics](./domains/physics.md) | 56 |
+| [Physics](./domains/physics.md) | 57 |
 | [Chemistry](./domains/chemistry.md) | 45 |
-| [Biology](./domains/biology.md) | 44 |
-| [Materials Science](./domains/materials_science.md) | 32 |
-| [AI & Machine Learning Research](./domains/ai_ml_research.md) | 34 |
+| [Biology](./domains/biology.md) | 45 |
+| [Materials Science](./domains/materials_science.md) | 33 |
+| [AI & Machine Learning Research](./domains/ai_ml_research.md) | 35 |
 | [Mathematics](./domains/mathematics.md) | 20 |
-| [Medicine & Health](./domains/medicine_health.md) | 25 |
+| [Medicine & Health](./domains/medicine_health.md) | 26 |
 | [Neuroscience & Cognitive Science](./domains/neuroscience_cognitive_science.md) | 14 |
 | [Astronomy](./domains/astronomy.md) | 37 |
-| [Earth Science](./domains/earth_science.md) | 14 |
+| [Earth Science](./domains/earth_science.md) | 15 |
 | [Computer Science](./domains/computer_science.md) | 9 |
 | [Environmental Science](./domains/environmental_science.md) | 7 |
 
@@ -151,12 +151,12 @@ Domain 页回答的问题更具体：受评工作发生在哪个学科？一个�
 
 | Domain | Works |
 |---|--:|
-| [Electrical Engineering](./domains/electrical_engineering.md) | 18 |
-| [Robotics](./domains/robotics.md) | 21 |
+| [Electrical Engineering](./domains/electrical_engineering.md) | 20 |
+| [Robotics](./domains/robotics.md) | 22 |
 | [Software & Systems Engineering](./domains/software_systems_engineering.md) | 21 |
-| [Mechanical & Aerospace Engineering](./domains/mechanical_aerospace_engineering.md) | 12 |
-| [Energy Systems](./domains/energy_systems.md) | 5 |
-| [Civil & Structural Engineering](./domains/civil_structural_engineering.md) | 30 |
+| [Mechanical & Aerospace Engineering](./domains/mechanical_aerospace_engineering.md) | 14 |
+| [Energy Systems](./domains/energy_systems.md) | 6 |
+| [Civil & Structural Engineering](./domains/civil_structural_engineering.md) | 31 |
 | [Chemical Engineering](./domains/chemical_engineering.md) | 12 |
 
 更细的领域折并入这些规范化 domain（bioinformatics → Biology、GIS → Earth Science、psychology → Neuroscience & Cognitive Science 等），一份工作也可出现在多个 domain。web/UI agent、computer use 与纯评估方法学不属于科学或工程领域，不在此列出。
@@ -171,13 +171,13 @@ Activity 页跟着 agent 实际完成的工作走。它是在搜文献、跑 sim
 | Activity | 涵盖内容 | Works |
 |---|---|--:|
 | [科学问题求解与推理](./activities/scientific_problem_solving_reasoning.md) | 科学问答、推导、证明、定量与多模态问题求解、诊断推理 | 97 |
-| [科学软件与工作流工程](./activities/scientific_software_workflow_engineering.md) | 科学/工程代码、仓库与流水线工程、HDL 与形式化规约代码 | 76 |
-| [数据分析与统计推断](./activities/data_analysis_statistical_inference.md) | 统计分析与推断、生物信息学/组学分析、数据解读 | 47 |
+| [科学软件与工作流工程](./activities/scientific_software_workflow_engineering.md) | 科学/工程代码、仓库与流水线工程、HDL 与形式化规约代码 | 77 |
+| [数据分析与统计推断](./activities/data_analysis_statistical_inference.md) | 统计分析与推断、生物信息学/组学分析、数据解读 | 48 |
 | [实验设计与科学发现](./activities/experiment_design_discovery.md) | 实验与观测规划、假设生成、规律发现 | 30 |
-| [模拟与科学计算](./activities/simulation_scientific_computing.md) | 数值模拟、PDE/FEM、MD/DFT、运行与构建科学模拟器 | 36 |
+| [模拟与科学计算](./activities/simulation_scientific_computing.md) | 数值模拟、PDE/FEM、MD/DFT、运行与构建科学模拟器 | 39 |
 | [文献检索与证据综合](./activities/literature_evidence_synthesis.md) | 文献检索、系统综述、证据综合、以文献为依托的抽取 | 25 |
-| [建模与预测](./activities/modeling_prediction.md) | 预测与代理建模、性质预测、预报 | 24 |
-| [优化与工程设计](./activities/optimization_engineering_design.md) | 参数与控制器调优、工程/逆向设计、材料与分子设计 | 28 |
+| [建模与预测](./activities/modeling_prediction.md) | 预测与代理建模、性质预测、预报 | 25 |
+| [优化与工程设计](./activities/optimization_engineering_design.md) | 参数与控制器调优、工程/逆向设计、材料与分子设计 | 30 |
 | [研究复现与重复](./activities/research_reproduction_replication.md) | 复现已发表的分析、结果与方法；匹配已报告的结论 | 14 |
 | [端到端研究](./activities/end_to_end_research.md) | 跨越多个主要阶段的多阶段研究生命周期 | 13 |
 | [实验室与仪器控制](./activities/laboratory_instrument_control.md) | 仪器、显微镜与光束线控制、实验室自动化、行为定义的控制代码 | 4 |
@@ -190,7 +190,7 @@ Activity 页跟着 agent 实际完成的工作走。它是在搜文献、跑 sim
 
 一篇论文有 benchmark 分数，不等于它自动进入范围。如果 evaluation 只在最后的 results table 里出现，纯 training、optimization、data、memory 或 multi-agent work 仍然不收。具体判断时看这几件事：evaluation 有没有定义 objective，提供 feedback，选择 intervention，诊断 failure，或直接成为 experiment environment。
 
-"Works" 比 "benchmarks" 更广：集合中收录 benchmark、评估方法学、评估框架、面向评估的 RL 工作、综述与立场论文的卡片，每张卡片都会显式标注类型。目前共有 **408 张卡片**、**15 个 topic 页**、**19 个 domain 页**、**11 个 activity 页**，并在 [`zh/`](./README.md) 下配有中文镜像。
+"Works" 比 "benchmarks" 更广：集合中收录 benchmark、评估方法学、评估框架、面向评估的 RL 工作、综述与立场论文的卡片，每张卡片都会显式标注类型。目前共有 **414 张卡片**、**15 个 topic 页**、**19 个 domain 页**、**11 个 activity 页**，并在 [`zh/`](./README.md) 下配有中文镜像。
 
 ---
 

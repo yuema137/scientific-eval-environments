@@ -24,6 +24,7 @@ Geosciences: atmospheric, ocean, and geological sciences. GIS and geospatial ana
 | SciVQR | 2026 | Multimodal scientific reasoning in the geography subject — one of six top-level scored subjects — whose subfields include geology, geomorphology, hydrology, climatology and cartography. | 3,254 image-paired competition and exam questions across six subjects and 54 subfields (2,545 multiple-choice, 709 free-form; easy/medium/hard tiers); 15 multimodal models zero-shot, with and without CoT. Per-subject item counts are not published. | Zero-shot accuracy reported per subject, plus a five-dimension rubric (faithfulness, informativeness, redundancy, hallucination, missing steps) scoring the generated reasoning against expert-authored solution traces. | [→](../works/scivqr.md) |
 | HiSciBench | 2025 | The geography discipline across the hierarchy: literature question answering over geoscience papers, plus data-driven discovery in which the model writes and executes Python analysis code. | 737 geography instances within 8,735 — 200 general scientific QA, 500 monolingual literature QA, 10 review topics and 27 data-driven discovery tasks; 18 models evaluated. | Level-appropriate metrics: accuracy at the QA levels, word-level accuracy for literature OCR, BLEU for translation, at the review level an LLM-judge 1–5 rubric over Coverage, Structure, Relevance, Synthesis and Critical Analysis plus citation verifiability, metadata accuracy, faithfulness and recency, and at the discovery level an execution-based Success Rate zeroed when the generated program fails to execute. | [→](../works/hiscibench.md) |
 | EurekaBench | 2026 | Recover ice-shelf flow laws and hydrological catchment properties as mechanisms consistent with known physical constraints. | 2 of 26 problems: a FEniCSx shallow-shelf solver, and an HBV model driven by CAMELS-US forcing with noise added to simulated streamflow; up to 4 h on one H100. | Constraint tests gate the score; predictive accuracy on held-out data; insight questions judged by two agentic LLM judges. | [→](../works/eurekabench.md) |
+| ScienceIDE | 2026 | Keep ocean and atmospheric model codes numerically correct when modules are repaired or reimplemented. | Modules of codes such as MITgcm (including MITgcm-biogeo) and LAPS; per-domain counts not stated. | Deterministic comparison with private scientific references under pointwise tolerances and invariant checks. | [→](../works/scienceide.md) |
 
 ## Capability Matrix
 
@@ -75,6 +76,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SciVisAgentBench | ESM | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
 | AutoResearchEval | GPH, CLI | ◐ | ✔ | ✘ | ? | ◐ | ? | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | DrBencher | GPH | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 1 | 1 | **6** |
+| ScienceIDE | OCE, ATM | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ? | ✘ | ◐ | 3 | ? | 3 | **6.5** |
 | HydroAgent | HYD | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✔ | ✘ | ✘ | 3 | 0 | 2 | **6** |
 | ScienceBoard | GIS | ? | ✘ | ✘ | ✔ | ✘ | ? | ✔ | **2** | ✔ | ✘ | ✘ | 3 | ? | 2 | **6** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
@@ -89,6 +91,7 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 ## Related Works
 
 - [EurekaBench](../works/eurekabench.md)
+- [ScienceIDE](../works/scienceide.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Imaging-101](../works/imaging-101.md)
 - [GeoNatureAgent Benchmark](../works/geonatureagent-benchmark.md)

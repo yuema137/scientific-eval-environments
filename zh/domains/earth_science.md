@@ -24,6 +24,7 @@
 | SciVQR | 2026 | 地理学科中的多模态科学推理——六个顶层计分学科之一——其子领域包括地质学、地貌学、水文学、气候学与制图学。 | 3,254 道配图的竞赛与考试题目，横跨六个学科、54 个子领域（2,545 道选择题、709 道自由作答；分 easy/medium/hard 三档）；15 个多模态模型零样本受评，并对比用与不用 CoT。各学科的题目数量未公布。 | 按学科报告零样本准确率，另有五维 rubric（忠实性、信息量、冗余、幻觉、步骤缺失）对照专家撰写的解题过程为生成的推理打分。 | [→](../works/scivqr.md) |
 | HiSciBench | 2025 | 贯穿各层级的地理学科：对地学论文做文献问答，外加由模型自行编写并执行 Python 分析代码的数据驱动发现。 | 8,735 个实例中地理学科占 737 个——200 个通用科学问答、500 个单语文献问答、10 个综述选题与 27 个数据驱动发现任务；18 个模型受评。 | 按层级选取指标：问答层用准确率，文献 OCR 用词级准确率，翻译用 BLEU；综述层由 LLM judge 按 1–5 分 rubric 评 Coverage、Structure、Relevance、Synthesis 与 Critical Analysis，另计引文可核验性、元数据准确性、忠实性与时效性；发现层用基于执行的 Success Rate，生成的程序跑不起来即计零分。 | [→](../works/hiscibench.md) |
 | EurekaBench | 2026 | 以符合已知物理约束的机制，求出冰架流动定律和水文流域属性。 | 26 道题中的 2 道：一个 FEniCSx 浅冰架求解器，以及由 CAMELS-US 气象强迫驱动、对模拟径流加噪声的 HBV 模型；一块 H100、最多 4 小时。 | 约束测试作为得分门槛；在保留数据上测预测准确度；洞见问题由两个 agent 形式的 LLM judge 评判。 | [→](../works/eurekabench.md) |
+| ScienceIDE | 2026 | 修复或重写海洋与大气模式代码的模块时，保证数值结果依然正确。 | MITgcm（含 MITgcm-biogeo）、LAPS 等代码的模块；未给出各领域题数。 | 按逐点容差与私有科学参考值做确定性比较，并检查不变量。 | [→](../works/scienceide.md) |
 
 ## Capability Matrix
 
@@ -75,6 +76,7 @@
 | SciVisAgentBench | ESM | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
 | AutoResearchEval | GPH, CLI | ◐ | ✔ | ✘ | ? | ◐ | ? | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | DrBencher | GPH | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 1 | 1 | **6** |
+| ScienceIDE | OCE, ATM | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ? | ✘ | ◐ | 3 | ? | 3 | **6.5** |
 | HydroAgent | HYD | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✔ | ✘ | ✘ | 3 | 0 | 2 | **6** |
 | ScienceBoard | GIS | ? | ✘ | ✘ | ✔ | ✘ | ? | ✔ | **2** | ✔ | ✘ | ✘ | 3 | ? | 2 | **6** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
@@ -89,6 +91,7 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 ## Related Works
 
 - [EurekaBench](../works/eurekabench.md)
+- [ScienceIDE](../works/scienceide.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Imaging-101](../works/imaging-101.md)
 - [GeoNatureAgent Benchmark](../works/geonatureagent-benchmark.md)

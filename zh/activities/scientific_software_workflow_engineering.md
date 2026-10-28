@@ -102,10 +102,12 @@
 | AI-Researcher | 2025 | 把研究方案落成该方法的一份可运行实现 | Docker 工作区中的 22 个 Level-1 与 6 个 Level-2 任务，配参考仓库与数据集 | 完整性（预算内代码可执行）与 5 分制正确性；Claude 系列 backbone 下为 93.8% 与 2.65/5 | [卡片](../works/ai-researcher.md) |
 | [HarnessDev](../works/harnessdev.md) | 2026 | 为机器学习实验构建可复用的执行软件 | 无解题策略的种子；1–3 个开发样例 | 冻结 harness 后在 MLE-bench 上评测 | [HarnessDev](../works/harnessdev.md) |
 | SCI-AGENT-EXAM | 2026 | 按接口约定写代码，跨依赖组合工具，修复能运行但科学结果有隐性错误的项目（Code Generation 20 道、Tool Orchestration 28 道、Error Diagnosis 11 道） | 离线 Docker 任务包；检查器导入生成的代码，在隐藏数据上重跑 | 这几类题的程序化检查权重为 0.55–0.70；Pass@0.95 最高 26.0% | [卡片](../works/sci-agent-exam.md) |
+| ScienceIDE | 2026 | 修复科学模拟代码模块里被注入的缺陷，或重新实现被删掉的部分 | 来自 27 个代码库的 64 个环境；难题子集 85 题，每题限时一小时 | 数值输出在私有参考值的容差范围内；严格成功率最高 67.1%（Fable 5.1） | [卡片](../works/scienceide.md) |
 
 ## Related Works
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [ScienceIDE](../works/scienceide.md)
 - [HarnessDev](../works/harnessdev.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [PACE-Bench](../works/pace-bench.md)

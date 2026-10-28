@@ -33,6 +33,7 @@ Evaluation-driven post-training 把evaluator 放进改进闭环。开发者或 a
 | Curation-Bench | 数据策略与训练后的 VLM | Selection policy | 每轮 downstream feedback | 固定模型、recipe 与 suite |
 | SkillCoach | 通过 SFT 改进 agent model | Trajectory selection | Process-quality filter | Validation-gated rubric evolution |
 | MobileJudgeBench | 通过 RL 改进 mobile agent | Reward evaluator choice | Judge 作为 on-policy reward | 人工 ground truth 的 judge benchmark |
+| [ScienceIDE](../works/scienceide.md) | 面向科学代码的 Qwen 系模型（4B、9B、72B） | 用 verifier 筛过的示范做 SFT；在修复任务上做 RL | 数值 verifier 筛选示范、提供 RL 奖励，也给 agent 打分 | 参考值不公开；收录任务要求已知解能通过且起点有提升空间；RL 留出任务与训练共用环境 |
 
 ## 还没解决的问题
 
@@ -44,6 +45,7 @@ Evaluation-driven post-training 把evaluator 放进改进闭环。开发者或 a
 
 ## 相关工作
 
+- [ScienceIDE](../works/scienceide.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [MobileJudgeBench](../works/mobilejudgebench.md)
 - [SkillCoach](../works/skillcoach.md)

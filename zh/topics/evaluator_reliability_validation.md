@@ -57,6 +57,8 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 | [AgentProofBench](../works/agentproofbench.md) | DeepSeek Flash/Pro 编写的冻结 Web agent 验收程序，分复用与重建两种；另用新跑的在线判定作对比 | 556 个自然终止状态，以及 Source、Background、Related 三种初始条件下 558 个状态上的参考规则；LLM 审核在 192 个标签中与 191 个一致 | balanced accuracy；完整面板与 decision-replay 的 joint pass；按任务族 bootstrap 的复用减重建 BA | 从相同的保存起点出发交付：面板全对的分配 32/33 正确交付，面板有错的只有 1/11；程序把关不如中性继续 |
 | [AlphaIdeaBench](../works/alphaideabench.md) | Gemini 3.7 Flash judge 的四项新颖性评分 | 600 篇 ICLR 2026 / NeurIPS 2025 / ICML 2025 论文的评审意见，由 Gemini 3.7 Flash 转换为 1–5 分 | ±1 分以内的一致率：问题约 94.5–97.4%，方法 95.9–96.8%，场景 80.6–87.5%；GPT-5 mini 重新评分的 Spearman ρ 为 0.81 / 0.83 | harness 与基础模型排名；有效性和可行性没有人工参照 |
 | [Into the Unknown](../works/into-the-unknown.md) | GPT-6-Astra agent judge，按作者指定的诚信和方向细则评分（Codex SDK，四次运行，按节点多数） | 每篇原论文作者对三篇盲审后续论文的批评；稳定性对比另用一个 Claude-Opus-5.5 judge | 覆盖率 / 一致率：是否达成方向 100% / 100%，审稿式缺陷 96.97% / 80.34%，质量与影响 89.05% / 68.68%；四次重复中总评相同 86.5% 对 57.7% | 选定 GPT-6-Astra 为全部 135 份提交的默认 judge |
+| [Predictive Credit](../works/predictive-credit.md) | 固定的 LLM 预测器，用来衡量解释带来了多少信息 | 留出的干预实测效果 | 在匹配解释、普通描述和 donor 解释三种条件下比较预测损失、区间得分和重复漂移；冻结判定为不确定或不成立 | 研究者手写的机制说明作阳性对照：点预测 MAE 3.795，只给描述为 6.391，错误说明为 8.151 |
+| [SimuVerity](../works/simuverity.md) | 给 Simulink 模型打分的分门槛原生仿真评测器 | 两位领域专家对 30 个候选模型的五分制评分 | 加权 κ = 0.90；评测器与专家的平均 ρ = 0.94，专家之间 ρ = 0.87 | 给六个 agent 系统打分；证明与参考模型的结构相似度不能代替得分 |
 
 ## 还没解决的问题
 
@@ -72,6 +74,8 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 - [AlphaIdeaBench](../works/alphaideabench.md)
 - [QFT-Bench](../works/qft-bench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
+- [SimuVerity](../works/simuverity.md)
+- [Predictive Credit](../works/predictive-credit.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PTA-IRT](../works/pta-irt.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
