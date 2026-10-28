@@ -462,3 +462,31 @@ def test_invoke_keeps_cli_failure_reason(monkeypatch):
     out = claude_worker.invoke("p", cwd=".", model="m", tools="Read", max_turns=1)
     assert out["ok"] is False
     assert out["error"] == "claude exit 1 (error_max_turns)"
+
+
+def test_phase5_reviews_in_bounded_groups_and_retries(tmp_path, monkeypatch):
+    """Reviewers get at most review_worker_batch_size pages; a failed group is retried once and a
+    group that still fails is named in the phase result."""
+    files = ["zh/works/w%02d.md" % i for i in range(14)]
+    calls = []
+
+    def worker(agent, kind, prompt, cwd, max_turns, schema=None, model=None):
+        group = re.findall(r"zh/works/\S+\.md", prompt)
+        calls.append(group)
+        if group[0] == "zh/works/w12.md":
+            return {"ok": False, "error": "claude exit 1 (error_max_turns)"}
+        if group[0] == "zh/works/w06.md" and sum(g[0] == group[0] for g in calls) == 1:
+            return {"ok": False, "error": "claude exit 1 (overloaded)"}
+        return {"ok": True, "structured_output": {"files_edited": group[:1]}}
+
+    monkeypatch.setattr(pipeline, "run_worker", worker)
+    run_dir = str(tmp_path / "rt")
+    os.makedirs(os.path.join(run_dir, "phase5"), exist_ok=True)
+    cfg = pipeline.config()
+    cfg["claude"]["review_worker_batch_size"] = 6
+    ok, r = pipeline.phase5(run_dir, str(tmp_path), files, cfg)
+    assert max(len(g) for g in calls) == 6
+    assert len(calls) == 5                              # 3 groups + 2 retries
+    assert ok is False
+    assert r["edited"] == 2
+    assert len(r["errors"]) == 1 and "w12.md" in r["errors"][0] and "error_max_turns" in r["errors"][0]

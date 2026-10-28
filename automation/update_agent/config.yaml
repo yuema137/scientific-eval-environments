@@ -92,6 +92,7 @@ claude:
   axis_worker_batch_size: 10       # Phase-3 slugs per axis-worker call; 38 at once exhausted the turns (2026-10-27)
   translator_max_turns: 30
   reviewer_max_turns: 30
+  review_worker_batch_size: 6       # zh pages per reviewer call; ~20 per call exhausted the turns (2026-10-28)
   scorer_max_turns: 6
 
 # Branch / PR strategy: single rolling automated PR (spec §14).
