@@ -51,4 +51,13 @@ python3 scripts/monthly_report.py validate-all
 python3 scripts/monthly_report.py index
 ```
 
+Between month-end regenerations, every card that reaches `main` still needs a row in that month's `Complete Monthly Index`, or `validate-all` fails on `main` and blocks the daily updater. `sync-index` appends the missing rows (English and Chinese, domains read from the domain pages) without touching existing rows or the narrative; `check-pending` reports them without writing. Both default to the current month, and `--base REF` also counts the cards a branch adds relative to `REF`:
+
+```bash
+python3 scripts/monthly_report.py sync-index --base origin/main
+python3 scripts/monthly_report.py check-pending --base origin/main
+```
+
+The daily updater runs `sync-index` before its final validation, and the pull-request gate runs `check-pending` against the PR's base, so a card PR that forgets the row fails before merge.
+
 `generate` requires `CLAUDE_CODE_OAUTH_TOKEN`. Passing `--force` regenerates the canonical file for that month in place, which is how both scheduled reruns and manual refreshes avoid creating duplicate monthly reports. The scheduled workflow runs at 06:17 America/Los_Angeles on day 1, after the regular knowledge-update wake-up window.

@@ -29,7 +29,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      # Full history: the monthly-index check walks main's first-parent history and diffs the
+      # PR against its base.
       - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
       - run: python -m pip install -r requirements-dev.txt
@@ -47,6 +50,18 @@ jobs:
       - name: Derived counts are current
         if: ${{ !cancelled() }}
         run: python scripts/update_counts.py --check
+
+      # A card that reaches main without a row in the month's report breaks validate-all on main
+      # and with it the daily updater (2026-10-27). Catch it on the PR instead.
+      - name: Monthly reports index every card (validate-all + this PR's cards)
+        if: ${{ !cancelled() }}
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          python scripts/monthly_report.py validate-all
+          if [ -n "$BASE_REF" ]; then
+            python scripts/monthly_report.py check-pending --base "origin/$BASE_REF"
+          fi
 
       - name: Every card in works/ (template, links, first-appearance stamp)
         if: ${{ !cancelled() }}

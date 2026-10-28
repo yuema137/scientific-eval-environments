@@ -521,10 +521,126 @@ def validate(month, manifest=None):
     return errors
 
 
+def _domain_links(slug, fallback):
+    """Domains for an index row, read from the domain pages' Related Works.
+
+    Cards never carry domain links (the domain axis is maintained on domain pages only), so the
+    reverse index on the pages is the authority; the card's own links are a fallback for fixtures.
+    """
+    found = []
+    for path in sorted((ROOT / "domains").glob("*.md")):
+        if path.name == "README.md":
+            continue
+        text = path.read_text()
+        if "../works/%s.md" % slug not in (section(text, "Related Works") or ""):
+            continue
+        title = re.search(r"^#\s+(.+?)\s*$", text, re.M)
+        found.append({"name": title.group(1) if title else path.stem,
+                      "url": "../domains/%s" % path.name})
+    return found or fallback
+
+
+def _index_row(work, chinese=False):
+    prefix = "../../" if chinese else "../"
+
+    def links(items):
+        return ", ".join("[%s](%s%s)" % (item["name"], prefix, item["url"][3:])
+                         for item in items) or "—"
+    if chinese:
+        added = "当月新发布" if work["added_as"] == "New release" else "历史补录"
+    else:
+        added = work["added_as"]
+    return "| [%s](%sworks/%s.md) | %s | %s | %s | %s |" % (
+        work["title"], prefix, work["slug"], work["first_appeared"], added,
+        links(work["topics"]), links(_domain_links(work["slug"], work["domains"])))
+
+
+def _card_record(rel, month):
+    text = (ROOT / rel).read_text()
+    title_match = re.search(r"^#\s+(.+?)(?:\s+\(\d{4}\))?\s*$", text, re.M)
+    stamp = STAMP.search(text)
+    if not title_match or not stamp:
+        raise RuntimeError("missing title or First appeared stamp: %s" % rel)
+    return {"slug": Path(rel).stem, "title": title_match.group(1),
+            "first_appeared": stamp.group(1),
+            "added_as": "New release" if stamp.group(1)[:7] == month else "Backfill",
+            "topics": _axis(text, "Topics", "topics"),
+            "domains": _axis(text, "Domains", "domains")}
+
+
+def _reported_slugs():
+    reported = set()
+    for path in (ROOT / "monthly").glob("????-??.md"):
+        reported.update(re.findall(r"\[[^]]+\]\(\.\./works/([a-z0-9-]+)\.md\)", path.read_text()))
+    return reported
+
+
+def _added_since(base):
+    """Cards added on this branch relative to ``base`` plus cards not yet committed."""
+    paths = set()
+    if base:
+        diff = _run(["git", "diff", "--name-status", "%s...HEAD" % base]).stdout
+        paths.update(line.split("\t")[1] for line in diff.splitlines()
+                     if line.startswith("A\t"))
+    status = _run(["git", "status", "--porcelain", "--untracked-files=all", "--", "works"]).stdout
+    paths.update(line[3:] for line in status.splitlines() if line[:2] in ("??", "A ", "AM"))
+    return sorted(p for p in paths
+                  if re.fullmatch(r"works/[^/]+\.md", p) and p != "works/README.md"
+                  and (ROOT / p).exists())
+
+
+def pending_cards(month, base=None):
+    """Cards that will be counted in ``month`` but are missing from its complete index.
+
+    Two sources: cards already on main in ``month`` (the report's manifest), and cards this branch
+    adds or has not yet committed, which will reach main in ``month`` once merged.
+    """
+    en_path, _ = _report_paths(month)
+    if not en_path.exists():
+        return []
+    rows, _ = _table_records(en_path.read_text())
+    reported = _reported_slugs()
+    manifest = build_manifest(month, _coverage_basis(en_path))[0]
+    missing = [w for w in manifest["works"] if w["slug"] not in rows]
+    seen = {w["slug"] for w in manifest["works"]}
+    for rel in _added_since(base):
+        slug = Path(rel).stem
+        if slug not in seen and slug not in reported:
+            missing.append(_card_record(rel, month))
+    return missing
+
+
+def sync_index(month, base=None):
+    """Append index rows for cards counted in ``month`` but missing from its report.
+
+    Deterministic and row-only: existing rows and the narrative are left untouched, so the
+    report stays valid between the month-end regenerations that rewrite the narrative.
+    """
+    missing = pending_cards(month, base)
+    if not missing:
+        return []
+    for path, chinese in zip(_report_paths(month), (False, True)):
+        heading = "## 本月完整索引" if chinese else "## Complete Monthly Index"
+        text = path.read_text()
+        start = text.index(heading)
+        end = text.find("\n## ", start + len(heading))
+        end = len(text) if end < 0 else end
+        lines = text[start:end].split("\n")
+        rule = next(i for i, line in enumerate(lines) if line.startswith("|---"))
+        stop = rule + 1
+        while stop < len(lines) and lines[stop].startswith("|"):
+            stop += 1
+        rows = lines[rule + 1:stop] + [_index_row(w, chinese) for w in missing]
+        lines[rule + 1:stop] = sorted(rows, key=str.lower)
+        path.write_text(text[:start] + "\n".join(lines) + text[end:])
+    return sorted(w["slug"] for w in missing)
+
+
 def main():
     parser = argparse.ArgumentParser()
     sub = parser.add_subparsers(dest="command", required=True)
-    for name in ("prepare", "generate", "bootstrap", "validate", "validate-all", "index"):
+    for name in ("prepare", "generate", "bootstrap", "validate", "validate-all", "index",
+                 "sync-index", "check-pending"):
         command = sub.add_parser(name)
         if name not in ("index", "validate-all", "bootstrap"):
             command.add_argument("--month")
@@ -532,6 +648,8 @@ def main():
                                  default="main-addition")
         if name == "generate":
             command.add_argument("--force", action="store_true")
+        if name in ("sync-index", "check-pending"):
+            command.add_argument("--base", help="also count cards this branch adds relative to BASE")
         if name == "bootstrap":
             command.add_argument("--start", default="2024-01")
             command.add_argument("--end")
@@ -562,6 +680,20 @@ def main():
             print("monthly-report: FAIL\n" + "\n".join("- " + e for e in all_errors))
             return 1
         print("monthly-report: PASS (%d reports)" % len(months))
+        return 0
+    if args.command in ("sync-index", "check-pending"):
+        month = args.month or dt.date.today().strftime("%Y-%m")
+        if args.command == "sync-index":
+            added = sync_index(month, args.base)
+            print("monthly-index %s: added %s" % (month, ", ".join(added) or "nothing"))
+            return 0
+        missing = sorted(w["slug"] for w in pending_cards(month, args.base))
+        if missing:
+            print("monthly-index %s: FAIL - cards missing from the complete index: %s\n"
+                  "Run: python scripts/monthly_report.py sync-index%s"
+                  % (month, ", ".join(missing), " --base %s" % args.base if args.base else ""))
+            return 1
+        print("monthly-index %s: PASS" % month)
         return 0
     if args.command == "bootstrap":
         months = bootstrap(args.start, args.end, args.force, args.workers)

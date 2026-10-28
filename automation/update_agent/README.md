@@ -140,7 +140,10 @@ invoked headless via `run_claude_worker.py` (`claude -p --output-format json`, b
 ## Failure behavior & debugging
 
 A failed phase blocks the PR, uploads `runtime/` artifacts, and writes a job summary. The
-overlapping lookback lets the next day's run recover. To debug: open the failed run, download the
+overlapping lookback lets the next day's run recover. A failed **scheduled** run also opens a
+tracking issue titled "Daily Knowledge Update is failing", or comments on it while it is open;
+close the issue once the cause is fixed. The auth smoke prints the Claude CLI's own failure
+fields, so an expired token and an exhausted usage limit are distinguishable in the log. To debug: open the failed run, download the
 `runtime`/`stage-*` artifacts, and inspect `state/*.json` and the phase manifests.
 
 ## Tests
