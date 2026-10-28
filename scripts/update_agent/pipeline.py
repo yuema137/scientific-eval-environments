@@ -184,7 +184,6 @@ def phase2(run_dir, repo_root, candidates, cfg, fixture=False):
 def phase3(run_dir, repo_root, accepted_slugs, cfg):
     tax = taxonomy(repo_root)
     has_activities = bool(tax.get("activities"))
-    slug_csv = ", ".join(accepted_slugs)
     specs = [("topic-axis-updater", "topics"), ("domain-axis-updater", "domains")]
     if has_activities:
         specs.append(("activity-axis-updater", "activities"))
@@ -192,30 +191,59 @@ def phase3(run_dir, repo_root, accepted_slugs, cfg):
     fnames = {"topics": "topic_assignments.json", "domains": "domain_assignments.json",
               "activities": "activity_assignments.json"}
 
-    def make(agent, axis):
+    def make(agent, axis, chunk):
         prompt = ("Newly accepted work-card slugs: %s\n"
                   "Assign them to the canonical %s axis and update the %s pages per your role. "
                   "Write your assignment JSON to the file `runtime/phase3/%s` (path relative to the "
                   "current working directory / repo root); create the directory if needed."
-                  % (slug_csv, axis, axis, fnames[axis]))
+                  % (", ".join(chunk), axis, axis, fnames[axis]))
         return lambda: run_worker(agent, "axis", prompt, repo_root,
                                   cfg["claude"]["axis_worker_max_turns"])
 
-    results = parallel([make(a, x) for a, x in specs], len(specs))
+    # One worker per axis used to receive every accepted slug at once. With 38 cards the domain
+    # worker ran out of turns after 18 minutes and the whole batch was lost (2026-10-27), so slugs
+    # go in bounded chunks: the three axes still run in parallel within a chunk (they edit
+    # disjoint pages), chunks run in order, and each chunk's assignments are merged afterwards.
+    size = max(1, int(cfg["claude"].get("axis_worker_batch_size", 10)))
+    chunks = [accepted_slugs[i:i + size] for i in range(0, len(accepted_slugs), size)]
+    merged = {axis: {"assignments": [], "pages_edited": []} for _, axis in specs}
+    phase3_dir = os.path.join(run_dir, "phase3")
+    worker_errors = []
+    for number, chunk in enumerate(chunks, 1):
+        for _, axis in specs:
+            stale = os.path.join(phase3_dir, fnames[axis])
+            if os.path.exists(stale):
+                os.remove(stale)
+        results = parallel([make(a, x, chunk) for a, x in specs], len(specs))
+        for (agent, axis), result in zip(specs, results):
+            path = os.path.join(phase3_dir, fnames[axis])
+            if not (result or {}).get("ok") and not os.path.exists(path):
+                # One retry for an operational failure (CLI exit, timeout) on this chunk only.
+                log("  retrying %s on chunk %d/%d: %s"
+                    % (agent, number, len(chunks), (result or {}).get("error")))
+                result = make(agent, axis, chunk)()
+            label = "%s (chunk %d/%d)" % (agent, number, len(chunks)) if len(chunks) > 1 else agent
+            if not (result or {}).get("ok"):
+                worker_errors.append("%s failed: %s" % (label, (result or {}).get("error") or "no result"))
+            if not os.path.exists(path):
+                worker_errors.append("%s wrote no runtime/phase3/%s" % (label, fnames[axis]))
+                continue
+            part = read_json(path) or {}
+            merged[axis]["assignments"].extend(part.get("assignments") or [])
+            merged[axis]["pages_edited"].extend(part.get("pages_edited") or [])
+        if worker_errors:
+            break
     # Fail closed when an axis worker failed or wrote no assignment JSON. Integrating without it
     # would silently stamp every new card `N/A` for activities and leave domains unassigned.
-    worker_errors = []
-    for (agent, axis), result in zip(specs, results):
-        if not (result or {}).get("ok"):
-            worker_errors.append("%s failed: %s" % (agent, (result or {}).get("error") or "no result"))
-        if not os.path.exists(os.path.join(run_dir, "phase3", fnames[axis])):
-            worker_errors.append("%s wrote no runtime/phase3/%s" % (agent, fnames[axis]))
     if worker_errors:
         log("  ! axis workers incomplete: %s" % "; ".join(worker_errors))
         write_phase_result(run_dir, "english_axes", "fail",
                            {"axis_errors": worker_errors[:20], "card_errors": [],
                             "changed": changed_files(repo_root)})
         return False, {"changed": changed_files(repo_root)}
+    for _, axis in specs:
+        merged[axis]["pages_edited"] = sorted(set(merged[axis]["pages_edited"]))
+        write_json(os.path.join(phase3_dir, fnames[axis]), merged[axis])
     integrate_english.run(run_dir, repo_root)
     ok_axes, axe_errs = validators.validate_axes(repo_root)
     ok_cards, card_errs = validators.validate_cards(repo_root, accepted_slugs)

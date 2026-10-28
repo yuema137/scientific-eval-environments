@@ -19,7 +19,20 @@ def invoke(prompt, *, cwd, model, tools, max_turns, system='', schema=None, time
     except subprocess.TimeoutExpired:
         return failure('worker timeout')
     if proc.returncode:
-        return failure('claude exit %d' % proc.returncode)
+        # The CLI still prints its JSON result on most failures (max turns, usage limit, API
+        # error); keep its own reason instead of a bare exit code.
+        reason = 'claude exit %d' % proc.returncode
+        try:
+            data = json.loads(proc.stdout)
+        except (json.JSONDecodeError, TypeError):
+            data = None
+        if isinstance(data, dict):
+            detail = [str(data[k]) for k in ('subtype', 'api_error_status') if data.get(k)]
+            if data.get('is_error') and data.get('result'):
+                detail.append(str(data['result'])[:200])
+            if detail:
+                reason += ' (%s)' % '; '.join(detail)
+        return failure(reason)
     try:
         data = json.loads(proc.stdout)
     except json.JSONDecodeError:
