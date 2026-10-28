@@ -393,8 +393,10 @@ def phase4(run_dir, repo_root, cfg):
 # ----------------------------------------------------------------- Phase 5
 def phase5(run_dir, repo_root, zh_files, cfg):
     n = max(1, cfg["limits"]["max_parallel_review_workers"])
-    groups = [zh_files[i::n] for i in range(n)]
-    groups = [g for g in groups if g]
+    # Bounded groups, not one group per worker slot: 77 pages split four ways gave each reviewer
+    # ~20 pages for 30 turns, and all four failed (2026-10-28). Groups queue behind the n slots.
+    size = max(1, int(cfg["claude"].get("review_worker_batch_size", 6)))
+    groups = [zh_files[i:i + size] for i in range(0, len(zh_files), size)]
 
     def make(group):
         listing = "\n".join(group)
@@ -405,6 +407,17 @@ def phase5(run_dir, repo_root, zh_files, cfg):
                                   cfg["claude"]["reviewer_max_turns"])
 
     res = parallel([make(g) for g in groups], n)
+    for i, r in enumerate(res):
+        if not (r and r.get("ok")):
+            # One retry per failed group (CLI exit, timeout); review edits are idempotent.
+            log("  retrying chinese-naturalness-reviewer group %d/%d: %s"
+                % (i + 1, len(groups), _scrub((r or {}).get("error"))))
+            res[i] = make(groups[i])()
+    errors = ["group %d/%d (%s): %s" % (i + 1, len(groups), groups[i][0],
+                                        _scrub((r or {}).get("error") or "no result"))
+              for i, r in enumerate(res) if not (r and r.get("ok"))]
+    if errors:
+        log("  ! chinese review incomplete: %s" % "; ".join(errors))
 
     def _edited(r):
         so = (r or {}).get("structured_output") or {}
@@ -415,8 +428,8 @@ def phase5(run_dir, repo_root, zh_files, cfg):
                 "worker_ok": [bool(r and r.get("ok")) for r in res]})
     ok = all(r and r.get("ok") for r in res) if res else True
     write_phase_result(run_dir, "chinese_review", "pass" if ok else "fail",
-                       {"reviewed": len(zh_files), "edited": edited})
-    return ok, {"reviewed": len(zh_files), "edited": edited}
+                       {"reviewed": len(zh_files), "edited": edited, "errors": errors[:20]})
+    return ok, {"reviewed": len(zh_files), "edited": edited, "errors": errors}
 
 
 def _extract_json(text):

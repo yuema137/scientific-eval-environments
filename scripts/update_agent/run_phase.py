@@ -266,7 +266,9 @@ def cmd_review(a):
                                     "topic_explanations": et[:10], "monthly_index": em})
     _summary("Chinese review + final validation",
              ["Reviewed: %d" % r5.get("reviewed", 0), "Edited: %d" % r5.get("edited", 0),
-              "Final validation: %s" % ("PASS" if okf else "FAIL")])
+              "Final validation: %s" % ("PASS" if okf else "FAIL")]
+             + ["Review error: %s" % e for e in r5.get("errors", [])[:10]]
+             + ["Validation error: %s" % e for e in (ec + ea + eb + et + em)[:10]])
     sys.exit(0 if okf else 1)
 
 
