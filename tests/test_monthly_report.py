@@ -369,3 +369,74 @@ See [Fixture Work](../works/fixture-work.md) and [Second Work](../works/second-w
     assert monthly.main() == 1
     out = capsys.readouterr().out
     assert "work fixture-work also appears in 2025-01" in out
+
+
+def _empty_index_report(root, month="2026-08"):
+    en = """# August 2026 Monthly Report
+
+## Month at a Glance
+Fixture.
+
+## What Changed This Month
+Fixture.
+
+## Complete Monthly Index
+
+| Work | First appeared | Added as | Topics | Domains |
+|---|---|---|---|---|
+"""
+    zh = """# 2026 年 8 月月报
+
+## 本月概览
+Fixture。
+
+## 这个月到底变了什么
+Fixture。
+
+## 本月完整索引
+
+| Work | 首次公开 | 加入类型 | Topics | Domains |
+|---|---|---|---|---|
+"""
+    (root / "monthly" / (month + ".md")).write_text(en)
+    (root / "zh" / "monthly" / (month + ".md")).write_text(zh)
+
+
+def test_sync_index_adds_main_card_missing_from_report(tmp_path, monkeypatch):
+    root = _fixture_repo(tmp_path, monkeypatch)
+    (root / "domains" / "biology.md").write_text(
+        "# Biology\n\n## Related Works\n- [Fixture Work](../works/fixture-work.md)\n")
+    _empty_index_report(root)
+    assert [w["slug"] for w in monthly.pending_cards("2026-08")] == ["fixture-work"]
+    assert monthly.sync_index("2026-08") == ["fixture-work"]
+    en = (root / "monthly" / "2026-08.md").read_text()
+    zh = (root / "zh" / "monthly" / "2026-08.md").read_text()
+    assert ("| [Fixture Work](../works/fixture-work.md) | 2024-02-03 | Backfill | "
+            "[Planning & Decision-Making Evaluation](../topics/planning_decision_evaluation.md) | "
+            "[Biology](../domains/biology.md) |") in en
+    assert "| [Fixture Work](../../works/fixture-work.md) | 2024-02-03 | 历史补录 |" in zh
+    assert "(../../domains/biology.md)" in zh
+    assert monthly.pending_cards("2026-08") == []
+    assert monthly.sync_index("2026-08") == []          # idempotent
+
+
+def test_pending_cards_counts_uncommitted_and_branch_cards(tmp_path, monkeypatch):
+    root = _fixture_repo(tmp_path, monkeypatch)
+    _empty_index_report(root)
+    monthly.sync_index("2026-08")
+    _git(root, "add", ".")
+    _git(root, "commit", "-qm", "report", env={"GIT_AUTHOR_DATE": "2026-08-11T12:00:00-07:00",
+                                                 "GIT_COMMITTER_DATE": "2026-08-11T12:00:00-07:00"})
+    base = subprocess.run(["git", "rev-parse", "HEAD"], cwd=root, text=True,
+                          capture_output=True, check=True).stdout.strip()
+    card = (root / "works" / "fixture-work.md").read_text()
+    new = card.replace("Fixture Work", "Second Work").replace("2024-02-03", "2026-08-09")
+    (root / "works" / "second-work.md").write_text(new)
+    assert [w["slug"] for w in monthly.pending_cards("2026-08")] == ["second-work"]
+    _git(root, "add", ".")
+    _git(root, "commit", "-qm", "branch card")
+    assert monthly.pending_cards("2026-08") == []        # committed: only --base sees it
+    pending = monthly.pending_cards("2026-08", base)
+    assert [(w["slug"], w["added_as"]) for w in pending] == [("second-work", "New release")]
+    monthly.sync_index("2026-08", base)
+    assert monthly.pending_cards("2026-08", base) == []

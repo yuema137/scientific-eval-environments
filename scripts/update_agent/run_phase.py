@@ -251,10 +251,19 @@ def cmd_review(a):
     oka, ea = validators.validate_axes(CWD)
     okb, eb = validators.validate_bilingual(CWD, slugs)
     okt, et = validators.validate_topic_explanations(CWD)
-    okf = ok5 and okc and oka and okb and okt
+    # The new cards reach main this month, so the month's report must index them, or the next
+    # run's validators job fails on main (2026-10-27). Rows are deterministic; the narrative
+    # waits for the month-end regeneration.
+    monthly_cmd = [sys.executable, os.path.join("scripts", "monthly_report.py")]
+    subprocess.run(monthly_cmd + ["sync-index"], cwd=CWD, check=False)
+    pending = subprocess.run(monthly_cmd + ["check-pending"], cwd=CWD,
+                             capture_output=True, text=True)
+    okm = pending.returncode == 0
+    em = [] if okm else [(pending.stdout or pending.stderr).strip()[:500]]
+    okf = ok5 and okc and oka and okb and okt and okm
     phase_state.write_phase_result(RUN_DIR, "final_validation", "pass" if okf else "fail",
                                    {"cards": ec[:10], "axes": ea[:10], "bilingual": eb[:10],
-                                    "topic_explanations": et[:10]})
+                                    "topic_explanations": et[:10], "monthly_index": em})
     _summary("Chinese review + final validation",
              ["Reviewed: %d" % r5.get("reviewed", 0), "Edited: %d" % r5.get("edited", 0),
               "Final validation: %s" % ("PASS" if okf else "FAIL")])
