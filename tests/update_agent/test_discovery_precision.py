@@ -308,7 +308,7 @@ def test_sources_run_concurrently(monkeypatch):
         def __init__(self, name):
             self.name = name
 
-        def search_many(self, queries, since, limit):
+        def search_many(self, queries, since, limit, until_iso=None):
             _t.sleep(0.4)
             return ([{"source": self.name, "id": self.name + "-1", "title": "t",
                       "abstract_or_description": "", "authors": [], "date": ""}], 1)
@@ -330,7 +330,8 @@ def test_sources_run_concurrently(monkeypatch):
     import tempfile
     rd = tempfile.mkdtemp()
     t0 = _t.monotonic()
-    cov = discover.run("full", rd, since_iso="2026-01-01T00:00:00")
+    # a one-day window = one OAI chunk, so the arXiv thread also sleeps exactly once
+    cov = discover.run("full", rd, since_iso="2026-01-01T00:00:00", now_iso="2026-01-01T12:00:00")
     wall = _t.monotonic() - t0
     # three 0.4s sources in parallel finish in < 0.9s (serial would be ~1.2s)
     assert wall < 0.9, wall
@@ -500,7 +501,8 @@ def _discover_arxiv(monkeypatch, tmp_path, src):
                         {"domains": {"Physics": ["LLM agent physics benchmark"]},
                          "topics": {}, "activities": {}, "global": []})
     monkeypatch.setattr(discover, "_DELAY", {"arxiv": 0})
-    return discover.run("full", str(tmp_path / "rt"), since_iso="2026-08-07T00:00:00")
+    return discover.run("full", str(tmp_path / "rt"), since_iso="2026-08-07T00:00:00",
+                        now_iso="2026-08-10T00:00:00")
 
 
 def test_arxiv_oai_zero_storm_unresolved_is_suspicious(tmp_path, monkeypatch):
