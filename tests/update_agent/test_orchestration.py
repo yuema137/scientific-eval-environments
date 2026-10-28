@@ -408,3 +408,57 @@ def test_phase4_error_detail_is_scrubbed_of_secrets(tmp_path, monkeypatch):
     ok, r, rd = _run_phase4(tmp_path, monkeypatch, worker)
     detail = _results(rd)[0]["error_detail"]
     assert "sk-secret-abc123" not in detail and "[redacted]" in detail
+
+
+def test_phase3_chunks_slugs_and_merges_assignments(tmp_path, monkeypatch):
+    """Axis workers get bounded slug chunks; each chunk's assignment JSON is merged, and an
+    operational failure is retried once for that chunk only."""
+    from conftest import build_mini_repo
+    slugs = ["card%02d" % i for i in range(23)]
+    root = build_mini_repo(str(tmp_path / "ws"), [{"slug": s, "title": s} for s in slugs])
+    run_dir = os.path.join(root, "runtime")
+    calls = []
+    failed_once = []
+
+    def worker(agent, kind, prompt, cwd, max_turns, schema=None, model=None):
+        chunk = re.search(r"slugs:\s*(.+)", prompt).group(1).split(", ")
+        calls.append((agent, len(chunk)))
+        if "domain" in agent and chunk[0] == "card10" and not failed_once:
+            failed_once.append(True)
+            return {"ok": False, "error": "claude exit 1 (error_max_turns)"}
+        axis = {"topic": "topics", "domain": "domains", "activity": "activities"}[agent.split("-")[0]]
+        name = {"topics": "topic", "domains": "domain", "activities": "activity"}[axis]
+        _write(cwd, "runtime/phase3/%s_assignments.json" % name,
+               {"assignments": [{"slug": s, axis: []} for s in chunk],
+                "pages_edited": ["%s/x.md" % axis]})
+        return {"ok": True, "structured_output": {"status": "ok"}}
+
+    monkeypatch.setattr(pipeline, "run_worker", worker)
+    monkeypatch.setattr(pipeline.integrate_english, "run", lambda *a, **k: [])
+    cfg = pipeline.config()
+    cfg["claude"]["axis_worker_batch_size"] = 10
+    pipeline.phase3(run_dir, root, slugs, cfg)
+    sizes = sorted({(a.split("-")[0], n) for a, n in calls})
+    assert ("domain", 10) in sizes and ("topic", 3) in sizes
+    assert max(n for _, n in calls) == 10
+    assert sum(1 for a, _ in calls if a.startswith("domain")) == 4      # 3 chunks + 1 retry
+    for name in sorted({a.split("-")[0] for a, _ in calls}):     # the fixture has no activities
+        data = json.load(open(os.path.join(run_dir, "phase3", "%s_assignments.json" % name)))
+        assert [a["slug"] for a in data["assignments"]] == slugs
+        assert len(data["pages_edited"]) == 1
+
+
+def test_invoke_keeps_cli_failure_reason(monkeypatch):
+    import subprocess as sp
+    import sys
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "scripts"))
+    import claude_worker
+
+    class Proc:
+        returncode = 1
+        stdout = json.dumps({"subtype": "error_max_turns", "is_error": True, "result": None})
+        stderr = ""
+    monkeypatch.setattr(sp, "run", lambda *a, **k: Proc())
+    out = claude_worker.invoke("p", cwd=".", model="m", tools="Read", max_turns=1)
+    assert out["ok"] is False
+    assert out["error"] == "claude exit 1 (error_max_turns)"

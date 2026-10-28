@@ -89,6 +89,7 @@ claude:
   relevance_model: "claude-sonnet-5"            # metadata-only relevance triage — precision-capable, cheap
   card_worker_max_turns: 40
   axis_worker_max_turns: 40
+  axis_worker_batch_size: 10       # Phase-3 slugs per axis-worker call; 38 at once exhausted the turns (2026-10-27)
   translator_max_turns: 30
   reviewer_max_turns: 30
   scorer_max_turns: 6
