@@ -8,6 +8,13 @@ never auto-merges.**
 
 English writing, Chinese translation, and Chinese naturalness review all follow [`../../EXPLANATION_STYLE.md`](../../EXPLANATION_STYLE.md). The pipeline preserves causal structure, concrete traces, and boundaries instead of treating translation as sentence-by-sentence word substitution.
 
+> **`auto/updater-state` is durable updater state. Do not delete it in branch cleanups.** It holds
+> only `watermark.json`, the end of the last successful production run's search window, which
+> drives the next discovery window. If it is missing, every production run fails as
+> **needs_attention** until a maintainer runs the recovery described under
+> [Discovery window, watermark and backfills](#discovery-window-watermark-and-backfills). It was
+> deleted once during a stale-branch cleanup on 2026-10-22.
+
 Every accepted card also records a sourced `First appeared` date: the earliest verifiable day when the work itself became publicly accessible, regardless of later publication. Workers compare preprint/submission, official project/data/software release, publisher/proceedings, DOI, and official-repository records; venue facts remain separate in `Links`. Repository addition is permitted only as an explicitly labeled last resort. After the Chinese mirror exists, `python3 scripts/backfill_first_appeared.py --index-only` regenerates the bilingual chronological indexes without another network request.
 
 ## Five phases (ordered; a later phase never starts if an earlier one failed)
@@ -40,6 +47,9 @@ finalize job open a PR.
 - The catch-up guard allows a backlog of up to 60 days. A longer outage fails visibly rather than
   silently skipping old records; after a successful recovery, the durable watermark advances and
   the normal 72-hour cadence resumes.
+- The watermark advances only when the whole run succeeds (a PR or a genuine no-op). A failure in
+  any later phase therefore holds discovery at the old watermark, and the next run re-covers the
+  same window plus the new days.
 - `workflow_dispatch` supports manual modes (below). Scheduled runs are always `full`.
 - Concurrency group `daily-knowledge-update`, `cancel-in-progress: false` — a running production
   update is never interrupted by the next trigger.
@@ -54,15 +64,78 @@ finalize job open a PR.
 | `fixture-e2e-smoke` | full 5 phases on ONE synthetic candidate in an isolated temp workspace | yes | no (temp only) | no |
 | `full` | production run | yes | rolling branch | yes (never merged) |
 
+`full` also takes two optional inputs, `window_start` and `window_end`. See the next section.
+
+## Discovery window, watermark and backfills
+
+A regular `full` run searches `watermark - overlap_hours → now`, where the watermark is read from
+`auto/updater-state:watermark.json`. `run_phase.py discover` reports the outcome as `basis` in the
+job summary and in `coverage.json` → `search_window`.
+
+- **State absent.** If the branch or file is missing or unreadable, the run fails as
+  **needs_attention** and the summary says why. It no longer falls back to the 3-day
+  `lookback_days`; that fallback silently skipped 10-11..10-23 after the branch was deleted.
+- **Manual window override.** Dispatch the workflow with `mode=full` and `window_start`
+  (`YYYY-MM-DD`, UTC), optionally with `window_end` (inclusive; empty means now). Discovery
+  searches exactly that range. The span is limited to `watermark.max_catchup_days`. Backfill a long
+  gap in smaller ranges, for example 7 days per run, because the deep-review cap is per run. An
+  invalid override fails as needs_attention.
+- **Override runs and the watermark.** An override run never advances an existing watermark, so a
+  backfill can never move the schedule backwards. It seeds the watermark at its window end **only
+  when none exists**. That is the bootstrap path for a first run, or for recovery after the branch
+  was deleted.
+- **Regular runs** advance only forward. A window end at or before the current watermark is
+  ignored, and an unreadable current watermark blocks the advance. `run_phase.py advance-watermark`
+  re-reads the current value at advance time and writes its decision to the job summary.
+
+Recovery after the state branch was deleted: dispatch `full` with `window_start` set to the first
+day not known to be covered, and `window_end` empty. On success the watermark is seeded at "now",
+and the schedule resumes from there. To backfill older gaps in smaller ranges, run those first:
+the first successful override seeds the watermark at its window end. The next scheduled run then
+covers everything from that point to now, provided that span is within `max_catchup_days`. Further
+override runs leave the watermark alone.
+
 ## Sources & search
 
 Adapters (`sources.py`): `ArxivOAISource`, `OpenReviewSource`, `HuggingFaceSource`, `GitHubSource`
 — **metadata only** (Phase 1 never downloads papers or clones repos). Add a source = add one
-`Source` subclass.
+`Source` subclass. Adapters receive the window end as well as the start; HuggingFace, OpenReview
+and GitHub use it as an upper bound, so a bounded backfill does not fan out to today.
+
+**arXiv (OAI-PMH).** `discover._harvest_arxiv` harvests the window in `arxiv_oai.chunk_days`
+chunks (one day by default). Each chunk has its own `max_pages` budget, and `max_total_pages` caps
+the whole run. One page cap used to be shared by the whole window, and in 2026-09/10 a 60-day
+harvest stopped at datestamp 09-18 without covering the rest. Now a chunk that hits its cap,
+errors, or is skipped for lack of budget marks the source `suspicious_empty`, which blocks the
+watermark advance. The summary names the last complete day (`complete_through`). If every chunk
+fails, the source is a `failure`. Harvested records then pass two filters before `raw_hits.json`:
+
+- *Revision filter.* The OAI datestamp is the time of the last metadata change, and on
+  `oaipmh.arxiv.org` `<created>` can be the latest version's date. For example, 2312.10986 shows
+  `created=2026-10-23`. Each record therefore gets a first-submission estimate. The new-style id's
+  YYMM fixes the v1 month, and `<created>` refines it only when it falls in that month. A record
+  whose estimate is older than the window start minus `revision_grace_days` is a revision of an
+  older paper, and it is dropped. Records with an unparseable id are kept.
+- *Local taxonomy gate* (`_local_match`, unchanged): a concrete benchmark/eval noun plus an
+  agent/LLM signal.
+
+Both drops are saved: `phase1/arxiv_revisions_dropped.json` holds the revisions the gate would have
+matched, and `phase1/arxiv_local_unmatched.json` holds compact records (id, title, dates,
+categories) of new work the gate rejected. The counts are in `coverage.json` → `arxiv_harvest`.
+
+**OpenReview** is relevance-ranked with no server-side date window (see the adapter comment), so a
+short window can be empty. If it returns 0 records across every query over a window of at least
+`openreview.zero_hit_min_window_days`, the summary shows a **WARNING** line, and the warning is
+recorded in `coverage.json` → `source_warnings`. The warning does not block the run or hold the
+watermark, because arXiv is the primary recency source. The 0-hit runs of 2026-10-27 were checked
+live: the endpoint, `source=forum` and the date parsing all work, but the newest result in the
+relevance top-100 was two weeks old.
 
 `HuggingFaceSource` uses one endpoint in two modes: the **curated daily-papers feed**
-(`?date=`, harvested one calendar day at a time across the discovery window and memoized per
-window, so cost is ~one request per day regardless of taxonomy size) unioned with a **term search**
+(`?date=`, harvested one calendar day at a time across the **whole** discovery window and memoized
+per window, so cost is ~one request per day regardless of taxonomy size; `huggingface.max_days` is
+only a guard set above the longest valid window, and if it ever binds, or a day is unreachable, the
+skipped days appear as a summary warning) unioned with a **term search**
 (`?q=`, date-filtered client-side). Its ids ARE arXiv ids, so records merge with the arXiv record
 for the same work — heavy overlap is expected and dedup collapses it. Its value is the papers the
 date-windowed arXiv harvest ranks past, including work promoted to the feed days after posting:
@@ -92,13 +165,15 @@ raw hits
   → ranked admission                        (all deep_review + highest-confidence uncertain while under
                                              the cap; a scorer failure fails OPEN to 'uncertain', never a
                                              silent reject)
-  → deep-review safety cap                  (unchanged; if genuine deep_review still exceeds the cap the
-                                             run is needs_attention — the cap is never raised to force green)
+  → deep-review budget                     (top max_deep_review_candidates by confidence are admitted;
+                                             the overflow goes to deferred_by_budget.json. It does not
+                                             fail the run and is not carried into later runs)
 ```
 
 Every stage's kept/rejected sets and reasons are preserved as workflow artifacts
-(`prefilter_rejected.json`, `merged_candidates.json`, `relevance.json`, `candidates.json`), so the
-next audit can compute precision by stage. None are committed to the knowledge base.
+(`arxiv_revisions_dropped.json`, `arxiv_local_unmatched.json`, `prefilter_rejected.json`,
+`merged_candidates.json`, `relevance.json`, `deferred_by_budget.json`, `candidates.json`), so the
+next audit can compute recall and precision by stage. None are committed to the knowledge base.
 
 ## Deduplication & pending-PR awareness
 
@@ -112,11 +187,14 @@ When the rolling PR is open, its branch is merged with current `main` before wor
 
 ## Configuration (`config.yaml`)
 
-`lookback_days` (overlapping window; dedup, not a 1-day cutoff, prevents repeats), per-source
-limits, smoke sampling, retry/backoff, Claude model/turn bounds, and the runaway-cost limits:
-`max_deep_review_candidates`, `max_parallel_{card,translation,review}_workers`. If Phase 1 yields
-more deep-review candidates than the max, the run fails as **needs_attention** and preserves the
-full candidate artifact — it never silently truncates.
+`watermark` (overlap, catch-up limit, cadence), `arxiv_oai` (chunking, page budgets, revision
+grace), `huggingface.max_days`, `openreview.zero_hit_min_window_days`, per-source limits, smoke
+sampling (`smoke.lookback_days`), retry/backoff, Claude model/turn bounds, and the runaway-cost
+limits: `max_deep_review_candidates`, `max_parallel_{card,translation,review}_workers`.
+`lookback_days` is not used by production `full` runs. If Phase 1 ranks more candidates for deep
+review than `max_deep_review_candidates`, `relevance.admit` admits the top N by confidence and
+writes the rest to `deferred_by_budget.json`. The run does not fail, and deferred candidates are not
+retried automatically.
 
 ## Claude workers (`automation/update_agent/agents/`)
 
@@ -140,7 +218,7 @@ invoked headless via `run_claude_worker.py` (`claude -p --output-format json`, b
 ## Failure behavior & debugging
 
 A failed phase blocks the PR, uploads `runtime/` artifacts, and writes a job summary. The
-overlapping lookback lets the next day's run recover. A failed **scheduled** run also opens a
+watermark does not advance, so the next run re-covers the same window. A failed **scheduled** run also opens a
 tracking issue titled "Daily Knowledge Update is failing", or comments on it while it is open;
 close the issue once the cause is fixed. The auth smoke prints the Claude CLI's own failure
 fields, so an expired token and an exhausted usage limit are distinguishable in the log. To debug: open the failed run, download the
@@ -149,13 +227,15 @@ fields, so an expired token and an exhausted usage limit are distinguishable in 
 ## Tests
 
 - `tests/update_agent/` — deterministic unit/fixture tests (inventory, dedup, phase gate,
-  profile coverage, axis/bilingual validators, empty-run, failure-injection, and the
+  profile coverage, axis/bilingual validators, empty-run, failure-injection, discovery coverage
+  (chunked harvest, revision filter, missing state, window override, zero-hit warnings), and the
   repo-wide sweeps + Chinese-card conventions in `test_repo_wide_validators.py`).
 - Live smokes: `discovery-smoke` (sources), `auth-smoke` (token), `fixture-e2e-smoke` (5 phases).
 
 ## Disable / enable
 
-Cadence/lookback are in `config.yaml` (`lookback_days: 3`) and the workflow `schedule` (every 3 days) — both chosen to bound per-run token cost.
+Cadence is set by `watermark.min_interval_hours` (72h) in `config.yaml` and the daily workflow
+`schedule`. Per-run token cost is bounded by `limits.max_deep_review_candidates`.
 
 Disable: GitHub → Actions → “Daily Knowledge Update” → **⋯ → Disable workflow** (or delete the
 schedule block). Re-enable from the same menu. Tune cost via `config.yaml` limits.
