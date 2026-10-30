@@ -490,6 +490,11 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 | AutoDataBench | 2026 | 三个改进数据的任务，模型、训练流程和评测固定不变 | ML 研究：工具调用、检索和知识注入的训练数据 | 训练后在分布内反馈集上评测；最佳 checkpoint 在隐藏的分布外测试集上打分 | [→](../works/autodatabench-auto-research.md) |
 | SimuVerity | 2026 | 101 个从文字生成 Simulink 模型的任务，来源包括公开示例、研究成果和专家模型 | 十个工程系统领域（从电力电子到生物医学） | 分门槛的原生仿真，在 595 个不公开场景下打分；与两位专家的 κ = 0.90 | [→](../works/simuverity.md) |
 | AutoSciBench | 2026 | 由 agent 循环根据概念和配方生成，反复修改到可验证、够难、没有捷径（每个领域每个生成器 50 题） | 计算生物学、材料科学、临床影像 | 与单个参考答案精确匹配；任务质量由 LLM judge 评分 | [→](../works/autoscibench.md) |
+| OSWorld-Science | 2026 | 146 个任务，由领域专家编写或从软件教程改编，在真实科学软件里运行 | 化学、物理、医学、统计、生物、GIS、语言学（14 套软件配置） | 任务结束后检查软件状态和产出文件，给部分分；不用 judge | [→](../works/osworld-science.md) |
+| SAEScientist-Bench | 2026 | 17 个概念、20 个“概念 × 层”任务，每个任务固定一个 Neuronpedia 专家特征 | 机制可解释性：在 Gemma-2-9B-IT 的 SAE 字典里找特征 | 激活排名和选择性由激活值直接算出；steering 效果由 GPT-4o judge 评分 | [→](../works/saescientist-bench.md) |
+| CADWorld | 2026 | 11 类工作流共 200 个 FreeCAD 任务，依据工作台功能、教程和常见设计流程编写 | 机械 CAD：草图、零件建模、装配、CAM、FEM、工程图 | 对保存的项目文件做可执行检查；只算成败；不用 judge | [→](../works/cadworld.md) |
+| SciΠvot | 2026 | 26 个由 agent 推进的研究项目中的 248 次 PI 纠正，只保留模型意见有分歧的案例 | 应用数学、机器人、AI/ML、生物成像、力学与材料、地球科学 | 在原计划和纠正后的计划之间二选一，两种选项顺序取平均；13 人的人类基线 | [→](../works/scipivot.md) |
+| Agent4Sci | 2026 | 20 个科学 ML benchmark（25 个任务），以复现出来的已发表最佳模型为起点 | 11 个领域，从天文、基因组学到地质和物理 | 由独立的评测 agent 在封存测试集上算相对提升；LLM 审查作弊 | [→](../works/agent4sci.md) |
 
 ## 还没解决的问题
 
@@ -508,15 +513,20 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - [QFT-Bench](../works/qft-bench.md)
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [Astro2Method](../works/astro2method.md)
+- [Agent4Sci](../works/agent4sci.md)
 - [PhysClosureBench](../works/physclosurebench.md)
+- [SciΠvot](../works/scipivot.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [AutoSciBench](../works/autoscibench.md)
 - [SimuVerity](../works/simuverity.md)
 - [AutoDataBench](../works/autodatabench-auto-research.md)
 - [EurekaBench](../works/eurekabench.md)
+- [OSWorld-Science](../works/osworld-science.md)
 - [EngiWorld](../works/engiworld.md)
 - [DISCERN](../works/discern.md)
 - [ScienceIDE](../works/scienceide.md)
+- [CADWorld](../works/cadworld.md)
+- [SAEScientist-Bench](../works/saescientist-bench.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [ASI-Bench](../works/asi-bench.md)

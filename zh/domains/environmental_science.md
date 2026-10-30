@@ -17,6 +17,7 @@
 | Hydro-SE Bench | 2025 | 水科学与水利工程中的水资源管理，与该基准的水文学、河流动力学、气象学等子领域并列。 | 覆盖九个子领域的 4,000 道中文单选与多选题，每题标注认知层级，取材于教科书、行业标准、法律法规与统计年鉴，每题至少经三位专家独立审核；16 个模型。 | 零样本思维链、温度 0 提问，选项字母由另一个 LLM 抽取；准确率按总体以及子领域、题型、认知层级分别报告，模型在偏科学基础的子领域上得分高于偏规范条文的工程子领域。 | [→](../works/hydro-se-bench.md) |
 | OntoLearner | 2026 | 为生态与环境——它的本体集合覆盖的 22 个领域之一——构建本体结构：给术语定类型、恢复类型之间的 is-a 层级、抽取非分类关系。 | 覆盖 22 个领域的 180 个机器可读本体，为三项本体学习任务备好可直接接入流水线的 train/dev/test 切分；共评测 22 个检索模型与 12 个 LLM，设定是单次结构化预测而非 agentic 循环。 | 以归一化的成对与三元组匹配对照金标准本体结构计算 precision、recall 与 F1；卡片中逐领域、逐模型的分数为 `TODO(reference)`，因论文的结果章节无法获取。 | [→](../works/ontolearner.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现Environmental Science的已发表实验 | 从论文重建代码并执行；属于 30 篇 AI4Science 论文的一部分；未报告本领域数量 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
+| Agent4Sci | 2026 | 改进已发表的 ML 模型：碳通量预测（CarbonGlobe）和枯死树分割（TreeFinder）。 | 20 个 benchmark 中的 2 个；8 块 H200、12 小时。 | 由独立的评测 agent 在封存测试集上计算相对于复现出的已发表最佳结果的提升；LLM 审查作弊。 | [→](../works/agent4sci.md) |
 
 ## Capability Matrix
 
@@ -61,6 +62,7 @@
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | GeoNatureAgent Benchmark | GEO, CARB, SOIL, ECO | ✘ | ✘ | ◐ | ◐ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
+| Agent4Sci | CARB, ECO | ? | ✘ | ✘ | ? | ◐ | ✔ | ✔ | **2.5** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
 | Terminal-Bench Science | ECO, GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | LLM-EPANET | WQ | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ✘ | 3 | ? | 4 | **7.5** |
@@ -72,6 +74,7 @@ Repository note: 跨领域套件的总题数不能代替本领域数量。Termin
 
 ## Related Works
 
+- [Agent4Sci](../works/agent4sci.md)
 - [OntoLearner](../works/ontolearner.md)
 - [GeoNatureAgent Benchmark](../works/geonatureagent-benchmark.md)
 - [AgentActionBench](../works/agentactionbench.md)

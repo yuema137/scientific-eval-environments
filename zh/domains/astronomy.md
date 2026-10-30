@@ -49,6 +49,7 @@
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现Astronomy的已发表实验 | 从论文重建代码并执行；属于 30 篇 AI4Science 论文的一部分；未报告本领域数量 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
 | Astro2Method | 2026 | 为已发表的天文问题挑出更好的机器学习方法，例如根据光变曲线估计恒星表面重力时，哪种网络误差更低；主题包括恒星天体物理、星系测光红移以及高能与时域天文。 | 500 道二选一题，来自 2024-01 至 2026-06 发表的 346 篇论文（按原论文解释是否完整，分为 Easy 376 题、Hard 124 题）；五个模型直接作答，三个模型在 RAG、agent 和联网搜索设置下测试。各主题题量只在图中给出。 | 与原论文的对比结果精确匹配；只保留差距 ≥ 2σ 的对比，没有不确定度时要求相对提升 ≥ 10%；每道题都经过人工审阅。 | [→](../works/astro2method.md) |
 | EurekaBench | 2026 | 用符合已知天体物理约束的机制解释星系、星系环境、引力波、银河系、重子反馈，以及温暗物质并合树和星系族群的观测性质。 | 26 道题中的 7 道，基于 CAMELS 和 DREAMS 模拟套件；一块 H100、最多 4 小时；提交机制说明、代码和实验日志。 | 约束测试作为得分门槛；在保留的模拟数据上测预测准确度；洞见问题由两个 agent 形式的 LLM judge 评判。 | [→](../works/eurekabench.md) |
+| Agent4Sci | 2026 | 改进已发表的 ML 模型：暂现源分类（ATAT）、火星地形分割和锥体检测（Mars-Bench）、宇宙学回归和预测（CosmoBench）。 | 20 个 benchmark 中的 3 个（6 个任务）；每次运行 8 块 H200、12 小时。 | 由独立的评测 agent 在封存测试集上计算相对于复现出的已发表最佳结果的提升；LLM 审查作弊。 | [→](../works/agent4sci.md) |
 
 ## Capability Matrix
 
@@ -119,6 +120,7 @@
 | SimAgents | COS | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
 | AstroVisBench | COMP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 2 | 2 | 3 | **7** |
 | AstroMMBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 2 | 2 | 3 | **7** |
+| Agent4Sci | TD, SSB, COS | ? | ✘ | ✘ | ? | ◐ | ◐ | ✔ | **2** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | CosmoPaperQA | COS | ◐ | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | **1.5** | ✘ | ✘ | ✘ | 3 | 2 | 2 | **7** |
@@ -135,6 +137,7 @@ Repository note: 跨领域套件的总题数不能代替本领域数量。Termin
 ## Related Works
 
 - [Astro2Method](../works/astro2method.md)
+- [Agent4Sci](../works/agent4sci.md)
 - [EurekaBench](../works/eurekabench.md)
 - [AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation](../works/ai-assisting-research-ii-project-planning.md)
 - [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)

@@ -36,6 +36,7 @@
 | [AgentIdeaBench](../works/agentideabench.md) | 2026 | 依据Medicine & Health文献提出可检验假设 | 本领域有八个密集评分子领域；比较固定文献与主动检索 | 评审模型依据检索到的已有研究判断原创性；不执行实验验证 | [AgentIdeaBench](../works/agentideabench.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | 复现Medicine & Health的已发表实验 | 从论文重建代码并执行；属于 30 篇 AI4Science 论文的一部分；未报告本领域数量 | 模型依据读取、写入及命令输出记录判断各阶段 rubric | [AgentActionBench](../works/agentactionbench.md) |
 | AutoSciBench | 2026 | 以 MedCTA 为种子生成的临床影像题。 | 每个生成器 50 题；十个求解模型。 | 单个参考答案；种子 benchmark 由 LLM 评估器打分；任务质量由 LLM judge 评分。 | [→](../works/autoscibench.md) |
+| OSWorld-Science | 2026 | 在 QuPath 里分析病理切片，在 Weasis 和 3D Slicer 里查看医学影像。 | 146 个任务中的 26 个（QuPath 23 个）；GUI 或 CLI 操作。 | 任务专属评测器检查保存下来的软件状态和文件；结果做精确匹配或按容差判断，可得部分分；不用 judge。 | [→](../works/osworld-science.md) |
 
 ## Capability Matrix
 
@@ -83,6 +84,7 @@
 | Imaging-101 | IMG | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
 | AgentClinic | CLIN, EHR | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | ✔ | **4.5** | ✘ | ✘ | ✘ | 0 | 3 | 3 | **6** |
 | MedBrowseComp | PHARM, HPOL | ✔ | ✘ | ◐ | ◐ | ✘ | ✔ | ✔ | **4** | ✘ | ✘ | ✔ | 1 | 3 | 3 | **8** |
+| OSWorld-Science | IMG | ◐ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | **4** | ? | ✘ | ◐ | 3 | 1 | 3 | **7.5** |
 | SDBench | CLIN, HPOL | ✘ | ✔ | ✔ | ✘ | ✘ | ✔ | ✔ | **4** | ✔ | ✔ | ✔ | 1 | 2 | 1 | **7** |
 | SciAgentArena | DRUG, EHR | ? | ◐ | ◐ | ✔ | ✘ | ◐ | ✔ | **3.5** | ◐ | ✔ | ✘ | 3 | 1 | 3 | **8.5** |
 | AutoResearchEval | BMOD, CLIN | ◐ | ✔ | ✘ | ? | ◐ | ◐ | ✔ | **3.5** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
@@ -113,6 +115,7 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 ## Related Works
 
 - [AutoSciBench](../works/autoscibench.md)
+- [OSWorld-Science](../works/osworld-science.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Apodex Discovery](../works/apodex-discovery.md)

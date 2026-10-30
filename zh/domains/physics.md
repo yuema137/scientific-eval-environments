@@ -67,6 +67,8 @@
 | PhysClosureBench | 2026 | 在强场、阿秒及相邻物理中完成一项目标明确的研究（如电离后的散射如何决定阿秒钟角偏移），得出机制和适用范围都有自生成证据支撑的结论。 | 50 道题（强场原子分子与阿秒 24、强场凝聚态 12、量子光学 8、强场 QED 4、物质波 2）；离线容器，8–96 核、30–720 分钟；每个模型跑三次。 | GPT-5.6-Sol 分阶段评 20 条半分原子标准和研究闭合等级 RC0–RC4；在挑选的标准上与五位物理专家一致 81.8%。 | [→](../works/physclosurebench.md) |
 | SCI-AGENT-EXAM | 2026 | 跨领域科学工作流套件中的物理模拟类任务。 | 120 道题中有 11 道物理模拟题（另有 12 道只标为“物理科学”）；离线 Docker，每题交答案、代码和报告。 | 在隐藏输入上重跑的程序化检查，加上 GPT-5.6 Sol 对报告的细则评分。 | [→](../works/sci-agent-exam.md) |
 | ScienceIDE | 2026 | 修复或重写天体物理流体、等离子体物理和粒子模拟代码的模块时，保证数值结果依然正确。 | PLUTO、Athena++、PHANTOM 等代码的模块；属于 2,812 个任务和 85 题难题子集的一部分（未给出各领域题数）。 | 按逐点容差与私有科学参考值做确定性比较，并检查物理不变量。 | [→](../works/scienceide.md) |
+| OSWorld-Science | 2026 | 在 OpenFOAM 和 ANSYS 里跑 CFD 和有限元仿真，在 CIAO 和 DS9 里分析 X 射线数据。 | 146 个任务中的 31 个；在按领域构建的 Ubuntu 镜像里用 GUI 或 CLI 操作。 | 任务专属评测器检查保存下来的软件状态和文件；结果做精确匹配或按容差判断，可得部分分；不用 judge。 | [→](../works/osworld-science.md) |
+| Agent4Sci | 2026 | 改进已发表的 ML 模型：全拓扑潮流计算（PFDelta）和暗物质信号去噪（TIDMAD）。 | 20 个 benchmark 中的 2 个；8 块 H200、12 小时；默认 agent 在 PFDelta 上最高提升 64.4%。 | 由独立的评测 agent 在封存测试集上计算相对于复现出的已发表最佳结果的提升；LLM 审查作弊。 | [→](../works/agent4sci.md) |
 
 ## Capability Matrix
 
@@ -115,6 +117,7 @@
 | Imaging-101 | COMP | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
 | EurekaBench | PLA | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **4.5** | ✘ | ✔ | ✘ | 2 | 2 | 1 | **6** |
+| OSWorld-Science | FLU, COMP | ◐ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | **4** | ? | ✘ | ◐ | 3 | 1 | 3 | **7.5** |
 | Collider-Bench | HEP | ? | ✘ | ✔ | ✘ | ✔ | ◐ | ✔ | **3.5** | ✔ | ✘ | ◐ | 2 | 1 | 4 | **8.5** |
 | NatureBench | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 2 | 1 | 2 | **7** |
 | MetaSyn | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✘ | 2 | ? | 3 | **6** |
@@ -139,6 +142,7 @@
 | ScienceIDE | PLA, COS, FLU, COMP | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ? | ✘ | ◐ | 3 | ? | 3 | **6.5** |
 | PRBench | HEP, AMO, NUC, PLA, CM | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ✘ | ✔ | ✘ | 2 | 1 | 2 | **6** |
 | Into the Unknown | QI, PLA | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 1 | 0 | 3 | **6** |
+| Agent4Sci | HEP, GEN | ? | ✘ | ✘ | ? | ◐ | ◐ | ✔ | **2** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | QMP-Bench | CM, COMP | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ◐ | ✔ | ✘ | 2 | 2 | 0 | **5.5** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | LQCDMaster | HEP, NUC | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✔ | ✘ | ◐ | 3 | 1 | 3 | **8.5** |
@@ -179,9 +183,11 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 - [PHYRD](../works/phyrd.md)
 - [QFT-Bench](../works/qft-bench.md)
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [Agent4Sci](../works/agent4sci.md)
 - [PhysClosureBench](../works/physclosurebench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [EurekaBench](../works/eurekabench.md)
+- [OSWorld-Science](../works/osworld-science.md)
 - [ScienceIDE](../works/scienceide.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PACE-Bench](../works/pace-bench.md)

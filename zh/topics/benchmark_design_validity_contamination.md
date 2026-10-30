@@ -49,6 +49,7 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 | [SlowLab](../works/slowlab.md) | 隐藏品种与设施参数的模拟温室站点；天气取自 11 个经过审核的 KNMI Cabauw 年份 | 隐藏站点参数；不公开的评估器在留出天气年份和种植日期上打分，agent 始终看不到分数；正式运行前用哈希锁定预注册内容 | 模拟器确定性评分（边际贡献，EUR/m²） | 固定的预注册测试集，共 48 个站点 |
 | [Predictive Credit](../works/predictive-credit.md) | 研究型 agent 的解释卡片，覆盖合成、Tox21 和 OpenML 三类设置下的 336 个状态 | 解释只有在预测损失低于普通描述和 donor 解释时才算有贡献；判定规则在结果揭晓前冻结 | 留出的干预实测效果 | 固定协议，应用到新状态上 |
 | [AutoSciBench](../works/autoscibench.md) | 由 agent 生成的任务，种子为 CompBioBench、MatTools 和 MedCTA | 按需生成；根据轨迹检出捷径；反复修改到可验证且够难 | 与单个参考答案精确匹配 | 求解模型进步后由循环重新生成 |
+| [EvalResearchBench](../works/evalresearchbench.md) | researcher agent 在固定预算下从允许使用的公开任务中搭建评测器 | 封存的目标 benchmark 和候选模型在评测器冻结前不可见；有人工抽样和常数评测器两个基线 | 与 14 个目标 benchmark 的 Lin 一致性系数和成对一致率 | 遇到新的候选模型组，由 researcher agent 重新搭建 |
 
 ## 还没解决的问题
 
@@ -63,6 +64,7 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 - [SlowLab](../works/slowlab.md)
 - [PHYRD](../works/phyrd.md)
 - [AutoSciBench](../works/autoscibench.md)
+- [EvalResearchBench](../works/evalresearchbench.md)
 - [Predictive Credit](../works/predictive-credit.md)
 - [FORESIGHT-9](../works/foresight-9.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)

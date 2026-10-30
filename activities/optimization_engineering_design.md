@@ -56,12 +56,14 @@ A fifth cluster is **civil and structural component design against codes and sol
 | SlowLab | 2026 | Optimize a six-set-point greenhouse climate policy (temperatures, CO₂, supplemental light, ventilation) for economic margin | Simulated greenhouse built on GreenLight; one-year campaign under a 16-experiment budget; 48 unseen sites | Mean contribution margin (EUR/m²) over 3 held-out weather years × 2 planting dates; baseline 33.62 vs. models 28.02–29.62 under Full feedback | [card](../works/slowlab.md) |
 | EngiWorld | 2026 | Produce engineering design artifacts (solid models, toolpaths, building models, board layouts) that meet acceptance criteria, including 40 quantitative design tasks | 26 professional applications through GUI or CLI; 300-task evaluation subset | All acceptance criteria pass, or feasibility-gated partial credit; best EngiScore 44.3 | [card](../works/engiworld.md) |
 | SimuVerity | 2026 | Design system models that satisfy functional roles, signal paths, and dynamic-response requirements | 101 Simulink tasks across ten engineering domains | Weighted geometric mean of six engineering dimensions after qualification; best 42.86 | [card](../works/simuverity.md) |
+| CADWorld | 2026 | Build constrained sketches, parts, assemblies, CAM jobs, and FEM set-ups that meet a mechanical design specification | 200 FreeCAD tasks through the GUI only, up to 100 steps | Saved project file passing all geometry, structure, and construction-process checks; best 17.5% vs. expert 87.0% | [card](../works/cadworld.md) |
 
 ## Related Works
 
 - [SlowLab](../works/slowlab.md)
 - [SimuVerity](../works/simuverity.md)
 - [EngiWorld](../works/engiworld.md)
+- [CADWorld](../works/cadworld.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [EnergyBridge](../works/energybridge.md)

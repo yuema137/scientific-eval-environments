@@ -48,6 +48,7 @@ A benchmark observes the whole model–harness configuration. If two systems use
 | [HarnessDev](../works/harnessdev.md) | Created and evolved runnable artifact | Separate creator/executor; frozen harness | Feedback sets versus hidden tasks | Creation quality, regression, executor transfer |
 | [Astro2Method](../works/astro2method.md) | Compared condition: RAG, ReAct, Self-Ask, CRITIC, skills, web search, masked source pipeline | Same 500 questions and three models | Accuracy per condition; per-question source-paper hit counts | No consistent scaffold gain; web-search gains mainly when the source paper is found |
 | [RobotAgentBench](../works/robotagentbench.md) | Planner, executor, and verifier, each code-based, learned, hybrid, or absent | Household tasks, instances, and step limits | Task-level ability scores and open-ended scenario progress | Hybrid executor ahead of code-only and policy-only configurations |
+| [Agent4Sci](../works/agent4sci.md) | Plug-in markdown skills for ideation, experiment management, and hourly checklists | Same 20 benchmarks, 12-hour budget, and 8 H200 GPUs | Relative improvement over the reproduced published best on held-out tests | Opus 10.4% → 20.1%, Codex 4.4% → 8.1%; skills not ablated individually |
 
 ## Open Questions
 
@@ -61,6 +62,7 @@ A benchmark observes the whole model–harness configuration. If two systems use
 
 - [RobotAgentBench](../works/robotagentbench.md)
 - [Astro2Method](../works/astro2method.md)
+- [Agent4Sci](../works/agent4sci.md)
 - [EvoHarnessBench](../works/evoharnessbench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [Evo-Bench](../works/evo-bench.md)

@@ -54,13 +54,17 @@
 | DISCERN | 2026 | 先说出预期，再依据证据包提出并修正假设 | 22 个证据包（8 个真实对照，6 个原生反事实，8 个注入反事实）；三到六步，三轮对抗评审 | LLM judge 按证据忠实度、推理和新颖性为假设评分；未经实验证实 | [卡片](../works/discern.md) |
 | AlphaIdeaBench | 2026 | 在给定预算内提出包含实验方案和资源计划的研究想法 | 100 个来自机器学习 workshop 征稿和综述的任务；八个 harness，八个基础模型 | 一份 JSON 提案，由 LLM judge 按有效性、新颖性和可行性评分；不执行 | [卡片](../works/alphaideabench.md) |
 | EurekaBench | 2026 | 在科学模拟器里做实验，找出能解释已知观测的机制 | 六个领域共 26 道题；通过命令行操作模拟器，一块 H100、4 小时、1,000 次迭代 | 提交机制说明、代码和实验日志；所有约束测试都通过，准确度和洞见才计分；最好 29.8%，人类参考 63.7% | [卡片](../works/eurekabench.md) |
+| SAEScientist-Bench | 2026 | 设计对比探针文本，在 SAE 字典里找出编码目标概念的特征 | 20 个任务；用 `probe_sae` 工具查询 131,072 个 Gemma Scope 特征，断网，限时 60 分钟 | 提交一个特征 ID，按激活排名、选择性和因果 steering 与专家特征对比；最高总分 65.82，专家 85.56 | [卡片](../works/saescientist-bench.md) |
+| SciΠvot | 2026 | 在关键节点决定下一步研究方向：沿用 agent 的计划，还是采纳 PI 的纠正 | 来自 26 个项目的 248 个二选一案例，给或不给冻结的项目记录 | 选中人工纠正的计划；最高 63.5%，新接触项目的研究者为 73.4% | [卡片](../works/scipivot.md) |
 
 ## Related Works
 
 - [SlowLab](../works/slowlab.md)
 - [AlphaIdeaBench](../works/alphaideabench.md)
+- [SciΠvot](../works/scipivot.md)
 - [EurekaBench](../works/eurekabench.md)
 - [DISCERN](../works/discern.md)
+- [SAEScientist-Bench](../works/saescientist-bench.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [Apodex Discovery](../works/apodex-discovery.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)

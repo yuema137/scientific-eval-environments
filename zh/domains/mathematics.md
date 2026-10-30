@@ -30,6 +30,8 @@
 | HiSciBench | 2025 | 面向文献的数学工作：对来自 arXiv 的数学论文做解析、翻译、问答与综述生成。 | 8,735 个实例中数学占 1,655 个——200 个通用科学问答、208 个文献 OCR、208 个翻译、821 个单语文献问答、208 个跨语文献问答与 10 个综述选题；数学不贡献数据驱动发现类实例。18 个模型受评。 | 按层级选取指标：问答层用准确率，文献 OCR 用词级准确率，翻译用 BLEU；综述层由 LLM judge 按 1–5 分 rubric 评 Coverage、Structure、Relevance、Synthesis 与 Critical Analysis，另计引文可核验性、元数据准确性、忠实性与时效性。 | [→](../works/hiscibench.md) |
 | R³-Bench | 2026 | 在六道数学题之间分配一份共用预算，而不是逐题孤立求解。 | 50 组套题，每组 6 题（3 易 / 2 中 / 1 难），取自 Omni-MATH 与 MathNet，共 300 题。 | 比赛得分对照由匹配的单题响应曲线（每个预算档跑 5 次）构造的经验 oracle；oracle 在 72 个主表单元格中的 71 个严格更高。 | [→](../works/r3-bench.md) |
 | SCI-AGENT-EXAM | 2026 | 跨领域套件中的数学工作流任务。 | 120 道题中的 9 道；离线 Docker，每题交答案、代码和报告。 | 在隐藏输入上重跑的程序化检查，加上 GPT-5.6 Sol 对报告的细则评分。 | [→](../works/sci-agent-exam.md) |
+| OSWorld-Science | 2026 | 用 SAS 和 R 做统计计算。 | 146 个任务中的 20 个；GUI 或 CLI 操作。 | 任务专属评测器检查保存下来的软件状态和文件；结果做精确匹配或按容差判断，可得部分分；不用 judge。 | [→](../works/osworld-science.md) |
+| SciΠvot | 2026 | 在由 LLM agent 推进的应用数学和科学计算项目里判断下一步该怎么走，这些节点上 PI 曾纠正过 agent。 | 248 个案例中的 85 个，来自 8 个项目。 | 二选一，以人工纠正的计划为准，两种选项顺序取平均；有 13 人的人类基线。 | [→](../works/scipivot.md) |
 
 ## Capability Matrix
 
@@ -74,6 +76,7 @@
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
+| OSWorld-Science | STAT | ◐ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | **4** | ? | ✘ | ◐ | 3 | 1 | 3 | **7.5** |
 | AIRS-Bench | GEN | ✔ | ◐ | ✘ | ✘ | ✔ | ✘ | ✔ | **3.5** | ◐ | ✘ | ◐ | 3 | 0 | 1 | **5** |
 | VESTA / DAWN | STAT, PROB | ? | ◐ | ✘ | ✔ | ✘ | ✘ | ✔ | **2.5** | ◐ | ✘ | ✔ | 3 | 2 | 1 | **7.5** |
 | SciVisAgentBench | NUM | ? | ✘ | ◐ | ✔ | ✘ | ? | ✔ | **2.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
@@ -82,6 +85,7 @@
 | ScienceBoard | CAS, FORM | ? | ✘ | ✘ | ✔ | ✘ | ✘ | ✔ | **2** | ✔ | ✘ | ✘ | 3 | ? | 3 | **7** |
 | SCI-AGENT-EXAM | GEN | ✘ | ✘ | ✔ | ✘ | ? | ? | ✔ | **2** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | Terminal-Bench Science | APP, FORM, OR, STAT | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
+| SciΠvot | APP, NUM | ? | ✘ | ? | ? | ✘ | ✔ | ✘ | **1** | ✔ | ✘ | ◐ | 3 | 1 | 4 | **9.5** |
 | MATP | LOG | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | ◐ | **1** | ✘ | ✘ | ✘ | 3 | 3 | 3 | **9** |
 | Pseudo-Formalization | OLYM, RES | ? | ✘ | ✘ | ✘ | ◐ | ◐ | ✘ | **1** | ✘ | ✘ | ◐ | 2 | 2 | 2 | **6.5** |
 | SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
@@ -99,6 +103,8 @@ Repository note: 跨领域套件的总题数不能代替本领域数量。Termin
 ## Related Works
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [SciΠvot](../works/scipivot.md)
+- [OSWorld-Science](../works/osworld-science.md)
 - [R³-Bench](../works/r3-bench.md)
 - [TCS-Bench](../works/tcs-bench.md)
 - [VESTA / DAWN](../works/vesta-dawn.md)

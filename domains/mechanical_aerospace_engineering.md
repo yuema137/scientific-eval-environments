@@ -24,6 +24,7 @@ Mechanical and aerospace engineering. Computational fluid dynamics and thermal t
 | EngDesign | 2025 | Mechanical systems design, together with the solid-mechanics content shared with the benchmark's Structure Design area, posed as design specifications with goals, constraints and performance requirements rather than questions with reference answers. | Mechanical Systems (7 tasks) and Structure Design (13) within 101 design tasks carrying 473 gradable items across nine engineering areas; 12 chat and reasoning models, with an iterative protocol allowing up to 10 simulator-feedback rounds. | Structured model output executed by a per-task evaluation script driving the domain's own tools — MATLAB, finite element analysis, topology-optimisation solvers — returning a binary pass/fail, a 0–100 partial-credit score and an evaluation log. | [→](../works/engdesign.md) |
 | EngiWorld | 2026 | Produce mechanical design, manufacturing, and analysis artifacts in professional CAD, CAM, and CAE software, e.g. solid models, toolpaths, and finite-element or CFD analyses. | CAD (7 applications), CAE (7), and CAM (2) tasks within 1,301; GUI or CLI control; per-domain counts not stated. | Programmatic verifiers on the artifact: dimensions, topology, solid validity, load and boundary assignments, simulation outputs within error bounds. | [→](../works/engiworld.md) |
 | SimuVerity | 2026 | Model the dynamics of automotive, mechanical, aerospace, thermal, and fluid systems as executable Simulink models. | 54 of 101 tasks (automotive 11, mechanical 11, aerospace 10, thermal 11, fluid 11). | Native simulation over withheld scenarios behind executability and expert qualification gates. | [→](../works/simuverity.md) |
+| CADWorld | 2026 | Build mechanical CAD models in FreeCAD through its GUI: constrained sketches, parts, assemblies with joints, CAM toolpaths, and FEM analysis set-ups. | 200 tasks in 11 workflow categories (Part 77, Sketch 63, Assembly 25, CAM 15, FEM 3, others 17); seven agents plus one expert reference pass. | Executable checks on the saved .FCStd file: sketch constraints and dimensions, volumes and bounding boxes, joint types, material removal, FEM objects and results; binary success. | [→](../works/cadworld.md) |
 
 ## Capability Matrix
 
@@ -68,6 +69,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | EngiWorld | MECH, FEA, CFD | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ | **2.5** | ? | ✘ | ? | 3 | ? | 3 | **6** |
+| CADWorld | MECH, FEA | ? | ✘ | ? | ✔ | ✘ | ✘ | ✔ | **2** | ✔ | ✘ | ? | 3 | 2 | 3 | **9** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | CFDLLMBench | CFD, THERM | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ◐ | 3 | 2 | 3 | **9** |
 | EngDesign | MECH, SOL | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✔ | ✘ | 3 | 1 | 3 | **8** |
@@ -90,6 +92,7 @@ Repository note: a suite-wide total does not establish this domain’s item coun
 
 - [SimuVerity](../works/simuverity.md)
 - [EngiWorld](../works/engiworld.md)
+- [CADWorld](../works/cadworld.md)
 - [SciConvBench](../works/sciconvbench.md)
 - [MooseBench](../works/moosebench.md)
 - [ERI Benchmark](../works/eri-benchmark.md)

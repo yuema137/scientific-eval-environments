@@ -25,6 +25,9 @@ Geosciences: atmospheric, ocean, and geological sciences. GIS and geospatial ana
 | HiSciBench | 2025 | The geography discipline across the hierarchy: literature question answering over geoscience papers, plus data-driven discovery in which the model writes and executes Python analysis code. | 737 geography instances within 8,735 — 200 general scientific QA, 500 monolingual literature QA, 10 review topics and 27 data-driven discovery tasks; 18 models evaluated. | Level-appropriate metrics: accuracy at the QA levels, word-level accuracy for literature OCR, BLEU for translation, at the review level an LLM-judge 1–5 rubric over Coverage, Structure, Relevance, Synthesis and Critical Analysis plus citation verifiability, metadata accuracy, faithfulness and recency, and at the discovery level an execution-based Success Rate zeroed when the generated program fails to execute. | [→](../works/hiscibench.md) |
 | EurekaBench | 2026 | Recover ice-shelf flow laws and hydrological catchment properties as mechanisms consistent with known physical constraints. | 2 of 26 problems: a FEniCSx shallow-shelf solver, and an HBV model driven by CAMELS-US forcing with noise added to simulated streamflow; up to 4 h on one H100. | Constraint tests gate the score; predictive accuracy on held-out data; insight questions judged by two agentic LLM judges. | [→](../works/eurekabench.md) |
 | ScienceIDE | 2026 | Keep ocean and atmospheric model codes numerically correct when modules are repaired or reimplemented. | Modules of codes such as MITgcm (including MITgcm-biogeo) and LAPS; per-domain counts not stated. | Deterministic comparison with private scientific references under pointwise tolerances and invariant checks. | [→](../works/scienceide.md) |
+| OSWorld-Science | 2026 | Perform geospatial analysis in QGIS. | 6 of 146 tasks; GUI or CLI control. | Task-specific evaluators check the saved application state and files; exact match or tolerance on results, partial credit; no judge. | [→](../works/osworld-science.md) |
+| Agent4Sci | 2026 | Improve published ML models for crop-type and field-parcel segmentation (GEO-Bench-2, GTPBD) and mineral classification (LITHOS). | 3 of 20 benchmarks; 12 hours on 8 H200 GPUs. | Relative improvement over the reproduced published best on a sequestered test set, run by a separate evaluation agent; LLM audit for misconduct. | [→](../works/agent4sci.md) |
+| SciΠvot | 2026 | Judge the next step in Earth-science projects run by LLM agents, where a PI corrected the agent. | 5 of 248 cases from 2 projects. | Binary choice scored against the human-corrected plan, both option orders averaged; 13-person human baseline. | [→](../works/scipivot.md) |
 
 ## Capability Matrix
 
@@ -72,15 +75,18 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | EurekaBench | GPH, HYD | ✔ | ✔ | ✔ | ✘ | ◐ | ◐ | ✔ | **5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | Imaging-101 | GPH, RS, ATM | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | 0 | 3 | **6.5** |
 | ScienceAgentBench | GIS | ✘ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✔ | ✔ | 2 | 1 | 2 | **7.5** |
+| OSWorld-Science | GIS | ◐ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | **4** | ? | ✘ | ◐ | 3 | 0 | 3 | **6.5** |
 | GeoNatureAgent Benchmark | GIS, ENV, RS | ✘ | ✘ | ✔ | ◐ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 3 | 1 | 2 | **6** |
 | SciVisAgentBench | ESM | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
 | AutoResearchEval | GPH, CLI | ◐ | ✔ | ✘ | ? | ◐ | ? | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | DrBencher | GPH | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 1 | 1 | **6** |
+| Agent4Sci | RS, GEOL | ? | ✘ | ✘ | ? | ◐ | ✔ | ✔ | **2.5** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | ScienceIDE | OCE, ATM | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ? | ✘ | ◐ | 3 | ? | 3 | **6.5** |
 | HydroAgent | HYD | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✔ | ✘ | ✘ | 3 | 0 | 2 | **6** |
 | ScienceBoard | GIS | ? | ✘ | ✘ | ✔ | ✘ | ? | ✔ | **2** | ✔ | ✘ | ✘ | 3 | ? | 2 | **6** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | HiSciBench | GEN | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | ✘ | **1.5** | ✘ | ✔ | ✘ | 2 | 2 | 3 | **8** |
+| SciΠvot | GEN | ? | ✘ | ? | ? | ✘ | ✔ | ✘ | **1** | ✔ | ✘ | ◐ | 3 | 0 | 4 | **8.5** |
 | SciVQR | GEOL, HYD, CLI | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
 | Hydro-SE Bench | HYD, ATM | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 2 | ? | 3 | **5** |
 
@@ -90,7 +96,10 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 
 ## Related Works
 
+- [Agent4Sci](../works/agent4sci.md)
+- [SciΠvot](../works/scipivot.md)
 - [EurekaBench](../works/eurekabench.md)
+- [OSWorld-Science](../works/osworld-science.md)
 - [ScienceIDE](../works/scienceide.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Imaging-101](../works/imaging-101.md)

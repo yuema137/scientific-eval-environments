@@ -55,6 +55,9 @@
 | DISCERN | 2026 | 在 GWAS、临床变异解读、bulk 与单细胞 RNA-seq、CRISPR 筛选、增强子活性、染色质调控以及蛋白质稳定性与结构等方向上审核数据、核查分析并提出假设。 | 203 个任务：79 个数据完整性任务（含配对的干净对照），102 个分析核查任务（24 个分析类别），22 个假设证据包；在封闭且不能联网的沙箱中运行。 | L1–L2 确定性评分，由 LLM 验证器复核，分歧由人裁定；L3 经三轮对抗评审后由 LLM judge 评分，并由作者逐条核验；不做实验证实。 | [→](../works/discern.md) |
 | SCI-AGENT-EXAM | 2026 | 生物学与生物信息学工作流任务，例如选出一条在四个压力维度上都稳健的宏基因组组装与分箱流程，或做一项检验四个结论的生存分析。 | 120 道题中的 26 道（生物学 15、生物信息学 11）；离线 Docker，每题交答案、代码和报告。 | 在隐藏输入上重跑的程序化检查（包括标识符重新标号后的重放），加上 GPT-5.6 Sol 对报告的细则评分。 | [→](../works/sci-agent-exam.md) |
 | AutoSciBench | 2026 | 以 CompBioBench 为种子生成的计算生物学题，需要处理原始数据并整合证据。 | 每个生成器 50 题；十个求解模型。 | 与单个参考答案精确匹配；任务质量由 LLM judge 评分。 | [→](../works/autoscibench.md) |
+| OSWorld-Science | 2026 | 在 PyMOL 里处理蛋白结构，在 MestReNova 里处理 NMR 谱，做药物协同分析，在 EEGLAB 里分析 EEG 记录。 | 146 个任务中的 18 个；最好的模型在本领域约 96%。 | 任务专属评测器检查保存下来的软件状态和文件；结果做精确匹配或按容差判断，可得部分分；不用 judge。 | [→](../works/osworld-science.md) |
+| Agent4Sci | 2026 | 改进已发表的 ML 模型：染色质活性、抗菌肽分类、RNA 逆向设计、链接预测、DMS 突变效应、结合位点检测和共聚焦超分辨。 | 20 个 benchmark 中的 7 个（DART-Eval、ESCAPE、gRNAde、MOTIVE、ProteinGym、UniSite、SR-CACO-2）；8 块 H200、12 小时。 | 由独立的评测 agent 在封存测试集上计算相对于复现出的已发表最佳结果的提升；LLM 审查作弊。 | [→](../works/agent4sci.md) |
+| SciΠvot | 2026 | 在一个由 LLM agent 推进的生物成像项目里判断下一步该怎么走，这些节点上 PI 曾纠正过 agent。 | 248 个案例中的 21 个，来自 1 个项目。 | 二选一，以人工纠正的计划为准，两种选项顺序取平均；有 13 人的人类基线。 | [→](../works/scipivot.md) |
 
 ## Capability Matrix
 
@@ -104,6 +107,7 @@
 | FlyAOC | GENOM, CURA | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✘ | ✘ | 3 | 2 | 4 | **9.5** |
 | scBench | SCB | ✔ | ✘ | ◐ | ✘ | ✔ | ✔ | ✔ | **4.5** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
 | ScienceAgentBench | BIOINF | ✘ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✔ | ✔ | 2 | 1 | 2 | **7.5** |
+| OSWorld-Science | STRB, DRUG | ◐ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | **4** | ? | ✘ | ◐ | 3 | 1 | 3 | **7.5** |
 | Apodex Discovery | PROT | ? | ◐ | ◐ | ✘ | ✔ | ✔ | ✔ | **4** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | AstaBench | GEN | ◐ | ✘ | ✔ | ✘ | ◐ | ✔ | ✔ | **4** | ✘ | ◐ | ◐ | 2 | ? | 2 | **5** |
 | BioXArena | GEN | ✘ | ◐ | ✘ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 3 | 1 | 3 | **9** |
@@ -129,6 +133,7 @@
 | SCI-AGENT-EXAM | BIOINF, GEN | ✘ | ✘ | ✔ | ✘ | ◐ | ? | ✔ | **2.5** | ◐ | ✔ | ◐ | 2 | 1 | 3 | **8** |
 | Aviary | MOLB, PROT | ✘ | ✘ | ✔ | ✘ | ✘ | ◐ | ✔ | **2.5** | ✔ | ✘ | ✘ | 3 | 2 | 1 | **7** |
 | MDArena | STRB | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✔ | ✘ | 2 | 1 | 3 | **7** |
+| Agent4Sci | GENOM, PROT, STRB, IMG | ? | ✘ | ✘ | ? | ◐ | ✔ | ✔ | **2.5** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | HiSciBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✔ | ✘ | 2 | 3 | 3 | **9** |
 | SciGym | SYSB | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
 | BioKGBench | CURA | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
@@ -137,6 +142,7 @@
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | GeneBench-Pro | GENOM | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
 | BiomedSQL | GENOM | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✔ | ✘ | ✘ | 2 | 2 | 4 | **9** |
+| SciΠvot | IMG | ? | ✘ | ? | ? | ✘ | ✔ | ✘ | **1** | ✔ | ✘ | ◐ | 3 | 1 | 4 | **9.5** |
 | BioProBench | PROTO | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 3 | 3 | **9** |
 | SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
 | AgentIdeaBench | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **1** | ◐ | ✔ | ◐ | 0 | 0 | 4 | **6** |
@@ -151,7 +157,10 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 ## Related Works
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [Agent4Sci](../works/agent4sci.md)
+- [SciΠvot](../works/scipivot.md)
 - [AutoSciBench](../works/autoscibench.md)
+- [OSWorld-Science](../works/osworld-science.md)
 - [DISCERN](../works/discern.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

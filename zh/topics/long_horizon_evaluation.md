@@ -145,6 +145,9 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 | Into the Unknown | 2026 | 不设时限，最多重启五次；各 agent 运行时长中位数 1.3–19.5 小时；135 份提交共 1,942.81 小时 | 原生 agent SDK harness，8×H200 或 32 vCPU 节点；网络不受限 | [→](../works/into-the-unknown.md) |
 | RobotAgentBench | 2026 | 18 个短程、8 个长程任务和 4 个开放式场景；仿真时间连续 120 s 没有进度时回合结束；报告 Stagnation 和 Recovery Rate | Isaac Sim 家居布局（50 种，来自同一套真实住宅），部分任务在实体 AgiBot G1 上做 sim-to-real 对比 | [→](../works/robotagentbench.md) |
 | EngiWorld | 2026 | GUI 最多 200 轮、CLI 最多 100 轮决策（多软件任务 300/150 轮），运行时间上限五小时；每题 54.9–120.5 步 | 用 PyAutoGUI 或终端操作的 26 款专业工程软件 | [→](../works/engiworld.md) |
+| CADWorld | 2026 | 每个 FreeCAD 任务最多 100 步 GUI 操作；最强 agent 完成 62.5% 的任务，成功 17.5% | Ubuntu 虚拟机里的 FreeCAD，截图加 pyautogui 风格操作，禁用脚本 | [→](../works/cadworld.md) |
+| OSWorld-Science | 2026 | 多数任务上限 100 步；1,530 次运行里有 613 次用完步数也没交出可评分的产物 | 按领域构建的 Ubuntu 镜像，装好科学软件；pyautogui 或 CLI 操作 | [→](../works/osworld-science.md) |
+| Agent4Sci | 2026 | 每次运行 12 小时、8 块 H200；Opus 平均 490 轮、338 次工具调用；附录有 3 天的运行 | 在容器里对科学 ML benchmark 做 hill-climbing，测试集由独立的评测 agent 掌管 | [→](../works/agent4sci.md) |
 
 ## 还没解决的问题
 
@@ -156,9 +159,12 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 ## 相关工作
 
 - [RobotAgentBench](../works/robotagentbench.md)
+- [Agent4Sci](../works/agent4sci.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [EurekaBench](../works/eurekabench.md)
+- [OSWorld-Science](../works/osworld-science.md)
 - [EngiWorld](../works/engiworld.md)
+- [CADWorld](../works/cadworld.md)
 - [FORESIGHT-9](../works/foresight-9.md)
 - [ASI-Bench](../works/asi-bench.md)
 - [R³-Bench](../works/r3-bench.md)

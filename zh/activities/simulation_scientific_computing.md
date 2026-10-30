@@ -67,11 +67,13 @@
 | ScienceIDE | 2026 | 让模拟模块（如 PLUTO、Athena++、MITgcm）重现参考输出并满足物理不变量 | 容器化工作区，保留官方测试作为检查项 | 容差和不变量检查；修复得分以带缺陷的起点为基准归一化 | [卡片](../works/scienceide.md) |
 | EngiWorld | 2026 | 在专业软件里（ANSYS、Abaqus、OpenFOAM、CalculiX、FEniCS 等）搭建并运行 CAE 分析 | 通过 GUI 或 CLI 操作软件；属于 1,301 个任务的一部分 | 仿真输出在误差范围内，材料、载荷和边界条件设置正确 | [卡片](../works/engiworld.md) |
 | SimuVerity | 2026 | 根据文字需求为工程系统搭建可执行的 Simulink 模型 | 101 个任务，在 MATLAB/Simulink R2025a 中通过 MATLAB MCP server 完成 | 先过交付、可执行和资格门槛，再在不公开的场景下原生仿真打分；最好 42.86，参考模型 96.01 | [卡片](../works/simuverity.md) |
+| OSWorld-Science | 2026 | 通过 OpenFOAM 和 ANSYS 的界面设置并运行物理仿真 | 146 个任务中的物理任务，在按领域构建的 Ubuntu 镜像里；GUI 或 CLI | 仿真结果的参数误差落在设定范围内 | [卡片](../works/osworld-science.md) |
 
 ## Related Works
 
 - [PhysClosureBench](../works/physclosurebench.md)
 - [SimuVerity](../works/simuverity.md)
+- [OSWorld-Science](../works/osworld-science.md)
 - [EngiWorld](../works/engiworld.md)
 - [ScienceIDE](../works/scienceide.md)
 - [CRAFTS](../works/crafts.md)

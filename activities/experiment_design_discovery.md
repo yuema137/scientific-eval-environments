@@ -54,13 +54,17 @@ A final cluster frames discovery as **sequential information acquisition toward 
 | DISCERN | 2026 | Propose and revise hypotheses from an evidence dossier after stating a prior | 22 dossiers (8 real controls, 6 native and 8 injected counterfactuals); three to six steps, three adversarial review rounds | Hypothesis scored on evidence fidelity, reasoning, and novelty by an LLM judge; not experimentally confirmed | [card](../works/discern.md) |
 | AlphaIdeaBench | 2026 | Propose a research idea with experiments and a resource plan that fit a stated budget | 100 ML workshop-call and survey tasks; eight harnesses and eight backbones | One JSON proposal scored on validity, novelty, and feasibility by an LLM judge; not executed | [card](../works/alphaideabench.md) |
 | EurekaBench | 2026 | Run experiments in a scientific simulator to find a mechanism that explains known observations | 26 problems in six fields; CLI to simulators, 4 h and 1,000 iterations on one H100 | Mechanism prose, code, and experiment log; accuracy and insight credit only if all constraint tests pass; best 29.8% vs. human reference 63.7% | [card](../works/eurekabench.md) |
+| SAEScientist-Bench | 2026 | Design contrastive probe texts and search an SAE dictionary to find the feature that encodes a target concept | 20 tasks; `probe_sae` tool over 131,072 Gemma Scope features, no network, 60-minute timeout | One feature ID scored on activation rank, selectivity, and causal steering against an expert feature; best overall 65.82 vs. expert 85.56 | [card](../works/saescientist-bench.md) |
+| SciΠvot | 2026 | Decide the next research step at a pivotal moment: keep the agent's plan or take the PI's correction | 248 binary-choice cases from 26 projects, with or without the frozen project record | Choose the human-corrected plan; best 63.5% vs. 73.4% for fresh researchers | [card](../works/scipivot.md) |
 
 ## Related Works
 
 - [SlowLab](../works/slowlab.md)
 - [AlphaIdeaBench](../works/alphaideabench.md)
+- [SciΠvot](../works/scipivot.md)
 - [EurekaBench](../works/eurekabench.md)
 - [DISCERN](../works/discern.md)
+- [SAEScientist-Bench](../works/saescientist-bench.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [Apodex Discovery](../works/apodex-discovery.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)

@@ -59,6 +59,7 @@ These additions test different measurement objects: [AgentIdeaBench](../works/ag
 | [Into the Unknown](../works/into-the-unknown.md) | GPT-6-Astra agentic judge applying author-specified integrity and direction rubrics (Codex SDK, four runs, node majority) | Criticisms from each original paper's author on three blind follow-ups; a Claude-Opus-5.5 judge for the consistency comparison | Coverage / matching 100% / 100% (direction met), 96.97% / 80.34% (reviewer weaknesses), 89.05% / 68.68% (quality and impact); same overall grade in 86.5% vs. 57.7% of four-run repeats | GPT-6-Astra chosen as default judge for all 135 submissions |
 | [Predictive Credit](../works/predictive-credit.md) | Fixed LLM forecaster as a measure of what an explanation adds | Held-out measured intervention effects | Forecast loss, interval score, and repeat drift with matched, description, and donor contexts; frozen decisions inconclusive or no-go | Researcher-written mechanism note as positive control: point MAE 3.795 vs. 6.391 (description) and 8.151 (false note) |
 | [SimuVerity](../works/simuverity.md) | Gated native-simulation evaluator for Simulink models | Ratings by two domain experts on 30 candidates (five-point scale) | Weighted κ = 0.90; evaluator–expert mean ρ = 0.94 vs. expert–expert ρ = 0.87 | Scores six agent systems; structural similarity to the reference shown to be a poor proxy |
+| [EvalResearchBench](../works/evalresearchbench.md) | Compact evaluators frozen by nine researcher agents | Candidate scores on 14 target benchmarks (6 visible, 8 sealed) | 100 × Lin's CCC and pairwise agreement; best agreement 74.87% vs. 91.20% cross-target ceiling | Best on visible targets (Fable 5.1) is not best on sealed targets (Grok 4.7) |
 
 ## Open Questions
 
@@ -74,6 +75,7 @@ These additions test different measurement objects: [AgentIdeaBench](../works/ag
 - [AlphaIdeaBench](../works/alphaideabench.md)
 - [QFT-Bench](../works/qft-bench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
+- [EvalResearchBench](../works/evalresearchbench.md)
 - [SimuVerity](../works/simuverity.md)
 - [Predictive Credit](../works/predictive-credit.md)
 - [AgentIdeaBench](../works/agentideabench.md)

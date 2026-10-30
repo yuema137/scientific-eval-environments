@@ -49,6 +49,7 @@ Two boundaries matter. Against **Physics**, the test is the object of study rath
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in astronomy | Paper-to-repository reproduction; Part of 30 AI4Science papers; per-field count unreported | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
 | Astro2Method | 2026 | Choose the better machine-learning method for a published astronomy problem, e.g. which network gives lower error when estimating stellar surface gravity from light curves; topics include stellar astrophysics, galaxy photometric redshift, and high-energy and time-domain astronomy. | 500 binary questions from 346 papers published 2024-01 to 2026-06 (376 Easy, 124 Hard by completeness of the source explanation); five models direct, three under RAG, agent and web-search settings. Per-topic counts are given only in a figure. | Exact match against the source paper's comparison, kept only if the gap is ≥ 2σ or, without uncertainties, ≥ 10% relative improvement; every question human-reviewed. | [→](../works/astro2method.md) |
 | EurekaBench | 2026 | Explain observed properties of galaxies, galaxy environments, gravitational waves, the Milky Way, baryonic feedback, and warm-dark-matter merger trees and populations with mechanisms that respect known astrophysical constraints. | 7 of 26 problems on the CAMELS and DREAMS simulation suites; up to 4 h on one H100; mechanism as prose, code, and experiment log. | Constraint tests gate the score; predictive accuracy on held-out simulation data; insight questions judged by two agentic LLM judges. | [→](../works/eurekabench.md) |
+| Agent4Sci | 2026 | Improve published ML models for transient classification (ATAT), Mars terrain segmentation and cone detection (Mars-Bench), and cosmology regression and prediction (CosmoBench). | 3 of 20 benchmarks (6 tasks); 12 hours on 8 H200 GPUs per run. | Relative improvement over the reproduced published best on a sequestered test set, run by a separate evaluation agent; LLM audit for misconduct. | [→](../works/agent4sci.md) |
 
 ## Capability Matrix
 
@@ -119,6 +120,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SimAgents | COS | ? | ✘ | ✘ | ✘ | ✔ | ✔ | ✘ | **2** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
 | AstroVisBench | COMP | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 2 | 2 | 3 | **7** |
 | AstroMMBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ✘ | 2 | 2 | 3 | **7** |
+| Agent4Sci | TD, SSB, COS | ? | ✘ | ✘ | ? | ◐ | ◐ | ✔ | **2** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | CosmoPaperQA | COS | ◐ | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | **1.5** | ✘ | ✘ | ✘ | 3 | 2 | 2 | **7** |
@@ -135,6 +137,7 @@ Repository note: a suite-wide total does not establish this domain’s item coun
 ## Related Works
 
 - [Astro2Method](../works/astro2method.md)
+- [Agent4Sci](../works/agent4sci.md)
 - [EurekaBench](../works/eurekabench.md)
 - [AI's Capability in Assisting Scientific Research II: Project Planning and Proposal Evaluation](../works/ai-assisting-research-ii-project-planning.md)
 - [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)

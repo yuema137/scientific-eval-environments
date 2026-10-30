@@ -55,6 +55,8 @@
 | EurekaBench | 2026 | 借助反应型机器学习势发现反应机理。 | 26 道题中的 1 道，基于 AIMNet2-rxn；一块 H100、最多 4 小时。 | 约束测试作为得分门槛；在保留数据上测预测准确度；洞见问题由两个 agent 形式的 LLM judge 评判。 | [→](../works/eurekabench.md) |
 | Into the Unknown | 2026 | 沿作者设定的方向延伸机器学习分子能量模型：用 HIP-NN 的层级分解信号找出失效模式并校准不确定度，以及减少 Projected Hessian Learning 所需的随机探针。 | 15 题中的 2 题（计算化学）；写出后续论文并附代码和日志，GPU 节点，不设时限。 | GPT-6-Astra agent judge 按作者指定的诚信和方向细则评分；没有一份提交有效。 | [→](../works/into-the-unknown.md) |
 | SCI-AGENT-EXAM | 2026 | 跨领域套件中的化学工作流任务。 | 120 道题中的 11 道；离线 Docker，每题交答案、代码和报告。 | 在隐藏输入上重跑的程序化检查，加上 GPT-5.6 Sol 对报告的细则评分。 | [→](../works/sci-agent-exam.md) |
+| OSWorld-Science | 2026 | 在 ChemDraw 里画分子结构，在 ASKCOS 里做逆合成规划，都要通过软件界面完成。 | 146 个任务中的 43 个（ChemDraw 21、ASKCOS 21）；评测 12 个视觉语言模型，最好的模型在本领域约 44%。 | 任务专属评测器检查保存下来的软件状态和文件；结果做精确匹配或按容差判断，可得部分分；不用 judge。 | [→](../works/osworld-science.md) |
+| Agent4Sci | 2026 | 改进已发表的 ML 模型：混合物的气味相似度、燃料辛烷值和聚合物电导率（CheMixHub），以及根据质谱检索分子（MassSpecGym）。 | 20 个 benchmark 中的 2 个（4 个任务）；8 块 H200、12 小时。 | 由独立的评测 agent 在封存测试集上计算相对于复现出的已发表最佳结果的提升；LLM 审查作弊。 | [→](../works/agent4sci.md) |
 
 ## Capability Matrix
 
@@ -103,6 +105,7 @@
 | Imaging-101 | ANAL, NANO | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
 | EurekaBench | ORG | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **4.5** | ✘ | ✔ | ✘ | 2 | 2 | 1 | **6** |
+| OSWorld-Science | SYN, CHEMINF | ◐ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | **4** | ? | ✘ | ◐ | 3 | 1 | 3 | **7.5** |
 | MolQuest | ANAL | ? | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
 | NatureBench | MOLDES | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 2 | 1 | 2 | **7** |
 | MetaSyn | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✘ | 2 | ? | 3 | **6** |
@@ -118,6 +121,7 @@
 | ChemX | NANO, MED | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **2.5** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | MDArena | MD, BIOCHEM | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **2.5** | ◐ | ✔ | ✘ | 2 | 1 | 2 | **6.5** |
 | MOOSE-Chem | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | **2.5** | ◐ | ◐ | ✔ | 1 | 1 | 2 | **6** |
+| Agent4Sci | CHEMINF, ANAL | ? | ✘ | ✘ | ? | ◐ | ✔ | ✔ | **2.5** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | SCI-AGENT-EXAM | GEN | ✘ | ✘ | ✔ | ✘ | ? | ? | ✔ | **2** | ◐ | ✔ | ◐ | 2 | 1 | 3 | **8** |
 | MaCBench | ANAL, NANO | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ◐ | 2 | ? | 4 | **6.5** |
 | Into the Unknown | QC | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 1 | 0 | 3 | **6** |
@@ -151,8 +155,10 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 ## Related Works
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [Agent4Sci](../works/agent4sci.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [EurekaBench](../works/eurekabench.md)
+- [OSWorld-Science](../works/osworld-science.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)
