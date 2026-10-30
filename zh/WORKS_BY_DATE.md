@@ -15,18 +15,24 @@
 | 2026-10-23 | [QFT-Bench](./works/qft-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.33134) |
 | 2026-10-23 | [PHYRD](./works/phyrd.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.32575) |
 | 2026-10-21 | [Astro2Method](./works/astro2method.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.30282) |
+| 2026-10-20 | [Agent4Sci](./works/agent4sci.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.28763) |
 | 2026-10-19 | [PhysRSI-eval](./works/physrsi-eval.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.26848) |
+| 2026-10-15 | [SciΠvot](./works/scipivot.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.21082) |
 | 2026-10-15 | [PhysClosureBench](./works/physclosurebench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.21767) |
 | 2026-10-13 | [Into the Unknown](./works/into-the-unknown.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.19159) |
 | 2026-10-09 | [EmbodiedCLBench](./works/embodiedclbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.13021) |
 | 2026-10-04 | [AutoSciBench](./works/autoscibench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.05140) |
+| 2026-10-03 | [EvalResearchBench](./works/evalresearchbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.04184) |
 | 2026-10-01 | [SimuVerity](./works/simuverity.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.02304) |
+| 2026-09-30 | [OSWorld-Science](./works/osworld-science.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.39903) |
 | 2026-09-30 | [EurekaBench](./works/eurekabench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.00492) |
 | 2026-09-30 | [AutoDataBench](./works/autodatabench-auto-research.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.40097) |
 | 2026-09-29 | [Predictive Credit](./works/predictive-credit.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.00314) |
 | 2026-09-29 | [EngiWorld](./works/engiworld.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.37686) |
 | 2026-09-27 | [DISCERN](./works/discern.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.33357) |
 | 2026-09-16 | [ScienceIDE](./works/scienceide.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.19134) |
+| 2026-09-14 | [CADWorld](./works/cadworld.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.16251) |
+| 2026-09-08 | [SAEScientist-Bench](./works/saescientist-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.09113) |
 | 2026-09-07 | [AgentIdeaBench](./works/agentideabench.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.07611) |
 | 2026-09-03 | [EvoHarnessBench](./works/evoharnessbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.04280) |
 | 2026-09-01 | [HarnessDev](./works/harnessdev.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.01437) |

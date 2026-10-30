@@ -56,12 +56,14 @@
 | SlowLab | 2026 | 以经济收益为目标，优化包含六个设定值的温室气候策略（温度、CO₂、补光、通风） | 基于 GreenLight 的模拟温室；一年期实验，最多 16 次实验；48 个未见站点 | 3 个留出天气年份 × 2 个种植日期上的平均边际贡献（EUR/m²）；Full 反馈下基线为 33.62，模型为 28.02–29.62 | [卡片](../works/slowlab.md) |
 | EngiWorld | 2026 | 做出满足验收条件的工程设计文件（实体模型、刀具路径、建筑模型、电路板布局），其中 40 个是定量设计任务 | 通过 GUI 或 CLI 操作 26 款专业软件；评测子集 300 题 | 全部验收条件通过，或在可行性门槛之后拿部分分；EngiScore 最高 44.3 | [卡片](../works/engiworld.md) |
 | SimuVerity | 2026 | 设计满足功能角色、信号通路和动态响应要求的系统模型 | 十个工程领域的 101 个 Simulink 任务 | 通过资格检查后按六个工程维度的加权几何平均打分；最好 42.86 | [卡片](../works/simuverity.md) |
+| CADWorld | 2026 | 按机械设计要求做出带约束的草图、零件、装配、CAM 作业和 FEM 设置 | 200 个 FreeCAD 任务，只能通过 GUI 操作，最多 100 步 | 保存的项目文件通过全部几何、结构和建模过程检查；最高 17.5%，专家 87.0% | [卡片](../works/cadworld.md) |
 
 ## Related Works
 
 - [SlowLab](../works/slowlab.md)
 - [SimuVerity](../works/simuverity.md)
 - [EngiWorld](../works/engiworld.md)
+- [CADWorld](../works/cadworld.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [EnergyBridge](../works/energybridge.md)

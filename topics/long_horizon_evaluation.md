@@ -145,6 +145,9 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | Into the Unknown | 2026 | No time limit, up to five relaunches; per-agent median execution 1.3–19.5 hours; 1,942.81 hours for 135 submissions | Native agent SDK harnesses on 8×H200 or 32-vCPU nodes; unrestricted internet | [→](../works/into-the-unknown.md) |
 | RobotAgentBench | 2026 | 18 short- and 8 long-horizon tasks plus 4 open-ended scenarios; episodes end after 120 s of simulated time without progress; Stagnation and Recovery Rate reported | Isaac Sim household layouts (50, from one real home) with a sim-to-real subset on a physical AgiBot G1 | [→](../works/robotagentbench.md) |
 | EngiWorld | 2026 | Up to 200 GUI or 100 CLI decision rounds (300/150 for multi-software tasks) and a five-hour runtime limit; 54.9–120.5 steps per task | 26 professional engineering applications driven by PyAutoGUI or terminal | [→](../works/engiworld.md) |
+| CADWorld | 2026 | Up to 100 GUI steps per FreeCAD task; strongest agent finishes 62.5% of tasks and succeeds on 17.5% | FreeCAD in an Ubuntu VM, screenshots plus pyautogui-style actions, scripting blocked | [→](../works/cadworld.md) |
+| OSWorld-Science | 2026 | 100 steps for most tasks; 613 of 1,530 runs exhaust the step budget without a graded artifact | Domain-specific Ubuntu images with scientific applications; pyautogui or CLI actions | [→](../works/osworld-science.md) |
+| Agent4Sci | 2026 | 12-hour runs on 8 H200 GPUs; Opus averages 490 turns and 338 tool calls; appendix 3-day runs | Containerized hill-climbing on scientific ML benchmarks, test set held by a separate evaluation agent | [→](../works/agent4sci.md) |
 
 ## Open Questions
 
@@ -156,9 +159,12 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 ## Related Works
 
 - [RobotAgentBench](../works/robotagentbench.md)
+- [Agent4Sci](../works/agent4sci.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [EurekaBench](../works/eurekabench.md)
+- [OSWorld-Science](../works/osworld-science.md)
 - [EngiWorld](../works/engiworld.md)
+- [CADWorld](../works/cadworld.md)
 - [FORESIGHT-9](../works/foresight-9.md)
 - [ASI-Bench](../works/asi-bench.md)
 - [R³-Bench](../works/r3-bench.md)

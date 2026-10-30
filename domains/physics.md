@@ -67,6 +67,8 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 | PhysClosureBench | 2026 | Carry a goal-specified investigation in strong-field, attosecond, and neighbouring physics (e.g., how post-release scattering shapes the attoclock offset) to a conclusion whose mechanism and validity range are supported by self-generated evidence. | 50 tasks (24 strong-field AMO/attosecond, 12 strong-field condensed matter, 8 quantum optics, 4 strong-field QED, 2 matter-wave); offline containers with 8–96 cores and 30–720 min; 3 runs per model. | GPT-5.6-Sol staged grading of 20 half-point atoms and Research Closure RC0–RC4; 81.8% agreement with five physics experts on selected criteria. | [→](../works/physclosurebench.md) |
 | SCI-AGENT-EXAM | 2026 | Physics-simulation workflow tasks within a cross-field scientific workflow suite. | 11 physics-simulation tasks (plus 12 tasks labelled only 'physical science') of 120; offline Docker, answer, code, and report per task. | Programmatic checks rerun on hidden inputs, plus a GPT-5.6 Sol rubric judge on the report. | [→](../works/sci-agent-exam.md) |
 | ScienceIDE | 2026 | Keep scientific simulation codes for astrophysical flows, plasma physics, and particle simulation numerically correct when modules are repaired or reimplemented. | Modules of codes such as PLUTO, Athena++, and PHANTOM; part of 2,812 tasks and an 85-task hard subset (per-domain counts not stated). | Deterministic comparison with private scientific references under pointwise tolerances and physical-invariant checks. | [→](../works/scienceide.md) |
+| OSWorld-Science | 2026 | Run CFD and finite-element simulations in OpenFOAM and ANSYS, and analyze X-ray data in CIAO with DS9. | 31 of 146 tasks; GUI or CLI control in a domain-specific Ubuntu image. | Task-specific evaluators check the saved application state and files; exact match or tolerance on results, partial credit; no judge. | [→](../works/osworld-science.md) |
+| Agent4Sci | 2026 | Improve published ML models for full-topology power flow (PFDelta) and dark-matter signal denoising (TIDMAD). | 2 of 20 benchmarks; 12 hours on 8 H200 GPUs; best default-agent gain 64.4% on PFDelta. | Relative improvement over the reproduced published best on a sequestered test set, run by a separate evaluation agent; LLM audit for misconduct. | [→](../works/agent4sci.md) |
 
 ## Capability Matrix
 
@@ -115,6 +117,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Imaging-101 | COMP | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
 | EurekaBench | PLA | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **4.5** | ✘ | ✔ | ✘ | 2 | 2 | 1 | **6** |
+| OSWorld-Science | FLU, COMP | ◐ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | **4** | ? | ✘ | ◐ | 3 | 1 | 3 | **7.5** |
 | Collider-Bench | HEP | ? | ✘ | ✔ | ✘ | ✔ | ◐ | ✔ | **3.5** | ✔ | ✘ | ◐ | 2 | 1 | 4 | **8.5** |
 | NatureBench | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 2 | 1 | 2 | **7** |
 | MetaSyn | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✘ | 2 | ? | 3 | **6** |
@@ -139,6 +142,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | ScienceIDE | PLA, COS, FLU, COMP | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ? | ✘ | ◐ | 3 | ? | 3 | **6.5** |
 | PRBench | HEP, AMO, NUC, PLA, CM | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ✘ | ✔ | ✘ | 2 | 1 | 2 | **6** |
 | Into the Unknown | QI, PLA | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 1 | 0 | 3 | **6** |
+| Agent4Sci | HEP, GEN | ? | ✘ | ✘ | ? | ◐ | ◐ | ✔ | **2** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | QMP-Bench | CM, COMP | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ◐ | ✔ | ✘ | 2 | 2 | 0 | **5.5** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | LQCDMaster | HEP, NUC | ? | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✔ | ✘ | ◐ | 3 | 1 | 3 | **8.5** |
@@ -179,9 +183,11 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 - [PHYRD](../works/phyrd.md)
 - [QFT-Bench](../works/qft-bench.md)
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [Agent4Sci](../works/agent4sci.md)
 - [PhysClosureBench](../works/physclosurebench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [EurekaBench](../works/eurekabench.md)
+- [OSWorld-Science](../works/osworld-science.md)
 - [ScienceIDE](../works/scienceide.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PACE-Bench](../works/pace-bench.md)

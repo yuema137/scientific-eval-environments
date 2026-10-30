@@ -67,11 +67,13 @@ A fifth cluster runs **structural analysis against a civil-engineering solver**,
 | ScienceIDE | 2026 | Make simulation modules (e.g., PLUTO, Athena++, MITgcm) reproduce reference outputs and physical invariants | Containerized workspaces with official tests kept as checks | Tolerance and invariant checks; repair score normalized against the defective start | [card](../works/scienceide.md) |
 | EngiWorld | 2026 | Set up and run CAE analyses (ANSYS, Abaqus, OpenFOAM, CalculiX, FEniCS, and others) inside professional software | GUI or CLI control of the applications; part of 1,301 tasks | Simulation outputs within error bounds and correct material, load, and boundary assignments | [card](../works/engiworld.md) |
 | SimuVerity | 2026 | Build executable Simulink models of engineering systems from text specifications | 101 tasks in MATLAB/Simulink R2025a via the MATLAB MCP server | Native simulation over withheld scenarios behind delivery, executability, and qualification gates; best 42.86 vs. reference 96.01 | [card](../works/simuverity.md) |
+| OSWorld-Science | 2026 | Set up and run physical simulations in OpenFOAM and ANSYS through their interfaces | Physics tasks among 146, in domain-specific Ubuntu images; GUI or CLI | Simulation result whose parameter error falls within a set range | [card](../works/osworld-science.md) |
 
 ## Related Works
 
 - [PhysClosureBench](../works/physclosurebench.md)
 - [SimuVerity](../works/simuverity.md)
+- [OSWorld-Science](../works/osworld-science.md)
 - [EngiWorld](../works/engiworld.md)
 - [ScienceIDE](../works/scienceide.md)
 - [CRAFTS](../works/crafts.md)

@@ -55,6 +55,9 @@ Life-science evaluation from molecular to population scale. Bioinformatics, geno
 | DISCERN | 2026 | Vet data, verify analyses, and propose hypotheses across GWAS, clinical variant interpretation, bulk and single-cell RNA-seq, CRISPR screens, enhancer activity, chromatin regulation, and protein stability/structure. | 203 tasks: 79 data-integrity (with matched clean controls), 102 analysis-verification in 24 families, 22 hypothesis dossiers; sealed no-network sandbox. | Deterministic L1–L2 grading cross-checked by an LLM verifier with human adjudication; L3 LLM judge after three adversarial reviews, author-validated; no experimental confirmation. | [→](../works/discern.md) |
 | SCI-AGENT-EXAM | 2026 | Biology and bioinformatics workflow tasks, e.g. selecting a metagenomic assembly-and-binning pipeline robust across four stress axes, or a survival analysis testing four conclusions. | 26 of 120 tasks (biology 15, bioinformatics 11); offline Docker, answer, code, and report per task. | Programmatic checks rerun on hidden inputs (including relabelled-identifier replays), plus a GPT-5.6 Sol rubric judge on the report. | [→](../works/sci-agent-exam.md) |
 | AutoSciBench | 2026 | Computational-biology questions generated from CompBioBench seeds that require working with raw data and integrating evidence. | 50 generated tasks per generator; ten solver models. | Exact match to a single reference answer; task quality rated by LLM judges. | [→](../works/autoscibench.md) |
+| OSWorld-Science | 2026 | Work with protein structures in PyMOL, NMR spectra in MestReNova, drug-synergy analysis, and EEG recordings in EEGLAB. | 18 of 146 tasks; best model about 96% in this domain. | Task-specific evaluators check the saved application state and files; exact match or tolerance on results, partial credit; no judge. | [→](../works/osworld-science.md) |
+| Agent4Sci | 2026 | Improve published ML models for chromatin activity, antimicrobial-peptide classification, RNA inverse design, link prediction, DMS substitution effects, binding sites, and confocal super-resolution. | 7 of 20 benchmarks (DART-Eval, ESCAPE, gRNAde, MOTIVE, ProteinGym, UniSite, SR-CACO-2); 12 hours on 8 H200 GPUs. | Relative improvement over the reproduced published best on a sequestered test set, run by a separate evaluation agent; LLM audit for misconduct. | [→](../works/agent4sci.md) |
+| SciΠvot | 2026 | Judge the next step in a biological-imaging project run by LLM agents, where a PI corrected the agent. | 21 of 248 cases from 1 project. | Binary choice scored against the human-corrected plan, both option orders averaged; 13-person human baseline. | [→](../works/scipivot.md) |
 
 ## Capability Matrix
 
@@ -104,6 +107,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | FlyAOC | GENOM, CURA | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✘ | ✘ | 3 | 2 | 4 | **9.5** |
 | scBench | SCB | ✔ | ✘ | ◐ | ✘ | ✔ | ✔ | ✔ | **4.5** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
 | ScienceAgentBench | BIOINF | ✘ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✔ | ✔ | 2 | 1 | 2 | **7.5** |
+| OSWorld-Science | STRB, DRUG | ◐ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | **4** | ? | ✘ | ◐ | 3 | 1 | 3 | **7.5** |
 | Apodex Discovery | PROT | ? | ◐ | ◐ | ✘ | ✔ | ✔ | ✔ | **4** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | AstaBench | GEN | ◐ | ✘ | ✔ | ✘ | ◐ | ✔ | ✔ | **4** | ✘ | ◐ | ◐ | 2 | ? | 2 | **5** |
 | BioXArena | GEN | ✘ | ◐ | ✘ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 3 | 1 | 3 | **9** |
@@ -129,6 +133,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | SCI-AGENT-EXAM | BIOINF, GEN | ✘ | ✘ | ✔ | ✘ | ◐ | ? | ✔ | **2.5** | ◐ | ✔ | ◐ | 2 | 1 | 3 | **8** |
 | Aviary | MOLB, PROT | ✘ | ✘ | ✔ | ✘ | ✘ | ◐ | ✔ | **2.5** | ✔ | ✘ | ✘ | 3 | 2 | 1 | **7** |
 | MDArena | STRB | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **2.5** | ✘ | ✔ | ✘ | 2 | 1 | 3 | **7** |
+| Agent4Sci | GENOM, PROT, STRB, IMG | ? | ✘ | ✘ | ? | ◐ | ✔ | ✔ | **2.5** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | HiSciBench | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✔ | ✘ | 2 | 3 | 3 | **9** |
 | SciGym | SYSB | ✘ | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
 | BioKGBench | CURA | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
@@ -137,6 +142,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | GeneBench-Pro | GENOM | ✘ | ◐ | ✘ | ✘ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
 | BiomedSQL | GENOM | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✔ | ✘ | ✘ | 2 | 2 | 4 | **9** |
+| SciΠvot | IMG | ? | ✘ | ? | ? | ✘ | ✔ | ✘ | **1** | ✔ | ✘ | ◐ | 3 | 1 | 4 | **9.5** |
 | BioProBench | PROTO | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | ✘ | **1** | ✘ | ✘ | ✘ | 3 | 3 | 3 | **9** |
 | SciVQR | GEN | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
 | AgentIdeaBench | GEN | ◐ | ✘ | ✘ | ✘ | ✘ | ✘ | ◐ | **1** | ◐ | ✔ | ◐ | 0 | 0 | 4 | **6** |
@@ -151,7 +157,10 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 ## Related Works
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [Agent4Sci](../works/agent4sci.md)
+- [SciΠvot](../works/scipivot.md)
 - [AutoSciBench](../works/autoscibench.md)
+- [OSWorld-Science](../works/osworld-science.md)
 - [DISCERN](../works/discern.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

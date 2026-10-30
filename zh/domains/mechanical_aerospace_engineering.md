@@ -24,6 +24,7 @@
 | EngDesign | 2025 | 机械系统设计，以及与该基准 Structure Design 方向共通的固体力学内容，都写成带目标、约束与性能要求的设计规格，而非有参考答案的问答题。 | 九个工程方向共 101 项设计任务、473 个可评分条目，其中机械系统 7 项、结构设计 13 项；评测 12 个对话模型与推理模型，并设有最多 10 轮仿真器反馈的迭代协议。 | 模型输出结构化结果，由逐任务的评估脚本驱动该领域自身的工具——MATLAB、有限元分析、拓扑优化求解器——执行，返回二元通过/不通过、0–100 的部分给分与评估日志。 | [→](../works/engdesign.md) |
 | EngiWorld | 2026 | 在专业 CAD、CAM 和 CAE 软件里做出机械设计、制造和分析成果，比如实体模型、刀具路径、有限元或 CFD 分析。 | 1,301 个任务中的 CAD（7 款软件）、CAE（7 款）和 CAM（2 款）任务；GUI 或 CLI 操作；未给出各领域题数。 | 程序化检查产出文件：尺寸、拓扑、实体有效性、载荷与边界条件设置、仿真输出是否在误差范围内。 | [→](../works/engiworld.md) |
 | SimuVerity | 2026 | 把汽车、机械、航空航天、热和流体系统的动态特性建成可执行的 Simulink 模型。 | 101 个任务中的 54 个（汽车 11、机械 11、航空航天 10、热 11、流体 11）。 | 先过可执行性和专家资格门槛，再在不公开的场景下原生仿真打分。 | [→](../works/simuverity.md) |
+| CADWorld | 2026 | 通过 FreeCAD 的 GUI 建机械 CAD 模型：带约束的草图、零件、带关节的装配、CAM 刀具路径和 FEM 分析设置。 | 11 类工作流共 200 个任务（Part 77、Sketch 63、Assembly 25、CAM 15、FEM 3，其余 17）；七个 agent，外加一次专家参考操作。 | 对保存的 .FCStd 文件做可执行检查：草图约束和尺寸、体积和包围盒、关节类型、材料去除量、FEM 对象和结果；只算成败。 | [→](../works/cadworld.md) |
 
 ## Capability Matrix
 
@@ -68,6 +69,7 @@
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | EngiWorld | MECH, FEA, CFD | ? | ✘ | ✔ | ◐ | ✘ | ✘ | ✔ | **2.5** | ? | ✘ | ? | 3 | ? | 3 | **6** |
+| CADWorld | MECH, FEA | ? | ✘ | ? | ✔ | ✘ | ✘ | ✔ | **2** | ✔ | ✘ | ? | 3 | 2 | 3 | **9** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | CFDLLMBench | CFD, THERM | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ◐ | 3 | 2 | 3 | **9** |
 | EngDesign | MECH, SOL | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✔ | ✘ | 3 | 1 | 3 | **8** |
@@ -90,6 +92,7 @@ Repository note: 跨领域套件的总题数不能代替本领域数量。Termin
 
 - [SimuVerity](../works/simuverity.md)
 - [EngiWorld](../works/engiworld.md)
+- [CADWorld](../works/cadworld.md)
 - [SciConvBench](../works/sciconvbench.md)
 - [MooseBench](../works/moosebench.md)
 - [ERI Benchmark](../works/eri-benchmark.md)

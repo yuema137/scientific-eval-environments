@@ -18,18 +18,18 @@ Topic 集合是固定的。新增 topic 需要更新 [`../../AGENT.md`](../../AG
 
 | # | Topic | 文件 | 收录 works |
 |---|---|---|---|
-| I | [General Long-Horizon Agent Benchmarks](./long_horizon_evaluation.md) | `long_horizon_evaluation.md` | 66 |
-| II | [Scientific Agent Benchmarks](./scientific_agents.md) | `scientific_agents.md` | 270 |
-| III | [Planning & Decision-Making Evaluation](./planning_decision_evaluation.md) | `planning_decision_evaluation.md` | 15 |
+| I | [General Long-Horizon Agent Benchmarks](./long_horizon_evaluation.md) | `long_horizon_evaluation.md` | 69 |
+| II | [Scientific Agent Benchmarks](./scientific_agents.md) | `scientific_agents.md` | 275 |
+| III | [Planning & Decision-Making Evaluation](./planning_decision_evaluation.md) | `planning_decision_evaluation.md` | 16 |
 | IV | [Hierarchical Decision Abstraction](./hierarchical_decision_abstraction.md) | `hierarchical_decision_abstraction.md` | 7 |
 | V | [Trajectory Evaluation](./trajectory_evaluation.md) | `trajectory_evaluation.md` | 61 |
 | VI | [Skill Hierarchy](./skill_hierarchy.md) | `skill_hierarchy.md` | 43 |
 | VII | [Credit Assignment](./credit_assignment.md) | `credit_assignment.md` | 25 |
 | VIII | [Resource-aware Evaluation](./resource_aware_evaluation.md) | `resource_aware_evaluation.md` | 32 |
-| IX | [Evaluator Reliability & Validation](./evaluator_reliability_validation.md) | `evaluator_reliability_validation.md` | 22 |
-| X | [Benchmark Design, Validity & Contamination](./benchmark_design_validity_contamination.md) | `benchmark_design_validity_contamination.md` | 21 |
+| IX | [Evaluator Reliability & Validation](./evaluator_reliability_validation.md) | `evaluator_reliability_validation.md` | 23 |
+| X | [Benchmark Design, Validity & Contamination](./benchmark_design_validity_contamination.md) | `benchmark_design_validity_contamination.md` | 22 |
 | XI | [Skill Learning & Evolution](./skill_learning_evolution.md) | `skill_learning_evolution.md` | 10 |
-| XII | [Agent Harnesses & Scaffolding](./agent_harnesses_scaffolding.md) | `agent_harnesses_scaffolding.md` | 12 |
+| XII | [Agent Harnesses & Scaffolding](./agent_harnesses_scaffolding.md) | `agent_harnesses_scaffolding.md` | 13 |
 | XIII | [Evaluation-Driven Data Curation](./evaluation_driven_data_curation.md) | `evaluation_driven_data_curation.md` | 4 |
 | XIV | [Evaluation-Driven Post-Training](./evaluation_driven_post_training.md) | `evaluation_driven_post_training.md` | 13 |
 | XV | [Survey](./survey.md) | `survey.md` | 9 |

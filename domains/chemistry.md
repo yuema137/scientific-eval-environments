@@ -55,6 +55,8 @@ Chemistry as the science, including computational chemistry and molecular design
 | EurekaBench | 2026 | Discover reaction mechanisms with a reactive machine-learned potential. | 1 of 26 problems, on AIMNet2-rxn; up to 4 h on one H100. | Constraint tests gate the score; predictive accuracy on held-out data; insight questions judged by two agentic LLM judges. | [→](../works/eurekabench.md) |
 | Into the Unknown | 2026 | Extend machine-learned molecular-energy models along author-set directions: use HIP-NN's hierarchy signal to find failure motifs and calibrate uncertainty, and cut the stochastic probes Projected Hessian Learning needs. | 2 of 15 problems (computational chemistry); follow-up paper with code and logs, GPU node, no time limit. | GPT-6-Astra agentic judge on author-specified integrity and direction rubrics; no submission is valid. | [→](../works/into-the-unknown.md) |
 | SCI-AGENT-EXAM | 2026 | Chemistry workflow tasks within a cross-field suite. | 11 of 120 tasks; offline Docker, answer, code, and report per task. | Programmatic checks rerun on hidden inputs, plus a GPT-5.6 Sol rubric judge on the report. | [→](../works/sci-agent-exam.md) |
+| OSWorld-Science | 2026 | Draw molecules in ChemDraw and plan retrosynthesis in ASKCOS through their interfaces. | 43 of 146 tasks (ChemDraw 21, ASKCOS 21); 12 vision-language models, about 44% for the best model in this domain. | Task-specific evaluators check the saved application state and files; exact match or tolerance on results, partial credit; no judge. | [→](../works/osworld-science.md) |
+| Agent4Sci | 2026 | Improve published ML models for olfactory similarity, fuel octane, and polymer conductivity of mixtures (CheMixHub) and molecule retrieval from mass spectra (MassSpecGym). | 2 of 20 benchmarks (4 tasks); 12 hours on 8 H200 GPUs. | Relative improvement over the reproduced published best on a sequestered test set, run by a separate evaluation agent; LLM audit for misconduct. | [→](../works/agent4sci.md) |
 
 ## Capability Matrix
 
@@ -103,6 +105,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Imaging-101 | ANAL, NANO | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
 | EurekaBench | ORG | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **4.5** | ✘ | ✔ | ✘ | 2 | 2 | 1 | **6** |
+| OSWorld-Science | SYN, CHEMINF | ◐ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | **4** | ? | ✘ | ◐ | 3 | 1 | 3 | **7.5** |
 | MolQuest | ANAL | ? | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
 | NatureBench | MOLDES | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✔ | 2 | 1 | 2 | **7** |
 | MetaSyn | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✔ | **3.5** | ✔ | ✘ | ✘ | 2 | ? | 3 | **6** |
@@ -118,6 +121,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | ChemX | NANO, MED | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ◐ | **2.5** | ✘ | ✘ | ✘ | 3 | 3 | 2 | **8** |
 | MDArena | MD, BIOCHEM | ✔ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **2.5** | ◐ | ✔ | ✘ | 2 | 1 | 2 | **6.5** |
 | MOOSE-Chem | GEN | ✘ | ◐ | ✘ | ✘ | ✔ | ✔ | ✘ | **2.5** | ◐ | ◐ | ✔ | 1 | 1 | 2 | **6** |
+| Agent4Sci | CHEMINF, ANAL | ? | ✘ | ✘ | ? | ◐ | ✔ | ✔ | **2.5** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | SCI-AGENT-EXAM | GEN | ✘ | ✘ | ✔ | ✘ | ? | ? | ✔ | **2** | ◐ | ✔ | ◐ | 2 | 1 | 3 | **8** |
 | MaCBench | ANAL, NANO | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | ✘ | **2** | ✘ | ✘ | ◐ | 2 | ? | 4 | **6.5** |
 | Into the Unknown | QC | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 1 | 0 | 3 | **6** |
@@ -151,8 +155,10 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 ## Related Works
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [Agent4Sci](../works/agent4sci.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [EurekaBench](../works/eurekabench.md)
+- [OSWorld-Science](../works/osworld-science.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Model Discovery Agent](../works/model-discovery-agent.md)

@@ -17,6 +17,7 @@ Environmental prediction and monitoring. Ecology folds here.
 | Hydro-SE Bench | 2025 | Water-resource management within hydro-science and engineering, sitting alongside the benchmark's hydrology, river-dynamics and meteorology subfields. | 4,000 Chinese-language single- and multi-choice questions across nine subfields, each labelled by cognitive level, drawn from textbooks, industry standards, laws and regulations and statistical yearbooks, with at least three independent expert reviews per item; 16 models. | Accuracy reported overall and by subfield, question type and cognitive level, queried zero-shot with chain-of-thought at temperature 0 and the choice letter extracted by a separate LLM; models score higher on the science-grounded subfields than on the codified engineering ones. | [→](../works/hydro-se-bench.md) |
 | OntoLearner | 2026 | Construct ontology structure for ecology and environment — one of the 22 domains its ontology collection spans — by typing terms, recovering the is-a hierarchy between types, and extracting non-taxonomic relations. | 180 machine-readable ontologies across 22 domains with pipeline-ready train/dev/test splits for three ontology-learning tasks; 22 retrieval models and 12 LLMs evaluated in single-shot structured prediction rather than an agentic setting. | Precision, recall and F1 computed by normalized pair-level and triple-level matching against the gold ontology structure; per-domain and per-model scores are `TODO(reference)` in the card, the paper's results section not being retrievable. | [→](../works/ontolearner.md) |
 | [AgentActionBench](../works/agentactionbench.md) | 2026 | Reproduce published experiments in environmental science | Paper-to-repository reproduction; Part of 30 AI4Science papers; per-field count unreported | Model-judged stage rubrics grounded in recorded reads, writes and command outputs | [AgentActionBench](../works/agentactionbench.md) |
+| Agent4Sci | 2026 | Improve published ML models for carbon forecasting (CarbonGlobe) and dead-tree segmentation (TreeFinder). | 2 of 20 benchmarks; 12 hours on 8 H200 GPUs. | Relative improvement over the reproduced published best on a sequestered test set, run by a separate evaluation agent; LLM audit for misconduct. | [→](../works/agent4sci.md) |
 
 ## Capability Matrix
 
@@ -61,6 +62,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | GeoNatureAgent Benchmark | GEO, CARB, SOIL, ECO | ✘ | ✘ | ◐ | ◐ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
+| Agent4Sci | CARB, ECO | ? | ✘ | ✘ | ? | ◐ | ✔ | ✔ | **2.5** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | ? | 3 | **4** |
 | Terminal-Bench Science | ECO, GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | LLM-EPANET | WQ | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ✘ | 3 | ? | 4 | **7.5** |
@@ -72,6 +74,7 @@ Repository note: a suite-wide total does not establish this domain’s item coun
 
 ## Related Works
 
+- [Agent4Sci](../works/agent4sci.md)
 - [OntoLearner](../works/ontolearner.md)
 - [GeoNatureAgent Benchmark](../works/geonatureagent-benchmark.md)
 - [AgentActionBench](../works/agentactionbench.md)

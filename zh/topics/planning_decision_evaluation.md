@@ -48,6 +48,7 @@ Planning evaluation 先把决策时可用的信息固定下来，再问 agent �
 | Plan-RewardBench | 一对工具 trajectory | 完整对话、工具、调用和输出记录 | gold pairwise preference | 评价 judge，不执行环境 | 每对一个易混淆替代项 |
 | AI's Capability in Assisting Scientific Research II | 一页研究 proposal | 固定的专家撰写标题、背景和目标 | 人类与 LLM rubric 分数 | 是 | 每个项目含一份人类与三份模型 proposal |
 | Labference | 从任务契约规定的合法集合中选出的下一步实验室操作 | 相机画面、机器人状态，以及允许使用的证据，如天平读数或转子占用情况 | 第一次可识别的选择是否属于合法集合（`B_next`、`C_id`）；经物理确认的子目标和终止判据 | 是；选择、固定子目标执行和完成分别打分 | 定义了会改变正确答案的证据配对（`P_state`），已报告的实验中尚未运行 |
+| SciΠvot | 在 agent 的原研究计划和 PI 纠正后的计划之间二选一 | 纠正之前冻结的项目记录，或只给两个计划；重新考虑时不告诉对错 | 是否选中人工纠正的计划；13 人的人类基线为 73.4% | 是 | 每个案例一个人工纠正的备选方案 |
 
 ## 还没解决的问题
 
@@ -62,6 +63,7 @@ Planning evaluation 先把决策时可用的信息固定下来，再问 agent �
 ## 相关工作
 
 - [Labference](../works/labference.md)
+- [SciΠvot](../works/scipivot.md) — 把真实研究项目里 PI 对 agent 的纠正做成二选一。
 - [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) — repository issue 解决中的经验证实现规划 ground truth。
 - [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) — 以专家 rubric 评价真实科研项目计划。
 - [RigorBench](../works/rigorbench.md) — 与工程结果分开计分的 planning fidelity。

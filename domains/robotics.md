@@ -32,6 +32,7 @@ Evaluation on physical robot platforms and robot control. Embodied household sim
 | RobotAgentBench | 2026 | Autonomous household mobile manipulation: finding targets, choosing objects from context, recovering from induced failures, and staying robust to human interventions and lighting changes, compared across standalone VLA/WAM policies and coding-agent planner–executor–verifier configurations. | 18 short-horizon and 8 long-horizon tasks composed from 90 atomic tasks, plus discovery, reasoning, recovery, and robustness variants and 4 open-ended scenarios, in 50 Isaac Sim layouts reconstructed from one real home; 30 instances per task; 18 configurations. | Task-specific scoring rules over the simulated physical state (contact events and progress checkpoints), no judge; a sim-to-real subset on a physical AgiBot G1. | [→](../works/robotagentbench.md) |
 | PhysRSI-eval | 2026 | Physical recursive self-improvement: whether an LLM agent controlling a dual-arm robot improves on a manipulation task by revising its own policy code, tools, skills, and notes after failed attempts. | 18 RoboDojo dual-arm tasks (three per difficulty stratum D1–D6), each a first attempt plus up to 17 refinement rounds of full physical attempts; 6 systems on all tasks, Gemini 4 on 10. | Native RoboDojo graders (score in [0, 1] plus a success criterion), no judge; five-axis profile from the per-round scores. Repository note: simulation only. | [→](../works/physrsi-eval.md) |
 | SimuVerity | 2026 | Model robotic systems as executable Simulink models. | 10 of 101 tasks (robotics). | Native simulation over withheld scenarios behind executability and expert qualification gates. | [→](../works/simuverity.md) |
+| SciΠvot | 2026 | Judge the next step in robotics and control projects run by LLM agents, where a PI corrected the agent. | 58 of 248 cases from 4 projects. | Binary choice scored against the human-corrected plan, both option orders averaged; 13-person human baseline. | [→](../works/scipivot.md) |
 
 ## Capability Matrix
 
@@ -93,6 +94,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | RoboGraphBench | PLAN, NAV, MANIP | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ◐ | ✘ | ◐ | 3 | 2 | 4 | **10** |
 | LabRobFail | DIAG, LAB | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ◐ | **1.5** | ✘ | ✘ | ◐ | 3 | 3 | 3 | **9.5** |
 | ASIMOV | SAFE | ✘ | ✘ | ✘ | ◐ | ✘ | ✔ | ✘ | **1.5** | ✘ | ✔ | ✔ | 3 | 3 | 1 | **9** |
+| SciΠvot | CTRL | ? | ✘ | ? | ? | ✘ | ✔ | ✘ | **1** | ✔ | ✘ | ◐ | 3 | 1 | 4 | **9.5** |
 | SimuVerity | GEN | ✘ | ✘ | ? | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✔ | ◐ | 3 | 1 | 3 | **9** |
 | VIKI-Bench | MULTI, PLAN, PERC | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✘ | ◐ | 3 | 3 | 1 | **7.5** |
 | BadRobot | SAFE, MANIP | ✘ | ✘ | ✘ | ◐ | ✘ | ◐ | ✘ | **1** | ✘ | ◐ | ✘ | 2 | 2 | 3 | **7.5** |
@@ -103,6 +105,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 - [Labference](../works/labference.md)
 - [RobotAgentBench](../works/robotagentbench.md)
 - [PhysRSI-eval](../works/physrsi-eval.md)
+- [SciΠvot](../works/scipivot.md)
 - [SimuVerity](../works/simuverity.md)
 - [RoboGraphBench](../works/compiling-and-benchmarking-task-state-horizons-for.md)
 - [LabRobFail](../works/labrobfail.md)

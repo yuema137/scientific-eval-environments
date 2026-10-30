@@ -25,6 +25,9 @@
 | HiSciBench | 2025 | 贯穿各层级的地理学科：对地学论文做文献问答，外加由模型自行编写并执行 Python 分析代码的数据驱动发现。 | 8,735 个实例中地理学科占 737 个——200 个通用科学问答、500 个单语文献问答、10 个综述选题与 27 个数据驱动发现任务；18 个模型受评。 | 按层级选取指标：问答层用准确率，文献 OCR 用词级准确率，翻译用 BLEU；综述层由 LLM judge 按 1–5 分 rubric 评 Coverage、Structure、Relevance、Synthesis 与 Critical Analysis，另计引文可核验性、元数据准确性、忠实性与时效性；发现层用基于执行的 Success Rate，生成的程序跑不起来即计零分。 | [→](../works/hiscibench.md) |
 | EurekaBench | 2026 | 以符合已知物理约束的机制，求出冰架流动定律和水文流域属性。 | 26 道题中的 2 道：一个 FEniCSx 浅冰架求解器，以及由 CAMELS-US 气象强迫驱动、对模拟径流加噪声的 HBV 模型；一块 H100、最多 4 小时。 | 约束测试作为得分门槛；在保留数据上测预测准确度；洞见问题由两个 agent 形式的 LLM judge 评判。 | [→](../works/eurekabench.md) |
 | ScienceIDE | 2026 | 修复或重写海洋与大气模式代码的模块时，保证数值结果依然正确。 | MITgcm（含 MITgcm-biogeo）、LAPS 等代码的模块；未给出各领域题数。 | 按逐点容差与私有科学参考值做确定性比较，并检查不变量。 | [→](../works/scienceide.md) |
+| OSWorld-Science | 2026 | 在 QGIS 里做地理空间分析。 | 146 个任务中的 6 个；GUI 或 CLI 操作。 | 任务专属评测器检查保存下来的软件状态和文件；结果做精确匹配或按容差判断，可得部分分；不用 judge。 | [→](../works/osworld-science.md) |
+| Agent4Sci | 2026 | 改进已发表的 ML 模型：作物类型和地块分割（GEO-Bench-2、GTPBD），以及矿物分类（LITHOS）。 | 20 个 benchmark 中的 3 个；8 块 H200、12 小时。 | 由独立的评测 agent 在封存测试集上计算相对于复现出的已发表最佳结果的提升；LLM 审查作弊。 | [→](../works/agent4sci.md) |
+| SciΠvot | 2026 | 在由 LLM agent 推进的地球科学项目里判断下一步该怎么走，这些节点上 PI 曾纠正过 agent。 | 248 个案例中的 5 个，来自 2 个项目。 | 二选一，以人工纠正的计划为准，两种选项顺序取平均；有 13 人的人类基线。 | [→](../works/scipivot.md) |
 
 ## Capability Matrix
 
@@ -72,15 +75,18 @@
 | EurekaBench | GPH, HYD | ✔ | ✔ | ✔ | ✘ | ◐ | ◐ | ✔ | **5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
 | Imaging-101 | GPH, RS, ATM | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | 0 | 3 | **6.5** |
 | ScienceAgentBench | GIS | ✘ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✔ | ✔ | 2 | 1 | 2 | **7.5** |
+| OSWorld-Science | GIS | ◐ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | **4** | ? | ✘ | ◐ | 3 | 0 | 3 | **6.5** |
 | GeoNatureAgent Benchmark | GIS, ENV, RS | ✘ | ✘ | ✔ | ◐ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 3 | 1 | 2 | **6** |
 | SciVisAgentBench | ESM | ? | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✘ | 2 | ? | 1 | **3** |
 | AutoResearchEval | GPH, CLI | ◐ | ✔ | ✘ | ? | ◐ | ? | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | DrBencher | GPH | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✔ | 3 | 1 | 1 | **6** |
+| Agent4Sci | RS, GEOL | ? | ✘ | ✘ | ? | ◐ | ✔ | ✔ | **2.5** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
 | ScienceIDE | OCE, ATM | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ? | ✘ | ◐ | 3 | ? | 3 | **6.5** |
 | HydroAgent | HYD | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ✔ | ✘ | ✘ | 3 | 0 | 2 | **6** |
 | ScienceBoard | GIS | ? | ✘ | ✘ | ✔ | ✘ | ? | ✔ | **2** | ✔ | ✘ | ✘ | 3 | ? | 2 | **6** |
 | Terminal-Bench Science | GEN | ? | ✘ | ✔ | ✘ | ✘ | ? | ✔ | **2** | ✘ | ✘ | ✘ | 3 | ? | 0 | **3** |
 | HiSciBench | GEN | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | ✘ | **1.5** | ✘ | ✔ | ✘ | 2 | 2 | 3 | **8** |
+| SciΠvot | GEN | ? | ✘ | ? | ? | ✘ | ✔ | ✘ | **1** | ✔ | ✘ | ◐ | 3 | 0 | 4 | **8.5** |
 | SciVQR | GEOL, HYD, CLI | ✘ | ✘ | ✘ | ✔ | ✘ | ✘ | ✘ | **1** | ✘ | ✔ | ✘ | 2 | ? | 3 | **6** |
 | Hydro-SE Bench | HYD, ATM | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | **0** | ✘ | ✘ | ✘ | 2 | ? | 3 | **5** |
 
@@ -90,7 +96,10 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 
 ## Related Works
 
+- [Agent4Sci](../works/agent4sci.md)
+- [SciΠvot](../works/scipivot.md)
 - [EurekaBench](../works/eurekabench.md)
+- [OSWorld-Science](../works/osworld-science.md)
 - [ScienceIDE](../works/scienceide.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Imaging-101](../works/imaging-101.md)

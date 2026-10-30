@@ -48,6 +48,7 @@ The literature progresses from controlled plan validity toward realistic, agent-
 | Plan-RewardBench | Pair of tool-use trajectories | Full recorded conversations, tools, calls, and outputs | Gold pairwise preference | Evaluates the judge, not execution | One confusable alternative per pair |
 | AI's Capability in Assisting Scientific Research II | One-page research proposal | Fixed expert-written title, background, and goal | Human and LLM rubric scores | Yes | Human and three model proposals per project |
 | Labference | Next laboratory operation chosen from a contract-defined legal set | Camera observations, robot state, and authorized evidence such as balance readings or rotor occupancy | Legal-set membership of the first identifiable choice (`B_next`, `C_id`); physically confirmed subgoals and terminal predicates | Yes; choice, fixed-subgoal execution, and completion are scored separately | Answer-changing evidence pairs defined (`P_state`); not yet run in reported experiments |
+| SciΠvot | Choice between an agent's original research plan and a PI-corrected alternative | Project record frozen before the correction, or the two plans alone; no correctness feedback on reconsideration | Match to the human-corrected plan; 13-person human baseline at 73.4% | Yes | One human-corrected alternative per case |
 
 ## Open Questions
 
@@ -62,6 +63,7 @@ The literature progresses from controlled plan validity toward realistic, agent-
 ## Related Works
 
 - [Labference](../works/labference.md)
+- [SciΠvot](../works/scipivot.md) — PI corrections from real agent-run research projects as a binary choice.
 - [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) — validated implementation-planning ground truth in repository issue resolution.
 - [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) — expert-rubric evaluation of plans for real research projects.
 - [RigorBench](../works/rigorbench.md) — planning fidelity scored separately from engineering outcome.

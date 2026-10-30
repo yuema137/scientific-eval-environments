@@ -48,6 +48,7 @@ Benchmark 看到的是整套 model–harness configuration。如果两套系统�
 | [HarnessDev](../works/harnessdev.md) | 创建和持续修改的可执行产物 | 编写者与执行者分开；冻结 harness | 反馈集与隐藏任务分开 | 创建质量、退步和执行模型迁移 |
 | [Astro2Method](../works/astro2method.md) | 被比较的条件：RAG、ReAct、Self-Ask、CRITIC、技能、联网搜索、遮蔽方法名的原论文流程 | 相同的 500 道题和三个模型 | 各条件下的准确率；逐题统计是否检索到原论文 | scaffold 没有稳定提升；联网搜索的提升主要出现在找到原论文的题上 |
 | [RobotAgentBench](../works/robotagentbench.md) | 规划器、执行器、验证器，各自可以是代码、学习策略、混合或不存在 | 家务任务、实例和步数上限 | 任务层能力分和开放式场景进度 | 混合执行器领先纯代码和纯策略配置 |
+| [Agent4Sci](../works/agent4sci.md) | 插入式 markdown skill：研究构思、实验管理、每小时自查清单 | 同样的 20 个 benchmark、12 小时预算、8 块 H200 | 在封存测试集上相对复现基线的提升 | Opus 从 10.4% 到 20.1%，Codex 从 4.4% 到 8.1%；没有单独消融每个 skill |
 
 ## 还没解决的问题
 
@@ -61,6 +62,7 @@ Benchmark 看到的是整套 model–harness configuration。如果两套系统�
 
 - [RobotAgentBench](../works/robotagentbench.md)
 - [Astro2Method](../works/astro2method.md)
+- [Agent4Sci](../works/agent4sci.md)
 - [EvoHarnessBench](../works/evoharnessbench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [Evo-Bench](../works/evo-bench.md)
