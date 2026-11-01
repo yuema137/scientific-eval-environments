@@ -30,9 +30,9 @@
 ## 档案重点
 
 <!-- MONTHLY_ARCHIVE_OVERVIEW_START -->
-- 现在一共有 `34` 份月报，覆盖 `384` 项工作，时间从 `2024-01` 到 `2026-10`。
+- 现在一共有 `34` 份月报，覆盖 `403` 项工作，时间从 `2024-01` 到 `2026-10`。
 - 目前最密的一期是 [2026-08](./2026-08.md)，单月收了 `44` 项工作。
-- 整个档案里最常反复出现的主线，主要还是 `Scientific Agent Benchmarks、Trajectory Evaluation`。
+- 整个档案里最常反复出现的主线，主要还是 `Scientific Agent Benchmarks、General Long-Horizon Agent Benchmarks`。
 <!-- MONTHLY_ARCHIVE_OVERVIEW_END -->
 
 ## 月报列表
@@ -42,7 +42,7 @@
 <!-- MONTHLY_REPORTS_START -->
 | 月份 | 工作数 | 主要 Topic | 这期值不值得回看 |
 |---|---:|---|---|
-| [2026-10](./2026-10.md) | 8 | Scientific Agent Benchmarks、Evaluator Reliability & Validation | 10 月新加的卡，一直在把以前一个“成没成”的分数拆开看：公式对了，推导撑不撑得住；总分不错，是哪一步在拖后腿；实验给出了推荐，花了多少代价；verifier 判了通过，它凭的是什么证据。好几张卡报的正是这些部分对不上的情况，比如答案对了，可写出来的推导根本推不出它；又比如机器人控制选对了砝码，结果砝码滑掉了。 |
+| [2026-10](./2026-10.md) | 27 | Scientific Agent Benchmarks、General Long-Horizon Agent Benchmarks | 10 月这批卡凑到一块，犟的是同一个理：一个看着像样的最终答案，不许再替它背后的那摊活儿领功。推导凑出了对的公式，是一回事；写出来的步骤到底撑不撑得起这个公式，另算一笔分。agent 把模拟器的数据拟合上了，是一回事；它有没有找到机理，另算一笔分。报告读着顺，是一回事；它描述的那段代码到底跑没跑起来，还是另算一笔分。那几个看产物的 benchmark 也是这股劲：它们不再去给生成的脚本或报上来的数字打分，而是直接把 agent 产出的文件打开，一个 CAD 模型、一张 Simulink 框图、一个有限元算例，然后把它跑一遍。这股劲还推出了一波 meta-evaluation，这回被测的是评测器自己：agent 能不能把评测器搭出来、能不能把 benchmark 生成出来、能不能复用一个冻住的 verifier，而这几样又信不信得过。 |
 | [2026-09](./2026-09.md) | 3 | Agent Harnesses & Scaffolding、Resource-aware Evaluation | 9 月新加的几张卡，被测的东西从“agent 这一趟跑得怎么样”挪到了 agent 周围的东西上：一个是 agent 干活用的 harness，一个是 agent 提想法之前自己攒的那份文献。两个 harness benchmark 都在问同一件事：换掉一个不由 agent 决定的条件，比如能用的能力越加越多，或者换一个执行模型，之前的提升还在不在。那个出 idea 的 benchmark 问的是：让 agent 自己去找该读的文献，基于文献打分的 critic 看到的结果会不会变。 |
 | [2026-08](./2026-08.md) | 44 | Scientific Agent Benchmarks、Trajectory Evaluation | 2026 年 8 月是目前档案里最密的一个月，一共 42 项新工作。它看起来已经不像某一条单一趋势在变强，而更像整个领域开始拆成几块彼此区分很清楚的子问题。Scientific benchmarking 还是最大头，但真正值得注意的是另外四条线也同时站起来了：trajectory evaluation 开始像一门独立的诊断方法学；long-horizon benchmark 不再只看任务做没做完，而开始把 agent improvement loop 也纳进来；evaluator reliability 这件事本身，终于开始被系统性地测；evaluation-driven post-training 也从“调一个模型”往“重新设计 learning algorithm”推进了一层。 |
 | [2026-07](./2026-07.md) | 23 | Scientific Agent Benchmarks、Skill Hierarchy | 2026 年 7 月从数量上看没 6 月那么猛，但结构更集中。这个月主要围着一个问题转：如果 agent 的输出最后要对外部机构、物理过程、或者专家 workflow 负责，而不是只对 benchmark 自己那套打分规矩负责，那 evaluation 该怎么做？最清楚的例子就是桥梁检测排序、物理/天体物理文献综述与项目计划书、结构可靠度分析，以及在固定算力预算下改世界模型。 |
