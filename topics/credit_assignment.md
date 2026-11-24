@@ -41,6 +41,7 @@ This is not the same as [Skill Hierarchy](./skill_hierarchy.md). Skill hierarchy
 - **Fault-origin localization from telemetry.** [TelemetrySuffBench](../works/telemetrysuffbench.md) tests whether execution telemetry is sufficient to attribute a failure to its origin component, using delayed-binding faults that decouple symptom from cause and exact-equal ambiguous origin pairs that make abstention the correct answer.
 - **Component-level trajectory attribution.** [Long-Horizon Agent Trajectory Attribution](../works/long-horizon-agent-trajectory-attribution.md) attributes an observed agent outcome to the responsible trajectory component and recovers the surrounding attribution chain, with likelihood-based and leave-one-out reference baselines.
 - **Minimal necessary cause.** [TempoBench](../works/tempobench.md) isolates counterfactual credit assignment — which inputs were necessary for an observed output — over formally labeled Mealy-machine execution traces, distinct from forward simulation.
+- **Step credit by replaying prefixes.** [What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md) credits a step with the change in average outcome between replays from the prefix before it and the prefix after it; when the next action is nearly deterministic, it substitutes and executes an alternative action. If replays before step t recover 40% of gold files and replays after it 55%, step t receives +0.15. None of its 190 intervention-estimated effects survives BH-FDR correction at q = 0.10, so the estimator does not certify any individual step, and an LLM judge moves its verdict to a later step in 59 of 70 episodes when downstream steps are shown rather than hidden.
 
 ## Comparison
 
@@ -67,6 +68,7 @@ This is not the same as [Skill Hierarchy](./skill_hierarchy.md). Skill hierarchy
 | Long-Horizon Agent Trajectory Attribution | 2026 | Primary-component attribution (Hit@1 / MRR) + attribution-chain recovery (Recall@K / MAP) | Per trajectory component (root cause + chain) | [→](../works/long-horizon-agent-trajectory-attribution.md) |
 | TempoBench | 2025 | Minimal-necessary-cause identification via counterfactual attribution, vs. forward simulation | Per input condition of an execution trace | [→](../works/tempobench.md) |
 | SkillShapley | 2026 | Shapley value over coalitions of skill steps, estimated by boundary-adaptive sampling; MAE against exact Shapley values plus removal-validation curves | Per step inside an agent skill, not per trajectory step | [→](../works/skillshapley.md) |
+| What Process Evaluation of Coding Agents Actually Measures | 2026 | Difference in mean replayed outcome (gold-file recall) between consecutive prefixes, with substituted-action interventions (SCAE) | Per agent step in a coding-agent trajectory | [→](../works/coding-agent-process-evaluation-levels.md) |
 
 ## Open Questions
 
@@ -76,6 +78,7 @@ This is not the same as [Skill Hierarchy](./skill_hierarchy.md). Skill hierarchy
 
 ## Related Works
 
+- [What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md)
 - [SkillShapley](../works/skillshapley.md)
 - [TelemetrySuffBench](../works/telemetrysuffbench.md)
 - [Long-Horizon Agent Trajectory Attribution](../works/long-horizon-agent-trajectory-attribution.md)

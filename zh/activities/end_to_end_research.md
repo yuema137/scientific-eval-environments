@@ -33,11 +33,13 @@
 | AI-Researcher | 2025 | 一次运行内走完文献调研、想法生成、算法设计、实现、实验与论文撰写 | 由四个 AI 子方向的 22 篇论文构造的 22 个指导式任务与 6 个开放式任务；输入为参考文献、数据集，以及仅 Level-1 提供的研究指令 | 实现完整性与正确性，外加与人类论文换序两两比较的 -3 到 +3 评分 | [卡片](../works/ai-researcher.md) |
 | Into the Unknown | 2026 | 把作者提出、尚未发表的后续方向从实验一路做到成文的论文 | 15 篇论文及其代码和数据；不设时限，最多重启五次，网络不受限 | 后续论文、代码和日志要通过诚信、完整性和充分性的每个节点；135 份中有效 0 份 | [卡片](../works/into-the-unknown.md) |
 | PhysClosureBench | 2026 | 从给定目标出发组织一项物理研究，直到得出有支撑的结论：设定、观测量、特征识别、机制、验证 | 50 道题，在断网容器中运行，每个案例有各自的 CPU 和墙钟时间上限；每个模型跑三次 | 报告达到 RC4 完全闭合；最好的是 Claude-Opus-5，32.7% 的尝试达到 | [卡片](../works/physclosurebench.md) |
+| AIS-Bench | 2026 | 从 context 重建 idea、实现成代码并报告结果，每个阶段分别打分 | 753 组带可执行参考代码的四元组，来自机器学习论文；评测 13 个系统 | 在经过人工校准的产物有效性标准下，各阶段独立打分；实现阶段得分最低 | [卡片](../works/ais-bench.md) |
 
 ## Related Works
 
 - [PhysClosureBench](../works/physclosurebench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
+- [AIS-Bench](../works/ais-bench.md)
 - [ASI-Bench](../works/asi-bench.md)
 - [AI Research Preference Models](../works/ai-research-preference-models.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

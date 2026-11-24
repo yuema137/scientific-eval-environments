@@ -20,6 +20,7 @@
 | 2026-10-15 | [SciΠvot](./works/scipivot.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.21082) |
 | 2026-10-15 | [PhysClosureBench](./works/physclosurebench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.21767) |
 | 2026-10-13 | [Into the Unknown](./works/into-the-unknown.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.19159) |
+| 2026-10-13 | [Autonomous Science Bench](./works/autonomous-science-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.18449) |
 | 2026-10-09 | [EmbodiedCLBench](./works/embodiedclbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.13021) |
 | 2026-10-04 | [AutoSciBench](./works/autoscibench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.05140) |
 | 2026-10-03 | [EvalResearchBench](./works/evalresearchbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.04184) |
@@ -30,18 +31,24 @@
 | 2026-09-29 | [Predictive Credit](./works/predictive-credit.md) | [arXiv 首次提交](https://arxiv.org/abs/2610.00314) |
 | 2026-09-29 | [EngiWorld](./works/engiworld.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.37686) |
 | 2026-09-27 | [DISCERN](./works/discern.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.33357) |
+| 2026-09-21 | [OSWorld-Pro](./works/osworld-pro.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.24890) |
+| 2026-09-18 | [AIS-Bench](./works/ais-bench.md) | [OpenReview 投稿](https://openreview.net/forum?id=RT78MFtfKQ) |
 | 2026-09-16 | [ScienceIDE](./works/scienceide.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.19134) |
 | 2026-09-14 | [CADWorld](./works/cadworld.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.16251) |
 | 2026-09-08 | [SAEScientist-Bench](./works/saescientist-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.09113) |
 | 2026-09-07 | [AgentIdeaBench](./works/agentideabench.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.07611) |
+| 2026-09-04 | [Trace2Tower: Transition-Aware EigenTrace Induction of Multi-Level Skills for LLM Agents](./works/trace2tower.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.05261) |
 | 2026-09-03 | [EvoHarnessBench](./works/evoharnessbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.04280) |
 | 2026-09-01 | [HarnessDev](./works/harnessdev.md) | [arXiv 首次提交](https://arxiv.org/abs/2609.01437) |
 | 2026-08-29 | [PTA-IRT](./works/pta-irt.md) | [官方代码与数据发布提交](https://github.com/DeepSoftwareAnalytics/PTA-IRT/commit/b38263b72f3c4a52fcc8fe478e1eae385ba423a6) |
 | 2026-08-29 | [FORESIGHT-9](./works/foresight-9.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.29372) |
+| 2026-08-24 | [What Process Evaluation of Coding Agents Actually Measures](./works/coding-agent-process-evaluation-levels.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.22960) |
+| 2026-08-20 | [Break It Down, Pass It On](./works/break-it-down-pass-it-on.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.20274) |
 | 2026-08-20 | [AI4AI-Bench](./works/ai4ai-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.20318) |
 | 2026-08-18 | [ASI-Bench](./works/asi-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.17271) |
 | 2026-08-17 | [R³-Bench](./works/r3-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.16033) |
 | 2026-08-14 | [PACE-Bench](./works/pace-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.14441) |
+| 2026-08-14 | [ATLAS: Discovering Agent Strategies through LLM-Guided Abstraction and Automata Learning](./works/atlas-agent-strategies.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.14352) |
 | 2026-08-14 | [AI Research Preference Models](./works/ai-research-preference-models.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.13940) |
 | 2026-08-13 | [SkillShapley](./works/skillshapley.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.13173) |
 | 2026-08-13 | [SkillMisevo-Bench](./works/skillmisevo-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.12851) |
@@ -80,8 +87,10 @@
 | 2026-08-02 | [Position: AI Agents in Scientific Teams Should Be Studied as Human-Agent Systems](./works/ai-agents-in-scientific-teams.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.14667) |
 | 2026-08-02 | [PATH-Bench](./works/path-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.01149) |
 | 2026-08-02 | [CRAFTS](./works/crafts.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.01369) |
+| 2026-07-31 | [STAIR: Reusing Past Repairs Through Hierarchical Trajectory Abstraction for Coding Agents](./works/stair.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.29658) |
 | 2026-07-31 | [MDArena](./works/mdarena.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.02642) |
 | 2026-07-31 | [LoopsBench](./works/loopsbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.00267) |
+| 2026-07-30 | [SKILL-KD](./works/skill-kd.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.28048) |
 | 2026-07-30 | [OSReward](./works/osreward.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.28609) |
 | 2026-07-29 | [Cognitive Agents for Bridge Inspection Prioritization](./works/cognitive-agents-for-bridge-inspection-prioritizat.md) | [engrxiv 公开发布](https://engrxiv.org/preprint/view/7703) |
 | 2026-07-29 | [BACKROOMBench](./works/backroombench.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.27484) |
@@ -89,6 +98,7 @@
 | 2026-07-28 | [AI's Capability in Assisting Scientific Research in Physics, Astrophysics and Cosmology II: Project Planning and Proposal Evaluation](./works/ai-assisting-research-ii-project-planning.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.25881) |
 | 2026-07-26 | [LabRobFail](./works/labrobfail.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.23704) |
 | 2026-07-23 | [SciExplore](./works/sciexplore.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.20926) |
+| 2026-07-21 | [Expenditure Horizon](./works/expenditure-horizon.md) | [METR 研究报告](https://metr.org/blog/2026-07-21-expenditure-horizon/) |
 | 2026-07-20 | [AutoWorldModel-Bench](./works/autoworldmodel-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2608.11216) |
 | 2026-07-18 | [Automating Structural Reliability Analysis with a Multi-Agent Large Language Model Framework](./works/automating-structural-reliability-analysis-with-a.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.16580) |
 | 2026-07-16 | [StructureClaw](./works/structureclaw.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.14896) |
@@ -96,11 +106,13 @@
 | 2026-07-15 | [SkillSec-Eval](./works/skillsec-eval.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.13987) |
 | 2026-07-14 | [FukuyamaBench](./works/fukuyamabench.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.12771) |
 | 2026-07-12 | [Imaging-101](./works/imaging-101.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.10789) |
+| 2026-07-11 | [AgentAbstain](./works/agentabstain.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.10059) |
 | 2026-07-10 | [Who&When Pro](./works/who-and-when-pro.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.09996) |
 | 2026-07-10 | [SLBench](./works/slbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.09016) |
 | 2026-07-09 | [UniClawBench](./works/uniclawbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.08768) |
 | 2026-07-09 | [Long-Horizon-Terminal-Bench](./works/long-horizon-terminal-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.08964) |
 | 2026-07-07 | [AgentLens](./works/agentlens.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.06624) |
+| 2026-07-03 | [ORBIT-Q](./works/orbit-q.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.03105) |
 | 2026-07-02 | [SkillCoach](./works/skillcoach.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.01874) |
 | 2026-07-02 | [OntoLearner](./works/ontolearner.md) | [arXiv 首次提交](https://arxiv.org/abs/2607.01977) |
 | 2026-06-30 | [QVal](./works/qval.md) | [arXiv 首次提交](https://arxiv.org/abs/2606.32034) |
@@ -164,6 +176,9 @@
 | 2026-05-11 | [FormalRewardBench](./works/formalrewardbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2605.10141) |
 | 2026-05-10 | [PDEAgent-Bench](./works/pdeagent-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2605.09636) |
 | 2026-05-10 | [MooseBench](./works/moosebench.md) | [arXiv 首次提交](https://arxiv.org/abs/2605.09360) |
+| 2026-05-09 | [SkillGen](./works/skillgen.md) | [arXiv 首次提交](https://arxiv.org/abs/2605.10999) |
+| 2026-05-09 | [MIND-Skill](./works/mind-skill.md) | [arXiv 首次提交](https://arxiv.org/abs/2605.08670) |
+| 2026-05-08 | [SkillLens](./works/skilllens.md) | [arXiv 首次提交](https://arxiv.org/abs/2605.08386) |
 | 2026-05-08 | [ChemCost](./works/chemcost.md) | [arXiv 首次提交](https://arxiv.org/abs/2605.07251) |
 | 2026-05-07 | [AstroAlertBench](./works/astroalertbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2605.05573) |
 | 2026-05-01 | [AutoMat](./works/automat.md) | [arXiv 首次提交](https://arxiv.org/abs/2605.00803) |
@@ -215,6 +230,7 @@
 | 2026-02-03 | [ChemCensor / CREED](./works/chemcensor.md) | [arXiv 首次提交](https://arxiv.org/abs/2602.03554) |
 | 2026-02-02 | [FIRE-Bench](./works/fire-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2602.02905) |
 | 2026-01-31 | [Civil-Eval](./works/civil-eval.md) | [官方发布页](https://zgglxb.chd.edu.cn/EN/10.19721/j.cnki.1001-7372.2026.01.012) |
+| 2026-01-30 | [LLM Agents Are Not Always Faithful Self-Evolvers](./works/faithful-self-evolvers.md) | [arXiv 首次提交](https://arxiv.org/abs/2601.22436) |
 | 2026-01-29 | [BioAgent Bench](./works/bioagent-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2601.21800) |
 | 2026-01-25 | [Terminal-Bench Science](./works/terminal-bench-science.md) | [官方代码库创建](https://github.com/harbor-framework/terminal-bench-science) |
 | 2026-01-21 | [MolecularIQ](./works/moleculariq.md) | [arXiv 首次提交](https://arxiv.org/abs/2601.15279) |
@@ -232,6 +248,7 @@
 | 2025-12-26 | [SpatialBench](./works/spatialbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2512.21907) |
 | 2025-12-24 | [AInsteinBench](./works/ainsteinbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2512.21373) |
 | 2025-12-23 | [FEM-Bench](./works/fem-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2512.20732) |
+| 2025-12-22 | [MACLA: Learning Hierarchical Procedural Memory for LLM Agents through Bayesian Selection and Contrastive Refinement](./works/macla.md) | [arXiv 首次提交](https://arxiv.org/abs/2512.18950) |
 | 2025-12-10 | [MiraMind](./works/miramind.md) | [arXiv 首次提交](https://arxiv.org/abs/2512.09636) |
 | 2025-12-03 | [Hydro-SE Bench](./works/hydro-se-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2512.03672) |
 | 2025-11-21 | [BATS / Budget Tracker](./works/bats-budget-aware.md) | [arXiv 首次提交](https://arxiv.org/abs/2511.17006) |
@@ -260,6 +277,7 @@
 | 2025-10-06 | [CMT-Benchmark](./works/cmt-benchmark.md) | [arXiv 首次提交](https://arxiv.org/abs/2510.05228) |
 | 2025-10-06 | [AtomWorld](./works/atomworld.md) | [arXiv 首次提交](https://arxiv.org/abs/2510.04704) |
 | 2025-10-06 | [A Lightweight Large Language Model-Based Multi-Agent System for 2D Frame Structural Analysis](./works/a-lightweight-large-language-model-based-multi-age.md) | [arXiv 首次提交](https://arxiv.org/abs/2510.05414) |
+| 2025-10-03 | [TRACE for Tool-Augmented Agents](./works/trace-tool-augmented-agents.md) | [arXiv 首次提交](https://arxiv.org/abs/2510.02837) |
 | 2025-10-02 | [PTA-GRPO: Plan Then Action, High-Level Planning Guidance Reinforcement Learning for LLM Reasoning](./works/pta-grpo.md) | [arXiv 首次提交](https://arxiv.org/abs/2510.01833) |
 | 2025-10-02 | [PsychCounsel-Bench](./works/psychcounsel-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2510.01611) |
 | 2025-10-01 | [ChemX](./works/chemx.md) | [arXiv 首次提交](https://arxiv.org/abs/2510.00795) |
@@ -382,6 +400,7 @@
 | 2024-09-17 | [CORE-Bench](./works/core-bench.md) | [arXiv 首次提交](https://arxiv.org/abs/2409.11363) |
 | 2024-09-12 | [DSBench](./works/dsbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2409.07703) |
 | 2024-09-11 | [SUPER](./works/super.md) | [arXiv 首次提交](https://arxiv.org/abs/2409.07440) |
+| 2024-09-11 | [Agent Workflow Memory](./works/agent-workflow-memory.md) | [arXiv 首次提交](https://arxiv.org/abs/2409.07429) |
 | 2024-08-23 | [PEOA](./works/peoa.md) | [arXiv 首次提交](https://arxiv.org/abs/2408.14494) |
 | 2024-08-21 | [SimBench](./works/simbench.md) | [arXiv 首次提交](https://arxiv.org/abs/2408.11987) |
 | 2024-08-19 | [BLADE](./works/blade.md) | [arXiv 首次提交](https://arxiv.org/abs/2408.09667) |

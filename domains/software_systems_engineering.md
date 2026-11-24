@@ -31,6 +31,8 @@ Building and verifying software as engineering: code generation on real reposito
 | DiscoveryBench | 2024 | Recover the findings of a published survey of industrial requirements-engineering practice for ML-enabled systems — what practitioners report about how requirements are handled in ML projects — from the raw survey responses. | 15 of the 239 real test tasks are engineering; each supplies the survey dataset, its column metadata, background knowledge and a natural-language discovery goal, and the agent writes and runs its own cleaning and statistical workflow. | GPT-4 Hypothesis Matching Score against the source paper's gold hypothesis over context, variables and relationship; the best non-oracle agent scores 7% on this domain. | [→](../works/discoverybench.md) |
 | [PTA-IRT](../works/pta-irt.md) | 2026 | Estimate software issue-resolution scores without running every task | SWE-bench Lite / Verified / Full / Pro: 300 / 500 / 2,294 / 730 tasks; overlapping variants | Score error and rank correlation against full-suite execution outcomes | [PTA-IRT](../works/pta-irt.md) |
 | [HarnessDev](../works/harnessdev.md) | 2026 | Build and maintain coding-agent execution software | 731 SWE-Pro + 89 Terminal-Bench tasks; Evolution has separate feedback/hidden sets | Native execution checks on repository diffs or final environment state | [HarnessDev](../works/harnessdev.md) |
+| STAIR | 2026 | Repository-level bug repair in Python projects, reusing earlier repair trajectories abstracted into multi-level plan trees. | SWE-bench Verified, 500 instances from 12 repositories; abstraction-level ablation on a 125-instance subset. | Pass@1 against the benchmark's provided tests (81.2% with Lingxi + STAIR on MiniMax M2.5 vs. 74.6% for Lingxi alone). | [→](../works/stair.md) |
+| What Process Evaluation of Coding Agents Actually Measures | 2026 | Which steps of a coding agent's trajectory causally change the outcome when locating the files relevant to a GitHub issue, and what process judges actually track. | 499 file-localization episodes from SWE-bench Verified across 12 Python repositories; 7,616 decision points for action-level analysis and 190 replay-estimated prefixes for step attribution. | Recall over the gold file set from replayed agent continuations; LLM judges audited by hiding versus showing downstream steps (verdict moves later in 59 of 70 episodes). | [→](../works/coding-agent-process-evaluation-levels.md) |
 
 ## Capability Matrix
 
@@ -82,6 +84,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | HarnessDev | MAINT, TEST | ? | ✘ | ✔ | ? | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ◐ | 3 | 2 | 4 | **10** |
 | Enconda-bench | CFG | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ✔ | 2 | 3 | 3 | **9.5** |
 | LoopsBench | FEAT, PROC | ✘ | ✘ | ◐ | ✘ | ◐ | ✘ | ✔ | **2** | ◐ | ✘ | ✔ | 3 | 2 | 3 | **9.5** |
+| STAIR | MAINT | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ◐ | 3 | 2 | 3 | **9** |
 | SWE-Together | HAI | ✘ | ◐ | ◐ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ✔ | ✘ | 2 | 2 | 2 | **7.5** |
 | RigorBench | PROC, MAINT, TEST | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ◐ | 2 | 2 | 2 | **7.5** |
 | SWE-Interact | HAI, REQ | ? | ◐ | ◐ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ◐ | ✘ | 2 | 1 | 3 | **7** |
@@ -91,6 +94,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | EngDesign | OS, ARCH | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✔ | ◐ | 3 | 1 | 3 | **8.5** |
 | RACE-Bench | FEAT | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ◐ | ✘ | 2 | 2 | 3 | **8** |
 | Plan Compliance in Programming Agents | MAINT, PROC | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ◐ | 3 | 2 | 4 | **10** |
+| What Process Evaluation of Coding Agents Actually Measures | MAINT | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ? | 3 | 2 | 4 | **9.5** |
 | SysMoBench | FV, DIST, OS | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
 | AInsteinBench | SCISW, MAINT | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 3 | 2 | 2 | **7.5** |
 | SWE-bench | MAINT | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | **0.5** | ◐ | ✘ | ◐ | 3 | 3 | 3 | **10** |
@@ -102,9 +106,11 @@ Repository note: FrontierCode’s official methodology establishes the 150/100-t
 
 - [HarnessDev](../works/harnessdev.md)
 - [PTA-IRT](../works/pta-irt.md)
+- [What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md)
 - [SWE-Bench ProMax](../works/swe-bench-promax.md)
 - [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md)
 - [LoopsBench](../works/loopsbench.md)
+- [STAIR: Reusing Past Repairs Through Hierarchical Trajectory Abstraction for Coding Agents](../works/stair.md)
 - [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md)
 - [AgentLens](../works/agentlens.md)
 - [SWE-Interact](../works/swe-interact.md)

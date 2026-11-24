@@ -58,6 +58,7 @@
 | OSWorld-Science | 2026 | 在 PyMOL 里处理蛋白结构，在 MestReNova 里处理 NMR 谱，做药物协同分析，在 EEGLAB 里分析 EEG 记录。 | 146 个任务中的 18 个；最好的模型在本领域约 96%。 | 任务专属评测器检查保存下来的软件状态和文件；结果做精确匹配或按容差判断，可得部分分；不用 judge。 | [→](../works/osworld-science.md) |
 | Agent4Sci | 2026 | 改进已发表的 ML 模型：染色质活性、抗菌肽分类、RNA 逆向设计、链接预测、DMS 突变效应、结合位点检测和共聚焦超分辨。 | 20 个 benchmark 中的 7 个（DART-Eval、ESCAPE、gRNAde、MOTIVE、ProteinGym、UniSite、SR-CACO-2）；8 块 H200、12 小时。 | 由独立的评测 agent 在封存测试集上计算相对于复现出的已发表最佳结果的提升；LLM 审查作弊。 | [→](../works/agent4sci.md) |
 | SciΠvot | 2026 | 在一个由 LLM agent 推进的生物成像项目里判断下一步该怎么走，这些节点上 PI 曾纠正过 agent。 | 248 个案例中的 21 个，来自 1 个项目。 | 二选一，以人工纠正的计划为准，两种选项顺序取平均；有 13 人的人类基线。 | [→](../works/scipivot.md) |
+| Autonomous Science Bench | 2026 | 在已发表的生物学筛选数据上，按预算做闭环发现：找出 hit，并为 nuclease 和 biosensor 的设计空间学出预测模型。 | 6 个 campaign 中的 2 个，都回放已记录的测量：Nuclease 4 轮 × 96，设计池 20,000 个；Biosensor 3 × 10，设计池 677 个；agent 通过实验室 CLI 下单每批实验，并提交一个在沙箱中运行的 `predict(design)` 函数。 | 两道确定性门槛，必须都过：discovery（Nuclease 要求 ≥190 个 hit 且 ≥175 个 family；Biosensor 要求 ≥21 个选择性 hit）和 learning（在 5,000 和 332 个留出设计上 NDCG@100 ≥ 0.42、NDCG@20 ≥ 0.70）。 | [→](../works/autonomous-science-bench.md) |
 
 ## Capability Matrix
 
@@ -102,6 +103,7 @@
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
+| Autonomous Science Bench | PROT | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | ✔ | **5** | ◐ | ✘ | ◐ | 3 | 0 | 3 | **7** |
 | Imaging-101 | IMG | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
 | AIRS-Bench | BIOINF | ✔ | ✔ | ✘ | ✘ | ✔ | ✔ | ✔ | **5** | ◐ | ✘ | ✘ | 3 | 0 | 1 | **4.5** |
 | FlyAOC | GENOM, CURA | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✘ | ✘ | 3 | 2 | 4 | **9.5** |
@@ -159,6 +161,7 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [Agent4Sci](../works/agent4sci.md)
 - [SciΠvot](../works/scipivot.md)
+- [Autonomous Science Bench](../works/autonomous-science-bench.md)
 - [AutoSciBench](../works/autoscibench.md)
 - [OSWorld-Science](../works/osworld-science.md)
 - [DISCERN](../works/discern.md)

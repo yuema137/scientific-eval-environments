@@ -76,6 +76,9 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 - **长达数小时的发现实验。** [EurekaBench](../works/eurekabench.md) 在每道题上给 agent 一块 H100、最多四小时和 1,000 次迭代，让它先在科学模拟器里做实验，再提交机制。
 - **不设时限的开放研究。** [Into the Unknown](../works/into-the-unknown.md) 让 agent 一直运行到自己结束会话，最多重新启动五次。各 agent 运行时长的中位数在 1.3 到 19.5 小时之间；bootstrap 分析没有发现运行越久、后续论文越好的证据。
 - **超出操作本身的家务自主。** [RobotAgentBench](../works/robotagentbench.md) 在仿真移动操作机器人上，把 90 个原子家务任务组合成 18 个短程任务、8 个长程任务和四个开放式场景，除了操作，还给任务发现、情境推理、恢复和鲁棒性打分。表现最好的 agent 配置在开放式场景上只有 15.4 分。
+- **桌面任务中的 subgoal 链。** [OSWorld-Pro](../works/osworld-pro.md) 只保留 subgoal 前后依赖的 computer-use 任务（平均每个任务 9.2 个 subgoal，trajectory 平均 55.1 步），并要求完成所有可行的 subgoal。所以差一个 subgoal 就停下的运行判为失败，但逐步标签仍能显示它走到了哪一步。
+- **多轮实验 campaign。** [Autonomous Science Bench](../works/autonomous-science-bench.md) 要跑三到四轮 design-build-test-learn，每一批下单的实验都取决于之前返回的测量结果，每个 trial 限时 8 小时。发现和最终的预测模型分成两道门槛分别评分。
+- **按美元计价的多日优化运行。** [Expenditure Horizon](../works/expenditure-horizon.md) 让 agent 在 NanoGPT speedrun 上最多运行 5 天、花 10,000 美元，并把重新验证后的改进对累计花费作图。这里的 horizon 读作一笔预算，而不是步数。
 
 ## 方法对比
 
@@ -148,6 +151,9 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 | CADWorld | 2026 | 每个 FreeCAD 任务最多 100 步 GUI 操作；最强 agent 完成 62.5% 的任务，成功 17.5% | Ubuntu 虚拟机里的 FreeCAD，截图加 pyautogui 风格操作，禁用脚本 | [→](../works/cadworld.md) |
 | OSWorld-Science | 2026 | 多数任务上限 100 步；1,530 次运行里有 613 次用完步数也没交出可评分的产物 | 按领域构建的 Ubuntu 镜像，装好科学软件；pyautogui 或 CLI 操作 | [→](../works/osworld-science.md) |
 | Agent4Sci | 2026 | 每次运行 12 小时、8 块 H200；Opus 平均 490 轮、338 次工具调用；附录有 3 天的运行 | 在容器里对科学 ML benchmark 做 hill-climbing，测试集由独立的评测 agent 掌管 | [→](../works/agent4sci.md) |
+| OSWorld-Pro | 2026 | 305 个任务，每个有 2–27 个前后依赖的 subgoal（平均 9.2 个）；trajectory 平均 55.1 步，最多 149 步 | 跨多个发行版和窗口管理器的 Linux 桌面，多应用任务 | [→](../works/osworld-pro.md) |
+| Autonomous Science Bench | 2026 | 每次 campaign 3–4 轮实验，每批都在看到之前的测量后再选；每个 trial 限时 8 小时 | 内网中的实验室服务（replay 或 digital-twin 后端），通过 `asb` CLI 操作 | [→](../works/autonomous-science-bench.md) |
+| Expenditure Horizon | 2026 | 单次运行最多 5 天、10,000 美元；按累计美元花费跟踪改进 | 在 4 个 H100 节点上跑 NanoGPT speedrun，计时器和验证器受保护 | [→](../works/expenditure-horizon.md) |
 
 ## 还没解决的问题
 
@@ -160,10 +166,12 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 
 - [RobotAgentBench](../works/robotagentbench.md)
 - [Agent4Sci](../works/agent4sci.md)
+- [Autonomous Science Bench](../works/autonomous-science-bench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [EurekaBench](../works/eurekabench.md)
 - [OSWorld-Science](../works/osworld-science.md)
 - [EngiWorld](../works/engiworld.md)
+- [OSWorld-Pro](../works/osworld-pro.md)
 - [CADWorld](../works/cadworld.md)
 - [FORESIGHT-9](../works/foresight-9.md)
 - [ASI-Bench](../works/asi-bench.md)
@@ -179,6 +187,7 @@ Model 能答对一道题，不代表它能完成一个需要 50 次相互依赖 
 - [Skill²-Bench](../works/skill2-bench.md)
 - [PATH-Bench](../works/path-bench.md)
 - [LoopsBench](../works/loopsbench.md)
+- [Expenditure Horizon](../works/expenditure-horizon.md)
 - [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
 - [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md)
 - [UniClawBench](../works/uniclawbench.md)

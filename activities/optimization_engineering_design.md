@@ -57,6 +57,7 @@ A fifth cluster is **civil and structural component design against codes and sol
 | EngiWorld | 2026 | Produce engineering design artifacts (solid models, toolpaths, building models, board layouts) that meet acceptance criteria, including 40 quantitative design tasks | 26 professional applications through GUI or CLI; 300-task evaluation subset | All acceptance criteria pass, or feasibility-gated partial credit; best EngiScore 44.3 | [card](../works/engiworld.md) |
 | SimuVerity | 2026 | Design system models that satisfy functional roles, signal paths, and dynamic-response requirements | 101 Simulink tasks across ten engineering domains | Weighted geometric mean of six engineering dimensions after qualification; best 42.86 | [card](../works/simuverity.md) |
 | CADWorld | 2026 | Build constrained sketches, parts, assemblies, CAM jobs, and FEM set-ups that meet a mechanical design specification | 200 FreeCAD tasks through the GUI only, up to 100 steps | Saved project file passing all geometry, structure, and construction-process checks; best 17.5% vs. expert 87.0% | [card](../works/cadworld.md) |
+| Expenditure Horizon | 2026 | Reduce NanoGPT speedrun training time to a fixed validation loss by editing the training solution | One task from record #78 (85.56 s); runs up to $10,000 and 5 days on 32 H100s; protected timer and validator | Re-validated speedup per dollar against the human record-history curve; horizons $600 to $3.3K for four models | [card](../works/expenditure-horizon.md) |
 
 ## Related Works
 
@@ -67,6 +68,7 @@ A fifth cluster is **civil and structural component design against codes and sol
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [EnergyBridge](../works/energybridge.md)
+- [Expenditure Horizon](../works/expenditure-horizon.md)
 - [A Tutorial on Autonomous Fault-Tolerant Control Using Knowledge-Grounded LLM Agents](../works/ctrl-alt-recover.md)
 - [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md)
 - [PowerAgentBench-SS](../works/poweragentbench-ss.md)

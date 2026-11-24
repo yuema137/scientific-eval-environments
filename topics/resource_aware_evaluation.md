@@ -45,6 +45,10 @@ Two distinctions keep different claims apart:
 - **Separate exploration from verification compute.** [AI4AI-Bench](../works/ai4ai-bench.md) gives the agent four hours on one B300 to explore, then spends up to twelve additional hours rerunning the submitted source from scratch. It reports API spend and output-token scaling by reasoning effort, while keeping formal-training GPU cost outside the dollar total.
 - **Time limit and GPU quota as stated task constraints.** [InnovatorBench](../works/innovatorbench.md) writes a working-time limit and a GPU quota into each of its 20 LLM-research task descriptions, so an agent that spends its hours on a training run it later abandons has nothing left to submit with. The paper reports wall-clock hours and dollars per model and per research area beside the score, and its test-time-scaling curve shows agents reaching their best score only after 11 hours. Its documented failures are resource failures: killing a training job with 21 hours of budget left, and launching a full-GPU training script while an inference job still holds the GPUs.
 - **Experiment time as the scarce resource.** [SlowLab](../works/slowlab.md) caps each campaign at 16 experiments, but the binding resource is compartment time: each crop occupies a compartment for 180 days and can only be continued or destroyed, so a poor early design cannot be cheaply repaired.
+- **Agent and human spending on one dollar axis.** [Expenditure Horizon](../works/expenditure-horizon.md) prices agent runs (API tokens plus experiment compute) and estimated human labor ($150/hour) for the same NanoGPT speedrun, and reports the budget at which the agent's re-validated improvement equals the human improvement for that spend. Four of six models have positive horizons, from $600 to $3.3K, but the result moves with the assumed human cost: Opus-4.8's horizon is $120, $3,300, or $14,400 at $1K, $2.5K, or $10K per 1% improvement.
+- **Experiment batches as the budget in closed-loop discovery.** [Autonomous Science Bench](../works/autonomous-science-bench.md) charges a fixed number of experiment rounds and batch sizes against a lab service, so each campaign's budget covers 1.9% to 10.6% of the design pool. Dollar cost per resolved trial is reported beside resolution, from $1.38 to $14.63 across models.
+- **Runtime against an expert reference as part of the score.** [ORBIT-Q](../works/orbit-q.md) times each passed quantum-programming solution against an expert implementation and removes runtime credit past 180 s. It reports agent-side tokens and cost per pass separately; a performance-checklist prompt keeps 10/12 passes while cutting tokens from 14.2M to 8.2M.
+- **Cost inside the improvement objective.** [SkillLens](../works/skilllens.md) evolves its skill-routing rules by correctness minus normalized cost, and compares adaptation strategies on time and tokens: 16.41M tokens for its mixed-granularity routing against 115.51M for rewriting every retrieved skill on MuLocbench.
 
 ### A gap: budgets are given, not predicted
 
@@ -97,6 +101,10 @@ Neither yields what a planner would need to choose between plans: a per-action, 
 | DISCERN | 2026 | Input/output tokens, API calls, estimated USD (upper bounds; grading and review excluded) | Reported measure, not a budget; token efficiency = Overall Score per million tokens | Life-science research workflow; 203 tasks, eight ranked models | [→](../works/discern.md) |
 | AlphaIdeaBench | 2026 | GPUs and GPU hours, API dollars, calendar weeks, annotation hours of the proposed research | Stated per-task envelope (student / academic / lab tiers); the judge scores the proposal's budget feasibility | 100 ML ideation tasks; eight harnesses, eight backbones | [→](../works/alphaideabench.md) |
 | SCI-AGENT-EXAM | 2026 | Mean USD cost, runtime, and turns per run | Reported beside score with a cost–score Pareto frontier; not part of the score | 120 scientific workflow tasks in offline Docker, Claude Code harness | [→](../works/sci-agent-exam.md) |
+| Expenditure Horizon | 2026 | US dollars: API tokens plus experiment compute for agents; estimated labor hours at $150/hour for humans | The measured quantity — budget at which agent and human returns-to-expenditure curves meet | NanoGPT speedrun; runs up to $10,000 and 5 days on 32 H100 GPUs | [→](../works/expenditure-horizon.md) |
+| Autonomous Science Bench | 2026 | Experiment rounds × batch size from a candidate pool; dollar cost per trial reported | Enforced hard constraint on ordered experiments; cost per resolved trial reported, not scored | Six closed-loop biology, chemistry, and materials campaigns against a replay or digital-twin lab service | [→](../works/autonomous-science-bench.md) |
+| ORBIT-Q | 2026 | Solution runtime relative to an expert reference; agent tokens and dollars | Runtime scored (credit lost past 180 s, zero at 300 s); tokens and cost per pass reported | 12 research-level quantum programming tasks across four frameworks | [→](../works/orbit-q.md) |
+| SkillLens | 2026 | Tokens and wall-clock time of skill adaptation | Normalized cost subtracted from correctness in the evolution objective; cost compared across adaptation strategies | Skill reuse on MuLocbench and ALFWorld | [→](../works/skilllens.md) |
 
 ## Open Questions
 
@@ -112,6 +120,7 @@ Neither yields what a planner would need to choose between plans: a per-action, 
 - [SlowLab](../works/slowlab.md)
 - [AlphaIdeaBench](../works/alphaideabench.md)
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [Autonomous Science Bench](../works/autonomous-science-bench.md)
 - [DISCERN](../works/discern.md)
 - [EvoHarnessBench](../works/evoharnessbench.md)
 - [HarnessDev](../works/harnessdev.md)
@@ -123,12 +132,15 @@ Neither yields what a planner would need to choose between plans: a per-action, 
 - [Model Discovery Agent](../works/model-discovery-agent.md) — Held-out prediction and mechanism-recovery learning curves over experiment budgets in four discovery families.
 - [EcoAgent-Bench](../works/ecoagent-bench.md) — Economic decision-making under priced actions and explicit budgets, scored for economic consistency.
 - [HarnessOpt-Bench](../works/harnessopt-bench.md) — LLMs optimizing agent harnesses under a fixed, TEE-audited evaluation budget.
+- [Expenditure Horizon](../works/expenditure-horizon.md)
+- [ORBIT-Q](../works/orbit-q.md)
 - [SkillAudit](../works/skillaudit.md) — Time and token savings measured against a matched no-skill run, reported per skill package alongside utility and safety.
 - [BAGEN](../works/bagen.md) — Progressive budget-interval prediction with trainable early-stopping across token and multi-resource agents.
 - [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) — Runtime and peak memory measured per autonomous pipeline run, making speed and footprint a comparison axis between two agents that produce the same science.
 - [SMDD-Bench](../works/smdd-bench.md) — Guaranteed-solvable drug design under a limited oracle-call budget.
 - [MaD Physics](../works/mad-physics.md) — Fidelity-priced measurement budgets in simulated physics; agents trade measurement quality against quantity to infer altered physical laws.
 - [ChemCost](../works/chemcost.md) — Reaction-cost computation as the measured task, with judge-free exact pricing ground truth.
+- [SkillLens](../works/skilllens.md)
 - [Frontier-Eng](../works/frontier-eng.md) — Iterative engineering optimization under a fixed simulator-interaction budget.
 - [SimulCost](../works/simulcost.md) — Cost-aware physics-simulation parameter tuning across 11 analytically costed simulators, plus a separate EPOCH wall-clock study.
 - [PostTrainBench](../works/posttrainbench.md)

@@ -36,6 +36,7 @@ Skill hierarchy 把一项宽泛能力拆成更窄的子能力，再分别打分�
 - **切换的代价，而非是否拥有某项 skill。** [Skill²-Bench](../works/skill2-bench.md) 测的是 per-subskill 画像里没有的一个量：skill 熵——一个有向的成对测度，刻画从一项推理 skill 转到另一项有多难；它只对照一个固定的参考模型推导一次，因此难度标尺不会随着新模型被纳入评测而漂移。对每个模型都查询两次——先让每一步孤立作答，再走完整条链——切换代价由此与单项 skill 的水平分离开来。
 - **把 skill 层当作攻击面来分解。** 上面几项工作分解的是能力，另有一条安全线分解的是暴露面。[SkillSec-Eval](../works/skillsec-eval.md) 把 skill 生命周期切成五个各有独立信任边界的阶段——仓库准入、语义检索、规划器选取、运行时执行、演化——并在每一阶段分别报告攻击与防御，由此说明失效远在执行之前就已开始。[SCR-Bench](../works/scr-bench.md) 改按组合机制分解，给能力流动、信任传递与授权混淆各配一个子 benchmark 及配套的孤立对照，于是报告出的风险能归到组合本身，而不是归到那些 skill 上。[HarmfulSkillBench](../works/harmfulskillbench.md) 把危害定位在 skill 预期的功能之中，并用四种条件把「装上」的效应与「声明意图」的效应分开。
 - **被评的对象是产物，而不是能力。** 有一簇工作评的是 skill 本身，而不去分解 agent 能做什么。在构建一侧，[SkillLearnBench](../works/skilllearnbench.md) 对自动生成的 skill 按功能覆盖、可执行性与安全性打分，与轨迹和结果并列；[SkillEvolBench](../works/skillevolbench.md) 在部署时把归纳出的 skill 库冻结，发现原始轨迹常常胜过由它蒸馏出的 skill。在采纳一侧，[SkillAudit](../works/skillaudit.md) 与 [A Framework for Evaluating Agentic Skills at Scale](../works/a-framework-for-evaluating-agentic-skills-at-scale.md) 干脆不要固定题库，直接从写好的 skill 包生成任务与 rubric，让覆盖面跟着该 skill 声明的范围走；两者都在配对运行上测量「用 skill」与「不用 skill」的差值。其中几张卡片在自己的 repository note 中就写明，这并不是本 topic 当初据以定义的那种分解模式；把它们收在这里，只因这是现有最接近的落脚点——与 [GATE](../works/gate.md) 的情形相同，那张卡片的归属说明也记下了同样的错位。
+- **Skill library 内部的层级，靠删掉或路由来检验。** 有两种方法把 skill library 本身建成层级结构，再通过使用它的 agent 来评价各个层级。[Trace2Tower](../works/trace2tower.md) 从过去的 trajectory 中归纳出 action、procedure 和 strategy 三级 skill，并在 ALFWorld 上比较完整三级 library 和只保留 strategy 的版本（87.31% 对 84.83%）。[SkillLens](../works/skilllens.md) 把 skill 组织成 policy、strategy、procedure 和 primitive 四层，由一个 verifier 逐个单元决定是接受、下探到子节点，还是改写。这里被分解的是存储的 artifact，所以各层级的结果说明的是复用成本和 accuracy，不是 agent 的能力画像。
 
 ## 方法对比
 
@@ -84,6 +85,8 @@ Skill hierarchy 把一项宽泛能力拆成更窄的子能力，再分别打分�
 | HarmfulSkillBench | 2026 | 覆盖 skill 层的危害分类，与安装条件的分解相交叉 | 分两级的 20 个策略类别；被动暴露 / 主动调用 / 去除防护 / 无 skill 基线 | [→](../works/harmfulskillbench.md) |
 | SCR-Bench | 2026 | 各组合机制各配一个子 benchmark，并各带一个配套的孤立对照 | 能力流动 / 信任传递 / 授权混淆 | [→](../works/scr-bench.md) |
 | SkillSec-Eval | 2026 | 把 skill 生命周期切成各有独立信任边界的若干阶段 | 5 个阶段：仓库准入 / 语义检索 / 规划器选取 / 运行时执行 / skill 演化，每阶段分报攻击与防御 | [→](../works/skillsec-eval.md) |
+| Trace2Tower | 2026 | 从 trajectory 归纳出的三级 skill library | Action / procedure / strategy skill；完整 library vs. 只保留 strategy 的版本 | [→](../works/trace2tower.md) |
+| SkillLens | 2026 | 四层 skill graph，复用时按单元适配 | Policy / strategy / procedure / primitive；每个单元接受 / 拆分 / 改写 / 跳过 | [→](../works/skilllens.md) |
 
 ## 还没解决的问题
 
@@ -95,6 +98,7 @@ Skill hierarchy 把一项宽泛能力拆成更窄的子能力，再分别打分�
 
 ## 相关工作
 
+- [Trace2Tower: Transition-Aware EigenTrace Induction of Multi-Level Skills for LLM Agents](../works/trace2tower.md)
 - [SkillShapley](../works/skillshapley.md)
 - [SkillTV-Bench](../works/skilltv-bench.md)
 - [Skill-Use](../works/skill-use.md)
@@ -120,6 +124,7 @@ Skill hierarchy 把一项宽泛能力拆成更窄的子能力，再分别打分�
 - [TS-Skill](../works/ts-skill.md)
 - [SkillEvolBench](../works/skillevolbench.md)
 - [AgentAtlas](../works/agentatlas.md)
+- [SkillLens](../works/skilllens.md)
 - [SkillLearnBench](../works/skilllearnbench.md)
 - [HarmfulSkillBench](../works/harmfulskillbench.md)
 - [DefectBench](../works/defectbench.md)

@@ -47,6 +47,8 @@ AI and machine learning as the science under study: reproducing, rediscovering, 
 | AutoDataBench | 2026 | Improve training data, holding model and recipe fixed: repair corrupted function-calling data, mine hard negatives for an embedding model, and construct examples that inject post-cutoff knowledge. | 3 tasks; 7 LLMs × 3 runs; up to 20 train-and-evaluate rounds in 24 hours on one A800. | Retrained model scored on ID feedback sets and hidden OOD sets (AST accuracy, nDCG@10, multiple-choice accuracy). | [→](../works/autodatabench-auto-research.md) |
 | SAEScientist-Bench | 2026 | Find the sparse-autoencoder feature that encodes a given concept in Gemma-2-9B-IT, as an interpretability researcher would. | 20 concept-layer tasks over 131,072-feature Gemma Scope dictionaries at layers 9 and 20; 10 agent configurations, three runs each. | Activation rank and selectivity computed against an expert Neuronpedia feature; causal steering rated by a GPT-4o judge against baseline and random controls. | [→](../works/saescientist-bench.md) |
 | SciΠvot | 2026 | Judge the next step in AI and machine-learning research projects run by LLM agents, where a PI corrected the agent. | 59 of 248 cases from 9 projects. | Binary choice scored against the human-corrected plan, both option orders averaged; 13-person human baseline. | [→](../works/scipivot.md) |
+| Expenditure Horizon | 2026 | Speed up language-model training — minimize wall-clock time for NanoGPT to reach validation loss 3.28 on FineWeb on 8× H100 — and compare agent and human returns per dollar spent. | 1 optimization task (modded-nanogpt speedrun, starting from record #78 at 85.56 s); six high-expenditure agent runs of up to $10,000 and 5 days each. | A protected runner times training and a protected validator computes loss from logits; claimed gains are re-run 40+ times; agent returns are compared with a human returns curve estimated from the speedrun's 82-record history (about $2,500 per 1% improvement). | [→](../works/expenditure-horizon.md) |
+| AIS-Bench | 2026 | Automated machine-learning research split into phases: reconstruct a published ML paper's idea from its context, implement it as code, and report findings from specified evidence. | 753 <Context, Idea, Code, Paper> quadruplets with executable reference implementations, built from 3,174 machine-learning papers; 13 prompting strategies, specialized systems, and end-to-end agents. | Phase-specific metrics against each quadruplet's own references, with judge-based components validated against held-out human judgments; implementation scores lowest of the three phases. | [→](../works/ais-bench.md) |
 
 ## Capability Matrix
 
@@ -115,11 +117,13 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | DA-Code | DS | ? | ◐ | ✘ | ◐ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
 | HarnessDev | GEN | ? | ✘ | ✔ | ? | ✘ | ✔ | ✔ | **3** | ◐ | ✘ | ◐ | 3 | 1 | 3 | **8** |
 | MLAgentBench | MLE | ✘ | ◐ | ◐ | ? | ✘ | ✔ | ✔ | **3** | ✘ | ◐ | ✔ | 2 | 1 | 3 | **7.5** |
+| Expenditure Horizon | LM, SYS | ? | ◐ | ✔ | ? | ✘ | ◐ | ✔ | **3** | ◐ | ✘ | ✔ | 3 | 0 | 2 | **6.5** |
 | RE-Bench | SYS, MLE | ? | ◐ | ✔ | ? | ✘ | ◐ | ✔ | **3** | ✔ | ✘ | ✔ | 2 | 0 | 2 | **6** |
 | ResearchCodeBench | CODE | ? | ✘ | ✘ | ? | ✔ | ✔ | ✘ | **2** | ◐ | ✘ | ✔ | 3 | 2 | 3 | **9.5** |
 | BLADE | DS | ? | ◐ | ✘ | ✘ | ✘ | ✔ | ◐ | **2** | ◐ | ◐ | ✘ | 2 | 1 | 3 | **7** |
 | IdeaBench | IDEA | ✘ | ✘ | ✘ | ? | ✔ | ✔ | ✘ | **2** | ◐ | ◐ | ✔ | 0 | 3 | 2 | **7** |
 | AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | 2 | 3 | **6** |
+| AIS-Bench | IDEA, CODE | ? | ✘ | ? | ? | ✔ | ✔ | ? | **2** | ? | ? | ? | 2 | 2 | 2 | **6** |
 | SAEScientist-Bench | INTERP | ✘ | ✘ | ? | ✘ | ✘ | ✔ | ✔ | **2** | ◐ | ✘ | ? | 2 | 1 | 2 | **5.5** |
 | AutoDataBench | LM, IR, MLE | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ◐ | ✘ | ◐ | 3 | 0 | 1 | **5** |
 | ML-Bench | CODE | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✔ | ✘ | ✔ | 3 | 3 | 3 | **11** |
@@ -136,12 +140,14 @@ Repository note: the unknowns cluster in two columns. `Net` is `?` on 16 of the 
 - [SciΠvot](../works/scipivot.md)
 - [AutoDataBench](../works/autodatabench-auto-research.md)
 - [EurekaBench](../works/eurekabench.md)
+- [AIS-Bench](../works/ais-bench.md)
 - [SAEScientist-Bench](../works/saescientist-bench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [AI Research Preference Models](../works/ai-research-preference-models.md)
 - [Beyond Final Scores](../works/beyond-final-scores.md)
 - [Replica](../works/replica.md)
+- [Expenditure Horizon](../works/expenditure-horizon.md)
 - [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
 - [Curation-Bench](../works/curation-bench.md)
 - [AgentActionBench](../works/agentactionbench.md)

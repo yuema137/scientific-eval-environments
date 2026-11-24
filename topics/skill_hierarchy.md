@@ -36,6 +36,7 @@ This differs from [Credit Assignment](./credit_assignment.md). Skill hierarchy a
 - **The cost of switching, rather than the possession of a skill.** [Skill²-Bench](../works/skill2-bench.md) measures a quantity the per-subskill profile does not contain: skill entropy, a directed pairwise measure of how hard it is to move from one reasoning skill to another, derived once against a fixed reference model so the difficulty scale does not move as new models are evaluated. Querying every model twice — each step in isolation, then the full chain — separates switching cost from per-skill competence.
 - **The skill layer as an attack surface, decomposed.** Where the works above decompose competence, a security line decomposes exposure. [SkillSec-Eval](../works/skillsec-eval.md) splits the skill lifecycle into five stages with independent trust boundaries — repository admission, semantic retrieval, planner selection, runtime execution, and evolution — and reports attack and defense separately at each, establishing that failures begin well before execution. [SCR-Bench](../works/scr-bench.md) decomposes by composition mechanism instead, giving capability flow, trust transfer and authorization confusion their own sub-benchmarks with matched isolated controls, so the reported risk is attributable to composition rather than to the skills. [HarmfulSkillBench](../works/harmfulskillbench.md) locates harm in a skill's intended functionality and separates the effect of installation from the effect of stated intent across four conditions.
 - **The artifact, rather than the capability, as the object.** A cluster of works scores the skill itself instead of decomposing what an agent can do. On the construction side, [SkillLearnBench](../works/skilllearnbench.md) grades automatically generated skills on functional coverage, executability and safety alongside trajectory and outcome, and [SkillEvolBench](../works/skillevolbench.md) freezes the induced library at deployment, finding that the raw traces frequently beat the skills distilled from them. On the adoption side, [SkillAudit](../works/skillaudit.md) and [A Framework for Evaluating Agentic Skills at Scale](../works/a-framework-for-evaluating-agentic-skills-at-scale.md) abandon the fixed suite altogether and generate tasks and rubrics from an authored skill package, so coverage follows that skill's declared scope; both measure a with-skill versus no-skill delta on matched runs. Several of these cards note in their own repository notes that this is not the decomposition pattern the topic was defined around; they are filed here as the nearest existing home, alongside [GATE](../works/gate.md), whose placement note records the same mismatch.
+- **Levels inside a skill library, tested by removing or routing them.** Two methods build the skill library itself as a hierarchy and evaluate the levels through the agent that uses them. [Trace2Tower](../works/trace2tower.md) induces action, procedure, and strategy skills from past trajectories and compares the full three-level library with a strategy-only variant on ALFWorld (87.31% against 84.83%). [SkillLens](../works/skilllens.md) organizes skills as policies, strategies, procedures, and primitives, and a verifier decides per unit whether to accept it, descend to its children, or rewrite it; the decomposition here is of the stored artifact, so the per-level results describe reuse cost and accuracy, not an agent's capability profile.
 
 ## Comparison
 
@@ -84,6 +85,8 @@ This differs from [Credit Assignment](./credit_assignment.md). Skill hierarchy a
 | HarmfulSkillBench | 2026 | Harm taxonomy over the skill layer, crossed with an installation-condition decomposition | 20 policy categories in 2 tiers; passive exposure / active invocation / safeguard ablation / no-skill baseline | [→](../works/harmfulskillbench.md) |
 | SCR-Bench | 2026 | Composition mechanisms given separate sub-benchmarks, each with a matched isolated control | Capability flow / trust transfer / authorization confusion | [→](../works/scr-bench.md) |
 | SkillSec-Eval | 2026 | Skill lifecycle split into stages with independent trust boundaries | 5 stages: repository admission / semantic retrieval / planner selection / runtime execution / skill evolution, attack vs. defense at each | [→](../works/skillsec-eval.md) |
+| Trace2Tower | 2026 | Three-level skill library induced from trajectories | Action / procedure / strategy skills; full library vs. strategy-only variant | [→](../works/trace2tower.md) |
+| SkillLens | 2026 | Four-layer skill graph adapted per unit at reuse time | Policies / strategies / procedures / primitives; accept / decompose / rewrite / skip per unit | [→](../works/skilllens.md) |
 
 ## Open Questions
 
@@ -95,6 +98,7 @@ This differs from [Credit Assignment](./credit_assignment.md). Skill hierarchy a
 
 ## Related Works
 
+- [Trace2Tower: Transition-Aware EigenTrace Induction of Multi-Level Skills for LLM Agents](../works/trace2tower.md)
 - [SkillShapley](../works/skillshapley.md)
 - [SkillTV-Bench](../works/skilltv-bench.md)
 - [Skill-Use](../works/skill-use.md)
@@ -120,6 +124,7 @@ This differs from [Credit Assignment](./credit_assignment.md). Skill hierarchy a
 - [TS-Skill](../works/ts-skill.md)
 - [SkillEvolBench](../works/skillevolbench.md)
 - [AgentAtlas](../works/agentatlas.md)
+- [SkillLens](../works/skilllens.md)
 - [SkillLearnBench](../works/skilllearnbench.md)
 - [HarmfulSkillBench](../works/harmfulskillbench.md)
 - [DefectBench](../works/defectbench.md)

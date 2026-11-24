@@ -25,16 +25,16 @@ Activity  →  执行该任务的 works  →  原始论文   （agent 做什么�
 | [文献检索与证据综合](./literature_evidence_synthesis.md) | 文献检索、研究筛选、系统综述、证据综合、以文献为依托的抽取 | 25 |
 | [科学问题求解与推理](./scientific_problem_solving_reasoning.md) | 科学问答、推导、证明、定量与多模态问题求解、诊断推理 | 97 |
 | [数据分析与统计推断](./data_analysis_statistical_inference.md) | 预处理、统计分析与推断、生物信息学/组学分析、数据解读 | 49 |
-| [建模与预测](./modeling_prediction.md) | 预测与代理建模、性质预测、预报、以模型为核心产物的拟合 | 26 |
-| [模拟与科学计算](./simulation_scientific_computing.md) | 数值模拟、PDE/FEM、MD/DFT、运行与构建科学模拟器 | 40 |
-| [实验设计与科学发现](./experiment_design_discovery.md) | 实验与观测规划、主动测量、假设生成、规律发现 | 32 |
+| [建模与预测](./modeling_prediction.md) | 预测与代理建模、性质预测、预报、以模型为核心产物的拟合 | 27 |
+| [模拟与科学计算](./simulation_scientific_computing.md) | 数值模拟、PDE/FEM、MD/DFT、运行与构建科学模拟器 | 41 |
+| [实验设计与科学发现](./experiment_design_discovery.md) | 实验与观测规划、主动测量、假设生成、规律发现 | 33 |
 | [实验室与仪器控制](./laboratory_instrument_control.md) | 仪器、显微镜与光束线控制、实验室自动化、行为定义的控制代码 | 4 |
-| [优化与工程设计](./optimization_engineering_design.md) | 参数与控制器调优、工程/逆向设计、材料与分子设计 | 31 |
-| [科学软件与工作流工程](./scientific_software_workflow_engineering.md) | 科学/工程代码生成、仓库与流水线工程、HDL 与形式化规约代码 | 77 |
+| [优化与工程设计](./optimization_engineering_design.md) | 参数与控制器调优、工程/逆向设计、材料与分子设计 | 32 |
+| [科学软件与工作流工程](./scientific_software_workflow_engineering.md) | 科学/工程代码生成、仓库与流水线工程、HDL 与形式化规约代码 | 79 |
 | [研究复现与重复](./research_reproduction_replication.md) | 复现已发表的分析、结果与方法；匹配已报告的结论 | 14 |
-| [端到端研究](./end_to_end_research.md) | 跨越多个主要阶段的多阶段研究生命周期，从提出问题到汇报 | 13 |
+| [端到端研究](./end_to_end_research.md) | 跨越多个主要阶段的多阶段研究生命周期，从提出问题到汇报 | 14 |
 
-在整个语料中，共对适用的 work 卡片赋予了 408 条活动归属。
+在整个语料中，共对适用的 work 卡片赋予了 415 条活动归属。
 
 ## 活动是多标签的
 

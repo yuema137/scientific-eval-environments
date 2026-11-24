@@ -57,6 +57,7 @@
 | EngiWorld | 2026 | 做出满足验收条件的工程设计文件（实体模型、刀具路径、建筑模型、电路板布局），其中 40 个是定量设计任务 | 通过 GUI 或 CLI 操作 26 款专业软件；评测子集 300 题 | 全部验收条件通过，或在可行性门槛之后拿部分分；EngiScore 最高 44.3 | [卡片](../works/engiworld.md) |
 | SimuVerity | 2026 | 设计满足功能角色、信号通路和动态响应要求的系统模型 | 十个工程领域的 101 个 Simulink 任务 | 通过资格检查后按六个工程维度的加权几何平均打分；最好 42.86 | [卡片](../works/simuverity.md) |
 | CADWorld | 2026 | 按机械设计要求做出带约束的草图、零件、装配、CAM 作业和 FEM 设置 | 200 个 FreeCAD 任务，只能通过 GUI 操作，最多 100 步 | 保存的项目文件通过全部几何、结构和建模过程检查；最高 17.5%，专家 87.0% | [卡片](../works/cadworld.md) |
+| Expenditure Horizon | 2026 | 修改训练方案，缩短 NanoGPT speedrun 达到固定验证 loss 所需的训练时间 | 一个任务，起点为第 78 号纪录（85.56 秒）；每次运行最多 $10,000、5 天、32 块 H100；计时器和 validator 受保护 | 重新验证后的提速与花费之比，对照人类历次纪录形成的曲线；四个模型的 horizon 在 $600 到 $3.3K 之间 | [卡片](../works/expenditure-horizon.md) |
 
 ## Related Works
 
@@ -67,6 +68,7 @@
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [PACE-Bench](../works/pace-bench.md)
 - [EnergyBridge](../works/energybridge.md)
+- [Expenditure Horizon](../works/expenditure-horizon.md)
 - [A Tutorial on Autonomous Fault-Tolerant Control Using Knowledge-Grounded LLM Agents](../works/ctrl-alt-recover.md)
 - [Autonomous Action Execution (AAE) Framework](../works/aae-framework.md)
 - [PowerAgentBench-SS](../works/poweragentbench-ss.md)

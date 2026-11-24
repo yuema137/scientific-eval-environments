@@ -67,6 +67,14 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 
 [SCI-AGENT-EXAM](../works/sci-agent-exam.md) 回放每个 agent 的工作区，在每次读写文件之后取一张快照，用程序化检查器和细则 judge 重新打分。一条标准先通过、后来又不通过，记为一次下滑；到最后仍不通过，记为遗憾。GPT-5.6 Sol 在细则维度上的平均下滑率是 27.0%，GPT-6 Astra 是 18.3%，这种差别光看最终分是看不出来的。
 
+[OSWorld-Pro](../works/osworld-pro.md) 不再用 OSWorld 的终态脚本判分，而是让一个 LLM judge 读完整条 trajectory，给每一步标注它针对哪个 subgoal、这个 subgoal 是否可行、有没有推进、是否完成。只有人工标为可行的 subgoal 全部完成，任务才算通过。所以一个 agent 在 Kid3 任务里完成了 5 个 subgoal 中的 4 个，任务仍判失败，但卡在哪个 subgoal 能被找出来。Minimax M3 在 OSWorld 上得 75.2%，按这种方式打分只有 28.9%。
+
+[TRACE for Tool-Augmented Agents](../works/trace-tool-augmented-agents.md)（和 deep-research 方向的 [TRACE](../works/trace.md) 不是同一项工作）不需要参考 trajectory，就能给效率、幻觉和适应性打分。每次 tool call 都往一个 evidence bank 里加一条记录，judge 逐条检查 thought 有没有在它之前收集到的 evidence 作支撑。
+
+[What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md) 把单个 trace judge 混在一起的三个问题拆开：agent 下一步会做什么，这次运行的结果是否仍不确定，以及某一步是否改变了结果。第三个问题靠从相邻的 prefix 重放 agent 来估计。它发现，能看到后续步骤的全 trace judge 会把责任往后面的步骤推。
+
+[ATLAS](../works/atlas-agent-strategies.md) 不给单条 trace 打分，而是把很多条 trace 汇总起来。它把每一步抽象成一个 action-observation 符号，学出一条带成功标签状态的 Markov chain，于是多次运行中反复出现的失败循环和各分支的概率都能看出来。
+
 ## 方法对比
 
 | Work | Year | Trajectory 指标 | Domain | Card |
@@ -131,6 +139,10 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 | [PTA-IRT](../works/pta-irt.md) | 2026 | 用历史轨迹摘要选择评测子集并估计能力 | 软件问题修复 | [PTA-IRT](../works/pta-irt.md) |
 | [FORESIGHT-9](../works/foresight-9.md) | 2026 | 核对存活因子、声明决策和实际持仓是否一致 | 合成市场情景 | [FORESIGHT-9](../works/foresight-9.md) |
 | SCI-AGENT-EXAM | 2026 | 每次读写文件后的快照由程序化检查和细则 judge 重新打分；统计提前完成、下滑、恢复和遗憾的比例 | 11 个科学领域 | [→](../works/sci-agent-exam.md) |
+| OSWorld-Pro | 2026 | LLM judge 在 2,814 个前后依赖的 subgoal 上逐步标注目标 subgoal、可行性、推进和完成情况；只有人工标为可行的 subgoal 全部完成才算解决 | 跨 Linux 应用和发行版的桌面 computer use | [→](../works/osworld-pro.md) |
+| TRACE for Tool-Augmented Agents | 2025 | 无需参考的效率（最小支撑 evidence / 完整 evidence bank）、幻觉（没有已有 evidence 支撑的 thought），以及 tool call 失败后的适应性 | 通用 tool use（GTA、m&m's） | [→](../works/trace-tool-augmented-agents.md) |
+| What Process Evaluation of Coding Agents Actually Measures | 2026 | 把 action 级预测、任务级重放方差和从重放 prefix 得到的 step 级效应（SCAE）分开；审计全 trace judge | Coding agent 的文件定位 | [→](../works/coding-agent-process-evaluation-levels.md) |
+| ATLAS | 2026 | 在抽象的（action, observation）符号上学出的 Markov chain，状态带成功标签和转移概率，跨多次运行汇总 | 在有漏洞的 Linux 机器上做 penetration testing 的 agent | [→](../works/atlas-agent-strategies.md) |
 
 ## 还没解决的问题
 
@@ -144,8 +156,11 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 ## 相关工作
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [OSWorld-Pro](../works/osworld-pro.md)
 - [FORESIGHT-9](../works/foresight-9.md)
 - [PTA-IRT](../works/pta-irt.md)
+- [What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md)
+- [ATLAS: Discovering Agent Strategies through LLM-Guided Abstraction and Automata Learning](../works/atlas-agent-strategies.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Beyond Final Scores](../works/beyond-final-scores.md)
 - [Replica](../works/replica.md)
@@ -192,6 +207,7 @@ Trajectory-evaluation 贡献大致可归为六条设计线。前四条是任务�
 - [EnvTrace](../works/envtrace.md)
 - [TempoBench](../works/tempobench.md)
 - [Enconda-bench](../works/enconda-bench.md)
+- [TRACE for Tool-Augmented Agents](../works/trace-tool-augmented-agents.md)
 - [SysMoBench](../works/sysmobench.md)
 - [DrafterBench](../works/drafterbench.md)
 - [AstroVisBench](../works/astrovisbench.md)
