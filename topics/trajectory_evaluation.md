@@ -67,6 +67,14 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 
 [SCI-AGENT-EXAM](../works/sci-agent-exam.md) replays each agent workspace and rescores a snapshot after every file read or write with both its programmatic checker and its rubric judge. A criterion that passes and later fails counts as a dip; one that is still failing at the end counts as regret. GPT-5.6 Sol's mean rubric dip rate is 27.0% against 18.3% for GPT-6 Astra, a difference the final score does not show.
 
+[OSWorld-Pro](../works/osworld-pro.md) replaces OSWorld's final-state script with an LLM judge that reads the whole trajectory and labels each step with its targeted subgoal, feasibility, progress, and completion. A task counts only if every human-marked feasible subgoal is completed, so an agent that finishes 4 of 5 Kid3 subgoals fails the task but the stalled subgoal is identified. Minimax M3 scores 75.2% on OSWorld and 28.9% under this scoring.
+
+[TRACE for Tool-Augmented Agents](../works/trace-tool-augmented-agents.md) (distinct from the deep-research [TRACE](../works/trace.md)) scores efficiency, hallucination, and adaptivity without a reference trajectory. Each tool call adds an entry to an evidence bank, and the judge checks each thought against the evidence available before it.
+
+[What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md) separates three questions that a single trace judge mixes: what the agent will do next, whether the run is still uncertain, and whether a given step changed the outcome. It estimates the third by replaying the agent from consecutive prefixes, and finds that full-trace judges move blame later when they can see downstream steps.
+
+[ATLAS](../works/atlas-agent-strategies.md) aggregates many traces instead of scoring one. It abstracts each step into an action-observation symbol and learns a Markov chain with success-labelled states, so recurrent failure loops and branch probabilities across runs become visible.
+
 ## Comparison
 
 | Work | Year | Trajectory metric | Domain | Card |
@@ -131,6 +139,10 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 | [PTA-IRT](../works/pta-irt.md) | 2026 | Historical trace summaries inform subset selection and ability estimation | Software issue resolution | [PTA-IRT](../works/pta-irt.md) |
 | [FORESIGHT-9](../works/foresight-9.md) | 2026 | Consistency of live factors, declared decisions, and executed holdings | Synthetic market scenarios | [FORESIGHT-9](../works/foresight-9.md) |
 | SCI-AGENT-EXAM | 2026 | Snapshots after each file read or write rescored by programmatic checks and rubric judge; early-completion, dip, recover, and regret rates | 11 scientific fields | [→](../works/sci-agent-exam.md) |
+| OSWorld-Pro | 2026 | LLM judge labels each step's targeted subgoal, feasibility, progression, and completion over 2,814 sequentially dependent subgoals; task solved only if all human-marked feasible subgoals are completed | Desktop computer use across Linux applications and distributions | [→](../works/osworld-pro.md) |
+| TRACE for Tool-Augmented Agents | 2025 | Reference-free efficiency (minimal supporting evidence / full evidence bank), hallucination (thoughts not grounded in prior evidence), and adaptivity after failed tool calls | General tool use (GTA, m&m's) | [→](../works/trace-tool-augmented-agents.md) |
+| What Process Evaluation of Coding Agents Actually Measures | 2026 | Separate action-level prediction, task-level replay variance, and step-level effects from replayed prefixes (SCAE); audit of full-trace judges | Coding-agent file localization | [→](../works/coding-agent-process-evaluation-levels.md) |
+| ATLAS | 2026 | Learned Markov chain over abstracted (action, observation) symbols with success-labelled states and transition probabilities, aggregated across runs | Penetration-testing agent on vulnerable Linux machines | [→](../works/atlas-agent-strategies.md) |
 
 ## Open Questions
 
@@ -144,8 +156,11 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 ## Related Works
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [OSWorld-Pro](../works/osworld-pro.md)
 - [FORESIGHT-9](../works/foresight-9.md)
 - [PTA-IRT](../works/pta-irt.md)
+- [What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md)
+- [ATLAS: Discovering Agent Strategies through LLM-Guided Abstraction and Automata Learning](../works/atlas-agent-strategies.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [Beyond Final Scores](../works/beyond-final-scores.md)
 - [Replica](../works/replica.md)
@@ -192,6 +207,7 @@ Trajectory-evaluation contributions cluster into six design lines. The first fou
 - [EnvTrace](../works/envtrace.md)
 - [TempoBench](../works/tempobench.md)
 - [Enconda-bench](../works/enconda-bench.md)
+- [TRACE for Tool-Augmented Agents](../works/trace-tool-augmented-agents.md)
 - [SysMoBench](../works/sysmobench.md)
 - [DrafterBench](../works/drafterbench.md)
 - [AstroVisBench](../works/astrovisbench.md)

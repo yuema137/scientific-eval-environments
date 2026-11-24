@@ -76,6 +76,9 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - **Hours-long discovery runs.** [EurekaBench](../works/eurekabench.md) gives an agent up to four hours and 1,000 iterations on one H100 to run experiments in a scientific simulator before it submits a mechanism.
 - **Open-ended research with no time cap.** [Into the Unknown](../works/into-the-unknown.md) lets agents run until they end their own session, with up to five relaunches. Median execution time per agent ranges from 1.3 to 19.5 hours, and a bootstrap analysis finds no evidence that longer runs produce better follow-up papers.
 - **Household autonomy beyond manipulation.** [RobotAgentBench](../works/robotagentbench.md) composes 90 atomic household tasks into 18 short-horizon and 8 long-horizon tasks and four open-ended scenarios on a simulated mobile manipulator, scoring discovery, context reasoning, recovery, and robustness alongside manipulation. The best agent configuration reaches 15.4 on the open-ended scenarios.
+- **Subgoal chains in desktop tasks.** [OSWorld-Pro](../works/osworld-pro.md) keeps only computer-use tasks whose subgoals depend on each other in sequence (9.2 per task on average, trajectories averaging 55.1 steps) and requires every feasible subgoal to be completed, so a run that stops one subgoal short fails while the step labels show how far it got.
+- **Multi-round experiment campaigns.** [Autonomous Science Bench](../works/autonomous-science-bench.md) runs three or four design-build-test-learn rounds in which each batch ordered depends on measurements returned from earlier ones, under an 8-hour limit per trial, and scores discovery and the final predictive model as separate gates.
+- **Multi-day optimization runs priced in dollars.** [Expenditure Horizon](../works/expenditure-horizon.md) runs agents for up to 5 days and $10,000 on the NanoGPT speedrun and plots re-validated improvement against cumulative spend, so the horizon is read as a budget rather than a step count.
 
 ## Comparison
 
@@ -148,6 +151,9 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 | CADWorld | 2026 | Up to 100 GUI steps per FreeCAD task; strongest agent finishes 62.5% of tasks and succeeds on 17.5% | FreeCAD in an Ubuntu VM, screenshots plus pyautogui-style actions, scripting blocked | [→](../works/cadworld.md) |
 | OSWorld-Science | 2026 | 100 steps for most tasks; 613 of 1,530 runs exhaust the step budget without a graded artifact | Domain-specific Ubuntu images with scientific applications; pyautogui or CLI actions | [→](../works/osworld-science.md) |
 | Agent4Sci | 2026 | 12-hour runs on 8 H200 GPUs; Opus averages 490 turns and 338 tool calls; appendix 3-day runs | Containerized hill-climbing on scientific ML benchmarks, test set held by a separate evaluation agent | [→](../works/agent4sci.md) |
+| OSWorld-Pro | 2026 | 305 tasks with 2–27 sequentially dependent subgoals (9.2 on average); trajectories average 55.1 steps, maximum 149 | Linux desktops across multiple distributions and window managers, multi-application tasks | [→](../works/osworld-pro.md) |
+| Autonomous Science Bench | 2026 | 3–4 experiment rounds per campaign, each batch chosen after earlier measurements; 8-hour limit per trial | Lab service on an internal network (replay or digital-twin backend) driven through an `asb` CLI | [→](../works/autonomous-science-bench.md) |
+| Expenditure Horizon | 2026 | Runs up to 5 days and $10,000; improvement tracked against cumulative dollars spent | NanoGPT speedrun on 4 H100 nodes with protected timer and validator | [→](../works/expenditure-horizon.md) |
 
 ## Open Questions
 
@@ -160,10 +166,12 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 
 - [RobotAgentBench](../works/robotagentbench.md)
 - [Agent4Sci](../works/agent4sci.md)
+- [Autonomous Science Bench](../works/autonomous-science-bench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [EurekaBench](../works/eurekabench.md)
 - [OSWorld-Science](../works/osworld-science.md)
 - [EngiWorld](../works/engiworld.md)
+- [OSWorld-Pro](../works/osworld-pro.md)
 - [CADWorld](../works/cadworld.md)
 - [FORESIGHT-9](../works/foresight-9.md)
 - [ASI-Bench](../works/asi-bench.md)
@@ -179,6 +187,7 @@ Long-horizon benchmarks differ along several axes: the environment substrate, th
 - [Skill²-Bench](../works/skill2-bench.md)
 - [PATH-Bench](../works/path-bench.md)
 - [LoopsBench](../works/loopsbench.md)
+- [Expenditure Horizon](../works/expenditure-horizon.md)
 - [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
 - [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md)
 - [UniClawBench](../works/uniclawbench.md)

@@ -58,6 +58,7 @@ Life-science evaluation from molecular to population scale. Bioinformatics, geno
 | OSWorld-Science | 2026 | Work with protein structures in PyMOL, NMR spectra in MestReNova, drug-synergy analysis, and EEG recordings in EEGLAB. | 18 of 146 tasks; best model about 96% in this domain. | Task-specific evaluators check the saved application state and files; exact match or tolerance on results, partial credit; no judge. | [→](../works/osworld-science.md) |
 | Agent4Sci | 2026 | Improve published ML models for chromatin activity, antimicrobial-peptide classification, RNA inverse design, link prediction, DMS substitution effects, binding sites, and confocal super-resolution. | 7 of 20 benchmarks (DART-Eval, ESCAPE, gRNAde, MOTIVE, ProteinGym, UniSite, SR-CACO-2); 12 hours on 8 H200 GPUs. | Relative improvement over the reproduced published best on a sequestered test set, run by a separate evaluation agent; LLM audit for misconduct. | [→](../works/agent4sci.md) |
 | SciΠvot | 2026 | Judge the next step in a biological-imaging project run by LLM agents, where a PI corrected the agent. | 21 of 248 cases from 1 project. | Binary choice scored against the human-corrected plan, both option orders averaged; 13-person human baseline. | [→](../works/scipivot.md) |
+| Autonomous Science Bench | 2026 | Budgeted closed-loop discovery on published biology screens: find hits and learn a predictive model of the nuclease and biosensor design spaces. | 2 of 6 campaigns, both replaying recorded measurements: Nuclease 4 rounds × 96 from a 20,000-design pool, Biosensor 3 × 10 from 677; the agent orders batches through a lab CLI and submits a sandboxed `predict(design)` function. | Two deterministic gates, both required: discovery (≥190 hits and ≥175 families for Nuclease; ≥21 selective hits for Biosensor) and learning (NDCG@100 ≥ 0.42; NDCG@20 ≥ 0.70) on 5,000 and 332 held-out designs. | [→](../works/autonomous-science-bench.md) |
 
 ## Capability Matrix
 
@@ -102,6 +103,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
+| Autonomous Science Bench | PROT | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | ✔ | **5** | ◐ | ✘ | ◐ | 3 | 0 | 3 | **7** |
 | Imaging-101 | IMG | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
 | AIRS-Bench | BIOINF | ✔ | ✔ | ✘ | ✘ | ✔ | ✔ | ✔ | **5** | ◐ | ✘ | ✘ | 3 | 0 | 1 | **4.5** |
 | FlyAOC | GENOM, CURA | ✘ | ◐ | ✔ | ✘ | ✔ | ✔ | ✔ | **4.5** | ◐ | ✘ | ✘ | 3 | 2 | 4 | **9.5** |
@@ -159,6 +161,7 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [Agent4Sci](../works/agent4sci.md)
 - [SciΠvot](../works/scipivot.md)
+- [Autonomous Science Bench](../works/autonomous-science-bench.md)
 - [AutoSciBench](../works/autoscibench.md)
 - [OSWorld-Science](../works/osworld-science.md)
 - [DISCERN](../works/discern.md)

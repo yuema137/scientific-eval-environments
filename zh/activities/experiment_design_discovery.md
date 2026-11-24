@@ -56,12 +56,14 @@
 | EurekaBench | 2026 | 在科学模拟器里做实验，找出能解释已知观测的机制 | 六个领域共 26 道题；通过命令行操作模拟器，一块 H100、4 小时、1,000 次迭代 | 提交机制说明、代码和实验日志；所有约束测试都通过，准确度和洞见才计分；最好 29.8%，人类参考 63.7% | [卡片](../works/eurekabench.md) |
 | SAEScientist-Bench | 2026 | 设计对比探针文本，在 SAE 字典里找出编码目标概念的特征 | 20 个任务；用 `probe_sae` 工具查询 131,072 个 Gemma Scope 特征，断网，限时 60 分钟 | 提交一个特征 ID，按激活排名、选择性和因果 steering 与专家特征对比；最高总分 65.82，专家 85.56 | [卡片](../works/saescientist-bench.md) |
 | SciΠvot | 2026 | 在关键节点决定下一步研究方向：沿用 agent 的计划，还是采纳 PI 的纠正 | 来自 26 个项目的 248 个二选一案例，给或不给冻结的项目记录 | 选中人工纠正的计划；最高 63.5%，新接触项目的研究者为 73.4% | [卡片](../works/scipivot.md) |
+| Autonomous Science Bench | 2026 | 在设计-构建-测试-学习 campaign 的每一轮预算内，决定测量哪些设计 | 6 个 campaign，取自已发表的生物、化学和材料筛选实验；通过 `asb` CLI 连接实验室服务（replay 或 digital twin），每次 trial 限 8 小时 | 发现门槛：已测批次中要有足够多的 hit（判定解决还需通过学习门槛）；试点 180 次 trial 中解决 51 次 | [卡片](../works/autonomous-science-bench.md) |
 
 ## Related Works
 
 - [SlowLab](../works/slowlab.md)
 - [AlphaIdeaBench](../works/alphaideabench.md)
 - [SciΠvot](../works/scipivot.md)
+- [Autonomous Science Bench](../works/autonomous-science-bench.md)
 - [EurekaBench](../works/eurekabench.md)
 - [DISCERN](../works/discern.md)
 - [SAEScientist-Bench](../works/saescientist-bench.md)

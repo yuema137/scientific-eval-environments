@@ -47,6 +47,8 @@
 | AutoDataBench | 2026 | 在模型和训练配方固定的前提下改进训练数据：修复被破坏的函数调用数据，为 embedding 模型挖掘难负例，构造注入截止日期后知识的样例。 | 3 个任务；7 个 LLM，每个跑 3 次；一块 A800、24 小时内最多 20 轮训练加评测。 | 用重新训练的模型在分布内反馈集和隐藏的分布外测试集上打分（AST 准确率、nDCG@10、选择题准确率）。 | [→](../works/autodatabench-auto-research.md) |
 | SAEScientist-Bench | 2026 | 像可解释性研究者一样，在 Gemma-2-9B-IT 里找出编码给定概念的稀疏自编码器特征。 | 第 9 层和第 20 层的 Gemma Scope 字典（各 131,072 个特征）上共 20 个“概念 × 层”任务；10 种 agent 配置，每种跑三次。 | 激活排名和选择性与 Neuronpedia 专家特征对比，直接由激活值算出；因果 steering 由 GPT-4o judge 对照基线和随机特征打分。 | [→](../works/saescientist-bench.md) |
 | SciΠvot | 2026 | 在由 LLM agent 推进的 AI 和机器学习研究项目里判断下一步该怎么走，这些节点上 PI 曾纠正过 agent。 | 248 个案例中的 59 个，来自 9 个项目。 | 二选一，以人工纠正的计划为准，两种选项顺序取平均；有 13 人的人类基线。 | [→](../works/scipivot.md) |
+| Expenditure Horizon | 2026 | 加速语言模型训练：让 NanoGPT 在 8 块 H100 上以最短 wall-clock 时间把 FineWeb 验证 loss 降到 3.28，并比较 agent 和人类每花一美元换来的提升。 | 1 个优化任务（modded-nanogpt speedrun，从 85.56 s 的第 78 号纪录起步）；六次高花费 agent 运行，每次最多 $10,000、5 天。 | 受保护的 runner 给训练计时，受保护的 validator 从 logits 算 loss；声称的提升要重跑 40 次以上；agent 的收益曲线与根据 speedrun 的 82 条历史纪录估出的人类收益曲线对比（每提升 1% 约 $2,500）。 | [→](../works/expenditure-horizon.md) |
+| AIS-Bench | 2026 | 把自动化机器学习研究拆成几个阶段：根据上下文重建一篇已发表 ML 论文的 idea，把它实现成代码，再根据指定证据报告结论。 | 753 个带可执行参考实现的 <Context, Idea, Code, Paper> 四元组，取自 3,174 篇机器学习论文；共评测 13 个系统，包括 prompting 策略、专用系统和端到端 agent。 | 每个阶段用各自的指标对照这个四元组自己的参考答案打分，其中基于 judge 的部分用留出的人工判断做过验证；三个阶段里实现阶段得分最低。 | [→](../works/ais-bench.md) |
 
 ## Capability Matrix
 
@@ -115,11 +117,13 @@
 | DA-Code | DS | ? | ◐ | ✘ | ◐ | ✘ | ✔ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 2 | 3 | **8** |
 | HarnessDev | GEN | ? | ✘ | ✔ | ? | ✘ | ✔ | ✔ | **3** | ◐ | ✘ | ◐ | 3 | 1 | 3 | **8** |
 | MLAgentBench | MLE | ✘ | ◐ | ◐ | ? | ✘ | ✔ | ✔ | **3** | ✘ | ◐ | ✔ | 2 | 1 | 3 | **7.5** |
+| Expenditure Horizon | LM, SYS | ? | ◐ | ✔ | ? | ✘ | ◐ | ✔ | **3** | ◐ | ✘ | ✔ | 3 | 0 | 2 | **6.5** |
 | RE-Bench | SYS, MLE | ? | ◐ | ✔ | ? | ✘ | ◐ | ✔ | **3** | ✔ | ✘ | ✔ | 2 | 0 | 2 | **6** |
 | ResearchCodeBench | CODE | ? | ✘ | ✘ | ? | ✔ | ✔ | ✘ | **2** | ◐ | ✘ | ✔ | 3 | 2 | 3 | **9.5** |
 | BLADE | DS | ? | ◐ | ✘ | ✘ | ✘ | ✔ | ◐ | **2** | ◐ | ◐ | ✘ | 2 | 1 | 3 | **7** |
 | IdeaBench | IDEA | ✘ | ✘ | ✘ | ? | ✔ | ✔ | ✘ | **2** | ◐ | ◐ | ✔ | 0 | 3 | 2 | **7** |
 | AgentActionBench | GEN | ? | ✘ | ? | ? | ✔ | ? | ✔ | **2** | ◐ | ◐ | ? | 0 | 2 | 3 | **6** |
+| AIS-Bench | IDEA, CODE | ? | ✘ | ? | ? | ✔ | ✔ | ? | **2** | ? | ? | ? | 2 | 2 | 2 | **6** |
 | SAEScientist-Bench | INTERP | ✘ | ✘ | ? | ✘ | ✘ | ✔ | ✔ | **2** | ◐ | ✘ | ? | 2 | 1 | 2 | **5.5** |
 | AutoDataBench | LM, IR, MLE | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ✔ | **2** | ◐ | ✘ | ◐ | 3 | 0 | 1 | **5** |
 | ML-Bench | CODE | ? | ✘ | ✘ | ✘ | ✘ | ✔ | ◐ | **1.5** | ✔ | ✘ | ✔ | 3 | 3 | 3 | **11** |
@@ -136,12 +140,14 @@ Repository note: 未知集中在两列。`Net` 在 30 行里有 16 行是 `?`：
 - [SciΠvot](../works/scipivot.md)
 - [AutoDataBench](../works/autodatabench-auto-research.md)
 - [EurekaBench](../works/eurekabench.md)
+- [AIS-Bench](../works/ais-bench.md)
 - [SAEScientist-Bench](../works/saescientist-bench.md)
 - [HarnessDev](../works/harnessdev.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [AI Research Preference Models](../works/ai-research-preference-models.md)
 - [Beyond Final Scores](../works/beyond-final-scores.md)
 - [Replica](../works/replica.md)
+- [Expenditure Horizon](../works/expenditure-horizon.md)
 - [AutoWorldModel-Bench](../works/autoworldmodel-bench.md)
 - [Curation-Bench](../works/curation-bench.md)
 - [AgentActionBench](../works/agentactionbench.md)

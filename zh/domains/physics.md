@@ -69,6 +69,7 @@
 | ScienceIDE | 2026 | 修复或重写天体物理流体、等离子体物理和粒子模拟代码的模块时，保证数值结果依然正确。 | PLUTO、Athena++、PHANTOM 等代码的模块；属于 2,812 个任务和 85 题难题子集的一部分（未给出各领域题数）。 | 按逐点容差与私有科学参考值做确定性比较，并检查物理不变量。 | [→](../works/scienceide.md) |
 | OSWorld-Science | 2026 | 在 OpenFOAM 和 ANSYS 里跑 CFD 和有限元仿真，在 CIAO 和 DS9 里分析 X 射线数据。 | 146 个任务中的 31 个；在按领域构建的 Ubuntu 镜像里用 GUI 或 CLI 操作。 | 任务专属评测器检查保存下来的软件状态和文件；结果做精确匹配或按容差判断，可得部分分；不用 judge。 | [→](../works/osworld-science.md) |
 | Agent4Sci | 2026 | 改进已发表的 ML 模型：全拓扑潮流计算（PFDelta）和暗物质信号去噪（TIDMAD）。 | 20 个 benchmark 中的 2 个；8 块 H200、12 小时；默认 agent 在 PFDelta 上最高提升 64.4%。 | 由独立的评测 agent 在封存测试集上计算相对于复现出的已发表最佳结果的提升；LLM 审查作弊。 | [→](../works/agent4sci.md) |
+| ORBIT-Q | 2026 | 在指定框架内完成研究级量子编程：量子线路模拟、变分与可微的量子 workflow、可训练的 Kraus channel 校准、非幺正的虚时演化，以及多体基态与态制备（例如用 string order 验证的 spin-1 Haldane 链）。 | 12 个与框架无关的任务，每个任务要在 30 分钟内写出一个 `run_solution(config)`；在 TensorCircuit-NG 上测了四组 agent–模型组合，并用 Codex GPT-5.5 跑了四个框架（TensorCircuit-NG、PennyLane、TorchQuantum、MindQuantum）。 | 用任务自带的 evaluator 做数值测试，加上静态 policy 检查、用 GPT-5.5 审源码以发现绕开框架的写法，边界情况由专家复核；运行时间与专家写的 TensorCircuit-NG 参考实现对比计时（最好结果：12 题通过 10 题，约慢 2.2 倍）。 | [→](../works/orbit-q.md) |
 
 ## Capability Matrix
 
@@ -140,6 +141,7 @@
 | DiscoverPhysics | CLA, GR | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 2 | 1 | 2 | **7** |
 | PhysGym | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ◐ | 2 | 1 | 3 | **6.5** |
 | ScienceIDE | PLA, COS, FLU, COMP | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ? | ✘ | ◐ | 3 | ? | 3 | **6.5** |
+| ORBIT-Q | QI, CM | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ? | 2 | 1 | 3 | **6.5** |
 | PRBench | HEP, AMO, NUC, PLA, CM | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ✘ | ✔ | ✘ | 2 | 1 | 2 | **6** |
 | Into the Unknown | QI, PLA | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 1 | 0 | 3 | **6** |
 | Agent4Sci | HEP, GEN | ? | ✘ | ✘ | ? | ◐ | ◐ | ✔ | **2** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
@@ -197,6 +199,7 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 - [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)
 - [LQCDMaster](../works/lqcdmaster.md)
 - [Imaging-101](../works/imaging-101.md)
+- [ORBIT-Q](../works/orbit-q.md)
 - [NatureBench](../works/naturebench.md)
 - [PhySciBench](../works/physcibench.md)
 - [MetaSyn](../works/metasyn.md)

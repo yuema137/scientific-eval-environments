@@ -57,6 +57,7 @@
 | SCI-AGENT-EXAM | 2026 | 跨领域套件中的化学工作流任务。 | 120 道题中的 11 道；离线 Docker，每题交答案、代码和报告。 | 在隐藏输入上重跑的程序化检查，加上 GPT-5.6 Sol 对报告的细则评分。 | [→](../works/sci-agent-exam.md) |
 | OSWorld-Science | 2026 | 在 ChemDraw 里画分子结构，在 ASKCOS 里做逆合成规划，都要通过软件界面完成。 | 146 个任务中的 43 个（ChemDraw 21、ASKCOS 21）；评测 12 个视觉语言模型，最好的模型在本领域约 44%。 | 任务专属评测器检查保存下来的软件状态和文件；结果做精确匹配或按容差判断，可得部分分；不用 judge。 | [→](../works/osworld-science.md) |
 | Agent4Sci | 2026 | 改进已发表的 ML 模型：混合物的气味相似度、燃料辛烷值和聚合物电导率（CheMixHub），以及根据质谱检索分子（MassSpecGym）。 | 20 个 benchmark 中的 2 个（4 个任务）；8 块 H200、12 小时。 | 由独立的评测 agent 在封存测试集上计算相对于复现出的已发表最佳结果的提升；LLM 审查作弊。 | [→](../works/agent4sci.md) |
+| Autonomous Science Bench | 2026 | 在已发表的化学实验数据上，按预算做闭环发现：为一个丙烯 campaign 和一个 Suzuki 偶联 campaign 找出 hit，并学出预测模型。 | 6 个 campaign 中的 2 个：Propylene 用 digital twin（3 轮 × 20，设计池 736 个），Suzuki 回放已记录的测量（4 × 48，设计池 2,764 个）；agent 通过实验室 CLI 下单每批实验，并提交一个在沙箱中运行的 `predict(design)` 函数。 | 两道确定性门槛，必须都过：discovery（Propylene 要求 ≥7 个 hit；Suzuki 要求 ≥32 个突出结果）和 learning（在 244 和 1,844 个留出设计上 NDCG@20 ≥ 0.52、NDCG@100 ≥ 0.37）。 | [→](../works/autonomous-science-bench.md) |
 
 ## Capability Matrix
 
@@ -104,6 +105,7 @@
 | ScienceAgentBench | CHEMINF | ◐ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✔ | 2 | 1 | 2 | **7.5** |
 | Imaging-101 | ANAL, NANO | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
 | EurekaBench | ORG | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
+| Autonomous Science Bench | ORG | ◐ | ◐ | ✔ | ✘ | ✔ | ◐ | ✔ | **4.5** | ◐ | ✘ | ◐ | 3 | 0 | 3 | **7** |
 | PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **4.5** | ✘ | ✔ | ✘ | 2 | 2 | 1 | **6** |
 | OSWorld-Science | SYN, CHEMINF | ◐ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | **4** | ? | ✘ | ◐ | 3 | 1 | 3 | **7.5** |
 | MolQuest | ANAL | ? | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
@@ -156,6 +158,7 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [Agent4Sci](../works/agent4sci.md)
+- [Autonomous Science Bench](../works/autonomous-science-bench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [EurekaBench](../works/eurekabench.md)
 - [OSWorld-Science](../works/osworld-science.md)

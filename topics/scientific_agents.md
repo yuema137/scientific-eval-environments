@@ -218,6 +218,8 @@ Two additions expose stages hidden by a final research artifact. [AgentIdeaBench
 
 Four additions grade research that has no single reference answer, each with a different bound. [EurekaBench](../works/eurekabench.md) gates accuracy and insight credit on known scientific constraints across 26 simulator-based problems. The best agents come close to the human reference on predictive accuracy (47.4% against 48.8%) but reach at most 42.4% on insights against 69.7%. [Into the Unknown](../works/into-the-unknown.md) asks for follow-up papers on 15 unpublished directions proposed by DOE national-laboratory scientists and checks them against the authors' own conditions; none of 135 submissions passes, and 114 fail the integrity rubric. [PhysClosureBench](../works/physclosurebench.md) scores local accomplishment and research closure separately on 50 strong-field and attosecond physics tasks, and 36.2% of attempts scoring at least 8/10 still fall short of complete closure. [SCI-AGENT-EXAM](../works/sci-agent-exam.md) reports execution and report scores separately on 120 workflow tasks, so a convincing report over code that fails the hidden checks stays visible.
 
+Three additions split a scientific result into parts that can fail independently. [Autonomous Science Bench](../works/autonomous-science-bench.md) has the agent order experiment batches from published screens and resolves a trial only if the measured batches contain enough hits and the submitted predictor ranks held-out designs well; of 129 unresolved trials, 29 miss only discovery and 34 only learning. [ORBIT-Q](../works/orbit-q.md) rejects numerically correct quantum programs that bypass the required framework, using static checks, an LLM source audit, and expert review, then times passed solutions against expert implementations; with the agent fixed, passes fall from 10/12 on TensorCircuit-NG to 4/12 on TorchQuantum and MindQuantum. [AIS-Bench](../works/ais-bench.md) scores idea reconstruction, code implementation, and reporting separately on 753 quadruplets derived from machine-learning papers, and implementation receives the lowest phase score.
+
 ## Comparison
 
 | Benchmark | Year | Task source | Scientific scope | Verification | Card |
@@ -495,6 +497,9 @@ Four additions grade research that has no single reference answer, each with a d
 | CADWorld | 2026 | 200 FreeCAD tasks in 11 workflow categories, authored from workbench capabilities, tutorials, and design workflows | Mechanical CAD: sketching, part modeling, assembly, CAM, FEM, technical drawing | Executable checks on the saved project file; binary success; no judge | [→](../works/cadworld.md) |
 | SciΠvot | 2026 | 248 principal-investigator corrections from 26 agent-run research projects, selected where models disagree | Applied mathematics, robotics, AI/ML, biological imaging, mechanics and materials, Earth sciences | Binary choice between original and corrected plan, both orders averaged; 13-person human baseline | [→](../works/scipivot.md) |
 | Agent4Sci | 2026 | 20 scientific ML benchmarks (25 tasks) whose published best model is reproduced as the starting point | 11 domains, from astronomy and genomics to geology and physics | Relative improvement on a sequestered test set run by a separate evaluation agent; LLM misconduct audit | [→](../works/agent4sci.md) |
+| Autonomous Science Bench | 2026 | Six budgeted campaigns built on published experimental screens with fully measured design pools | Biology, chemistry, materials science | Discovery gate (hits in measured batches vs. calibrated threshold) and learning gate (NDCG@k of a sandboxed predictor on held-out designs); both must pass | [→](../works/autonomous-science-bench.md) |
+| ORBIT-Q | 2026 | 12 framework-neutral tasks condensed from variational and differentiable quantum workflows, run in four frameworks | Quantum physics and quantum computing | Numerical tests and static policy checks, GPT-5.5 source audit for framework bypass, expert review of borderline cases; runtime vs. expert reference | [→](../works/orbit-q.md) |
+| AIS-Bench | 2026 | 753 (context, idea, code, paper) quadruplets with executable reference code, from 3,174 machine-learning papers | Machine-learning research | Phase-specific metrics for idea reconstruction, implementation, and reporting; judge components validated against held-out human judgments | [→](../works/ais-bench.md) |
 
 ## Open Questions
 
@@ -516,6 +521,7 @@ Four additions grade research that has no single reference answer, each with a d
 - [Agent4Sci](../works/agent4sci.md)
 - [PhysClosureBench](../works/physclosurebench.md)
 - [SciΠvot](../works/scipivot.md)
+- [Autonomous Science Bench](../works/autonomous-science-bench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [AutoSciBench](../works/autoscibench.md)
 - [SimuVerity](../works/simuverity.md)
@@ -524,6 +530,7 @@ Four additions grade research that has no single reference answer, each with a d
 - [OSWorld-Science](../works/osworld-science.md)
 - [EngiWorld](../works/engiworld.md)
 - [DISCERN](../works/discern.md)
+- [AIS-Bench](../works/ais-bench.md)
 - [ScienceIDE](../works/scienceide.md)
 - [CADWorld](../works/cadworld.md)
 - [SAEScientist-Bench](../works/saescientist-bench.md)
@@ -558,6 +565,7 @@ Four additions grade research that has no single reference answer, each with a d
 - [StructureClaw](../works/structureclaw.md)
 - [FukuyamaBench](../works/fukuyamabench.md)
 - [Imaging-101](../works/imaging-101.md)
+- [ORBIT-Q](../works/orbit-q.md)
 - [OntoLearner](../works/ontolearner.md)
 - [A Tutorial on Autonomous Fault-Tolerant Control Using Knowledge-Grounded LLM Agents](../works/ctrl-alt-recover.md)
 - [GeneBench-Pro](../works/genebench-pro.md)

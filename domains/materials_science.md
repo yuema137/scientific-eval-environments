@@ -43,6 +43,7 @@ Materials characterization and computational materials science, spanning physica
 | Into the Unknown | 2026 | Extend interatomic-potential research along author-set directions: replace SNAP bispectrum components with a learned descriptor tested for accuracy, data efficiency, and transfer, and replace a heuristic switching function in a layered potential. | 2 of 15 problems; follow-up paper with code and logs, no time limit. | GPT-6-Astra agentic judge on author-specified integrity and direction rubrics; no submission is valid. | [→](../works/into-the-unknown.md) |
 | SCI-AGENT-EXAM | 2026 | Materials-science workflow tasks within a cross-field suite. | 10 of 120 tasks; offline Docker, answer, code, and report per task. | Programmatic checks rerun on hidden inputs, plus a GPT-5.6 Sol rubric judge on the report. | [→](../works/sci-agent-exam.md) |
 | AutoSciBench | 2026 | Materials-science questions generated from MatTools seeds that require using computational materials tools on raw data. | 50 generated tasks per generator; ten solver models. | Exact match to a single reference answer; task quality rated by LLM judges. | [→](../works/autoscibench.md) |
+| Autonomous Science Bench | 2026 | Budgeted closed-loop materials discovery: find standout oxygen-evolution-reaction catalysts across composition libraries and map the two coercivity peaks of a Co–Fe–Ni thin-film composition spread, then learn a predictive model of each design space. | 2 of 6 campaigns, both replaying recorded measurements: OER 4 rounds × 48 from a 3,419-design pool, Coercivity 4 × 16 from 604 (10 seed compositions); the agent orders batches through a lab CLI and submits a sandboxed `predict(design)` function. | Two deterministic gates, both required: discovery (≥55 standouts with ≤28 per library for OER; two-peak score ≥ 0.60 for Coercivity) and learning (NDCG@100 ≥ 0.55; NDCG@20 ≥ 0.65) on 5,039 and 307 held-out designs; Coercivity was the hardest campaign (5/30 trials resolved). | [→](../works/autonomous-science-bench.md) |
 
 ## Capability Matrix
 
@@ -87,6 +88,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
+| Autonomous Science Bench | DISC, METAL | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | ✔ | **5** | ◐ | ✘ | ◐ | 3 | 0 | 3 | **7** |
 | Imaging-101 | CHAR, COMP | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
 | AutoResearchEval | STRUCT, COMP | ◐ | ✔ | ✘ | ? | ◐ | ? | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | Agentic Self-Driving Microscopy Benchmarks | INSTR, CHAR | ✘ | ✘ | ✔ | ◐ | ✘ | ◐ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
@@ -127,6 +129,7 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 ## Related Works
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [Autonomous Science Bench](../works/autonomous-science-bench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [AutoSciBench](../works/autoscibench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

@@ -31,6 +31,7 @@ Planning evaluation 先把决策时可用的信息固定下来，再问 agent �
 - **计划与 trajectory 偏好。** [Plan-RewardBench](../works/plan-rewardbench.md) 要求 evaluator 在两条易混淆的工具 trajectory 中选出更优者，其中设有单轮与多轮 planning split。这条路线评价的是计划的 judge，而不是 planner 本身。
 - **科学项目规划。** [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) 固定研究目标，用专家与模型 panel 评价真实物理和天文项目 proposal 中的方法、资源、可行性、时间安排和风险。
 - **具身实验室任务中的下一步操作选择。** [Labference](../works/labference.md) 根据观察到的状态确定哪些下一步操作合法，再看机器人第一次可识别的操作是否在其中；这项得分与机器人能否把这一步执行出来分开计算。
+- **到底要不要动手。** [AgentAbstain](../works/agentabstain.md) 给每个 tool-use 请求配一个几乎相同的变体。变体里只有一处受控改动，比如缺一个参数、多一句破坏性指令或一个工具会失败，这时正确做法是不执行。只有 agent 在原请求上执行、在变体上不执行，这一对才算对。因此永远执行或永远拒绝最多只能拿 50%；17 个模型中最好的一个是 59.5%，而且其中 15 个模型的「执行」通过率和「不执行」通过率呈负相关。
 
 ## 方法对比
 
@@ -49,6 +50,7 @@ Planning evaluation 先把决策时可用的信息固定下来，再问 agent �
 | AI's Capability in Assisting Scientific Research II | 一页研究 proposal | 固定的专家撰写标题、背景和目标 | 人类与 LLM rubric 分数 | 是 | 每个项目含一份人类与三份模型 proposal |
 | Labference | 从任务契约规定的合法集合中选出的下一步实验室操作 | 相机画面、机器人状态，以及允许使用的证据，如天平读数或转子占用情况 | 第一次可识别的选择是否属于合法集合（`B_next`、`C_id`）；经物理确认的子目标和终止判据 | 是；选择、固定子目标执行和完成分别打分 | 定义了会改变正确答案的证据配对（`P_state`），已报告的实验中尚未运行 |
 | SciΠvot | 在 agent 的原研究计划和 PI 纠正后的计划之间二选一 | 纠正之前冻结的项目记录，或只给两个计划；重新考虑时不告诉对错 | 是否选中人工纠正的计划；13 人的人类基线为 73.4% | 是 | 每个案例一个人工纠正的备选方案 |
+| AgentAbstain | 对单轮 tool-use 请求决定执行还是不执行 | 带工具的 MCP 沙箱；在应当不执行的变体中，对 query、环境或工具做一处扰动 | 根据 commit-tool 检查和 GPT-5.4 对最终回答的 judge 计算成对 accuracy | 否；决策从实际执行的 tool call 和最终回答中读出 | 每个应当执行的任务配一个应当不执行的孪生任务 |
 
 ## 还没解决的问题
 
@@ -66,6 +68,7 @@ Planning evaluation 先把决策时可用的信息固定下来，再问 agent �
 - [SciΠvot](../works/scipivot.md) — 把真实研究项目里 PI 对 agent 的纠正做成二选一。
 - [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) — repository issue 解决中的经验证实现规划 ground truth。
 - [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) — 以专家 rubric 评价真实科研项目计划。
+- [AgentAbstain](../works/agentabstain.md)
 - [RigorBench](../works/rigorbench.md) — 与工程结果分开计分的 planning fidelity。
 - [AISE-Bench](../works/aise-bench.md) — 对照 gold plan graph 评价工具学习中的规划。
 - [Agent Planning Benchmark](../works/agent-planning-benchmark.md) — 整体、基于反馈、稳健性与不可行性诊断。

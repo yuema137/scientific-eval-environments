@@ -43,6 +43,7 @@
 | Into the Unknown | 2026 | 沿作者设定的方向延伸原子间势研究：用学习得到的描述符替换 SNAP 的双谱分量，并检验精度、数据效率和跨材料迁移；用有物理依据的切换函数替换分层势中的启发式函数。 | 15 题中的 2 题；写出后续论文并附代码和日志，不设时限。 | GPT-6-Astra agent judge 按作者指定的诚信和方向细则评分；没有一份提交有效。 | [→](../works/into-the-unknown.md) |
 | SCI-AGENT-EXAM | 2026 | 跨领域套件中的材料科学工作流任务。 | 120 道题中的 10 道；离线 Docker，每题交答案、代码和报告。 | 在隐藏输入上重跑的程序化检查，加上 GPT-5.6 Sol 对报告的细则评分。 | [→](../works/sci-agent-exam.md) |
 | AutoSciBench | 2026 | 以 MatTools 为种子生成的材料科学题，需要在原始数据上使用计算材料工具。 | 每个生成器 50 题；十个求解模型。 | 与单个参考答案精确匹配；任务质量由 LLM judge 评分。 | [→](../works/autoscibench.md) |
+| Autonomous Science Bench | 2026 | 按预算做闭环材料发现：在多个成分库中找出表现突出的析氧反应（OER）催化剂，并找出 Co–Fe–Ni 薄膜成分梯度样品上矫顽力的两个峰，再为每个设计空间学出预测模型。 | 6 个 campaign 中的 2 个，都回放已记录的测量：OER 4 轮 × 48，设计池 3,419 个；Coercivity 4 × 16，设计池 604 个（10 个种子成分）；agent 通过实验室 CLI 下单每批实验，并提交一个在沙箱中运行的 `predict(design)` 函数。 | 两道确定性门槛，必须都过：discovery（OER 要求 ≥55 个突出结果且每个库不超过 28 个；Coercivity 要求双峰得分 ≥ 0.60）和 learning（在 5,039 和 307 个留出设计上 NDCG@100 ≥ 0.55、NDCG@20 ≥ 0.65）；Coercivity 是最难的 campaign（30 次 trial 只解出 5 次）。 | [→](../works/autonomous-science-bench.md) |
 
 ## Capability Matrix
 
@@ -87,6 +88,7 @@
 | Work | Domain | Net | E2E | Cost | MM | Repro | Real | Inter | Cov | Human | Rubric | Contam | Verif | Scale | Fail | Rig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | ResearchClawBench | GEN | ✔ | ✔ | ◐ | ✔ | ✔ | ✔ | ✔ | **6.5** | ◐ | ✔ | ◐ | 0 | ? | 3 | **5** |
+| Autonomous Science Bench | DISC, METAL | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | ✔ | **5** | ◐ | ✘ | ◐ | 3 | 0 | 3 | **7** |
 | Imaging-101 | CHAR, COMP | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
 | AutoResearchEval | STRUCT, COMP | ◐ | ✔ | ✘ | ? | ◐ | ? | ✔ | **3** | ◐ | ✔ | ◐ | 1 | 1 | 3 | **7** |
 | Agentic Self-Driving Microscopy Benchmarks | INSTR, CHAR | ✘ | ✘ | ✔ | ◐ | ✘ | ◐ | ✔ | **3** | ✘ | ✘ | ✘ | 3 | 1 | 3 | **7** |
@@ -127,6 +129,7 @@ Repository note: AutoResearchEval 的数量按论文原始领域标签统计。�
 ## Related Works
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [Autonomous Science Bench](../works/autonomous-science-bench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [AutoSciBench](../works/autoscibench.md)
 - [AutoResearchEval](../works/autoresearcheval.md)

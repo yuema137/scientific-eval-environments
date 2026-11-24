@@ -69,6 +69,7 @@ Evaluation environments grounded in physical laws, physical simulation, or exper
 | ScienceIDE | 2026 | Keep scientific simulation codes for astrophysical flows, plasma physics, and particle simulation numerically correct when modules are repaired or reimplemented. | Modules of codes such as PLUTO, Athena++, and PHANTOM; part of 2,812 tasks and an 85-task hard subset (per-domain counts not stated). | Deterministic comparison with private scientific references under pointwise tolerances and physical-invariant checks. | [→](../works/scienceide.md) |
 | OSWorld-Science | 2026 | Run CFD and finite-element simulations in OpenFOAM and ANSYS, and analyze X-ray data in CIAO with DS9. | 31 of 146 tasks; GUI or CLI control in a domain-specific Ubuntu image. | Task-specific evaluators check the saved application state and files; exact match or tolerance on results, partial credit; no judge. | [→](../works/osworld-science.md) |
 | Agent4Sci | 2026 | Improve published ML models for full-topology power flow (PFDelta) and dark-matter signal denoising (TIDMAD). | 2 of 20 benchmarks; 12 hours on 8 H200 GPUs; best default-agent gain 64.4% on PFDelta. | Relative improvement over the reproduced published best on a sequestered test set, run by a separate evaluation agent; LLM audit for misconduct. | [→](../works/agent4sci.md) |
+| ORBIT-Q | 2026 | Research-level quantum programming in a required framework: quantum circuit simulation, variational and differentiable workflows, trainable Kraus-channel calibration, non-unitary imaginary-time evolution, and many-body ground-state and state preparation (e.g., spin-1 Haldane chain with string-order verification). | 12 framework-neutral tasks, each a `run_solution(config)` written in 30 minutes; run on TensorCircuit-NG across four agent–model pairs and with Codex GPT-5.5 across four frameworks (TensorCircuit-NG, PennyLane, TorchQuantum, MindQuantum). | Numerical tests against the task evaluator plus static policy checks, a GPT-5.5 source audit for framework bypasses, and expert review of borderline cases; runtime timed against an expert TensorCircuit-NG reference (best: 10/12 passes at about 2.2× slowdown). | [→](../works/orbit-q.md) |
 
 ## Capability Matrix
 
@@ -140,6 +141,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | DiscoverPhysics | CLA, GR | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 2 | 1 | 2 | **7** |
 | PhysGym | GEN | ? | ✔ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✘ | ◐ | 2 | 1 | 3 | **6.5** |
 | ScienceIDE | PLA, COS, FLU, COMP | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ? | ✘ | ◐ | 3 | ? | 3 | **6.5** |
+| ORBIT-Q | QI, CM | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ? | 2 | 1 | 3 | **6.5** |
 | PRBench | HEP, AMO, NUC, PLA, CM | ? | ✘ | ✘ | ✘ | ✔ | ✘ | ✔ | **2** | ✘ | ✔ | ✘ | 2 | 1 | 2 | **6** |
 | Into the Unknown | QI, PLA | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ✔ | 1 | 0 | 3 | **6** |
 | Agent4Sci | HEP, GEN | ? | ✘ | ✘ | ? | ◐ | ◐ | ✔ | **2** | ◐ | ✘ | ◐ | 2 | 0 | 3 | **6** |
@@ -197,6 +199,7 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 - [AI's Capability in Assisting Scientific Research I: Literature Review](../works/ai-assisting-research-i-literature-review.md)
 - [LQCDMaster](../works/lqcdmaster.md)
 - [Imaging-101](../works/imaging-101.md)
+- [ORBIT-Q](../works/orbit-q.md)
 - [NatureBench](../works/naturebench.md)
 - [PhySciBench](../works/physcibench.md)
 - [MetaSyn](../works/metasyn.md)

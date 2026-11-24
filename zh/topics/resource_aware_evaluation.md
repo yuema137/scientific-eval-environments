@@ -46,6 +46,10 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 
 - **把时长上限和 GPU 配额写成任务约束。** [InnovatorBench](../works/innovatorbench.md) 在 20 个 LLM 研究任务的描述里都写明了工作时长上限和 GPU 配额。所以 agent 如果把时间全花在一次自己后来又放弃的训练上，到该提交的时候就拿不出东西了。论文按模型和研究方向报告墙钟小时数与美元花费，和分数列在一起；其 test-time scaling 曲线显示，agent 要跑过 11 小时才拿到最好成绩。论文记录的失败也都是资源上的失败：预算还剩 21 小时就把训练任务停掉，以及推理任务还占着 GPU 就启动整卡训练脚本。
 - **把实验时间当作稀缺资源。** [SlowLab](../works/slowlab.md) 每轮最多允许 16 次实验，但真正卡住 agent 的是隔间时间：每茬作物要占用一个隔间 180 天，中途只能继续或毁掉，早期设计一旦没做好，就没有便宜的补救办法。
+- **把 agent 和人的花费放在同一条美元轴上。** [Expenditure Horizon](../works/expenditure-horizon.md) 对同一个 NanoGPT speedrun，给 agent 的运行（API token 加实验算力）和估算的人工劳动（每小时 150 美元）都标上价格，然后报告一个预算值：在这个花费下，agent 经过重新验证的改进等于人在同样花费下的改进。六个模型中有四个的 horizon 为正，在 600 美元到 3,300 美元之间。但结果会随假设的人工成本变化：假设人每做出 1% 的提升要花 1K、2.5K 或 10K 美元，Opus-4.8 的 horizon 分别是 120 美元、3,300 美元或 14,400 美元。
+- **在闭环发现中把实验批次当作预算。** [Autonomous Science Bench](../works/autonomous-science-bench.md) 向实验室服务下单时，实验轮数和每批大小都是固定的，因此每次 campaign 的预算只覆盖设计池的 1.9% 到 10.6%。它在解决率旁边报告每个已解决 trial 的美元成本，不同模型从 1.38 美元到 14.63 美元不等。
+- **把相对专家参考的运行时间计入分数。** [ORBIT-Q](../works/orbit-q.md) 对每个通过的量子编程解答计时，和专家实现比较，超过 180 s 就不再给运行时间分。Agent 一侧的 token 和每次通过的成本单独报告；加一份性能检查清单 prompt 后，仍有 10/12 通过，token 从 14.2M 降到 8.2M。
+- **把成本放进改进目标里。** [SkillLens](../works/skilllens.md) 按「correctness 减去归一化成本」来演化它的 skill 路由规则，并在时间和 token 上比较不同适配策略：在 MuLocbench 上，它的混合粒度路由用了 16.41M token，把每个检索到的 skill 都改写一遍则要 115.51M。
 
 ### 一处缺口：预算是给定的，不是预测出来的
 
@@ -98,6 +102,10 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 | DISCERN | 2026 | 输入/输出 token、API 调用次数、估算美元费用（为上限；不含评分与评审） | 只报告，不设预算；token 效率为每百万 token 对应的 Overall Score | 生命科学研究工作流；203 个任务，八个参与排名的模型 | [→](../works/discern.md) |
 | AlphaIdeaBench | 2026 | 提案中研究计划所需的 GPU 与 GPU 小时、API 费用、日历周数、标注工时 | 每个任务写明预算（学生 / 学术 / 实验室三档）；judge 评判提案的预算可行性 | 100 个机器学习构思任务；八个 harness，八个基础模型 | [→](../works/alphaideabench.md) |
 | SCI-AGENT-EXAM | 2026 | 每次运行的平均美元成本、运行时间和交互轮数 | 与分数并列报告，并画出成本–得分的 Pareto 前沿；不计入分数 | 离线 Docker 中的 120 道科学工作流题，Claude Code harness | [→](../works/sci-agent-exam.md) |
+| Expenditure Horizon | 2026 | 美元：agent 为 API token 加实验算力；人为估算工时，按每小时 150 美元计 | 本身就是被测量的量：agent 与人的「投入-回报」曲线相交时的预算 | NanoGPT speedrun；单次运行最多 10,000 美元、5 天、32 张 H100 GPU | [→](../works/expenditure-horizon.md) |
+| Autonomous Science Bench | 2026 | 从候选池中下单的实验轮数 × 每批大小；报告每个 trial 的美元成本 | 对下单实验设硬约束；每个已解决 trial 的成本只报告、不计分 | 六个闭环 campaign，涵盖生物、化学和材料，对接 replay 或 digital-twin 实验室服务 | [→](../works/autonomous-science-bench.md) |
+| ORBIT-Q | 2026 | 解答运行时间相对专家参考的比例；agent 的 token 和美元成本 | 运行时间计分（超过 180 s 开始扣分，300 s 时为零）；token 和每次通过的成本只报告 | 跨四个框架的 12 个研究级量子编程任务 | [→](../works/orbit-q.md) |
+| SkillLens | 2026 | Skill 适配消耗的 token 和墙钟时间 | 在演化目标中从 correctness 里减去归一化成本；在不同适配策略之间比较成本 | MuLocbench 和 ALFWorld 上的 skill 复用 | [→](../works/skilllens.md) |
 
 ## 还没解决的问题
 
@@ -113,6 +121,7 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 - [SlowLab](../works/slowlab.md)
 - [AlphaIdeaBench](../works/alphaideabench.md)
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [Autonomous Science Bench](../works/autonomous-science-bench.md)
 - [DISCERN](../works/discern.md)
 - [EvoHarnessBench](../works/evoharnessbench.md)
 - [HarnessDev](../works/harnessdev.md)
@@ -124,12 +133,15 @@ Resource-aware evaluation 不只看 agent 做成了什么，还记录它为此�
 - [Model Discovery Agent](../works/model-discovery-agent.md) — 在四组 discovery 任务里，用 experiment-budget learning curve 同时追踪 held-out prediction 和 mechanism recovery。
 - [EcoAgent-Bench](../works/ecoagent-bench.md) — 定价动作与显式预算下的经济决策，以经济一致性评分。
 - [HarnessOpt-Bench](../works/harnessopt-bench.md) — LLM 在固定且经 TEE 审计的评估预算下优化 agent harness。
+- [Expenditure Horizon](../works/expenditure-horizon.md)
+- [ORBIT-Q](../works/orbit-q.md)
 - [SkillAudit](../works/skillaudit.md) — 对照配对的「不用 skill」运行测量时间与 token 的节省，逐个 skill 包与效用、安全性一并报告。
 - [BAGEN](../works/bagen.md) — 跨 token 与多资源 agent 的渐进式预算区间预测与可训练的提前停止。
 - [First head-to-head comparison of agentic AI applied to the analysis of simulated data of the Einstein Telescope](../works/first-head-to-head-comparison-of-agentic-ai-applie.md) — 每一次自主流程运行都测量运行时间与峰值内存；两个 agent 产出的科学结果相同，速度与资源占用便成了它们之间的一条比较轴。
 - [SMDD-Bench](../works/smdd-bench.md) — 有限 oracle 调用预算下、保证有解的药物设计。
 - [MaD Physics](../works/mad-physics.md) — 模拟物理中按保真度定价的测量预算；agent 在测量的质与量之间权衡以推断被改动的物理定律。
 - [ChemCost](../works/chemcost.md) — 把反应成本计算本身作为被测任务，配无 judge 的精确定价真值。
+- [SkillLens](../works/skilllens.md)
 - [Frontier-Eng](../works/frontier-eng.md) — 固定仿真器交互预算下的迭代式工程优化。
 - [SimulCost](../works/simulcost.md) — 覆盖 11 个使用解析成本的仿真器，另行报告 EPOCH的 cost-aware 物理仿真参数调优。
 - [PostTrainBench](../works/posttrainbench.md)

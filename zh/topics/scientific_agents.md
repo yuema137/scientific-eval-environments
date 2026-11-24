@@ -218,6 +218,8 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 
 [EurekaBench](../works/eurekabench.md)、[Into the Unknown](../works/into-the-unknown.md)、[PhysClosureBench](../works/physclosurebench.md) 和 [SCI-AGENT-EXAM](../works/sci-agent-exam.md) 这四项新工作评的都是没有唯一参考答案的研究，但各自划定边界的方式不同。EurekaBench 在 26 道基于模拟器的题上，把已知科学约束设为门槛：约束不全过，准确度和洞见都不给分。最好的 agent 在预测准确度上接近人类参考（47.4% 对 48.8%），洞见最高却只有 42.4%，人类是 69.7%。Into the Unknown 让 agent 沿美国能源部国家实验室科学家提出的 15 个未发表方向写后续论文，再按作者自己定的条件检查；135 份提交没有一份通过，114 份没过诚信细则。PhysClosureBench 在 50 道强场与阿秒物理题上，把局部完成度和研究闭合分开打分；得分不低于 8/10 的尝试中，仍有 36.2% 没有完全闭合。SCI-AGENT-EXAM 在 120 道工作流题上分别报告执行分和报告分，因此一份写得很好、代码却过不了隐藏检查的提交不会被掩盖。
 
+新增的三项工作把一个科学结果拆成几部分，每部分都可能单独失败。[Autonomous Science Bench](../works/autonomous-science-bench.md) 让 agent 从已发表的筛选实验中下单实验批次。只有当测到的批次里命中足够多、而且提交的预测器能把留出的设计排好序时，trial 才算解决；在 129 个未解决的 trial 中，29 个只差发现这一关，34 个只差学习这一关。[ORBIT-Q](../works/orbit-q.md) 会拒掉那些数值结果正确、但绕过了指定框架的量子程序，检查手段包括静态检查、LLM 源码审计和专家复核；通过的解答再和专家实现比运行时间。Agent 固定不变时，通过数从 TensorCircuit-NG 上的 10/12 降到 TorchQuantum 和 MindQuantum 上的 4/12。[AIS-Bench](../works/ais-bench.md) 在由机器学习论文构造的 753 个四元组上，分别给想法重建、代码实现和撰写三个阶段打分，其中实现阶段得分最低。
+
 ## 方法对比
 
 | Benchmark | Year | 任务来源 | 科学范围 | 验证方式 | Card |
@@ -495,6 +497,9 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 | CADWorld | 2026 | 11 类工作流共 200 个 FreeCAD 任务，依据工作台功能、教程和常见设计流程编写 | 机械 CAD：草图、零件建模、装配、CAM、FEM、工程图 | 对保存的项目文件做可执行检查；只算成败；不用 judge | [→](../works/cadworld.md) |
 | SciΠvot | 2026 | 26 个由 agent 推进的研究项目中的 248 次 PI 纠正，只保留模型意见有分歧的案例 | 应用数学、机器人、AI/ML、生物成像、力学与材料、地球科学 | 在原计划和纠正后的计划之间二选一，两种选项顺序取平均；13 人的人类基线 | [→](../works/scipivot.md) |
 | Agent4Sci | 2026 | 20 个科学 ML benchmark（25 个任务），以复现出来的已发表最佳模型为起点 | 11 个领域，从天文、基因组学到地质和物理 | 由独立的评测 agent 在封存测试集上算相对提升；LLM 审查作弊 | [→](../works/agent4sci.md) |
+| Autonomous Science Bench | 2026 | 六个有预算限制的 campaign，基于已发表的实验筛选，设计池全部有实测值 | 生物、化学、材料科学 | 发现门槛（测到批次中的命中数对比校准阈值）和学习门槛（沙箱中的预测器在留出设计上的 NDCG@k）；两项都要通过 | [→](../works/autonomous-science-bench.md) |
+| ORBIT-Q | 2026 | 从变分和可微量子工作流中提炼出的 12 个与框架无关的任务，在四个框架中运行 | 量子物理与量子计算 | 数值测试和静态 policy 检查，GPT-5.5 源码审计是否绕过框架，边界情况交专家复核；运行时间对比专家参考 | [→](../works/orbit-q.md) |
+| AIS-Bench | 2026 | 从 3,174 篇机器学习论文中得到 753 个（context, idea, code, paper）四元组，附可执行参考代码 | 机器学习研究 | 想法重建、实现和撰写各有专门指标；依赖 judge 的部分用留出的人工判断验证 | [→](../works/ais-bench.md) |
 
 ## 还没解决的问题
 
@@ -516,6 +521,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - [Agent4Sci](../works/agent4sci.md)
 - [PhysClosureBench](../works/physclosurebench.md)
 - [SciΠvot](../works/scipivot.md)
+- [Autonomous Science Bench](../works/autonomous-science-bench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [AutoSciBench](../works/autoscibench.md)
 - [SimuVerity](../works/simuverity.md)
@@ -524,6 +530,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - [OSWorld-Science](../works/osworld-science.md)
 - [EngiWorld](../works/engiworld.md)
 - [DISCERN](../works/discern.md)
+- [AIS-Bench](../works/ais-bench.md)
 - [ScienceIDE](../works/scienceide.md)
 - [CADWorld](../works/cadworld.md)
 - [SAEScientist-Bench](../works/saescientist-bench.md)
@@ -558,6 +565,7 @@ Scientific agent benchmark 让 agent 去做真正来自科学实践的工作：�
 - [StructureClaw](../works/structureclaw.md)
 - [FukuyamaBench](../works/fukuyamabench.md)
 - [Imaging-101](../works/imaging-101.md)
+- [ORBIT-Q](../works/orbit-q.md)
 - [OntoLearner](../works/ontolearner.md)
 - [A Tutorial on Autonomous Fault-Tolerant Control Using Knowledge-Grounded LLM Agents](../works/ctrl-alt-recover.md)
 - [GeneBench-Pro](../works/genebench-pro.md)

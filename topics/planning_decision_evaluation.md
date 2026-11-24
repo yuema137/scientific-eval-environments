@@ -31,6 +31,7 @@ The literature progresses from controlled plan validity toward realistic, agent-
 - **Plan and trajectory preference.** [Plan-RewardBench](../works/plan-rewardbench.md) asks evaluators to choose between preferred and confusable tool-use trajectories, including single- and multi-turn planning splits. This line evaluates the judge of a plan rather than the planner itself.
 - **Scientific project planning.** [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) holds the research goal fixed and uses expert and model panels to score methods, resources, feasibility, timelines, and risks in proposals for real physics and astronomy projects.
 - **Next-operation choice in embodied laboratory work.** [Labference](../works/labference.md) scores a lab robot's first identifiable operation against the legal next operations implied by the observed state, separately from whether the robot executes it.
+- **Whether to act at all.** [AgentAbstain](../works/agentabstain.md) pairs each tool-use request with a near-identical variant in which one controlled change (a missing parameter, a destructive clause, a failing tool) makes abstaining correct, and credits a pair only if the agent acts on the first and abstains on the second. Always acting or always refusing therefore scores at most 50%; the best of 17 models reaches 59.5%, and act and abstain passes are negatively correlated for 15 of them.
 
 ## Comparison
 
@@ -49,6 +50,7 @@ The literature progresses from controlled plan validity toward realistic, agent-
 | AI's Capability in Assisting Scientific Research II | One-page research proposal | Fixed expert-written title, background, and goal | Human and LLM rubric scores | Yes | Human and three model proposals per project |
 | Labference | Next laboratory operation chosen from a contract-defined legal set | Camera observations, robot state, and authorized evidence such as balance readings or rotor occupancy | Legal-set membership of the first identifiable choice (`B_next`, `C_id`); physically confirmed subgoals and terminal predicates | Yes; choice, fixed-subgoal execution, and completion are scored separately | Answer-changing evidence pairs defined (`P_state`); not yet run in reported experiments |
 | SciΠvot | Choice between an agent's original research plan and a PI-corrected alternative | Project record frozen before the correction, or the two plans alone; no correctness feedback on reconsideration | Match to the human-corrected plan; 13-person human baseline at 73.4% | Yes | One human-corrected alternative per case |
+| AgentAbstain | Act-or-abstain decision on a single-turn tool-use request | MCP sandbox with tools; one perturbation to query, environment, or tools in the should-abstain variant | Paired accuracy from a commit-tool check and a GPT-5.4 judge on the final response | No; the decision is read from executed tool calls and the final response | One should-abstain twin per should-act task |
 
 ## Open Questions
 
@@ -66,6 +68,7 @@ The literature progresses from controlled plan validity toward realistic, agent-
 - [SciΠvot](../works/scipivot.md) — PI corrections from real agent-run research projects as a binary choice.
 - [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md) — validated implementation-planning ground truth in repository issue resolution.
 - [AI's Capability in Assisting Scientific Research II](../works/ai-assisting-research-ii-project-planning.md) — expert-rubric evaluation of plans for real research projects.
+- [AgentAbstain](../works/agentabstain.md)
 - [RigorBench](../works/rigorbench.md) — planning fidelity scored separately from engineering outcome.
 - [AISE-Bench](../works/aise-bench.md) — gold-plan graph comparison for tool learning.
 - [Agent Planning Benchmark](../works/agent-planning-benchmark.md) — holistic, feedback-conditioned, robustness, and infeasibility diagnostics.

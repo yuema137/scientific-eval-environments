@@ -35,6 +35,10 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 
 [Into the Unknown](../works/into-the-unknown.md) 用写细则的科学家本人来检验开放研究的细则评分。每位原作者盲审三篇后续论文，他们的批评被拆成单条。关于是否达成研究方向的 41 条判断，细则全部覆盖，judge 也全部判对。到了审稿式的缺陷，一致率降到 80.34%；到了科学质量和影响，降到 68.68%。所以细则可以用来检查必要条件，却不能用来评判科学价值。另一项四次重复评判的实验按稳定性选定了 GPT-6-Astra judge（总评相同的比例为 86.5%，对比 57.7%），而 GPT-6-Astra 本身也是被评测的 agent 之一。
 
+有三项研究 agent 过程的工作按标签逐项验证 judge，而不是只报一个总体一致率。[OSWorld-Pro](../works/osworld-pro.md) 把它的逐步标注 judge 和 67,264 个人工标签对比：判断一步针对哪个 subgoal 的 macro-F1 是 97.0，判断是否完成是 94.3；但判断可行性只有 61.9，判断是否推进只有 74.7，而第二位人工复核者在这两项上分别达到 91.6 和 94.1。它的任务分数主要取决于完成标签，可行性和推进这两项诊断背后的一致性则较弱。[TRACE for Tool-Augmented Agents](../works/trace-tool-augmented-agents.md) 往 trajectory 里插入已知缺陷，看 judge 能不能查出来；这些缺陷是人工合成的，所以它没有测到 judge 对自然出现的错误有多准。[What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md) 固定 judge 模型和 rubric，只改变后续步骤是隐藏还是可见；在 70 个 episode 中有 59 个，judge 的判定移到了更靠后的一步。这说明 judge 能看到什么，会改变它把责任归到哪一步。
+
+[AgentAbstain](../works/agentabstain.md) 在 200 条由三位标注者标注的回答上检验它的弃权 judge（Fleiss' κ = 0.865）。Judge 与人工多数意见不一致的有 4 条，全部是假阳性；对操作类任务，还要求一个确定性的 commit-tool 检查也给出相同结论。[AIS-Bench](../works/ais-bench.md) 在比较构思、实现和撰写三个阶段之前，先用留出的人工判断验证各阶段指标里依赖 judge 的部分。
+
 ## 方法对比
 
 | Work | 被检验的 evaluator | Ground truth | 可靠性信号 | 下游验证 |
@@ -60,6 +64,11 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 | [Predictive Credit](../works/predictive-credit.md) | 固定的 LLM 预测器，用来衡量解释带来了多少信息 | 留出的干预实测效果 | 在匹配解释、普通描述和 donor 解释三种条件下比较预测损失、区间得分和重复漂移；冻结判定为不确定或不成立 | 研究者手写的机制说明作阳性对照：点预测 MAE 3.795，只给描述为 6.391，错误说明为 8.151 |
 | [SimuVerity](../works/simuverity.md) | 给 Simulink 模型打分的分门槛原生仿真评测器 | 两位领域专家对 30 个候选模型的五分制评分 | 加权 κ = 0.90；评测器与专家的平均 ρ = 0.94，专家之间 ρ = 0.87 | 给六个 agent 系统打分；证明与参考模型的结构相似度不能代替得分 |
 | [EvalResearchBench](../works/evalresearchbench.md) | 九个 researcher agent 冻结的精简评测器 | 候选模型在 14 个目标 benchmark 上的分数（6 个可见，8 个封存） | 100 × Lin 一致性系数和成对一致率；最高一致率 74.87%，目标之间的上限为 91.20% | 在可见目标上最好的（Fable 5.1）在封存目标上不是最好的（Grok 4.7） |
+| [OSWorld-Pro](../works/osworld-pro.md) | GPT-5.6-Sol judge，逐步标注目标 subgoal、可行性、推进和完成情况 | 67,264 个人工标签；第二位人工复核者 | Macro-F1：目标 97.0、可行性 61.9、推进 74.7、完成 94.3；任务级 1−MAE 93.0；标注者与复核者之间 κ 0.847–0.987 | 对 14 个模型的 benchmark 打分 |
+| [TRACE for Tool-Augmented Agents](../works/trace-tool-augmented-agents.md) | 基于 evidence bank 的 LLM judge，评效率、幻觉和适应性，换用多个 judge 模型 | 由 GTA 和 m&m's 构造的、带合成缺陷的 trajectory 元评估集 | 相对普通 LLM-as-a-judge 的检出准确率（例如 Llama-3.1-8B 的效率项从 55.67 升到 70.46）；在存在多条有效 trajectory 时与 PIPA 比较准确率 | 在 GTA 上比较 agent |
+| [What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md) | 判断步骤重要性的全 trace LLM judge（gpt-5.5、qwen3.6-plus、qwen3-coder-plus） | 基于重放的步骤效应估计（SCAE）；是否触及 gold 文件 | 展示后续步骤时，70 个 episode 中有 59 个判定后移；选中触及 gold 文件的步骤的比例为 0.900，baseline 为 0.413 | 得出结论：过程 judge 跟踪的是语义相关性，而不是经过证实的因果贡献 |
+| [AgentAbstain](../works/agentabstain.md) | 读取最终回答的 GPT-5.4 弃权 judge，配合确定性的 commit-tool 检查 | 三位标注者标注的 200 条回答 | 标注者之间 Fleiss' κ = 0.865；judge 与多数意见在 200 条中有 4 条不一致（全部为假阳性） | 对 17 个模型做成对 accuracy 打分 |
+| [AIS-Bench](../works/ais-bench.md) | 构思、实现和撰写各阶段指标中依赖 judge 的部分 | 留出的人工判断 | 一致性统计 TODO(reference) | 比较 13 个 AI Scientist 系统在各阶段的表现 |
 
 ## 还没解决的问题
 
@@ -78,17 +87,22 @@ Evaluator 把一次 agent run 变成分数、排名或 reward。它可以是确�
 - [EvalResearchBench](../works/evalresearchbench.md)
 - [SimuVerity](../works/simuverity.md)
 - [Predictive Credit](../works/predictive-credit.md)
+- [OSWorld-Pro](../works/osworld-pro.md)
+- [AIS-Bench](../works/ais-bench.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PTA-IRT](../works/pta-irt.md)
+- [What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [MobileJudgeBench](../works/mobilejudgebench.md)
 - [SkillTV-Bench](../works/skilltv-bench.md)
+- [AgentAbstain](../works/agentabstain.md)
 - [AgentLens](../works/agentlens.md)
 - [AgentActionBench](../works/agentactionbench.md)
 - [Plan-RewardBench](../works/plan-rewardbench.md)
 - [PSE-Bench](../works/pse-bench.md)
 - [FIRE-Bench](../works/fire-bench.md)
 - [HeurekaBench](../works/heurekabench.md)
+- [TRACE for Tool-Augmented Agents](../works/trace-tool-augmented-agents.md)
 - [AstroVisBench](../works/astrovisbench.md)
 - [AgentRewardBench](../works/agentrewardbench.md)
 - [PaperBench](../works/paperbench.md)

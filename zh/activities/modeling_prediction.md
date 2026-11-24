@@ -48,10 +48,12 @@
 | EurekaBench | 2026 | 把提出的机制写成可执行代码，预测保留的观测 | 在来自原始研究或任务模拟器的保留测试数据上运行 `mechanism.py` | 每条标准的预测准确度取值 [0, 1]；最好 47.4%，人类参考 48.8% | [卡片](../works/eurekabench.md) |
 | AutoDataBench | 2026 | 只改训练数据，提升一个固定模型的目标指标 | 三个任务（工具调用、检索、知识注入）；一块 A800、24 小时内最多 20 轮训练加评测 | 以分布内得分为反馈，报告隐藏的分布外得分；Overall 最高 60.68，专家 56.89 | [卡片](../works/autodatabench-auto-research.md) |
 | Agent4Sci | 2026 | 在科学 ML benchmark 上改进已发表的最佳预测模型 | 来自 20 个 benchmark 的 25 个任务；8 块 H200、12 小时；测试集由另一个 agent 掌管 | 在封存测试集上相对复现基线的提升；最高平均 10.4%（加 skill 后 20.1%） | [卡片](../works/agent4sci.md) |
+| Autonomous Science Bench | 2026 | 用 agent 自己测得的批次数据学一个设计空间预测器并提交 | 沙箱中的 JavaScript `predict(design)`，每个 campaign 在 307 到 5,039 个留出设计上打分 | 学习门槛：NDCG@k 不低于这个 campaign 的阈值（判定解决还需通过发现门槛） | [卡片](../works/autonomous-science-bench.md) |
 
 ## Related Works
 
 - [Agent4Sci](../works/agent4sci.md)
+- [Autonomous Science Bench](../works/autonomous-science-bench.md)
 - [AutoDataBench](../works/autodatabench-auto-research.md)
 - [EurekaBench](../works/eurekabench.md)
 - [HarnessDev](../works/harnessdev.md)

@@ -103,10 +103,13 @@
 | [HarnessDev](../works/harnessdev.md) | 2026 | 为机器学习实验构建可复用的执行软件 | 无解题策略的种子；1–3 个开发样例 | 冻结 harness 后在 MLE-bench 上评测 | [HarnessDev](../works/harnessdev.md) |
 | SCI-AGENT-EXAM | 2026 | 按接口约定写代码，跨依赖组合工具，修复能运行但科学结果有隐性错误的项目（Code Generation 20 道、Tool Orchestration 28 道、Error Diagnosis 11 道） | 离线 Docker 任务包；检查器导入生成的代码，在隐藏数据上重跑 | 这几类题的程序化检查权重为 0.55–0.70；Pass@0.95 最高 26.0% | [卡片](../works/sci-agent-exam.md) |
 | ScienceIDE | 2026 | 修复科学模拟代码模块里被注入的缺陷，或重新实现被删掉的部分 | 来自 27 个代码库的 64 个环境；难题子集 85 题，每题限时一小时 | 数值输出在私有参考值的容差范围内；严格成功率最高 67.1%（Fable 5.1） | [卡片](../works/scienceide.md) |
+| ORBIT-Q | 2026 | 编写 `run_solution(config)` 量子程序，使用指定框架原生的可微功能，不能绕过框架 | 12 个容器化任务；200 行上限、禁用部分 import、运行时间上限 300 秒 | 通过全部 verifier 层级；运行时间与专家写的 TensorCircuit-NG 代码对比（最佳配置的几何平均慢约 2.2 倍） | [卡片](../works/orbit-q.md) |
+| AIS-Bench | 2026 | 对照可执行的参考实现，把论文的 idea 实现成代码（三个分别打分的阶段之一） | 753 组 context-idea-code-paper 四元组，来自机器学习论文 | 实现阶段的专门得分；三个阶段中实现得分最低 | [卡片](../works/ais-bench.md) |
 
 ## Related Works
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
+- [AIS-Bench](../works/ais-bench.md)
 - [ScienceIDE](../works/scienceide.md)
 - [HarnessDev](../works/harnessdev.md)
 - [AI4AI-Bench](../works/ai4ai-bench.md)
@@ -119,6 +122,7 @@
 - [LQCDMaster](../works/lqcdmaster.md)
 - [StructureClaw](../works/structureclaw.md)
 - [Imaging-101](../works/imaging-101.md)
+- [ORBIT-Q](../works/orbit-q.md)
 - [NatureBench](../works/naturebench.md)
 - [ALeRCE Text-to-SQL](../works/alerce-text-to-sql.md)
 - [PDAgent-Bench](../works/pdagent-bench.md)

@@ -56,12 +56,14 @@ A final cluster frames discovery as **sequential information acquisition toward 
 | EurekaBench | 2026 | Run experiments in a scientific simulator to find a mechanism that explains known observations | 26 problems in six fields; CLI to simulators, 4 h and 1,000 iterations on one H100 | Mechanism prose, code, and experiment log; accuracy and insight credit only if all constraint tests pass; best 29.8% vs. human reference 63.7% | [card](../works/eurekabench.md) |
 | SAEScientist-Bench | 2026 | Design contrastive probe texts and search an SAE dictionary to find the feature that encodes a target concept | 20 tasks; `probe_sae` tool over 131,072 Gemma Scope features, no network, 60-minute timeout | One feature ID scored on activation rank, selectivity, and causal steering against an expert feature; best overall 65.82 vs. expert 85.56 | [card](../works/saescientist-bench.md) |
 | SciΠvot | 2026 | Decide the next research step at a pivotal moment: keep the agent's plan or take the PI's correction | 248 binary-choice cases from 26 projects, with or without the frozen project record | Choose the human-corrected plan; best 63.5% vs. 73.4% for fresh researchers | [card](../works/scipivot.md) |
+| Autonomous Science Bench | 2026 | Choose which designs to measure in each budgeted round of a design-build-test-learn campaign | 6 campaigns from published biology, chemistry, and materials screens; `asb` CLI to a lab service (replay or digital twin), 8 h per trial | Discovery gate: enough hits among measured batches (resolution also needs the learning gate); 51 of 180 pilot trials resolved | [card](../works/autonomous-science-bench.md) |
 
 ## Related Works
 
 - [SlowLab](../works/slowlab.md)
 - [AlphaIdeaBench](../works/alphaideabench.md)
 - [SciΠvot](../works/scipivot.md)
+- [Autonomous Science Bench](../works/autonomous-science-bench.md)
 - [EurekaBench](../works/eurekabench.md)
 - [DISCERN](../works/discern.md)
 - [SAEScientist-Bench](../works/saescientist-bench.md)

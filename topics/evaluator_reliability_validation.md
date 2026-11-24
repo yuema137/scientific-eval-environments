@@ -35,6 +35,10 @@ These additions test different measurement objects: [AgentIdeaBench](../works/ag
 
 [Into the Unknown](../works/into-the-unknown.md) validates rubric grading of open research against the scientists who wrote the rubrics. Each original author reviews three blind follow-up papers, and their criticisms are split into items. The rubrics cover all 41 judgments on whether the direction was met, and the judge agrees with every one. Agreement falls to 80.34% on reviewer-style weaknesses and 68.68% on scientific quality and impact, so the rubrics are trusted for necessary conditions, not for merit. A separate four-run study picks the GPT-6-Astra judge for consistency (86.5% against 57.7% same overall grade), although GPT-6-Astra is also one of the evaluated agents.
 
+Three agent-process works validate judges label by label rather than with one agreement number. [OSWorld-Pro](../works/osworld-pro.md) compares its step-labelling judge with 67,264 human labels: macro-F1 is 97.0 on which subgoal a step targets and 94.3 on completion, but 61.9 on feasibility and 74.7 on progression, where a second human reviewer reaches 91.6 and 94.1. Its task score depends mainly on the completion label, while feasibility and progression diagnostics rest on weaker agreement. [TRACE for Tool-Augmented Agents](../works/trace-tool-augmented-agents.md) inserts known flaws into trajectories and checks whether the judge detects them; the flaws are synthetic, so accuracy on naturally occurring errors is not measured. [What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md) holds judge model and rubric fixed and only hides or shows downstream steps; the verdict moves later in 59 of 70 episodes, which shows that what the judge can see changes which step it blames.
+
+[AgentAbstain](../works/agentabstain.md) checks its abstention judge on 200 responses labelled by three annotators (Fleiss' κ = 0.865); the judge disagrees with the human majority on 4, all false positives, and for operational tasks a deterministic commit-tool check must also agree. [AIS-Bench](../works/ais-bench.md) validates the judge-based parts of its phase metrics against held-out human judgments before comparing idea, implementation, and reporting phases.
+
 ## Comparison
 
 | Work | Evaluator under test | Ground truth | Reliability signal | Downstream validation |
@@ -60,6 +64,11 @@ These additions test different measurement objects: [AgentIdeaBench](../works/ag
 | [Predictive Credit](../works/predictive-credit.md) | Fixed LLM forecaster as a measure of what an explanation adds | Held-out measured intervention effects | Forecast loss, interval score, and repeat drift with matched, description, and donor contexts; frozen decisions inconclusive or no-go | Researcher-written mechanism note as positive control: point MAE 3.795 vs. 6.391 (description) and 8.151 (false note) |
 | [SimuVerity](../works/simuverity.md) | Gated native-simulation evaluator for Simulink models | Ratings by two domain experts on 30 candidates (five-point scale) | Weighted κ = 0.90; evaluator–expert mean ρ = 0.94 vs. expert–expert ρ = 0.87 | Scores six agent systems; structural similarity to the reference shown to be a poor proxy |
 | [EvalResearchBench](../works/evalresearchbench.md) | Compact evaluators frozen by nine researcher agents | Candidate scores on 14 target benchmarks (6 visible, 8 sealed) | 100 × Lin's CCC and pairwise agreement; best agreement 74.87% vs. 91.20% cross-target ceiling | Best on visible targets (Fable 5.1) is not best on sealed targets (Grok 4.7) |
+| [OSWorld-Pro](../works/osworld-pro.md) | GPT-5.6-Sol judge labelling each step's target subgoal, feasibility, progression, and completion | 67,264 human labels; second human reviewer | Macro-F1 97.0 (target), 61.9 (feasibility), 74.7 (progression), 94.3 (completion); task-level 1−MAE 93.0; annotator-reviewer κ 0.847–0.987 | Benchmark scoring of 14 models |
+| [TRACE for Tool-Augmented Agents](../works/trace-tool-augmented-agents.md) | Evidence-bank LLM judge for efficiency, hallucination, and adaptivity, across several judge models | Meta-evaluation sets of synthetically flawed trajectories built from GTA and m&m's | Detection accuracy vs. plain LLM-as-a-judge (e.g., efficiency 55.67 → 70.46 for Llama-3.1-8B); accuracy on multiple valid trajectories vs. PIPA | Agent comparison on GTA |
+| [What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md) | Full-trace LLM judges of step importance (gpt-5.5, qwen3.6-plus, qwen3-coder-plus) | Replay-based step-effect estimates (SCAE); gold-file touches | Verdict shifts later in 59 of 70 episodes when downstream steps are shown; gold-touching step chosen 0.900 vs. 0.413 baseline | Conclusion that process judges track semantic relevance rather than certified causal contribution |
+| [AgentAbstain](../works/agentabstain.md) | GPT-5.4 abstention judge reading the final response, combined with a deterministic commit-tool check | Three annotators on 200 responses | Fleiss' κ = 0.865 among annotators; judge disagrees with majority on 4 of 200 (all false positives) | Paired-accuracy scoring of 17 models |
+| [AIS-Bench](../works/ais-bench.md) | Judge-based components of idea, implementation, and reporting phase metrics | Held-out human judgments | Agreement statistics TODO(reference) | Phase comparison across 13 AI Scientist systems |
 
 ## Open Questions
 
@@ -78,17 +87,22 @@ These additions test different measurement objects: [AgentIdeaBench](../works/ag
 - [EvalResearchBench](../works/evalresearchbench.md)
 - [SimuVerity](../works/simuverity.md)
 - [Predictive Credit](../works/predictive-credit.md)
+- [OSWorld-Pro](../works/osworld-pro.md)
+- [AIS-Bench](../works/ais-bench.md)
 - [AgentIdeaBench](../works/agentideabench.md)
 - [PTA-IRT](../works/pta-irt.md)
+- [What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md)
 - [AutoResearchEval](../works/autoresearcheval.md)
 - [MobileJudgeBench](../works/mobilejudgebench.md)
 - [SkillTV-Bench](../works/skilltv-bench.md)
+- [AgentAbstain](../works/agentabstain.md)
 - [AgentLens](../works/agentlens.md)
 - [AgentActionBench](../works/agentactionbench.md)
 - [Plan-RewardBench](../works/plan-rewardbench.md)
 - [PSE-Bench](../works/pse-bench.md)
 - [FIRE-Bench](../works/fire-bench.md)
 - [HeurekaBench](../works/heurekabench.md)
+- [TRACE for Tool-Augmented Agents](../works/trace-tool-augmented-agents.md)
 - [AstroVisBench](../works/astrovisbench.md)
 - [AgentRewardBench](../works/agentrewardbench.md)
 - [PaperBench](../works/paperbench.md)

@@ -68,6 +68,7 @@ A fifth cluster runs **structural analysis against a civil-engineering solver**,
 | EngiWorld | 2026 | Set up and run CAE analyses (ANSYS, Abaqus, OpenFOAM, CalculiX, FEniCS, and others) inside professional software | GUI or CLI control of the applications; part of 1,301 tasks | Simulation outputs within error bounds and correct material, load, and boundary assignments | [card](../works/engiworld.md) |
 | SimuVerity | 2026 | Build executable Simulink models of engineering systems from text specifications | 101 tasks in MATLAB/Simulink R2025a via the MATLAB MCP server | Native simulation over withheld scenarios behind delivery, executability, and qualification gates; best 42.86 vs. reference 96.01 | [card](../works/simuverity.md) |
 | OSWorld-Science | 2026 | Set up and run physical simulations in OpenFOAM and ANSYS through their interfaces | Physics tasks among 146, in domain-specific Ubuntu images; GUI or CLI | Simulation result whose parameter error falls within a set range | [card](../works/osworld-science.md) |
+| ORBIT-Q | 2026 | Implement research-level variational and differentiable quantum-circuit simulations in a required framework | 12 Harbor tasks, 30 minutes each; four frameworks (TensorCircuit-NG, PennyLane, TorchQuantum, MindQuantum) | Numerically correct result that passes policy, LLM-audit, and expert framework-fidelity checks, timed against an expert reference; best 10/12 on TensorCircuit-NG | [card](../works/orbit-q.md) |
 
 ## Related Works
 
@@ -81,6 +82,7 @@ A fifth cluster runs **structural analysis against a civil-engineering solver**,
 - [Automating Structural Reliability Analysis with a Multi-Agent Large Language Model Framework](../works/automating-structural-reliability-analysis-with-a.md)
 - [LQCDMaster](../works/lqcdmaster.md)
 - [StructureClaw](../works/structureclaw.md)
+- [ORBIT-Q](../works/orbit-q.md)
 - [PowerAgentBench-SS](../works/poweragentbench-ss.md)
 - [Agentic Large Language Models for Automated Structural Analysis of 3D Frame Systems](../works/agentic-large-language-models-for-automated-struct.md)
 - [AutoDFT / VASPBench](../works/vaspbench.md)

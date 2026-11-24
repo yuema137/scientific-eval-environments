@@ -68,6 +68,7 @@
 | EngiWorld | 2026 | 在专业软件里（ANSYS、Abaqus、OpenFOAM、CalculiX、FEniCS 等）搭建并运行 CAE 分析 | 通过 GUI 或 CLI 操作软件；属于 1,301 个任务的一部分 | 仿真输出在误差范围内，材料、载荷和边界条件设置正确 | [卡片](../works/engiworld.md) |
 | SimuVerity | 2026 | 根据文字需求为工程系统搭建可执行的 Simulink 模型 | 101 个任务，在 MATLAB/Simulink R2025a 中通过 MATLAB MCP server 完成 | 先过交付、可执行和资格门槛，再在不公开的场景下原生仿真打分；最好 42.86，参考模型 96.01 | [卡片](../works/simuverity.md) |
 | OSWorld-Science | 2026 | 通过 OpenFOAM 和 ANSYS 的界面设置并运行物理仿真 | 146 个任务中的物理任务，在按领域构建的 Ubuntu 镜像里；GUI 或 CLI | 仿真结果的参数误差落在设定范围内 | [卡片](../works/osworld-science.md) |
+| ORBIT-Q | 2026 | 在指定框架中实现研究级的变分和可微量子线路模拟 | 12 个 Harbor 任务，每个 30 分钟；四个框架（TensorCircuit-NG、PennyLane、TorchQuantum、MindQuantum） | 结果数值正确，并通过 policy 检查、LLM 审查和专家的框架忠实度检查，运行时间与专家参考实现对比；最好成绩是 TensorCircuit-NG 上 10/12 | [卡片](../works/orbit-q.md) |
 
 ## Related Works
 
@@ -81,6 +82,7 @@
 - [Automating Structural Reliability Analysis with a Multi-Agent Large Language Model Framework](../works/automating-structural-reliability-analysis-with-a.md)
 - [LQCDMaster](../works/lqcdmaster.md)
 - [StructureClaw](../works/structureclaw.md)
+- [ORBIT-Q](../works/orbit-q.md)
 - [PowerAgentBench-SS](../works/poweragentbench-ss.md)
 - [Agentic Large Language Models for Automated Structural Analysis of 3D Frame Systems](../works/agentic-large-language-models-for-automated-struct.md)
 - [AutoDFT / VASPBench](../works/vaspbench.md)

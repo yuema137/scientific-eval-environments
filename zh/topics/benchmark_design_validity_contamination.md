@@ -28,6 +28,9 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 - **可复现的工具本身就是有效性条件。** [AstaBench](../works/astabench.md) 明确写出五条 agent benchmark 设计原则，并按这些原则搭建套件：语料检索工具只返回 benchmark 构建之前发表的论文，之后发表的论文因此污染不到结果；所有任务共用一个标准接口；排行榜上每个分数都要同时声明 agent 的开放度与工具方式。
 - **不只管题目，也管运行过程。** [EXP-Bench](../works/exp-bench.md) 在判分之前先扫一遍 agent 的日志，查有没有读源论文、动 Git、伪造数据这类被禁止的行为，并把每个任务拆成可单独判分的子任务，使分项得分不会替代端到端成功。
 - **agent 看不到的样本外评分。** [SlowLab](../works/slowlab.md) 把 agent 推荐的策略放到实验期间没出现过的天气年份和种植日期下打分，从不把分数返回给 agent，并在正式运行前用哈希锁定样本量、检验方法、提示词和代码。
+- **让退化 policy 过不了的计分规则。** [AgentAbstain](../works/agentabstain.md) 只有在「应当执行」和「应当不执行」两个变体都通过时，才给这一对记分。所以一个永远执行或永远拒绝的 agent，成对 accuracy 不可能超过 50%；而在只看任务成功的 benchmark 里，永远执行的 policy 反而会得分。
+- **结果对了、但做法不对，也判失败。** [ORBIT-Q](../works/orbit-q.md) 会判失败的量子程序有两类：通过了数值测试、但绕过了指定框架的（比如自己用 NumPy 手写一个模拟器），以及篡改测试的。静态检查、LLM 源码审计和专家复核各是一道门槛。
+- **检验收益到底该归功于什么。** [LLM Agents Are Not Always Faithful Self-Evolvers](../works/faithful-self-evolvers.md) 质疑了 self-evolution benchmark 的常见解读：加入经验后分数变高，就算作经验的功劳。它把压缩后的经验清空或替换、但保留格式，分数常常不变。例如 ExpeL 配 Qwen3-32B 在 2WikiMultiHopQA 上，经验完整时 exact match 为 62，每种扰动下都在 63 到 65 之间。
 
 [FORESIGHT-9](../works/foresight-9.md)构造多种未来路径，代替对同一段已发生行情反复回测。这样可以控制信息边界和情景差异，但不能把这些情景当成经过校准的未来市场概率分布。
 
@@ -50,6 +53,9 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 | [Predictive Credit](../works/predictive-credit.md) | 研究型 agent 的解释卡片，覆盖合成、Tox21 和 OpenML 三类设置下的 336 个状态 | 解释只有在预测损失低于普通描述和 donor 解释时才算有贡献；判定规则在结果揭晓前冻结 | 留出的干预实测效果 | 固定协议，应用到新状态上 |
 | [AutoSciBench](../works/autoscibench.md) | 由 agent 生成的任务，种子为 CompBioBench、MatTools 和 MedCTA | 按需生成；根据轨迹检出捷径；反复修改到可验证且够难 | 与单个参考答案精确匹配 | 求解模型进步后由循环重新生成 |
 | [EvalResearchBench](../works/evalresearchbench.md) | researcher agent 在固定预算下从允许使用的公开任务中搭建评测器 | 封存的目标 benchmark 和候选模型在评测器冻结前不可见；有人工抽样和常数评测器两个基线 | 与 14 个目标 benchmark 的 Lin 一致性系数和成对一致率 | 遇到新的候选模型组，由 researcher agent 重新搭建 |
+| [AgentAbstain](../works/agentabstain.md) | 由 AbstainGen 生成的 MCP 沙箱，配有成对的应当执行 / 应当不执行任务 | 每对只做一处受控扰动；两个变体都通过才记分，一律执行或一律拒绝的 policy 最多拿 50% | Commit-tool 检查加 GPT-5.4 judge，并在 200 条回答上与三位标注者核对 | 用自动生成器产生新环境和新任务对 |
+| [ORBIT-Q](../works/orbit-q.md) | 12 个与框架无关的量子编程任务，按框架分别实例化 | 静态 policy 检查（行数上限、必需和禁止的 import、篡改测试）、LLM 源码审计是否绕过框架、专家复核 | 数值测试；运行时间对比专家参考 | 任务集固定；每个框架的运行由框架 prompt、执行镜像和 verifier policy 确定 |
+| [LLM Agents Are Not Always Faithful Self-Evolvers](../works/faithful-self-evolvers.md) | 四个 self-evolving 框架中的现有环境 | 对原始经验和压缩经验做清空、打乱、换成无关内容、破坏和填充等干预 | 各环境自己的任务分数（success rate 或 exact match） | N/A — 诊断协议 |
 
 ## 还没解决的问题
 
@@ -70,11 +76,14 @@ Benchmark 可以给出一个很精确的数字，却仍然测错东西。Test se
 - [AI4AI-Bench](../works/ai4ai-bench.md)
 - [ASI-Bench](../works/asi-bench.md)
 - [OnePot-Bench](../works/onepot-bench.md)
+- [AgentAbstain](../works/agentabstain.md)
+- [ORBIT-Q](../works/orbit-q.md)
 - [GeneBench-Pro](../works/genebench-pro.md)
 - [FrontierCode](../works/frontiercode.md)
 - [DiscoverPhysics](../works/discoverphysics.md)
 - [PRL-Bench](../works/prl-bench.md)
 - [PostTrainBench](../works/posttrainbench.md)
+- [LLM Agents Are Not Always Faithful Self-Evolvers](../works/faithful-self-evolvers.md)
 - [HeurekaBench](../works/heurekabench.md)
 - [AstaBench](../works/astabench.md)
 - [CritPt](../works/critpt.md)

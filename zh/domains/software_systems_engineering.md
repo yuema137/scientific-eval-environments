@@ -31,6 +31,8 @@
 | DiscoveryBench | 2024 | 从原始问卷回答出发，重新得出一篇已发表研究的结论：业界为 ML 系统做需求工程时，实际是怎么处理需求的。 | 239 个真实测试任务中有 15 个属于工程；每题给出问卷数据集、字段说明、背景知识和一句自然语言发现目标，清洗与统计流程由 agent 自己写并运行。 | 与来源论文标准假设在 context、variables、relationship 三维上的 GPT-4 Hypothesis Matching Score；非 oracle 最佳 agent 在该领域得分为 7%。 | [→](../works/discoverybench.md) |
 | [PTA-IRT](../works/pta-irt.md) | 2026 | 不运行全部题目，估计软件问题修复成绩 | SWE-bench Lite / Verified / Full / Pro：300 / 500 / 2,294 / 730 题；各版本有重叠 | 与全套执行结果比较分数误差和排名相关性 | [PTA-IRT](../works/pta-irt.md) |
 | [HarnessDev](../works/harnessdev.md) | 2026 | 构建并维护 coding agent 执行软件 | 731 道 SWE-Pro 与 89 道 Terminal-Bench；Evolution 分开反馈集与隐藏集 | 依据仓库 diff 或最终环境状态执行原有检查 | [HarnessDev](../works/harnessdev.md) |
+| STAIR | 2026 | 修复 Python 项目中仓库级的 bug，复用此前抽象成多层 plan tree 的修复 trajectory。 | SWE-bench Verified，来自 12 个仓库的 500 个实例；抽象层级的 ablation 在其中 125 个实例的子集上做。 | 用 benchmark 自带测试计 Pass@1（MiniMax M2.5 上 Lingxi + STAIR 为 81.2%，单用 Lingxi 为 74.6%）。 | [→](../works/stair.md) |
+| What Process Evaluation of Coding Agents Actually Measures | 2026 | 在为 GitHub issue 定位相关文件时，coding agent trajectory 里哪些步骤真正在因果上改变了结果，以及 process judge 实际在追踪什么。 | 来自 SWE-bench Verified、覆盖 12 个 Python 仓库的 499 个文件定位 episode；7,616 个决策点用于 action 层面的分析，190 个 replay 估计的前缀用于步骤归因。 | 从 replay 出的 agent 续跑结果计算 gold 文件集合的 recall；LLM judge 的审计方法是隐藏或展示后续步骤（70 个 episode 中有 59 个的判定往后移）。 | [→](../works/coding-agent-process-evaluation-levels.md) |
 
 ## Capability Matrix
 
@@ -82,6 +84,7 @@
 | HarnessDev | MAINT, TEST | ? | ✘ | ✔ | ? | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ◐ | 3 | 2 | 4 | **10** |
 | Enconda-bench | CFG | ✔ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ✔ | 2 | 3 | 3 | **9.5** |
 | LoopsBench | FEAT, PROC | ✘ | ✘ | ◐ | ✘ | ◐ | ✘ | ✔ | **2** | ◐ | ✘ | ✔ | 3 | 2 | 3 | **9.5** |
+| STAIR | MAINT | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ✘ | ◐ | 3 | 2 | 3 | **9** |
 | SWE-Together | HAI | ✘ | ◐ | ◐ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ✔ | ✘ | 2 | 2 | 2 | **7.5** |
 | RigorBench | PROC, MAINT, TEST | ? | ✘ | ✔ | ✘ | ✘ | ✘ | ✔ | **2** | ✘ | ✔ | ◐ | 2 | 2 | 2 | **7.5** |
 | SWE-Interact | HAI, REQ | ? | ◐ | ◐ | ✘ | ✘ | ✘ | ✔ | **2** | ◐ | ◐ | ✘ | 2 | 1 | 3 | **7** |
@@ -91,6 +94,7 @@
 | EngDesign | OS, ARCH | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✔ | **1.5** | ✘ | ✔ | ◐ | 3 | 1 | 3 | **8.5** |
 | RACE-Bench | FEAT | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | ✔ | **1.5** | ◐ | ◐ | ✘ | 2 | 2 | 3 | **8** |
 | Plan Compliance in Programming Agents | MAINT, PROC | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ◐ | 3 | 2 | 4 | **10** |
+| What Process Evaluation of Coding Agents Actually Measures | MAINT | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ? | 3 | 2 | 4 | **9.5** |
 | SysMoBench | FV, DIST, OS | ? | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 3 | 1 | 3 | **7.5** |
 | AInsteinBench | SCISW, MAINT | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✔ | **1** | ◐ | ✘ | ✘ | 3 | 2 | 2 | **7.5** |
 | SWE-bench | MAINT | ✘ | ✘ | ✘ | ◐ | ✘ | ✘ | ✘ | **0.5** | ◐ | ✘ | ◐ | 3 | 3 | 3 | **10** |
@@ -102,9 +106,11 @@ Repository note: FrontierCode 的官方方法说明已给出 150/100 题的规�
 
 - [HarnessDev](../works/harnessdev.md)
 - [PTA-IRT](../works/pta-irt.md)
+- [What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md)
 - [SWE-Bench ProMax](../works/swe-bench-promax.md)
 - [SWE-RPG](../works/a-unified-issue-resolution-benchmark-for-requireme.md)
 - [LoopsBench](../works/loopsbench.md)
+- [STAIR: Reusing Past Repairs Through Hierarchical Trajectory Abstraction for Coding Agents](../works/stair.md)
 - [Long-Horizon-Terminal-Bench](../works/long-horizon-terminal-bench.md)
 - [AgentLens](../works/agentlens.md)
 - [SWE-Interact](../works/swe-interact.md)

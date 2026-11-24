@@ -57,6 +57,7 @@ Chemistry as the science, including computational chemistry and molecular design
 | SCI-AGENT-EXAM | 2026 | Chemistry workflow tasks within a cross-field suite. | 11 of 120 tasks; offline Docker, answer, code, and report per task. | Programmatic checks rerun on hidden inputs, plus a GPT-5.6 Sol rubric judge on the report. | [→](../works/sci-agent-exam.md) |
 | OSWorld-Science | 2026 | Draw molecules in ChemDraw and plan retrosynthesis in ASKCOS through their interfaces. | 43 of 146 tasks (ChemDraw 21, ASKCOS 21); 12 vision-language models, about 44% for the best model in this domain. | Task-specific evaluators check the saved application state and files; exact match or tolerance on results, partial credit; no judge. | [→](../works/osworld-science.md) |
 | Agent4Sci | 2026 | Improve published ML models for olfactory similarity, fuel octane, and polymer conductivity of mixtures (CheMixHub) and molecule retrieval from mass spectra (MassSpecGym). | 2 of 20 benchmarks (4 tasks); 12 hours on 8 H200 GPUs. | Relative improvement over the reproduced published best on a sequestered test set, run by a separate evaluation agent; LLM audit for misconduct. | [→](../works/agent4sci.md) |
+| Autonomous Science Bench | 2026 | Budgeted closed-loop discovery on published chemistry experiments: find hits and learn a predictive model for a propylene campaign and a Suzuki coupling campaign. | 2 of 6 campaigns: Propylene on a digital twin (3 rounds × 20 from a 736-design pool) and Suzuki replaying recorded measurements (4 × 48 from 2,764); the agent orders batches through a lab CLI and submits a sandboxed `predict(design)` function. | Two deterministic gates, both required: discovery (≥7 hits for Propylene; ≥32 standouts for Suzuki) and learning (NDCG@20 ≥ 0.52; NDCG@100 ≥ 0.37) on 244 and 1,844 held-out designs. | [→](../works/autonomous-science-bench.md) |
 
 ## Capability Matrix
 
@@ -104,6 +105,7 @@ For multi-domain suites the row describes this domain's slice, as in the Compari
 | ScienceAgentBench | CHEMINF | ◐ | ✘ | ✔ | ◐ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✔ | 2 | 1 | 2 | **7.5** |
 | Imaging-101 | ANAL, NANO | ? | ◐ | ◐ | ✔ | ✔ | ✔ | ✔ | **5** | ◐ | ✔ | ✘ | 2 | ? | 3 | **6.5** |
 | EurekaBench | ORG | ✔ | ✔ | ✔ | ✘ | ◐ | ✘ | ✔ | **4.5** | ◐ | ✔ | ◐ | 2 | 0 | 3 | **7** |
+| Autonomous Science Bench | ORG | ◐ | ◐ | ✔ | ✘ | ✔ | ◐ | ✔ | **4.5** | ◐ | ✘ | ◐ | 3 | 0 | 3 | **7** |
 | PhySciBench | GEN | ◐ | ◐ | ◐ | ✔ | ✘ | ✔ | ✔ | **4.5** | ✘ | ✔ | ✘ | 2 | 2 | 1 | **6** |
 | OSWorld-Science | SYN, CHEMINF | ◐ | ✘ | ✔ | ✔ | ✘ | ◐ | ✔ | **4** | ? | ✘ | ◐ | 3 | 1 | 3 | **7.5** |
 | MolQuest | ANAL | ? | ◐ | ✔ | ✘ | ✘ | ✔ | ✔ | **3.5** | ✘ | ✘ | ✔ | 3 | 2 | 3 | **9** |
@@ -156,6 +158,7 @@ Repository note: AutoResearchEval counts follow the paper's source-domain labels
 
 - [SCI-AGENT-EXAM](../works/sci-agent-exam.md)
 - [Agent4Sci](../works/agent4sci.md)
+- [Autonomous Science Bench](../works/autonomous-science-bench.md)
 - [Into the Unknown](../works/into-the-unknown.md)
 - [EurekaBench](../works/eurekabench.md)
 - [OSWorld-Science](../works/osworld-science.md)

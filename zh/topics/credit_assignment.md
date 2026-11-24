@@ -41,6 +41,7 @@ Credit assignment 要回答的是：trajectory 里哪一部分造成了这个结
 - **从遥测定位故障源。** [TelemetrySuffBench](../works/telemetrysuffbench.md) 用把症状与成因解耦的延迟绑定故障，以及使弃权成为正确答案的完全相同歧义起点对，测试执行遥测是否足以把失败归因到其起源组件。
 - **组件级轨迹归因。** [Long-Horizon Agent Trajectory Attribution](../works/long-horizon-agent-trajectory-attribution.md) 把观测到的 agent 结果归因到负有责任的轨迹组件，并恢复其周围的归因链，配基于似然与留一法的参考基线。
 - **最小必要成因。** [TempoBench](../works/tempobench.md) 在形式化标注的 Mealy 机执行轨迹上，孤立出反事实式的 credit assignment——哪些输入对观测输出是必要的——与前向模拟相区分。
+- **通过重放 prefix 给步骤分配 credit。** [What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md) 分别从某一步之前和之后的 prefix 重放 agent，把两组重放平均结果的差记为这一步的 credit；当下一个 action 几乎是确定的，它就换一个替代 action 实际执行。比如从第 t 步之前重放能找回 40% 的 gold 文件，从第 t 步之后重放能找回 55%，第 t 步就得 +0.15。它用干预估计出的 190 个效应，在 q = 0.10 的 BH-FDR 校正下没有一个保持显著，所以这个估计器无法确认任何单个步骤的作用。另外，把后续步骤展示给 LLM judge 而不是隐藏起来时，它在 70 个 episode 中有 59 个把判定移到了更靠后的一步。
 
 ## 方法对比
 
@@ -67,6 +68,7 @@ Credit assignment 要回答的是：trajectory 里哪一部分造成了这个结
 | Long-Horizon Agent Trajectory Attribution | 2026 | 主责组件归因（Hit@1 / MRR）+ 归因链恢复（Recall@K / MAP） | 每个轨迹组件（根因 + 链条） | [→](../works/long-horizon-agent-trajectory-attribution.md) |
 | TempoBench | 2025 | 经反事实归因识别最小必要成因，与前向模拟相对 | 执行轨迹的每个输入条件 | [→](../works/tempobench.md) |
 | SkillShapley | 2026 | 在 skill 步骤的联盟上求 Shapley 值，采用分界自适应采样估计；对照精确 Shapley 值报告 MAE，并给出删除验证曲线 | agent skill 内部的每一步，而非轨迹步骤 | [→](../works/skillshapley.md) |
+| What Process Evaluation of Coding Agents Actually Measures | 2026 | 相邻 prefix 之间重放结果（gold 文件 recall）的均值差，配合替代 action 干预（SCAE） | Coding agent trajectory 中的每个 agent 步骤 | [→](../works/coding-agent-process-evaluation-levels.md) |
 
 ## 还没解决的问题
 
@@ -76,6 +78,7 @@ Credit assignment 要回答的是：trajectory 里哪一部分造成了这个结
 
 ## 相关工作
 
+- [What Process Evaluation of Coding Agents Actually Measures](../works/coding-agent-process-evaluation-levels.md)
 - [SkillShapley](../works/skillshapley.md)
 - [TelemetrySuffBench](../works/telemetrysuffbench.md)
 - [Long-Horizon Agent Trajectory Attribution](../works/long-horizon-agent-trajectory-attribution.md)
